@@ -217,11 +217,13 @@
     const p = document.getElementById('progress');
     const u = () => {
       const h = document.documentElement, s = h.scrollTop || document.body.scrollTop, t = h.scrollHeight - h.clientHeight;
-      p.style.width = (s / t) * 100 + '%'
+      p.style.width = (s / t) * 100 + '%';
     };
     window.addEventListener('scroll', u, { passive: true });
     u();
-    const io = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('in') }), { threshold: .12 });
+    const io = new IntersectionObserver(e => e.forEach(x => {
+      if (x.isIntersecting) x.target.classList.add('in');
+    }), { threshold: .12 });
     document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
   </script>
 
@@ -234,12 +236,25 @@
   </footer>
 
   <style>
-    .lang-btn{border:1px solid rgba(255,255,255,.15);background:#111;color:#fff;padding:8px 10px;border-radius:10px;cursor:pointer;font-size:18px;line-height:1}
-    .lang-btn.active{border-color:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.2) inset}
+    .lang-btn {
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #111;
+      color: #fff;
+      padding: 8px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .lang-btn.active {
+      border-color: #fff;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    }
   </style>
 
   <script>
-    (function(){
+    (function () {
       const buttons = document.querySelectorAll('.lang-btn');
       const apply = (lang) => {
         document.documentElement.lang = lang;
