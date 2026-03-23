@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TELWHA | Головна</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand">
+        <strong>TELWHA</strong>
+        <span>Financial Psychology · Behavioral Strategy · Analysis</span>
+      </div>
+      <nav class="menu">
+        <a href="about.html">Про мене</a>
+        <a href="trader-course.html">Міні-курс трейдерам</a>
+        <a href="archetype-test.html">Тест архетипів</a>
+        <a href="reviews.html">Відгуки</a>
+        <a href="contact.html">Контакти</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-shell">
+        <div class="hero-image"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">TELWHA / Головна</div>
+            <h1>Поведінкова фінансова психологія<br><span style="font-size:.82em;line-height:1.08;display:inline-block">для системних результатів, що витримують невизначеність</span></h1>
+            <p class="lead">Розбираю, чому люди й ринки поводяться так, ніби люблять хаос. Потім зменшую це до керованої системи.</p>
+            <div class="cta">
+              <a class="btn btn-primary" href="archetype-test.html">Пройти тест</a>
+              <a class="btn btn-secondary" href="trader-course.html">Міні-курс трейдерам</a>
+              <a class="btn btn-secondary" href="about.html">Про мене</a>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Що є на сайті</h3>
+            <ul>
+              <li>Окрема сторінка “Про мене”.</li>
+              <li>Окрема сторінка для міні-курсу.</li>
+              <li>Окремий тест архетипів трейдера.</li>
+              <li>Сторінка відгуків і контакти.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>TELWHA</h4>
+          <p>Фінансова психологія, поведінкова економіка та архітектура вибору.</p>
+        </div>
+        <div>
+          <h4>Навігація</h4>
+          <div class="footer-links">
+            <a href="about.html">Про мене</a>
+            <a href="trader-course.html">Міні-курс</a>
+            <a href="reviews.html">Відгуки</a>
+          </div>
+        </div>
+        <div>
+          <h4>Дії</h4>
+          <div class="footer-links">
+            <a href="archetype-test.html">Пройти тест</a>
+            <a href="contact.html">Написати мені</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 TELWHA.</span>
+        <span>Київ, Україна · 🇺🇦</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
