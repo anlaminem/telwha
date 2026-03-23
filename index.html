@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TELWHA | Головна</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="lang-switcher" style="display:flex;gap:10px;align-items:center;justify-content:flex-end;margin:16px 0;">
@@ -22,19 +22,301 @@
         <span>Financial Psychology · Behavioral Strategy · Analysis</span>
       </div>
       <nav class="menu">
-        <a href="#who"><span data-uk="Про мене" data-en="About me" data-ru="Обо мне">Про мене</span></a>
-        <a href="#lab"><span data-uk="FinLab" data-en="FinLab" data-ru="FinLab">FinLab</span></a>
-        <a href="#minicourse"><span data-uk="Міні-курс трейдерам" data-en="Mini-course for traders" data-ru="Мини-курс для трейдеров">Міні-курс трейдерам</span></a>
-        <a href="#archtypes"><span data-uk="Тест архетипів" data-en="Trader archetypes test" data-ru="Тест архетипов">Тест архетипів</span></a>
-        <a href="#articles"><span data-uk="Статті" data-en="Articles" data-ru="Статьи">Статті</span></a>
-        <a href="#cases"><span data-uk="Кейси" data-en="Cases" data-ru="Кейсы">Кейси</span></a>
-        <a href="#reviews"><span data-uk="Відгуки" data-en="Reviews" data-ru="Отзывы">Відгуки</span></a>
-        <a href="#contacts"><span data-uk="Контакти" data-en="Contacts" data-ru="Контакты">Контакти</span></a>
+        <a href="about.html">Про мене</a>
+        <a href="#lab">FinLab</a>
+        <a href="trader-course.html">Міні-курс трейдерам</a>
+        <a href="archetype-test.html">Тест архетипів</a>
+        <a href="#articles">Статті</a>
+        <a href="#cases">Кейси</a>
+        <a href="reviews.html">Відгуки</a>
+        <a href="contact.html">Контакти</a>
       </nav>
     </div>
   </header>
 
   <main>
+    <section class="hero">
+      <div class="wrap hero-shell fade-in">
+        <div class="hero-image"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-grid">
+          <div class="hero-copy fade-in">
+            <div class="eyebrow">TELWHA / Головна</div>
+            <h1>Поведінкова фінансова психологія<br><span class="hero-sub">для системних результатів, що витримують невизначеність</span></h1>
+            <p class="lead">Розбираю, чому люди й ринки поводяться так, ніби люблять хаос. Потім зменшую це до керованої системи.</p>
+            <div class="eyeline">
+              <span class="chip">behavioral economics</span>
+              <span class="chip">choice architecture</span>
+              <span class="chip">CPT + SFBT</span>
+            </div>
+            <div class="cta">
+              <a class="btn btn-primary" href="#lab">Пройти тест</a>
+              <a class="btn btn-secondary" href="archetype-test.html">Пройти тест трейдера</a>
+              <a class="btn btn-secondary" href="#lab">Перейти до <span data-uk="FinLab" data-en="FinLab" data-ru="FinLab">FinLab</span> Telwha</a>
+            </div>
+          </div>
+          <div class="hero-side">
+            <div class="hero-note reveal fade-in">
+              <div class="pill"><span class="dot"></span> choice architecture</div>
+              <strong></strong>
+              <p><span style="display:inline-block;margin-right:10px">◆</span>Фінансова психологія <span style="opacity:.7">•</span><span style="display:inline-block;margin:0 10px">◈</span> поведінкова економіка <span style="opacity:.7">•</span><span style="display:inline-block;margin:0 10px">▲</span> архітектура вибору <span style="opacity:.7">•</span> трейдинг <span style="opacity:.7">•</span> дані</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="who">
+      <div class="wrap fade-in">
+        <h2 class="section-title">Для кого це</h2>
+        <div class="icon-grid">
+          <div class="card icon-card reveal fade-in">
+            <div class="ico">◔</div>
+            <div>
+              <h3>Люди з доходом і без</h3>
+              <p>Для тих, хто хоче менше імпульсивних рішень і більше контролю без зайвих ритуалів.</p>
+            </div>
+          </div>
+          <div class="card icon-card reveal fade-in">
+            <div class="ico">◈</div>
+            <div>
+              <h3>Трейдери та інвестори</h3>
+              <p>Для тих, хто хоче бачити свої помилки до того, як їх побачить графік.</p>
+            </div>
+          </div>
+          <div class="card icon-card reveal fade-in">
+            <div class="ico">◌</div>
+            <div>
+              <h3>Фінтех і банки</h3>
+              <p>Для продуктів, яким потрібні не красиві слова, а зрозумілий шлях до довіри й adoption.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap gallery fade-in">
+        <div class="photo-box">
+          <img src="IMG_1449.jpg" alt="Фото автора" />
+          <div class="photo-empty">Вставте тут своє фото, якщо зміните файл</div>
+          <div class="photo-caption">
+            <strong><span data-uk="Про мене" data-en="About me" data-ru="Обо мне">Про мене</span></strong>
+            <p>Коротко: я працюю з поведінкою, яка керує грошима, а не з декораціями навколо неї.</p>
+          </div>
+        </div>
+        <div class="grid-2" style="align-content:start">
+          <div class="card reveal fade-in">
+            <h3>Ті, хто хоче системність</h3>
+            <p>Для людей, які вже все “розуміють”, але чомусь усе одно повторюють ті самі помилки.</p>
+          </div>
+          <div class="card reveal fade-in">
+            <h3>Що я поєдную</h3>
+            <ul>
+              <li>Поведінкову психологію.</li>
+              <li>КПТ-підхід.</li>
+              <li>Solution-Focused Brief Therapy.</li>
+              <li>Нейрофізіологію та роботу нервової системи.</li>
+              <li>Стратегічне мислення й фінансову аналітику.</li>
+            </ul>
+          </div>
+          <div class="mini-photo-box">
+            <img src="cases-1-2.010.jpg" alt="Кейс" />
+            <div class="photo-empty">Можна поставити фото / скрін кейсу</div>
+          </div>
+          <div class="mini-photo-box">
+            <img src="cases-1-2.001.jpg" alt="Кейс" />
+            <div class="photo-empty">Або сюди інший візуал</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="methods">
+      <div class="wrap grid-2 fade-in">
+        <div class="card">
+          <h2 class="section-title" style="margin-bottom:12px">Що я роблю</h2>
+          <ul>
+            <li>Аналізую фінансову поведінку та помилки рішень.</li>
+            <li>Допомагаю побачити повторювані патерни під тиском грошей, ризику й невизначеності.</li>
+            <li>Працюю з трейдерами, інвесторами та людьми, які не хочуть сплачувати за емоції подвійно.</li>
+            <li>Створюю тести, міні-програми та поведінкові інструменти.</li>
+            <li>Роблю дослідження, кейси та аналітику для продуктів і комунікацій.</li>
+            <li>Допомагаю перетворювати хаос у фінансову систему.</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h2 class="section-title" style="margin-bottom:12px">Чим я відрізняюсь</h2>
+          <ul>
+            <li>Працюю не лише з емоціями, а з мисленням, звичками і поведінковими сценаріями.</li>
+            <li>Бачу не тільки симптом, а й механізм, який його створює.</li>
+            <li>Поєдную психологічну роботу з аналітичним мисленням.</li>
+            <li>Орієнтуюсь не на мотивацію, а на практичні зміни в поведінці й рішеннях.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="lab">
+      <div class="wrap panel fade-in">
+        <div class="eyebrow" style="color:#6b5c4f"><span data-uk="FinLab" data-en="FinLab" data-ru="FinLab">FinLab</span> Telwha</div>
+        <h2 class="section-title" style="margin-bottom:12px">Тест фінансової поведінки</h2>
+        <p class="section-sub" style="margin-bottom:18px">Для людей, які хочуть зрозуміти, чому їхня фінансова система не працює стабільно, навіть коли намір є.</p>
+        <div class="grid-2">
+          <div class="card" style="background:#fff;border-color:rgba(32,27,23,.08);box-shadow:none">
+            <h3>Що дає тест</h3>
+            <p>Результати цього тесту йдуть у моє масове дослідження фінансової поведінки українців — анонімно й у згрупованому вигляді, щоб бачити загальні патерни, бар’єри та типові помилки.</p>
+            <div class="tagrow"><span class="tag">Діагностика</span><span class="tag">Масове дослідження</span><span class="tag">Агреговані інсайти</span></div>
+            <div class="cta" style="margin-top:16px"><a class="btn btn-primary" href="#">Пройти тест</a></div>
+          </div>
+          <div class="card" id="trader-test" style="background:#fff;border-color:rgba(32,27,23,.08);box-shadow:none">
+            <h3><span data-uk="Тест архетипів" data-en="Trader archetypes test" data-ru="Тест архетипов">Тест архетипів</span> трейдера</h3>
+            <p>Для трейдерів, які хочуть зрозуміти, чому система іноді працює гірше за емоцію.</p>
+            <p>Це окремий тест для тих, хто працює з ринком і хоче краще зрозуміти свій поведінковий профіль як трейдера.</p>
+            <div class="tagrow"><span class="tag">Архетипи</span><span class="tag">Ризик</span><span class="tag">Трейдинг</span></div>
+            <div class="cta" style="margin-top:16px"><a class="btn btn-primary" href="archetype-test.html">Пройти тест трейдера</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="articles">
+      <div class="wrap fade-in">
+        <h2 class="section-title">Статті</h2>
+        <div class="grid-2">
+          <div class="card reveal fade-in">
+            <h3>Поведінкові помилки в грошах</h3>
+            <p>Матеріали про те, як рішення про гроші руйнуються емоціями, звичками і автоматичними реакціями.</p>
+          </div>
+          <div class="card reveal fade-in">
+            <h3>Стратегії для трейдерів</h3>
+            <p>Розбір підходів до дисципліни, ризику, самоаналізу та стабільності у трейдингу.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cases">
+      <div class="wrap fade-in">
+        <h2 class="section-title">Кейси</h2>
+        <div class="grid-2">
+          <div class="card reveal fade-in">
+            <h3>Ситуації з інвесторами</h3>
+            <p>Переосмислення конфліктів, зниження напруги, відновлення ясності та прийняття рішень.</p>
+          </div>
+          <div class="card reveal fade-in">
+            <h3>Трейдинг і ризик</h3>
+            <p>Робота з поведінкою під тиском, коли стратегія є на папері, але ламається в реальності.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <div class="wrap fade-in">
+        <h2 class="section-title">Відгуки</h2>
+        <div class="card reveal fade-in">
+          <p>Відгуки людей, з якими ми працювали через консультації, марафони та супровід.</p>
+          <div class="cta" style="margin-top:16px">
+            <a class="btn btn-primary" href="reviews.html">Перейти до відгуків</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts">
+      <div class="wrap fade-in">
+        <h2 class="section-title">Контакти</h2>
+        <div class="card reveal fade-in">
+          <p>Для запису на консультацію та роботу по запиту використовуй сторінку контактів.</p>
+          <div class="cta" style="margin-top:16px">
+            <a class="btn btn-primary" href="contact.html">Відкрити контакти</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid fade-in">
+        <div>
+          <h4>TELWHA</h4>
+          <p>Фінансова психологія, поведінкова економіка та архітектура вибору для кращих рішень і стійких результатів.</p>
+        </div>
+        <div>
+          <h4>Навігація</h4>
+          <div class="footer-links">
+            <a href="about.html">Про мене</a>
+            <a href="reviews.html">Відгуки</a>
+            <a href="contact.html">Контакти</a>
+          </div>
+        </div>
+        <div>
+          <h4>Дії</h4>
+          <div class="footer-links">
+            <a href="archetype-test.html">Тест архетипів</a>
+            <a href="trader-course.html">Міні-курс трейдерам</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 TELWHA. Усі права захищено.</span>
+        <span>Київ, Україна · 🇺🇦</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const p = document.getElementById('progress');
+    const u = () => {
+      const h = document.documentElement, s = h.scrollTop || document.body.scrollTop, t = h.scrollHeight - h.clientHeight;
+      p.style.width = (s / t) * 100 + '%';
+    };
+    window.addEventListener('scroll', u, { passive: true });
+    u();
+    const io = new IntersectionObserver(e => e.forEach(x => {
+      if (x.isIntersecting) x.target.classList.add('in');
+    }), { threshold: .12 });
+    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+  </script>
+
+  <style>
+    .lang-btn {
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #111;
+      color: #fff;
+      padding: 8px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .lang-btn.active {
+      border-color: #fff;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    }
+  </style>
+
+  <script>
+    (function () {
+      const buttons = document.querySelectorAll('.lang-btn');
+      const apply = (lang) => {
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-uk]').forEach(el => {
+          const txt = el.dataset[lang];
+          if (txt) el.textContent = txt;
+        });
+        buttons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+        localStorage.setItem('telwha-lang', lang);
+      };
+      buttons.forEach(btn => btn.addEventListener('click', () => apply(btn.dataset.lang)));
+      apply(localStorage.getItem('telwha-lang') || 'uk');
+    })();
+  </script>
+</body>
+</html>  <main>
     <section class="hero">
       <div class="wrap hero-shell fade-in">
         <div class="hero-image"></div>
