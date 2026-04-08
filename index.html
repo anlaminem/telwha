@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TELWHA | Фінансова поведінка без хаосу</title>
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout-home.css">
+  
+</head>
+<body>
+  <div class="lang-switcher">
+    <button class="lang-btn" aria-label="Українська" onclick="location.href='../index.html'">🇺🇦</button>
+    <button class="lang-btn" aria-label="English" onclick="location.href='../en/index.html'">🇬🇧</button>
+    <button class="lang-btn active" aria-label="Español" onclick="location.href='../es/index.html'">🇪🇸</button>
+  </div>
+
+  <div class="progress" id="progress"></div>
+
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="brand-row">
+          <strong>TELWHA</strong>
+        </div>
+        <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+      </div>
+      <nav class="menu">
+        <div class="menu-group">
+          <a href="finlab.html" class="menu-highlight">FinLab</a>
+          <a href="about.html">Про мене</a>
+        </div>
+
+        <div class="menu-group menu-dropdown">
+          <button type="button" class="menu-dropbtn">
+            Трейдерам ▾
+          </button>
+          <div class="menu-dropcontent">
+            <a href="trader-course.html">Міні‑курс</a>
+            <a href="archetype-test.html">Тест архетипів</a>
+          </div>
+        </div>
+
+        <div class="menu-group">
+          <a href="articles.html">Статті</a>
+          <a href="reviews.html">Відгуки</a>
+          <a href="cases.html">Кейси</a>
+          <a href="contact.html">Контакти</a>
+        </div>
+        <button class="theme-toggle" type="button">🌓</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-shell fade-in">
+        <div class="hero-inner">
+          <div class="hero-glow"></div>
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <h1>
+                Спокійні рішення про гроші<br>
+                <span class="hero-sub">та стабільні результати навіть в умовах невизначеності</span>
+              </h1>
+              <p class="lead">
+                Я поєдную психологію, поведінкові фінанси, знання фінансових інструментів і трейдинг‑досвід,
+                щоб зменшити хаос у рішеннях про гроші, інвестиції та торгівлю.
+              </p>
+              <div class="cta">
+                <a class="btn btn-primary" href="#lab">Пройти тест</a>
+              </div>
+              <div class="hero-footnote">
+                <button class="btn btn-ghost" style="padding:4px 10px;font-size:0.78rem;border-radius:999px;"
+                        onclick="location.href='finlab.html'">
+                  FinLab Telwha
+                </button>
+                <span class="small-note">Клієнти з України, ЄС та США.</span>
+              </div>
+            </div>
+            <div class="hero-side">
+              <div class="hero-panel">
+                <p>
+                  Надаю психологічні й фінансові інструменти під ваші цілі та вашу особистість.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div id="segments" class="segment-cards">
+            <button type="button" class="segment-card active" data-target="segment-retail">
+              <div class="segment-card-pill"><span class="dot"></span><span>для людей з фінансовим стресом</span></div>
+              <p>Працюєте, але гроші виснажують. Ціни, кредити, нестабільний дохід.</p>
+            </button>
+            <button type="button" class="segment-card" data-target="segment-trader">
+              <div class="segment-card-pill"><span class="dot"></span><span>для трейдерів / інвесторів</span></div>
+              <p>Знаєте стратегії, але тиснете кнопки емоційно, результати гойдають.</p>
+            </button>
+            <button type="button" class="segment-card" data-target="segment-biz">
+              <div class="segment-card-pill"><span class="dot"></span><span>для бізнесу / фінтех</span></div>
+              <p>Потрібні поведінкові інсайти про клієнтів для продуктів, кредитів, інвестицій.</p>
+            </button>
+          </div>
+
+          <div class="segment-details-wrapper">
+            <div id="segment-retail" class="segment-details active">
+              <ul>
+                <li>«Заробляю, але грошей постійно не вистачає, ніби фінансові “дірки” не закінчуються».</li>
+                <li>Стрес від рахунків, кредитів і цін, відчуття, що постійно живете «від платежу до платежу».</li>
+                <li>Розмови про гроші закінчуються сварками, мовчанням або униканням теми.</li>
+              </ul>
+            </div>
+
+            <div id="segment-trader" class="segment-details">
+              <ul>
+                <li>FOMO, revenge‑trading, збільшення об’ємів після новин чи серії збитків.</li>
+                <li>План тримається в бек‑тесті, але «злітає» в живій торгівлі.</li>
+                <li>Страх повторити зливи й водночас важко відпустити ринок.</li>
+              </ul>
+            </div>
+
+            <div id="segment-biz" class="segment-details">
+              <ul>
+                <li>Не до кінця ясно, як клієнти сприймають ризик, кредити, інвестиції та ціни.</li>
+                <li>Відчуваєте розрив між поведінкою людей і тим, як спроєктовані продукт та комунікації.</li>
+                <li>Потрібні поведінкові інсайти з FinLab для продукту, UX та маркетингу.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap gallery fade-in">
+        <div class="photo-box">
+          <img src="IMG_1449.jpg" alt="Анна" />
+          <div class="photo-caption">
+            <p>Вітаю! Анна, приємно познайомитись.</p>
+          </div>
+        </div>
+
+        <div class="cases-column">
+          <div class="cases-heading">Кейси</div>
+          <div class="cases-grid">
+            <button class="case-pill" onclick="location.href='cases.html#trading'">
+              <div class="case-pill-main">
+                <span class="case-pill-title">Trading &amp; Investing</span>
+                <span class="case-pill-tagline">емоції, ризик, капітал інвесторів</span>
+              </div>
+              <span class="case-pill-badge">трейдери</span>
+            </button>
+
+            <button class="case-pill" onclick="location.href='cases.html#personal'">
+              <div class="case-pill-main">
+                <span class="case-pill-title">Personal Finance</span>
+                <span class="case-pill-tagline">хаос у витратах, пари та гроші</span>
+              </div>
+              <span class="case-pill-badge">не‑фінансисти</span>
+            </button>
+
+            <button class="case-pill" onclick="location.href='cases.html#business'">
+              <div class="case-pill-main">
+                <span class="case-pill-title">Business &amp; Product</span>
+                <span class="case-pill-tagline">курси, фінсервіси, поведінковий дизайн</span>
+              </div>
+              <span class="case-pill-badge">b2c / fintech</span>
+            </button>
+
+            <button class="case-pill">
+              <div class="case-pill-main">
+                <span class="case-pill-title">Наукові кейси</span>
+                <span class="case-pill-tagline">емоційний інтелект, nudges, NLP, упередження</span>
+              </div>
+              <span class="case-pill-badge">research</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap grid-2 fade-in">
+        <div class="card">
+          <h3><span class="icon-blob"></span>Що я роблю</h3>
+          <ul>
+            <li>Розбираю фінансову поведінку: як ви думаєте, відчуваєте і дієте під тиском грошей.</li>
+            <li>Показую повторювані патерни рішень у стресі, дефіциті часу та інформаційному шумі.</li>
+            <li>Поєдную роботу з нервовою системою (реакції «бий/тікай/завмри») з конкретними грошовими діями.</li>
+            <li>Накладаю це на фінансові інструменти: бюджети, портфелі, стратегії, ризик‑менеджмент.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><span class="icon-chart"></span>Чим я відрізняюсь</h3>
+          <ul>
+            <li>Працюю не лише з емоціями, а з мисленням, звичками й сценаріями нервової системи.</li>
+            <li>Бачу не просто «зрив угоди» чи «імпульсивну покупку», а механізм, який до цього веде.</li>
+            <li>Поєдную психологічну роботу з цифрами: результатами торгівлі, витратами, дохідністю інструментів.</li>
+            <li>Фокусуюсь не на підзарядці мотивації, а на сталих правилах і структурі рішень про гроші.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="lab" class="section">
+      <div class="wrap panel fade-in">
+        <div class="eyebrow" style="color:#f0b376"><span>FinLab</span> Telwha</div>
+        <h2 class="section-title">Тести та діагностика</h2>
+        <div class="grid-2">
+          <div class="card" style="background:#05070b;border-color:rgba(255,255,255,0.12);box-shadow:none">
+            <h3>Тест фінансової поведінки</h3>
+            <p>Короткий зріз того, як ви ухвалюєте рішення про гроші під тиском цін, боргів і новин. Дані лягають у дослідження FinLab.</p>
+            <div class="tagrow">
+              <span class="tag">Діагностика</span>
+              <span class="tag">Масове дослідження</span>
+            </div>
+            <div class="cta" style="margin-top:14px">
+              <a class="btn btn-primary" href="#">Пройти тест (5–7 хв)</a>
+            </div>
+          </div>
+          <div class="card" style="background:#05070b;border-color:rgba(255,255,255,0.12);box-shadow:none">
+            <h3>Тест архетипів трейдера</h3>
+            <p>Для трейдерів, які хочуть краще розуміти свій стиль, реакції на ризик і типові помилки, щоб налаштувати стратегію під себе.</p>
+            <div class="tagrow">
+              <span class="tag">Архетипи</span>
+              <span class="tag">Ризик</span>
+              <span class="tag">Трейдинг</span>
+            </div>
+            <div class="cta" style="margin-top:14px">
+              <a class="btn btn-primary"
+                 style="background:radial-gradient(circle at 0 0,#ffdcb0 0,#f0b376 38%,#e29c5d 100%);color:#1a120b"
+                 href="archetype-test.html">
+                Пройти тест архетипів
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid fade-in">
+        <div>
+          <h4>TELWHA</h4>
+          <p>Фінансова психологія, поведінкова економіка та архітектура вибору для стійкіших фінансових рішень.</p>
+        </div>
+        <div style="text-align:right">
+          <h4>Навігація</h4>
+          <div class="footer-links" style="align-items:flex-end">
+            <a href="about.html">Про мене</a>
+            <a href="reviews.html">Відгуки</a>
+            <a href="contact.html">Контакти</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 TELWHA. Усі права захищено.</span>
+        <span>Київ, Україна · 🇺🇦</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // прогрес-бар
+    (function() {
+      const p = document.getElementById('progress');
+      if (!p) return;
+      const update = () => {
+        const h = document.documentElement;
+        const s = h.scrollTop || document.body.scrollTop;
+        const t = h.scrollHeight - h.clientHeight;
+        p.style.width = (t > 0 ? (s / t) * 100 : 0) + '%';
+      };
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+
+    // fade-in
+    (function() {
+      const els = document.querySelectorAll('.fade-in');
+      if (!('IntersectionObserver' in window) || !els.length) {
+        els.forEach(el => el.classList.add('in'));
+        return;
+      }
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) e.target.classList.add('in');
+        });
+      }, { threshold: 0.12 });
+      els.forEach(el => io.observe(el));
+    })();
+
+    // картки сегментів
+    (function() {
+      const segCards = document.querySelectorAll('.segment-card');
+      const segDetails = document.querySelectorAll('.segment-details');
+      if (!segCards.length || !segDetails.length) return;
+
+      segCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const targetId = card.getAttribute('data-target');
+          if (!targetId) return;
+          const next = document.getElementById(targetId);
+          if (!next || next.classList.contains('active')) return;
+
+          segCards.forEach(c => c.classList.remove('active'));
+          card.classList.add('active');
+
+          segDetails.forEach(d => d.classList.remove('active'));
+          next.classList.add('active');
+        });
+      });
+    })();
+
+    // дропдаун "Трейдерам"
+    (function () {
+      const drop = document.querySelector('.menu-dropdown');
+      if (!drop) return;
+      const btn = drop.querySelector('.menu-dropbtn');
+      const box = drop.querySelector('.menu-dropcontent');
+
+      btn.addEventListener('click', () => {
+        box.style.display = box.style.display === 'block' ? 'none' : 'block';
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!drop.contains(e.target)) box.style.display = 'none';
+      });
+    })();
+
+    // мови
+    (function () {
+      const buttons = document.querySelectorAll('.lang-btn');
+      if (!buttons.length) return;
+      const apply = (lang) => {
+        document.documentElement.lang = lang;
+        buttons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+        localStorage.setItem('telwha-lang', lang);
+      };
+      buttons.forEach(btn => btn.addEventListener('click', () => apply(btn.dataset.lang)));
+      apply(localStorage.getItem('telwha-lang') || 'uk');
+    })();
+
+    // parallax hero
+    (function() {
+      const hero = document.querySelector('.hero-inner');
+      if (!hero) return;
+
+      const onScroll = () => {
+        const rect = hero.getBoundingClientRect();
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        const center = (rect.top + rect.height/2 - vh/2) / vh;
+        const shift = Math.max(-0.5, Math.min(0.5, center));
+        hero.style.transform = `translateY(${shift * -12}px)`;
+      };
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    // тема
+    (function () {
+      const root=document.documentElement;
+      const saved=localStorage.getItem('telwha-theme');
+      const initial=saved==='light'||saved==='dark'?saved:'light';
+      root.setAttribute('data-theme',initial);
+    })();
+
+    (function () {
+      const root=document.documentElement;
+      const btn=document.querySelector('.theme-toggle');
+      if(!btn)return;
+      btn.addEventListener('click',()=>{
+        const current=root.getAttribute('data-theme')==='light'?'light':'dark';
+        const next=current==='light'?'dark':'light';
+        root.setAttribute('data-theme',next);
+        localStorage.setItem('telwha-theme',next);
+      });
+    })();
+  </script>
+</body>
+</html>

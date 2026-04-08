@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TELWHA — About</title>
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout-about.css">
+
+  <style>
+    .pricing-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+      margin-top:16px;
+    }
+
+    .pricing-card{
+      position:relative;
+      padding:22px;
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:20px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.018)),
+        radial-gradient(circle at top left, rgba(240,179,118,0.08), transparent 42%);
+      box-shadow:0 18px 40px rgba(0,0,0,0.22);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+      backdrop-filter:blur(6px);
+    }
+
+    .pricing-card::before{
+      content:"";
+      position:absolute;
+      inset:0 auto auto 0;
+      width:100%;
+      height:2px;
+      background:linear-gradient(90deg,#f0b376,rgba(240,179,118,0.12));
+    }
+
+    .pricing-label{
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      opacity:.72;
+      margin-bottom:8px;
+    }
+
+    .pricing-title{
+      font-size:1.12rem;
+      line-height:1.3;
+      margin-bottom:10px;
+      font-weight:700;
+    }
+
+    .pricing-title-link{
+      color:inherit;
+      text-decoration:none;
+      border-bottom:1px solid rgba(240,179,118,0.28);
+      transition:all .25s ease;
+    }
+
+    .pricing-title-link:hover{
+      color:#f0b376;
+      border-bottom-color:#f0b376;
+    }
+
+    .pricing-price{
+      font-size:1.85rem;
+      line-height:1.08;
+      font-weight:800;
+      margin-bottom:10px;
+      color:#f0b376;
+      text-shadow:0 0 18px rgba(240,179,118,0.12);
+    }
+
+    .pricing-note{
+      font-size:.95rem;
+      opacity:.88;
+      line-height:1.62;
+      margin-bottom:10px;
+    }
+
+    .pricing-list{
+      margin:10px 0 0;
+      padding-left:18px;
+      opacity:.84;
+    }
+
+    .pricing-list li{
+      margin-bottom:6px;
+      line-height:1.5;
+      font-size:.92rem;
+    }
+
+    .pricing-meta{
+      margin-top:10px;
+      font-size:.84rem;
+      opacity:.72;
+      line-height:1.5;
+    }
+
+    .pricing-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:auto;
+      padding-top:18px;
+    }
+
+    .pricing-btn{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:48px;
+      padding:12px 18px;
+      border-radius:999px;
+      font-size:.94rem;
+      font-weight:700;
+      text-decoration:none;
+      transition:transform .22s ease, box-shadow .22s ease, filter .22s ease, background .22s ease;
+      border:1px solid rgba(255,255,255,0.12);
+      overflow:hidden;
+      isolation:isolate;
+      white-space:nowrap;
+    }
+
+    .pricing-btn::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0));
+      opacity:.8;
+      z-index:-1;
+    }
+
+    .pricing-btn::after{
+      content:"→";
+      font-size:1rem;
+      line-height:1;
+      transform:translateX(0);
+      transition:transform .22s ease;
+    }
+
+    .pricing-btn:hover{
+      transform:translateY(-2px) scale(1.01);
+    }
+
+    .pricing-btn:hover::after{
+      transform:translateX(3px);
+    }
+
+    .pricing-btn-primary{
+      background:linear-gradient(135deg,#ffdcb0 0%,#f0b376 45%,#e39d62 100%);
+      color:#1c130c;
+      border-color:rgba(255,220,176,0.72);
+      box-shadow:
+        0 14px 28px rgba(240,179,118,0.20),
+        0 0 0 1px rgba(255,255,255,0.04) inset;
+    }
+
+    .pricing-btn-primary:hover{
+      filter:brightness(1.03);
+      box-shadow:
+        0 18px 34px rgba(240,179,118,0.28),
+        0 0 24px rgba(240,179,118,0.16);
+    }
+
+    .pricing-btn-secondary{
+      background:rgba(255,255,255,0.04);
+      color:#f7efe7;
+      border-color:rgba(255,255,255,0.14);
+      box-shadow:0 10px 20px rgba(0,0,0,0.14);
+    }
+
+    .pricing-btn-secondary:hover{
+      background:rgba(255,255,255,0.08);
+      box-shadow:0 14px 26px rgba(0,0,0,0.18);
+    }
+
+    @media (max-width: 980px){
+      .pricing-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 560px){
+      .pricing-btn{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-switcher">
+    <button class="lang-btn" aria-label="Українська"
+            onclick="location.href='../about.html'">🇺🇦</button>
+    <button class="lang-btn active" aria-label="English"
+            onclick="location.href='./about.html'">🇬🇧</button>
+    <button class="lang-btn" aria-label="Español"
+            onclick="location.href='../es/about.html'">🇪🇸</button>
+  </div>
+
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="brand-row">
+          <strong>TELWHA</strong>
+        </div>
+        <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+      </div>
+      <nav class="menu">
+        <div class="menu-group">
+          <a href="index.html">Home</a>
+          <a href="finlab.html">FinLab</a>
+        </div>
+        <div class="menu-group menu-dropdown">
+          <button type="button" class="menu-dropbtn">For traders ▾</button>
+          <div class="menu-dropcontent">
+            <a href="trader-course.html">Mini‑course</a>
+            <a href="archetype-test.html">Archetype test</a>
+          </div>
+        </div>
+        <div class="menu-group">
+          <a href="articles.html">Articles</a>
+          <a href="reviews.html">Testimonials</a>
+          <a href="cases.html">Cases</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <button class="theme-toggle" type="button">🌓</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-shell fade-in">
+        <div class="hero-bg"></div>
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">TELWHA / About</div>
+            <h1>Neuro, financial markets and research in one decision space</h1>
+            <div class="hero-goal">
+              <span class="dot"></span>
+              <span>My work is to help you see wider than your biases allow.</span>
+            </div>
+          </div>
+          <div class="hero-photo-box">
+            <div class="hero-photo">
+              <img src="../image.jpeg" alt="Anna, financial psychologist and behavioral analyst at TELWHA">
+            </div>
+            <div class="hero-qual">
+              <span>Bachelor in Psychology</span>
+              <span>Master in Behavioral Economics</span>
+              <span>FPWM™ · CMSA® · Data Science Analyst (CFI)</span>
+              <span>100+ international certifications in finance, psychology and data</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO I AM -->
+    <section class="section fade-in">
+      <div class="wrap card">
+        <h2 class="section-title">Who I am</h2>
+        <p>
+          Financial psychologist and behavioral analyst. I combine work with the nervous system and cognitive biases
+          with hands‑on experience in trading, investing and data analysis.
+        </p>
+        <p>
+          I care not only about how you allocate money, but also about the context around it: war, job market,
+          previous attempts, body state, relationships and the environment you live in.
+        </p>
+
+        <h3 class="section-sub" style="margin-top:12px;font-size:.9rem;">How I can help</h3>
+        <ul style="margin-top:3px;">
+          <li>Spot where your thinking and emotional patterns break the strategy and lead to the same financial outcomes.</li>
+          <li>Translate your numbers, journals and decision history into a clear map of risk, errors and growth points.</li>
+          <li>Build a system of actions and tools that your nervous system can sustain long‑term, not only “on willpower”.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SERVICES & PRICING -->
+    <section class="section fade-in">
+      <div class="wrap card">
+        <h2 class="section-title">Services & pricing</h2>
+
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <div class="pricing-label">For traders</div>
+            <h3 class="pricing-title">
+              <a class="pricing-title-link" href="trader-course.html">Mini‑course for traders</a>
+            </h3>
+            <div class="pricing-price">55&nbsp;$</div>
+            <p class="pricing-note">
+              A compact online format for traders who want to understand their behavioral mistakes,
+              risk reactions and build a more stable decision system in live markets.
+            </p>
+            <ul class="pricing-list">
+              <li>3 core videos</li>
+              <li>Support while you go through the course</li>
+              <li>Online access</li>
+            </ul>
+            <div class="pricing-actions">
+              <a class="pricing-btn pricing-btn-primary" href="trader-course.html">View course details</a>
+            </div>
+          </article>
+
+          <article class="pricing-card">
+            <div class="pricing-label">1:1 work</div>
+            <h3 class="pricing-title">Individual consultation</h3>
+            <div class="pricing-price">80&nbsp;$</div>
+            <p class="pricing-note">
+              A one‑off session for financial stress, trading behavior, investment decisions, debt,
+              spending chaos or repeating money scenarios. After the session you get one week of
+              chat support plus any materials we agree on.
+            </p>
+            <ul class="pricing-list">
+              <li>Online</li>
+              <li>Offline in Kyiv</li>
+              <li>Duration: 60 minutes</li>
+            </ul>
+            <div class="pricing-meta">Sessions are usually booked 1–2 weeks in advance.</div>
+            <div class="pricing-actions">
+              <a class="pricing-btn pricing-btn-primary" href="contact.html">Book a session</a>
+            </div>
+          </article>
+
+          <article class="pricing-card">
+            <div class="pricing-label">For business / fintech</div>
+            <h3 class="pricing-title">Project‑based collaboration</h3>
+            <div class="pricing-price">from 1&nbsp;000&nbsp;$</div>
+            <p class="pricing-note">
+              For trading desks, funds, prop firms, fintech products and other teams that need
+              behavioral insights, research, analytics and work with client decision journeys.
+            </p>
+            <ul class="pricing-list">
+              <li>Online or on‑site in Kyiv</li>
+              <li>Behavioral research and analytics</li>
+              <li>Work with risk, decisions, product and client behavior</li>
+            </ul>
+            <div class="pricing-actions">
+              <a class="pricing-btn pricing-btn-primary" href="contact.html">Discuss a project</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOR WHOM -->
+    <section class="section fade-in">
+      <div class="wrap card">
+        <h2 class="section-title">Who TELWHA is for</h2>
+        <div class="states-grid">
+          <div class="state-item">
+            <div class="state-icon">🧷</div>
+            <p class="state-label">Traders</p>
+            <p class="state-text">
+              When you face blow‑ups after profit, revenge‑trading, fear of entry/exit, overtrading and burnout.
+              Plus the pressure of responsibility for capital, fear of losing self‑respect and the feeling that
+              there is no stable system behind your results.
+            </p>
+          </div>
+          <div class="state-item">
+            <div class="state-icon">📊</div>
+            <p class="state-label">Investors & founders</p>
+            <p class="state-text">
+              Noticeable sums go through your hands, but there is no inner ground: part of decisions are intuitive,
+              part are based on fragmented knowledge. You want consistent outcomes instead of “very good or very anxious”.
+            </p>
+          </div>
+          <div class="state-item">
+            <div class="state-icon">🧭</div>
+            <p class="state-label">People new to finance</p>
+            <p class="state-text">
+              You want to see clearly what to do with debt, spending and first investment steps without information
+              overload or self‑blame for past decisions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TELWHA -->
+    <section id="telwha" class="section fade-in">
+      <div class="wrap card">
+        <h2 class="section-title">What TELWHA means</h2>
+        <p class="section-sub">
+          TELWHA is six layers through which I look at life, money and decisions: from your nervous system and biases
+          to tools, data, capital and the context of your day.
+        </p>
+
+        <div class="telwha-tabs" role="tablist">
+          <button class="telwha-tab active" data-tab="T" type="button">T · Tech</button>
+          <button class="telwha-tab" data-tab="E" type="button">E · Emotions</button>
+          <button class="telwha-tab" data-tab="L" type="button">L · Layers</button>
+          <button class="telwha-tab" data-tab="W" type="button">W · Way</button>
+          <button class="telwha-tab" data-tab="H" type="button">H · Holistic</button>
+          <button class="telwha-tab" data-tab="A" type="button">A · Analytics</button>
+        </div>
+
+        <div class="telwha-panel active" data-panel="T">
+          <h3>T — Technological Integration</h3>
+          <h4>Tools and infrastructure</h4>
+          <p>We bring in financial tools, services, AI and dashboards so that decisions live in systems and processes, not only in your head.</p>
+        </div>
+        <div class="telwha-panel" data-panel="E">
+          <h3>E — Emotional Intelligence</h3>
+          <h4>Emotions and the nervous system</h4>
+          <p>We look at how stress, fatigue, trauma and expectations affect risk, money and daily choices, and build protection from breakdowns.</p>
+        </div>
+        <div class="telwha-panel" data-panel="L">
+          <h3>L — Layered Architecture</h3>
+          <h4>System layers</h4>
+          <p>Capital, cash‑flow, habits, relationships and work processes are split into layers so you don’t have one big “everything about money and life” bucket.</p>
+        </div>
+        <div class="telwha-panel" data-panel="W">
+          <h3>W — Way & Strategy</h3>
+          <h4>Path and strategy</h4>
+          <p>Strategy is there to find the shortest realistic path to change, not to make your life harder with stricter rules.</p>
+        </div>
+        <div class="telwha-panel" data-panel="H">
+          <h3>H — Holistic Approach</h3>
+          <h4>Wholeness</h4>
+          <p>We never tear money and decisions away from body, relationships, work and environment. No “right” financial step should destroy other areas.</p>
+        </div>
+        <div class="telwha-panel" data-panel="A">
+          <h3>A — Analytical Insights</h3>
+          <h4>Analytics and research</h4>
+          <p>We rely on data, journals and decision patterns, not only on “I feel”. Your processes move from noise to system.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW I WORK -->
+    <section class="section fade-in">
+      <div class="wrap card">
+        <h2 class="section-title">How I work</h2>
+        <ul>
+          <li>I don’t sell “ready‑made schemes” or magic buttons — we build your system, not someone else’s template.</li>
+          <li>I don’t separate money and decisions from the body and nervous system — steps must be sustainable, not only “logically correct”.</li>
+          <li>I don’t promise quick jumps — we work on stable changes that hold without constant willpower.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Q&A -->
+    <section id="faq" class="section fade-in">
+      <div class="wrap card">
+        <h2 class="section-title">Before you write to me</h2>
+
+        <div class="faq-item">
+          <div class="faq-q"><span class="icon">❓</span> I’m not a trader or investor. Is this even for me?</div>
+          <div class="faq-a">
+            Yes. If you have income, feel tired of carrying money decisions alone and keep postponing them “for later” —
+            you are in my audience, even if you’ve never opened a chart.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q"><span class="icon">⚠️</span> What if there is “chaos everywhere” and I’m ashamed to show it?</div>
+          <div class="faq-a">
+            Chaos and shame are data about the system, not your defect. I need to see the full picture to build a route
+            that works, not to judge you as a person.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q"><span class="icon">🧩</span> What should I expect after the first session?</div>
+          <div class="faq-a">
+            You leave not with “enlightenment” but with a map: where you are now, what hurts most and which 1–3 steps
+            make sense in your context in the coming weeks. Plus a week of chat support so you don’t stay alone with
+            questions during the first moves.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q"><span class="icon">📜</span> Is this about where exactly to invest?</div>
+          <div class="faq-a">
+            Partly. I can explain asset classes, basic instruments and typical strategies and help you look at an idea
+            through risk, goals and your limits. But I don’t build personalised portfolios and don’t give formal
+            recommendations on specific assets.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERSONAL -->
+    <section class="section fade-in">
+      <div class="wrap grid-2">
+        <div class="card">
+          <h2 class="section-title">My style</h2>
+          <ul>
+            <li>INTJ: structure, logic and cause‑and‑effect matter more to me than “nice stories”.</li>
+            <li>I name patterns that drain you directly and look for ways to change the system, not only calm you down in the moment.</li>
+            <li>I first look at context and consequences of your actions, then we search for the smallest steps that lead to different results.</li>
+            <li>Strategy for me is finding the shortest effective path to change that your nervous system can actually handle in real life.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2 class="section-title">A bit personal</h2>
+          <ul>
+            <li>I lived 5 years in the Dominican Republic and 1.5 years in Asia — I see risk, money and “normal life” from several cultural angles.</li>
+            <li>Archery and climbing are for me the same as markets: focus, body, precision and respect for your limits.</li>
+            <li>I’m an introvert who prefers depth over small talk, and this translates into work: less noise, more substance and respect for your resources.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid fade-in">
+        <div>
+          <h4>TELWHA</h4>
+          <p>Financial psychology, behavioral economics and analytics for more stable decisions and capital.</p>
+        </div>
+        <div style="text-align:right">
+          <h4>Navigation</h4>
+          <div class="footer-links" style="align-items:flex-end">
+            <a href="index.html">Home</a>
+            <a href="reviews.html">Testimonials</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 TELWHA. All rights reserved.</span>
+        <span>Kyiv, Ukraine · 🇺🇦</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // fade-in
+    (function(){
+      const els=document.querySelectorAll('.fade-in');
+      if(!('IntersectionObserver' in window)||!els.length){
+        els.forEach(el=>el.classList.add('in'));
+        return;
+      }
+      const io=new IntersectionObserver(entries=>{
+        entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});
+      },{threshold:0.12});
+      els.forEach(el=>io.observe(el));
+    })();
+
+    // dropdown "For traders"
+    (function () {
+      const drop=document.querySelector('.menu-dropdown');
+      if(!drop)return;
+      const btn=drop.querySelector('.menu-dropbtn');
+      const box=drop.querySelector('.menu-dropcontent');
+
+      btn.addEventListener('click',()=>{
+        box.style.display=box.style.display==='block'?'none':'block';
+      });
+
+      document.addEventListener('click',e=>{
+        if(!drop.contains(e.target)) box.style.display='none';
+      });
+    })();
+
+    // TELWHA tabs
+    (function(){
+      const tabs=document.querySelectorAll('.telwha-tab');
+      const panels=document.querySelectorAll('.telwha-panel');
+      if(!tabs.length)return;
+      tabs.forEach(tab=>{
+        tab.addEventListener('click',()=>{
+          const id=tab.dataset.tab;
+          tabs.forEach(t=>t.classList.toggle('active',t===tab));
+          panels.forEach(p=>p.classList.toggle('active',p.dataset.panel===id));
+        });
+      });
+    })();
+
+    // theme
+    (function () {
+      const root=document.documentElement;
+      const saved=localStorage.getItem('telwha-theme');
+      const initial=saved==='light'||saved==='dark'?saved:'dark';
+      root.setAttribute('data-theme',initial);
+    })();
+
+    (function () {
+      const root=document.documentElement;
+      const btn=document.querySelector('.theme-toggle');
+      if(!btn)return;
+      btn.addEventListener('click',()=>{
+        const current=root.getAttribute('data-theme')==='light'?'light':'dark';
+        const next=current==='light'?'dark':'light';
+        root.setAttribute('data-theme',next);
+        localStorage.setItem('telwha-theme',next);
+      });
+    })();
+  </script>
+</body>
+</html>

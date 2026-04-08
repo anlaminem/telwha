@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="uk" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Статті — TELWHA</title>
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout-articles.css">
+</head>
+<body>
+  <div class="lang-switcher">
+    <button class="lang-btn" aria-label="Українська" onclick="location.href='../articles.html'">🇺🇦</button>
+    <button class="lang-btn active" aria-label="English" onclick="location.href='../en/articles.html'">🇬🇧</button>
+    <button class="lang-btn" aria-label="Español" onclick="location.href='../es/articles.html'">🇪🇸</button>
+  </div>
+
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <div class="brand-row">
+          <strong>TELWHA</strong>
+        </div>
+        <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+      </a>
+      <nav class="menu">
+        <div class="menu-group">
+          <a href="index.html" class="menu-primary">Головна</a>
+          <a href="finlab.html" class="menu-highlight">FinLab</a>
+          <a href="about.html">Про мене</a>
+        </div>
+
+        <div class="menu-group menu-dropdown">
+          <button type="button" class="menu-dropbtn">
+            Трейдерам ▾
+          </button>
+          <div class="menu-dropcontent">
+            <a href="trader-course.html">Міні‑курс</a>
+            <a href="archetype-test.html">Тест архетипів</a>
+          </div>
+        </div>
+
+        <div class="menu-group">
+          <a href="reviews.html">Відгуки</a>
+          <a href="cases.html">Кейси</a>
+          <a href="contact.html">Контакти</a>
+        </div>
+        <button class="theme-toggle" type="button">🌓</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <!-- HERO / INTRO -->
+      <section class="hero-shell">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">TELWHA / Articles</div>
+            <h1>Статті та розбори</h1>
+            <p class="page-sub">
+              Практичні матеріали про психологію грошей, трейдинг, ризик і навчання. Кожна стаття побудована як міні‑сесія: зрозуміти патерн, побачити себе, змінити рішення.
+            </p>
+          </div>
+          <aside class="hero-featured">
+            <div class="hero-featured-label">Рекомендовано почати з цього</div>
+            <h2>Ваші “нераціональні” вчинки — це цінні дані</h2>
+            <div class="hero-featured-meta">Психологія грошей · 1 червня 2025 · 8 хв читання</div>
+            <p>
+              Як дивитись на свої «нераціональні» фінансові вчинки як на дані про мислення, емоції
+              та патерни, а не як на провали. Практична рамка розбору.
+            </p>
+            <a href="articles/irrational-actions-as-data.html">
+              Читати статтю <span>→</span>
+            </a>
+          </aside>
+        </div>
+      </section>
+
+      <!-- FILTERS -->
+      <section class="filters" aria-label="Фільтр статей за рубриками">
+        <button class="filter-chip active" data-filter="all">Усе</button>
+        <button class="filter-chip" data-filter="money">Психологія грошей</button>
+        <button class="filter-chip" data-filter="trading">Трейдинг</button>
+        <button class="filter-chip" data-filter="couples">Пари та гроші</button>
+        <button class="filter-chip" data-filter="finlab">FinLab</button>
+        <button class="filter-chip" data-filter="experiments">Експерименти</button>
+      </section>
+
+      <!-- ARTICLES GRID -->
+      <section id="articles" class="articles-grid">
+        <!-- Стаття 1 -->
+        <article class="article-card" data-tag="money">
+          <div class="article-tag">Психологія грошей</div>
+          <h2 class="article-title">Ваші “нераціональні” вчинки — це цінні дані</h2>
+          <p class="article-meta">1 червня 2025 · 8 хв читання</p>
+          <p class="article-excerpt">
+            Як дивитись на свої «нераціональні» фінансові вчинки як на дані про мислення, емоції
+            та патерни, а не як на провали. Практична рамка розбору.
+          </p>
+          <div class="article-footer">
+            <a class="article-link" href="articles/irrational-actions-as-data.html">
+              Читати <span>→</span>
+            </a>
+            <span class="article-video-flag">+ відео на YouTube</span>
+          </div>
+        </article>
+
+        <!-- Стаття 2 -->
+        <article class="article-card" data-tag="trading">
+          <div class="article-tag">Трейдинг</div>
+          <h2 class="article-title">Чому після 5 угод мозок «пливе»</h2>
+          <p class="article-meta">12 червня 2025 · 6 хв читання</p>
+          <p class="article-excerpt">
+            Decision fatigue в торгівлі: як кількість рішень за день з’їдає дисципліну, збільшує
+            імпульсивність і що з цим робити на практиці.
+          </p>
+          <div class="article-footer">
+            <a class="article-link" href="articles/decision-fatigue-trading.html">
+              Читати <span>→</span>
+            </a>
+            <span class="article-video-flag"></span>
+          </div>
+        </article>
+
+        <!-- Стаття 3 -->
+        <article class="article-card" data-tag="couples">
+          <div class="article-tag">Пари та гроші</div>
+          <h2 class="article-title">Коли фінансові розмови закінчуються сваркою</h2>
+          <p class="article-meta">20 червня 2025 · 7 хв читання</p>
+          <p class="article-excerpt">
+            Чому одні й ті самі тригери повторюються в розмовах про гроші в парі, і як перевести
+            фінансовий конфлікт у формат спільного рішення.
+          </p>
+          <div class="article-footer">
+            <a class="article-link" href="articles/couples-money-conflicts.html">
+              Читати <span>→</span>
+            </a>
+            <span class="article-video-flag"></span>
+          </div>
+        </article>
+
+        <!-- Далі копіюй article.article-card з потрібним data-tag -->
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>TELWHA</h4>
+          <p>Фінансова психологія, поведінкова економіка та архітектура вибору для кращих рішень і стійких результатів.</p>
+        </div>
+        <div style="text-align:right">
+          <h4>Навігація</h4>
+          <div class="footer-links" style="align-items:flex-end">
+            <a href="index.html">Головна</a>
+            <a href="about.html">Про мене</a>
+            <a href="finlab.html">FinLab</a>
+          </div>
+        </div>
+        <div>
+          <h4>Дії</h4>
+          <div class="footer-links">
+            <a href="trader-course.html">Міні‑курс трейдерам</a>
+            <a href="archetype-test.html">Тест архетипів</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 TELWHA. Усі права захищено.</span>
+        <span>Київ, Україна · 🇺🇦</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // дропдаун "Трейдерам"
+    (function () {
+      const drop = document.querySelector('.menu-dropdown');
+      if (!drop) return;
+      const btn = drop.querySelector('.menu-dropbtn');
+      const box = drop.querySelector('.menu-dropcontent');
+
+      btn.addEventListener('click', () => {
+        box.style.display = box.style.display === 'block' ? 'none' : 'block';
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!drop.contains(e.target)) box.style.display = 'none';
+      });
+    })();
+
+    // мови (візуально)
+    (function () {
+      const buttons = document.querySelectorAll('.lang-btn');
+      if (!buttons.length) return;
+      const apply = (lang) => {
+        document.documentElement.lang = lang;
+        buttons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+        localStorage.setItem('telwha-lang', lang);
+      };
+      buttons.forEach(btn => btn.addEventListener('click', () => apply(btn.dataset.lang)));
+      apply(localStorage.getItem('telwha-lang') || 'uk');
+    })();
+
+    // фільтри за рубриками
+    (function () {
+      const chips = document.querySelectorAll('.filter-chip');
+      const cards = document.querySelectorAll('.article-card');
+      if (!chips.length || !cards.length) return;
+
+      const applyFilter = (filter) => {
+        cards.forEach(card => {
+          const tag = card.getAttribute('data-tag');
+          const show = filter === 'all' || tag === filter;
+          card.classList.toggle('hidden', !show);
+        });
+      };
+
+      chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          const filter = chip.getAttribute('data-filter');
+          chips.forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          applyFilter(filter);
+        });
+      });
+
+      applyFilter('all');
+    })();
+
+    // тема
+    (function () {
+      const root = document.documentElement;
+      const saved = localStorage.getItem('telwha-theme');
+      const initial = saved === 'light' || saved === 'dark' ? saved : 'light';
+      root.setAttribute('data-theme', initial);
+    })();
+
+    (function () {
+      const root = document.documentElement;
+      const btn = document.querySelector('.theme-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        const next = current === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('telwha-theme', next);
+      });
+    })();
+  </script>
+</body>
+</html>
