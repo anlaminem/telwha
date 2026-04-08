@@ -11,9 +11,9 @@
 </head>
 <body>
   <div class="lang-switcher">
-    <button class="lang-btn active" aria-label="Українська" onclick="location.href='/index.html'">🇺🇦</button>
-    <button class="lang-btn" aria-label="English" onclick="location.href='/en/index.html'">🇬🇧</button>
-    <button class="lang-btn" aria-label="Español" onclick="location.href='/es/index.html'">🇪🇸</button>
+    <button class="lang-btn active" aria-label="Українська" data-href="/index.html">🇺🇦</button>
+    <button class="lang-btn" aria-label="English" data-href="/en/index.html">🇬🇧</button>
+    <button class="lang-btn" aria-label="Español" data-href="/es/index.html">🇪🇸</button>
   </div>
 
   <div class="progress" id="progress"></div>
@@ -73,7 +73,7 @@
               </div>
               <div class="hero-footnote">
                 <button class="btn btn-ghost" style="padding:4px 10px;font-size:0.78rem;border-radius:999px;"
-                        onclick="location.href='finlab.html'">
+                        data-href="finlab.html">
                   FinLab Telwha
                 </button>
                 <span class="small-note">Клієнти з України, ЄС та США.</span>
@@ -145,7 +145,7 @@
         <div class="cases-column">
           <div class="cases-heading">Кейси</div>
           <div class="cases-grid">
-            <button class="case-pill" onclick="location.href='cases.html#trading'">
+            <button class="case-pill" data-href="cases.html#trading">
               <div class="case-pill-main">
                 <span class="case-pill-title">Trading &amp; Investing</span>
                 <span class="case-pill-tagline">емоції, ризик, капітал інвесторів</span>
@@ -153,7 +153,7 @@
               <span class="case-pill-badge">трейдери</span>
             </button>
 
-            <button class="case-pill" onclick="location.href='cases.html#personal'">
+            <button class="case-pill" data-href="cases.html#personal">
               <div class="case-pill-main">
                 <span class="case-pill-title">Personal Finance</span>
                 <span class="case-pill-tagline">хаос у витратах, пари та гроші</span>
@@ -161,7 +161,7 @@
               <span class="case-pill-badge">не‑фінансисти</span>
             </button>
 
-            <button class="case-pill" onclick="location.href='cases.html#business'">
+            <button class="case-pill" data-href="cases.html#business">
               <div class="case-pill-main">
                 <span class="case-pill-title">Business &amp; Product</span>
                 <span class="case-pill-tagline">курси, фінсервіси, поведінковий дизайн</span>

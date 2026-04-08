@@ -199,11 +199,11 @@
 <body>
   <div class="lang-switcher">
     <button class="lang-btn" aria-label="Українська"
-            onclick="location.href='../about.html'">🇺🇦</button>
+            data-href="../about.html">🇺🇦</button>
     <button class="lang-btn active" aria-label="English"
-            onclick="location.href='../en/about.html'">🇬🇧</button>
+            data-href="../en/about.html">🇬🇧</button>
     <button class="lang-btn" aria-label="Español"
-            onclick="location.href='../es/about.html'">🇪🇸</button>
+            data-href="../es/about.html">🇪🇸</button>
   </div>
 
   <header class="topbar">
@@ -539,69 +539,7 @@
     </div>
   </footer>
 
-  <script>
-    // fade-in
-    (function(){
-      const els=document.querySelectorAll('.fade-in');
-      if(!('IntersectionObserver' in window)||!els.length){
-        els.forEach(el=>el.classList.add('in'));
-        return;
-      }
-      const io=new IntersectionObserver(entries=>{
-        entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});
-      },{threshold:0.12});
-      els.forEach(el=>io.observe(el));
-    })();
-
-    // дропдаун "Трейдерам"
-    (function () {
-      const drop=document.querySelector('.menu-dropdown');
-      if(!drop)return;
-      const btn=drop.querySelector('.menu-dropbtn');
-      const box=drop.querySelector('.menu-dropcontent');
-
-      btn.addEventListener('click',()=>{
-        box.style.display=box.style.display==='block'?'none':'block';
-      });
-
-      document.addEventListener('click',e=>{
-        if(!drop.contains(e.target)) box.style.display='none';
-      });
-    })();
-
-    // TELWHA tabs
-    (function(){
-      const tabs=document.querySelectorAll('.telwha-tab');
-      const panels=document.querySelectorAll('.telwha-panel');
-      if(!tabs.length)return;
-      tabs.forEach(tab=>{
-        tab.addEventListener('click',()=>{
-          const id=tab.dataset.tab;
-          tabs.forEach(t=>t.classList.toggle('active',t===tab));
-          panels.forEach(p=>p.classList.toggle('active',p.dataset.panel===id));
-        });
-      });
-    })();
-
-    // тема
-    (function () {
-      const root=document.documentElement;
-      const saved=localStorage.getItem('telwha-theme');
-      const initial=saved==='light'||saved==='dark'?saved:'dark';
-      root.setAttribute('data-theme',initial);
-    })();
-
-    (function () {
-      const root=document.documentElement;
-      const btn=document.querySelector('.theme-toggle');
-      if(!btn)return;
-      btn.addEventListener('click',()=>{
-        const current=root.getAttribute('data-theme')==='light'?'light':'dark';
-        const next=current==='light'?'dark':'light';
-        root.setAttribute('data-theme',next);
-        localStorage.setItem('telwha-theme',next);
-      });
-    })();
-  </script>
+  <script src="/script/global.js"></script>
+<script src="/script/about.js"></script>
 </body>
 </html>

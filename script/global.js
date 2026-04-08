@@ -99,7 +99,8 @@
 (function () {
     const root = document.documentElement;
     const saved = localStorage.getItem('telwha-theme');
-    const initial = saved === 'light' || saved === 'dark' ? saved : 'light';
+    const fallback = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    const initial = saved === 'light' || saved === 'dark' ? saved : fallback;
     root.setAttribute('data-theme', initial);
 })();
 
@@ -112,5 +113,19 @@
         const next = current === 'light' ? 'dark' : 'light';
         root.setAttribute('data-theme', next);
         localStorage.setItem('telwha-theme', next);
+    });
+})();
+
+// переходы по data-href вместо inline onclick
+(function () {
+    const navButtons = document.querySelectorAll('[data-href]');
+    if (!navButtons.length) return;
+
+    navButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const href = button.getAttribute('data-href');
+            if (!href) return;
+            window.location.href = href;
+        });
     });
 })();

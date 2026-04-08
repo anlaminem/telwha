@@ -12,9 +12,9 @@
 </head>
 <body>
   <div class="lang-switcher">
-    <button class="lang-btn" aria-label="Українська" onclick="location.href='../cases.html'">🇺🇦</button>
-    <button class="lang-btn active" aria-label="English" onclick="location.href='../en/cases.html'">🇬🇧</button>
-    <button class="lang-btn" aria-label="Español" onclick="location.href='../es/cases.html'">🇪🇸</button>
+    <button class="lang-btn" aria-label="Українська" data-href="../cases.html">🇺🇦</button>
+    <button class="lang-btn active" aria-label="English" data-href="../en/cases.html">🇬🇧</button>
+    <button class="lang-btn" aria-label="Español" data-href="../es/cases.html">🇪🇸</button>
   </div>
 
   <header class="topbar">
@@ -217,100 +217,7 @@
     </article>
   </div>
 
-  <script>
-    const caseDetails = {
-      trading1: `...`,
-      trading2: `...`,
-      personal1: `...`,
-      personal2: `...`,
-      business1: `...`,
-      business2: `...`
-    };
-
-    const tabs = document.querySelectorAll('.case-tab');
-    const cards = document.querySelectorAll('.case-card');
-    const backdrop = document.getElementById('caseModalBackdrop');
-    const modalContent = document.getElementById('modalContent');
-    const modalClose = backdrop.querySelector('.modal-close');
-
-    // filter
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const filter = tab.getAttribute('data-filter');
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-
-        cards.forEach(card => {
-          const cat = card.getAttribute('data-category');
-          card.style.display = (filter === 'all' || filter === cat) ? '' : 'none';
-        });
-      });
-    });
-
-    // open modal
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        const id = card.getAttribute('data-id');
-        const html = caseDetails[id];
-        if (!html) return;
-        modalContent.innerHTML = html;
-        backdrop.classList.add('active');
-        backdrop.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-      });
-    });
-
-    function closeModal() {
-      backdrop.classList.remove('active');
-      backdrop.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    modalClose.addEventListener('click', closeModal);
-    backdrop.addEventListener('click', (e) => {
-      if (e.target === backdrop) closeModal();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && backdrop.classList.contains('active')) {
-        closeModal();
-      }
-    });
-
-    // dropdown "For traders"
-    (function () {
-      const drop = document.querySelector('.menu-dropdown');
-      if (!drop) return;
-      const btn = drop.querySelector('.menu-dropbtn');
-      const box = drop.querySelector('.menu-dropcontent');
-
-      btn.addEventListener('click', () => {
-        box.style.display = box.style.display === 'block' ? 'none' : 'block';
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!drop.contains(e.target)) box.style.display = 'none';
-      });
-    })();
-
-    // theme
-    (function () {
-      const root = document.documentElement;
-      const saved = localStorage.getItem('telwha-theme');
-      const initial = saved === 'light' || saved === 'dark' ? saved : 'dark';
-      root.setAttribute('data-theme', initial);
-    })();
-
-    (function () {
-      const root = document.documentElement;
-      const btn = document.querySelector('.theme-toggle');
-      if (!btn) return;
-      btn.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-        const next = current === 'light' ? 'dark' : 'light';
-        root.setAttribute('data-theme', next);
-        localStorage.setItem('telwha-theme', next);
-      });
-    })();
-  </script>
+  <script src="/script/global.js"></script>
+<script src="/script/cases.js"></script>
 </body>
 </html>

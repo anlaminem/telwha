@@ -1181,46 +1181,6 @@
   </div>
 </div>
 
-<script>
-  // Tabs
-  const tabButtons = document.querySelectorAll('.tabs-nav button');
-  const tabPanels = document.querySelectorAll('.tabs-panel');
-
-  tabButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = btn.getAttribute('data-tab');
-      tabButtons.forEach(b => b.setAttribute('data-active', b === btn ? 'true' : 'false'));
-      tabPanels.forEach(panel => {
-        panel.setAttribute('data-active', panel.getAttribute('data-panel') === target ? 'true' : 'false');
-      });
-    });
-  });
-
-  // Accordion
-  const accHeaders = document.querySelectorAll('.acc-header');
-  accHeaders.forEach(header => {
-    header.addEventListener('click', () => {
-      const item = header.parentElement;
-      const isOpen = item.getAttribute('data-open') === 'true';
-      item.setAttribute('data-open', isOpen ? 'false' : 'true');
-    });
-  });
-
-  // Легка "живість" чисел (можеш замінити на реальні через API)
-  const totalUsersEl = document.getElementById('total-users');
-  const readyPercentEl = document.getElementById('ready-percent');
-  if (totalUsersEl && readyPercentEl) {
-    const baseUsers = 1248;
-    const basePercent = 68;
-    const jitter = () => {
-      const u = baseUsers + Math.floor(Math.random() * 12) - 6;
-      const p = basePercent + Math.floor(Math.random() * 4) - 2;
-      totalUsersEl.textContent = u.toLocaleString('uk-UA');
-      readyPercentEl.textContent = p + '%';
-    };
-    jitter();
-    setInterval(jitter, 9000);
-  }
-</script>
+<script src="/script/finlab.js"></script>
 </body>
 </html>
