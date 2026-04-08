@@ -99,7 +99,7 @@
 (function () {
     const root = document.documentElement;
     const saved = localStorage.getItem('telwha-theme');
-    const fallback = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    const fallback = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
     const initial = saved === 'light' || saved === 'dark' ? saved : fallback;
     root.setAttribute('data-theme', initial);
 })();
