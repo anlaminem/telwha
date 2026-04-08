@@ -129,7 +129,7 @@ a {
       rgba(5, 5, 5, 0.18) 58%,
       rgba(5, 5, 5, 0.64) 100%
     ),
-    url("shapka-final.jpg") center center / cover no-repeat;
+    url("/media/shapka-final.jpg") center center / cover no-repeat;
   transform: scale(1.01);
   filter: saturate(0.92) contrast(1.04);
 }
