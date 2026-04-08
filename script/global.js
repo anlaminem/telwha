@@ -100,7 +100,8 @@
     const root = document.documentElement;
     const saved = localStorage.getItem('telwha-theme');
     const fallback = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-    const initial = saved === 'light' || saved === 'dark' ? saved : fallback;
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light';
+    const initial = (saved === 'light' || saved === 'dark') ? saved : systemTheme || fallback;
     root.setAttribute('data-theme', initial);
 })();
 
