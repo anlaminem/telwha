@@ -58,14 +58,14 @@ p {
   padding: 0 16px;
 }
 
-/* ================= LIGHT THEME – фон + текст ================= */
+/* ================= LIGHT THEME – теплий крем + карамель ================= */
 
 html[data-theme="light"] body {
   background:
     radial-gradient(circle at 0% 0%, #fff7ee 0, transparent 42%),
     radial-gradient(circle at 100% 14%, #fde4c8 0, transparent 42%),
     linear-gradient(180deg, #f7efe4 0%, #f2e7da 52%, #efe1d2 100%);
-  color: #201914;
+  color: #2b2119;
 }
 
 html[data-theme="light"] p {
@@ -241,22 +241,22 @@ html[data-theme="light"] .menu a {
 }
 
 html[data-theme="light"] .menu a.menu-primary {
-  color: #201914;
+  color: #2b2119;
 }
 
 html[data-theme="light"] .menu a.menu-highlight {
-  color: #a85f24;
-  border-color: rgba(168, 95, 36, 0.32);
+  color: #c26e2f;
+  border-color: rgba(194, 110, 47, 0.38);
 }
 
 html[data-theme="light"] .menu a:hover {
-  background: rgba(168, 95, 36, 0.08);
-  color: #201914;
+  background: rgba(194, 110, 47, 0.09);
+  color: #2b2119;
 }
 
 html[data-theme="light"] .menu a.menu-highlight:hover {
-  background: rgba(168, 95, 36, 0.12);
-  color: #201914;
+  background: rgba(194, 110, 47, 0.13);
+  color: #2b2119;
 }
 
 html[data-theme="light"] .menu-dropbtn {
@@ -270,12 +270,12 @@ html[data-theme="light"] .menu-dropcontent {
 }
 
 html[data-theme="light"] .menu-dropcontent a {
-  color: #201914;
+  color: #2b2119;
 }
 
 html[data-theme="light"] .menu-dropcontent a:hover {
-  background: rgba(168, 95, 36, 0.08);
-  color: #201914;
+  background: rgba(194, 110, 47, 0.09);
+  color: #2b2119;
 }
 
 /* ================= перемикач теми + мови ================= */
@@ -328,21 +328,21 @@ html[data-theme="light"] .menu-dropcontent a:hover {
 
 html[data-theme="light"] .theme-toggle {
   background: #fffaf4;
-  color: #201914;
+  color: #2b2119;
   border-color: rgba(90, 70, 52, 0.18);
   box-shadow: 0 8px 18px rgba(98, 76, 56, 0.1);
 }
 
 html[data-theme="light"] .lang-btn {
   background: #fffaf4;
-  color: #201914;
+  color: #2b2119;
   border-color: rgba(90, 70, 52, 0.18);
   box-shadow: 0 8px 20px rgba(98, 76, 56, 0.12);
 }
 
 html[data-theme="light"] .lang-btn.active {
-  border-color: #b56a2d;
-  box-shadow: 0 0 0 1px rgba(181, 106, 45, 0.26) inset;
+  border-color: #c26e2f;
+  box-shadow: 0 0 0 1px rgba(194, 110, 47, 0.26) inset;
 }
 
 /* ================= кнопки ================= */
@@ -393,12 +393,12 @@ html[data-theme="light"] .lang-btn.active {
 html[data-theme="light"] .btn {
   background: #fffaf4;
   border-color: rgba(90, 70, 52, 0.18);
-  color: #201914;
+  color: #2b2119;
   box-shadow: 0 10px 24px rgba(98, 76, 56, 0.1);
 }
 
 html[data-theme="light"] .btn-primary {
-  background: linear-gradient(135deg, #f3c38f 0%, #e7a764 52%, #d8863d 100%);
+  background: linear-gradient(135deg, #f5c696 0%, #e8a55c 52%, #d58034 100%);
   color: #21150d;
   box-shadow: 0 18px 34px rgba(216, 134, 61, 0.24);
 }
@@ -406,11 +406,11 @@ html[data-theme="light"] .btn-primary {
 html[data-theme="light"] .btn-ghost {
   background: #fffdf9;
   border-color: rgba(90, 70, 52, 0.18);
-  color: #201914;
+  color: #2b2119;
 }
 
 html[data-theme="light"] .btn:hover:not(.btn-primary) {
-  background: rgba(168, 95, 36, 0.06);
+  background: rgba(194, 110, 47, 0.06);
   box-shadow: 0 12px 28px rgba(98, 76, 56, 0.14);
 }
 
@@ -479,24 +479,19 @@ html[data-theme="light"] .footer {
   border-top: 1px solid rgba(90, 70, 52, 0.14);
 }
 
-html[data-theme="light"]
-  .footer,
-html[data-theme="light"]
-  .footer
-  p,
-html[data-theme="light"]
-  .footer-links
-  a,
+html[data-theme="light"] .footer,
+html[data-theme="light"] .footer p,
+html[data-theme="light"] .footer-links a,
 html[data-theme="light"] .footer-bottom {
   color: #5f5146;
 }
 
 html[data-theme="light"] .footer h4 {
-  color: #201914;
+  color: #2b2119;
 }
 
 html[data-theme="light"] .footer-links a:hover {
-  color: #201914;
+  color: #2b2119;
 }
 
 html[data-theme="light"] .footer-bottom {
