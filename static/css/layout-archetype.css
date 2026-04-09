@@ -393,85 +393,165 @@ section.section {
   transform: translateY(0);
 }
 
-/* LIGHT THEME OVERRIDES */
+/* LIGHT THEME OVERRIDES – теплий крем + карамель */
 
 html[data-theme="light"] .hero-shell {
-  border-color:rgba(148,163,184,.7);
+  border-color: rgba(104,82,62,.18);
   background:
-    radial-gradient(circle at top left,rgba(240,179,118,.20) 0,transparent 48%),
-    radial-gradient(circle at bottom right,rgba(129,140,248,.20) 0,transparent 55%),
-    linear-gradient(135deg,#ffffff 0,#eef2ff 60%,#e5ecff 100%);
+    radial-gradient(circle at top left, rgba(240,179,118,.22) 0, transparent 42%),
+    radial-gradient(circle at bottom right, rgba(232,165,92,.18) 0, transparent 48%),
+    linear-gradient(135deg,#fffdf9 0,#f7efe4 56%,#f2e4d5 100%);
+  box-shadow: 0 20px 46px rgba(98,76,56,.12);
 }
 
 html[data-theme="light"] .eyebrow {
-  color:#4b5563;
+  color:#7f6f62;
+}
+
+html[data-theme="light"] .eyebrow::before {
+  background:#d58034;
 }
 
 html[data-theme="light"] .hero h1 {
-  color:#020617;
+  color:#2b2119;
 }
 
 html[data-theme="light"] .lead {
-  color:#4b5563;
+  color:#5f5146;
 }
 
 html[data-theme="light"] .chip {
-  background:#ffffff;
-  border-color:rgba(148,163,184,.9);
-  color:#111827;
+  background:#fffaf4;
+  border-color:rgba(104,82,62,.2);
+  color:#5f5146;
 }
 
+/* hero note */
+
 html[data-theme="light"] .hero-note {
-  background:#ffffff;
-  border-color:rgba(148,163,184,.8);
-  box-shadow:0 10px 26px rgba(148,163,184,.4);
+  background: linear-gradient(180deg,#fffaf1 0%,#fff3e3 100%);
+  border-color:rgba(213,128,52,.36);
+  box-shadow:0 14px 34px rgba(216,134,61,.16);
+  color:#5f5146;
+}
+
+html[data-theme="light"] .hero-note .pill {
+  border-color:rgba(213,128,52,.6);
+  color:#d58034;
+  background:rgba(213,128,52,.10);
+}
+
+html[data-theme="light"] .hero-note .pill .dot {
+  background:#d58034;
 }
 
 html[data-theme="light"] .hero-note strong {
-  color:#111827;
+  color:#2b2119;
 }
 
 html[data-theme="light"] .hero-note p {
-  color:#4b5563;
+  color:#5f5146;
 }
 
+/* cards / sections */
+
 html[data-theme="light"] .card {
-  background:#ffffff;
-  border-color:rgba(148,163,184,.7);
-  box-shadow:0 12px 30px rgba(148,163,184,.35);
-  color:#111827;
+  background:linear-gradient(180deg,#fffdf9 0%,#fff8f1 100%);
+  border-color:rgba(104,82,62,.16);
+  box-shadow:0 14px 30px rgba(98,76,56,.10);
+  color:#2b2119;
+}
+
+html[data-theme="light"] .section-title {
+  color:#2b2119;
 }
 
 html[data-theme="light"] .card h2,
 html[data-theme="light"] .card h3 {
-  color:#020617;
+  color:#2b2119;
 }
 
 html[data-theme="light"] .card p,
 html[data-theme="light"] .card li {
-  color:#111827;
+  color:#5f5146;
 }
+
+/* archetype media cards */
 
 html[data-theme="light"] .arch-card {
-  background:#ffffff;
-  border-color:rgba(148,163,184,.6);
-  box-shadow:0 10px 24px rgba(148,163,184,.3);
+  background:#fffdf9;
+  border-color:rgba(104,82,62,.15);
+  box-shadow:0 10px 24px rgba(98,76,56,.10);
 }
 
+html[data-theme="light"] .arch-card h3 {
+  color:#2b2119;
+}
+
+html[data-theme="light"] .arch-card p {
+  color:#5f5146;
+}
+
+/* video block */
+
 html[data-theme="light"] .video-box {
-  background:#ffffff;
-  border-color:rgba(148,163,184,.7);
-  box-shadow:0 12px 30px rgba(148,163,184,.35);
+  background:#fffdf9;
+  border-color:rgba(104,82,62,.18);
+  box-shadow:0 12px 30px rgba(98,76,56,.12);
 }
 
 html[data-theme="light"] .video-title {
-  color:#020617;
+  color:#2b2119;
 }
 
+html[data-theme="light"] .video-link {
+  background:#6f7f4a;
+  box-shadow:0 10px 22px rgba(111,127,74,.20);
+}
+
+/* bottom panel */
+
 html[data-theme="light"] .panel {
-  background:#ffffff;
-  border-color:rgba(148,163,184,.9);
-  box-shadow:0 16px 40px rgba(148,163,184,.4);
+  background:linear-gradient(180deg,#fffaf2 0%,#f7eee4 100%);
+  border-color:rgba(104,82,62,.20);
+  box-shadow:0 18px 40px rgba(98,76,56,.14);
+}
+
+html[data-theme="light"] .panel .card {
+  background:#fffdf9;
+  border-color:rgba(104,82,62,.16);
+  box-shadow:none;
+}
+
+html[data-theme="light"] .panel .card p {
+  color:#5f5146;
+}
+
+/* buttons in light theme */
+
+html[data-theme="light"] .btn {
+  background:#fffaf4;
+  border-color:rgba(104,82,62,.18);
+  color:#2b2119;
+  box-shadow:0 8px 20px rgba(98,76,56,.10);
+}
+
+html[data-theme="light"] .btn-secondary {
+  background:#fffdf9;
+  border-color:rgba(104,82,62,.18);
+  color:#2b2119;
+}
+
+html[data-theme="light"] .btn-primary {
+  background:linear-gradient(135deg,#f5c696 0%,#e8a55c 52%,#d58034 100%);
+  color:#21150d;
+  box-shadow:0 18px 34px rgba(216,134,61,.24);
+}
+
+html[data-theme="light"] .btn:hover {
+  box-shadow:0 18px 34px rgba(216,134,61,.26);
+  background:linear-gradient(135deg,#f8cf9f 0%,#e8a55c 52%,#cf7a30 100%);
+  color:#21150d;
 }
 
 /* RESPONSIVE */

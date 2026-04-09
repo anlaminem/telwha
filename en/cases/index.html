@@ -19,11 +19,13 @@
   <link rel="stylesheet" href="/static/css/layout-cases.css">
 </head>
 <body>
-  <div class="lang-switcher">
-    <button class="lang-btn" aria-label="Українська" data-href="/cases/">🇺🇦</button>
-    <button class="lang-btn active" aria-label="English" data-href="/en/cases/">🇬🇧</button>
-    <button class="lang-btn" aria-label="Español" data-href="/es/cases/">🇪🇸</button>
-  </div>
+  <details class="lang-switcher">
+    <summary>🇬🇧</summary>
+    <div class="lang-list">
+      <a href="/cases/" aria-label="Українська">🇺🇦</a>
+      <a href="/es/cases/" aria-label="Español">🇪🇸</a>
+    </div>
+  </details>
 
   <header class="topbar">
     <div class="wrap nav">
@@ -35,7 +37,7 @@
       </div>
       <nav class="menu">
         <div class="menu-group">
-          <a href="/en/" class="menu-primary">Home</a>
+          <a href="/en/">Home</a>
           <a href="/finlab/" class="menu-highlight">FinLab</a>
           <a href="/en/about/">About</a>
         </div>
@@ -45,7 +47,7 @@
             For traders ▾
           </button>
           <div class="menu-dropcontent">
-            <a href="/en/trader-course/">Mini course</a>
+            <a href="/en/trader-course/">Mini‑course</a>
             <a href="/en/archetype-test/">Archetype test</a>
           </div>
         </div>
@@ -53,6 +55,7 @@
         <div class="menu-group">
           <a href="/en/articles/">Articles</a>
           <a href="/en/reviews/">Testimonials</a>
+          <a href="/en/cases/">Cases</a>
           <a href="/en/contact/">Contact</a>
         </div>
         <button class="theme-toggle" type="button">🌓</button>

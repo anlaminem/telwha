@@ -20,15 +20,17 @@
   <link rel="stylesheet" href="/static/css/layout-archetype.css">
 </head>
 <body>
-  <div class="lang-switcher">
-    <button class="lang-btn" aria-label="Українська" data-href="/archetype-test/">🇺🇦</button>
-    <button class="lang-btn active" aria-label="English" data-href="/en/archetype-test/">🇬🇧</button>
-    <button class="lang-btn" aria-label="Español" data-href="/es/archetype-test/">🇪🇸</button>
-  </div>
+  <details class="lang-switcher">
+    <summary>🇬🇧</summary>
+    <div class="lang-list">
+      <a href="/archetype-test/" aria-label="Українська">🇺🇦</a>
+      <a href="/es/archetype-test/" aria-label="Español">🇪🇸</a>
+    </div>
+  </details>
 
   <div class="progress" id="progress"></div>
 
-  <header class="topbar">
+ <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
         <a class="brand-row" href="/en/">
@@ -38,7 +40,7 @@
       </div>
       <nav class="menu">
         <div class="menu-group">
-          <a href="/en/" class="menu-primary">Home</a>
+          <a href="/en/">Home</a>
           <a href="/finlab/" class="menu-highlight">FinLab</a>
           <a href="/en/about/">About</a>
         </div>
@@ -48,7 +50,8 @@
             For traders ▾
           </button>
           <div class="menu-dropcontent">
-            <a href="/en/trader-course/">Mini course</a>
+            <a href="/en/trader-course/">Mini‑course</a>
+            <a href="/en/archetype-test/">Archetype test</a>
           </div>
         </div>
 
@@ -62,7 +65,7 @@
       </nav>
     </div>
   </header>
-
+  
   <main>
     <!-- HERO -->
     <section class="hero">

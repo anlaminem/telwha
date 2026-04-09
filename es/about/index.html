@@ -208,13 +208,15 @@
   </style>
 </head>
 <body>
-  <div class="lang-switcher">
-    <button class="lang-btn" aria-label="Українська" data-href="/about/">🇺🇦</button>
-    <button class="lang-btn" aria-label="English" data-href="/en/about/">🇬🇧</button>
-    <button class="lang-btn active" aria-label="Español" data-href="/es/about/">🇪🇸</button>
-  </div>
+  <details class="lang-switcher">
+    <summary>🇪🇸</summary>
+    <div class="lang-list">
+      <a href="/about/" aria-label="Українська">🇺🇦</a>
+      <a href="/en/about/" aria-label="English">🇬🇧</a>
+    </div>
+  </details>
 
-  <header class="topbar">
+<header class="topbar">
     <div class="wrap nav">
       <div class="brand">
         <a class="brand-row" href="/es/">
@@ -226,6 +228,7 @@
         <div class="menu-group">
           <a href="/es/">Inicio</a>
           <a href="/finlab/">FinLab</a>
+          <a href="/es/about/">Sobre mí</a>
         </div>
         <div class="menu-group menu-dropdown">
           <button type="button" class="menu-dropbtn">Para traders ▾</button>

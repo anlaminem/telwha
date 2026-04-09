@@ -23,15 +23,17 @@
 </head>
 
 <body>
-  <div class="lang-switcher">
-    <button class="lang-btn active" aria-label="Українська" data-href="/">🇺🇦</button>
-    <button class="lang-btn" aria-label="English" data-href="/en/">🇬🇧</button>
-    <button class="lang-btn" aria-label="Español" data-href="/es/">🇪🇸</button>
-  </div>
+  <details class="lang-switcher">
+      <summary>🇺🇦</summary>
+      <div class="lang-list">
+        <a href="/en/index.html" aria-label="English">🇬🇧</a>
+        <a href="/es/index.html" aria-label="Español">🇪🇸</a>
+      </div>
+    </details>
 
   <div class="progress" id="progress"></div>
 
-  <header class="topbar">
+   <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
         <a class="brand-row" href="/">
@@ -41,20 +43,17 @@
       </div>
       <nav class="menu">
         <div class="menu-group">
-          <a href="/finlab/" class="menu-highlight">FinLab</a>
+          <a href="/">Головна</a>
+          <a href="/finlab/">FinLab</a>
           <a href="/about/">Про мене</a>
         </div>
-
         <div class="menu-group menu-dropdown">
-          <button type="button" class="menu-dropbtn">
-            Трейдерам ▾
-          </button>
+          <button type="button" class="menu-dropbtn">Трейдерам ▾</button>
           <div class="menu-dropcontent">
             <a href="/trader-course/">Міні‑курс</a>
             <a href="/archetype-test/">Тест архетипів</a>
           </div>
         </div>
-
         <div class="menu-group">
           <a href="/articles/">Статті</a>
           <a href="/reviews/">Відгуки</a>
@@ -203,7 +202,7 @@
       <div class="wrap grid-2 fade-in">
         <div class="card">
           <h3>
-<span class="icon-blob"></span>Що я роблю</h3>
+<span class="title-diamond"></span>Що я роблю</h3>
           <ul>
             <li>Розбираю фінансову поведінку: як ви думаєте, відчуваєте і дієте під тиском грошей.</li>
             <li>Показую повторювані патерни рішень у стресі, дефіциті часу та інформаційному шумі.</li>
@@ -213,7 +212,7 @@
         </div>
         <div class="card">
           <h3>
-<span class="icon-chart"></span>Чим я відрізняюсь</h3>
+<span class="title-diamond"></span>Чим я відрізняюсь</h3>
           <ul>
             <li>Працюю не лише з емоціями, а з мисленням, звичками й сценаріями нервової системи.</li>
             <li>Бачу не просто «зрив угоди» чи «імпульсивну покупку», а механізм, який до цього веде.</li>
@@ -226,11 +225,12 @@
 
     <section id="lab" class="section">
       <div class="wrap panel fade-in">
-        <div class="eyebrow" style="color:#f0b376">
-<span>FinLab</span> Telwha</div>
+        <div class="eyebrow finlab-eyebrow">
+          <span>FinLab</span> Telwha
+        </div>
         <h2 class="section-title">Тести та діагностика</h2>
         <div class="grid-2">
-          <div class="card" style="background:#05070b;border-color:rgba(255,255,255,0.12);box-shadow:none">
+         <div class="card finlab-card">
             <h3>Тест фінансової поведінки</h3>
             <p>Короткий зріз того, як ви ухвалюєте рішення про гроші під тиском цін, боргів і новин. Дані лягають у
               дослідження FinLab.</p>
@@ -242,7 +242,7 @@
               <a class="btn btn-primary" href="#">Пройти тест (5–7 хв)</a>
             </div>
           </div>
-          <div class="card" style="background:#05070b;border-color:rgba(255,255,255,0.12);box-shadow:none">
+          <div class="card finlab-card">
             <h3>Тест архетипів трейдера</h3>
             <p>Для трейдерів, які хочуть краще розуміти свій стиль, реакції на ризик і типові помилки, щоб налаштувати
               стратегію під себе.</p>

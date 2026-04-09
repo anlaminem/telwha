@@ -152,47 +152,78 @@ h1 {
   transform: translateY(-1px);
 }
 
-/* Світла тема для статей */
+/* Світла тема для статей — теплий крем + карамель */
 
 html[data-theme="light"] .article-shell {
   background:
-    radial-gradient(circle at 0 0,rgba(248,196,136,.25) 0,transparent 55%),
-    #ffffff;
-  border-color:rgba(148,163,184,.6);
-  box-shadow:0 22px 60px rgba(148,163,184,.45);
-  color:#111827;
+    radial-gradient(circle at 0 0, rgba(245,198,150,.22) 0, transparent 52%),
+    linear-gradient(180deg, #fffdf9 0%, #faf4ec 100%);
+  border-color: rgba(104,82,62,.16);
+  box-shadow: 0 22px 48px rgba(98,76,56,.12);
+  color: #2b2119;
+}
+
+html[data-theme="light"] .article-tag {
+  background: #fffaf4;
+  border-color: rgba(104,82,62,.18);
+  color: #7a6b5f;
+}
+
+html[data-theme="light"] h1 {
+  color: #2b2119;
 }
 
 html[data-theme="light"] .article-meta,
 html[data-theme="light"] .article-deck {
-  color:#4b5563;
+  color: #6a5b50;
 }
 
 html[data-theme="light"] .article-body {
-  color:#111827;
+  color: #3a2c23;
+}
+
+html[data-theme="light"] .article-body h2,
+html[data-theme="light"] .article-body h3 {
+  color: #2b2119;
+}
+
+html[data-theme="light"] .article-body p,
+html[data-theme="light"] .article-body li {
+  color: #4f433a;
+}
+
+html[data-theme="light"] .article-body strong {
+  color: #2b2119;
 }
 
 html[data-theme="light"] .article-callout {
-  background:rgba(254,243,199,.9);
-  border-color:rgba(245,158,11,.7);
-  color:#78350f;
+  background: linear-gradient(180deg, #fff8ec 0%, #fff1dd 100%);
+  border-color: rgba(213,128,52,.36);
+  color: #6b4426;
+  box-shadow: 0 8px 20px rgba(216,134,61,.08);
 }
 
 html[data-theme="light"] .article-video {
-  border-color:rgba(148,163,184,.7);
-  box-shadow:0 18px 42px rgba(148,163,184,.45);
+  border-color: rgba(104,82,62,.16);
+  box-shadow: 0 16px 34px rgba(98,76,56,.12);
+}
+
+html[data-theme="light"] .article-cta {
+  border-top: 1px solid rgba(104,82,62,.14);
+  color: #5f5146;
 }
 
 html[data-theme="light"] .btn {
-  background:#ffffff;
-  border-color:rgba(148,163,184,.8);
-  color:#111827;
-  box-shadow:0 10px 26px rgba(148,163,184,.35);
+  background: #fffaf4;
+  border-color: rgba(104,82,62,.18);
+  color: #2b2119;
+  box-shadow: 0 8px 18px rgba(98,76,56,.08);
 }
 
 html[data-theme="light"] .btn:hover {
-  background:#fffbeb;
-  border-color:rgba(251,191,36,.9);
+  background: #fff2e3;
+  border-color: rgba(213,128,52,.38);
+  color: #2b2119;
 }
 
 /* Адаптив */

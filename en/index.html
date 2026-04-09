@@ -20,11 +20,13 @@
   <link rel="stylesheet" href="/static/css/layout-home.css">
 </head>
 <body>
-  <div class="lang-switcher">
-    <button class="lang-btn" aria-label="Українська" data-href="/">🇺🇦</button>
-    <button class="lang-btn active" aria-label="English" data-href="/en/">🇬🇧</button>
-    <button class="lang-btn" aria-label="Español" data-href="/es/">🇪🇸</button>
-  </div>
+  <details class="lang-switcher">
+    <summary>🇬🇧</summary>
+    <div class="lang-list">
+      <a href="/index.html" aria-label="Українська">🇺🇦</a>
+      <a href="/es/index.html" aria-label="Español">🇪🇸</a>
+    </div>
+  </details>
 
   <div class="progress" id="progress"></div>
 
@@ -38,6 +40,7 @@
       </div>
       <nav class="menu">
         <div class="menu-group">
+          <a href="/en/">Home</a>
           <a href="/finlab/" class="menu-highlight">FinLab</a>
           <a href="/en/about/">About</a>
         </div>

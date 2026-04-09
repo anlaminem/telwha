@@ -208,11 +208,13 @@
   </style>
 </head>
 <body>
-  <div class="lang-switcher">
-    <button class="lang-btn" aria-label="Українська" data-href="/about/">🇺🇦</button>
-    <button class="lang-btn active" aria-label="English" data-href="/en/about/">🇬🇧</button>
-    <button class="lang-btn" aria-label="Español" data-href="/es/about/">🇪🇸</button>
-  </div>
+  <details class="lang-switcher">
+    <summary>🇬🇧</summary>
+    <div class="lang-list">
+      <a href="/about/" aria-label="Українська">🇺🇦</a>
+      <a href="/es/about/" aria-label="Español">🇪🇸</a>
+    </div>
+  </details>
 
   <header class="topbar">
     <div class="wrap nav">
@@ -225,10 +227,13 @@
       <nav class="menu">
         <div class="menu-group">
           <a href="/en/">Home</a>
-          <a href="/finlab/">FinLab</a>
+          <a href="/finlab/" class="menu-highlight">FinLab</a>
+          <a href="/en/about/">About</a>
         </div>
         <div class="menu-group menu-dropdown">
-          <button type="button" class="menu-dropbtn">For traders ▾</button>
+          <button type="button" class="menu-dropbtn">
+            For traders▾
+          </button>
           <div class="menu-dropcontent">
             <a href="/en/trader-course/">Mini‑course</a>
             <a href="/en/archetype-test/">Archetype test</a>

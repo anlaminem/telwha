@@ -20,15 +20,17 @@
   <link rel="stylesheet" href="/static/css/layout-reviews.css">
 </head>
 <body>
-  <div class="lang-switcher">
-    <button class="lang-btn" aria-label="Українська" data-href="/reviews/">🇺🇦</button>
-    <button class="lang-btn" aria-label="English" data-href="/en/reviews/">🇬🇧</button>
-    <button class="lang-btn active" aria-label="Español" data-href="/es/reviews/">🇪🇸</button>
-  </div>
+  <details class="lang-switcher">
+    <summary>🇪🇸</summary>
+    <div class="lang-list">
+      <a href="/reviews/" aria-label="Українська">🇺🇦</a>
+      <a href="/en/reviews/" aria-label="English">🇬🇧</a>
+    </div>
+  </details>
 
   <div class="progress" id="progress"></div>
 
-  <header class="topbar">
+ <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
         <a class="brand-row" href="/es/">
@@ -38,23 +40,20 @@
       </div>
       <nav class="menu">
         <div class="menu-group">
-          <a href="/es/" class="menu-primary">Inicio</a>
-          <a href="/finlab/" class="menu-highlight">FinLab</a>
+          <a href="/es/">Inicio</a>
+          <a href="/finlab/">FinLab</a>
           <a href="/es/about/">Sobre mí</a>
         </div>
-
         <div class="menu-group menu-dropdown">
-          <button type="button" class="menu-dropbtn">
-            Para traders ▾
-          </button>
+          <button type="button" class="menu-dropbtn">Para traders ▾</button>
           <div class="menu-dropcontent">
-            <a href="/es/trader-course/">Mini curso</a>
+            <a href="/es/trader-course/">Mini‑curso</a>
             <a href="/es/archetype-test/">Test de arquetipos</a>
           </div>
         </div>
-
         <div class="menu-group">
           <a href="/es/articles/">Artículos</a>
+          <a href="/es/reviews/">Testimonios</a>
           <a href="/es/cases/">Casos</a>
           <a href="/es/contact/">Contacto</a>
         </div>

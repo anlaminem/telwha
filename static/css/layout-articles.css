@@ -292,110 +292,122 @@ h1 {
     border-radius: 20px;
   }
 }
-/* LIGHT THEME: HERO + TEXT */
+/* LIGHT THEME: HERO + TEXT — теплий крем + карамель */
 
 html[data-theme="light"] body{
-  background: radial-gradient(circle at top left,#fdf5ec 0,#f5f7fb 55%,#ecf1ff 100%);
-  color:#020617;
+  background:
+    radial-gradient(circle at 0% 0%, #fff7ee 0, transparent 42%),
+    radial-gradient(circle at 100% 14%, #fde4c8 0, transparent 42%),
+    linear-gradient(180deg, #f7efe4 0%, #f2e7da 52%, #efe1d2 100%);
+  color:#2b2119;
 }
 
 html[data-theme="light"] .hero-shell{
   background:
-    radial-gradient(circle at 0 0,rgba(248,196,136,.30) 0,transparent 45%),
-    radial-gradient(circle at 100% 100%,rgba(129,140,248,.22) 0,transparent 55%),
-    linear-gradient(145deg,#ffffff 0,#eef2ff 55%,#e5f0ff 100%);
-  border-color:rgba(148,163,184,.6);
-  box-shadow:0 22px 60px rgba(148,163,184,.45);
+    radial-gradient(circle at 0 0,rgba(245,198,150,.26) 0,transparent 45%),
+    radial-gradient(circle at 100% 100%,rgba(232,165,92,.20) 0,transparent 55%),
+    linear-gradient(135deg,#fffdf9 0,#f7efe4 55%,#f2e4d5 100%);
+  border-color:rgba(104,82,62,.18);
+  box-shadow:0 22px 48px rgba(98,76,56,.12);
+}
+
+html[data-theme="light"] h1{
+  color:#2b2119;
 }
 
 html[data-theme="light"] .page-sub{
-  color:#4b5563;
+  color:#5f5146;
 }
 
 html[data-theme="light"] .eyebrow{
-  color:#9ca3af;
+  color:#8a7666;
+}
+
+html[data-theme="light"] .eyebrow::before{
+  background:#d58034;
 }
 
 /* LIGHT THEME: FEATURED CARD */
 
 html[data-theme="light"] .hero-featured{
-  background:#ffffff;
-  border-color:rgba(148,163,184,.7);
-  box-shadow:0 16px 40px rgba(148,163,184,.4);
-  color:#111827;
+  background:linear-gradient(180deg,#fffdf9 0%,#fff6eb 100%);
+  border-color:rgba(104,82,62,.18);
+  box-shadow:0 18px 40px rgba(98,76,56,.12);
+  color:#2b2119;
 }
 
 html[data-theme="light"] .hero-featured-label{
-  background:rgba(254,243,199,.9);
-  border-color:rgba(245,158,11,.7);
-  color:#9a3412;
+  background:rgba(255,248,232,.96);
+  border-color:rgba(213,128,52,.5);
+  color:#b4591f;
 }
 
 html[data-theme="light"] .hero-featured-meta,
 html[data-theme="light"] .hero-featured p{
-  color:#4b5563;
+  color:#5f5146;
 }
 
 html[data-theme="light"] .hero-featured a{
-  color:#ea7a22;
+  color:#d87932;
 }
 
 /* LIGHT THEME: FILTER CHIPS */
 
 html[data-theme="light"] .filter-chip{
-  background:#ffffff;
-  border-color:rgba(148,163,184,.7);
-  color:#4b5563;
-  box-shadow:0 8px 18px rgba(148,163,184,.35);
+  background:#fffaf4;
+  border-color:rgba(104,82,62,.18);
+  color:#5f5146;
+  box-shadow:0 8px 18px rgba(98,76,56,.10);
 }
 
 html[data-theme="light"] .filter-chip:hover{
-  border-color:rgba(251,191,36,.8);
-  background:#fffbeb;
-  color:#111827;
+  border-color:rgba(213,128,52,.48);
+  background:#fff2e3;
+  color:#2b2119;
 }
 
 html[data-theme="light"] .filter-chip.active{
-  background:linear-gradient(135deg,#fffbeb,#fefce8);
-  border-color:rgba(251,191,36,.95);
-  color:#111827;
+  background:linear-gradient(135deg,#fff5e6,#ffeed8);
+  border-color:rgba(213,128,52,.9);
+  color:#2b2119;
 }
 
 /* LIGHT THEME: ARTICLE CARDS */
 
 html[data-theme="light"] .article-card{
-  background:#ffffff;
-  border-color:rgba(148,163,184,.7);
-  box-shadow:0 16px 40px rgba(148,163,184,.4);
-  color:#111827;
+  background:linear-gradient(180deg,#fffdf9 0%,#fff7ef 100%);
+  border-color:rgba(104,82,62,.18);
+  box-shadow:0 18px 40px rgba(98,76,56,.12);
+  color:#2b2119;
 }
 
 html[data-theme="light"] .article-title{
-  color:#020617;
+  color:#2b2119;
 }
 
 html[data-theme="light"] .article-meta,
 html[data-theme="light"] .article-excerpt{
-  color:#4b5563;
+  color:#5f5146;
 }
 
 html[data-theme="light"] .article-tag{
-  background:#f9fafb;
-  border-color:rgba(148,163,184,.8);
-  color:#4b5563;
+  background:#fffaf4;
+  border-color:rgba(104,82,62,.20);
+  color:#7a6b5f;
 }
 
 html[data-theme="light"] .article-link{
-  background:#f9fafb;
-  border-color:rgba(148,163,184,.8);
-  color:#111827;
+  background:#fffaf4;
+  border-color:rgba(104,82,62,.20);
+  color:#2b2119;
+  box-shadow:0 8px 18px rgba(98,76,56,.08);
 }
 
 html[data-theme="light"] .article-link:hover{
-  background:#fffbeb;
-  border-color:rgba(251,191,36,.9);
+  background:#fff2e3;
+  border-color:rgba(213,128,52,.5);
 }
 
 html[data-theme="light"] .article-video-flag{
-  color:#9ca3af;
+  color:#8f7c6d;
 }

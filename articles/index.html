@@ -20,38 +20,37 @@
   <link rel="stylesheet" href="/static/css/layout-articles.css">
 </head>
 <body>
-  <div class="lang-switcher">
-    <button class="lang-btn" aria-label="Українська" data-href="/articles/">🇺🇦</button>
-    <button class="lang-btn active" aria-label="English" data-href="/en/articles/">🇬🇧</button>
-    <button class="lang-btn" aria-label="Español" data-href="/es/articles/">🇪🇸</button>
-  </div>
+  <details class="lang-switcher">
+    <summary>🇺🇦</summary>
+    <div class="lang-list">
+      <a href="/en/articles/" aria-label="English">🇬🇧</a>
+      <a href="/es/articles/" aria-label="Español">🇪🇸</a>
+    </div>
+  </details>
 
-  <header class="topbar">
+   <header class="topbar">
     <div class="wrap nav">
-      <a class="brand" href="/">
-        <div class="brand-row">
+      <div class="brand">
+        <a class="brand-row" href="/">
           <strong>TELWHA</strong>
-        </div>
+        </a>
         <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
-      </a>
+      </div>
       <nav class="menu">
         <div class="menu-group">
-          <a href="/" class="menu-primary">Головна</a>
-          <a href="/finlab/" class="menu-highlight">FinLab</a>
+          <a href="/">Головна</a>
+          <a href="/finlab/">FinLab</a>
           <a href="/about/">Про мене</a>
         </div>
-
         <div class="menu-group menu-dropdown">
-          <button type="button" class="menu-dropbtn">
-            Трейдерам ▾
-          </button>
+          <button type="button" class="menu-dropbtn">Трейдерам▾</button>
           <div class="menu-dropcontent">
             <a href="/trader-course/">Міні‑курс</a>
             <a href="/archetype-test/">Тест архетипів</a>
           </div>
         </div>
-
         <div class="menu-group">
+          <a href="/articles/">Статті</a>
           <a href="/reviews/">Відгуки</a>
           <a href="/cases/">Кейси</a>
           <a href="/contact/">Контакти</a>
