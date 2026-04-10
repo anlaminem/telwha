@@ -96,41 +96,65 @@
       </div>
     </section>
 
-    <!-- FORM -->
-    <section class="section" id="form">
-      <div class="wrap panel">
-        <div class="grid-2">
-          <div>
-            <div class="eyebrow" style="color:#f0b376">Форма</div>
-            <h2 class="section-title">Залишити запит</h2>
-            <p class="section-sub">
-              Після відправки запит піде в Telegram — @AnnaFinPsy.
-            </p>
-            <p class="small">
-              Опишіть, будь ласка, коротко, що вам зараз актуально: консультація, FinLab, мінікурс, тест, інше.
-            </p>
-          </div>
-          <div>
-            <form class="form" id="contactForm">
-              <div class="field">
-                <label for="name">Ім’я</label>
-                <input id="name" name="name" type="text" placeholder="Ваше ім’я" required>
-              </div>
-              <div class="field">
-                <label for="contact">Контакт</label>
-                <input id="contact" name="contact" type="text" placeholder="Telegram / email" required>
-              </div>
-              <div class="field">
-                <label for="message">Повідомлення</label>
-                <textarea id="message" name="message" placeholder="Коротко опишіть запит" required></textarea>
-              </div>
-              <button class="btn btn-primary" type="submit">Надіслати</button>
-            </form>
-          </div>
-        </div>
+<!-- FORM -->
+<section class="section" id="form">
+  <div class="wrap panel">
+    <div class="grid-2">
+      <div>
+        <div class="eyebrow" style="color:#f0b376">Форма</div>
+        <h2 class="section-title">Залишити запит</h2>
+        <p class="section-sub">
+          Запит буде надіслано мені на пошту.
+        </p>
+        <p class="small">
+          Опишіть, будь ласка, коротко, що вам зараз актуально: консультація, FinLab, мінікурс, тест, інше.
+        </p>
       </div>
-    </section>
-  </main>
+
+      <div>
+        <form class="form" id="contactForm" novalidate>
+          <div class="field">
+            <label for="name">Ім’я</label>
+            <input id="name" name="name" type="text" placeholder="Ваше ім’я" required>
+          </div>
+
+          <div class="field">
+            <label for="contact">Контакт</label>
+            <input
+              id="contact"
+              name="contact"
+              type="text"
+              placeholder="+380..., @username або email"
+              required
+            >
+            <small class="field-hint">Вкажіть телефон, Telegram @username або email</small>
+          </div>
+
+          <div class="field">
+            <label for="message">Повідомлення</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Коротко опишіть запит"
+              required
+            ></textarea>
+          </div>
+
+          <div style="position:absolute;left:-5000px;" aria-hidden="true">
+            <label for="website">Не заповнюйте це поле</label>
+            <input id="website" type="text" name="_honey" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button class="btn btn-primary" type="submit">Надіслати</button>
+
+          <!-- Порожній: текст вставляє JS залежно від мови -->
+          <p id="formStatus" style="display:none;margin-top:12px;color:#f0b376;"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <footer class="footer">
     <div class="wrap">

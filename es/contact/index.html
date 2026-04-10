@@ -99,7 +99,7 @@
       </div>
     </section>
 
-    <!-- FORMULARIO -->
+        <!-- FORM -->
     <section class="section" id="form">
       <div class="wrap panel">
         <div class="grid-2">
@@ -107,28 +107,50 @@
             <div class="eyebrow" style="color:#f0b376">Formulario</div>
             <h2 class="section-title">Enviar solicitud</h2>
             <p class="section-sub">
-              Después de enviarlo, tu mensaje llegará a Telegram — @AnnaFinPsy.
+              Tu solicitud se enviará a mi correo electrónico.
             </p>
             <p class="small">
-              Por favor, describe brevemente qué necesitas ahora:
-              consulta, FinLab, mini curso, test u otra cosa.
+              Describe brevemente qué necesitas ahora: consulta, FinLab, minicurso, test u otra cosa.
             </p>
           </div>
+
           <div>
-            <form class="form" id="contactForm">
+            <form class="form" id="contactForm" novalidate>
               <div class="field">
                 <label for="name">Nombre</label>
                 <input id="name" name="name" type="text" placeholder="Tu nombre" required>
               </div>
+
               <div class="field">
                 <label for="contact">Contacto</label>
-                <input id="contact" name="contact" type="text" placeholder="Telegram / email" required>
+                <input
+                  id="contact"
+                  name="contact"
+                  type="text"
+                  placeholder="+34..., @usuario o email"
+                  required
+                >
+                <small class="field-hint">Indica un número de teléfono, Telegram @usuario o email</small>
               </div>
+
               <div class="field">
                 <label for="message">Mensaje</label>
-                <textarea id="message" name="message" placeholder="Describe brevemente tu solicitud" required></textarea>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Describe brevemente tu solicitud"
+                  required
+                ></textarea>
               </div>
+
+              <div style="position:absolute;left:-5000px;" aria-hidden="true">
+                <label for="website">No rellenes este campo</label>
+                <input id="website" type="text" name="_honey" tabindex="-1" autocomplete="off">
+              </div>
+
               <button class="btn btn-primary" type="submit">Enviar</button>
+
+              <p id="formStatus" style="display:none;margin-top:12px;color:#f0b376;"></p>
             </form>
           </div>
         </div>

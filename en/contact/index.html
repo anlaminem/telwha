@@ -105,40 +105,62 @@
     </section>
 
     <!-- FORM -->
-    <section class="section" id="form">
-      <div class="wrap panel">
-        <div class="grid-2">
-          <div>
-            <div class="eyebrow" style="color:#f0b376">Form</div>
-            <h2 class="section-title">Send a request</h2>
-            <p class="section-sub">
-              After sending, your message will go to Telegram — @AnnaFinPsy.
-            </p>
-            <p class="small">
-              Please briefly describe what you need right now:
-              consultation, FinLab, mini course, test, or something else.
-            </p>
-          </div>
-          <div>
-            <form class="form" id="contactForm">
-              <div class="field">
-                <label for="name">Name</label>
-                <input id="name" name="name" type="text" placeholder="Your name" required>
-              </div>
-              <div class="field">
-                <label for="contact">Contact</label>
-                <input id="contact" name="contact" type="text" placeholder="Telegram / email" required>
-              </div>
-              <div class="field">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Briefly describe your request" required></textarea>
-              </div>
-              <button class="btn btn-primary" type="submit">Send</button>
-            </form>
-          </div>
+  <section class="section" id="form">
+    <div class="wrap panel">
+      <div class="grid-2">
+        <div>
+          <div class="eyebrow" style="color:#f0b376">Form</div>
+          <h2 class="section-title">Send a request</h2>
+          <p class="section-sub">
+            Your request will be sent to my email.
+          </p>
+          <p class="small">
+            Briefly describe what you need right now: consultation, FinLab, mini‑course, test, or something else.
+          </p>
+        </div>
+
+        <div>
+          <form class="form" id="contactForm" novalidate>
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required>
+            </div>
+
+            <div class="field">
+              <label for="contact">Contact</label>
+              <input
+                id="contact"
+                name="contact"
+                type="text"
+                placeholder="+380..., @username or email"
+                required
+              >
+              <small class="field-hint">Enter a phone number, Telegram @username or email</small>
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Briefly describe your request"
+                required
+              ></textarea>
+            </div>
+
+            <div style="position:absolute;left:-5000px;" aria-hidden="true">
+              <label for="website">Do not fill in this field</label>
+              <input id="website" type="text" name="_honey" tabindex="-1" autocomplete="off">
+            </div>
+
+            <button class="btn btn-primary" type="submit">Send</button>
+
+            <p id="formStatus" style="display:none;margin-top:12px;color:#f0b376;"></p>
+          </form>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
   </main>
 
   <footer class="footer">

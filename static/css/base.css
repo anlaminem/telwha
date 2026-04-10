@@ -524,3 +524,9 @@ html[data-theme="light"] .footer-bottom {
     flex-direction: column;
   }
 }
+  .field-hint {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+  }
