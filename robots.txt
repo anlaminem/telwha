@@ -2,3 +2,16 @@ User-agent: *
 Allow: /
 
 Sitemap: https://t-e-l-w-h-a.com/sitemap.xml
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
