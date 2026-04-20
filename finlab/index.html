@@ -1,2682 +1,1200 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <title>Money Test – FinLab TELWHA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FinLab by TELWHA — тест фінансової поведінки українців</title>
+  <meta name="description" content="FinLab by TELWHA — анонімний тест фінансової поведінки українців. Побачте свій архетип, сценарії стресу та своє місце в анонімній статистиці." />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap"
-    rel="stylesheet"
-  >
+  <!-- підключаємо такі ж стилі, як на головній -->
+  <link rel="stylesheet" href="/static/css/base.css">
+  <link rel="stylesheet" href="/static/css/layout-home.css">
 
   <style>
-    :root {
-      --bg-main: #050608;
-      --bg-card: rgba(15, 15, 20, 0.92);
-      --bg-card-soft: rgba(18, 18, 24, 0.88);
-      --border-subtle: rgba(255, 255, 255, 0.06);
-      --accent: #b0a068;
-      --text-main: #f5f3ed;
-      --text-muted: #a6a3a0;
-      --text-soft: #787470;
-      --radius-lg: 18px;
-      --radius-full: 999px;
-      --shadow-soft: 0 22px 60px rgba(0, 0, 0, 0.7);
-      --shadow-chip: 0 8px 30px rgba(0, 0, 0, 0.55);
-      --space-1: 4px;
-      --space-2: 8px;
-      --space-3: 12px;
-      --space-4: 16px;
-      --space-5: 20px;
-      --space-6: 24px;
-      --space-8: 32px;
-      --space-10: 40px;
-      --space-12: 48px;
-      --space-16: 64px;
-      --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
-      --transition-med: 220ms cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
-
-    body {
-      min-height: 100vh;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #15151e 0, #050608 42%, #020306 100%);
-      color: var(--text-main);
-      padding: var(--space-6) var(--space-3) var(--space-10);
-    }
-
-    .shell { max-width: 1120px; margin: 0 auto; }
-
-    header.app-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: var(--space-8);
-      gap: var(--space-4);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-    }
-
-    .brand-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 40%;
-      background: radial-gradient(circle at 20% 10%, #f8f4e4 0, #c6b27b 25%, #6b5a32 60%, #0f1012 100%);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.7);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .brand-mark::after {
-      content: "";
-      position: absolute;
-      inset: 28% 26%;
-      border-radius: 999px 999px 60% 60%;
-      border: 1px solid rgba(10, 10, 10, 0.6);
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(2px);
-    }
-
-    .brand-text-main {
-      font-family: "Playfair Display", "Times New Roman", serif;
-      font-size: 18px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .brand-text-sub {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-soft);
-    }
-
-    header.app-header nav {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      font-size: 13px;
-      color: var(--text-soft);
-    }
-
-    header.app-header nav span.dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 999px;
-      background: var(--accent);
-      opacity: 0.7;
-    }
-     .header-actions {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-.theme-toggle {
-  border-radius: var(--radius-full);
-  border: 1px solid var(--border-subtle);
-  background: var(--bg-card);
-  color: var(--text-main);
-  padding: 9px 14px;
-  min-height: 40px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  box-shadow: var(--shadow-chip);
-  transition:
-    background var(--transition-fast),
-    color var(--transition-fast),
-    border-color var(--transition-fast),
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast);
-}
-
-.theme-toggle:hover {
-  transform: translateY(-1px);
-  border-color: var(--border-strong);
-}
-
-.theme-toggle-icon {
-  font-size: 14px;
-  line-height: 1;
-}
-
-.theme-toggle-label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--text-soft);
-}
-
-@media (max-width: 640px) {
-  header.app-header {
-    align-items: flex-start;
-    flex-direction: column;
+  :root{
+    --bg:#05060b;
+    --bg-soft:#0b0e17;
+    --card:#101420;
+    --card-2:#0d111b;
+    --line:rgba(255,255,255,.07);
+    --text:#f4f6fb;
+    --muted:#a1a8bd;
+    --soft:#cdd3e3;
+    --accent:#d9ba72;
+    --accent-2:#8cb7ff;
+    --accent-3:#ef8c8c;
+    --accent-4:#74d7b0;
+    --radius-xl:26px;
+    --radius-lg:20px;
+    --radius-md:14px;
+    --pill:999px;
+    --shadow:0 20px 60px rgba(0,0,0,.55);
+    --transition:180ms cubic-bezier(.16,1,.3,1);
+    --wrap:1120px;
   }
 
-  .header-actions {
-    width: 100%;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  /* базова темна тема FinLab (як у тебе було) */
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    min-height:100vh;
+    font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(circle at top left, rgba(217,186,114,.08), transparent 25%),
+      radial-gradient(circle at top right, rgba(140,183,255,.07), transparent 28%),
+      linear-gradient(180deg, #06070c 0%, #05060b 100%);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
   }
 
-  .theme-toggle {
-    min-height: 38px;
+  a{text-decoration:none;color:inherit}
+  button{font:inherit}
+  img{max-width:100%;display:block}
+
+  .finlab-wrap{
+    max-width:var(--wrap);
+    margin:0 auto;
+    padding:28px 20px 80px;
   }
-}
-    .pill {
-      border-radius: var(--radius-full);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(6, 7, 9, 0.9);
-      padding: 6px 12px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-soft);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .pill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 3px rgba(176, 160, 104, 0.12);
-    }
-
-    main.hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-      gap: var(--space-6);
-      margin-bottom: var(--space-10);
-    }
-
-    @media (max-width: 840px) {
-      main.hero { grid-template-columns: minmax(0, 1fr); }
-    }
-
-    .hero-left {
-      padding: var(--space-6);
-      border-radius: var(--radius-lg);
-      background: linear-gradient(145deg, rgba(18, 18, 24, 0.95), rgba(10, 10, 16, 0.98));
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-left::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background:
-        radial-gradient(circle at 0% 0%, rgba(206, 190, 131, 0.12) 0, transparent 54%),
-        radial-gradient(circle at 110% 20%, rgba(153, 205, 255, 0.06) 0, transparent 55%),
-        radial-gradient(circle at 50% 110%, rgba(255, 255, 255, 0.03) 0, transparent 55%);
-      opacity: 0.9;
-      pointer-events: none;
-    }
-
-    .hero-content { position: relative; z-index: 1; }
-    .hero-kicker { margin-bottom: var(--space-3); }
-
-    .hero-title {
-      font-family: "Playfair Display", "Times New Roman", serif;
-      font-size: clamp(28px, 4vw, 36px);
-      line-height: 1.1;
-      margin-bottom: var(--space-3);
-    }
-
-    .hero-title span.accent { color: var(--accent); }
-
-    .hero-sub {
-      font-size: 14px;
-      color: var(--text-muted);
-      max-width: 54ch;
-      margin-bottom: var(--space-5);
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-3);
-      font-size: 12px;
-      color: var(--text-soft);
-    }
-
-    .hero-meta strong {
-      font-weight: 500;
-      color: var(--text-main);
-    }
-
-    .hero-right {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-3);
-    }
-
-    .hero-card {
-      padding: var(--space-4);
-      border-radius: var(--radius-lg);
-      background: var(--bg-card-soft);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.8);
-    }
-
-    .hero-card h3 {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-soft);
-      margin-bottom: var(--space-2);
-    }
-
-    .hero-card p {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .hero-progress {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-3);
-      font-size: 12px;
-      color: var(--text-soft);
-    }
-
-    .progress-bar-track {
-      flex: 1;
-      height: 6px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.06);
-      overflow: hidden;
-    }
-
-    .progress-bar-fill {
-      width: 0%;
-      height: 100%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent), #e0cf91);
-      box-shadow: 0 0 10px rgba(176, 160, 104, 0.8);
-      transition: width var(--transition-med);
-    }
-
-    .section { margin-bottom: var(--space-10); }
-    .section-header { margin-bottom: var(--space-4); }
-
-    .section-kicker {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-soft);
-      margin-bottom: var(--space-1);
-    }
-
-    .section-title {
-      font-size: 18px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .section-sub {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-top: var(--space-2);
-      max-width: 60ch;
-    }
-
-    .card {
-      border-radius: var(--radius-lg);
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      box-shadow: var(--shadow-soft);
-      padding: var(--space-5);
-    }
-
-    .question-group {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-4);
-    }
-
-    .question-block {
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      background: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.04) 0, transparent 55%), rgba(10, 10, 14, 0.9);
-      padding: var(--space-4);
-      scroll-margin-top: 128px;
-      transition:
-        border-color var(--transition-fast),
-        box-shadow var(--transition-fast),
-        background var(--transition-fast),
-        transform var(--transition-fast);
-    }
-
-    .question-block--active {
-      border-color: rgba(224, 207, 145, 0.4);
-      box-shadow: 0 0 0 1px rgba(224, 207, 145, 0.2), 0 18px 40px rgba(0, 0, 0, 0.82);
-    }
-
-    /* НОВЕ: підсвітка помилкових блоків */
-    .question-block--error {
-      border-color: rgba(240, 116, 116, 0.9);
-      box-shadow:
-        0 0 0 1px rgba(240, 116, 116, 0.6),
-        0 18px 40px rgba(0, 0, 0, 0.9);
-      background:
-        radial-gradient(circle at 0 0, rgba(240, 116, 116, 0.18) 0, transparent 55%),
-        rgba(16, 6, 8, 0.95);
-      transform: translateY(-1px);
-    }
-
-    .question-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: var(--text-soft);
-      margin-bottom: var(--space-2);
-    }
-
-    .question-label span.badge {
-      padding: 3px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(8, 8, 12, 0.85);
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--text-soft);
-    }
-
-    .question-text {
-      font-size: 14px;
-      margin-bottom: var(--space-3);
-    }
-
-    .options-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-2);
-    }
-
-    .option-chip {
-      border-radius: var(--radius-full);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(8, 8, 12, 0.8);
-      color: var(--text-muted);
-      padding: 8px 12px;
-      font-size: 13px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: var(--shadow-chip);
-      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
-    }
-
-    .option-chip span.index {
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      color: var(--text-soft);
-      background: rgba(6, 6, 10, 0.9);
-    }
-
-    .option-chip:hover {
-      border-color: rgba(255, 255, 255, 0.4);
-      color: var(--text-main);
-      transform: translateY(-1px);
-      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.75);
-    }
-
-    .option-chip.selected {
-      border-color: rgba(224, 207, 145, 0.9);
-      background: radial-gradient(circle at 0 0, rgba(224, 207, 145, 0.28) 0, rgba(10, 10, 14, 0.95) 40%);
-      color: var(--text-main);
-      box-shadow: 0 0 0 1px rgba(224, 207, 145, 0.65), 0 18px 40px rgba(0, 0, 0, 0.85);
-    }
-
-    .option-chip.selected span.index {
-      border-color: rgba(224, 207, 145, 0.9);
-      color: var(--accent);
-      background: rgba(8, 8, 10, 0.96);
-    }
-
-    .question-inline-hint {
-      margin-top: 10px;
-      font-size: 12px;
-      color: var(--text-soft);
-      min-height: 16px;
-    }
-
-    .question-inline-hint.is-warning {
-      color: #f0b8b8;
-    }
-
-    .ux-sticky {
-      position: sticky;
-      top: 12px;
-      z-index: 20;
-      margin: 0 0 var(--space-6);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(8, 8, 12, 0.88);
-      backdrop-filter: blur(18px);
-      box-shadow: var(--shadow-soft);
-      padding: var(--space-4);
-    }
-
-    .ux-sticky-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-3);
-      flex-wrap: wrap;
-      margin-bottom: var(--space-3);
-    }
-
-    .ux-sticky-title {
-      font-size: 13px;
-      color: var(--text-main);
-    }
-
-    .ux-sticky-sub {
-      font-size: 12px;
-      color: var(--text-soft);
-      margin-top: 2px;
-    }
-
-    .ux-sticky-actions {
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      flex-wrap: wrap;
-    }
-
-    .btn-secondary {
-      border-radius: var(--radius-full);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text-main);
-      padding: 10px 14px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      cursor: pointer;
-      transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
-    }
-
-    .btn-secondary:hover {
-      border-color: rgba(224, 207, 145, 0.48);
-      background: rgba(224, 207, 145, 0.08);
-      transform: translateY(-1px);
-    }
-
-    .section-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-2);
-      margin-top: var(--space-3);
-    }
-
-    .section-pill {
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.03);
-      color: var(--text-muted);
-      padding: 8px 12px;
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .section-pill strong {
-      color: var(--text-main);
-      font-weight: 600;
-      margin-right: 6px;
-    }
-
-    .section-pill.is-current {
-      border-color: rgba(224, 207, 145, 0.4);
-      background: rgba(224, 207, 145, 0.08);
-      color: var(--text-main);
-    }
-
-    .section-pill.is-complete {
-      border-color: rgba(127, 199, 149, 0.35);
-      background: rgba(127, 199, 149, 0.08);
-    }
-
-    .submit-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-3);
-      margin-top: var(--space-6);
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      border-radius: var(--radius-full);
-      border: 1px solid rgba(224, 207, 145, 0.55);
-      padding: 11px 22px;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      background: rgba(224, 207, 145, 0.1);
-      color: var(--text-main);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
-    }
-
-    .btn-primary:hover {
-      background: rgba(224, 207, 145, 0.18);
-      border-color: rgba(224, 207, 145, 0.8);
-      transform: translateY(-1px);
-    }
-
-    .btn-primary:disabled {
-      opacity: 0.45;
-      cursor: default;
-      transform: none;
-    }
-
-    .submit-hint {
-      font-size: 12px;
-      color: var(--text-soft);
-      max-width: 46ch;
-    }
-
-    .submit-hint strong {
-      color: var(--text-main);
-      font-weight: 500;
-    }
-
-    /* ── Theme presets for all 13 archetypes ────────────────────────────────
-       Short classifier selects from ZP, FS, PN, VV, TS, DS.
-       Presets for remaining archetypes ready for full-version use.  */
-    :root {
-      --theme-accent: var(--accent);
-      --theme-surface: rgba(18, 18, 24, 0.96);
-      --theme-border: rgba(224, 207, 145, 0.18);
-    }
-    .theme-ZP { --theme-accent: #c89b6e; --theme-surface: rgba(20,14,8,0.97); --theme-border: rgba(200,155,110,0.22); }
-    .theme-SK { --theme-accent: #9ea87c; --theme-surface: rgba(14,16,10,0.97); --theme-border: rgba(158,168,124,0.22); }
-    .theme-FS { --theme-accent: #8aa8c0; --theme-surface: rgba(10,14,20,0.97); --theme-border: rgba(138,168,192,0.22); }
-    .theme-PN { --theme-accent: #a89fcf; --theme-surface: rgba(14,12,20,0.97); --theme-border: rgba(168,159,207,0.22); }
-    .theme-VV { --theme-accent: #c08080; --theme-surface: rgba(20,10,10,0.97); --theme-border: rgba(192,128,128,0.22); }
-    .theme-SB { --theme-accent: #88b8a0; --theme-surface: rgba(10,18,14,0.97); --theme-border: rgba(136,184,160,0.22); }
-    .theme-OP { --theme-accent: #c0b055; --theme-surface: rgba(18,16,6,0.97); --theme-border: rgba(192,176,85,0.22); }
-    .theme-KI { --theme-accent: #7eb8b8; --theme-surface: rgba(8,16,18,0.97); --theme-border: rgba(126,184,184,0.22); }
-    .theme-TS { --theme-accent: #b0a068; --theme-surface: rgba(18,18,24,0.97); --theme-border: rgba(176,160,104,0.22); }
-    .theme-DS { --theme-accent: #d07858; --theme-surface: rgba(20,12,8,0.97); --theme-border: rgba(208,120,88,0.22); }
-    .theme-FN { --theme-accent: #b85858; --theme-surface: rgba(20,8,8,0.97); --theme-border: rgba(184,88,88,0.22); }
-    .theme-MR { --theme-accent: #9898c8; --theme-surface: rgba(12,10,20,0.97); --theme-border: rgba(152,152,200,0.22); }
-    .theme-KG { --theme-accent: #78a898; --theme-surface: rgba(8,16,14,0.97); --theme-border: rgba(120,168,152,0.22); }
-
-    .result-section {
-      margin-top: var(--space-10);
-      margin-bottom: var(--space-10);
-    }
-
-    .result-card {
-      border-radius: var(--radius-lg);
-      background: var(--theme-surface, rgba(18, 18, 24, 0.96));
-      transition: background 0.35s ease;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: var(--shadow-soft);
-      padding: var(--space-5);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .result-card::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background:
-        radial-gradient(circle at 0 0, rgba(224, 207, 145, 0.2) 0, transparent 55%),
-        radial-gradient(circle at 120% 0, rgba(122, 190, 255, 0.12) 0, transparent 60%);
-      opacity: 0.9;
-      pointer-events: none;
-    }
-
-    .result-inner {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      gap: var(--space-4);
-    }
-
-    .result-hero-panel {
-      padding: 24px;
-      border-radius: 20px;
-      border: 1px solid var(--theme-border, rgba(224, 207, 145, 0.18));
-      background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
-    }
-
-    .result-hero-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) 140px;
-      gap: 22px;
-      align-items: center;
-    }
-
-    .result-hero-copy {
-      min-width: 0;
-    }
-
-    .result-hero-badge {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .archetype-medallion {
-      width: 116px;
-      height: 116px;
-      border-radius: 999px;
-      border: 1px solid rgba(224, 207, 145, 0.25);
-      background:
-        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.34) 0, rgba(224,207,145,0.18) 22%, rgba(25,24,19,0.95) 65%, rgba(8,8,10,0.98) 100%);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.12),
-        0 20px 45px rgba(0,0,0,0.55);
-      display: grid;
-      place-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .archetype-medallion::before {
-      content: "";
-      position: absolute;
-      inset: 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .archetype-medallion-label {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      color: var(--text-main);
-    }
-
-    .archetype-medallion-code {
-      font-family: "Playfair Display", serif;
-      font-size: 28px;
-      line-height: 1;
-      color: #f1e4b3;
-      letter-spacing: 0.08em;
-    }
-
-    .archetype-medallion-word {
-      margin-top: 6px;
-      font-size: 9px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text-soft);
-    }
-
-    .result-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: var(--space-4);
-    }
-
-    .result-panel {
-      padding: 20px;
-      border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(14px);
-    }
-
-    .result-panel--wide {
-      grid-column: 1 / -1;
-    }
-
-    .result-panel--accent {
-      background: linear-gradient(145deg, rgba(224, 207, 145, 0.08), rgba(255,255,255,0.03));
-      border-color: rgba(224, 207, 145, 0.18);
-    }
-
-    .result-kicker {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--text-soft);
-      margin-bottom: var(--space-2);
-    }
-
-    .result-archetype {
-      font-family: "Playfair Display", serif;
-      font-size: 34px;
-      line-height: 1.08;
-      margin-bottom: var(--space-2);
-      color: var(--text-main);
-    }
-
-    .result-subtitle {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: var(--space-3);
-      line-height: 1.6;
-    }
-
-    .result-body {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    .result-body p + p {
-      margin-top: var(--space-2);
-    }
-
-    .result-meta {
-      margin-top: var(--space-4);
-      font-size: 12px;
-      color: var(--text-soft);
-    }
-
-    .metric-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .metric-card {
-      padding: 15px 16px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(10, 10, 14, 0.68);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-    }
-
-    .metric-card p {
-      margin: 0;
-      font-size: 12px;
-      line-height: 1.65;
-      color: var(--text-muted);
-    }
-
-    .action-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .action-card {
-      padding: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      background: rgba(255,255,255,0.02);
-    }
-
-    .action-card-title {
-      margin: 0 0 8px 0;
-      font-size: 14px;
-      color: var(--text-main);
-    }
-
-    .action-card p {
-      margin: 0;
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--text-muted);
-    }
-
-    .action-card p + p {
-      margin-top: 8px;
-    }
-
-
-
-    .upgrade-lead {
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--text-muted);
-      margin-bottom: 14px;
-    }
-
-    .upgrade-list {
-      display: grid;
-      gap: 10px;
-      margin: 14px 0 16px;
-    }
-
-    .upgrade-item {
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(10, 10, 14, 0.62);
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--text-muted);
-    }
-
-
-    .theme-toggle{
-  border: 1px solid var(--border-subtle);
-  background: var(--bg-card);
-  color: var(--text-main);
-  border-radius: 999px;
-  padding: 8px 11px;
-  font-size: 14px;
-  line-height: 1;
-  cursor: pointer;
-  box-shadow: var(--shadow-chip);
-  transition:
-    transform var(--transition-fast),
-    border-color var(--transition-fast),
-    background var(--transition-fast);
-}
-
-.theme-toggle:hover{
-  transform: translateY(-1px);
-  border-color: var(--accent);
-}
-    .upgrade-cta {
-      margin-top: 18px;
-      padding: 18px;
-      border-radius: 18px;
-      border: 1px solid rgba(224, 207, 145, 0.2);
-      background: linear-gradient(145deg, rgba(224,207,145,0.1), rgba(255,255,255,0.03));
-    }
-
-    .upgrade-cta-title {
-      margin: 0 0 8px 0;
-      font-size: 16px;
-      color: var(--text-main);
-    }
-
-    .upgrade-cta-copy {
-      margin: 0;
-      font-size: 13px;
-      line-height: 1.7;
-      color: var(--text-muted);
-    }
-
 
-
-
-    /* Emotion badge */
-    .archetype-emotion {
-      display: inline-block;
-      margin-top: 14px;
-      padding: 7px 12px;
-      border-radius: 10px;
-      border: 1px solid var(--theme-border, rgba(224,207,145,0.18));
-      background: rgba(255,255,255,0.03);
-      font-size: 12px;
-      line-height: 1.5;
-      color: var(--text-soft);
-    }
-    .archetype-emotion strong {
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-    /* Typical phrase quote */
-    .archetype-quote {
-      margin: 10px 0 0;
-      padding: 12px 14px 12px 16px;
-      border-left: 2px solid var(--theme-border, rgba(224,207,145,0.35));
-      background: rgba(255,255,255,0.02);
-      border-radius: 0 10px 10px 0;
-      font-size: 13px;
-      font-style: italic;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-    /* result-kicker update */
-    .result-kicker {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: var(--text-soft);
-      margin-bottom: 8px;
-    }
-    /* action meta line */
-    .action-meta {
-      margin-top: 6px;
-      font-size: 11px;
-      color: var(--text-soft);
-    }
-    /* upgrade-cta overrides */
-    .upgrade-cta {
-      margin-top: 18px;
-      padding: 20px;
-      border-radius: 16px;
-      border: 1px solid var(--theme-border, rgba(224, 207, 145, 0.2));
-      background: rgba(255,255,255,0.025);
-    }
-    .upgrade-cta-header { margin-bottom: 12px; }
-    .upgrade-cta-title {
-      margin: 0 0 4px 0;
-      font-family: "Playfair Display", serif;
-      font-size: 20px;
-      color: var(--text-main);
-      line-height: 1.2;
-    }
-    .upgrade-cta-tagline {
-      font-size: 11px;
-      color: var(--text-soft);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-    }
-    .upgrade-cta-features {
-      display: grid;
-      gap: 8px;
-      margin: 14px 0;
-    }
-    .upgrade-cta-feature {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 13px;
-      line-height: 1.55;
-      color: var(--text-muted);
-    }
-    .upgrade-cta-feature-dot {
-      flex-shrink: 0;
-      width: 5px;
-      height: 5px;
-      border-radius: 999px;
-      background: var(--theme-accent, var(--accent));
-      margin-top: 7px;
-    }
-    /* CTA button: no gradient */
-    .upgrade-cta-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 14px;
-      padding: 11px 20px;
-      border-radius: 10px;
-      border: 1px solid var(--theme-accent, var(--accent));
-      background: transparent;
-      color: var(--text-main);
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background var(--transition-fast);
-    }
-    .upgrade-cta-button:hover {
-      background: rgba(176, 160, 104, 0.12);
-    }
-
-    @media (max-width: 840px) {
-      .result-grid,
-      .metric-grid,
-      .result-hero-layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .result-hero-badge {
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .result-card,
-      .result-panel,
-      .result-hero-panel {
-        padding: 16px;
-      }
-
-      .upgrade-title,
-      .result-archetype {
-        font-size: 24px;
-      }
-
-      .archetype-medallion {
-        width: 92px;
-        height: 92px;
-      }
-
-      .archetype-medallion-code {
-        font-size: 22px;
-      }
-    }
-
-    .error-banner {
-      margin-top: var(--space-3);
-      padding: 10px 12px;
-      border-radius: 10px;
-      border: 1px solid rgba(240, 116, 116, 0.7);
-      background: rgba(52, 18, 18, 0.85);
-      color: #fbd7d7;
-      font-size: 12px;
-    }
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-
-    footer {
-      margin-top: var(--space-12);
-      font-size: 11px;
-      color: var(--text-soft);
-      text-align: right;
-    }
-
-    @media (max-width: 640px) {
-      body { padding-inline: var(--space-3); }
-      .card { padding: var(--space-4); }
-      .question-block { padding: var(--space-3); scroll-margin-top: 172px; }
-      .submit-row { align-items: flex-start; }
-      .ux-sticky { top: 8px; padding: var(--space-3); }
-      .ux-sticky-top { align-items: flex-start; }
-      .ux-sticky-actions { width: 100%; }
-      .btn-secondary { width: 100%; justify-content: center; display: inline-flex; }
-      .section-pill { width: 100%; }
-    }
+  .finlab-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:24px;
+  }
+
+  .finlab-brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+
+  .finlab-brand-mark{
+    width:34px;
+    height:34px;
+    border-radius:12px;
+    background:
+      radial-gradient(circle at 28% 28%, #f2ddaa 0, #b6934d 28%, #17130b 68%, #07080c 100%);
+    box-shadow:0 10px 30px rgba(0,0,0,.65);
+    position:relative;
+    overflow:hidden;
+    flex-shrink:0;
+  }
+
+  .finlab-brand-mark:after{
+    content:"";
+    position:absolute;
+    inset:22%;
+    border-radius:999px 999px 55% 55%;
+    border:1px solid rgba(255,255,255,.14);
+    border-top-color:transparent;
+    border-left-color:transparent;
+    transform:rotate(-28deg);
+  }
+
+  .finlab-brand-text-main{
+    font-size:14px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--soft);
+  }
+
+  .finlab-brand-text-sub{
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  .finlab-nav{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+
+  .finlab-nav a{
+    font-size:12px;
+    color:var(--muted);
+    transition:color var(--transition);
+  }
+
+  .finlab-nav a:hover{color:var(--soft)}
+
+  .finlab-hero{
+    display:grid;
+    grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
+    gap:18px;
+    align-items:stretch;
+    margin-bottom:18px;
+  }
+
+  .finlab-hero-copy,
+  .finlab-hero-data{
+    border-radius:var(--radius-xl);
+    border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+
+  .finlab-hero-copy{
+    background:
+      radial-gradient(circle at 0 0, rgba(217,186,114,.10), transparent 36%),
+      linear-gradient(145deg, rgba(18,18,24,.96), rgba(9,10,16,.98));
+    padding:28px;
+  }
+
+  .finlab-eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:7px 12px;
+    border-radius:var(--pill);
+    border:1px solid rgba(217,186,114,.22);
+    background:rgba(8,8,12,.88);
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:14px;
+  }
+
+  .finlab-eyebrow-dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 4px rgba(217,186,114,.12);
+  }
+
+  .finlab-hero h1{
+    font-size:clamp(32px,5vw,50px);
+    line-height:1.02;
+    letter-spacing:-.03em;
+    max-width:11ch;
+    margin-bottom:14px;
+  }
+
+  .finlab-hero-lead{
+    font-size:16px;
+    color:var(--soft);
+    max-width:58ch;
+    margin-bottom:16px;
+  }
+
+  .finlab-hero-points{
+    display:grid;
+    gap:9px;
+    margin-bottom:20px;
+  }
+
+  .finlab-hero-point{
+    display:flex;
+    gap:10px;
+    color:var(--soft);
+    font-size:14px;
+  }
+
+  .finlab-hero-point i{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 10px rgba(217,186,114,.6);
+    flex-shrink:0;
+    margin-top:8px;
+  }
+
+  .finlab-actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+
+  .finlab-btn{
+    border:none;
+    border-radius:var(--pill);
+    padding:12px 18px;
+    font-size:14px;
+    transition:transform var(--transition), background var(--transition), border-color var(--transition), color var(--transition);
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+  }
+
+  .finlab-btn-primary{
+    background:rgba(217,186,114,.14);
+    color:var(--text);
+    border:1px solid rgba(217,186,114,.52);
+  }
+
+  .finlab-btn-primary:hover{
+    transform:translateY(-1px);
+    background:rgba(217,186,114,.22);
+  }
+
+  .finlab-btn-secondary{
+    background:rgba(255,255,255,.03);
+    color:var(--soft);
+    border:1px solid rgba(255,255,255,.08);
+  }
+
+  .finlab-btn-secondary:hover{
+    transform:translateY(-1px);
+    border-color:rgba(255,255,255,.16);
+  }
+
+  .finlab-hero-note{
+    margin-top:14px;
+    font-size:12px;
+    color:var(--muted);
+    max-width:58ch;
+  }
+
+  .finlab-hero-data{
+    background:
+      radial-gradient(circle at top right, rgba(140,183,255,.10), transparent 35%),
+      linear-gradient(160deg, rgba(13,17,28,.98), rgba(8,10,16,.98));
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .finlab-data-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+  }
+
+  .finlab-data-title{
+    font-size:13px;
+    color:var(--soft);
+  }
+
+  .finlab-chip{
+    padding:5px 10px;
+    border-radius:var(--pill);
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    font-size:11px;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+
+  .finlab-total{
+    padding:16px;
+    border-radius:18px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.025);
+  }
+
+  .finlab-total-label{
+    font-size:12px;
+    color:var(--muted);
+    margin-bottom:5px;
+  }
+
+  .finlab-total-value{
+    font-size:34px;
+    line-height:1;
+    color:var(--accent);
+    margin-bottom:6px;
+  }
+
+  .finlab-total-copy{
+    font-size:12px;
+    color:var(--soft);
+  }
+
+  .finlab-stats-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+  }
+
+  .finlab-stat-card{
+    padding:14px;
+    border-radius:16px;
+    background:rgba(255,255,255,.025);
+    border:1px solid var(--line);
+  }
+
+  .finlab-stat-label{
+    font-size:11px;
+    color:var(--muted);
+    margin-bottom:6px;
+  }
+
+  .finlab-stat-value{
+    font-size:24px;
+    line-height:1;
+    margin-bottom:6px;
+  }
+
+  .finlab-stat-value.red{color:var(--accent-3)}
+  .finlab-stat-value.blue{color:var(--accent-2)}
+  .finlab-stat-value.green{color:var(--accent-4)}
+  .finlab-stat-value.gold{color:var(--accent)}
+
+  .finlab-stat-copy{
+    font-size:12px;
+    color:var(--soft);
+  }
+
+  .finlab-section{
+    margin-top:18px;
+    padding:22px;
+    border-radius:var(--radius-xl);
+    border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(13,16,26,.96), rgba(8,10,16,.98));
+    box-shadow:var(--shadow);
+  }
+
+  .finlab-section-kicker{
+    font-size:11px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:4px;
+  }
+
+  .finlab-section h2{
+    font-size:24px;
+    line-height:1.15;
+    margin-bottom:8px;
+  }
+
+  .finlab-section-lead{
+    font-size:14px;
+    color:var(--soft);
+    max-width:72ch;
+  }
+
+  .finlab-split{
+    margin-top:16px;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:14px;
+  }
+
+  .finlab-card{
+    padding:16px;
+    border-radius:18px;
+    background:rgba(255,255,255,.02);
+    border:1px solid var(--line);
+  }
+
+  .finlab-card h3{
+    font-size:16px;
+    margin-bottom:10px;
+  }
+
+  .finlab-list{
+    list-style:none;
+    display:grid;
+    gap:10px;
+  }
+
+  .finlab-list li{
+    display:flex;
+    gap:10px;
+    font-size:13px;
+    color:var(--soft);
+  }
+
+  .finlab-list i{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--accent);
+    margin-top:8px;
+    flex-shrink:0;
+  }
+
+  .finlab-archetypes{
+    margin-top:16px;
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:12px;
+  }
+
+  .finlab-arch{
+    padding:16px;
+    border-radius:18px;
+    background:rgba(255,255,255,.02);
+    border:1px solid var(--line);
+  }
+
+  .finlab-arch-code{
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:6px;
+  }
+
+  .finlab-arch-name{
+    font-size:17px;
+    margin-bottom:6px;
+  }
+
+  .finlab-arch-share{
+    font-size:26px;
+    line-height:1;
+    margin-bottom:8px;
+  }
+
+  .finlab-arch p{
+    font-size:13px;
+    color:var(--soft);
+  }
+
+  .finlab-business-grid{
+    margin-top:16px;
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:12px;
+  }
+
+  .finlab-biz{
+    padding:16px;
+    border-radius:18px;
+    background:rgba(255,255,255,.02);
+    border:1px solid var(--line);
+  }
+
+  .finlab-biz h3{
+    font-size:15px;
+    margin-bottom:7px;
+  }
+
+  .finlab-biz p{
+    font-size:13px;
+    color:var(--soft);
+  }
+
+  .finlab-accordion{
+    margin-top:16px;
+    display:grid;
+    gap:10px;
+  }
+
+  .finlab-acc{
+    border:1px solid var(--line);
+    border-radius:16px;
+    overflow:hidden;
+    background:rgba(255,255,255,.02);
+  }
+
+  .finlab-acc-btn{
+    width:100%;
+    text-align:left;
+    background:transparent;
+    color:var(--text);
+    border:none;
+    padding:14px 16px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+  }
+
+  .finlab-acc-title{
+    font-size:14px;
+    color:var(--soft);
+  }
+
+  .finlab-acc-arrow{
+    color:var(--muted);
+    transition:transform var(--transition);
+    flex-shrink:0;
+  }
+
+  .finlab-acc-panel{
+    display:none;
+    padding:0 16px 14px;
+    font-size:13px;
+    color:var(--soft);
+  }
+
+  .finlab-acc.open .finlab-acc-panel{display:block}
+  .finlab-acc.open .finlab-acc-arrow{transform:rotate(90deg)}
+
+  .finlab-final{
+    margin-top:18px;
+    padding:22px;
+    border-radius:var(--radius-xl);
+    border:1px solid rgba(217,186,114,.18);
+    background:
+      radial-gradient(circle at top left, rgba(217,186,114,.08), transparent 28%),
+      linear-gradient(180deg, rgba(13,16,26,.96), rgba(8,10,16,.98));
+    box-shadow:var(--shadow);
+  }
+
+  .finlab-final h2{
+    font-size:26px;
+    line-height:1.1;
+    margin-bottom:8px;
+  }
+
+  .finlab-final p{
+    font-size:14px;
+    color:var(--soft);
+    max-width:64ch;
+    margin-bottom:16px;
+  }
+
+  .finlab-footer{
+    margin-top:26px;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+    font-size:12px;
+    color:var(--muted);
+  }
+
+  @media (max-width:980px){
+    .finlab-hero,
+    .finlab-archetypes,
+    .finlab-business-grid{
+      grid-template-columns:1fr;
+    }
+  }
+
+  @media (max-width:640px){
+    .finlab-wrap{padding:20px 14px 60px}
+    .finlab-header{flex-direction:column;align-items:flex-start}
+    .finlab-stats-grid{grid-template-columns:1fr}
+    .finlab-actions{flex-direction:column}
+    .finlab-btn{width:100%}
+  }
+
+  /* ===========================
+     LIGHT THEME · FINLAB
+     =========================== */
+
+  html[data-theme="light"] body{
+    color:#201914;
+    background:
+      radial-gradient(circle at top left, #fff6eb 0, transparent 42%),
+      radial-gradient(circle at top right, #fde4c8 0, transparent 40%),
+      linear-gradient(180deg,#f7efe6 0,#f4ebdf 35%,#efe2d4 100%);
+  }
+
+  html[data-theme="light"] :root{
+    --bg:#f4ebe1;
+    --bg-soft:#f9f1e8;
+    --card:#ffffff;
+    --card-2:#fbf3ea;
+    --line:rgba(133,96,63,.22);
+    --text:#201914;
+    --muted:#7b6351;
+    --soft:#5f5146;
+    --accent:#c48a3a;
+    --accent-2:#4d7ac7;
+    --accent-3:#c65353;
+    --accent-4:#2e8c69;
+  }
+
+  html[data-theme="light"] .finlab-wrap{
+    padding-top:30px;
+  }
+
+  html[data-theme="light"] .finlab-brand-text-main{
+    color:#3a2b20;
+  }
+
+  html[data-theme="light"] .finlab-brand-text-sub{
+    color:#8c725f;
+  }
+
+  html[data-theme="light"] .finlab-brand-mark{
+    background:
+      radial-gradient(circle at 26% 26%, #fff4d4 0, #e3b872 32%, #7b5530 70%, #3c2615 100%);
+    box-shadow:0 10px 28px rgba(88,55,24,.55);
+  }
+
+  html[data-theme="light"] .finlab-nav a{
+    color:#7b6351;
+  }
+
+  html[data-theme="light"] .finlab-nav a:hover{
+    color:#3a2b20;
+  }
+
+  html[data-theme="light"] .finlab-hero-copy,
+  html[data-theme="light"] .finlab-hero-data{
+    border-radius:26px;
+    border:1px solid rgba(144,116,87,.28);
+    box-shadow:0 18px 45px rgba(141,112,83,.22);
+  }
+
+  html[data-theme="light"] .finlab-hero-copy{
+    background:
+      radial-gradient(circle at 0 0, rgba(244,212,164,.55) 0, transparent 42%),
+      radial-gradient(circle at 100% 0, rgba(206,225,255,.18) 0, transparent 46%),
+      linear-gradient(145deg,#fffaf5,#f6e7d8);
+  }
+
+  html[data-theme="light"] .finlab-eyebrow{
+    border-color:rgba(196,138,58,.35);
+    background:rgba(255,252,247,.92);
+    color:#8c725f;
+  }
+
+  html[data-theme="light"] .finlab-eyebrow-dot{
+    background:#c48a3a;
+    box-shadow:0 0 0 4px rgba(196,138,58,.22);
+  }
+
+  html[data-theme="light"] .finlab-hero h1{
+    color:#201914;
+  }
+
+  html[data-theme="light"] .finlab-hero-lead{
+    color:#5f5146;
+  }
+
+  html[data-theme="light"] .finlab-hero-point{
+    color:#5f5146;
+  }
+
+  html[data-theme="light"] .finlab-hero-point i{
+    background:#c48a3a;
+  }
+
+  html[data-theme="light"] .finlab-btn{
+    border-radius:999px;
+  }
+
+  html[data-theme="light"] .finlab-btn-primary{
+    background:rgba(196,138,58,.12);
+    border:1px solid rgba(196,138,58,.52);
+    color:#201914;
+  }
+
+  html[data-theme="light"] .finlab-btn-primary:hover{
+    background:rgba(196,138,58,.18);
+    transform:translateY(-1px);
+  }
+
+  html[data-theme="light"] .finlab-btn-secondary{
+    background:rgba(255,255,255,.85);
+    border:1px solid rgba(141,112,83,.25);
+    color:#5f5146;
+  }
+
+  html[data-theme="light"] .finlab-btn-secondary:hover{
+    border-color:rgba(141,112,83,.45);
+    background:#fff9f3;
+    transform:translateY(-1px);
+  }
+
+  html[data-theme="light"] .finlab-hero-note{
+    color:#7b6351;
+  }
+
+  html[data-theme="light"] .finlab-hero-data{
+    background:
+      radial-gradient(circle at top right, rgba(172,197,255,.35) 0, transparent 52%),
+      linear-gradient(160deg,#fdf7f0,#f3e6d9);
+  }
+
+  html[data-theme="light"] .finlab-data-title{
+    color:#5f5146;
+  }
+
+  html[data-theme="light"] .finlab-chip{
+    background:rgba(255,255,255,.92);
+    border-color:rgba(141,112,83,.2);
+    color:#7b6351;
+  }
+
+  html[data-theme="light"] .finlab-total{
+    background:rgba(255,255,255,.92);
+    border-color:rgba(141,112,83,.26);
+  }
+
+  html[data-theme="light"] .finlab-total-label{
+    color:#8c725f;
+  }
+
+  html[data-theme="light"] .finlab-total-value{
+    color:#c48a3a;
+  }
+
+  html[data-theme="light"] .finlab-total-copy{
+    color:#5f5146;
+  }
+
+  html[data-theme="light"] .finlab-stat-card{
+    background:rgba(255,255,255,.9);
+    border-color:rgba(141,112,83,.22);
+  }
+
+  html[data-theme="light"] .finlab-stat-label{
+    color:#8c725f;
+  }
+
+  html[data-theme="light"] .finlab-stat-value{
+    color:#3a2b20;
+  }
+
+  html[data-theme="light"] .finlab-stat-value.red{color:#c65353;}
+  html[data-theme="light"] .finlab-stat-value.blue{color:#4d7ac7;}
+  html[data-theme="light"] .finlab-stat-value.green{color:#2e8c69;}
+  html[data-theme="light"] .finlab-stat-value.gold{color:#c48a3a;}
+
+  html[data-theme="light"] .finlab-stat-copy{
+    color:#5f5146;
+  }
+
+  html[data-theme="light"] .finlab-section{
+    background:
+      radial-gradient(circle at top left, rgba(244,212,164,.38) 0, transparent 52%),
+      linear-gradient(180deg,#fdf5ec,#f4e4d5);
+    border-color:rgba(144,116,87,.24);
+    box-shadow:0 16px 40px rgba(141,112,83,.20);
+  }
+
+  html[data-theme="light"] .finlab-section-kicker{
+    color:#8c725f;
+  }
+
+  html[data-theme="light"] .finlab-section h2{
+    color:#201914;
+  }
+
+  html[data-theme="light"] .finlab-section-lead{
+    color:#5f5146;
+  }
+
+  html[data-theme="light"] .finlab-card{
+    background:#fffdf8;
+    border-color:rgba(141,112,83,.22);
+  }
+
+  html[data-theme="light"] .finlab-card h3{
+    color:#3a2b20;
+  }
+
+  html[data-theme="light"] .finlab-list li{
+    color:#5f5146;
+  }
+
+  html[data-theme="light"] .finlab-list i{
+    background:#c48a3a;
+  }
+
+  html[data-theme="light"] .finlab-arch{
+    background:#fffdf8;
+    border-color:rgba(141,112,83,.22);
+  }
+
+  html[data-theme="light"] .finlab-arch-code{
+    color:#c48a3a;
+  }
+
+  html[data-theme="light"] .finlab-arch-name{
+    color:#3a2b20;
+  }
+
+  html[data-theme="light"] .finlab-arch-share{
+    color:#3a2b20;
+  }
+
+  html[data-theme="light"] .finlab-arch p{
+    color:#5f5146;
+  }
+
+  html[data-theme="light"] .finlab-business-grid .finlab-biz{
+    background:#fffdf8;
+    border-color:rgba(141,112,83,.22);
+  }
+
+  html[data-theme="light"] .finlab-biz h3{
+    color:#3a2b20;
+  }
+
+  html[data-theme="light"] .finlab-biz p{
+    color:#5f5146;
+  }
+
+  html[data-theme="light"] .finlab-accordion .finlab-acc{
+    background:#fffdf8;
+    border-color:rgba(141,112,83,.22);
+  }
+
+  html[data-theme="light"] .finlab-acc-btn{
+    color:#3a2b20;
+  }
+
+  html[data-theme="light"] .finlab-acc-title{
+    color:#5f5146;
+  }
+
+  html[data-theme="light"] .finlab-acc-arrow{
+    color:#8c725f;
+  }
+
+  html[data-theme="light"] .finlab-acc-panel{
+    color:#5f5146;
+  }
+
+  html[data-theme="light"] .finlab-final{
+    background:
+      radial-gradient(circle at top left, rgba(244,212,164,.45) 0, transparent 52%),
+      linear-gradient(180deg,#fdf3e7,#f2e0cf);
+    border-color:rgba(196,138,58,.35);
+  }
+
+  html[data-theme="light"] .finlab-final h2{
+    color:#201914;
+  }
+
+  html[data-theme="light"] .finlab-final p{
+    color:#5f5146;
+  }
+
+  html[data-theme="light"] .finlab-footer{
+    border-top-color:rgba(144,116,87,.3);
+    color:#7b6351;
+  }
   </style>
 </head>
 <body>
-<div class="shell">
-  <header class="app-header">
-  <div class="brand">
-    <div class="brand-mark" aria-hidden="true"></div>
-    <div>
-      <div class="brand-text-main">FinLab TELWHA</div>
-      <div class="brand-text-sub">Money behavior diagnostics</div>
-    </div>
-  </div>
-
-  <div style="display:flex; align-items:center; gap:12px;">
-    <nav>
-      <span>Money Test</span>
-      <span class="dot"></span>
-      <span>short form v1</span>
-    </nav>
-    <button class="theme-toggle" type="button">🌓</button>
-  </div>
-</header>
-
-  <main class="hero">
-    <section class="hero-left">
-      <div class="hero-content">
-        <div class="hero-kicker">
-          <span class="pill">
-            <span class="pill-dot"></span>
-            FinLab behavioral lab · v1
-          </span>
-        </div>
-        <h1 class="hero-title">
-          Ваш <span class="accent">грошовий архетип</span> та поведінковий податок
-        </h1>
-        <p class="hero-sub">
-          Це коротка версія Money Test: 33 питання про ваш контекст, дохід і фінзвички.
-          Після проходження ви побачите свій грошовий архетип та базові ризики.
-          Для глибокого профілю є повна версія тесту.
-        </p>
-        <div class="hero-meta">
-          <span><strong>33 питання</strong> · контекст, дохід, резерв, борги, щоденні фінзвички.</span>
-          <span><strong>1 звіт</strong> · архетип, базові індекси та next steps.</span>
-        </div>
+  <!-- topbar як на головній -->
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand">
+        <a class="brand-row" href="/">
+          <strong>TELWHA</strong>
+        </a>
+        <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
       </div>
-    </section>
-
-    <aside class="hero-right">
-      <div class="hero-card">
-        <h3>Що ви отримаєте</h3>
-        <p>
-          Персональний архетип, базовий зріз фінвидимості, резервної дисципліни, боргового навантаження
-          та щоденних поведінкових патернів.
-        </p>
-      </div>
-      <div class="hero-card">
-        <div class="hero-progress">
-          <div>Прогрес опитування</div>
-          <div class="pill">
-            <span class="pill-dot"></span>
-            33 питання
+      <nav class="menu">
+        <div class="menu-group">
+          <a href="/">Головна</a>
+          <a href="/finlab/">FinLab</a>
+          <a href="/about/">Про мене</a>
+        </div>
+        <div class="menu-group menu-dropdown">
+          <button type="button" class="menu-dropbtn">Трейдерам ▾</button>
+          <div class="menu-dropcontent">
+            <a href="/trader-course/">Міні‑курс</a>
+            <a href="/archetype-test/">Тест архетипів</a>
           </div>
         </div>
-        <div class="progress-bar-track" aria-hidden="true">
-          <div class="progress-bar-fill" id="js-progress-bar"></div>
+        <div class="menu-group">
+          <a href="/articles/">Статті</a>
+          <a href="/reviews/">Відгуки</a>
+          <a href="/cases/">Кейси</a>
+          <a href="/contact/">Контакти</a>
         </div>
-      </div>
-    </aside>
+        <button class="theme-toggle" type="button">🌓</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="finlab-wrap">
+      <header class="finlab-header">
+        <div class="finlab-brand">
+          <div class="finlab-brand-mark" aria-hidden="true"></div>
+          <div>
+            <div class="finlab-brand-text-main"></div>
+            <div class="finlab-brand-text-sub"></div>
+          </div>
+        </div>
+
+      </header>
+
+      <section class="finlab-hero">
+        <div class="finlab-hero-copy">
+          <div class="finlab-eyebrow">
+            <span class="finlab-eyebrow-dot"></span>
+            <span>Анонімний тест для українців</span>
+          </div>
+
+          <h1>Побачте, як ви поводитесь із грошима, без іллюзій</h1>
+
+          <p class="finlab-hero-lead">
+            FinLab показує не “які ви в теорії”, а як ви дієте в фінансових сценаріях у житті: де вас тисне стрес, де ви відкладаєте рішення, де не вистачає ясності, знань, а де вже є сильна опора.
+          </p>
+
+          <div class="finlab-hero-points">
+            <div class="finlab-hero-point"><i></i><span>Ваш архетип фінансової поведінки.</span></div>
+            <div class="finlab-hero-point"><i></i><span>Ваші сценарії стресу, уникнення або перевантаження.</span></div>
+            <div class="finlab-hero-point"><i></i><span>Ваше місце в анонімній статистиці FinLab.</span></div>
+          </div>
+
+          <div class="finlab-actions">
+            <a class="finlab-btn finlab-btn-primary" href="/money-test/">Пройти тест</a>
+            <a class="finlab-btn finlab-btn-secondary" href="#archetypes">Подивитися архетипи</a>
+          </div>
+
+          <p class="finlab-hero-note">
+            На сайті показуються тільки агреговані анонімні результати, а не персональні відповіді окремих людей.
+          </p>
+        </div>
+
+        <aside class="finlab-hero-data">
+          <div class="finlab-data-head">
+            <div class="finlab-data-title">Що видно в результатах FinLab</div>
+            <div class="finlab-chip">актуальні дані на квітень 2026</div>
+          </div>
+
+          <div class="finlab-total">
+            <div class="finlab-total-label">Уже пройшли тест</div>
+            <div class="finlab-total-value" id="totalResponses">1 248</div>
+            <div class="finlab-total-copy">анонімні результати фінансової поведінки</div>
+          </div>
+
+          <div class="finlab-stats-grid">
+            <div class="finlab-stat-card">
+              <div class="finlab-stat-label">Фінансова напруга</div>
+              <div class="finlab-stat-value red" id="stressShare">31%</div>
+              <div class="finlab-stat-copy">живуть у відчутті постійного тиску через гроші</div>
+            </div>
+
+            <div class="finlab-stat-card">
+              <div class="finlab-stat-label">Відкладання рішень</div>
+              <div class="finlab-stat-value blue" id="omissionShare">44%</div>
+              <div class="finlab-stat-copy">тягнуть з важливими фінансовими кроками</div>
+            </div>
+
+            <div class="finlab-stat-card">
+              <div class="finlab-stat-label">Низька ясність</div>
+              <div class="finlab-stat-value gold" id="visibilityShare">36%</div>
+              <div class="finlab-stat-copy">не бачать повної картини своїх грошей</div>
+            </div>
+
+            <div class="finlab-stat-card">
+              <div class="finlab-stat-label">Емоційні витрати</div>
+              <div class="finlab-stat-value green" id="emotionalShare">29%</div>
+              <div class="finlab-stat-copy">часто витрачають під впливом емоцій</div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="finlab-section">
+        <div class="finlab-section-kicker">Що дає тест</div>
+        <h2>Не просто результат, а зрозуміла картина вашої поведінки</h2>
+        <p class="finlab-section-lead">
+          Після проходження ви бачите свій архетип, сильні сторони, ризикові сценарії та перші кроки, які варто зробити саме вам.
+        </p>
+
+        <div class="finlab-split">
+          <div class="finlab-card">
+            <h3>Що ви побачите</h3>
+            <ul class="finlab-list">
+              <li><i></i><span>Primary archetype і, якщо є, другий виражений архетип.</span></li>
+              <li><i></i><span>Сценарії напруги, уникнення, контролю, хаосу або перевантаження.</span></li>
+              <li><i></i><span>Ризики у звичках, рішеннях і грошовій поведінці.</span></li>
+              <li><i></i><span>Перші конкретні дії, з яких варто почати.</span></li>
+            </ul>
+          </div>
+
+          <div class="finlab-card">
+            <h3>Можливо, ви впізнаєте себе тут</h3>
+            <ul class="finlab-list">
+              <li><i></i><span>Ви ніби розумієте, що треба робити з грошима, але знову відкладаєте важливе рішення.</span></li>
+              <li><i></i><span>Іноді вам здається, що проблема не в цифрах, а в якомусь повторюваному внутрішньому сценарії, який ви не можете нормально назвати.</span></li>
+              <li><i></i><span>Ви хочете не чергову пораду “вести бюджет”, а чесно побачити, що саме з вами відбувається і чому це повторюється.</span></li>
+              <li><i></i><span>Криза, війна, нестабільність і втома впливають на фінансові рішення — це правда.</span></li>
+              <li><i></i><span>Але під однаковим тиском люди поводяться по-різному: хтось стискається, хтось уникає, хтось метушиться, а хтось тримає все на собі до виснаження.</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="finlab-section" id="archetypes">
+        <div class="finlab-section-kicker">Архетипи</div>
+        <h2>Найчастіші архетипи серед учасників FinLab</h2>
+
+        <div class="finlab-archetypes">
+          <div class="finlab-arch">
+            <div class="finlab-arch-code" id="arch1Code">PN</div>
+            <div class="finlab-arch-name" id="arch1Name">Планую, але застрягаю</div>
+            <div class="finlab-arch-share" id="arch1Share">18%</div>
+            <p id="arch1Text">Бачу правильний напрямок, але відкладаю дію і гублю темп між планом та виконанням.</p>
+          </div>
+
+          <div class="finlab-arch">
+            <div class="finlab-arch-code" id="arch2Code">VV</div>
+            <div class="finlab-arch-name" id="arch2Name">Тягну на собі і вигораю</div>
+            <div class="finlab-arch-share" id="arch2Share">15%</div>
+            <p id="arch2Text">Тримаю контроль через надзусилля, але поступово накопичую втому і напругу.</p>
+          </div>
+
+          <div class="finlab-arch">
+            <div class="finlab-arch-code" id="arch3Code">FS</div>
+            <div class="finlab-arch-name" id="arch3Name">Не хочу бачити неприємне</div>
+            <div class="finlab-arch-share" id="arch3Share">13%</div>
+            <p id="arch3Text">Уникаю неприємних цифр, рішень або фактів, які можуть викликати внутрішній дискомфорт.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="finlab-section">
+        <div class="finlab-section-kicker">Для бізнесу</div>
+        <h2>Де ці інсайти корисні бізнесу</h2>
+        <p class="finlab-section-lead">
+          Якщо ви працюєте з людьми, які приймають фінансові рішення, ці дані допомагають краще зрозуміти, де саме вони губляться, напружуються, відкладають або не доходять до дії.
+        </p>
+
+        <div class="finlab-business-grid">
+          <div class="finlab-biz">
+            <h3>Продукт</h3>
+            <p>Побачити, на якому етапі людині бракує ясності, довіри або внутрішньої готовності рухатись далі.</p>
+          </div>
+
+          <div class="finlab-biz">
+            <h3>Комунікація</h3>
+            <p>Говорити з людьми точніше: не загальними обіцянками, а мовою їх бар’єрів і мотивів.</p>
+          </div>
+
+          <div class="finlab-biz">
+            <h3>Сервіс і продажі</h3>
+            <p>Краще розуміти, чому люди вагаються, відкладають рішення або зриваються ще до покупки чи змін.</p>
+          </div>
+        </div>
+
+        <div class="finlab-actions" style="margin-top:16px;">
+          <a class="finlab-btn finlab-btn-primary" href="/contact/">Отримати демо інсайтів</a>
+          <a class="finlab-btn finlab-btn-secondary" href="/contact/">Обговорити задачу</a>
+        </div>
+      </section>
+
+      <section class="finlab-section">
+        <div class="finlab-section-kicker">Про FinLab</div>
+        <h2>Що це за проєкт</h2>
+        <p class="finlab-section-lead">
+          FinLab — це фінансова лабораторія для українців і про українців. Ми вивчаємо типові проблеми, сценарії та поведінкові патерни, щоб краще розуміти, як люди поводяться з грошима.
+        </p>
+
+        <div class="finlab-accordion">
+          <div class="finlab-acc">
+            <button class="finlab-acc-btn" type="button">
+              <span class="finlab-acc-title">Що саме вимірює наш тест</span>
+              <span class="finlab-acc-arrow">›</span>
+            </button>
+            <div class="finlab-acc-panel">
+              Наш тест вимірює не тільки архетип, а й окремі шкали: фінансову ясність, емоційні витрати, резервну дисципліну, боргову залежність, відкладання рішень, напругу, вигорання, напруження у стосунках та інші поведінкові сигнали.
+            </div>
+          </div>
+
+          <div class="finlab-acc">
+            <button class="finlab-acc-btn" type="button">
+              <span class="finlab-acc-title">Як використовуються результати</span>
+              <span class="finlab-acc-arrow">›</span>
+            </button>
+            <div class="finlab-acc-panel">
+              Людина отримує персональний результат. На сайті показується тільки загальна анонімна статистика без персональних відповідей окремих учасників.
+            </div>
+          </div>
+
+          <div class="finlab-acc">
+            <button class="finlab-acc-btn" type="button">
+              <span class="finlab-acc-title">Навіщо ми це робимо</span>
+              <span class="finlab-acc-arrow">›</span>
+            </button>
+            <div class="finlab-acc-panel">
+              Щоб краще бачити повторювані фінансові сценарії українців і будувати точніші інсайти, продукти, матеріали та допомогу на основі поведінки, а не припущень.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="finlab-final">
+        <h2>Подивіться свій результат</h2>
+        <p>
+          Пройдіть тест і подивіться, який архетип у вас домінує, де саме у вас напруга або слабкі місця, і як ви виглядаєте на фоні анонімної статистики FinLab.
+        </p>
+
+        <div class="finlab-actions">
+          <a class="finlab-btn finlab-btn-primary" href="/finlab/money-test/">Пройти тест</a>
+        </div>
+      </section>
+
+      <footer class="finlab-footer">
+        FinLab by TELWHA — фінансова лабораторія для українців.
+      </footer>
+    </div>
   </main>
 
-  <div class="ux-sticky" id="js-ux-sticky">
-    <div class="ux-sticky-top">
-      <div>
-        <div class="ux-sticky-title" id="js-progress-copy">Пройдено 0 з 33</div>
-        <div class="ux-sticky-sub" id="js-current-step">Зараз: Блок 1 з 3 · FA</div>
-      </div>
-      <div class="ux-sticky-actions">
-        <button class="btn-secondary" id="js-next-unanswered" type="button">До наступного питання</button>
-        <button class="btn-secondary" id="js-first-missed" type="button">До першого пропуску</button>
-      </div>
-    </div>
-    <div class="progress-bar-track" aria-hidden="true">
-      <div class="progress-bar-fill" id="js-progress-bar-sticky"></div>
-    </div>
-    <div class="section-pills" id="js-section-pills">
-      <div class="section-pill" data-section-pill="FA"><strong>FA</strong><span id="js-fa-progress">0/10</span></div>
-      <div class="section-pill" data-section-pill="PA"><strong>PA</strong><span id="js-pa-progress">0/8</span></div>
-      <div class="section-pill" data-section-pill="FH"><strong>FH</strong><span id="js-fh-progress">0/15</span></div>
-    </div>
-  </div>
-
-  <section class="section" id="section-fa" data-section-code="FA">
-    <div class="section-header">
-      <div class="section-kicker">Блок 1 · Фінансова архітектура життя</div>
-      <div class="section-title">Контекст, без якого не читається поведінка</div>
-      <p class="section-sub">
-        Тут ми фіксуємо базову конфігурацію вашого фінжиття: локація, сімейна система, резерв, борги,
-        інвестиції. Це не “оцінка”, а карта ризиків та опор.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="question-group">
-        <div class="question-block" data-question="FA1" data-section="FA">
-          <div class="question-label"><span class="badge">FA1</span><span>Контекст проживання</span></div>
-          <div class="question-text">Де ви зараз живете?</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FA1" data-option-code="1"><span class="index">1</span>В Україні, у рідному місті</button>
-            <button class="option-chip" type="button" data-item-id="FA1" data-option-code="2"><span class="index">2</span>В Україні, але після переїзду / ВПО</button>
-            <button class="option-chip" type="button" data-item-id="FA1" data-option-code="3"><span class="index">3</span>За кордоном тимчасово</button>
-            <button class="option-chip" type="button" data-item-id="FA1" data-option-code="4"><span class="index">4</span>За кордоном довгостроково</button>
-            <button class="option-chip" type="button" data-item-id="FA1" data-option-code="5"><span class="index">5</span>Частину часу тут, частину там</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FA1" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FA2" data-section="FA">
-          <div class="question-label"><span class="badge">FA2</span><span>Системна складність</span></div>
-          <div class="question-text">Ваш поточний сімейний статус:</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FA2" data-option-code="1"><span class="index">1</span>Сам / сама</button>
-            <button class="option-chip" type="button" data-item-id="FA2" data-option-code="2"><span class="index">2</span>У стосунках, але живемо окремо</button>
-            <button class="option-chip" type="button" data-item-id="FA2" data-option-code="3"><span class="index">3</span>Живемо разом / шлюб</button>
-            <button class="option-chip" type="button" data-item-id="FA2" data-option-code="4"><span class="index">4</span>Розлучення / роз’їзд / складний перехідний етап</button>
-            <button class="option-chip" type="button" data-item-id="FA2" data-option-code="5"><span class="index">5</span>Інше</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FA2" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FA3" data-section="FA">
-          <div class="question-label"><span class="badge">FA3</span><span>Люди, яких ви тягнете</span></div>
-          <div class="question-text">Чи є у вас діти або люди, яких ви фінансово утримуєте?</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FA3" data-raw="1"><span class="index">1</span>Ні</button>
-            <button class="option-chip" type="button" data-item-id="FA3" data-raw="2"><span class="index">2</span>1 людина</button>
-            <button class="option-chip" type="button" data-item-id="FA3" data-raw="3"><span class="index">3</span>2 людини</button>
-            <button class="option-chip" type="button" data-item-id="FA3" data-raw="4"><span class="index">4</span>3 і більше</button>
-            <button class="option-chip" type="button" data-item-id="FA3" data-raw="5"><span class="index">5</span>Нестабільно, інколи так</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FA3" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FA4" data-section="FA">
-          <div class="question-label"><span class="badge">FA4</span><span>Стабільність доходу</span></div>
-          <div class="question-text">Ваш особистий дохід зазвичай:</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FA4" data-raw="1"><span class="index">1</span>Повністю нестабільний</button>
-            <button class="option-chip" type="button" data-item-id="FA4" data-raw="2"><span class="index">2</span>Скоріше нестабільний</button>
-            <button class="option-chip" type="button" data-item-id="FA4" data-raw="3"><span class="index">3</span>Частково стабільний, частково змінний</button>
-            <button class="option-chip" type="button" data-item-id="FA4" data-raw="4"><span class="index">4</span>Скоріше стабільний</button>
-            <button class="option-chip" type="button" data-item-id="FA4" data-raw="5"><span class="index">5</span>Дуже стабільний</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FA4" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FA5" data-section="FA">
-          <div class="question-label"><span class="badge">FA5</span><span>Подушка / резерв</span></div>
-          <div class="question-text">Як найточніше описати ваш фінансовий резерв?</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FA5" data-raw="1"><span class="index">1</span>Резерву немає</button>
-            <button class="option-chip" type="button" data-item-id="FA5" data-raw="2"><span class="index">2</span>Менше ніж на 1 місяць базових витрат</button>
-            <button class="option-chip" type="button" data-item-id="FA5" data-raw="3"><span class="index">3</span>На 1–3 місяці</button>
-            <button class="option-chip" type="button" data-item-id="FA5" data-raw="4"><span class="index">4</span>На 3–6 місяців</button>
-            <button class="option-chip" type="button" data-item-id="FA5" data-raw="5"><span class="index">5</span>Більше ніж на 6 місяців</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FA5" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FA6" data-section="FA">
-          <div class="question-label"><span class="badge">FA6</span><span>Структура резерву</span></div>
-          <div class="question-text">Де у вас переважно лежить резерв / вільні гроші?</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FA6" data-option-code="1"><span class="index">1</span>Резерву немає</button>
-            <button class="option-chip" type="button" data-item-id="FA6" data-option-code="2"><span class="index">2</span>На основній картці / готівкою</button>
-            <button class="option-chip" type="button" data-item-id="FA6" data-option-code="3"><span class="index">3</span>На окремому рахунку / депозиті</button>
-            <button class="option-chip" type="button" data-item-id="FA6" data-option-code="4"><span class="index">4</span>Частково в кеші, частково окремо</button>
-            <button class="option-chip" type="button" data-item-id="FA6" data-option-code="5"><span class="index">5</span>У різних інструментах, я це розділяю свідомо</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FA6" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FA7" data-section="FA">
-          <div class="question-label"><span class="badge">FA7</span><span>Боргова картина</span></div>
-          <div class="question-text">Чи є у вас зараз борги?</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FA7" data-raw="1"><span class="index">1</span>Немає</button>
-            <button class="option-chip" type="button" data-item-id="FA7" data-raw="2"><span class="index">2</span>Є лише “здоровий” борг (іпотека / бізнес / освітній)</button>
-            <button class="option-chip" type="button" data-item-id="FA7" data-raw="3"><span class="index">3</span>Є кредитка / розстрочки / BNPL</button>
-            <button class="option-chip" type="button" data-item-id="FA7" data-raw="4"><span class="index">4</span>Є кілька типів боргів одночасно</button>
-            <button class="option-chip" type="button" data-item-id="FA7" data-raw="5"><span class="index">5</span>Є прострочки / проблемні борги</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FA7" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FA8" data-section="FA">
-          <div class="question-label"><span class="badge">FA8</span><span>Навантаження боргом</span></div>
-          <div class="question-text">Яка приблизно частка вашого щомісячного доходу йде на виплати по боргах?</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FA8" data-raw="1"><span class="index">1</span>0%</button>
-            <button class="option-chip" type="button" data-item-id="FA8" data-raw="2"><span class="index">2</span>До 10%</button>
-            <button class="option-chip" type="button" data-item-id="FA8" data-raw="3"><span class="index">3</span>10–30%</button>
-            <button class="option-chip" type="button" data-item-id="FA8" data-raw="4"><span class="index">4</span>30–50%</button>
-            <button class="option-chip" type="button" data-item-id="FA8" data-raw="5"><span class="index">5</span>Понад 50% / важко сказати</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FA8" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FA9" data-section="FA">
-          <div class="question-label"><span class="badge">FA9</span><span>Інвестиції / довгострок</span></div>
-          <div class="question-text">Чи є у вас інвестиції або довгострокові накопичення?</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FA9" data-raw="1"><span class="index">1</span>Ні</button>
-            <button class="option-chip" type="button" data-item-id="FA9" data-raw="2"><span class="index">2</span>Є лише депозит / готівка / проста подушка</button>
-            <button class="option-chip" type="button" data-item-id="FA9" data-raw="3"><span class="index">3</span>Є пенсійні / консервативні інструменти</button>
-            <button class="option-chip" type="button" data-item-id="FA9" data-raw="4"><span class="index">4</span>Є регулярні інвестиції</button>
-            <button class="option-chip" type="button" data-item-id="FA9" data-raw="5"><span class="index">5</span>Є активні / ризикові інвестиції</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FA9" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FA10" data-section="FA">
-          <div class="question-label"><span class="badge">FA10</span><span>Стійкість до шоку</span></div>
-          <div class="question-text">Якщо завтра ваш дохід зменшиться на 30%, наскільки довго ви зможете жити без нових боргів?</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FA10" data-raw="1"><span class="index">1</span>Менше 1 місяця</button>
-            <button class="option-chip" type="button" data-item-id="FA10" data-raw="2"><span class="index">2</span>1–2 місяці</button>
-            <button class="option-chip" type="button" data-item-id="FA10" data-raw="3"><span class="index">3</span>3–6 місяців</button>
-            <button class="option-chip" type="button" data-item-id="FA10" data-raw="4"><span class="index">4</span>6–12 місяців</button>
-            <button class="option-chip" type="button" data-item-id="FA10" data-raw="5"><span class="index">5</span>Понад рік</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FA10" aria-live="polite"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="section-pa" data-section-code="PA">
-    <div class="section-header">
-      <div class="section-kicker">Блок 2 · Професійна архітектура</div>
-      <div class="section-title">Як ви заробляєте й впливаєте на дохід</div>
-      <p class="section-sub">
-        Формат зайнятості, кількість джерел, удари по доходу та відчуття контролю над грошима.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="question-group">
-        <div class="question-block" data-question="PA1" data-section="PA">
-          <div class="question-label"><span class="badge">PA1</span><span>Формат зайнятості</span></div>
-          <div class="question-text">Ваш основний формат зайнятості:</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="PA1" data-option-code="1"><span class="index">1</span>Найманий працівник</button>
-            <button class="option-chip" type="button" data-item-id="PA1" data-option-code="2"><span class="index">2</span>ФОП / фриланс</button>
-            <button class="option-chip" type="button" data-item-id="PA1" data-option-code="3"><span class="index">3</span>Власник бізнесу</button>
-            <button class="option-chip" type="button" data-item-id="PA1" data-option-code="4"><span class="index">4</span>Гіг / проєктна зайнятість</button>
-            <button class="option-chip" type="button" data-item-id="PA1" data-option-code="5"><span class="index">5</span>Зараз без стабільної зайнятості</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="PA1" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="PA2" data-section="PA">
-          <div class="question-label"><span class="badge">PA2</span><span>Кількість джерел</span></div>
-          <div class="question-text">Скільки джерел доходу у вас є зараз?</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="PA2" data-raw="0"><span class="index">1</span>Одне</button>
-            <button class="option-chip" type="button" data-item-id="PA2" data-raw="1"><span class="index">2</span>Два</button>
-            <button class="option-chip" type="button" data-item-id="PA2" data-raw="2"><span class="index">3</span>Три</button>
-            <button class="option-chip" type="button" data-item-id="PA2" data-raw="3"><span class="index">4</span>Чотири</button>
-            <button class="option-chip" type="button" data-item-id="PA2" data-raw="4"><span class="index">5</span>П’ять і більше / важко сказати</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="PA2" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="PA3" data-section="PA">
-          <div class="question-label"><span class="badge">PA3</span><span>Дохід за рік</span></div>
-          <div class="question-text">Ваш дохід за останні 12 місяців:</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="PA3" data-raw="1"><span class="index">1</span>Суттєво знизився</button>
-            <button class="option-chip" type="button" data-item-id="PA3" data-raw="2"><span class="index">2</span>Трохи знизився</button>
-            <button class="option-chip" type="button" data-item-id="PA3" data-raw="3"><span class="index">3</span>Був приблизно стабільним</button>
-            <button class="option-chip" type="button" data-item-id="PA3" data-raw="4"><span class="index">4</span>Трохи виріс</button>
-            <button class="option-chip" type="button" data-item-id="PA3" data-raw="5"><span class="index">5</span>Суттєво виріс</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="PA3" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="PA4" data-section="PA">
-          <div class="question-label"><span class="badge">PA4</span><span>Контроль над доходом</span></div>
-          <div class="question-text">Наскільки ви відчуваєте, що реально впливаєте на свій дохід у найближчі 12 місяців?</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="PA4" data-raw="1"><span class="index">1</span>Практично не впливаю</button>
-            <button class="option-chip" type="button" data-item-id="PA4" data-raw="2"><span class="index">2</span>Скоріше не впливаю</button>
-            <button class="option-chip" type="button" data-item-id="PA4" data-raw="3"><span class="index">3</span>Частково впливаю</button>
-            <button class="option-chip" type="button" data-item-id="PA4" data-raw="4"><span class="index">4</span>Більше впливаю, ніж ні</button>
-            <button class="option-chip" type="button" data-item-id="PA4" data-raw="5"><span class="index">5</span>Сильно впливаю / можу суттєво змінити</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="PA4" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="PA5" data-section="PA">
-          <div class="question-label"><span class="badge">PA5</span><span>Реакція на проблему</span></div>
-          <div class="question-text">Якщо виникає фінансова проблема, ваш типова реакція:</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="PA5" data-option-code="1"><span class="index">1</span>Зависаю і відкладаю</button>
-            <button class="option-chip" type="button" data-item-id="PA5" data-option-code="2"><span class="index">2</span>Гашу пожежу хаотично</button>
-            <button class="option-chip" type="button" data-item-id="PA5" data-option-code="3"><span class="index">3</span>Починаю дуже багато працювати</button>
-            <button class="option-chip" type="button" data-item-id="PA5" data-option-code="4"><span class="index">4</span>Шукаю схему / ризиковий шанс</button>
-            <button class="option-chip" type="button" data-item-id="PA5" data-option-code="5"><span class="index">5</span>Сідаю і структурно рахую</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="PA5" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="PA6" data-section="PA">
-          <div class="question-label"><span class="badge">PA6</span><span>Фінансові удари</span></div>
-          <div class="question-text">Чи був у вас за останні 5 років сильний фінансовий удар?</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="PA6" data-raw="1"><span class="index">1</span>Ні</button>
-            <button class="option-chip" type="button" data-item-id="PA6" data-raw="2"><span class="index">2</span>Так, один</button>
-            <button class="option-chip" type="button" data-item-id="PA6" data-raw="3"><span class="index">3</span>Так, декілька</button>
-            <button class="option-chip" type="button" data-item-id="PA6" data-raw="4"><span class="index">4</span>Постійно щось “підбиває” фінансово</button>
-            <button class="option-chip" type="button" data-item-id="PA6" data-raw="5"><span class="index">5</span>Важко сказати / ще не відновився після останнього</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="PA6" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="PA7" data-section="PA">
-          <div class="question-label"><span class="badge">PA7</span><span>Залежність від зовнішнього</span></div>
-          <div class="question-text">Наскільки ваш дохід залежить від зовнішніх факторів, які ви не контролюєте?</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="PA7" data-raw="1"><span class="index">1</span>Майже не залежить</button>
-            <button class="option-chip" type="button" data-item-id="PA7" data-raw="2"><span class="index">2</span>Скоріше не залежить</button>
-            <button class="option-chip" type="button" data-item-id="PA7" data-raw="3"><span class="index">3</span>Приблизно 50/50</button>
-            <button class="option-chip" type="button" data-item-id="PA7" data-raw="4"><span class="index">4</span>Сильно залежить</button>
-            <button class="option-chip" type="button" data-item-id="PA7" data-raw="5"><span class="index">5</span>Майже повністю залежить</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="PA7" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="PA8" data-section="PA">
-          <div class="question-label"><span class="badge">PA8</span><span>Перепрацювання</span></div>
-          <div class="question-text">Як часто ви працюєте понад норму, щоб “вирулити” гроші?</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="PA8" data-raw="1"><span class="index">1</span>Майже ніколи</button>
-            <button class="option-chip" type="button" data-item-id="PA8" data-raw="2"><span class="index">2</span>Рідко</button>
-            <button class="option-chip" type="button" data-item-id="PA8" data-raw="3"><span class="index">3</span>Час від часу</button>
-            <button class="option-chip" type="button" data-item-id="PA8" data-raw="4"><span class="index">4</span>Часто</button>
-            <button class="option-chip" type="button" data-item-id="PA8" data-raw="5"><span class="index">5</span>Майже постійно</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="PA8" aria-live="polite"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="section-fh" data-section-code="FH">
-    <div class="section-header">
-      <div class="section-kicker">Блок 3 · Повсякденні фінзвички</div>
-      <div class="section-title">Як ви поводитесь з грошима щодня</div>
-      <p class="section-sub">
-        Трекінг, імпульсивні витрати, план і його порушення, кредити, уникання цифр.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="question-group">
-        <div class="question-block" data-question="FH1" data-section="FH">
-          <div class="question-label"><span class="badge">FH1</span><span>Трекінг витрат</span></div>
-          <div class="question-text">Я регулярно відстежую свої витрати.</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FH1" data-raw="1"><span class="index">1</span>Зовсім не про мене</button>
-            <button class="option-chip" type="button" data-item-id="FH1" data-raw="2"><span class="index">2</span>Скоріше ні</button>
-            <button class="option-chip" type="button" data-item-id="FH1" data-raw="3"><span class="index">3</span>І так, і ні</button>
-            <button class="option-chip" type="button" data-item-id="FH1" data-raw="4"><span class="index">4</span>Скоріше так</button>
-            <button class="option-chip" type="button" data-item-id="FH1" data-raw="5"><span class="index">5</span>Дуже про мене</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FH1" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FH2" data-section="FH">
-          <div class="question-label"><span class="badge">FH2</span><span>Фінансова видимість</span></div>
-          <div class="question-text">Наприкінці місяця я зазвичай чітко розумію, куди пішли гроші.</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FH2" data-raw="1"><span class="index">1</span>Зовсім не про мене</button>
-            <button class="option-chip" type="button" data-item-id="FH2" data-raw="2"><span class="index">2</span>Скоріше ні</button>
-            <button class="option-chip" type="button" data-item-id="FH2" data-raw="3"><span class="index">3</span>І так, і ні</button>
-            <button class="option-chip" type="button" data-item-id="FH2" data-raw="4"><span class="index">4</span>Скоріше так</button>
-            <button class="option-chip" type="button" data-item-id="FH2" data-raw="5"><span class="index">5</span>Дуже про мене</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FH2" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FH3" data-section="FH">
-          <div class="question-label"><span class="badge">FH3</span><span>Емоційні витрати</span></div>
-          <div class="question-text">Я купую дрібні речі, щоб зняти стрес або покращити настрій.</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FH3" data-raw="1"><span class="index">1</span>Зовсім не про мене</button>
-            <button class="option-chip" type="button" data-item-id="FH3" data-raw="2"><span class="index">2</span>Скоріше ні</button>
-            <button class="option-chip" type="button" data-item-id="FH3" data-raw="3"><span class="index">3</span>І так, і ні</button>
-            <button class="option-chip" type="button" data-item-id="FH3" data-raw="4"><span class="index">4</span>Скоріше так</button>
-            <button class="option-chip" type="button" data-item-id="FH3" data-raw="5"><span class="index">5</span>Дуже про мене</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FH3" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FH4" data-section="FH">
-          <div class="question-label"><span class="badge">FH4</span><span>Відкладання подушки</span></div>
-          <div class="question-text">Я відкладаю формування подушки, бо “зараз не час”.</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FH4" data-raw="1"><span class="index">1</span>Зовсім не про мене</button>
-            <button class="option-chip" type="button" data-item-id="FH4" data-raw="2"><span class="index">2</span>Скоріше ні</button>
-            <button class="option-chip" type="button" data-item-id="FH4" data-raw="3"><span class="index">3</span>І так, і ні</button>
-            <button class="option-chip" type="button" data-item-id="FH4" data-raw="4"><span class="index">4</span>Скоріше так</button>
-            <button class="option-chip" type="button" data-item-id="FH4" data-raw="5"><span class="index">5</span>Дуже про мене</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FH4" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FH5" data-section="FH">
-          <div class="question-label"><span class="badge">FH5</span><span>Кредитка / BNPL</span></div>
-          <div class="question-text">Я користуюся кредиткою / BNPL для звичайних побутових витрат.</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FH5" data-raw="1"><span class="index">1</span>Зовсім не про мене</button>
-            <button class="option-chip" type="button" data-item-id="FH5" data-raw="2"><span class="index">2</span>Скоріше ні</button>
-            <button class="option-chip" type="button" data-item-id="FH5" data-raw="3"><span class="index">3</span>І так, і ні</button>
-            <button class="option-chip" type="button" data-item-id="FH5" data-raw="4"><span class="index">4</span>Скоріше так</button>
-            <button class="option-chip" type="button" data-item-id="FH5" data-raw="5"><span class="index">5</span>Дуже про мене</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FH5" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FH6" data-section="FH">
-          <div class="question-label"><span class="badge">FH6</span><span>Відкладання рішень</span></div>
-          <div class="question-text">Я відкладаю великі фінансові рішення, навіть коли розумію, що час настав.</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FH6" data-raw="1"><span class="index">1</span>Зовсім не про мене</button>
-            <button class="option-chip" type="button" data-item-id="FH6" data-raw="2"><span class="index">2</span>Скоріше ні</button>
-            <button class="option-chip" type="button" data-item-id="FH6" data-raw="3"><span class="index">3</span>І так, і ні</button>
-            <button class="option-chip" type="button" data-item-id="FH6" data-raw="4"><span class="index">4</span>Скоріше так</button>
-            <button class="option-chip" type="button" data-item-id="FH6" data-raw="5"><span class="index">5</span>Дуже про мене</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FH6" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FH7" data-section="FH">
-          <div class="question-label"><span class="badge">FH7</span><span>Фінансове самопожертвування</span></div>
-          <div class="question-text">Я даю гроші іншим, навіть якщо це погіршує мою ситуацію.</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FH7" data-raw="1"><span class="index">1</span>Зовсім не про мене</button>
-            <button class="option-chip" type="button" data-item-id="FH7" data-raw="2"><span class="index">2</span>Скоріше ні</button>
-            <button class="option-chip" type="button" data-item-id="FH7" data-raw="3"><span class="index">3</span>І так, і ні</button>
-            <button class="option-chip" type="button" data-item-id="FH7" data-raw="4"><span class="index">4</span>Скоріше так</button>
-            <button class="option-chip" type="button" data-item-id="FH7" data-raw="5"><span class="index">5</span>Дуже про мене</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FH7" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FH8" data-section="FH">
-          <div class="question-label"><span class="badge">FH8</span><span>План без дотримання</span></div>
-          <div class="question-text">Я роблю фінансовий план, але не дотримуюсь його.</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FH8" data-raw="1"><span class="index">1</span>Зовсім не про мене</button>
-            <button class="option-chip" type="button" data-item-id="FH8" data-raw="2"><span class="index">2</span>Скоріше ні</button>
-            <button class="option-chip" type="button" data-item-id="FH8" data-raw="3"><span class="index">3</span>І так, і ні</button>
-            <button class="option-chip" type="button" data-item-id="FH8" data-raw="4"><span class="index">4</span>Скоріше так</button>
-            <button class="option-chip" type="button" data-item-id="FH8" data-raw="5"><span class="index">5</span>Дуже про мене</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FH8" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FH9" data-section="FH">
-          <div class="question-label"><span class="badge">FH9</span><span>Пропуск накопичень</span></div>
-          <div class="question-text">Я відкладаю або пропускаю регулярні інвестиції / накопичення.</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FH9" data-raw="1"><span class="index">1</span>Зовсім не про мене</button>
-            <button class="option-chip" type="button" data-item-id="FH9" data-raw="2"><span class="index">2</span>Скоріше ні</button>
-            <button class="option-chip" type="button" data-item-id="FH9" data-raw="3"><span class="index">3</span>І так, і ні</button>
-            <button class="option-chip" type="button" data-item-id="FH9" data-raw="4"><span class="index">4</span>Скоріше так</button>
-            <button class="option-chip" type="button" data-item-id="FH9" data-raw="5"><span class="index">5</span>Дуже про мене</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FH9" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FH10" data-section="FH">
-          <div class="question-label"><span class="badge">FH10</span><span>Неочікувані гроші</span></div>
-          <div class="question-text">Якщо приходять “неочікувані” гроші, я швидко їх витрачаю або розкидаю без плану.</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FH10" data-raw="1"><span class="index">1</span>Зовсім не про мене</button>
-            <button class="option-chip" type="button" data-item-id="FH10" data-raw="2"><span class="index">2</span>Скоріше ні</button>
-            <button class="option-chip" type="button" data-item-id="FH10" data-raw="3"><span class="index">3</span>І так, і ні</button>
-            <button class="option-chip" type="button" data-item-id="FH10" data-raw="4"><span class="index">4</span>Скоріше так</button>
-            <button class="option-chip" type="button" data-item-id="FH10" data-raw="5"><span class="index">5</span>Дуже про мене</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FH10" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FH11" data-section="FH">
-          <div class="question-label"><span class="badge">FH11</span><span>Огляд дрібних витрат</span></div>
-          <div class="question-text">Я переглядаю підписки / дрібні регулярні витрати.</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FH11" data-raw="1"><span class="index">1</span>Зовсім не про мене</button>
-            <button class="option-chip" type="button" data-item-id="FH11" data-raw="2"><span class="index">2</span>Скоріше ні</button>
-            <button class="option-chip" type="button" data-item-id="FH11" data-raw="3"><span class="index">3</span>І так, і ні</button>
-            <button class="option-chip" type="button" data-item-id="FH11" data-raw="4"><span class="index">4</span>Скоріше так</button>
-            <button class="option-chip" type="button" data-item-id="FH11" data-raw="5"><span class="index">5</span>Дуже про мене</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FH11" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FH12" data-section="FH">
-          <div class="question-label"><span class="badge">FH12</span><span>Правило імпульсних витрат</span></div>
-          <div class="question-text">У мене є правило, скільки я можу витратити імпульсивно без шкоди для плану.</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FH12" data-raw="1"><span class="index">1</span>Зовсім не про мене</button>
-            <button class="option-chip" type="button" data-item-id="FH12" data-raw="2"><span class="index">2</span>Скоріше ні</button>
-            <button class="option-chip" type="button" data-item-id="FH12" data-raw="3"><span class="index">3</span>І так, і ні</button>
-            <button class="option-chip" type="button" data-item-id="FH12" data-raw="4"><span class="index">4</span>Скоріше так</button>
-            <button class="option-chip" type="button" data-item-id="FH12" data-raw="5"><span class="index">5</span>Дуже про мене</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FH12" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FH13" data-section="FH">
-          <div class="question-label"><span class="badge">FH13</span><span>Чужі фінансові проблеми</span></div>
-          <div class="question-text">Я беру на себе чужі фінансові проблеми.</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FH13" data-raw="1"><span class="index">1</span>Зовсім не про мене</button>
-            <button class="option-chip" type="button" data-item-id="FH13" data-raw="2"><span class="index">2</span>Скоріше ні</button>
-            <button class="option-chip" type="button" data-item-id="FH13" data-raw="3"><span class="index">3</span>І так, і ні</button>
-            <button class="option-chip" type="button" data-item-id="FH13" data-raw="4"><span class="index">4</span>Скоріше так</button>
-            <button class="option-chip" type="button" data-item-id="FH13" data-raw="5"><span class="index">5</span>Дуже про мене</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FH13" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FH14" data-section="FH">
-          <div class="question-label"><span class="badge">FH14</span><span>Читати, але не впроваджувати</span></div>
-          <div class="question-text">Я довго читаю / вивчаю про гроші, але мало що впроваджую.</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FH14" data-raw="1"><span class="index">1</span>Зовсім не про мене</button>
-            <button class="option-chip" type="button" data-item-id="FH14" data-raw="2"><span class="index">2</span>Скоріше ні</button>
-            <button class="option-chip" type="button" data-item-id="FH14" data-raw="3"><span class="index">3</span>І так, і ні</button>
-            <button class="option-chip" type="button" data-item-id="FH14" data-raw="4"><span class="index">4</span>Скоріше так</button>
-            <button class="option-chip" type="button" data-item-id="FH14" data-raw="5"><span class="index">5</span>Дуже про мене</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FH14" aria-live="polite"></div>
-        </div>
-
-        <div class="question-block" data-question="FH15" data-section="FH">
-          <div class="question-label"><span class="badge">FH15</span><span>Уникання цифр</span></div>
-          <div class="question-text">Коли ситуація неприємна, я уникаю дивитися на цифри.</div>
-          <div class="options-row">
-            <button class="option-chip" type="button" data-item-id="FH15" data-raw="1"><span class="index">1</span>Зовсім не про мене</button>
-            <button class="option-chip" type="button" data-item-id="FH15" data-raw="2"><span class="index">2</span>Скоріше ні</button>
-            <button class="option-chip" type="button" data-item-id="FH15" data-raw="3"><span class="index">3</span>І так, і ні</button>
-            <button class="option-chip" type="button" data-item-id="FH15" data-raw="4"><span class="index">4</span>Скоріше так</button>
-            <button class="option-chip" type="button" data-item-id="FH15" data-raw="5"><span class="index">5</span>Дуже про мене</button>
-          </div>
-          <div class="question-inline-hint" data-hint-for="FH15" aria-live="polite"></div>
-        </div>
-      </div>
-
-      <div class="submit-row">
-        <div class="submit-hint">
-          Потрібно відповісти на <strong>всі 33 питання</strong>, щоб отримати коректний результат.
-          Це займає кілька хвилин, але дає значно точнішу картину, ніж швидка самооцінка навмання.
-        </div>
-        <button class="btn-primary" id="js-submit" type="button">
-          <span>Показати мій результат</span>
-        </button>
-      </div>
-
-      <div id="js-error" class="error-banner" hidden></div>
-    </div>
-  </section>
-
-  <section class="result-section" id="js-result-section" hidden>
-    <div class="result-card" id="js-result-card">
-      <div class="result-inner">
-
-        <div class="result-hero-panel">
-          <div class="result-hero-layout">
-            <div class="result-hero-copy">
-              <div class="result-kicker">Ваш архетип</div>
-              <div class="result-archetype" id="js-archetype-title">—</div>
-              <div class="result-subtitle" id="js-archetype-subtitle">—</div>
-              <div class="result-body" id="js-general-summary">—</div>
-              <div id="js-archetype-emotion"></div>
-            </div>
-            <div class="result-hero-badge">
-              <div class="archetype-medallion" aria-hidden="true">
-                <div class="archetype-medallion-label">
-                  <div class="archetype-medallion-code" id="js-archetype-code">—</div>
-                  <div class="archetype-medallion-word">архетип</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="result-grid">
-          <div class="result-panel">
-            <div class="result-kicker">Що вже є опорою</div>
-            <div class="result-body" id="js-general-strength"></div>
-          </div>
-          <div class="result-panel">
-            <div class="result-kicker">Що зараз гальмує</div>
-            <div class="result-body" id="js-general-risk"></div>
-          </div>
-
-          <div class="result-panel result-panel--wide">
-            <div class="result-kicker">Карта стану</div>
-            <div class="metric-grid" id="js-general-metrics"></div>
-          </div>
-
-          <div class="result-panel result-panel--wide">
-            <div class="result-kicker">Що зробити вже зараз</div>
-            <div class="action-list" id="js-next-actions"></div>
-          </div>
-
-          <div class="result-panel result-panel--wide result-panel--accent">
-            <div class="result-kicker">Трохи глибше про цей тип</div>
-            <div class="result-body" id="js-archetype-body"></div>
-            <div class="result-meta" id="js-meta"></div>
-          </div>
-
-          <div class="result-panel result-panel--wide result-panel--accent" id="js-full-test-body">
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    FinLab TELWHA · prototype short form · money behavior diagnostics
-  </footer>
-</div>
-
-<script>
-  const answers = {};
-  const required = [
-    "FA1","FA2","FA3","FA4","FA5","FA6","FA7","FA8","FA9","FA10",
-    "PA1","PA2","PA3","PA4","PA5","PA6","PA7","PA8",
-    "FH1","FH2","FH3","FH4","FH5","FH6","FH7","FH8","FH9",
-    "FH10","FH11","FH12","FH13","FH14","FH15"
-  ];
-
-  const progressBar = document.getElementById("js-progress-bar");
-  const stickyProgressBar = document.getElementById("js-progress-bar-sticky");
-  const progressCopy = document.getElementById("js-progress-copy");
-  const currentStep = document.getElementById("js-current-step");
-  const nextUnansweredBtn = document.getElementById("js-next-unanswered");
-  const firstMissedBtn = document.getElementById("js-first-missed");
-  const faProgress = document.getElementById("js-fa-progress");
-  const paProgress = document.getElementById("js-pa-progress");
-  const fhProgress = document.getElementById("js-fh-progress");
-  const submitBtn = document.getElementById("js-submit");
-  const errorBox = document.getElementById("js-error");
-  const resultSection = document.getElementById("js-result-section");
-  const generalSummary = document.getElementById("js-general-summary");
-  const generalStrength = document.getElementById("js-general-strength");
-  const generalRisk = document.getElementById("js-general-risk");
-  const generalMetrics = document.getElementById("js-general-metrics");
-  const nextActionsBox = document.getElementById("js-next-actions");
-  const archetypeTitle = document.getElementById("js-archetype-title");
-  const archetypeSubtitle = document.getElementById("js-archetype-subtitle");
-  const archetypeCode = document.getElementById("js-archetype-code");
-  const archetypeBody = document.getElementById("js-archetype-body");
-  const metaBox = document.getElementById("js-meta");
-  const fullTestBody = document.getElementById("js-full-test-body");
-  const questionBlocks = Array.from(document.querySelectorAll(".question-block"));
-  const sessionStartedAt = new Date().toISOString();
-  const sectionMap = {
-    FA: required.filter((id) => id.startsWith("FA")),
-    PA: required.filter((id) => id.startsWith("PA")),
-    FH: required.filter((id) => id.startsWith("FH"))
-  };
-
-  function getFirstUnansweredId() {
-    return required.find((id) => answers[id] === undefined) || null;
-  }
-
-  function getCurrentSectionCode() {
-    const firstUnanswered = getFirstUnansweredId();
-    if (firstUnanswered) return firstUnanswered.slice(0, 2);
-    return "FH";
-  }
-
-  function updateSectionProgress() {
-    const faAnswered = sectionMap.FA.filter((id) => answers[id] !== undefined).length;
-    const paAnswered = sectionMap.PA.filter((id) => answers[id] !== undefined).length;
-    const fhAnswered = sectionMap.FH.filter((id) => answers[id] !== undefined).length;
-
-    faProgress.textContent = `${faAnswered}/10`;
-    paProgress.textContent = `${paAnswered}/8`;
-    fhProgress.textContent = `${fhAnswered}/15`;
-
-    document.querySelectorAll("[data-section-pill]").forEach((pill) => {
-      const code = pill.dataset.sectionPill;
-      const answered = sectionMap[code].filter((id) => answers[id] !== undefined).length;
-      pill.classList.toggle("is-current", code === getCurrentSectionCode());
-      pill.classList.toggle("is-complete", answered === sectionMap[code].length);
-    });
-  }
-
-  function updateCurrentStepLabel() {
-    const code = getCurrentSectionCode();
-    const labelMap = {
-      FA: "Блок 1 з 3 · FA",
-      PA: "Блок 2 з 3 · PA",
-      FH: "Блок 3 з 3 · FH"
-    };
-    currentStep.textContent = `Зараз: ${labelMap[code]}`;
-  }
-
-  function updateProgress() {
-    const answered = required.filter(id => answers[id] !== undefined).length;
-    const pct = (answered / required.length) * 100;
-    progressBar.style.width = pct + "%";
-    stickyProgressBar.style.width = pct + "%";
-    progressCopy.textContent = `Пройдено ${answered} з ${required.length}`;
-    submitBtn.disabled = answered !== required.length;
-    updateSectionProgress();
-    updateCurrentStepLabel();
-    return { answered, pct };
-  }
-
-  // НОВЕ: підсвітку помилки знімаємо при відповіді на конкретне питання
-  function setBlockHint(itemId, message = "", isWarning = false) {
-    const hint = document.querySelector(`[data-hint-for="${itemId}"]`);
-    if (!hint) return;
-    hint.textContent = message;
-    hint.classList.toggle("is-warning", Boolean(isWarning && message));
-  }
-
-  function focusBlock(itemId) {
-    const target = document.querySelector(`.question-block[data-question="${itemId}"]`);
-    if (!target) return;
-    document.querySelectorAll(".question-block--active").forEach((block) => {
-      block.classList.remove("question-block--active");
-    });
-    target.classList.add("question-block--active");
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-
-  function jumpToFirstUnanswered() {
-    const firstUnanswered = getFirstUnansweredId();
-    if (firstUnanswered) focusBlock(firstUnanswered);
-  }
-
-  function setAnswer(button) {
-    const itemId = button.dataset.itemId;
-    const raw = button.dataset.raw;
-    const optionCode = button.dataset.optionCode;
-    const wasUnanswered = answers[itemId] === undefined;
-
-    const group = document.querySelectorAll(`[data-item-id="${itemId}"]`);
-    group.forEach(btn => btn.classList.remove("selected"));
-    button.classList.add("selected");
-
-    answers[itemId] = {
-      item_id: itemId,
-      raw: raw !== undefined ? raw : null,
-      option_code: optionCode !== undefined ? optionCode : null
-    };
-
-    const block = document.querySelector(`.question-block[data-question="${itemId}"]`);
-    if (block) {
-      block.classList.remove("question-block--error");
-      block.classList.remove("question-block--active");
-    }
-
-    setBlockHint(itemId, "Відповідь збережено");
-    errorBox.hidden = true;
-    errorBox.textContent = "";
-    updateProgress();
-
-    if (wasUnanswered) {
-      const nextUnanswered = getFirstUnansweredId();
-      if (nextUnanswered && nextUnanswered !== itemId) {
-        setTimeout(() => focusBlock(nextUnanswered), 140);
-      }
-    }
-  }
-
-  document.querySelectorAll(".option-chip").forEach(btn => {
-    btn.addEventListener("click", () => setAnswer(btn));
-  });
-
-  function average(nums) {
-    if (!nums.length) return 0;
-    return nums.reduce((sum, n) => sum + n, 0) / nums.length;
-  }
-
-  function num(itemId) {
-    const value = answers[itemId]?.raw;
-    return value === null || value === undefined ? null : Number(value);
-  }
-
-  function code(itemId) {
-    const value = answers[itemId]?.option_code;
-    return value === null || value === undefined ? null : Number(value);
-  }
-
-  function safePush(arr, val) {
-    if (typeof val === "number" && !Number.isNaN(val)) arr.push(val);
-  }
-
-  function describePositiveBand(value) {
-    if (value >= 4.1) return "це сильна зона";
-    if (value >= 3.25) return "це вже робоча опора";
-    if (value >= 2.5) return "зона ще слабка";
-    if (value >= 1.75) return "зона дуже слабка";
-    return "це критично слабка зона";
-  }
-
-  function describeRiskBand(value) {
-    if (value >= 4.1) return "ризик тут високий";
-    if (value >= 3.25) return "ризик тут підвищений";
-    if (value >= 2.5) return "ризик тут помітний";
-    if (value >= 1.75) return "ризик тут помірний";
-    return "ризик тут поки низький";
-  }
-
-  function formatMetricLine(label, value, type) {
-    const phrase = type === "positive" ? describePositiveBand(value) : describeRiskBand(value);
-    return `${label} — ${phrase} (${value.toFixed(2)}/5).`;
-  }
-
-  function renderParagraphs(items) {
-    return items.map((item) => `<p>${item}</p>`).join("");
-  }
-
-  function renderActionCards(actions) {
-    return actions.map((action) => {
-      return `
-        <div class="action-card">
-          <p class="action-card-title"><strong>${action.title}</strong></p>
-          <p>${action.what}</p>
-          <p class="action-meta">${action.time}</p>
-        </div>
-      `;
-    }).join("");
-  }
-
-  function renderMetricCards(items) {
-    return items.map((item) => `
-      <div class="metric-card">
-        <p>${item}</p>
-      </div>
-    `).join("");
-  }
-
-  function renderFullTestBlock(overallResult, profile) {
-    const features = [
-      "99 питань — на два порядки точніший портрет, ніж тут.",
-      "30-хвилинний особистий розбір із Анною: що за вашим архетипом стоїть насправді й де саме ламається система.",
-      "Підтримка в процесі впровадження — не лише зрозуміти, а й почати змінювати.",
-      "Конкретний план під ваш тип без універсальних порад про бюджет і вольову дисципліну."
-    ];
-
-    return `
-      <div class="result-kicker">Якщо хочеться глибше</div>
-      <p class="upgrade-lead">${overallResult.fullTest} ${profile.full_test}</p>
-      <div class="upgrade-cta">
-        <div class="upgrade-cta-header">
-          <p class="upgrade-cta-title">Повна версія</p>
-          <span class="upgrade-cta-tagline">99 питань · особистий розбір · підтримка</span>
-        </div>
-        <div class="upgrade-cta-features">
-          ${features.map(f => `<div class="upgrade-cta-feature"><span class="upgrade-cta-feature-dot"></span><span>${f}</span></div>`).join("")}
-        </div>
-        <p class="upgrade-cta-copy">Коротка версія показала напрямок. Повна дасть вже не просто “впізнавання”, а розуміння: чому саме цей сценарій, де він ламається і що робити конкретно у вашому випадку.</p>
-        <a href="https://t-e-l-w-h-a.com" target="_blank" class="upgrade-cta-button">Хочу повний розбір із Анною</a>
-      </div>
-    `;
-  }
-
-  function buildOverallResult(metrics) {
-    const { reserve, debt, chaos, visibility, pressure, incomeControl } = metrics;
-
-    let headline = "У вас не найважчий сценарій, і це хороша новина. Але є кілька зон, через які гроші поки не дають відчуття опори і ясності.";
-    let strength = "У профілі немає ознак жорсткої фінансової пожежі. Це означає, що ситуацію можна виправляти не через жорсткий антикризовий режим, а через розумне налаштування системи.";
-    let risk = "Головна проблема зараз — не одна катастрофічна помилка, а повторювані дрібні втрати контролю, які з’їдають спокій і прогнозованість.";
-    let actions = [
-      "Протягом 14 днів зробіть один короткий щотижневий огляд грошей: залишки, витрати, борг, резерв.",
-      "Виберіть одне правило контролю, яке не обговорюється: наприклад, спочатку резерв, потім інше.",
-      "Подивіться не лише на цифри, а й на свою реакцію: ви уникаєте, панікуєте чи відкладаєте. Саме там і є головна точка росту."
-    ];
-    let fullTest = "Повна версія потрібна не для того, щоб “ще раз сказати те саме”, а щоб відділити звичку від глибшого патерну: stress-control, avoidance, omission, сімейний сценарій чи іншу поведінкову пастку.";
-
-    if (visibility <= 2.0 && incomeControl <= 2.4) {
-      headline = "Зараз головна проблема не в драмі, а в невидимості грошей. Система не сиплеться, але й не дає вам ясної картини.";
-      strength = "Добра новина в тому, що тиск і боргове навантаження ще не виглядають критичними. Це означає, що у вас є вікно, щоб спокійно зібрати контроль, поки ситуація не стала жорсткішою.";
-      risk = "Мінус цього профілю в тому, що людина часто думає: “все більш-менш нормально”. Але саме в цій “більш-менш нормальності” ховаються витоки, відкладені рішення і відсутність реальної опори.";
-      actions = [
-        "Раз на тиждень відкривайте один короткий фінансовий огляд: скільки є на рахунках, що пішло за 7 днів, що має піти далі.",
-        "Зафіксуйте одне правило видимості: жоден рахунок, картка чи борг не можуть залишатися “десь там”. Усе має бути в одному місці.",
-        "Якщо ловите себе на думці “не хочу зараз дивитися”, не сваріть себе. Просто помітьте це — саме уникання тут і є частиною проблеми."
-      ];
-      fullTest = "Повна версія покаже, що саме стоїть за цією сліпою зоною: проста відсутність звички, сором, stress-avoidance, omission чи старий сімейний сценарій про гроші.";
-    } else if (reserve <= 2.2 && debt >= 3) {
-      headline = "Профіль уже стоїть близько до касового тиску: гроші частіше гасять поточні дірки, ніж будують опору.";
-      strength = "Сильна сторона тут у тому, що ви все ще в контакті з реальністю і можете швидко зібратися, коли бачите ризик. Це хороший ресурс для стабілізації.";
-      risk = "Мінус профілю — постійне повернення в режим “вижити до наступного надходження”. У такому циклі навіть нормальний дохід не перетворюється на відчуття безпеки.";
-      actions = [
-        "Поставте собі 14-денне завдання: жодних нових боргів і жодного “потім розберуся” по дрібних витратах.",
-        "Створіть міні-резерв, який не чіпається для буденних покупок. Навіть невелика сума вже зменшує хаос у голові.",
-        "Якщо є сором або провина через борги, не маскуйте це мотивацією. Спочатку потрібна ясність, а не героїзм."
-      ];
-      fullTest = "Повна версія відділить, чи це більше борговий патерн, сімейний сценарій нестачі, фінансова тривога чи хаос звичок під стресом.";
-    } else if (pressure >= 3.4) {
-      headline = "Профіль показує, що гроші зараз сильно зав’язані на напрузі. Система працює, але ціною внутрішнього перевантаження.";
-      strength = "Ви вмієте тягнути і збиратися, коли треба. Це говорить про високу відповідальність і ресурсність.";
-      risk = "Проблема в тому, що така модель легко плутає працездатність із фінансовою стійкістю. Людина наче справляється, але запасу міцності майже немає.";
-      actions = [
-        "Оберіть один фінансовий процес, який можна забрати з ручного режиму: автопереказ, автоплатіж, фіксований ліміт, шаблон огляду.",
-        "Подивіться, який дохід або витрата тримаються лише на вашому перенапруженні. Це і є перша точка для перебудови.",
-        "У розмовах із близькими або з собою замініть “треба ще дотягнути” на “що можна спростити вже зараз”."
-      ];
-      fullTest = "Повна версія покаже, де саме тут головний вузол: вигорання, крихкий дохід, культ продуктивності чи фінансова тривога.";
-    } else if (visibility >= 3.4 && reserve >= 3 && debt <= 2.5 && chaos <= 2.5) {
-      headline = "Це не поганий профіль. У вас уже є база, на яку можна спертися, і зараз питання не у виживанні, а в тому, як перейти до більшого росту.";
-      strength = "Уже видно опору: краща видимість грошей, менше хаосу і нижча залежність від боргового тиску.";
-      risk = "Мінус такого профілю — самозаспокоєння. Можна довго жити в режимі “все нормально”, але так і не перейти до справді сильного фінансового дизайну.";
-      actions = [
-        "Переведіть одну корисну звичку в автоматичний режим: накопичення, інвестування або регулярний огляд.",
-        "Сформулюйте не лише “чого уникати”, а й “що будувати”: резерв, інвестконтур, фінціль, новий рівень доходу.",
-        "Раз на місяць перевіряйте не лише гроші, а й поведінкову якість рішень: де ви все ще граєте занадто обережно."
-      ];
-      fullTest = "Повна версія покаже, чи ваша обережність здорова, чи за нею стоїть тривога, omission або недовіра до ризику.";
-    }
-
-    return {
-      headline,
-      strength,
-      risk,
-      metrics: [
-        formatMetricLine("Видимість грошей", visibility, "positive"),
-        formatMetricLine("Резерв", reserve, "positive"),
-        formatMetricLine("Борг / борговий тиск", debt, "risk"),
-        formatMetricLine("Хаос у щоденних рішеннях", chaos, "risk"),
-        formatMetricLine("Щоденний фінансовий тиск", pressure, "risk"),
-        formatMetricLine("Контроль над доходом", incomeControl, "positive")
-      ],
-      actions,
-      fullTest
-    };
-  }
-
-  // Theme presets — all 13 archetypes (short classifier: ZP/FS/PN/VV/TS/DS only)
-  const ARCHETYPE_THEMES = {
-    ZP: { emotion: "Сором + страх", quote: "Я краще не буду дивитись на рахунок — все одно там нічого немає." },
-    SK: { emotion: "Лояльність + страх", quote: "У нас у родині завжди так було, хто я такий(така), щоб робити інакше." },
-    FS: { emotion: "Страх → уникання", quote: "Не хочу зараз про це думати, воно якось вирішиться потім." },
-    PN: { emotion: "Страх + сором", quote: "Поки план не буде ідеальним, починати рано — потім буду розгрібати." },
-    VV: { emotion: "Вина + сором", quote: "Я мав(ла) би вже заробляти більше, просто ще недостатньо стараюсь." },
-    SB: { emotion: "Вина + сором", quote: "Як я можу сказати «ні», якщо в мене є, а в них немає?" },
-    OP: { emotion: "Образа + страх", quote: "Світ і так несправедливий, то навіщо паритись — буду жити зараз." },
-    KI: { emotion: "Сором + страх", quote: "З таким рівнем знань я не можу заходити так по-простому — треба ще допрацювати." },
-    TS: { emotion: "Страх + трохи вини", quote: "Головне — щоб була подушка, а решта — не час ризикувати." },
-    DS: { emotion: "Страх + нудьга", quote: "Не хочу зараз забивати голову грошима, хочу хоч трохи пожити нормально." },
-    FN: { emotion: "Образа + сором", quote: "Я ще відіграюсь — не можу просто так вийти й визнати, що програв(ла)." },
-    MR: { emotion: "Страх + сором", quote: "Я теж маю право жити як люди, не чекати десять років, поки назбираю." },
-    KG: { emotion: "Сором + страх", quote: "Я ще недостатньо готовий(а), краще дочитаю і вже потім зроблю нормально." }
-  };
-
-  function applyTheme(code) {
-    const card = document.getElementById("js-result-card");
-    if (!card) return;
-    card.className = card.className.replace(/\btheme-\w+\b/g, "").trim();
-    if (code && ARCHETYPE_THEMES[code]) card.classList.add("theme-" + code);
-  }
-
-  function renderResult(profile, payload, overallResult) {
-    applyTheme(profile.code);
-
-    generalSummary.innerHTML = `<p>${overallResult.headline}</p>`;
-    generalStrength.innerHTML = renderParagraphs([overallResult.strength]);
-    generalRisk.innerHTML = renderParagraphs([overallResult.risk]);
-    generalMetrics.innerHTML = renderMetricCards(overallResult.metrics);
-    nextActionsBox.innerHTML = renderActionCards(profile.actions);
-    archetypeTitle.textContent = profile.title;
-    archetypeSubtitle.textContent = profile.subtitle;
-    archetypeCode.textContent = profile.code || "—";
-    archetypeBody.innerHTML = renderParagraphs(profile.body);
-
-    const emotionBox = document.getElementById("js-archetype-emotion");
-    const theme = ARCHETYPE_THEMES[profile.code];
-    if (emotionBox && theme) {
-      emotionBox.innerHTML =
-        `<div class="archetype-emotion"><strong>Базова емоція:</strong> ${theme.emotion}</div>` +
-        `<blockquote class="archetype-quote">“${theme.quote}”</blockquote>`;
-    }
-
-    metaBox.innerHTML =
-      `<p><strong>Сильна сторона:</strong> ${profile.strength}</p>` +
-      `<p><strong>Точка вразливості:</strong> ${profile.vulnerability}</p>`;
-
-    fullTestBody.innerHTML = renderFullTestBlock(overallResult, profile);
-    resultSection.hidden = false;
-    resultSection.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-
-  function computeMetrics() {
-    return {
-      reserve: average([num("FA5"), num("FA10")].filter(v => v !== null)),
-      debt: average([num("FA7"), num("FA8"), num("FH5")].filter(v => v !== null)),
-      chaos: average([num("FH3"), num("FH10"), num("FH15"), num("FH8")].filter(v => v !== null)),
-      visibility: average([num("FH1"), num("FH2"), num("FH11"), num("FH12")].filter(v => v !== null)),
-      pressure: average([num("PA6"), num("PA7"), num("PA8"), num("FH6"), num("FH7"), num("FH13"), num("FH14")].filter(v => v !== null)),
-      incomeControl: average([num("PA3"), num("PA4")].filter(v => v !== null)),
-      pa1: code("PA1"),
-      pa5: code("PA5"),
-      sources: num("PA2")
-    };
-  }
-
-  function getArchetype(metrics) {
-    const { reserve, debt, chaos, visibility, pressure, incomeControl, pa1, pa5, sources } = metrics;
-
-    const candidates = [
-      {
-        code: "ZP",
-        primary_name: "Зарплата‑привид",
-        rule_fired: "zp_cashflow_weighted_rule",
-        title: "Зарплата‑привид",
-        subtitle: "Гроші приходять, але не встигають стати опорою — вони швидко йдуть у латання дірок і термінові реакції.",
-        body: [
-          "З боку це часто виглядає як “я ж щось заробляю, просто зараз такий період”. Але всередині профіль уже показує знайому історію: резерв не тримається, гроші працюють на вчорашні проблеми, а не на завтрашню стабільність.",
-          "Тут важливо не сварити себе за хаос. Швидше за все, нервова система давно звикла жити в режимі реагування, а не планування. Це виправляється, але через прості жорсткі контури, а не через красиві наміри."
-        ],
-        strength: "ви вмієте швидко мобілізуватися і реагувати, коли ситуація вже горить.",
-        vulnerability: "без резерву і видимості навіть нормальний дохід не перетворюється на відчуття безпеки.",
-        actions: [
-          {
-            title: "Перша транзакція — собі",
-            what: "Протягом 14 днів перший рух після будь-якого надходження — маленький переказ у резерв, навіть якщо сума символічна.",
-            why: "Це ламає патерн, де гроші автоматично йдуть тільки на пожежі.",
-            time: "10 хвилин на налаштування і 1 хвилина на перевірку"
-          },
-          {
-            title: "Одна таблиця фактів",
-            what: "Зведіть в одне місце всі рахунки, борги й регулярні списання, без самоосуду і без складних категорій.",
-            why: "Профіль стає значно слабшим, коли гроші перестають бути “розкиданими в тумані”.",
-            time: "20–30 хвилин один раз"
-          },
-          {
-            title: "Пауза перед терміновими витратами",
-            what: "Перед будь-якою емоційною або терміновою витратою робіть паузу 10 хвилин і ставте собі одне питання: це пожежа чи тривога.",
-            why: "Так ви відділяєте реальну потребу від автоматичної стрес-реакції.",
-            time: "10 хвилин у моменти напруги"
-          }
-        ],
-        full_test: "Повна версія покаже, чи тут головніше борговий цикл, сімейний сценарій нестачі, stress-spending або хаотичний money-script про виживання.",
-        score: (() => {
-          let s = (5 - reserve) * 2.2 + debt * 2.0 + chaos * 1.4 + (5 - visibility) * 1.1 + pressure * 0.7;
-          if (debt < 2.6) s -= 4;
-          if (reserve > 3) s -= 3;
-          return s;
-        })()
-      },
-      {
-        code: "FS",
-        primary_name: "Фінансовий страус",
-        rule_fired: "fs_visibility_avoidance_rule",
-        title: "Фінансовий страус",
-        subtitle: "Головний ризик зараз не в пожежі, а в тому, що гроші проходять повз увагу і не складаються в ясну картину.",
-        body: [
-          "Цей результат не означає, що у вас катастрофа. Він означає інше: ви поки не тримаєте гроші в достатньо чіткій зоні уваги. Через це частина рішень відкладається, частина губиться в тумані, а контроль відчувається слабше, ніж хотілося б.",
-          "Такі люди часто не виглядають “проблемними”. Вони можуть бути відповідальними, розумними, обережними. Але якщо цифри не зібрані в одну картину, фінансова система не дає опори — лише фон тривоги і відчуття, що все якось пливе повз."
-        ],
-        strength: "у вас ще немає ознак жорсткої фінансової пожежі, а це означає, що зміни можна робити спокійно і без режиму паніки.",
-        vulnerability: "низька видимість грошей тихо блокує накопичення, ясність і відчуття реального контролю.",
-        actions: [
-          {
-            title: "Один короткий фінансовий огляд на тиждень",
-            what: "Раз на тиждень відкривайте один 15-хвилинний слот: залишки на рахунках, що пішло за 7 днів, які витрати йдуть далі.",
-            why: "Для цього профілю головне не ідеальний бюджет, а регулярний контакт із реальністю.",
-            time: "15 хвилин раз на тиждень"
-          },
-          {
-            title: "Усе в одному місці",
-            what: "Запишіть в один список усі картки, рахунки, борги, підписки і платежі, які у вас активні зараз.",
-            why: "Коли система стає видимою, тривога зазвичай зменшується, а не росте.",
-            time: "20 хвилин один раз"
-          },
-          {
-            title: "Помічати уникання без самоосуду",
-            what: "Коли з’являється думка “не хочу зараз дивитися”, не тисніть на себе. Просто назвіть це вголос: я зараз уникаю, бо мені неприємно.",
-            why: "Це повертає вам контроль і не дає avoidance-патерну тихо керувати рішеннями.",
-            time: "30 секунд у потрібний момент"
-          }
-        ],
-        full_test: "Повна версія покаже, що саме стоїть за цією сліпою зоною: проста відсутність звички, сором, omission, stress-avoidance чи learned helplessness.",
-        score: (() => {
-          let s = (5 - visibility) * 2.6 + (5 - incomeControl) * 2.0 + (5 - reserve) * 1.2 + (5 - pressure) * 0.6 + (5 - chaos) * 0.5;
-          if (visibility > 2.6) s -= 5;
-          if (incomeControl > 3.2) s -= 3;
-          if (debt > 3.2) s -= 2;
-          return s;
-        })()
-      },
+  <script>
+  const stats = {
+    totalResponses: 1248,
+    stressShare: 31,
+    omissionShare: 44,
+    visibilityShare: 36,
+    emotionalShare: 29,
+    archetypes: [
       {
         code: "PN",
-        primary_name: "Планувальний невротик",
-        rule_fired: "pn_reactive_control_rule",
-        title: "Планувальний невротик",
-        subtitle: "Контроль у вас є, але він часто запускається вже після напруги, шуму або накопиченого безладу.",
-        body: [
-          "Тут видно не повне уникання, а радше стомливий спосіб керувати грошима: думок, внутрішніх перевірок і реакцій багато, а спокійної системи — менше, ніж хотілося б.",
-          "Проблема такого профілю не лише у фінансових втратах. Він ще й з’їдає багато ментальної енергії. Ви ніби стараєтесь контролювати, але частина сил іде не в результат, а в напругу."
-        ],
-        strength: "ви не байдужі до своїх грошей і намагаєтесь не відпускати систему повністю.",
-        vulnerability: "контроль, який приходить через напругу, швидко виснажує і часто коштує дорожче, ніж спокійні прості правила.",
-        actions: [
-          {
-            title: "Одне рішення за одну сесію",
-            what: "У кожному фінансовому слоті вирішуйте лише одну конкретну дію: закрити підписку, відкласти суму, перенести платіж, записати борг.",
-            why: "Це зменшує внутрішній шум і не дає контролю перетворюватися на нескінченну перевірку.",
-            time: "10–15 хвилин на слот"
-          },
-          {
-            title: "Список тригерів, а не ідеальний план",
-            what: "Запишіть 3 ситуації, після яких ви найчастіше втрачаєте фінансовий спокій: погані новини, перевтома, конфлікт, нестабільний дохід.",
-            why: "Для цього архетипу важливо спіймати не “помилку в цифрах”, а момент, коли система зривається емоційно.",
-            time: "10 хвилин"
-          },
-          {
-            title: "Правило доброго, а не ідеального",
-            what: "Раз на тиждень свідомо зупиняйте огляд після першого адекватного рішення, навіть якщо хочеться “ще доробити все”.",
-            why: "Це вчить нервову систему, що безпека можлива і без фінансового перфекціонізму.",
-            time: "1 хвилина для зупинки"
-          }
-        ],
-        full_test: "Повна версія покаже, чи це більше тривожний контроль, перфекціонізм, страх помилки, omission чи хвилеподібний stress-management.",
-        score: (() => {
-          let s = chaos * 1.9 + pressure * 1.3 + (5 - visibility) * 0.8 + (5 - reserve) * 0.4;
-          if ([2, 4].includes(pa5)) s += 1.1;
-          if (chaos < 2.4) s -= 5;
-          return s;
-        })()
+        name: "Планую, але застрягаю",
+        share: 18,
+        text: "Бачу правильний напрямок, але відкладаю дію і гублю темп між планом та виконанням."
       },
       {
         code: "VV",
-        primary_name: "Вигораючий відмінник",
-        rule_fired: "vv_pressure_fragility_rule",
-        title: "Вигораючий відмінник",
-        subtitle: "Система ніби працює, але занадто сильно тримається на напрузі, витягуванні і постійному зусиллі.",
-        body: [
-          "Цей профіль часто виглядає “нормальним” для оточення. Людина відповідальна, працездатна, старається, не кидає все на самоплив. Але всередині вже видно небезпечну річ: фінансова стабільність занадто сильно залежить від того, скільки ще можна витягнути на силі волі.",
-          "Проблема тут не в слабкості. Навпаки — у надмірній силі, яка довго тягне систему без права на простоту, відпочинок і запас міцності."
-        ],
-        strength: "у вас висока відповідальність і здатність збирати себе, коли це потрібно.",
-        vulnerability: "якщо система тримається тільки на вашому перенапруженні, вона рано чи пізно починає сипатися в найдорожчих місцях.",
-        actions: [
-          {
-            title: "Зняти один процес із ручного режиму",
-            what: "Автоматизуйте хоча б одну фінансову дію: переказ у резерв, оплату рахунку, шаблон огляду чи ліміт витрат.",
-            why: "Це зменшує залежність системи від вашої поточної сили волі.",
-            time: "15 хвилин один раз"
-          },
-          {
-            title: "Відрізнити дохід від перенапруження",
-            what: "Подивіться, яка частина грошей у вас зараз тримається саме на перевтомі, а не на здоровій системі.",
-            why: "Це показує, де фінанси насправді крихкі, навіть якщо зовні все ще виглядає пристойно.",
-            time: "15–20 хвилин"
-          },
-          {
-            title: "Одна фраза турботи замість самотиску",
-            what: "Коли ловите думку “треба ще дотягнути”, замініть її на “що я можу спростити вже зараз”.",
-            why: "Так ви вмикаєте не тільки дисципліну, а й турботу до себе — а без неї ця модель довго не витримує.",
-            time: "30 секунд у моменті"
-          }
-        ],
-        full_test: "Повна версія покаже, де саме тут головний вузол: вигорання, крихкий дохід, культ продуктивності чи тривожна фінансова самоцінність.",
-        score: (() => {
-          let s = pressure * 2.5 + (5 - incomeControl) * 1.5 + (5 - reserve) * 0.8;
-          if (sources <= 1) s += 1.1;
-          if ([2, 3, 4].includes(pa1)) s += 0.7;
-          if (pressure < 2.6) s -= 6;
-          return s;
-        })()
+        name: "Тягну на собі і вигораю",
+        share: 15,
+        text: "Тримаю контроль через надзусилля, але поступово накопичую втому і напругу."
       },
       {
-  code: "TS",
-  primary_name: "Тривожний сейф",
-  rule_fired: "ts_safe_control_rule",
-  title: "Тривожний сейф",
-  subtitle: "Базовий контроль уже є, але безпека і порядок поки важливіші за сміливий довгий ріст.",
-  body: [
-    "Це вже не хаотичний профіль. Тут видно опору: кращу видимість, менше шуму, нижчу боргову турбулентність. Людина більше тримає гроші в полі уваги, ніж віддає їх на самоплив.",
-    "Але є інша пастка: можна так добре берегти систему, що вона залишиться лише “досить безпечною”, але не стане по-справжньому сильною і такою, що росте."
-  ],
-  strength: "у вас уже є база, на яку можна спертися без паніки й героїчних ривків.",
-  vulnerability: "обережність може непомітно стати гальмом, якщо безпека постійно важливіша за розвиток.",
-  actions: [
-    {
-      title: "Автоматизуйте одну дію росту",
-      what: "Запустіть не лише контроль, а й ріст: автопереказ у накопичення або окремий інвест-контур.",
-      why: "Це виводить систему з режиму просто “бережу, щоб не стало гірше”.",
-      time: "15 хвилин один раз"
-    },
-    {
-      title: "Сформулюйте наступний рівень",
-      what: "Напишіть собі одну фінціль не про уникнення проблем, а про побудову кращого життя.",
-      why: "Профілю потрібен не лише контроль, а й напрямок, заради чого цей контроль існує.",
-      time: "10 хвилин"
-    },
-    {
-      title: "Дозволити собі керований ризик",
-      what: "Оберіть одну невелику суму або дію, де можна потренуватися рухатися не лише в безпеку, а й у розвиток.",
-      why: "Так тривога перестає бути єдиним архітектором фінансових рішень.",
-      time: "15 хвилин на рішення"
-    }
-  ],
-  full_test: "Повна версія покаже, чи це здорова обережність, тривожна гіпербезпека, недовіра до ризику або сімейний сценарій зберігання.",
-  score: (() => {
-    let s = visibility * 2.4 + reserve * 2.1 + (6 - debt) * 1.1 + (6 - chaos) * 0.9 + pressure * 0.4;
-    if (visibility < 3) s -= 6;
-    if (reserve < 2.8) s -= 4;
-    return s;
-  })()
-},
-  {
-    code: "DS",
-    primary_name: "Допаміновий спринтер",
-    rule_fired: "ds_chaos_impulse_rule",
-    title: "Допаміновий спринтер",
-    subtitle: "Фінансова динаміка йде хвилями: активність, імпульс, рішення по настрою і нестача рівної системи.",
-    body: [
-      "У вас не обов’язково повний хаос. Але є інше: ритм грошей ніби смикається хвилями. То включеність, то провал, то імпульс, то відкат. Саме цей нерівний темп і створює втрати.",
-      "Такі профілі часто дуже живі, креативні, енергійні. Проблема не в тому, що людина “не така”. Проблема в тому, що система не встигає перетворити цю енергію в стабільний фінансовий контур."
-    ],
-    strength: "у вас є енергія, швидка реакція і здатність запускати рух, коли з’являється мотивація.",
-    vulnerability: "без повторюваних правил імпульс швидко з’їдає накопичення, ясність і послідовність.",
-    actions: [
-      {
-        title: "Одне правило для хвильових витрат",
-        what: "Виберіть одну категорію, де вас найчастіше “несе”, і задайте для неї простий ліміт або часову паузу.",
-        why: "Це не вбиває вашу енергію, а дає їй рамку, в якій вона не руйнує систему.",
-        time: "10 хвилин"
-      },
-      {
-        title: "Повторювана недільна рутина",
-        what: "Закріпіть один і той самий короткий час на тиждень для фіногляду, навіть якщо “не хочеться”.",
-        why: "Для цього архетипу рятує не мотивація, а ритм.",
-        time: "15 хвилин раз на тиждень"
-      },
-      {
-        title: "Замість ривка — маленький контур",
-        what: "Не ставте собі одразу великий фінплан. Оберіть одну маленьку звичку на 14 днів і перевірте, чи вона переживе вашу звичайну хвилю настрою.",
-        why: "Так ви будуєте систему, яка тримається не на піковому ентузіазмі, а на реальному житті.",
-        time: "5 хвилин на старт і 2 хвилини на день"
+        code: "FS",
+        name: "Не хочу бачити неприємне",
+        share: 13,
+        text: "Уникаю неприємних цифр, рішень або фактів, які можуть викликати внутрішній дискомфорт."
       }
-    ],
-    full_test: "Повна версія допоможе відділити, чи це більше допаміновий патерн, stress-spending, хвильова дисципліна або реакція на нестабільність середовища.",
-    score: (() => {
-      let s = chaos * 2.1 + (5 - reserve) * 1.3 + (5 - visibility) * 1.0 + (5 - incomeControl) * 0.8;
-      if (debt <= 2.8) s += 0.6;
-      if (chaos < 2.8) s -= 4;
-      return s;
-    })()
-  }
-  ];
-
-  const ranked = candidates
-    .map((item) => ({ ...item, score: Number(item.score.toFixed(2)) }))
-    .sort((a, b) => b.score - a.score);
-
-  const primary = ranked[0];
-  const secondary = ranked[1] || null;
-  const gap = secondary ? Number((primary.score - secondary.score).toFixed(2)) : null;
-  const confidence = gap === null ? "medium" : (gap >= 3 ? "high" : gap >= 1.2 ? "medium" : "low");
-
-  return {
-    ...primary,
-    secondary_id: secondary ? secondary.code : null,
-    secondary_name: secondary ? (secondary.primary_name || null) : null,
-    confidence,
-    mix_flag: confidence === "low",
-    candidate_scores: Object.fromEntries(ranked.map((item) => [item.code, item.score]))
+    ]
   };
+
+  const setText = (id, value) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+  };
+
+  setText("totalResponses", stats.totalResponses.toLocaleString("uk-UA"));
+  setText("stressShare", stats.stressShare + "%");
+  setText("omissionShare", stats.omissionShare + "%");
+  setText("visibilityShare", stats.visibilityShare + "%");
+  setText("emotionalShare", stats.emotionalShare + "%");
+
+  if (stats.archetypes?.length >= 3) {
+    setText("arch1Code", stats.archetypes[0].code);
+    setText("arch1Name", stats.archetypes[0].name);
+    setText("arch1Share", stats.archetypes[0].share + "%");
+    setText("arch1Text", stats.archetypes[0].text);
+
+    setText("arch2Code", stats.archetypes[1].code);
+    setText("arch2Name", stats.archetypes[1].name);
+    setText("arch2Share", stats.archetypes[1].share + "%");
+    setText("arch2Text", stats.archetypes[1].text);
+
+    setText("arch3Code", stats.archetypes[2].code);
+    setText("arch3Name", stats.archetypes[2].name);
+    setText("arch3Share", stats.archetypes[2].share + "%");
+    setText("arch3Text", stats.archetypes[2].text);
   }
 
-  function buildPayload(profile, metrics, overallResult) {
-    const answeredCount = required.filter((id) => answers[id] !== undefined).length;
-    const isCompleted = answeredCount === required.length;
-    const pa1Code = code("PA1");
-
-    const employmentMap = {
-      1: "employee",
-      2: "fop_freelance",
-      3: "business_owner",
-      4: "gig_project",
-      5: "unstable_none"
-    };
-
-    const fa1Code = code("FA1");
-
-    const locationMap = {
-      1: "ua_home_city",
-      2: "ua_relocated",
-      3: "abroad_temporary",
-      4: "abroad_long_term",
-      5: "mixed"
-    };
-
-    return {
-      response_id: `resp_${Date.now()}`,
-      survey_version: "short-v1",
-      scoring_version: "short-archetype-v3",
-
-      metadata: {
-        duration_seconds: Math.max(0, Math.round((Date.now() - new Date(sessionStartedAt).getTime()) / 1000)),
-        completion_status: isCompleted ? "completed" : (answeredCount > 0 ? "partial" : "abandoned"),
-        answered_count: answeredCount,
-        required_count: 33,
-        location_group: locationMap[fa1Code] || null,
-        employment_type: employmentMap[pa1Code] || null,
-        routing_flags: {},
-        started_at: sessionStartedAt,
-        completed_at: isCompleted ? new Date().toISOString() : null
-      },
-
-      raw_answers: Object.fromEntries(
-        required
-          .filter((id) => answers[id] !== undefined)
-          .map((id) => [
-            id,
-            {
-              item_id: answers[id].item_id,
-              raw: answers[id].raw === null ? null : Number(answers[id].raw),
-              option_code: answers[id].option_code === null ? null : Number(answers[id].option_code)
-            }
-          ])
-      ),
-
-      overall_result: {
-        summary: overallResult.headline,
-        strength: overallResult.strength,
-        risk: overallResult.risk,
-        metrics: overallResult.metrics,
-        actions: overallResult.actions,
-        full_test: overallResult.fullTest
-      },
-
-      derived_scores: {
-        reserve_index_1_5: Number(metrics.reserve.toFixed(2)),
-        debt_index_1_5: Number(metrics.debt.toFixed(2)),
-        chaos_index_1_5: Number(metrics.chaos.toFixed(2)),
-        visibility_index_1_5: Number(metrics.visibility.toFixed(2)),
-        pressure_index_1_5: Number(metrics.pressure.toFixed(2)),
-        income_control_index_1_5: Number(metrics.incomeControl.toFixed(2)),
-        pa1_option_code: metrics.pa1 ?? null,
-        pa5_option_code: metrics.pa5 ?? null,
-        income_sources_raw_0_4: metrics.sources ?? null
-      },
-
-      archetype_result: {
-        primary_id: profile.code || null,
-        primary_name: profile.primary_name || null,
-        mix_flag: profile.mix_flag ?? false,
-        rule_fired: profile.rule_fired || null,
-        secondary_id: profile.secondary_id || null,
-        secondary_name: profile.secondary_name || null,
-        confidence: profile.confidence || null,
-
-        debug_snapshot: {
-          reserve_index_1_5: Number(metrics.reserve.toFixed(2)),
-          debt_index_1_5: Number(metrics.debt.toFixed(2)),
-          chaos_index_1_5: Number(metrics.chaos.toFixed(2)),
-          visibility_index_1_5: Number(metrics.visibility.toFixed(2)),
-          pressure_index_1_5: Number(metrics.pressure.toFixed(2)),
-          income_control_index_1_5: Number(metrics.incomeControl.toFixed(2)),
-          pa1_option_code: metrics.pa1 ?? null,
-          pa5_option_code: metrics.pa5 ?? null,
-          income_sources_raw_0_4: metrics.sources ?? null,
-          candidate_scores: profile.candidate_scores || {}
-        }
-      }
-    };
-  }
-  function clearAllErrorBlocks() {
-    document.querySelectorAll(".question-block--error").forEach((block) => {
-      block.classList.remove("question-block--error");
-    });
-
-    required.forEach((id) => {
-      if (answers[id] === undefined) {
-        setBlockHint(id, "");
-      }
-    });
-  }
-
-  function markErrorBlocks(itemIds) {
-    itemIds.forEach((id) => {
-      const block = document.querySelector(`.question-block[data-question="${id}"]`);
-      if (block) block.classList.add("question-block--error");
-      setBlockHint(id, "Оберіть один варіант, щоб продовжити", true);
-    });
-  }
-
-  const SHEETS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyHZWslDEkHBnyHCIxrTETqvhtF9vtqVgvVsr9cMslamdOHzyI5RYW4L_sjk0ofLaJ1/exec';
-
-  async function saveResultToSheets(payload) {
-    const report = payload?.archetype_result || {};
-    const scores = payload?.derived_scores || {};
-    const meta = payload?.metadata || {};
-
-    const row = {
-      response_id: payload.response_id || '',
-      survey_version: payload.survey_version || '',
-      scoring_version: payload.scoring_version || '',
-
-      primary_archetype: report.primary_id || '',
-      secondary_archetype: report.secondary_id || '',
-      confidence: report.confidence || '',
-      mix_flag: String(report.mix_flag ?? ''),
-
-      reserve_index_1_5: String(scores.reserve_index_1_5 ?? ''),
-      debt_index_1_5: String(scores.debt_index_1_5 ?? ''),
-      chaos_index_1_5: String(scores.chaos_index_1_5 ?? ''),
-      visibility_index_1_5: String(scores.visibility_index_1_5 ?? ''),
-      pressure_index_1_5: String(scores.pressure_index_1_5 ?? ''),
-      income_control_index_1_5: String(scores.income_control_index_1_5 ?? ''),
-
-      location_group: meta.location_group || '',
-      employment_type: meta.employment_type || '',
-      income_sources_raw_0_4: String(scores.income_sources_raw_0_4 ?? ''),
-
-      completed_at: meta.completed_at || '',
-      completion_status: meta.completion_status || '',
-      answered_count: String(meta.answered_count ?? '')
-    };
-
-    try {
-      const body = new URLSearchParams(row);
-
-      await fetch(SHEETS_WEB_APP_URL, {
-        method: 'POST',
-        body
-      });
-
-      console.log('Sheets request sent', row);
-    } catch (error) {
-      console.error('Google Sheets save failed:', error);
-    }
-  }
-
-  submitBtn.addEventListener("click", () => {
-    const missed = required.filter((id) => answers[id] === undefined);
-
-    if (missed.length) {
-      clearAllErrorBlocks();
-      markErrorBlocks(missed);
-
-      errorBox.hidden = false;
-      errorBox.textContent = "Ще не всі питання заповнені — підсвічені блоки чекають відповіді.";
-      focusBlock(missed[0]);
-      return;
-    }
-
-    clearAllErrorBlocks();
-    errorBox.hidden = true;
-    errorBox.textContent = "";
-
-    const metrics = computeMetrics();
-    const profile = getArchetype(metrics);
-    const overallResult = buildOverallResult(metrics);
-    const payload = buildPayload(profile, metrics, overallResult);
-
-    renderResult(profile, payload, overallResult);
-
-    Promise.allSettled([
-      saveResultToSheets(payload),
-      window.saveResultToFirebase ? window.saveResultToFirebase(payload) : Promise.resolve()
-    ]).then((results) => {
-      console.log("SAVE RESULTS", results);
-    }).catch((error) => {
-      console.error("SAVE ERROR", error);
-    });
-  });
-
-  nextUnansweredBtn.addEventListener("click", () => {
-    jumpToFirstUnanswered();
-  });
-
-  firstMissedBtn.addEventListener("click", () => {
-    jumpToFirstUnanswered();
-  });
-
-  questionBlocks.forEach((block) => {
-    block.addEventListener("mouseenter", () => {
-      questionBlocks.forEach((item) => item.classList.remove("question-block--active"));
-      block.classList.add("question-block--active");
-    });
-  });
-
-  document.addEventListener("scroll", () => {
-    const visibleBlock = questionBlocks.find((block) => {
-      const rect = block.getBoundingClientRect();
-      return rect.top >= 110 && rect.top <= 240;
-    });
-
-    if (visibleBlock) {
-      questionBlocks.forEach((item) => item.classList.remove("question-block--active"));
-      visibleBlock.classList.add("question-block--active");
-
-      const code = visibleBlock.dataset.section || getCurrentSectionCode();
-      const labelMap = {
-        FA: "Блок 1 з 3 · FA",
-        PA: "Блок 2 з 3 · PA",
-        FH: "Блок 3 з 3 · FH"
-      };
-
-      currentStep.textContent = `Зараз: ${labelMap[code]}`;
-    }
-  }, { passive: true });
-
-  updateProgress();
-
-  (function () {
-    const root = document.documentElement;
-    let currentTheme = 'dark';
-    root.setAttribute('data-theme', currentTheme);
-
-    const btn = document.querySelector('.theme-toggle');
-    if (!btn) return;
-
+  document.querySelectorAll('.finlab-acc-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-      root.setAttribute('data-theme', currentTheme);
+      btn.parentElement.classList.toggle('open');
     });
-  })();
-</script>
+  });
+  </script>
 
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
-  import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyCKRZeWrWAU0Sh9PDPehzZN_9z4CVgZKN0",
-    authDomain: "telwha-3507f.firebaseapp.com",
-    projectId: "telwha-3507f",
-    storageBucket: "telwha-3507f.firebasestorage.app",
-    messagingSenderId: "612940249839",
-    appId: "1:612940249839:web:f2c6ffc51cfcf72c8ab91a",
-    measurementId: "G-P07KN1SR3R"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  window.saveResultToFirebase = async function(payload) {
-    try {
-      await addDoc(collection(db, "money_test_responses"), {
-        ...payload,
-        createdAt: serverTimestamp()
-      });
-      console.log("Saved to Firebase");
-    } catch (error) {
-      console.error("Firebase save failed:", error);
-    }
-  };
-</script>
+  <!-- той самий глобальний скрипт теми, що й на головній -->
+  <script src="/static/script/global.js"></script>
 </body>
 </html>
