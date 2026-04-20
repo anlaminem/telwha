@@ -1,0 +1,260 @@
+{
+  "_meta": {
+    "version": "v3-local-minimal-fixed",
+    "description": "Fixed local minimal scoring spec using real scale_name values from ScaleScores."
+  },
+  "archetypes": [
+    {
+      "id": "ZP",
+      "required_scales": [
+        "financial_visibility_score",
+        "reserve_discipline_score"
+      ],
+      "boost_scales": [
+        "stress_index",
+        "debt_dependency_score"
+      ],
+      "exclusion_scales": [
+        "honesty_index"
+      ],
+      "excl_threshold": 80,
+      "threshold_group": "default",
+      "primary_min_score": 45,
+      "secondary_min_score": 40,
+      "mix_flag_within_primary_points": 5,
+      "required_weight": 0.6,
+      "boost_weight": 0.4,
+      "exclusion_penalty_points": 20
+    },
+    {
+      "id": "FS",
+      "required_scales": [
+        "delay_discounting_k_proxy"
+      ],
+      "boost_scales": [
+        "bias_present_score",
+        "emotional_spending_score"
+      ],
+      "exclusion_scales": [],
+      "excl_threshold": 999,
+      "threshold_group": "default",
+      "primary_min_score": 45,
+      "secondary_min_score": 40,
+      "mix_flag_within_primary_points": 5,
+      "required_weight": 0.6,
+      "boost_weight": 0.4,
+      "exclusion_penalty_points": 20
+    },
+    {
+      "id": "PN",
+      "required_scales": [
+        "stress_index",
+        "bias_ostrich_score"
+      ],
+      "boost_scales": [
+        "financial_secrecy_index",
+        "debt_dependency_score"
+      ],
+      "exclusion_scales": [],
+      "excl_threshold": 999,
+      "threshold_group": "default",
+      "primary_min_score": 45,
+      "secondary_min_score": 40,
+      "mix_flag_within_primary_points": 5,
+      "required_weight": 0.6,
+      "boost_weight": 0.4,
+      "exclusion_penalty_points": 20
+    },
+    {
+      "id": "VV",
+      "required_scales": [
+        "stress_index",
+        "burnout_index"
+      ],
+      "boost_scales": [
+        "bias_scarcity_score"
+      ],
+      "exclusion_scales": [],
+      "excl_threshold": 999,
+      "threshold_group": "default",
+      "primary_min_score": 45,
+      "secondary_min_score": 40,
+      "mix_flag_within_primary_points": 5,
+      "required_weight": 0.6,
+      "boost_weight": 0.4,
+      "exclusion_penalty_points": 20
+    },
+    {
+      "id": "TS",
+      "required_scales": [
+        "omission_index"
+      ],
+      "boost_scales": [
+        "opportunity_loss_index",
+        "bias_normalcy_score"
+      ],
+      "exclusion_scales": [],
+      "excl_threshold": 999,
+      "threshold_group": "default",
+      "primary_min_score": 45,
+      "secondary_min_score": 40,
+      "mix_flag_within_primary_points": 5,
+      "required_weight": 0.6,
+      "boost_weight": 0.4,
+      "exclusion_penalty_points": 20
+    },
+    {
+      "id": "DS",
+      "required_scales": [
+        "bias_scarcity_score",
+        "bias_present_score"
+      ],
+      "boost_scales": [
+        "bias_ostrich_score",
+        "emotional_spending_score"
+      ],
+      "exclusion_scales": [],
+      "excl_threshold": 999,
+      "threshold_group": "default",
+      "primary_min_score": 45,
+      "secondary_min_score": 40,
+      "mix_flag_within_primary_points": 5,
+      "required_weight": 0.6,
+      "boost_weight": 0.4,
+      "exclusion_penalty_points": 20
+    },
+    {
+      "id": "FN",
+      "required_scales": [
+        "relationship_tension_index",
+        "boundary_leak_score"
+      ],
+      "boost_scales": [
+        "financial_secrecy_index"
+      ],
+      "exclusion_scales": [],
+      "excl_threshold": 999,
+      "threshold_group": "default",
+      "primary_min_score": 45,
+      "secondary_min_score": 40,
+      "mix_flag_within_primary_points": 5,
+      "required_weight": 0.6,
+      "boost_weight": 0.4,
+      "exclusion_penalty_points": 20
+    },
+    {
+      "id": "MR",
+      "required_scales": [
+        "honesty_index"
+      ],
+      "boost_scales": [
+        "financial_secrecy_index"
+      ],
+      "exclusion_scales": [],
+      "excl_threshold": 999,
+      "threshold_group": "default",
+      "primary_min_score": 45,
+      "secondary_min_score": 40,
+      "mix_flag_within_primary_points": 5,
+      "required_weight": 0.6,
+      "boost_weight": 0.4,
+      "exclusion_penalty_points": 20
+    },
+    {
+      "id": "SK",
+      "required_scales": [
+        "risk_appetite_score"
+      ],
+      "boost_scales": [
+        "bias_overconfidence_score",
+        "bias_optimism_score"
+      ],
+      "exclusion_scales": [],
+      "excl_threshold": 999,
+      "threshold_group": "default",
+      "primary_min_score": 45,
+      "secondary_min_score": 40,
+      "mix_flag_within_primary_points": 5,
+      "required_weight": 0.6,
+      "boost_weight": 0.4,
+      "exclusion_penalty_points": 20
+    },
+    {
+      "id": "SB",
+      "required_scales": [
+        "burnout_index"
+      ],
+      "boost_scales": [
+        "stress_index",
+        "bias_scarcity_score"
+      ],
+      "exclusion_scales": [],
+      "excl_threshold": 999,
+      "threshold_group": "default",
+      "primary_min_score": 45,
+      "secondary_min_score": 40,
+      "mix_flag_within_primary_points": 5,
+      "required_weight": 0.6,
+      "boost_weight": 0.4,
+      "exclusion_penalty_points": 20
+    },
+    {
+      "id": "OP",
+      "required_scales": [
+        "opportunity_loss_index"
+      ],
+      "boost_scales": [
+        "omission_index",
+        "bias_normalcy_score"
+      ],
+      "exclusion_scales": [],
+      "excl_threshold": 999,
+      "threshold_group": "default",
+      "primary_min_score": 45,
+      "secondary_min_score": 40,
+      "mix_flag_within_primary_points": 5,
+      "required_weight": 0.6,
+      "boost_weight": 0.4,
+      "exclusion_penalty_points": 20
+    },
+    {
+      "id": "KI",
+      "required_scales": [
+        "reserve_discipline_score",
+        "financial_visibility_score"
+      ],
+      "boost_scales": [
+        "honesty_index"
+      ],
+      "exclusion_scales": [],
+      "excl_threshold": 999,
+      "threshold_group": "default",
+      "primary_min_score": 45,
+      "secondary_min_score": 40,
+      "mix_flag_within_primary_points": 5,
+      "required_weight": 0.6,
+      "boost_weight": 0.4,
+      "exclusion_penalty_points": 20
+    },
+    {
+      "id": "KG",
+      "required_scales": [
+        "delay_discounting_k_proxy"
+      ],
+      "boost_scales": [
+        "risk_appetite_score",
+        "bias_overconfidence_score"
+      ],
+      "exclusion_scales": [],
+      "excl_threshold": 999,
+      "threshold_group": "default",
+      "primary_min_score": 45,
+      "secondary_min_score": 40,
+      "mix_flag_within_primary_points": 5,
+      "required_weight": 0.6,
+      "boost_weight": 0.4,
+      "exclusion_penalty_points": 20
+    }
+  ],
+  "heavy_archetype_safety_gates": {}
+}
