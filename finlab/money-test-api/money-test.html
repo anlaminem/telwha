@@ -1112,6 +1112,876 @@
       .btn-secondary { width: 100%; justify-content: center; display: inline-flex; }
       .section-pill { width: 100%; }
     }
+    .state-map-chart {
+  display: grid;
+  gap: 14px;
+}
+
+.state-map-intro {
+  margin-bottom: 4px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.state-map-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  align-items: start;
+}
+
+@media (max-width: 840px) {
+  .state-map-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.state-row {
+  height: 100%;
+  min-height: 146px;
+  padding: 14px 14px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(10, 10, 14, 0.56);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+.state-row-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.state-row-label {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--text-main);
+}
+
+.state-row-badge {
+  flex-shrink: 0;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-soft);
+  background: rgba(255,255,255,0.04);
+}
+
+.state-row-badge.is-good {
+  color: #d8e6cf;
+  border-color: rgba(126, 168, 104, 0.28);
+  background: rgba(126, 168, 104, 0.10);
+}
+
+.state-row-badge.is-mid {
+  color: #eadfb9;
+  border-color: rgba(176, 160, 104, 0.28);
+  background: rgba(176, 160, 104, 0.10);
+}
+
+.state-row-badge.is-risk {
+  color: #efc3b6;
+  border-color: rgba(208, 120, 88, 0.30);
+  background: rgba(208, 120, 88, 0.10);
+}
+
+.state-row-track {
+  position: relative;
+  height: 14px;
+  border-radius: 999px;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(208, 120, 88, 0.18) 0%,
+      rgba(208, 120, 88, 0.18) 33.333%,
+      rgba(176, 160, 104, 0.16) 33.333%,
+      rgba(176, 160, 104, 0.16) 66.666%,
+      rgba(126, 168, 104, 0.16) 66.666%,
+      rgba(126, 168, 104, 0.16) 100%
+    );
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.state-row-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(245, 243, 237, 0.95),
+    rgba(224, 207, 145, 0.96)
+  );
+  box-shadow: 0 0 16px rgba(176, 160, 104, 0.35);
+}
+
+.state-row-marker {
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  width: 2px;
+  left: 70%;
+  border-radius: 999px;
+  background: rgba(245, 243, 237, 0.92);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
+  opacity: 0.9;
+}
+
+.state-row-scale {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 7px;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.state-row-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.state-row-value {
+  color: var(--text-main);
+  font-variant-numeric: tabular-nums;
+}
+
+.state-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.state-map-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.state-map-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+}
+
+.state-map-legend-dot.is-risk { background: rgba(208, 120, 88, 0.85); }
+.state-map-legend-dot.is-mid { background: rgba(176, 160, 104, 0.85); }
+.state-map-legend-dot.is-good { background: rgba(126, 168, 104, 0.85); }
+
+@media (max-width: 640px) {
+  .state-row-top,
+  .state-row-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.action-card--enhanced {
+  height: 100%;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 18px 40px rgba(0,0,0,0.28);
+}
+
+.action-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.action-step-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(224, 207, 145, 0.24);
+  background: rgba(224, 207, 145, 0.08);
+  color: var(--text-main);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.action-time-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  color: var(--text-soft);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.action-card-main {
+  display: grid;
+  gap: 10px;
+}
+
+.action-card-title {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.35;
+  color: var(--text-main);
+  font-family: "Playfair Display", serif;
+}
+
+.action-card-copy {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+@media (max-width: 980px) {
+  .action-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .action-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .action-card--enhanced {
+    min-height: unset;
+  }
+}
+.action-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.9fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.action-primary-card {
+  min-height: 100%;
+  padding: 22px;
+  border-radius: 20px;
+  border: 1px solid rgba(224, 207, 145, 0.16);
+  background:
+    radial-gradient(circle at top left, rgba(224, 207, 145, 0.10), transparent 42%),
+    linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    0 22px 50px rgba(0,0,0,0.28);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.action-primary-top,
+.action-secondary-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.action-primary-top {
+  margin-bottom: 22px;
+}
+
+.action-step-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(224, 207, 145, 0.28);
+  background: rgba(224, 207, 145, 0.09);
+  color: var(--text-main);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.action-step-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+  color: var(--text-soft);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.action-time-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(8, 8, 12, 0.45);
+  color: var(--text-soft);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.action-primary-body {
+  display: grid;
+  gap: 12px;
+}
+
+.action-primary-title {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  line-height: 1.15;
+  color: var(--text-main);
+  max-width: 16ch;
+}
+
+.action-primary-copy {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-muted);
+  max-width: 56ch;
+}
+
+.action-secondary-list {
+  display: grid;
+  gap: 16px;
+}
+
+.action-secondary-card {
+  height: 100%;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 18px 40px rgba(0,0,0,0.22);
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.action-secondary-title {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.35;
+  color: var(--text-main);
+}
+
+.action-secondary-copy {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+@media (max-width: 980px) {
+  .action-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .action-primary-title {
+    max-width: none;
+  }
+
+  .action-secondary-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .action-secondary-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .action-primary-card,
+  .action-secondary-card {
+    padding: 16px;
+  }
+
+  .action-primary-title {
+    font-size: 20px;
+  }
+
+  .action-primary-copy,
+  .action-secondary-copy {
+    font-size: 13px;
+  }
+}
+
+.action-bento {
+  display: grid;
+  grid-template-columns: minmax(0, 1.38fr) minmax(300px, 0.92fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.action-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid rgba(224, 207, 145, 0.18);
+  background:
+    radial-gradient(circle at top left, rgba(224, 207, 145, 0.16), transparent 34%),
+    radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.10), transparent 24%),
+    linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 28px 70px rgba(0,0,0,0.34);
+  backdrop-filter: blur(18px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.action-hero-orbit {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  right: -70px;
+  top: -70px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(224, 207, 145, 0.13) 0%, rgba(224, 207, 145, 0.03) 42%, transparent 70%);
+  pointer-events: none;
+  filter: blur(2px);
+}
+
+.action-hero-top,
+.action-side-top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.action-hero-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(224, 207, 145, 0.24);
+  background: rgba(224, 207, 145, 0.08);
+  color: var(--text-main);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.action-step-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--theme-accent, var(--accent));
+  box-shadow: 0 0 0 4px rgba(224, 207, 145, 0.12);
+}
+
+.action-time-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(10, 10, 14, 0.34);
+  color: var(--text-soft);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.action-hero-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.action-hero-index {
+  font-family: "Playfair Display", serif;
+  font-size: 56px;
+  line-height: 0.95;
+  color: rgba(241, 228, 179, 0.92);
+  letter-spacing: 0.04em;
+}
+
+.action-hero-title {
+  margin: 0;
+  max-width: 14ch;
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  line-height: 1.06;
+  color: var(--text-main);
+}
+
+.action-hero-copy {
+  margin: 0;
+  max-width: 58ch;
+  font-size: 14px;
+  line-height: 1.78;
+  color: var(--text-muted);
+}
+
+.action-hero-footer {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 12px;
+  align-items: start;
+  margin-top: 26px;
+}
+
+.action-hero-line {
+  width: 2px;
+  min-height: 46px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(224, 207, 145, 0.95), rgba(224, 207, 145, 0.10));
+  margin-left: 8px;
+}
+
+.action-hero-note {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--text-soft);
+  max-width: 42ch;
+}
+
+.action-side {
+  display: grid;
+  gap: 16px;
+}
+
+.action-side-card {
+  min-height: 152px;
+  padding: 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 16px 38px rgba(0,0,0,0.20);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.action-side-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(224, 207, 145, 0.16);
+  background: rgba(224, 207, 145, 0.06);
+  color: var(--text-main);
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.action-side-body {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.action-side-title {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.35;
+  color: var(--text-main);
+}
+
+.action-side-copy {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.72;
+  color: var(--text-muted);
+}
+
+@media (max-width: 980px) {
+  .action-bento {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .action-side {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .action-hero-title {
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .action-side {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .action-hero {
+    min-height: unset;
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .action-side-card {
+    min-height: unset;
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .action-hero-index {
+    font-size: 42px;
+  }
+
+  .action-hero-title {
+    font-size: 22px;
+  }
+
+  .action-hero-copy,
+  .action-side-copy {
+    font-size: 13px;
+  }
+
+  .action-hero-footer {
+    grid-template-columns: 14px 1fr;
+    gap: 10px;
+  }
+
+  .action-hero-line {
+    margin-left: 5px;
+  }
+}
+
+.insight-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.78fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.insight-main {
+  position: relative;
+  overflow: hidden;
+  padding: 22px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.07);
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,0.05), transparent 34%),
+    linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 20px 48px rgba(0,0,0,0.18);
+}
+
+.insight-main::before {
+  content: "";
+  position: absolute;
+  left: 22px;
+  top: 22px;
+  bottom: 22px;
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(224, 207, 145, 0.9),
+    rgba(224, 207, 145, 0.12)
+  );
+  opacity: 0.9;
+}
+
+.insight-eyebrow {
+  position: relative;
+  z-index: 1;
+  padding-left: 18px;
+  margin-bottom: 14px;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.insight-copy {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 14px;
+  padding-left: 18px;
+}
+
+.insight-copy p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.82;
+  color: var(--text-muted);
+  max-width: 62ch;
+}
+
+.insight-copy p:first-child {
+  font-size: 15px;
+  line-height: 1.86;
+  color: var(--text-main);
+}
+
+.insight-side {
+  display: grid;
+  gap: 14px;
+}
+
+.insight-note {
+  position: relative;
+  overflow: hidden;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.07);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 16px 38px rgba(0,0,0,0.16);
+}
+
+.insight-note--soft::before,
+.insight-note--risk::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  border-radius: 999px;
+}
+
+.insight-note--soft::before {
+  background: linear-gradient(180deg, rgba(144, 198, 160, 0.95), rgba(144, 198, 160, 0.18));
+}
+
+.insight-note--risk::before {
+  background: linear-gradient(180deg, rgba(208, 120, 88, 0.95), rgba(208, 120, 88, 0.18));
+}
+
+.insight-note-label {
+  margin-bottom: 10px;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.insight-note-text {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--text-main);
+}
+
+@media (max-width: 900px) {
+  .insight-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .insight-copy p {
+    max-width: none;
+  }
+
+  .insight-side {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .insight-main,
+  .insight-note {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .insight-main::before {
+    left: 16px;
+    top: 16px;
+    bottom: 16px;
+  }
+
+  .insight-eyebrow,
+  .insight-copy {
+    padding-left: 14px;
+  }
+
+  .insight-copy p,
+  .insight-copy p:first-child,
+  .insight-note-text {
+    font-size: 13px;
+    line-height: 1.72;
+  }
+
+  .insight-side {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.result-section {
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-10);
+  scroll-margin-top: 132px;
+}
+
+@media (max-width: 640px) {
+  .result-section {
+    scroll-margin-top: 156px;
+  }
+}
   </style>
 </head>
 <body>
@@ -1120,7 +1990,7 @@
   <div class="brand">
     <div class="brand-mark" aria-hidden="true"></div>
     <div>
-      <div class="brand-text-mainFinLab TELWHA</div>
+      <div class="brand-text-main">FinLab TELWHA</div>
       <div class="brand-text-sub">Money behavior diagnostics</div>
     </div>
   </div>
@@ -1129,7 +1999,6 @@
     <nav>
       <span>Money Test</span>
       <span class="dot"></span>
-      <span>short form v1</span>
     </nav>
     <button class="theme-toggle" type="button">🌓</button>
   </div>
@@ -1139,33 +2008,31 @@
     <section class="hero-left">
       <div class="hero-content">
         <div class="hero-kicker">
-          <span class="pill">
-            <span class="pill-dot"></span>
-            FinLab behavioral lab · v1
-          </span>
+
         </div>
         <h1 class="hero-title">
           Ваш <span class="accent">грошовий архетип</span> та поведінковий податок
         </h1>
         <p class="hero-sub">
           Це коротка версія Money Test: 33 питання про ваш контекст, дохід і фінзвички.
-          Після проходження ви побачите свій грошовий архетип та базові ризики.
           Для глибокого профілю є повна версія тесту.
         </p>
         <div class="hero-meta">
-          <span><strong>33 питання</strong> · контекст, дохід, резерв, борги, щоденні фінзвички.</span>
-          <span><strong>1 звіт</strong> · архетип, базові індекси та next steps.</span>
+          <span><strong>33 питання</strong> </span>
+          <span><strong>1 звіт</strong></span>
         </div>
       </div>
     </section>
 
     <aside class="hero-right">
-      <div class="hero-card">
+     <div class="hero-card">
         <h3>Що ви отримаєте</h3>
-        <p>
-          Персональний архетип, базовий зріз фінвидимості, резервної дисципліни, боргового навантаження
-          та щоденних поведінкових патернів.
-        </p>
+
+        <p>◉ <strong>Архетип</strong><br>Як саме ви поводитесь із грошима під тиском і в рішенні.</p>
+
+        <p>◉ <strong>Картина зараз</strong><br>Резерв, борги і наскільки ви контролюєте рух грошей.</p>
+
+        <p>◉ <strong>Ваш маршрут</strong><br>З чого почати, щоб перейти від хаосу до опори.</p>
       </div>
       <div class="hero-card">
         <div class="hero-progress">
@@ -1282,7 +2149,7 @@
 
         <div class="question-block" data-question="FA6" data-section="FA">
           <div class="question-label"><span class="badge">FA6</span><span>Структура резерву</span></div>
-          <div class="question-text">Де у вас переважно лежить резерв / вільні гроші?</div>
+          <div class="question-text">Де у вас переважно лежить резерв / вільні гроші? (кредитні кошти не вважаються резервом)</div>
           <div class="options-row">
             <button class="option-chip" type="button" data-item-id="FA6" data-option-code="1"><span class="index">1</span>Резерву немає</button>
             <button class="option-chip" type="button" data-item-id="FA6" data-option-code="2"><span class="index">2</span>На основній картці / готівкою</button>
@@ -1299,7 +2166,7 @@
           <div class="options-row">
             <button class="option-chip" type="button" data-item-id="FA7" data-raw="1"><span class="index">1</span>Немає</button>
             <button class="option-chip" type="button" data-item-id="FA7" data-raw="2"><span class="index">2</span>Є лише “здоровий” борг (іпотека / бізнес / освітній)</button>
-            <button class="option-chip" type="button" data-item-id="FA7" data-raw="3"><span class="index">3</span>Є кредитка / розстрочки / BNPL</button>
+            <button class="option-chip" type="button" data-item-id="FA7" data-raw="3"><span class="index">3</span>Є кредитка / розстрочки</button>
             <button class="option-chip" type="button" data-item-id="FA7" data-raw="4"><span class="index">4</span>Є кілька типів боргів одночасно</button>
             <button class="option-chip" type="button" data-item-id="FA7" data-raw="5"><span class="index">5</span>Є прострочки / проблемні борги</button>
           </div>
@@ -1400,7 +2267,7 @@
 
         <div class="question-block" data-question="PA4" data-section="PA">
           <div class="question-label"><span class="badge">PA4</span><span>Контроль над доходом</span></div>
-          <div class="question-text">Наскільки ви відчуваєте, що реально впливаєте на свій дохід у найближчі 12 місяців?</div>
+          <div class="question-text">Наскільки ви відчуваєте, що впливаєте на свій дохід у найближчі 12 місяців?</div>
           <div class="options-row">
             <button class="option-chip" type="button" data-item-id="PA4" data-raw="1"><span class="index">1</span>Практично не впливаю</button>
             <button class="option-chip" type="button" data-item-id="PA4" data-raw="2"><span class="index">2</span>Скоріше не впливаю</button>
@@ -1426,7 +2293,7 @@
 
         <div class="question-block" data-question="PA6" data-section="PA">
           <div class="question-label"><span class="badge">PA6</span><span>Фінансові удари</span></div>
-          <div class="question-text">Чи був у вас за останні 5 років сильний фінансовий удар?</div>
+          <div class="question-text">Чи був у вас за останні 5 років сильний фінансовий удар? <p>(наприклад: переїзд, війна, втрата роботи, втрата основного годувальника, дороге лікування, різке падіння доходу)</p></div>
           <div class="options-row">
             <button class="option-chip" type="button" data-item-id="PA6" data-raw="1"><span class="index">1</span>Ні</button>
             <button class="option-chip" type="button" data-item-id="PA6" data-raw="2"><span class="index">2</span>Так, один</button>
@@ -1452,7 +2319,7 @@
 
         <div class="question-block" data-question="PA8" data-section="PA">
           <div class="question-label"><span class="badge">PA8</span><span>Перепрацювання</span></div>
-          <div class="question-text">Як часто ви працюєте понад норму, щоб “вирулити” гроші?</div>
+          <div class="question-text">Як часто вам доводиться працювати більше, ніж можете витримати, щоб утримати фінансову ситуацію?</div>
           <div class="options-row">
             <button class="option-chip" type="button" data-item-id="PA8" data-raw="1"><span class="index">1</span>Майже ніколи</button>
             <button class="option-chip" type="button" data-item-id="PA8" data-raw="2"><span class="index">2</span>Рідко</button>
@@ -1518,7 +2385,7 @@
 
         <div class="question-block" data-question="FH4" data-section="FH">
           <div class="question-label"><span class="badge">FH4</span><span>Відкладання подушки</span></div>
-          <div class="question-text">Я відкладаю формування подушки, бо “зараз не час”.</div>
+          <div class="question-text">Я відкладаю формування подушки(резерву), бо “зараз не час”.</div>
           <div class="options-row">
             <button class="option-chip" type="button" data-item-id="FH4" data-raw="1"><span class="index">1</span>Зовсім не про мене</button>
             <button class="option-chip" type="button" data-item-id="FH4" data-raw="2"><span class="index">2</span>Скоріше ні</button>
@@ -1530,8 +2397,8 @@
         </div>
 
         <div class="question-block" data-question="FH5" data-section="FH">
-          <div class="question-label"><span class="badge">FH5</span><span>Кредитка / BNPL</span></div>
-          <div class="question-text">Я користуюся кредиткою / BNPL для звичайних побутових витрат.</div>
+          <div class="question-label"><span class="badge">FH5</span><span>Кредитка</span></div>
+          <div class="question-text">Я користуюся кредиткою для звичайних побутових витрат.</div>
           <div class="options-row">
             <button class="option-chip" type="button" data-item-id="FH5" data-raw="1"><span class="index">1</span>Зовсім не про мене</button>
             <button class="option-chip" type="button" data-item-id="FH5" data-raw="2"><span class="index">2</span>Скоріше ні</button>
@@ -1635,7 +2502,7 @@
 
         <div class="question-block" data-question="FH13" data-section="FH">
           <div class="question-label"><span class="badge">FH13</span><span>Чужі фінансові проблеми</span></div>
-          <div class="question-text">Я беру на себе чужі фінансові проблеми.</div>
+          <div class="question-text">Я беру на себе чужі фінансові проблеми (наприклад, дорослих родичів, друзів або близьких, яких не зобов’язаний(-а) утримувати).</div>
           <div class="options-row">
             <button class="option-chip" type="button" data-item-id="FH13" data-raw="1"><span class="index">1</span>Зовсім не про мене</button>
             <button class="option-chip" type="button" data-item-id="FH13" data-raw="2"><span class="index">2</span>Скоріше ні</button>
@@ -1648,7 +2515,7 @@
 
         <div class="question-block" data-question="FH14" data-section="FH">
           <div class="question-label"><span class="badge">FH14</span><span>Читати, але не впроваджувати</span></div>
-          <div class="question-text">Я довго читаю / вивчаю про гроші, але мало що впроваджую.</div>
+          <div class="question-text">Я регулярно вивчаю теми про гроші, але майже не змінюю свою фінансову поведінку.</div>
           <div class="options-row">
             <button class="option-chip" type="button" data-item-id="FH14" data-raw="1"><span class="index">1</span>Зовсім не про мене</button>
             <button class="option-chip" type="button" data-item-id="FH14" data-raw="2"><span class="index">2</span>Скоріше ні</button>
@@ -1661,7 +2528,7 @@
 
         <div class="question-block" data-question="FH15" data-section="FH">
           <div class="question-label"><span class="badge">FH15</span><span>Уникання цифр</span></div>
-          <div class="question-text">Коли ситуація неприємна, я уникаю дивитися на цифри.</div>
+          <div class="question-text">Коли з грошима все погано, я уникаю дивитися на цифри.</div>
           <div class="options-row">
             <button class="option-chip" type="button" data-item-id="FH15" data-raw="1"><span class="index">1</span>Зовсім не про мене</button>
             <button class="option-chip" type="button" data-item-id="FH15" data-raw="2"><span class="index">2</span>Скоріше ні</button>
@@ -1676,7 +2543,6 @@
       <div class="submit-row">
         <div class="submit-hint">
           Потрібно відповісти на <strong>всі 33 питання</strong>, щоб отримати коректний результат.
-          Це займає кілька хвилин, але дає значно точнішу картину, ніж швидка самооцінка навмання.
         </div>
         <button class="btn-primary" id="js-submit" type="button">
           <span>Показати мій результат</span>
@@ -1723,7 +2589,7 @@
 
           <div class="result-panel result-panel--wide">
             <div class="result-kicker">Карта стану</div>
-            <div class="metric-grid" id="js-general-metrics"></div>
+            <div id="js-general-metrics"></div>
           </div>
 
           <div class="result-panel result-panel--wide">
@@ -1945,25 +2811,180 @@
     return items.map((item) => `<p>${item}</p>`).join("");
   }
 
-  function renderActionCards(actions) {
-    return actions.map((action) => {
-      return `
-        <div class="action-card">
-          <p class="action-card-title"><strong>${action.title}</strong></p>
-          <p>${action.what}</p>
-          <p class="action-meta">${action.time}</p>
+    function renderActionCards(actions) {
+    if (!actions || !actions.length) return '';
+
+    const [primary, ...secondary] = actions;
+
+    return `
+      <div class="action-bento">
+        <div class="action-hero">
+          <div class="action-hero-orbit"></div>
+
+          <div class="action-hero-top">
+            <div class="action-hero-step">
+              <span class="action-step-dot"></span>
+              Головний крок зараз
+            </div>
+            <div class="action-time-pill">${primary.time}</div>
+          </div>
+
+          <div class="action-hero-content">
+            <div class="action-hero-index">01</div>
+            <h4 class="action-hero-title">${primary.title}</h4>
+            <p class="action-hero-copy">${primary.what}</p>
+          </div>
+
+          <div class="action-hero-footer">
+            <div class="action-hero-line"></div>
+            <div class="action-hero-note">Почни саме з цього — це дає найбільший ефект у твоєму поточному профілі.</div>
+          </div>
         </div>
-      `;
-    }).join("");
+
+        <div class="action-side">
+          ${secondary.map((action, index) => `
+            <div class="action-side-card">
+              <div class="action-side-top">
+                <div class="action-side-step">0${index + 2}</div>
+                <div class="action-time-pill">${action.time}</div>
+              </div>
+
+              <div class="action-side-body">
+                <h5 class="action-side-title">${action.title}</h5>
+                <p class="action-side-copy">${action.what}</p>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
   }
 
   function renderMetricCards(items) {
-    return items.map((item) => `
-      <div class="metric-card">
-        <p>${item}</p>
-      </div>
-    `).join("");
+  const metricConfig = [
+    {
+      key: 'visibility',
+      label: 'Видимість грошей',
+      max: 5,
+      type: 'positive',
+      description: 'Наскільки ви бачите реальну картину грошей.'
+    },
+    {
+      key: 'reserve',
+      label: 'Резерв',
+      max: 5,
+      type: 'positive',
+      description: 'Наскільки є запас міцності та фінансова опора.'
+    },
+    {
+      key: 'debt',
+      label: 'Борг / борговий тиск',
+      max: 5,
+      type: 'risk',
+      description: 'Наскільки борг уже тисне на систему рішень.'
+    },
+    {
+      key: 'chaos',
+      label: 'Хаос у щоденних рішеннях',
+      max: 5,
+      type: 'risk',
+      description: 'Наскільки щоденні грошові рішення нестабільні.'
+    },
+    {
+      key: 'pressure',
+      label: 'Щоденний фінансовий тиск',
+      max: 5,
+      type: 'risk',
+      description: 'Наскільки гроші зараз створюють постійний внутрішній тиск.'
+    },
+    {
+      key: 'incomeControl',
+      label: 'Контроль над доходом',
+      max: 5,
+      type: 'positive',
+      description: 'Наскільки ви відчуваєте вплив на власний дохід.'
+    }
+  ];
+
+  function getBand(value, max, type) {
+    const ratio = max > 0 ? value / max : 0;
+
+    if (type === 'positive') {
+      if (ratio >= 0.67) return { key: 'good', label: 'сильна зона' };
+      if (ratio >= 0.4) return { key: 'mid', label: 'зона ще слабка' };
+      return { key: 'risk', label: 'зона дуже слабка' };
+    }
+
+    if (ratio >= 0.67) return { key: 'risk', label: 'ризик помітний' };
+    if (ratio >= 0.4) return { key: 'mid', label: 'ризик помірний' };
+    return { key: 'good', label: 'ризик низький' };
   }
+
+  const values = {
+    visibility: Number(window.__latestMetrics?.visibility ?? 0),
+    reserve: Number(window.__latestMetrics?.reserve ?? 0),
+    debt: Number(window.__latestMetrics?.debt ?? 0),
+    chaos: Number(window.__latestMetrics?.chaos ?? 0),
+    pressure: Number(window.__latestMetrics?.pressure ?? 0),
+    incomeControl: Number(window.__latestMetrics?.incomeControl ?? 0)
+  };
+
+  return `
+    <div class="state-map-chart">
+      <div class="state-map-intro">
+        Це візуальна карта поточного фінансового стану: де система ще слабка, де ризик уже помітний, а де є опора.
+      </div>
+
+      <div class="state-map-legend">
+        <div class="state-map-legend-item">
+          <span class="state-map-legend-dot is-risk"></span>
+          <span>ризик</span>
+        </div>
+        <div class="state-map-legend-item">
+          <span class="state-map-legend-dot is-mid"></span>
+          <span>нестабільно</span>
+        </div>
+        <div class="state-map-legend-item">
+          <span class="state-map-legend-dot is-good"></span>
+          <span>опора</span>
+        </div>
+      </div>
+
+      <div class="state-map-list">
+        ${metricConfig.map(item => {
+          const value = values[item.key];
+          const pct = Math.max(0, Math.min(100, (value / item.max) * 100));
+          const band = getBand(value, item.max, item.type);
+
+          return `
+            <div class="state-row">
+              <div class="state-row-top">
+                <div class="state-row-label">${item.label}</div>
+                <div class="state-row-badge is-${band.key}">${band.label}</div>
+              </div>
+
+              <div class="state-row-track" aria-hidden="true">
+                <div class="state-row-fill" style="width:${pct}%;"></div>
+                <div class="state-row-marker"></div>
+              </div>
+
+              <div class="state-row-scale">
+                <span>слабко</span>
+                <span>нестабільно</span>
+                <span>опора</span>
+              </div>
+
+              <div class="state-row-meta">
+                <span>${item.description}</span>
+                <span class="state-row-value">${value.toFixed(2)}/${item.max}</span>
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
 
   function renderFullTestBlock(overallResult, profile) {
     const features = [
@@ -1974,18 +2995,18 @@
     ];
 
     return `
-      <div class="result-kicker">Якщо хочеться глибше</div>
+      <div class="result-kicker">Хочу дізнатись глибше</div>
       <p class="upgrade-lead">${overallResult.fullTest} ${profile.full_test}</p>
       <div class="upgrade-cta">
         <div class="upgrade-cta-header">
           <p class="upgrade-cta-title">Повна версія</p>
-          <span class="upgrade-cta-tagline">99 питань · особистий розбір · підтримка</span>
+          <span class="upgrade-cta-tagline">99 питань · особистий розбір · підтримка · 2000 грн</span>
         </div>
         <div class="upgrade-cta-features">
           ${features.map(f => `<div class="upgrade-cta-feature"><span class="upgrade-cta-feature-dot"></span><span>${f}</span></div>`).join("")}
         </div>
         <p class="upgrade-cta-copy">Коротка версія показала напрямок. Повна дасть вже не просто “впізнавання”, а розуміння: чому саме цей сценарій, де він ламається і що робити конкретно у вашому випадку.</p>
-        <a href="https://t-e-l-w-h-a.com" target="_blank" class="upgrade-cta-button">Хочу повний розбір із Анною</a>
+        <a href="https://t-e-l-w-h-a.com/contact" target="_blank" class="upgrade-cta-button">Хочу повний розбір із Анною</a>
       </div>
     `;
   }
@@ -2006,7 +3027,7 @@
     if (visibility <= 2.0 && incomeControl <= 2.4) {
       headline = "Зараз головна проблема не в драмі, а в невидимості грошей. Система не сиплеться, але й не дає вам ясної картини.";
       strength = "Добра новина в тому, що тиск і боргове навантаження ще не виглядають критичними. Це означає, що у вас є вікно, щоб спокійно зібрати контроль, поки ситуація не стала жорсткішою.";
-      risk = "Мінус цього профілю в тому, що людина часто думає: “все більш-менш нормально”. Але саме в цій “більш-менш нормальності” ховаються витоки, відкладені рішення і відсутність реальної опори.";
+      risk = "Мінус цього профілю в тому, що людина часто думає: “все більш-менш нормально”. Але саме в цій “більш-менш нормальності” ховаються витоки, відкладені рішення і відсутність опори.";
       actions = [
         "Раз на тиждень відкривайте один короткий фінансовий огляд: скільки є на рахунках, що пішло за 7 днів, що має піти далі.",
         "Зафіксуйте одне правило видимості: жоден рахунок, картка чи борг не можуть залишатися “десь там”. Усе має бути в одному місці.",
@@ -2097,7 +3118,34 @@
     archetypeTitle.textContent = profile.title;
     archetypeSubtitle.textContent = profile.subtitle;
     archetypeCode.textContent = profile.code || "—";
-    archetypeBody.innerHTML = renderParagraphs(profile.body);
+    archetypeBody.innerHTML = renderArchetypeInsight(profile)
+    
+    function renderArchetypeInsight(profile) {
+  const paragraphs = (profile.body || []).map(item => `<p>${item}</p>`).join('');
+
+  return `
+    <div class="insight-layout">
+      <div class="insight-main">
+        <div class="insight-eyebrow">Поведінковий портрет</div>
+        <div class="insight-copy">
+          ${paragraphs}
+        </div>
+      </div>
+
+      <aside class="insight-side">
+        <div class="insight-note insight-note--soft">
+          <div class="insight-note-label">Сильна сторона</div>
+          <div class="insight-note-text">${profile.strength}</div>
+        </div>
+
+        <div class="insight-note insight-note--risk">
+          <div class="insight-note-label">Точка вразливості</div>
+          <div class="insight-note-text">${profile.vulnerability}</div>
+        </div>
+      </aside>
+    </div>
+  `;
+}
 
     const emotionBox = document.getElementById("js-archetype-emotion");
     const theme = ARCHETYPE_THEMES[profile.code];
@@ -2107,9 +3155,8 @@
         `<blockquote class="archetype-quote">“${theme.quote}”</blockquote>`;
     }
 
-    metaBox.innerHTML =
-      `<p><strong>Сильна сторона:</strong> ${profile.strength}</p>` +
-      `<p><strong>Точка вразливості:</strong> ${profile.vulnerability}</p>`;
+    metaBox.innerHTML = ''
+    metaBox.style.display = 'none'
 
     fullTestBody.innerHTML = renderFullTestBlock(overallResult, profile);
     resultSection.hidden = false;
@@ -2162,7 +3209,7 @@
           {
             title: "Пауза перед терміновими витратами",
             what: "Перед будь-якою емоційною або терміновою витратою робіть паузу 10 хвилин і ставте собі одне питання: це пожежа чи тривога.",
-            why: "Так ви відділяєте реальну потребу від автоматичної стрес-реакції.",
+            why: "Так ви відділяєте потребу від автоматичної стрес-реакції.",
             time: "10 хвилин у моменти напруги"
           }
         ],
@@ -2185,7 +3232,7 @@
           "Такі люди часто не виглядають “проблемними”. Вони можуть бути відповідальними, розумними, обережними. Але якщо цифри не зібрані в одну картину, фінансова система не дає опори — лише фон тривоги і відчуття, що все якось пливе повз."
         ],
         strength: "у вас ще немає ознак жорсткої фінансової пожежі, а це означає, що зміни можна робити спокійно і без режиму паніки.",
-        vulnerability: "низька видимість грошей тихо блокує накопичення, ясність і відчуття реального контролю.",
+        vulnerability: "низька видимість грошей тихо блокує накопичення, ясність і відчуття контролю.",
         actions: [
           {
             title: "Один короткий фінансовий огляд на тиждень",
@@ -2364,7 +3411,7 @@
       {
         title: "Замість ривка — маленький контур",
         what: "Не ставте собі одразу великий фінплан. Оберіть одну маленьку звичку на 14 днів і перевірте, чи вона переживе вашу звичайну хвилю настрою.",
-        why: "Так ви будуєте систему, яка тримається не на піковому ентузіазмі, а на реальному житті.",
+        why: "Так ви будуєте систему, яка тримається не на піковому ентузіазмі, а на реальномужитті.",
         time: "5 хвилин на старт і 2 хвилини на день"
       }
     ],
@@ -2580,6 +3627,7 @@
     errorBox.textContent = "";
 
     const metrics = computeMetrics();
+    window.__latestMetrics = metrics;
     const profile = getArchetype(metrics);
     const overallResult = buildOverallResult(metrics);
     const payload = buildPayload(profile, metrics, overallResult);
