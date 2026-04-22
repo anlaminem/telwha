@@ -6,7 +6,6 @@
   <title>FinLab by TELWHA — тест фінансової поведінки українців</title>
   <meta name="description" content="FinLab by TELWHA — анонімний тест фінансової поведінки українців. Побачте свій архетип, сценарії стресу та своє місце в анонімній статистиці." />
 
-  <!-- підключаємо такі ж стилі, як на головній -->
   <link rel="stylesheet" href="/static/css/base.css">
   <link rel="stylesheet" href="/static/css/layout-home.css">
 
@@ -33,7 +32,6 @@
     --wrap:1120px;
   }
 
-  /* базова темна тема FinLab (як у тебе було) */
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
@@ -329,12 +327,13 @@
     font-size:11px;
     color:var(--muted);
     margin-bottom:6px;
+    line-height:1.3;
   }
 
   .finlab-stat-value{
     font-size:24px;
     line-height:1;
-    margin-bottom:6px;
+    margin-bottom:4px;
   }
 
   .finlab-stat-value.red{color:var(--accent-3)}
@@ -342,9 +341,17 @@
   .finlab-stat-value.green{color:var(--accent-4)}
   .finlab-stat-value.gold{color:var(--accent)}
 
+  .finlab-stat-level{
+    font-size:11px;
+    color:var(--text);
+    margin-bottom:5px;
+    line-height:1.3;
+  }
+
   .finlab-stat-copy{
-    font-size:12px;
+    font-size:11px;
     color:var(--soft);
+    line-height:1.45;
   }
 
   .finlab-section{
@@ -573,11 +580,8 @@
     .finlab-stats-grid{grid-template-columns:1fr}
     .finlab-actions{flex-direction:column}
     .finlab-btn{width:100%}
+    .finlab-split{grid-template-columns:1fr}
   }
-
-  /* ===========================
-     LIGHT THEME · FINLAB
-     =========================== */
 
   html[data-theme="light"] body{
     color:#201914;
@@ -602,159 +606,87 @@
     --accent-4:#2e8c69;
   }
 
-  html[data-theme="light"] .finlab-wrap{
-    padding-top:30px;
-  }
-
-  html[data-theme="light"] .finlab-brand-text-main{
-    color:#3a2b20;
-  }
-
-  html[data-theme="light"] .finlab-brand-text-sub{
-    color:#8c725f;
-  }
-
+  html[data-theme="light"] .finlab-wrap{padding-top:30px}
+  html[data-theme="light"] .finlab-brand-text-main{color:#3a2b20}
+  html[data-theme="light"] .finlab-brand-text-sub{color:#8c725f}
   html[data-theme="light"] .finlab-brand-mark{
     background:
       radial-gradient(circle at 26% 26%, #fff4d4 0, #e3b872 32%, #7b5530 70%, #3c2615 100%);
     box-shadow:0 10px 28px rgba(88,55,24,.55);
   }
-
-  html[data-theme="light"] .finlab-nav a{
-    color:#7b6351;
-  }
-
-  html[data-theme="light"] .finlab-nav a:hover{
-    color:#3a2b20;
-  }
-
+  html[data-theme="light"] .finlab-nav a{color:#7b6351}
+  html[data-theme="light"] .finlab-nav a:hover{color:#3a2b20}
   html[data-theme="light"] .finlab-hero-copy,
   html[data-theme="light"] .finlab-hero-data{
     border-radius:26px;
     border:1px solid rgba(144,116,87,.28);
     box-shadow:0 18px 45px rgba(141,112,83,.22);
   }
-
   html[data-theme="light"] .finlab-hero-copy{
     background:
       radial-gradient(circle at 0 0, rgba(244,212,164,.55) 0, transparent 42%),
       radial-gradient(circle at 100% 0, rgba(206,225,255,.18) 0, transparent 46%),
       linear-gradient(145deg,#fffaf5,#f6e7d8);
   }
-
   html[data-theme="light"] .finlab-eyebrow{
     border-color:rgba(196,138,58,.35);
     background:rgba(255,252,247,.92);
     color:#8c725f;
   }
-
   html[data-theme="light"] .finlab-eyebrow-dot{
     background:#c48a3a;
     box-shadow:0 0 0 4px rgba(196,138,58,.22);
   }
-
-  html[data-theme="light"] .finlab-hero h1{
-    color:#201914;
-  }
-
-  html[data-theme="light"] .finlab-hero-lead{
-    color:#5f5146;
-  }
-
-  html[data-theme="light"] .finlab-hero-point{
-    color:#5f5146;
-  }
-
-  html[data-theme="light"] .finlab-hero-point i{
-    background:#c48a3a;
-  }
-
-  html[data-theme="light"] .finlab-btn{
-    border-radius:999px;
-  }
-
+  html[data-theme="light"] .finlab-hero h1{color:#201914}
+  html[data-theme="light"] .finlab-hero-lead{color:#5f5146}
+  html[data-theme="light"] .finlab-hero-point{color:#5f5146}
+  html[data-theme="light"] .finlab-hero-point i{background:#c48a3a}
   html[data-theme="light"] .finlab-btn-primary{
     background:rgba(196,138,58,.12);
     border:1px solid rgba(196,138,58,.52);
     color:#201914;
   }
-
-  html[data-theme="light"] .finlab-btn-primary:hover{
-    background:rgba(196,138,58,.18);
-    transform:translateY(-1px);
-  }
-
+  html[data-theme="light"] .finlab-btn-primary:hover{background:rgba(196,138,58,.18)}
   html[data-theme="light"] .finlab-btn-secondary{
     background:rgba(255,255,255,.85);
     border:1px solid rgba(141,112,83,.25);
     color:#5f5146;
   }
-
   html[data-theme="light"] .finlab-btn-secondary:hover{
     border-color:rgba(141,112,83,.45);
     background:#fff9f3;
-    transform:translateY(-1px);
   }
-
-  html[data-theme="light"] .finlab-hero-note{
-    color:#7b6351;
-  }
-
+  html[data-theme="light"] .finlab-hero-note{color:#7b6351}
   html[data-theme="light"] .finlab-hero-data{
     background:
       radial-gradient(circle at top right, rgba(172,197,255,.35) 0, transparent 52%),
       linear-gradient(160deg,#fdf7f0,#f3e6d9);
   }
-
-  html[data-theme="light"] .finlab-data-title{
-    color:#5f5146;
-  }
-
+  html[data-theme="light"] .finlab-data-title{color:#5f5146}
   html[data-theme="light"] .finlab-chip{
     background:rgba(255,255,255,.92);
     border-color:rgba(141,112,83,.2);
     color:#7b6351;
   }
-
   html[data-theme="light"] .finlab-total{
     background:rgba(255,255,255,.92);
     border-color:rgba(141,112,83,.26);
   }
-
-  html[data-theme="light"] .finlab-total-label{
-    color:#8c725f;
-  }
-
-  html[data-theme="light"] .finlab-total-value{
-    color:#c48a3a;
-  }
-
-  html[data-theme="light"] .finlab-total-copy{
-    color:#5f5146;
-  }
-
+  html[data-theme="light"] .finlab-total-label{color:#8c725f}
+  html[data-theme="light"] .finlab-total-value{color:#c48a3a}
+  html[data-theme="light"] .finlab-total-copy{color:#5f5146}
   html[data-theme="light"] .finlab-stat-card{
     background:rgba(255,255,255,.9);
     border-color:rgba(141,112,83,.22);
   }
-
-  html[data-theme="light"] .finlab-stat-label{
-    color:#8c725f;
-  }
-
-  html[data-theme="light"] .finlab-stat-value{
-    color:#3a2b20;
-  }
-
-  html[data-theme="light"] .finlab-stat-value.red{color:#c65353;}
-  html[data-theme="light"] .finlab-stat-value.blue{color:#4d7ac7;}
-  html[data-theme="light"] .finlab-stat-value.green{color:#2e8c69;}
-  html[data-theme="light"] .finlab-stat-value.gold{color:#c48a3a;}
-
-  html[data-theme="light"] .finlab-stat-copy{
-    color:#5f5146;
-  }
-
+  html[data-theme="light"] .finlab-stat-label{color:#8c725f}
+  html[data-theme="light"] .finlab-stat-value{color:#3a2b20}
+  html[data-theme="light"] .finlab-stat-value.red{color:#c65353}
+  html[data-theme="light"] .finlab-stat-value.blue{color:#4d7ac7}
+  html[data-theme="light"] .finlab-stat-value.green{color:#2e8c69}
+  html[data-theme="light"] .finlab-stat-value.gold{color:#c48a3a}
+  html[data-theme="light"] .finlab-stat-level{color:#3a2b20}
+  html[data-theme="light"] .finlab-stat-copy{color:#5f5146}
   html[data-theme="light"] .finlab-section{
     background:
       radial-gradient(circle at top left, rgba(244,212,164,.38) 0, transparent 52%),
@@ -762,106 +694,40 @@
     border-color:rgba(144,116,87,.24);
     box-shadow:0 16px 40px rgba(141,112,83,.20);
   }
-
-  html[data-theme="light"] .finlab-section-kicker{
-    color:#8c725f;
-  }
-
-  html[data-theme="light"] .finlab-section h2{
-    color:#201914;
-  }
-
-  html[data-theme="light"] .finlab-section-lead{
-    color:#5f5146;
-  }
-
-  html[data-theme="light"] .finlab-card{
-    background:#fffdf8;
-    border-color:rgba(141,112,83,.22);
-  }
-
-  html[data-theme="light"] .finlab-card h3{
-    color:#3a2b20;
-  }
-
-  html[data-theme="light"] .finlab-list li{
-    color:#5f5146;
-  }
-
-  html[data-theme="light"] .finlab-list i{
-    background:#c48a3a;
-  }
-
-  html[data-theme="light"] .finlab-arch{
-    background:#fffdf8;
-    border-color:rgba(141,112,83,.22);
-  }
-
-  html[data-theme="light"] .finlab-arch-code{
-    color:#c48a3a;
-  }
-
-  html[data-theme="light"] .finlab-arch-name{
-    color:#3a2b20;
-  }
-
-  html[data-theme="light"] .finlab-arch-share{
-    color:#3a2b20;
-  }
-
-  html[data-theme="light"] .finlab-arch p{
-    color:#5f5146;
-  }
-
-  html[data-theme="light"] .finlab-business-grid .finlab-biz{
-    background:#fffdf8;
-    border-color:rgba(141,112,83,.22);
-  }
-
-  html[data-theme="light"] .finlab-biz h3{
-    color:#3a2b20;
-  }
-
-  html[data-theme="light"] .finlab-biz p{
-    color:#5f5146;
-  }
-
+  html[data-theme="light"] .finlab-section-kicker{color:#8c725f}
+  html[data-theme="light"] .finlab-section h2{color:#201914}
+  html[data-theme="light"] .finlab-section-lead{color:#5f5146}
+  html[data-theme="light"] .finlab-card,
+  html[data-theme="light"] .finlab-arch,
+  html[data-theme="light"] .finlab-business-grid .finlab-biz,
   html[data-theme="light"] .finlab-accordion .finlab-acc{
     background:#fffdf8;
     border-color:rgba(141,112,83,.22);
   }
-
-  html[data-theme="light"] .finlab-acc-btn{
+  html[data-theme="light"] .finlab-card h3,
+  html[data-theme="light"] .finlab-arch-name,
+  html[data-theme="light"] .finlab-biz h3,
+  html[data-theme="light"] .finlab-final h2{
     color:#3a2b20;
   }
-
-  html[data-theme="light"] .finlab-acc-title{
+  html[data-theme="light"] .finlab-list li,
+  html[data-theme="light"] .finlab-arch p,
+  html[data-theme="light"] .finlab-biz p,
+  html[data-theme="light"] .finlab-acc-title,
+  html[data-theme="light"] .finlab-acc-panel,
+  html[data-theme="light"] .finlab-final p{
     color:#5f5146;
   }
-
-  html[data-theme="light"] .finlab-acc-arrow{
-    color:#8c725f;
-  }
-
-  html[data-theme="light"] .finlab-acc-panel{
-    color:#5f5146;
-  }
-
+  html[data-theme="light"] .finlab-list i{background:#c48a3a}
+  html[data-theme="light"] .finlab-arch-code{color:#c48a3a}
+  html[data-theme="light"] .finlab-arch-share{color:#3a2b20}
+  html[data-theme="light"] .finlab-acc-arrow{color:#8c725f}
   html[data-theme="light"] .finlab-final{
     background:
       radial-gradient(circle at top left, rgba(244,212,164,.45) 0, transparent 52%),
       linear-gradient(180deg,#fdf3e7,#f2e0cf);
     border-color:rgba(196,138,58,.35);
   }
-
-  html[data-theme="light"] .finlab-final h2{
-    color:#201914;
-  }
-
-  html[data-theme="light"] .finlab-final p{
-    color:#5f5146;
-  }
-
   html[data-theme="light"] .finlab-footer{
     border-top-color:rgba(144,116,87,.3);
     color:#7b6351;
@@ -874,7 +740,7 @@
       <div class="brand">
         <a class="brand-row" href="/">
           <strong>TELWHA</strong>
-            <link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+          <link rel="icon" href="/static/media/telwha-favicon.png" type="png">
         </a>
         <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
       </div>
@@ -908,11 +774,10 @@
         <div class="finlab-brand">
           <div class="finlab-brand-mark" aria-hidden="true"></div>
           <div>
-            <div class="finlab-brand-text-main"></div>
-            <div class="finlab-brand-text-sub"></div>
+            <div class="finlab-brand-text-main">FinLab TELWHA</div>
+            <div class="finlab-brand-text-sub">Money behavior diagnostics</div>
           </div>
         </div>
-
       </header>
 
       <section class="finlab-hero">
@@ -947,38 +812,42 @@
         <aside class="finlab-hero-data">
           <div class="finlab-data-head">
             <div class="finlab-data-title">Що видно в результатах FinLab</div>
-            <div class="finlab-chip">актуальні дані на квітень 2026</div>
+            <div class="finlab-chip" id="statsUpdatedChip">дані оновлюються</div>
           </div>
 
           <div class="finlab-total">
             <div class="finlab-total-label">Уже пройшли тест</div>
-            <div class="finlab-total-value" id="totalResponses">1 248</div>
+            <div class="finlab-total-value" id="totalResponses">—</div>
             <div class="finlab-total-copy">анонімні результати фінансової поведінки</div>
           </div>
 
           <div class="finlab-stats-grid">
             <div class="finlab-stat-card">
-              <div class="finlab-stat-label">Фінансова напруга</div>
-              <div class="finlab-stat-value red" id="stressShare">31%</div>
-              <div class="finlab-stat-copy">живуть у відчутті постійного тиску через гроші</div>
+              <div class="finlab-stat-label">Стрес через гроші</div>
+              <div class="finlab-stat-value red" id="stressShare">—</div>
+              <div class="finlab-stat-level" id="stressShareLevel">—</div>
+              <div class="finlab-stat-copy">1–5, де вище = більше напруги.</div>
             </div>
 
             <div class="finlab-stat-card">
-              <div class="finlab-stat-label">Відкладання рішень</div>
-              <div class="finlab-stat-value blue" id="omissionShare">44%</div>
-              <div class="finlab-stat-copy">тягнуть з важливими фінансовими кроками</div>
+              <div class="finlab-stat-label">Фінансова опора</div>
+              <div class="finlab-stat-value blue" id="omissionShare">—</div>
+              <div class="finlab-stat-level" id="omissionShareLevel">—</div>
+              <div class="finlab-stat-copy">1–5, де вище = більше відчуття подушки.</div>
             </div>
 
             <div class="finlab-stat-card">
-              <div class="finlab-stat-label">Низька ясність</div>
-              <div class="finlab-stat-value gold" id="visibilityShare">36%</div>
-              <div class="finlab-stat-copy">не бачать повної картини своїх грошей</div>
+              <div class="finlab-stat-label">Ясність у грошах</div>
+              <div class="finlab-stat-value gold" id="visibilityShare">—</div>
+              <div class="finlab-stat-level" id="visibilityShareLevel">—</div>
+              <div class="finlab-stat-copy">1–5, де вище = краще розуміння своїх грошей.</div>
             </div>
 
             <div class="finlab-stat-card">
-              <div class="finlab-stat-label">Емоційні витрати</div>
-              <div class="finlab-stat-value green" id="emotionalShare">29%</div>
-              <div class="finlab-stat-copy">часто витрачають під впливом емоцій</div>
+              <div class="finlab-stat-label">Хаос у рішеннях</div>
+              <div class="finlab-stat-value green" id="emotionalShare">—</div>
+              <div class="finlab-stat-level" id="emotionalShareLevel">—</div>
+              <div class="finlab-stat-copy">1–5, де вище = більше імпульсивності.</div>
             </div>
           </div>
         </aside>
@@ -1021,24 +890,24 @@
 
         <div class="finlab-archetypes">
           <div class="finlab-arch">
-            <div class="finlab-arch-code" id="arch1Code">PN</div>
-            <div class="finlab-arch-name" id="arch1Name">Планую, але застрягаю</div>
-            <div class="finlab-arch-share" id="arch1Share">18%</div>
-            <p id="arch1Text">Бачу правильний напрямок, але відкладаю дію і гублю темп між планом та виконанням.</p>
+            <div class="finlab-arch-code" id="arch1Code">FS</div>
+            <div class="finlab-arch-name" id="arch1Name">Архетип 1</div>
+            <div class="finlab-arch-share" id="arch1Share">—</div>
+            <p id="arch1Text">Опис архетипу оновиться автоматично.</p>
           </div>
 
           <div class="finlab-arch">
-            <div class="finlab-arch-code" id="arch2Code">VV</div>
-            <div class="finlab-arch-name" id="arch2Name">Тягну на собі і вигораю</div>
-            <div class="finlab-arch-share" id="arch2Share">15%</div>
-            <p id="arch2Text">Тримаю контроль через надзусилля, але поступово накопичую втому і напругу.</p>
+            <div class="finlab-arch-code" id="arch2Code">ZP</div>
+            <div class="finlab-arch-name" id="arch2Name">Архетип 2</div>
+            <div class="finlab-arch-share" id="arch2Share">—</div>
+            <p id="arch2Text">Опис архетипу оновиться автоматично.</p>
           </div>
 
           <div class="finlab-arch">
-            <div class="finlab-arch-code" id="arch3Code">FS</div>
-            <div class="finlab-arch-name" id="arch3Name">Не хочу бачити неприємне</div>
-            <div class="finlab-arch-share" id="arch3Share">13%</div>
-            <p id="arch3Text">Уникаю неприємних цифр, рішень або фактів, які можуть викликати внутрішній дискомфорт.</p>
+            <div class="finlab-arch-code" id="arch3Code">TS</div>
+            <div class="finlab-arch-name" id="arch3Name">Архетип 3</div>
+            <div class="finlab-arch-share" id="arch3Share">—</div>
+            <p id="arch3Text">Опис архетипу оновиться автоматично.</p>
           </div>
         </div>
       </section>
@@ -1131,70 +1000,163 @@
   </main>
 
   <script>
-  const stats = {
-    totalResponses: 1248,
-    stressShare: 31,
-    omissionShare: 44,
-    visibilityShare: 36,
-    emotionalShare: 29,
-    archetypes: [
-      {
-        code: "PN",
-        name: "Планую, але застрягаю",
-        share: 18,
-        text: "Бачу правильний напрямок, але відкладаю дію і гублю темп між планом та виконанням."
+    const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbyHZWslDEkHBnyHCIxrTETqvhtF9vtqVgvVsr9cMslamdOHzyI5RYW4L_sjk0ofLaJ1/exec";
+
+    const ARCHETYPE_META = {
+      FS: {
+        name: "Фінансовий страус",
+        text: "Частіше уникає неприємних цифр і фінансових рішень, поки напруга не стає надто відчутною."
       },
-      {
-        code: "VV",
-        name: "Тягну на собі і вигораю",
-        share: 15,
-        text: "Тримаю контроль через надзусилля, але поступово накопичую втому і напругу."
+      ZP: {
+        name: "Збирач подушки",
+        text: "Шукає безпеку через запас, контроль і поступове накопичення фінансової опори."
       },
-      {
-        code: "FS",
-        name: "Не хочу бачити неприємне",
-        share: 13,
-        text: "Уникаю неприємних цифр, рішень або фактів, які можуть викликати внутрішній дискомфорт."
+      TS: {
+        name: "Тривожний стратег",
+        text: "Сильно думає наперед, але часто проходить через внутрішню напругу й сценарії перевантаження."
+      },
+      PN: {
+        name: "Планую, але не рухаюсь",
+        text: "Добре бачить, що треба робити, але відкладає реальний крок і застрягає між планом і дією."
+      },
+      VV: {
+        name: "Тягну і вигораю",
+        text: "Бере надто багато контролю на себе, довго тримається, але платить за це виснаженням."
+      },
+      DS: {
+        name: "Дофаміновий спринтер",
+        text: "Легко заходить в імпульс і короткі ривки, але важче тримає стабільний фінансовий ритм."
       }
-    ]
-  };
+    };
 
-  const setText = (id, value) => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = value;
-  };
+    const setText = (id, value) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (value === undefined || value === null || value === "") return;
+      el.textContent = value;
+    };
 
-  setText("totalResponses", stats.totalResponses.toLocaleString("uk-UA"));
-  setText("stressShare", stats.stressShare + "%");
-  setText("omissionShare", stats.omissionShare + "%");
-  setText("visibilityShare", stats.visibilityShare + "%");
-  setText("emotionalShare", stats.emotionalShare + "%");
+    const toNumber = (value) => {
+      if (typeof value === "number") return value;
+      if (typeof value === "string") {
+        const cleaned = value.replace("%", "").trim();
+        const parsed = Number(cleaned);
+        return Number.isNaN(parsed) ? null : parsed;
+      }
+      return null;
+    };
 
-  if (stats.archetypes?.length >= 3) {
-    setText("arch1Code", stats.archetypes[0].code);
-    setText("arch1Name", stats.archetypes[0].name);
-    setText("arch1Share", stats.archetypes[0].share + "%");
-    setText("arch1Text", stats.archetypes[0].text);
+    const formatInt = (value) => {
+      const n = toNumber(value);
+      return n === null ? "—" : Math.round(n).toLocaleString("uk-UA");
+    };
 
-    setText("arch2Code", stats.archetypes[1].code);
-    setText("arch2Name", stats.archetypes[1].name);
-    setText("arch2Share", stats.archetypes[1].share + "%");
-    setText("arch2Text", stats.archetypes[1].text);
+    const formatAverage = (value) => {
+      const n = toNumber(value);
+      return n === null ? "—" : n.toFixed(2);
+    };
 
-    setText("arch3Code", stats.archetypes[2].code);
-    setText("arch3Name", stats.archetypes[2].name);
-    setText("arch3Share", stats.archetypes[2].share + "%");
-    setText("arch3Text", stats.archetypes[2].text);
-  }
+    const formatShare = (value) => {
+      if (typeof value === "string" && value.includes("%")) return value;
+      const n = toNumber(value);
+      if (n === null) return "—";
+      return `${Math.round(n * 100)}%`;
+    };
 
-  document.querySelectorAll('.finlab-acc-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.parentElement.classList.toggle('open');
+    const getArchetypeMeta = (code) => {
+      return ARCHETYPE_META[code] || {
+        name: code || "Архетип",
+        text: "Цей архетип уже з’являється у вибірці FinLab і буде деталізований далі."
+      };
+    };
+
+    const getLevelLabel = (value) => {
+      const n = toNumber(value);
+      if (n === null) return "—";
+      if (n < 2) return "низький рівень";
+      if (n < 3) return "середній рівень";
+      if (n < 4) return "підвищений рівень";
+      return "високий рівень";
+    };
+
+    function applyStatsToDom(stats) {
+      setText("totalResponses", formatInt(stats.totalResponses));
+      setText("statsUpdatedChip", stats.updatedAtLabel || "дані оновлюються автоматично");
+
+      setText("stressShare", formatAverage(stats.avgPressure));
+      setText("stressShareLevel", getLevelLabel(stats.avgPressure));
+
+      setText("omissionShare", formatAverage(stats.avgReserve));
+      setText("omissionShareLevel", getLevelLabel(stats.avgReserve));
+
+      setText("visibilityShare", formatAverage(stats.avgVisibility));
+      setText("visibilityShareLevel", getLevelLabel(stats.avgVisibility));
+
+      setText("emotionalShare", formatAverage(stats.avgChaos));
+      setText("emotionalShareLevel", getLevelLabel(stats.avgChaos));
+
+      if (Array.isArray(stats.topArchetypes)) {
+        const archetypes = stats.topArchetypes.slice(0, 3);
+
+        [1, 2, 3].forEach((idx) => {
+          const item = archetypes[idx - 1];
+          if (!item) return;
+
+          const code = item.code || "—";
+          const meta = getArchetypeMeta(code);
+
+          setText(`arch${idx}Code`, code);
+          setText(`arch${idx}Name`, meta.name);
+          setText(`arch${idx}Share`, formatShare(item.share));
+          setText(`arch${idx}Text`, `${meta.text} У вибірці: ${formatInt(item.count)} відповідей.`);
+        });
+      }
+    }
+
+    async function loadStats() {
+      try {
+        if (!WEBAPP_URL || WEBAPP_URL.includes("PASTE_YOUR")) {
+          console.warn("WEBAPP_URL ще не замінений на реальний Apps Script URL");
+          setText("statsUpdatedChip", "додайте URL Apps Script");
+          return;
+        }
+
+        const response = await fetch(WEBAPP_URL, { method: "GET" });
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.error) {
+          throw new Error(data.error);
+        }
+
+        applyStatsToDom(data);
+      } catch (error) {
+        console.error("Помилка завантаження статистики FinLab:", error);
+        setText("statsUpdatedChip", "помилка завантаження");
+      }
+    }
+
+    document.querySelectorAll(".finlab-acc-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        btn.parentElement.classList.toggle("open");
+      });
     });
-  });
+
+    const themeBtn = document.querySelector(".theme-toggle");
+    if (themeBtn) {
+      themeBtn.addEventListener("click", () => {
+        const root = document.documentElement;
+        const current = root.getAttribute("data-theme") || "dark";
+        root.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+      });
+    }
+
+    loadStats();
   </script>
 
-  <!-- той самий глобальний скрипт теми, що й на головній -->
   <script src="/static/script/global.js"></script>
 </body>
 </html>
