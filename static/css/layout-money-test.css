@@ -99,6 +99,10 @@
     color: var(--text-soft);
   }
 
+  a.brand {
+  color: var(--text-main) !important;
+  text-decoration: none !important;
+  }
   header.app-header nav {
     display: flex;
     align-items: center;
