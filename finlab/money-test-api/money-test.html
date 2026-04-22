@@ -2274,27 +2274,6 @@ html[data-theme="light"] .action-card:first-child .action-card-title,
 html[data-theme="light"] .action-card:first-child .action-card-title strong {
   color: #17110c !important;
 }
-html[data-theme="light"] .action-card {
-  background: #dccbb5 !important;
-  border-color: rgba(102, 78, 49, 0.18) !important;
-}
-
-html[data-theme="light"] .action-card-title,
-html[data-theme="light"] .action-card-title strong {
-  color: #241b14 !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.01em;
-}
-
-html[data-theme="light"] .action-card:first-child {
-  background: #d1bb96 !important;
-  border-color: rgba(122, 92, 48, 0.28) !important;
-}
-
-html[data-theme="light"] .action-card:first-child .action-card-title,
-html[data-theme="light"] .action-card:first-child .action-card-title strong {
-  color: #17110c !important;
-}
 
   </style>
 </head>
@@ -3320,7 +3299,7 @@ html[data-theme="light"] .action-card:first-child .action-card-title strong {
           ${features.map(f => `<div class="upgrade-cta-feature"><span class="upgrade-cta-feature-dot"></span><span>${f}</span></div>`).join("")}
         </div>
         <p class="upgrade-cta-copy">Коротка версія показала напрямок. Повна дасть вже не просто “впізнавання”, а розуміння: чому саме цей сценарій, де він ламається і що робити конкретно у вашому випадку.</p>
-        <a href="https://t-e-l-w-h-a.com/contact" target="_blank" class="upgrade-cta-button">Хочу повний розбір із Анною</a>
+        <a href="https://t-e-l-w-h-a.com/contact" target="_blank" class="upgrade-cta-button">Хочу повний розбір</a>
       </div>
     `;
   }
@@ -3433,6 +3412,7 @@ html[data-theme="light"] .action-card:first-child .action-card-title strong {
     archetypeSubtitle.textContent = profile.subtitle;
     archetypeCode.textContent = profile.code || "—";
     archetypeBody.innerHTML = renderArchetypeInsight(profile)
+    
     
     function renderArchetypeInsight(profile) {
   const paragraphs = (profile.body || []).map(item => `<p>${item}</p>`).join('');
