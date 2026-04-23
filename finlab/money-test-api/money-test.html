@@ -17,22 +17,30 @@
 <body>
 <div class="shell">
   <header class="app-header">
-  <a class="brand" href="/">
-    <div class="brand-mark" aria-hidden="true"></div>
-    <div>
-      <div class="brand-text-main">FinLab TELWHA</div>
-      <div class="brand-text-sub">Money behavior diagnostics</div>
-    </div>
-  </a>
+    <a class="brand" href="/">
+      <div class="brand-mark" aria-hidden="true"></div>
+      <div>
+        <div class="brand-text-main">FinLab TELWHA</div>
+        <div class="brand-text-sub">Money behavior diagnostics</div>
+      </div>
+    </a>
 
-  <div style="display:flex; align-items:center; gap:12px;">
-    <nav>
-      <span>Money Test</span>
-      <span class="dot"></span>
-    </nav>
-    <button class="theme-toggle" type="button" onclick="toggleTheme()">🌓</button>
-  </div>
-</header>
+    <div class="header-actions">
+      <nav class="header-nav" aria-label="Current page">
+        <span>Money Test</span>
+        <span class="dot"></span>
+      </nav>
+
+      <details class="lang-switcher">
+        <summary aria-label="Choose language">🇺🇦</summary>
+        <div class="lang-list">
+          <a href="/en/finlab/money-test.html" aria-label="English">🇬🇧</a>
+        </div>
+      </details>
+
+      <button class="theme-toggle" type="button" aria-label="Toggle theme">🌓</button>
+    </div>
+  </header>
 
   <main class="hero">
     <section class="hero-left">

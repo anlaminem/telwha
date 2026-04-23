@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Money Test – FinLab TELWHA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="/static/css/layout-money-test.css">
+</head>
+<body>
+<div class="shell">
+  <header class="app-header">
+    <a class="brand" href="/">
+      <div class="brand-mark" aria-hidden="true"></div>
+      <div>
+        <div class="brand-text-main">FinLab TELWHA</div>
+        <div class="brand-text-sub">Money behavior diagnostics</div>
+      </div>
+    </a>
+
+    <div class="header-actions">
+      <nav class="header-nav" aria-label="Current page">
+        <span>Money Test</span>
+        <span class="dot"></span>
+      </nav>
+
+      <details class="lang-switcher">
+        <summary aria-label="Change language">🇬🇧</summary>
+        <div class="lang-list">
+          <a href="/finlab/money-test-api/money-test.html" aria-label="Українська">🇺🇦</a>
+        </div>
+      </details>
+
+      <button class="theme-toggle" type="button" aria-label="Toggle theme">🌓</button>
+    </div>
+  </header>
+
+  <main class="hero">
+    <section class="hero-left">
+      <div class="hero-content">
+        <div class="hero-kicker"></div>
+        <h1 class="hero-title">
+          Your <span class="accent">money archetype</span> and behavioral tax
+        </h1>
+        <p class="hero-sub">
+          This is the short version of the Money Test: 33 questions about your context,
+          income and financial habits. For a deep profile there is a full version of the test.
+        </p>
+        <div class="hero-meta">
+          <span><strong>33 questions</strong></span>
+          <span><strong>1 report</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <aside class="hero-right">
+      <div class="hero-card">
+        <h3>What you get</h3>
+        <p>◉ <strong>Archetype</strong><br>How you behave with money under pressure and in decisions.</p>
+        <p>◉ <strong>Current picture</strong><br>Reserve, debt and how much you actually control cash flow.</p>
+        <p>◉ <strong>Your route</strong><br>Where to start to move from chaos to financial support.</p>
+      </div>
+      <div class="hero-card">
+        <div class="hero-progress">
+          <div>Survey progress</div>
+          <div class="pill">
+            <span class="pill-dot"></span>
+            33 questions
+          </div>
+        </div>
+        <div class="progress-bar-track" aria-hidden="true">
+          <div class="progress-bar-fill" id="js-progress-bar"></div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <div class="ux-sticky" id="js-ux-sticky">
+    <div class="ux-sticky-top">
+      <div>
+        <div class="ux-sticky-title" id="js-progress-copy">Completed 0 of 33</div>
+        <div class="ux-sticky-sub" id="js-current-step">Now: Block 1 of 3 · FA</div>
+      </div>
+      <div class="ux-sticky-actions">
+        <button class="btn-secondary" id="js-next-unanswered" type="button">Next question</button>
+        <button class="btn-secondary" id="js-first-missed" type="button">First unanswered</button>
+      </div>
+    </div>
+    <div class="progress-bar-track" aria-hidden="true">
+      <div class="progress-bar-fill" id="js-progress-bar-sticky"></div>
+    </div>
+    <div class="section-pills" id="js-section-pills">
+      <div class="section-pill" data-section-pill="FA"><strong>FA</strong><span id="js-fa-progress">0/10</span></div>
+      <div class="section-pill" data-section-pill="PA"><strong>PA</strong><span id="js-pa-progress">0/8</span></div>
+      <div class="section-pill" data-section-pill="FH"><strong>FH</strong><span id="js-fh-progress">0/15</span></div>
+    </div>
+  </div>
+
+  <section class="section" id="section-fa" data-section-code="FA">
+    <div class="section-header">
+      <div class="section-kicker">Block 1 · Financial architecture of life</div>
+      <div class="section-title">Context without which behavior cannot be read</div>
+      <p class="section-sub">
+        Here we fix the basic configuration of your financial life: location, family system, reserve,
+        debt, investments. This is not a “score” but a map of risks and supports.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="question-group">
+
+        <div class="question-block" data-question="FA1" data-section="FA">
+          <div class="question-label"><span class="badge">FA1</span><span>Living context</span></div>
+          <div class="question-text">Where do you live now?</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="FA1" data-option-code="1"><span class="index">1</span>In Ukraine, in my home city</button>
+            <button class="option-chip" type="button" data-item-id="FA1" data-option-code="2"><span class="index">2</span>In Ukraine, after relocation / IDP</button>
+            <button class="option-chip" type="button" data-item-id="FA1" data-option-code="3"><span class="index">3</span>Abroad temporarily</button>
+            <button class="option-chip" type="button" data-item-id="FA1" data-option-code="4"><span class="index">4</span>Abroad long term</button>
+            <button class="option-chip" type="button" data-item-id="FA1" data-option-code="5"><span class="index">5</span>Split time between countries</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="FA1" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="FA2" data-section="FA">
+          <div class="question-label"><span class="badge">FA2</span><span>System complexity</span></div>
+          <div class="question-text">Your current family status:</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="FA2" data-option-code="1"><span class="index">1</span>Single</button>
+            <button class="option-chip" type="button" data-item-id="FA2" data-option-code="2"><span class="index">2</span>In a relationship, living separately</button>
+            <button class="option-chip" type="button" data-item-id="FA2" data-option-code="3"><span class="index">3</span>Living together / married</button>
+            <button class="option-chip" type="button" data-item-id="FA2" data-option-code="4"><span class="index">4</span>Divorce / separation / difficult transition</button>
+            <button class="option-chip" type="button" data-item-id="FA2" data-option-code="5"><span class="index">5</span>Other</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="FA2" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="FA3" data-section="FA">
+          <div class="question-label"><span class="badge">FA3</span><span>People you carry financially</span></div>
+          <div class="question-text">Do you have children or people you support financially?</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="FA3" data-raw="1"><span class="index">1</span>No</button>
+            <button class="option-chip" type="button" data-item-id="FA3" data-raw="2"><span class="index">2</span>1 person</button>
+            <button class="option-chip" type="button" data-item-id="FA3" data-raw="3"><span class="index">3</span>2 people</button>
+            <button class="option-chip" type="button" data-item-id="FA3" data-raw="4"><span class="index">4</span>3 or more</button>
+            <button class="option-chip" type="button" data-item-id="FA3" data-raw="5"><span class="index">5</span>It is unstable, sometimes yes</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="FA3" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="FA4" data-section="FA">
+          <div class="question-label"><span class="badge">FA4</span><span>Income stability</span></div>
+          <div class="question-text">Your personal income is usually:</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="FA4" data-raw="1"><span class="index">1</span>Completely unstable</button>
+            <button class="option-chip" type="button" data-item-id="FA4" data-raw="2"><span class="index">2</span>Rather unstable</button>
+            <button class="option-chip" type="button" data-item-id="FA4" data-raw="3"><span class="index">3</span>Partly stable, partly variable</button>
+            <button class="option-chip" type="button" data-item-id="FA4" data-raw="4"><span class="index">4</span>Rather stable</button>
+            <button class="option-chip" type="button" data-item-id="FA4" data-raw="5"><span class="index">5</span>Very stable</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="FA4" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="FA5" data-section="FA">
+          <div class="question-label"><span class="badge">FA5</span><span>Cushion / reserve</span></div>
+          <div class="question-text">How would you best describe your financial reserve?</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="FA5" data-raw="1"><span class="index">1</span>No reserve</button>
+            <button class="option-chip" type="button" data-item-id="FA5" data-raw="2"><span class="index">2</span>Less than 1 month of basic expenses</button>
+            <button class="option-chip" type="button" data-item-id="FA5" data-raw="3"><span class="index">3</span>For 1–3 months</button>
+            <button class="option-chip" type="button" data-item-id="FA5" data-raw="4"><span class="index">4</span>For 3–6 months</button>
+            <button class="option-chip" type="button" data-item-id="FA5" data-raw="5"><span class="index">5</span>More than 6 months</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="FA5" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="FA6" data-section="FA">
+          <div class="question-label"><span class="badge">FA6</span><span>Reserve structure</span></div>
+          <div class="question-text">
+            Where do you mainly keep your reserve / free money?
+            (credit limits are not considered reserve)
+          </div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="FA6" data-option-code="1"><span class="index">1</span>No reserve</button>
+            <button class="option-chip" type="button" data-item-id="FA6" data-option-code="2"><span class="index">2</span>On main card / in cash</button>
+            <button class="option-chip" type="button" data-item-id="FA6" data-option-code="3"><span class="index">3</span>On a separate account / deposit</button>
+            <button class="option-chip" type="button" data-item-id="FA6" data-option-code="4"><span class="index">4</span>Partly in cash, partly separate</button>
+            <button class="option-chip" type="button" data-item-id="FA6" data-option-code="5"><span class="index">5</span>In different tools, divided consciously</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="FA6" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="FA7" data-section="FA">
+          <div class="question-label"><span class="badge">FA7</span><span>Debt picture</span></div>
+          <div class="question-text">Do you currently have debts?</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="FA7" data-raw="1"><span class="index">1</span>No</button>
+            <button class="option-chip" type="button" data-item-id="FA7" data-raw="2"><span class="index">2</span>Only “healthy” debt (mortgage / business / education)</button>
+            <button class="option-chip" type="button" data-item-id="FA7" data-raw="3"><span class="index">3</span>Credit card / instalments</button>
+            <button class="option-chip" type="button" data-item-id="FA7" data-raw="4"><span class="index">4</span>Several types of debt at once</button>
+            <button class="option-chip" type="button" data-item-id="FA7" data-raw="5"><span class="index">5</span>Overdue / problematic debts</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="FA7" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="FA8" data-section="FA">
+          <div class="question-label"><span class="badge">FA8</span><span>Debt load</span></div>
+          <div class="question-text">Approximately what share of your monthly income goes to debt payments?</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="FA8" data-raw="1"><span class="index">1</span>0%</button>
+            <button class="option-chip" type="button" data-item-id="FA8" data-raw="2"><span class="index">2</span>Up to 10%</button>
+            <button class="option-chip" type="button" data-item-id="FA8" data-raw="3"><span class="index">3</span>10–30%</button>
+            <button class="option-chip" type="button" data-item-id="FA8" data-raw="4"><span class="index">4</span>30–50%</button>
+            <button class="option-chip" type="button" data-item-id="FA8" data-raw="5"><span class="index">5</span>Over 50% / hard to say</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="FA8" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="FA9" data-section="FA">
+          <div class="question-label"><span class="badge">FA9</span><span>Investments / long term</span></div>
+          <div class="question-text">Do you have investments or long‑term savings?</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="FA9" data-raw="1"><span class="index">1</span>No</button>
+            <button class="option-chip" type="button" data-item-id="FA9" data-raw="2"><span class="index">2</span>Only deposit / cash / simple cushion</button>
+            <button class="option-chip" type="button" data-item-id="FA9" data-raw="3"><span class="index">3</span>Pension / conservative instruments</button>
+            <button class="option-chip" type="button" data-item-id="FA9" data-raw="4"><span class="index">4</span>Regular investments</button>
+            <button class="option-chip" type="button" data-item-id="FA9" data-raw="5"><span class="index">5</span>Active / high‑risk investments</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="FA9" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="FA10" data-section="FA">
+          <div class="question-label"><span class="badge">FA10</span><span>Shock resistance</span></div>
+          <div class="question-text">
+            If tomorrow your income drops by 30%, how long can you live without new debt?
+          </div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="FA10" data-raw="1"><span class="index">1</span>Less than 1 month</button>
+            <button class="option-chip" type="button" data-item-id="FA10" data-raw="2"><span class="index">2</span>1–2 months</button>
+            <button class="option-chip" type="button" data-item-id="FA10" data-raw="3"><span class="index">3</span>3–6 months</button>
+            <button class="option-chip" type="button" data-item-id="FA10" data-raw="4"><span class="index">4</span>6–12 months</button>
+            <button class="option-chip" type="button" data-item-id="FA10" data-raw="5"><span class="index">5</span>Over a year</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="FA10" aria-live="polite"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="section-pa" data-section-code="PA">
+    <div class="section-header">
+      <div class="section-kicker">Block 2 · Professional architecture</div>
+      <div class="section-title">How you earn and influence your income</div>
+      <p class="section-sub">
+        Type of employment, number of income streams, hits to income and your sense of control over money.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="question-group">
+
+        <div class="question-block" data-question="PA1" data-section="PA">
+          <div class="question-label"><span class="badge">PA1</span><span>Employment format</span></div>
+          <div class="question-text">Your main employment format:</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="PA1" data-option-code="1"><span class="index">1</span>Employee</button>
+            <button class="option-chip" type="button" data-item-id="PA1" data-option-code="2"><span class="index">2</span>Self‑employed / freelancer</button>
+            <button class="option-chip" type="button" data-item-id="PA1" data-option-code="3"><span class="index">3</span>Business owner</button>
+            <button class="option-chip" type="button" data-item-id="PA1" data-option-code="4"><span class="index">4</span>Gig / project‑based work</button>
+            <button class="option-chip" type="button" data-item-id="PA1" data-option-code="5"><span class="index">5</span>Currently without stable employment</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="PA1" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="PA2" data-section="PA">
+          <div class="question-label"><span class="badge">PA2</span><span>Number of sources</span></div>
+          <div class="question-text">How many income sources do you have now?</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="PA2" data-raw="0"><span class="index">1</span>One</button>
+            <button class="option-chip" type="button" data-item-id="PA2" data-raw="1"><span class="index">2</span>Two</button>
+            <button class="option-chip" type="button" data-item-id="PA2" data-raw="2"><span class="index">3</span>Three</button>
+            <button class="option-chip" type="button" data-item-id="PA2" data-raw="3"><span class="index">4</span>Four</button>
+            <button class="option-chip" type="button" data-item-id="PA2" data-raw="4"><span class="index">5</span>Five or more / hard to say</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="PA2" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="PA3" data-section="PA">
+          <div class="question-label"><span class="badge">PA3</span><span>Income over the year</span></div>
+          <div class="question-text">Your income over the last 12 months:</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="PA3" data-raw="1"><span class="index">1</span>Decreased significantly</button>
+            <button class="option-chip" type="button" data-item-id="PA3" data-raw="2"><span class="index">2</span>Decreased slightly</button>
+            <button class="option-chip" type="button" data-item-id="PA3" data-raw="3"><span class="index">3</span>Was roughly stable</button>
+            <button class="option-chip" type="button" data-item-id="PA3" data-raw="4"><span class="index">4</span>Increased slightly</button>
+            <button class="option-chip" type="button" data-item-id="PA3" data-raw="5"><span class="index">5</span>Increased significantly</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="PA3" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="PA4" data-section="PA">
+          <div class="question-label"><span class="badge">PA4</span><span>Control over income</span></div>
+          <div class="question-text">How much do you feel you can influence your income in the next 12 months?</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="PA4" data-raw="1"><span class="index">1</span>Almost no influence</button>
+            <button class="option-chip" type="button" data-item-id="PA4" data-raw="2"><span class="index">2</span>Rather little influence</button>
+            <button class="option-chip" type="button" data-item-id="PA4" data-raw="3"><span class="index">3</span>Partly influence</button>
+            <button class="option-chip" type="button" data-item-id="PA4" data-raw="4"><span class="index">4</span>More influence than not</button>
+            <button class="option-chip" type="button" data-item-id="PA4" data-raw="5"><span class="index">5</span>Strong influence / can change it significantly</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="PA4" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="PA5" data-section="PA">
+          <div class="question-label"><span class="badge">PA5</span><span>Reaction to a problem</span></div>
+          <div class="question-text">When a financial problem appears, your typical reaction:</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="PA5" data-option-code="1"><span class="index">1</span>Freeze and postpone</button>
+            <button class="option-chip" type="button" data-item-id="PA5" data-option-code="2"><span class="index">2</span>Put out the fire chaotically</button>
+            <button class="option-chip" type="button" data-item-id="PA5" data-option-code="3"><span class="index">3</span>Start working a lot</button>
+            <button class="option-chip" type="button" data-item-id="PA5" data-option-code="4"><span class="index">4</span>Look for a scheme / risky chance</button>
+            <button class="option-chip" type="button" data-item-id="PA5" data-option-code="5"><span class="index">5</span>Sit down and calculate structurally</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="PA5" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="PA6" data-section="PA">
+          <div class="question-label"><span class="badge">PA6</span><span>Financial shocks</span></div>
+          <div class="question-text">
+            Have you had a major financial hit in the last 5 years?
+            <p>(for example: relocation, war, job loss, loss of main breadwinner,
+              expensive treatment, sharp income drop)</p>
+          </div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="PA6" data-raw="1"><span class="index">1</span>No</button>
+            <button class="option-chip" type="button" data-item-id="PA6" data-raw="2"><span class="index">2</span>Yes, one</button>
+            <button class="option-chip" type="button" data-item-id="PA6" data-raw="3"><span class="index">3</span>Yes, several</button>
+            <button class="option-chip" type="button" data-item-id="PA6" data-raw="4"><span class="index">4</span>Something is constantly “hitting” finances</button>
+            <button class="option-chip" type="button" data-item-id="PA6" data-raw="5"><span class="index">5</span>Hard to say / still have not recovered from the last one</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="PA6" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="PA7" data-section="PA">
+          <div class="question-label"><span class="badge">PA7</span><span>Dependence on external factors</span></div>
+          <div class="question-text">How much does your income depend on external factors you do not control?</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="PA7" data-raw="1"><span class="index">1</span>Almost does not depend</button>
+            <button class="option-chip" type="button" data-item-id="PA7" data-raw="2"><span class="index">2</span>Rather does not depend</button>
+            <button class="option-chip" type="button" data-item-id="PA7" data-raw="3"><span class="index">3</span>About 50/50</button>
+            <button class="option-chip" type="button" data-item-id="PA7" data-raw="4"><span class="index">4</span>Depends a lot</button>
+            <button class="option-chip" type="button" data-item-id="PA7" data-raw="5"><span class="index">5</span>Almost fully depends</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="PA7" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="PA8" data-section="PA">
+          <div class="question-label"><span class="badge">PA8</span><span>Overworking</span></div>
+          <div class="question-text">
+            How often do you have to work more than you can handle just to keep the financial situation afloat?
+          </div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="PA8" data-raw="1"><span class="index">1</span>Almost never</button>
+            <button class="option-chip" type="button" data-item-id="PA8" data-raw="2"><span class="index">2</span>Rarely</button>
+            <button class="option-chip" type="button" data-item-id="PA8" data-raw="3"><span class="index">3</span>From time to time</button>
+            <button class="option-chip" type="button" data-item-id="PA8" data-raw="4"><span class="index">4</span>Often</button>
+            <button class="option-chip" type="button" data-item-id="PA8" data-raw="5"><span class="index">5</span>Almost constantly</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="PA8" aria-live="polite"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="section-fh" data-section-code="FH">
+    <div class="section-header">
+      <div class="section-kicker">Block 3 · Everyday money habits</div>
+      <div class="section-title">How you deal with money day to day</div>
+      <p class="section-sub">
+        Tracking, impulsive spending, plan vs. reality, credit, avoiding numbers.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="question-group">
+
+        <div class="question-block" data-question="FH1" data-section="FH">
+          <div class="question-label"><span class="badge">FH1</span><span>Tracking expenses</span></div>
+          <div class="question-text">I regularly track my expenses.</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="FH1" data-raw="1"><span class="index">1</span>Not at all about me</button>
+            <button class="option-chip" type="button" data-item-id="FH1" data-raw="2"><span class="index">2</span>Rather no</button>
+            <button class="option-chip" type="button" data-item-id="FH1" data-raw="3"><span class="index">3</span>Both yes and no</button>
+            <button class="option-chip" type="button" data-item-id="FH1" data-raw="4"><span class="index">4</span>Rather yes</button>
+            <button class="option-chip" type="button" data-item-id="FH1" data-raw="5"><span class="index">5</span>Very much about me</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="FH1" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="FH2" data-section="FH">
+          <div class="question-label"><span class="badge">FH2</span><span>Financial visibility</span></div>
+          <div class="question-text">
+            At the end of the month I usually clearly understand where the money went.
+          </div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="FH2" data-raw="1"><span class="index">1</span>Not at all about me</button>
+            <button class="option-chip" type="button" data-item-id="FH2" data-raw="2"><span class="index">2</span>Rather no</button>
+            <button class="option-chip" type="button" data-item-id="FH2" data-raw="3"><span class="index">3</span>Both yes and no</button>
+            <button class="option-chip" type="button" data-item-id="FH2" data-raw="4"><span class="index">4</span>Rather yes</button>
+            <button class="option-chip" type="button" data-item-id="FH2" data-raw="5"><span class="index">5</span>Very much about me</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="FH2" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="FH3" data-section="FH">
+          <div class="question-label"><span class="badge">FH3</span><span>Emotional spending</span></div>
+          <div class="question-text">I buy small things to relieve stress or improve my mood.</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="FH3" data-raw="1"><span class="index">1</span>Not at all about me</button>
+            <button class="option-chip" type="button" data-item-id="FH3" data-raw="2"><span class="index">2</span>Rather no</button>
+            <button class="option-chip" type="button" data-item-id="FH3" data-raw="3"><span class="index">3</span>Both yes and no</button>
+            <button class="option-chip" type="button" data-item-id="FH3" data-raw="4"><span class="index">4</span>Rather yes</button>
+            <button class="option-chip" type="button" data-item-id="FH3" data-raw="5"><span class="index">5</span>Very much about me</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="FH3" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="FH4" data-section="FH">
+          <div class="question-label"><span class="badge">FH4</span><span>Postponing the cushion</span></div>
+          <div class="question-text">
+            I postpone building a cushion (reserve) because “now is not the time”.
+          </div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="FH4" data-raw="1"><span class="index">1</span>Not at all about me</button>
+            <button class="option-chip" type="button" data-item-id="FH4" data-raw="2"><span class="index">2</span>Rather no</button>
+            <button class="option-chip" type="button" data-item-id="FH4" data-raw="3"><span class="index">3</span>Both yes and no</button>
+            <button class="option-chip" type="button" data-item-id="FH4" data-raw="4"><span class="index">4</span>Rather yes</button>
+            <button class="option-chip" type="button" data-item-id="FH4" data-raw="5"><span class="index">5</span>Very much about me</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="FH4" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="FH5" data-section="FH">
+          <div class="question-label"><span class="badge">FH5</span><span>Credit card</span></div>
+          <div class="question-text">I use a credit card for normal everyday expenses.</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="FH5" data-raw="1"><span class="index">1</span>Not at all about me</button>
+            <button class="option-chip" type="button" data-item-id="FH5" data-raw="2"><span class="index">2</span>Rather no</button>
+            <button class="option-chip" type="button" data-item-id="FH5" data-raw="3"><span class="index">3</span>Both yes and no</button>
+            <button class="option-chip" type="button" data-item-id="FH5" data-raw="4"><span class="index">4</span>Rather yes</button>
+            <button class="option-chip" type="button" data-item-id="FH5" data-raw="5"><span class="index">5</span>Very much about me</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="FH5" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="FH6" data-section="FH">
+          <div class="question-label"><span class="badge">FH6</span><span>Postponing decisions</span></div>
+          <div class="question-text">I postpone big financial decisions even when I know the time has come.</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="FH6" data-raw="1"><span class="index">1</span>Not at all about me</button>
+            <button class="option-chip" type="button" data-item-id="FH6" data-raw="2"><span class="index">2</span>Rather no</button>
+            <button class="option-chip" type="button" data-item-id="FH6" data-raw="3"><span class="index">3</span>Both yes and no</button>
+            <button class="option-chip" type="button" data-item-id="FH6" data-raw="4"><span class="index">4</span>Rather yes</button>
+            <button class="option-chip" type="button" data-item-id="FH6" data-raw="5"><span class="index">5</span>Very much about me</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="FH6" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="FH7" data-section="FH">
+          <div class="question-label"><span class="badge">FH7</span><span>Financial self‑sacrifice</span></div>
+          <div class="question-text">I give money to others even if it worsens my own situation.</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="FH7" data-raw="1"><span class="index">1</span>Not at all about me</button>
+            <button class="option-chip" type="button" data-item-id="FH7" data-raw="2"><span class="index">2</span>Rather no</button>
+            <button class="option-chip" type="button" data-item-id="FH7" data-raw="3"><span class="index">3</span>Both yes and no</button>
+            <button class="option-chip" type="button" data-item-id="FH7" data-raw="4"><span class="index">4</span>Rather yes</button>
+            <button class="option-chip" type="button" data-item-id="FH7" data-raw="5"><span class="index">5</span>Very much about me</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="FH7" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="FH8" data-section="FH">
+          <div class="question-label"><span class="badge">FH8</span><span>Plan without execution</span></div>
+          <div class="question-text">I make a financial plan but do not follow it.</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="FH8" data-raw="1"><span class="index">1</span>Not at all about me</button>
+            <button class="option-chip" type="button" data-item-id="FH8" data-raw="2"><span class="index">2</span>Rather no</button>
+            <button class="option-chip" type="button" data-item-id="FH8" data-raw="3"><span class="index">3</span>Both yes and no</button>
+            <button class="option-chip" type="button" data-item-id="FH8" data-raw="4"><span class="index">4</span>Rather yes</button>
+            <button class="option-chip" type="button" data-item-id="FH8" data-raw="5"><span class="index">5</span>Very much about me</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="FH8" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="FH9" data-section="FH">
+          <div class="question-label"><span class="badge">FH9</span><span>Skipping savings</span></div>
+          <div class="question-text">I postpone or skip regular investing / saving.</div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="FH9" data-raw="1"><span class="index">1</span>Not at all about me</button>
+            <button class="option-chip" type="button" data-item-id="FH9" data-raw="2"><span class="index">2</span>Rather no</button>
+            <button class="option-chip" type="button" data-item-id="FH9" data-raw="3"><span class="index">3</span>Both yes and no</button>
+            <button class="option-chip" type="button" data-item-id="FH9" data-raw="4"><span class="index">4</span>Rather yes</button>
+            <button class="option-chip" type="button" data-item-id="FH9" data-raw="5"><span class="index">5</span>Very much about me</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="FH9" aria-live="polite"></div>
+        </div>
+
+        <div class="question-block" data-question="FH10" data-section="FH">
+          <div class="question-label"><span class="badge">FH10</span><span>Unexpected money</span></div>
+          <div class="question-text">
+            When “unexpected” money comes, I quickly spend it or scatter it without a plan.
+          </div>
+          <div class="options-row">
+            <button class="option-chip" type="button" data-item-id="FH10" data-raw="1"><span class="index">1</span>Not at all about me</button>
+            <button class="option-chip" type="button" data-item-id="FH10" data-raw="2"><span class="index">2</span>Rather no</button>
+            <button class="option-chip" type="button" data-item-id="FH10" data-raw="3"><span class="index">3</span>Both yes and no</button>
+            <button class="option-chip" type="button" data-item-id="FH10" data-raw="4"><span class="index">4</span>Rather yes</button>
+            <button class="option-chip" type="button" data-item-id="FH10" data-raw="5"><span class="index">5</span>Very much about me</button>
+          </div>
+          <div class="question-inline-hint" data-hint-for="FH10" aria-live="polite"></div>
+        </div>
+
+      </div>
+    </div>
+          <div class="question-block" data-question="FH11" data-section="FH">
+        <div class="question-label"><span class="badge">FH11</span><span>Reviewing small expenses</span></div>
+        <div class="question-text">I review subscriptions and small recurring expenses.</div>
+        <div class="options-row">
+          <button class="option-chip" type="button" data-item-id="FH11" data-raw="1"><span class="index">1</span>Not at all about me</button>
+          <button class="option-chip" type="button" data-item-id="FH11" data-raw="2"><span class="index">2</span>Rather no</button>
+          <button class="option-chip" type="button" data-item-id="FH11" data-raw="3"><span class="index">3</span>Both yes and no</button>
+          <button class="option-chip" type="button" data-item-id="FH11" data-raw="4"><span class="index">4</span>Rather yes</button>
+          <button class="option-chip" type="button" data-item-id="FH11" data-raw="5"><span class="index">5</span>Very much about me</button>
+        </div>
+        <div class="question-inline-hint" data-hint-for="FH11" aria-live="polite"></div>
+      </div>
+
+      <div class="question-block" data-question="FH12" data-section="FH">
+        <div class="question-label"><span class="badge">FH12</span><span>Rule for impulse spending</span></div>
+        <div class="question-text">I have a rule how much I can spend impulsively without harming the plan.</div>
+        <div class="options-row">
+          <button class="option-chip" type="button" data-item-id="FH12" data-raw="1"><span class="index">1</span>Not at all about me</button>
+          <button class="option-chip" type="button" data-item-id="FH12" data-raw="2"><span class="index">2</span>Rather no</button>
+          <button class="option-chip" type="button" data-item-id="FH12" data-raw="3"><span class="index">3</span>Both yes and no</button>
+          <button class="option-chip" type="button" data-item-id="FH12" data-raw="4"><span class="index">4</span>Rather yes</button>
+          <button class="option-chip" type="button" data-item-id="FH12" data-raw="5"><span class="index">5</span>Very much about me</button>
+        </div>
+        <div class="question-inline-hint" data-hint-for="FH12" aria-live="polite"></div>
+      </div>
+
+      <div class="question-block" data-question="FH13" data-section="FH">
+        <div class="question-label"><span class="badge">FH13</span><span>Other people’s money problems</span></div>
+        <div class="question-text">
+          I take on other people’s financial problems (for example, adult relatives, friends or close ones whom I am not obliged to support).
+        </div>
+        <div class="options-row">
+          <button class="option-chip" type="button" data-item-id="FH13" data-raw="1"><span class="index">1</span>Not at all about me</button>
+          <button class="option-chip" type="button" data-item-id="FH13" data-raw="2"><span class="index">2</span>Rather no</button>
+          <button class="option-chip" type="button" data-item-id="FH13" data-raw="3"><span class="index">3</span>Both yes and no</button>
+          <button class="option-chip" type="button" data-item-id="FH13" data-raw="4"><span class="index">4</span>Rather yes</button>
+          <button class="option-chip" type="button" data-item-id="FH13" data-raw="5"><span class="index">5</span>Very much about me</button>
+        </div>
+        <div class="question-inline-hint" data-hint-for="FH13" aria-live="polite"></div>
+      </div>
+
+      <div class="question-block" data-question="FH14" data-section="FH">
+        <div class="question-label"><span class="badge">FH14</span><span>Reading without implementing</span></div>
+        <div class="question-text">I regularly study money topics but hardly change my financial behavior.</div>
+        <div class="options-row">
+          <button class="option-chip" type="button" data-item-id="FH14" data-raw="1"><span class="index">1</span>Not at all about me</button>
+          <button class="option-chip" type="button" data-item-id="FH14" data-raw="2"><span class="index">2</span>Rather no</button>
+          <button class="option-chip" type="button" data-item-id="FH14" data-raw="3"><span class="index">3</span>Both yes and no</button>
+          <button class="option-chip" type="button" data-item-id="FH14" data-raw="4"><span class="index">4</span>Rather yes</button>
+          <button class="option-chip" type="button" data-item-id="FH14" data-raw="5"><span class="index">5</span>Very much about me</button>
+        </div>
+        <div class="question-inline-hint" data-hint-for="FH14" aria-live="polite"></div>
+      </div>
+
+      <div class="question-block" data-question="FH15" data-section="FH">
+        <div class="question-label"><span class="badge">FH15</span><span>Avoiding numbers</span></div>
+        <div class="question-text">When things are bad with money, I avoid looking at the numbers.</div>
+        <div class="options-row">
+          <button class="option-chip" type="button" data-item-id="FH15" data-raw="1"><span class="index">1</span>Not at all about me</button>
+          <button class="option-chip" type="button" data-item-id="FH15" data-raw="2"><span class="index">2</span>Rather no</button>
+          <button class="option-chip" type="button" data-item-id="FH15" data-raw="3"><span class="index">3</span>Both yes and no</button>
+          <button class="option-chip" type="button" data-item-id="FH15" data-raw="4"><span class="index">4</span>Rather yes</button>
+          <button class="option-chip" type="button" data-item-id="FH15" data-raw="5"><span class="index">5</span>Very much about me</button>
+        </div>
+        <div class="question-inline-hint" data-hint-for="FH15" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="submit-row">
+      <div class="submit-hint">
+        You need to answer <strong>all 33 questions</strong> to get an accurate result.
+      </div>
+      <button class="btn-primary" id="js-submit" type="button">
+        <span>Show my result</span>
+      </button>
+    </div>
+
+    <div id="js-error" class="error-banner" hidden></div>
+  </div>
+</section>
+
+<section class="result-section" id="js-result-section" hidden>
+  <div class="result-card" id="js-result-card">
+    <div class="result-inner">
+
+      <div class="result-hero-panel">
+        <div class="result-hero-layout">
+          <div class="result-hero-copy">
+            <div class="result-kicker">Your archetype</div>
+            <div class="result-archetype" id="js-archetype-title">—</div>
+            <div class="result-subtitle" id="js-archetype-subtitle">—</div>
+            <div class="result-body" id="js-general-summary">—</div>
+            <div id="js-archetype-emotion"></div>
+          </div>
+          <div class="result-hero-badge">
+            <div class="archetype-medallion" aria-hidden="true">
+              <div class="archetype-medallion-label">
+                <div class="archetype-medallion-code" id="js-archetype-code">—</div>
+                <div class="archetype-medallion-word">archetype</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-grid">
+        <div class="result-panel">
+          <div class="result-kicker">What is already your support</div>
+          <div class="result-body" id="js-general-strength"></div>
+        </div>
+
+        <div class="result-panel">
+          <div class="result-kicker">What is holding you back now</div>
+          <div class="result-body" id="js-general-risk"></div>
+        </div>
+
+        <div class="result-panel result-panel--wide">
+          <div class="result-kicker">State map</div>
+          <div id="js-general-metrics"></div>
+        </div>
+
+        <div class="result-panel result-panel--wide">
+          <div class="result-kicker">What to do right now</div>
+          <div class="action-list" id="js-next-actions"></div>
+        </div>
+
+        <div class="result-panel result-panel--wide result-panel--accent">
+          <div class="result-kicker">A bit deeper about this type</div>
+          <div class="result-body" id="js-archetype-body"></div>
+          <div class="result-meta" id="js-meta"></div>
+        </div>
+
+        <div class="result-panel result-panel--wide result-panel--accent" id="js-full-test-body"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  FinLab TELWHA · prototype short form · money behavior diagnostics
+</footer>
+</div>
+
+<script>
+  const answers = {};
+  const required = [
+    "FA1","FA2","FA3","FA4","FA5","FA6","FA7","FA8","FA9","FA10",
+    "PA1","PA2","PA3","PA4","PA5","PA6","PA7","PA8",
+    "FH1","FH2","FH3","FH4","FH5","FH6","FH7","FH8","FH9",
+    "FH10","FH11","FH12","FH13","FH14","FH15"
+  ];
+
+  const progressBar = document.getElementById("js-progress-bar");
+  const stickyProgressBar = document.getElementById("js-progress-bar-sticky");
+  const progressCopy = document.getElementById("js-progress-copy");
+  const currentStep = document.getElementById("js-current-step");
+  const nextUnansweredBtn = document.getElementById("js-next-unanswered");
+  const firstMissedBtn = document.getElementById("js-first-missed");
+  const faProgress = document.getElementById("js-fa-progress");
+  const paProgress = document.getElementById("js-pa-progress");
+  const fhProgress = document.getElementById("js-fh-progress");
+  const submitBtn = document.getElementById("js-submit");
+  const errorBox = document.getElementById("js-error");
+  const resultSection = document.getElementById("js-result-section");
+  const generalSummary = document.getElementById("js-general-summary");
+  const generalStrength = document.getElementById("js-general-strength");
+  const generalRisk = document.getElementById("js-general-risk");
+  const generalMetrics = document.getElementById("js-general-metrics");
+  const nextActionsBox = document.getElementById("js-next-actions");
+  const archetypeTitle = document.getElementById("js-archetype-title");
+  const archetypeSubtitle = document.getElementById("js-archetype-subtitle");
+  const archetypeCode = document.getElementById("js-archetype-code");
+  const archetypeBody = document.getElementById("js-archetype-body");
+  const metaBox = document.getElementById("js-meta");
+  const fullTestBody = document.getElementById("js-full-test-body");
+  const questionBlocks = Array.from(document.querySelectorAll(".question-block"));
+  const sessionStartedAt = new Date().toISOString();
+  const sectionMap = {
+    FA: required.filter((id) => id.startsWith("FA")),
+    PA: required.filter((id) => id.startsWith("PA")),
+    FH: required.filter((id) => id.startsWith("FH"))
+  };
+
+  function getFirstUnansweredId() {
+    return required.find((id) => answers[id] === undefined) || null;
+  }
+
+  function getCurrentSectionCode() {
+    const firstUnanswered = getFirstUnansweredId();
+    if (firstUnanswered) return firstUnanswered.slice(0, 2);
+    return "FH";
+  }
+
+  function updateSectionProgress() {
+    const faAnswered = sectionMap.FA.filter((id) => answers[id] !== undefined).length;
+    const paAnswered = sectionMap.PA.filter((id) => answers[id] !== undefined).length;
+    const fhAnswered = sectionMap.FH.filter((id) => answers[id] !== undefined).length;
+
+    faProgress.textContent = `${faAnswered}/10`;
+    paProgress.textContent = `${paAnswered}/8`;
+    fhProgress.textContent = `${fhAnswered}/15`;
+
+    document.querySelectorAll("[data-section-pill]").forEach((pill) => {
+      const code = pill.dataset.sectionPill;
+      const answered = sectionMap[code].filter((id) => answers[id] !== undefined).length;
+      pill.classList.toggle("is-current", code === getCurrentSectionCode());
+      pill.classList.toggle("is-complete", answered === sectionMap[code].length);
+    });
+  }
+
+  function updateCurrentStepLabel() {
+    const code = getCurrentSectionCode();
+    const labelMap = {
+      FA: "Block 1 of 3 · FA",
+      PA: "Block 2 of 3 · PA",
+      FH: "Block 3 of 3 · FH"
+    };
+    currentStep.textContent = `Now: ${labelMap[code]}`;
+  }
+
+  function updateProgress() {
+    const answered = required.filter(id => answers[id] !== undefined).length;
+    const pct = (answered / required.length) * 100;
+    progressBar.style.width = pct + "%";
+    stickyProgressBar.style.width = pct + "%";
+    progressCopy.textContent = `Completed ${answered} of ${required.length}`;
+    submitBtn.disabled = answered !== required.length;
+    updateSectionProgress();
+    updateCurrentStepLabel();
+    return { answered, pct };
+  }
+
+  function setBlockHint(itemId, message = "", isWarning = false) {
+    const hint = document.querySelector(`[data-hint-for="${itemId}"]`);
+    if (!hint) return;
+    hint.textContent = message;
+    hint.classList.toggle("is-warning", Boolean(isWarning && message));
+  }
+
+  function focusBlock(itemId) {
+    const target = document.querySelector(`.question-block[data-question="${itemId}"]`);
+    if (!target) return;
+    document.querySelectorAll(".question-block--active").forEach((block) => {
+      block.classList.remove("question-block--active");
+    });
+    target.classList.add("question-block--active");
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function getNextUnansweredAfter(currentId) {
+    const currentIndex = required.indexOf(currentId);
+    if (currentIndex === -1) return getFirstUnansweredId();
+    return required.slice(currentIndex + 1).find(id => answers[id] === undefined) || null;
+  }
+
+  function jumpToFirstUnanswered() {
+    const firstUnanswered = getFirstUnansweredId();
+    if (firstUnanswered) focusBlock(firstUnanswered);
+  }
+
+  function setAnswer(button) {
+    const itemId = button.dataset.itemId;
+    const raw = button.dataset.raw;
+    const optionCode = button.dataset.optionCode;
+    const wasUnanswered = answers[itemId] === undefined;
+
+    const group = document.querySelectorAll(`[data-item-id="${itemId}"]`);
+    group.forEach(btn => btn.classList.remove("selected"));
+    button.classList.add("selected");
+
+    answers[itemId] = {
+      item_id: itemId,
+      raw: raw !== undefined ? raw : null,
+      option_code: optionCode !== undefined ? optionCode : null
+    };
+
+    const block = document.querySelector(`.question-block[data-question="${itemId}"]`);
+    if (block) {
+      block.classList.remove("question-block--error");
+      block.classList.remove("question-block--active");
+    }
+
+    setBlockHint(itemId, "");
+    errorBox.hidden = true;
+    errorBox.textContent = "";
+    updateProgress();
+
+    if (wasUnanswered) {
+      const nextUnanswered = getNextUnansweredAfter(itemId);
+      if (nextUnanswered) {
+        setTimeout(() => focusBlock(nextUnanswered), 140);
+      }
+    }
+  }
+
+  document.querySelectorAll(".option-chip").forEach(btn => {
+    btn.addEventListener("click", () => setAnswer(btn));
+  });
+
+  function average(nums) {
+    if (!nums.length) return 0;
+    return nums.reduce((sum, n) => sum + n, 0) / nums.length;
+  }
+
+  function num(itemId) {
+    const value = answers[itemId]?.raw;
+    return value === null || value === undefined ? null : Number(value);
+  }
+
+  function code(itemId) {
+    const value = answers[itemId]?.option_code;
+    return value === null || value === undefined ? null : Number(value);
+  }
+
+  function describePositiveBand(value) {
+    if (value >= 4.1) return "this is a strong zone";
+    if (value >= 3.25) return "this is already a working support";
+    if (value >= 2.5) return "this zone is still weak";
+    if (value >= 1.75) return "this zone is very weak";
+    return "this is a critically weak zone";
+  }
+
+  function describeRiskBand(value) {
+    if (value >= 4.1) return "risk is high here";
+    if (value >= 3.25) return "risk is elevated here";
+    if (value >= 2.5) return "risk is noticeable here";
+    if (value >= 1.75) return "risk is moderate here";
+    return "risk is low here for now";
+  }
+
+  function formatMetricLine(label, value, type) {
+    const phrase = type === "positive" ? describePositiveBand(value) : describeRiskBand(value);
+    return `${label} — ${phrase} (${value.toFixed(2)}/5).`;
+  }
+
+  function renderParagraphs(items) {
+    return items.map((item) => `<p>${item}</p>`).join("");
+  }
+
+  function renderActionCards(actions) {
+    if (!actions || !actions.length) return "";
+    const [primary, ...secondary] = actions;
+
+    return `
+      <div class="action-bento">
+        <div class="action-hero">
+          <div class="action-hero-orbit"></div>
+          <div class="action-hero-top">
+            <div class="action-hero-step">
+              <span class="action-step-dot"></span>
+              Main step right now
+            </div>
+            <div class="action-time-pill">${primary.time}</div>
+          </div>
+          <div class="action-hero-content">
+            <div class="action-hero-index">01</div>
+            <h4 class="action-hero-title">${primary.title}</h4>
+            <p class="action-hero-copy">${primary.what}</p>
+          </div>
+          <div class="action-hero-footer">
+            <div class="action-hero-line"></div>
+            <div class="action-hero-note">
+              Start with this — it gives the biggest effect for your current profile.
+            </div>
+          </div>
+        </div>
+        <div class="action-side">
+          ${secondary.map((action, index) => `
+            <div class="action-side-card">
+              <div class="action-side-top">
+                <div class="action-side-step">0${index + 2}</div>
+                <div class="action-time-pill">${action.time}</div>
+              </div>
+              <div class="action-side-body">
+                <h5 class="action-side-title">${action.title}</h5>
+                <p class="action-side-copy">${action.what}</p>
+              </div>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  function computeMetrics() {
+    return {
+      reserve: average([num("FA5"), num("FA10")].filter(v => v !== null)),
+      debt: average([num("FA7"), num("FA8"), num("FH5")].filter(v => v !== null)),
+      chaos: average([num("FH3"), num("FH10"), num("FH15"), num("FH8")].filter(v => v !== null)),
+      visibility: average([num("FH1"), num("FH2"), num("FH11"), num("FH12")].filter(v => v !== null)),
+      pressure: average([num("PA6"), num("PA7"), num("PA8"), num("FH6"), num("FH7"), num("FH13"), num("FH14")].filter(v => v !== null)),
+      incomeControl: average([num("PA3"), num("PA4")].filter(v => v !== null)),
+      pa1: code("PA1"),
+      pa5: code("PA5"),
+      sources: num("PA2")
+    };
+  }
+  function renderMetricCards(metrics) {
+    const metricConfig = [
+      {
+        key: "visibility",
+        label: "Money visibility",
+        max: 5,
+        type: "positive",
+        scaleLabels: ["fog", "partly visible", "clear picture"],
+        description: "How clearly you see the real picture of your money."
+      },
+      {
+        key: "reserve",
+        label: "Reserve / buffer",
+        max: 5,
+        type: "positive",
+        scaleLabels: ["no buffer", "thin cushion", "strong cushion"],
+        description: "How much buffer and financial support you already have."
+      },
+      {
+        key: "debt",
+        label: "Debt / debt pressure",
+        max: 5,
+        type: "risk",
+        scaleLabels: ["no pressure", "noticeable pressure", "heavy pressure"],
+        description: "How much debt already presses on your decision system."
+      },
+      {
+        key: "chaos",
+        label: "Chaos in daily decisions",
+        max: 5,
+        type: "risk",
+        scaleLabels: ["stable", "wave‑like", "chaotic"],
+        description: "How unstable your everyday money decisions are."
+      },
+      {
+        key: "pressure",
+        label: "Daily money pressure",
+        max: 5,
+        type: "risk",
+        scaleLabels: ["low tension", "background stress", "constant pressure"],
+        description: "How much money now creates constant internal pressure."
+      },
+      {
+        key: "incomeControl",
+        label: "Control over income",
+        max: 5,
+        type: "positive",
+        scaleLabels: ["almost no control", "partial control", "strong influence"],
+        description: "How strongly you feel you can influence your income."
+      }
+    ];
+
+    function getBand(value, max, type) {
+      const ratio = max > 0 ? value / max : 0;
+
+      if (type === "positive") {
+        if (ratio >= 0.67) return { key: "good", label: "support" };
+        if (ratio >= 0.4) return { key: "mid", label: "unstable" };
+        return { key: "risk", label: "weak spot" };
+      }
+
+      if (ratio >= 0.67) return { key: "risk", label: "risk zone" };
+      if (ratio >= 0.4) return { key: "mid", label: "unstable" };
+      return { key: "good", label: "calmer zone" };
+    }
+
+    const values = {
+      visibility: Number(metrics.visibility ?? 0),
+      reserve: Number(metrics.reserve ?? 0),
+      debt: Number(metrics.debt ?? 0),
+      chaos: Number(metrics.chaos ?? 0),
+      pressure: Number(metrics.pressure ?? 0),
+      incomeControl: Number(metrics.incomeControl ?? 0)
+    };
+
+    return `
+      <div class="state-map-chart">
+        <div class="state-map-intro">
+          This is a visual map of your current money state: where the system is weak, where risk is noticeable, and where you already have support.
+        </div>
+
+        <div class="state-map-legend">
+          <div class="state-map-legend-item">
+            <span class="state-map-legend-dot is-risk"></span>
+            <span>risk</span>
+          </div>
+          <div class="state-map-legend-item">
+            <span class="state-map-legend-dot is-mid"></span>
+            <span>unstable</span>
+          </div>
+          <div class="state-map-legend-item">
+            <span class="state-map-legend-dot is-good"></span>
+            <span>support</span>
+          </div>
+        </div>
+
+        <div class="state-map-list">
+          ${metricConfig
+            .map((item) => {
+              const value = values[item.key];
+              const pct = Math.max(0, Math.min(100, (value / item.max) * 100));
+              const band = getBand(value, item.max, item.type);
+              const [left, mid, right] = item.scaleLabels;
+
+              return `
+                <div class="state-row">
+                  <div class="state-row-top">
+                    <div class="state-row-label">${item.label}</div>
+                    <div class="state-row-badge is-${band.key}">${band.label}</div>
+                  </div>
+
+                  <div class="state-row-track" aria-hidden="true">
+                    <div class="state-row-fill is-${band.key}" style="width:${pct}%;"></div>
+                    <div class="state-row-marker"></div>
+                  </div>
+
+                  <div class="state-row-scale">
+                    <span>${left}</span>
+                    <span>${mid}</span>
+                    <span>${right}</span>
+                  </div>
+
+                  <div class="state-row-meta">
+                    <span>${item.description}</span>
+                    <span class="state-row-value">${value.toFixed(2)}/${item.max}</span>
+                  </div>
+                </div>
+              `;
+            })
+            .join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  function renderFullTestBlock(overallResult, profile) {
+    const features = [
+      "99 questions — a portrait two orders of magnitude more precise than here.",
+      "30‑minute personal debrief with Anna: what really stands behind your archetype and where exactly the system breaks.",
+      "Support while you implement — not just understanding, but starting to change things.",
+      "A concrete plan for your type, without generic advice about budgeting and willpower discipline."
+    ];
+
+    return `
+      <div class="result-kicker">I want to go deeper</div>
+      <p class="upgrade-lead">${overallResult.fullTest} ${profile.full_test}</p>
+      <div class="upgrade-cta">
+        <div class="upgrade-cta-header">
+          <p class="upgrade-cta-title">Full version</p>
+          <span class="upgrade-cta-tagline">99 questions · personal debrief · support · 2000 UAH</span>
+        </div>
+        <div class="upgrade-cta-features">
+          ${features
+            .map(
+              (f) =>
+                `<div class="upgrade-cta-feature"><span class="upgrade-cta-feature-dot"></span><span>${f}</span></div>`
+            )
+            .join("")}
+        </div>
+        <p class="upgrade-cta-copy">
+          The short version showed you the direction. The full one gives not just “recognition”, but understanding:
+          why exactly this scenario, where it breaks, and what to do specifically in your case.
+        </p>
+        <a href="https://t-e-l-w-h-a.com/contact" target="_blank" class="upgrade-cta-button" rel="noopener noreferrer">
+          I want the full debrief
+        </a>
+      </div>
+    `;
+  }
+
+  function buildOverallResult(metrics) {
+    const { reserve, debt, chaos, visibility, pressure, incomeControl } = metrics;
+
+    let headline =
+      "You’re not in the hardest scenario, and that’s the good news. But there are a few zones where money still doesn’t feel like support or clarity.";
+    let strength =
+      "There are no signs of a full‑on financial fire in this profile. It means you can fix the situation not through a hard crisis mode, but through smart system tuning.";
+    let risk =
+      "The main issue now is not one catastrophic mistake, but repeated small losses of control that slowly erode peace of mind and predictability.";
+    let actions = [
+      "For the next 14 days, do one short weekly money review: balances, spending, debt, reserve.",
+      "Pick one non‑negotiable control rule — for example, reserve first, everything else second.",
+      "Look not only at the numbers, but at your reaction: do you avoid, panic, or postpone? That’s where the main growth point is."
+    ];
+    let fullTest =
+      "The full version is not there to “tell you the same thing again”, but to separate habit from the deeper pattern: stress‑control, avoidance, omission, family script or another behavioral trap.";
+
+    if (visibility <= 2.0 && incomeControl <= 2.4) {
+      headline =
+        "Right now the main issue is not drama, but money invisibility. The system is not collapsing, but it also doesn’t give you a clear picture.";
+      strength =
+        "Pressure and debt load don’t yet look critical. This gives you a window to calmly regain control before things get harsher.";
+      risk =
+        "The danger here is the “more or less fine” feeling. Inside that fog small leaks, postponed decisions and weak support easily hide.";
+      actions = [
+        "Once a week, open one short money review: how much is on your accounts, what went out in 7 days, what is coming next.",
+        "Fix one visibility rule: no account, card or debt is allowed to live “somewhere out there”. Everything must be in one place.",
+        "If you catch yourself thinking “I don’t want to look right now”, don’t beat yourself up. Just notice it — this avoidance is already part of the problem."
+      ];
+      fullTest =
+        "The full version shows what stands behind this blind spot: simple lack of habit, shame, stress‑avoidance, omission or an old family money script.";
+    } else if (reserve <= 2.2 && debt >= 3) {
+      headline =
+        "Your profile is already close to cash‑flow pressure: money more often patches holes than builds support.";
+      strength =
+        "You’re still in contact with reality and can mobilize quickly when you see risk — this is a good resource for stabilization.";
+      risk =
+        "The constant loop of “survive until the next inflow” blocks long‑term design. Even a decent income doesn’t turn into a feeling of safety in this pattern.";
+      actions = [
+        "Give yourself a 14‑day challenge: no new debt and no “I’ll sort it out later” on small expenses.",
+        "Create a mini‑reserve that is not used for everyday purchases. Even a small amount reduces mental chaos.",
+        "If there’s guilt or shame about debt, don’t cover it with motivation. First you need clarity, not hero mode."
+      ];
+      fullTest =
+        "The full version separates whether this is mainly a debt pattern, a family scarcity script, financial anxiety or stress‑driven habit chaos.";
+    } else if (pressure >= 3.4) {
+      headline =
+        "Money is strongly tied to tension right now. The system works, but at the cost of internal overload.";
+      strength =
+        "You know how to pull through and mobilize when needed. That speaks to high responsibility and resourcefulness.";
+      risk =
+        "This model easily confuses high effort with resilience. You seem to cope, but there is almost no buffer if something hits.";
+      actions = [
+        "Choose one financial process to take out of manual mode: auto‑transfer, auto‑payment, fixed limit, review template.",
+        "Check which income or expense depends only on you over‑pushing yourself. That’s the first place to redesign.",
+        "Swap “I just need to push a bit more” for “what can I simplify right now?”."
+      ];
+      fullTest =
+        "The full version shows where the main knot is: burnout, fragile income, productivity cult or financial anxiety.";
+    } else if (visibility >= 3.4 && reserve >= 3 && debt <= 2.5 && chaos <= 2.5) {
+      headline =
+        "This is not a bad profile. You already have a base to lean on, so the question is not survival, but how to move into bigger growth.";
+      strength =
+        "We can already see support: better money visibility, less chaos, and lower dependence on debt pressure.";
+      risk =
+        "The downside here is self‑calming. You can live in a “things are fine” mode for years and never move into truly strong financial design.";
+      actions = [
+        "Put one helpful habit on autopilot: saving, investing or a regular review.",
+        "Formulate not only “what to avoid”, but “what to build”: reserve, investment loop, financial goal, new income level.",
+        "Once a month, check not only the money, but the behavioral quality of decisions: where are you still playing too safe."
+      ];
+      fullTest =
+        "The full version shows whether your caution is healthy, or whether it’s driven by anxiety, omission or deep distrust of risk.";
+    }
+
+    return {
+      headline,
+      strength,
+      risk,
+      metrics: [
+        formatMetricLine("Money visibility", visibility, "positive"),
+        formatMetricLine("Reserve / buffer", reserve, "positive"),
+        formatMetricLine("Debt / debt pressure", debt, "risk"),
+        formatMetricLine("Chaos in daily decisions", chaos, "risk"),
+        formatMetricLine("Daily money pressure", pressure, "risk"),
+        formatMetricLine("Control over income", incomeControl, "positive")
+      ],
+      actions,
+      fullTest
+    };
+  }
+
+  // Theme presets — all 13 archetypes
+  const ARCHETYPE_THEMES = {
+    ZP: { emotion: "Shame + fear", quote: "I’d rather not look at the balance — there’s nothing there anyway." },
+    SK: { emotion: "Loyalty + fear", quote: "In our family it’s always been like this, who am I to do it differently." },
+    FS: { emotion: "Fear → avoidance", quote: "I don’t want to think about this now, it will somehow sort itself out later." },
+    PN: { emotion: "Fear + shame", quote: "Until the plan is perfect, it’s too early to start — otherwise I’ll be cleaning up later." },
+    VV: { emotion: "Guilt + shame", quote: "I should already be earning more, I’m just not trying hard enough yet." },
+    SB: { emotion: "Guilt + shame", quote: "How can I say no if I have money and they don’t?" },
+    OP: { emotion: "Resentment + fear", quote: "The world is unfair anyway, so why bother — I’ll just live for now." },
+    KI: { emotion: "Shame + fear", quote: "With this level of knowledge I can’t just go in so simply — I need to prepare more." },
+    TS: { emotion: "Fear + a bit of guilt", quote: "The main thing is to have a cushion, it’s not the time to take risks." },
+    DS: { emotion: "Fear + boredom", quote: "I don’t want to cram my head with money now, I just want to live normally for a bit." },
+    FN: { emotion: "Resentment + shame", quote: "I’ll win it back — I can’t just walk away and admit I lost." },
+    MR: { emotion: "Fear + shame", quote: "I also have the right to live like other people, not wait ten years until I save up." },
+    KG: { emotion: "Shame + fear", quote: "I’m not ready enough yet, better read more and then do it properly." }
+  };
+
+  function applyTheme(code) {
+    const card = document.getElementById("js-result-card");
+    if (!card) return;
+    card.className = card.className.replace(/\btheme-\w+\b/g, "").trim();
+    if (code && ARCHETYPE_THEMES[code]) card.classList.add("theme-" + code);
+  }
+
+  function renderResult(profile, payload, overallResult, metrics) {
+    applyTheme(profile.code);
+
+    generalSummary.innerHTML = `<p>${overallResult.headline}</p>`;
+    generalStrength.innerHTML = renderParagraphs([overallResult.strength]);
+    generalRisk.innerHTML = renderParagraphs([overallResult.risk]);
+    generalMetrics.innerHTML = renderMetricCards(metrics);
+    nextActionsBox.innerHTML = renderActionCards(profile.actions);
+    archetypeTitle.textContent = profile.title;
+    archetypeSubtitle.textContent = profile.subtitle;
+    archetypeCode.textContent = profile.code || "—";
+    archetypeBody.innerHTML = renderArchetypeInsight(profile);
+
+    function renderArchetypeInsight(profile) {
+      const paragraphs = (profile.body || []).map((item) => `<p>${item}</p>`).join("");
+
+      return `
+        <div class="insight-layout">
+          <div class="insight-main">
+            <div class="insight-eyebrow">Behavioral portrait</div>
+            <div class="insight-copy">
+              ${paragraphs}
+            </div>
+          </div>
+
+          <aside class="insight-side">
+            <div class="insight-note insight-note--soft">
+              <div class="insight-note-label">Strength</div>
+              <div class="insight-note-text">${profile.strength}</div>
+            </div>
+
+            <div class="insight-note insight-note--risk">
+              <div class="insight-note-label">Vulnerability</div>
+              <div class="insight-note-text">${profile.vulnerability}</div>
+            </div>
+          </aside>
+        </div>
+      `;
+    }
+
+    const emotionBox = document.getElementById("js-archetype-emotion");
+    const theme = ARCHETYPE_THEMES[profile.code];
+    if (emotionBox && theme) {
+      emotionBox.innerHTML =
+        `<div class="archetype-emotion"><strong>Core emotion:</strong> ${theme.emotion}</div>` +
+        `<blockquote class="archetype-quote">“${theme.quote}”</blockquote>`;
+    }
+
+    metaBox.innerHTML = "";
+    metaBox.style.display = "none";
+
+    fullTestBody.innerHTML = renderFullTestBlock(overallResult, profile);
+    resultSection.hidden = false;
+    resultSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function computeMetrics() {
+    return {
+      reserve: average([num("FA5"), num("FA10")].filter((v) => v !== null)),
+      debt: average([num("FA7"), num("FA8"), num("FH5")].filter((v) => v !== null)),
+      chaos: average([num("FH3"), num("FH10"), num("FH15"), num("FH8")].filter((v) => v !== null)),
+      visibility: average([num("FH1"), num("FH2"), num("FH11"), num("FH12")].filter((v) => v !== null)),
+      pressure: average(
+        [num("PA6"), num("PA7"), num("PA8"), num("FH6"), num("FH7"), num("FH13"), num("FH14")].filter((v) => v !== null)
+      ),
+      incomeControl: average([num("PA3"), num("PA4")].filter((v) => v !== null)),
+      pa1: code("PA1"),
+      pa5: code("PA5"),
+      sources: num("PA2")
+    };
+  }
+
+  function getArchetype(metrics) {
+    const { reserve, debt, chaos, visibility, pressure, incomeControl, pa1, pa5, sources } = metrics;
+
+    const candidates = [
+      {
+        code: "ZP",
+        primary_name: "Ghost paycheck",
+        rule_fired: "zp_cashflow_weighted_rule",
+        title: "Ghost paycheck",
+        subtitle:
+          "Money comes in but never solidifies into support — it goes straight into patching holes and urgent reactions.",
+        body: [
+          "From the outside it often looks like “I do earn something, it’s just a temporary period”. Inside, the profile already shows a familiar story: the reserve doesn’t hold, money works for yesterday’s problems, not tomorrow’s stability.",
+          "The point here is not to shame yourself for chaos. Most likely your nervous system has long been used to living in reaction mode, not in planning mode. This can be fixed, but through simple hard contours, not beautiful intentions."
+        ],
+        strength: "you can mobilize quickly and react when things are already on fire.",
+        vulnerability: "without a reserve and visibility even a normal income doesn’t turn into a sense of safety.",
+        actions: [
+          {
+            title: "First transaction — to yourself",
+            what: "For 14 days the first move after any inflow is a small transfer to your reserve, even if the amount is symbolic.",
+            why: "This breaks the pattern where money automatically goes only to fires.",
+            time: "10 minutes to set up and 1 minute to check"
+          },
+          {
+            title: "One table of facts",
+            what: "Put all accounts, debts and regular payments in one place, without self‑judgment and without complicated categories.",
+            why: "This profile becomes much weaker when money stops being “scattered in the fog”.",
+            time: "20–30 minutes once"
+          },
+          {
+            title: "Pause before urgent spending",
+            what: "Before any emotional or “urgent” spend, pause for 10 minutes and ask yourself one question: is this a fire or anxiety.",
+            why: "This separates real needs from automatic stress reactions.",
+            time: "10 minutes in moments of tension"
+          }
+        ],
+        full_test:
+          "The full version shows whether this is mainly a debt cycle, a family scarcity script, stress‑spending or a chaotic survival money‑script.",
+        score: (() => {
+          let s = (5 - reserve) * 2.2 + debt * 2.0 + chaos * 1.4 + (5 - visibility) * 1.1 + pressure * 0.7;
+          if (debt < 2.6) s -= 4;
+          if (reserve > 3) s -= 3;
+          return s;
+        })()
+      },
+      {
+        code: "FS",
+        primary_name: "Financial ostrich",
+        rule_fired: "fs_visibility_avoidance_rule",
+        title: "Financial ostrich",
+        subtitle:
+          "The main risk is not a fire, but that money passes by your attention and never forms a clear picture.",
+        body: [
+          "This result doesn’t mean you’re in catastrophe. It means something else: you still don’t hold money firmly enough in your field of attention. Because of that, some decisions get postponed, some are lost in the fog, and control feels weaker than you’d like.",
+          "People with this profile often don’t look “problematic”. They can be responsible, smart, careful. But if the numbers are not collected into one picture, the system doesn’t give support — only background anxiety and the feeling that everything is drifting."
+        ],
+        strength:
+          "you don’t show signs of a hard financial fire yet, which means changes can be made calmly, without panic mode.",
+        vulnerability: "low money visibility quietly blocks saving, clarity and a sense of control.",
+        actions: [
+          {
+            title: "One short weekly money review",
+            what: "Once a week schedule a 15‑minute slot: balances on accounts, what went out in 7 days, what expenses are coming next.",
+            why: "For this profile the goal is not a perfect budget, but regular contact with reality.",
+            time: "15 minutes once a week"
+          },
+          {
+            title: "Everything in one place",
+            what: "Write down in a single list all cards, accounts, debts, subscriptions and payments that are active right now.",
+            why: "When the system becomes visible, anxiety usually goes down, not up.",
+            time: "20 minutes once"
+          },
+          {
+            title: "Notice avoidance without self‑attack",
+            what: "When the thought “I don’t want to look now” appears, don’t push yourself. Just name it: I’m avoiding right now because it feels unpleasant.",
+            why: "That gives you back control and stops the avoidance pattern from silently driving decisions.",
+            time: "30 seconds in the moment"
+          }
+        ],
+        full_test:
+          "The full version shows whether this is mostly anxious avoidance, shame, learned helplessness or long‑term stress‑avoidance.",
+        score: (() => {
+          let s =
+            (5 - visibility) * 2.6 +
+            (5 - incomeControl) * 2.0 +
+            (5 - reserve) * 1.2 +
+            (5 - pressure) * 0.6 +
+            (5 - chaos) * 0.5;
+          if (visibility > 2.6) s -= 5;
+          if (incomeControl > 3.2) s -= 3;
+          if (debt > 3.2) s -= 2;
+          return s;
+        })()
+      },
+      {
+        code: "PN",
+        primary_name: "Planning neurotic",
+        rule_fired: "pn_reactive_control_rule",
+        title: "Planning neurotic",
+        subtitle:
+          "You do have control, but it often kicks in only after tension, noise or accumulated mess.",
+        body: [
+          "Here we don’t see full avoidance, but a tiring way of managing money: lots of thoughts, internal checks and reactions, and less calm system than you’d like.",
+          "The problem with this profile is not only financial loss. It also eats a lot of mental energy. You try to stay in control, but part of your effort goes not into results, but into stress."
+        ],
+        strength: "you are not indifferent to your money and try not to let the system drift.",
+        vulnerability:
+          "control that comes through tension burns you out and often costs more than simple rules would.",
+        actions: [
+          {
+            title: "One decision per session",
+            what: "In each money slot, decide on one concrete action only: cancel a subscription, set aside an amount, move a payment, write down a debt.",
+            why: "This reduces internal noise and keeps control from turning into endless checking.",
+            time: "10–15 minutes per slot"
+          },
+          {
+            title: "Trigger list, not a perfect plan",
+            what: "Write down 3 situations after which you most often lose your financial calm: bad news, exhaustion, conflict, unstable income.",
+            why: "For this archetype the key is to catch not the “mistake in numbers”, but the moment where the system breaks emotionally.",
+            time: "10 minutes"
+          },
+          {
+            title: "Good enough instead of perfect",
+            what: "Once a week consciously stop your review after the first reasonable decision, even if you feel like “finishing everything properly”.",
+            why: "This teaches your nervous system that safety is possible without financial perfectionism.",
+            time: "1 minute to stop"
+          }
+        ],
+        full_test:
+          "The full version shows whether this is mostly anxious control, perfectionism, fear of mistakes, omission or wave‑like stress‑management.",
+        score: (() => {
+          let s = chaos * 1.9 + pressure * 1.3 + (5 - visibility) * 0.8 + (5 - reserve) * 0.4;
+          if ([2, 4].includes(pa5)) s += 1.1;
+          if (chaos < 2.4) s -= 5;
+          return s;
+        })()
+      },
+      {
+        code: "VV",
+        primary_name: "Burned‑out achiever",
+        rule_fired: "vv_pressure_fragility_rule",
+        title: "Burned‑out achiever",
+        subtitle:
+          "The system seems to work, but relies too much on tension, overwork and constant effort.",
+        body: [
+          "This profile often looks “normal” on the outside. The person is responsible, hard‑working, engaged, doesn’t just let things slide. But inside we already see a dangerous thing: financial stability depends too heavily on how much more you can squeeze out of yourself.",
+          "The problem is not weakness. On the contrary — it’s an excess of strength that drags the system for a long time without the right to simplicity, rest or buffer."
+        ],
+        strength: "you have high responsibility and can pull yourself together when needed.",
+        vulnerability:
+          "if the system rests only on your overexertion, it will eventually start breaking in the most expensive places.",
+        actions: [
+          {
+            title: "Remove one process from manual mode",
+            what: "Automate at least one financial action: transfer to reserve, bill payment, review template or spending limit.",
+            why: "This reduces how much the system depends on your current willpower.",
+            time: "15 minutes once"
+          },
+          {
+            title: "Separate income from overwork",
+            what: "Look at which part of your money currently relies on exhaustion rather than on a healthy system.",
+            why: "This shows where your finances are actually fragile, even if everything still looks “fine”.",
+            time: "15–20 minutes"
+          },
+          {
+            title: "One caring phrase instead of self‑pressure",
+            what: "When you catch the thought “I just need to push more”, replace it with “what can I simplify right now?”.",
+            why: "That switches on self‑care, not only discipline — without it this model doesn’t last long.",
+            time: "30 seconds in the moment"
+          }
+        ],
+        full_test:
+          "The full version shows where the main knot is: burnout, fragile income, productivity cult or anxious financial self‑worth.",
+        score: (() => {
+          let s = pressure * 2.5 + (5 - incomeControl) * 1.5 + (5 - reserve) * 0.8;
+          if (sources <= 1) s += 1.1;
+          if ([2, 3, 4].includes(pa1)) s += 0.7;
+          if (pressure < 2.6) s -= 6;
+          return s;
+        })()
+      },
+      {
+        code: "TS",
+        primary_name: "Anxious safe",
+        rule_fired: "ts_safe_control_rule",
+        title: "Anxious safe",
+        subtitle:
+          "Basic control is already there, but safety and order still matter more than bold long‑term growth.",
+        body: [
+          "This is no longer a chaotic profile. We can see support here: better visibility, less noise, lower debt turbulence. You keep money in your field of attention more than you leave it to chance.",
+          "But there is another trap: you can protect the system so well that it stays “safe enough”, but never becomes truly strong and growing."
+        ],
+        strength: "you already have a base you can lean on without panic and heroic pushes.",
+        vulnerability:
+          "caution can quietly become a brake if safety is always more important than development.",
+        actions: [
+          {
+            title: "Automate one growth action",
+            what: "Launch not only control but growth: an automatic transfer into savings or a separate investment loop.",
+            why: "This takes you out of “I protect so it doesn’t get worse” into “I build so it gets better”.",
+            time: "15 minutes once"
+          },
+          {
+            title: "Define the next level",
+            what: "Write down one money goal that’s not about avoiding problems, but about building a better life.",
+            why: "This profile needs not only control, but a direction that makes the control meaningful.",
+            time: "10 minutes"
+          },
+          {
+            title: "Allow yourself managed risk",
+            what: "Choose one small amount or action where you can practice moving not only towards safety, but also towards growth.",
+            why: "This stops anxiety from being the only architect of your financial decisions.",
+            time: "15 minutes for the decision"
+          }
+        ],
+        full_test:
+          "The full version shows whether this is healthy caution, anxious hyper‑safety, distrust of risk or a family “always save” script.",
+        score: (() => {
+          let s = visibility * 2.4 + reserve * 2.1 + (6 - debt) * 1.1 + (6 - chaos) * 0.9 + pressure * 0.4;
+          if (visibility < 3) s -= 6;
+          if (reserve < 2.8) s -= 4;
+          return s;
+        })()
+      },
+      {
+        code: "DS",
+        primary_name: "Dopamine sprinter",
+        rule_fired: "ds_chaos_impulse_rule",
+        title: "Dopamine sprinter",
+        subtitle:
+          "Money dynamics run in waves: activity, impulse, mood‑based decisions and a lack of steady system.",
+        body: [
+          "You’re not necessarily in total chaos. But your money rhythm jerks in waves: engagement, drop‑off, impulse, rollback. Those uneven swings create the losses.",
+          "These profiles are often lively, creative, energetic. The issue is not that “something is wrong with you”. The issue is that the system can’t keep up and convert that energy into a stable money loop."
+        ],
+        strength:
+          "you have energy, quick reaction and the ability to start movement when motivation appears.",
+        vulnerability:
+          "without repeatable rules, impulse quickly eats savings, clarity and consistency.",
+        actions: [
+          {
+            title: "One rule for wave‑like spending",
+            what: "Choose one category where you most often “get carried away” and set a simple limit or time delay for it.",
+            why: "This doesn’t kill your energy, it gives it a frame where it doesn’t destroy the system.",
+            time: "10 minutes"
+          },
+          {
+            title: "Repeatable Sunday routine",
+            what: "Fix one short time slot per week for a money review, even when “you don’t feel like it”.",
+            why: "For this archetype it’s rhythm that saves you, not motivation.",
+            time: "15 minutes once a week"
+          },
+          {
+            title: "Tiny loop instead of big sprint",
+            what: "Don’t set a huge financial plan right away. Pick one small habit for 14 days and see if it survives your usual mood wave.",
+            why: "This builds a system that relies not on peak enthusiasm, but on real life.",
+            time: "5 minutes to start and 2 minutes a day"
+          }
+        ],
+        full_test:
+          "The full version helps separate whether this is mostly a dopamine pattern, stress‑spending, wave‑like discipline or reaction to an unstable environment.",
+        score: (() => {
+          let s = chaos * 2.1 + (5 - reserve) * 1.3 + (5 - visibility) * 1.0 + (5 - incomeControl) * 0.8;
+          if (debt <= 2.8) s += 0.6;
+          if (chaos < 2.8) s -= 4;
+          return s;
+        })()
+      }
+    ];
+
+    const ranked = candidates
+      .map((item) => ({ ...item, score: Number(item.score.toFixed(2)) }))
+      .sort((a, b) => b.score - a.score);
+
+    const primary = ranked[0];
+    const secondary = ranked[1] || null;
+    const gap = secondary ? Number((primary.score - secondary.score).toFixed(2)) : null;
+    const confidence = gap === null ? "medium" : gap >= 3 ? "high" : gap >= 1.2 ? "medium" : "low";
+
+    return {
+      ...primary,
+      secondary_id: secondary ? secondary.code : null,
+      secondary_name: secondary ? secondary.primary_name || null : null,
+      confidence,
+      mix_flag: confidence === "low",
+      candidate_scores: Object.fromEntries(ranked.map((item) => [item.code, item.score]))
+    };
+  }
+
+  function buildPayload(profile, metrics, overallResult) {
+    const answeredCount = required.filter((id) => answers[id] !== undefined).length;
+    const isCompleted = answeredCount === required.length;
+    const pa1Code = code("PA1");
+    const fa1Code = code("FA1");
+
+    const employmentMap = {
+      1: "employee",
+      2: "fop_freelance",
+      3: "business_owner",
+      4: "gig_project",
+      5: "unstable_none"
+    };
+
+    const locationMap = {
+      1: "ua_home_city",
+      2: "ua_relocated",
+      3: "abroad_temporary",
+      4: "abroad_long_term",
+      5: "mixed"
+    };
+
+    return {
+      response_id: `resp_${Date.now()}`,
+      survey_version: "short-v1",
+      scoring_version: "short-archetype-v3",
+
+      metadata: {
+        duration_seconds: Math.max(
+          0,
+          Math.round((Date.now() - new Date(sessionStartedAt).getTime()) / 1000)
+        ),
+        completion_status: isCompleted ? "completed" : answeredCount > 0 ? "partial" : "abandoned",
+        answered_count: answeredCount,
+        required_count: 33,
+        location_group: locationMap[fa1Code] || null,
+        employment_type: employmentMap[pa1Code] || null,
+        routing_flags: {},
+        started_at: sessionStartedAt,
+        completed_at: isCompleted ? new Date().toISOString() : null
+      },
+
+      raw_answers: Object.fromEntries(
+        required
+          .filter((id) => answers[id] !== undefined)
+          .map((id) => [
+            id,
+            {
+              item_id: answers[id].item_id,
+              raw: answers[id].raw === null ? null : Number(answers[id].raw),
+              option_code:
+                answers[id].option_code === null ? null : Number(answers[id].option_code)
+            }
+          ])
+      ),
+
+      overall_result: {
+        summary: overallResult.headline,
+        strength: overallResult.strength,
+        risk: overallResult.risk,
+        metrics: overallResult.metrics,
+        actions: overallResult.actions,
+        full_test: overallResult.fullTest
+      },
+
+      derived_scores: {
+        reserve_index_1_5: Number(metrics.reserve.toFixed(2)),
+        debt_index_1_5: Number(metrics.debt.toFixed(2)),
+        chaos_index_1_5: Number(metrics.chaos.toFixed(2)),
+        visibility_index_1_5: Number(metrics.visibility.toFixed(2)),
+        pressure_index_1_5: Number(metrics.pressure.toFixed(2)),
+        income_control_index_1_5: Number(metrics.incomeControl.toFixed(2)),
+        pa1_option_code: metrics.pa1 ?? null,
+        pa5_option_code: metrics.pa5 ?? null,
+        income_sources_raw_0_4: metrics.sources ?? null
+      },
+
+      archetype_result: {
+        primary_id: profile.code || null,
+        primary_name: profile.primary_name || null,
+        mix_flag: profile.mix_flag ?? false,
+        rule_fired: profile.rule_fired || null,
+        secondary_id: profile.secondary_id || null,
+        secondary_name: profile.secondary_name || null,
+        confidence: profile.confidence || null,
+
+        debug_snapshot: {
+          reserve_index_1_5: Number(metrics.reserve.toFixed(2)),
+          debt_index_1_5: Number(metrics.debt.toFixed(2)),
+          chaos_index_1_5: Number(metrics.chaos.toFixed(2)),
+          visibility_index_1_5: Number(metrics.visibility.toFixed(2)),
+          pressure_index_1_5: Number(metrics.pressure.toFixed(2)),
+          income_control_index_1_5: Number(metrics.incomeControl.toFixed(2)),
+          pa1_option_code: metrics.pa1 ?? null,
+          pa5_option_code: metrics.pa5 ?? null,
+          income_sources_raw_0_4: metrics.sources ?? null,
+          candidate_scores: profile.candidate_scores || {}
+        }
+      }
+    };
+  }
+
+  function clearAllErrorBlocks() {
+    document.querySelectorAll(".question-block--error").forEach((block) => {
+      block.classList.remove("question-block--error");
+    });
+
+    required.forEach((id) => {
+      if (answers[id] === undefined) {
+        setBlockHint(id, "");
+      }
+    });
+  }
+
+  function markErrorBlocks(itemIds) {
+    itemIds.forEach((id) => {
+      const block = document.querySelector(`.question-block[data-question="${id}"]`);
+      if (block) block.classList.add("question-block--error");
+      setBlockHint(id, "Choose one option to continue", true);
+    });
+  }
+
+  const SHEETS_WEB_APP_URL =
+    "https://script.google.com/macros/s/AKfycbyHZWslDEkHBnyHCIxrTETqvhtF9vtqVgvVsr9cMslamdOHzyI5RYW4L_sjk0ofLaJ1/exec";
+
+  async function saveResultToSheets(payload) {
+    const report = payload?.archetype_result || {};
+    const scores = payload?.derived_scores || {};
+    const meta = payload?.metadata || {};
+
+    const row = {
+      response_id: payload.response_id || "",
+      survey_version: payload.survey_version || "",
+      scoring_version: payload.scoring_version || "",
+
+      primary_archetype: report.primary_id || "",
+      secondary_archetype: report.secondary_id || "",
+      confidence: report.confidence || "",
+      mix_flag: String(report.mix_flag ?? ""),
+
+      reserve_index_1_5: String(scores.reserve_index_1_5 ?? ""),
+      debt_index_1_5: String(scores.debt_index_1_5 ?? ""),
+      chaos_index_1_5: String(scores.chaos_index_1_5 ?? ""),
+      visibility_index_1_5: String(scores.visibility_index_1_5 ?? ""),
+      pressure_index_1_5: String(scores.pressure_index_1_5 ?? ""),
+      income_control_index_1_5: String(scores.income_control_index_1_5 ?? ""),
+
+      location_group: meta.location_group || "",
+      employment_type: meta.employment_type || "",
+      income_sources_raw_0_4: String(scores.income_sources_raw_0_4 ?? ""),
+
+      completed_at: meta.completed_at || "",
+      completion_status: meta.completion_status || "",
+      answered_count: String(meta.answered_count ?? "")
+    };
+
+    try {
+      const body = new URLSearchParams(row);
+
+      await fetch(SHEETS_WEB_APP_URL, {
+        method: "POST",
+        body
+      });
+
+      console.log("Sheets request sent", row);
+    } catch (error) {
+      console.error("Google Sheets save failed:", error);
+    }
+  }
+
+  submitBtn.addEventListener("click", () => {
+    const missed = required.filter((id) => answers[id] === undefined);
+
+    if (missed.length) {
+      clearAllErrorBlocks();
+      markErrorBlocks(missed);
+
+      errorBox.hidden = false;
+      errorBox.textContent =
+        "Not all questions are completed yet — the highlighted blocks are waiting for your answer.";
+      focusBlock(missed[0]);
+      return;
+    }
+
+    clearAllErrorBlocks();
+    errorBox.hidden = true;
+    errorBox.textContent = "";
+
+    const metrics = computeMetrics();
+    window.__latestMetrics = metrics;
+    const profile = getArchetype(metrics);
+    const overallResult = buildOverallResult(metrics);
+    const payload = buildPayload(profile, metrics, overallResult);
+
+    renderResult(profile, payload, overallResult, metrics);
+
+    Promise.allSettled([
+      saveResultToSheets(payload),
+      window.saveResultToFirebase ? window.saveResultToFirebase(payload) : Promise.resolve()
+    ])
+      .then((results) => {
+        console.log("SAVE RESULTS", results);
+      })
+      .catch((error) => {
+        console.error("SAVE ERROR", error);
+      });
+  });
+
+  nextUnansweredBtn.addEventListener("click", () => {
+    jumpToFirstUnanswered();
+  });
+
+  firstMissedBtn.addEventListener("click", () => {
+    jumpToFirstUnanswered();
+  });
+
+  questionBlocks.forEach((block) => {
+    block.addEventListener("mouseenter", () => {
+      questionBlocks.forEach((item) => item.classList.remove("question-block--active"));
+      block.classList.add("question-block--active");
+    });
+  });
+
+  document.addEventListener(
+    "scroll",
+    () => {
+      const visibleBlock = questionBlocks.find((block) => {
+        const rect = block.getBoundingClientRect();
+        return rect.top >= 110 && rect.top <= 240;
+      });
+
+      if (visibleBlock) {
+        questionBlocks.forEach((item) => item.classList.remove("question-block--active"));
+        visibleBlock.classList.add("question-block--active");
+
+        const code = visibleBlock.dataset.section || getCurrentSectionCode();
+        const labelMap = {
+          FA: "Block 1 of 3 · FA",
+          PA: "Block 2 of 3 · PA",
+          FH: "Block 3 of 3 · FH"
+        };
+
+        currentStep.textContent = `Now: ${labelMap[code]}`;
+      }
+    },
+    { passive: true }
+  );
+
+  updateProgress();
+
+  (function () {
+    const root = document.documentElement;
+    let currentTheme = 'dark';
+    root.setAttribute('data-theme', currentTheme);
+
+    const btn = document.querySelector('.theme-toggle');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+      currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', currentTheme);
+    });
+  })();
+</script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCKRZeWrWAU0Sh9PDPehzZN_9z4CVgZKN0",
+    authDomain: "telwha-3507f.firebaseapp.com",
+    projectId: "telwha-3507f",
+    storageBucket: "telwha-3507f.firebasestorage.app",
+    messagingSenderId: "612940249839",
+    appId: "1:612940249839:web:f2c6ffc51cfcf72c8ab91a",
+    measurementId: "G-P07KN1SR3R"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  window.saveResultToFirebase = async function(payload) {
+    try {
+      await addDoc(collection(db, "money_test_responses"), {
+        ...payload,
+        createdAt: serverTimestamp()
+      });
+      console.log("Saved to Firebase");
+    } catch (error) {
+      console.error("Firebase save failed:", error);
+    }
+  };
+</script>
+<script>
+function toggleTheme() {
+  document.body.classList.toggle('light-theme');
+}
+</script>
+</body>
+</html>
