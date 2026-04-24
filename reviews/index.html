@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TELWHA | Відгуки</title>
@@ -15,16 +15,15 @@
   <meta property="og:url" content="https://t-e-l-w-h-a.com/reviews/">
   <meta property="og:site_name" content="TELWHA">
 
-
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-FVHKD6TZJP');
   </script>
-  
+
   <!-- JSON-LD: Person (Анна) -->
   <script type="application/ld+json">
   {
@@ -77,17 +76,9 @@
   <link rel="stylesheet" href="/static/css/layout-reviews.css">
 </head>
 <body>
- <details class="lang-switcher">
-    <summary>🇺🇦</summary>
-    <div class="lang-list">
-      <a href="/en/reviews/" aria-label="English">🇬🇧</a>
-      <a href="/es/reviews/" aria-label="Español">🇪🇸</a>
-    </div>
-  </details>
-
   <div class="progress" id="progress"></div>
 
-   <header class="topbar">
+  <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
         <a class="brand-row" href="/">
@@ -95,12 +86,28 @@
         </a>
         <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
       </div>
-      <nav class="menu">
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        aria-label="Відкрити меню"
+      >
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <nav class="menu" id="site-menu">
         <div class="menu-group">
           <a href="/">Головна</a>
-          <a href="/finlab/index.html">FinLab</a>
+          <a href="/finlab/">FinLab</a>
           <a href="/about/">Про мене</a>
         </div>
+
         <div class="menu-group menu-dropdown">
           <button type="button" class="menu-dropbtn">Трейдерам ▾</button>
           <div class="menu-dropcontent">
@@ -108,13 +115,27 @@
             <a href="/archetype-test/">Тест архетипів</a>
           </div>
         </div>
+
         <div class="menu-group">
           <a href="/articles/">Статті</a>
           <a href="/reviews/">Відгуки</a>
           <a href="/cases/">Кейси</a>
           <a href="/contact/">Контакти</a>
         </div>
-        <button class="theme-toggle" type="button">🌓</button>
+
+        <div class="menu-group menu-tools">
+          <details class="lang-switcher lang-switcher--inside">
+            <summary>🇺🇦</summary>
+            <div class="lang-list">
+              <a href="/en/reviews/" aria-label="English">🇬🇧</a>
+              <a href="/es/reviews/" aria-label="Español">🇪🇸</a>
+            </div>
+          </details>
+
+          <button class="theme-toggle" type="button" aria-label="Змінити тему">
+            🌓
+          </button>
+        </div>
       </nav>
     </div>
   </header>
@@ -183,7 +204,7 @@
 
           <article class="card fade-in">
             <h3>Денис</h3>
-            <p>Після великої втрати мені було дуже важко, особливо через тиск інвесторів і стан, у якому я опинився. Довелося разом переосмислити ситуацію, зібратись і не зламатися. Дякую за підтримку в цей період.</p>
+            <p>Після великої втрати мені було дуже重要ко, особливо через тиск інвесторів і стан, у якому я опинився. Довелося разом переосмислити ситуацію, зібратись і не зламатися. Дякую за підтримку в цей період.</p>
           </article>
         </div>
       </div>
@@ -199,7 +220,7 @@
               <li>Розбір фінансової поведінки без зайвої абстракції.</li>
               <li>Підтримку в складних емоційних і ринкових ситуаціях.</li>
               <li>Фокус на рішенні, а не на декоративній мотивації.</li>
-              <li>Повну конфіденційність та приватність</li>
+              <li>Повну конфіденційність та приватність.</li>
             </ul>
           </div>
           <div class="card">
@@ -251,5 +272,21 @@
   </footer>
 
   <script src="/static/script/global.js"></script>
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const siteMenu = document.querySelector("#site-menu");
+
+    if (menuToggle && siteMenu) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = siteMenu.classList.toggle("is-open");
+        menuToggle.classList.toggle("is-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        menuToggle.setAttribute(
+          "aria-label",
+          isOpen ? "Закрити меню" : "Відкрити меню"
+        );
+      });
+    }
+  </script>
 </body>
 </html>

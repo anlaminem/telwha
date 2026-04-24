@@ -86,47 +86,69 @@
 </head>
 
 <body>
-  <details class="lang-switcher">
-      <summary>🇺🇦</summary>
-      <div class="lang-list">
-        <a href="/en/index.html" aria-label="English">🇬🇧</a>
-        <a href="/es/index.html" aria-label="Español">🇪🇸</a>
-      </div>
-    </details>
+
 
   <div class="progress" id="progress"></div>
 
    <header class="topbar">
-    <div class="wrap nav">
-      <div class="brand">
-        <a class="brand-row" href="/">
-          <strong>TELWHA</strong>
-        </a>
-        <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
-      </div>
-      <nav class="menu">
-        <div class="menu-group">
-          <a href="/">Головна</a>
-          <a href="/finlab/">FinLab</a>
-          <a href="/about/">Про мене</a>
-        </div>
-        <div class="menu-group menu-dropdown">
-          <button type="button" class="menu-dropbtn">Трейдерам ▾</button>
-          <div class="menu-dropcontent">
-            <a href="/trader-course/">Міні‑курс</a>
-            <a href="/archetype-test/">Тест архетипів</a>
-          </div>
-        </div>
-        <div class="menu-group">
-          <a href="/articles/">Статті</a>
-          <a href="/reviews/">Відгуки</a>
-          <a href="/cases/">Кейси</a>
-          <a href="/contact/">Контакти</a>
-        </div>
-        <button class="theme-toggle" type="button">🌓</button>
-      </nav>
+  <div class="wrap nav">
+    <div class="brand">
+      <a class="brand-row" href="/">
+        <strong>TELWHA</strong>
+      </a>
+      <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
     </div>
-  </header>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-menu"
+      aria-label="Відкрити меню"
+    >
+      <span class="menu-toggle-lines" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+    <nav class="menu" id="site-menu">
+      <div class="menu-group">
+        <a href="/">Головна</a>
+        <a href="/finlab/">FinLab</a>
+        <a href="/about/">Про мене</a>
+      </div>
+
+      <div class="menu-group menu-dropdown">
+        <button type="button" class="menu-dropbtn">Трейдерам ▾</button>
+        <div class="menu-dropcontent">
+          <a href="/trader-course/">Міні‑курс</a>
+          <a href="/archetype-test/">Тест архетипів</a>
+        </div>
+      </div>
+
+      <div class="menu-group">
+        <a href="/articles/">Статті</a>
+        <a href="/reviews/">Відгуки</a>
+        <a href="/cases/">Кейси</a>
+        <a href="/contact/">Контакти</a>
+      </div>
+
+      <div class="menu-group menu-tools">
+        <details class="lang-switcher lang-switcher--inside">
+          <summary>🇺🇦</summary>
+          <div class="lang-list">
+            <a href="/en/index.html" aria-label="English">🇬🇧</a>
+            <a href="/es/index.html" aria-label="Español">🇪🇸</a>
+          </div>
+        </details>
+
+        <button class="theme-toggle" type="button" aria-label="Змінити тему">🌓</button>
+      </div>
+    </nav>
+  </div>
+</header>
 
   <main>
     <section class="hero">
@@ -350,6 +372,20 @@
   </footer>
 
   <script src="/static/script/global.js"></script>
+
+ <script>
+  const menuToggle = document.querySelector(".menu-toggle");
+  const siteMenu = document.querySelector("#site-menu");
+
+  if (menuToggle && siteMenu) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = siteMenu.classList.toggle("is-open");
+      menuToggle.classList.toggle("is-open", isOpen);
+      menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      menuToggle.setAttribute("aria-label", isOpen ? "Закрити меню" : "Відкрити меню");
+    });
+  }
+</script>
 </body>
 
 </html>

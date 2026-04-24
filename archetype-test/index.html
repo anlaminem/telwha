@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TELWHA | Тест архетипів трейдера</title>
-  <meta name="description" content="TELWHA: Який ти Архетип трейдера?.">
+  <meta name="description" content="TELWHA: Який ти Архетип трейдера?">
 
   <link rel="canonical" href="https://t-e-l-w-h-a.com/archetype-test/">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="TELWHA | Тест архетипів трейдера">
-  <meta property="og:description" content="TELWHA: Який ти Архетип трейдера?.">
+  <meta property="og:description" content="TELWHA: Який ти Архетип трейдера?">
   <meta property="og:url" content="https://t-e-l-w-h-a.com/archetype-test/">
   <meta property="og:site_name" content="TELWHA">
 
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -24,7 +23,6 @@
     gtag('config', 'G-FVHKD6TZJP');
   </script>
 
-  <!-- JSON-LD: Person (Anna) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -42,7 +40,6 @@
   }
   </script>
 
-  <!-- JSON-LD: Organization (TELWHA) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -59,7 +56,6 @@
   }
   </script>
 
-  <!-- JSON-LD: Archetype Test WebPage (UK) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -70,23 +66,15 @@
     "inLanguage": "uk"
   }
   </script>
-  
-  <link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
   <link rel="stylesheet" href="/static/css/base.css">
   <link rel="stylesheet" href="/static/css/layout-archetype.css">
 </head>
 <body>
-  <details class="lang-switcher">
-    <summary>🇺🇦</summary>
-    <div class="lang-list">
-      <a href="/en/archetype-test/" aria-label="English">🇬🇧</a>
-      <a href="/es/archetype-test/" aria-label="Español">🇪🇸</a>
-    </div>
-  </details>
-
   <div class="progress" id="progress"></div>
 
-   <header class="topbar">
+  <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
         <a class="brand-row" href="/">
@@ -94,189 +82,237 @@
         </a>
         <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
       </div>
-      <nav class="menu">
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        aria-label="Відкрити меню"
+      >
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <nav class="menu" id="site-menu">
         <div class="menu-group">
           <a href="/">Головна</a>
-          <a href="/finlab/index.html">FinLab</a>
+          <a href="/finlab/">FinLab</a>
           <a href="/about/">Про мене</a>
         </div>
+
         <div class="menu-group menu-dropdown">
-          <button type="button" class="menu-dropbtn">Трейдерам ▾</button>
+          <button type="button" class="menu-dropbtn" aria-expanded="false">Трейдерам ▾</button>
           <div class="menu-dropcontent">
             <a href="/trader-course/">Міні‑курс</a>
             <a href="/archetype-test/">Тест архетипів</a>
           </div>
         </div>
+
         <div class="menu-group">
           <a href="/articles/">Статті</a>
           <a href="/reviews/">Відгуки</a>
           <a href="/cases/">Кейси</a>
           <a href="/contact/">Контакти</a>
         </div>
-        <button class="theme-toggle" type="button">🌓</button>
+
+        <div class="menu-group menu-tools">
+          <details class="lang-switcher lang-switcher--inside">
+            <summary>🇺🇦</summary>
+            <div class="lang-list">
+              <a href="/en/archetype-test/" aria-label="English">🇬🇧</a>
+              <a href="/es/archetype-test/" aria-label="Español">🇪🇸</a>
+            </div>
+          </details>
+
+          <button class="theme-toggle" type="button" aria-label="Змінити тему">🌓</button>
+        </div>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero">
       <div class="wrap hero-shell fade-in">
         <div class="hero-inner">
-          <div class="hero-copy fade-in">
-            <div class="eyebrow">Тест</div>
+          <div class="hero-copy">
+            <div class="eyebrow">Тест архетипів</div>
             <h1>Який ти Архетип трейдера?</h1>
-            <p class="lead">Цей тест допомагає зрозуміти сильні сторони, когнітивні упередження та стиль прийняття рішень у трейдингу.</p>
+            <p class="lead">
+              Короткий тест, який допомагає побачити свій стиль рішень, типові тригери та слабкі місця в поведінці під тиском ринку.
+            </p>
+
             <div class="eyeline">
               <span class="chip">21 питання</span>
               <span class="chip">10–15 хвилин</span>
               <span class="chip">Безкоштовно</span>
-              <span class="chip">Бета-версія</span>
+              <span class="chip">Бета</span>
             </div>
+
             <div class="cta">
-              <a class="btn btn-primary" href="https://fintest-4br0.onrender.com">Пройти тест</a>
-              <a class="btn btn-secondary" href="#video">Дивитися розбір</a>
+              <a class="btn btn-primary" href="https://fintest-4br0.onrender.com" target="_blank" rel="noopener noreferrer">
+                Пройти тест
+              </a>
+              <a class="btn btn-secondary" href="#video">
+                Дивитися розбір
+              </a>
             </div>
           </div>
 
-          <div class="hero-side">
-            <div class="hero-note fade-in">
+          <aside class="hero-side">
+            <div class="hero-note">
               <div class="pill">
-<span class="dot"></span> trader profile</div>
+                <span class="dot"></span>
+                <span>trader profile</span>
+              </div>
               <strong>Що отримаєте</strong>
-              <p>Профіль архетипу, підказки для стратегії, саморефлексію та кращу ясність у поведінці на ринку.</p>
+              <p>Архетип, підказки для стратегії, карту ризикових реакцій і ясніше розуміння своєї поведінки в трейдингу.</p>
             </div>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
 
-    <!-- ДЛЯ КОГО / ЩО ВСЕРЕДИНІ -->
     <section class="section" id="test">
-      <div class="wrap grid-2 fade-in">
-        <div class="card">
-          <h2 class="section-title" style="margin-bottom:12px">Для кого тест</h2>
+      <div class="wrap info-grid fade-in">
+        <article class="card">
+          <h2 class="section-title">Для кого тест</h2>
           <ul>
             <li>Для трейдерів, які хочуть зрозуміти свої рішення під тиском.</li>
-            <li>Для тих, хто помічає повторювані помилки або нестабільні результати.</li>
-            <li>Для людей, які хочуть краще побачити свої ризики й сильні сторони.</li>
+            <li>Для тих, хто бачить повторювані помилки або нестабільні результати.</li>
+            <li>Для людей, які хочуть краще розуміти власний ризик‑профіль.</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="card">
-          <h2 class="section-title" style="margin-bottom:12px">Що всередині</h2>
+        <article class="card">
+          <h2 class="section-title">Що всередині</h2>
           <ul>
-            <li>Архетипи базуються на дослідженнях фінансової поведінки та нейрофізіології.</li>
-            <li>Питання побудовані як реальні ринкові ситуації.</li>
-            <li>Жодних персональних даних — лише унікальний ID.</li>
-            <li>Результат допомагає побачити, як ти приймаєш рішення у трейдингу.</li>
+            <li>Архетипи на базі фінансової поведінки та нейрофізіології.</li>
+            <li>Питання у форматі реальних ринкових ситуацій.</li>
+            <li>Без передачі персональних даних, лише технічний ID.</li>
+            <li>Результат для самоспостереження та точнішої роботи зі стратегією.</li>
           </ul>
-        </div>
+        </article>
       </div>
     </section>
 
-    <!-- АРХЕТИПИ -->
     <section class="section">
       <div class="wrap fade-in">
-        <div class="archetype-media">
+        <div class="section-head">
+          <h2 class="section-title">Архетипи</h2>
+          <p class="section-lead">Кожен архетип показує типову логіку, напругу і спосіб реакції на ринок.</p>
+        </div>
+
+        <div class="archetype-grid">
           <article class="arch-card">
-            <img src="/static/media/chaos.jpg" alt="Chaos">
+            <img src="/static/media/chaos.jpg" alt="Архетип Chaos" loading="lazy">
             <div class="arch-card-body">
               <h3>Chaos</h3>
-              <p>Трейдинг часто починається з хаосу — рішення швидкі, наслідки приходять із затримкою.</p>
+              <p>Рішення швидкі, внутрішня структура слабка, наслідки наздоганяють пізніше.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/reptile.jpg" alt="Reptile">
+            <img src="/static/media/reptile.jpg" alt="Архетип Reptile" loading="lazy">
             <div class="arch-card-body">
               <h3>Reptile</h3>
-              <p>Імпульс, загроза і миттєвий захист позиції.</p>
+              <p>Імпульс, захист, реакція на загрозу і різке зростання напруги.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/Stabilizer.jpg" alt="Stabilizer">
+            <img src="/static/media/Stabilizer.jpg" alt="Архетип Stabilizer" loading="lazy">
             <div class="arch-card-body">
               <h3>Stabilizer</h3>
-              <p>Контроль, структура і зниження ризику.</p>
+              <p>Контроль, правила, зменшення ризику і прагнення до структури.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/trendsetter.jpg" alt="Trendsetter">
+            <img src="/static/media/trendsetter.jpg" alt="Архетип Trendsetter" loading="lazy">
             <div class="arch-card-body">
               <h3>Trendsetter</h3>
-              <p>Бачить напрям раніше за інших і полює на можливість.</p>
+              <p>Бачить напрям швидше і шукає можливість раніше за інших.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/antifragile.jpg" alt="Antifragile">
+            <img src="/static/media/antifragile.jpg" alt="Архетип Antifragile" loading="lazy">
             <div class="arch-card-body">
               <h3>Antifragile</h3>
-              <p>Стає сильнішим через стрес і невизначеність.</p>
+              <p>Під тиском не руйнується, а адаптується і стає сильнішим.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/mediator.jpg" alt="Mediator">
+            <img src="/static/media/mediator.jpg" alt="Архетип Mediator" loading="lazy">
             <div class="arch-card-body">
               <h3>Mediator</h3>
-              <p>Баланс між ризиком, логікою і внутрішньою напругою.</p>
+              <p>Шукає баланс між логікою, ризиком і внутрішньою напругою.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/Emergent.jpg" alt="Emergent">
+            <img src="/static/media/Emergent.jpg" alt="Архетип Emergent" loading="lazy">
             <div class="arch-card-body">
               <h3>Emergent</h3>
-              <p>Збирає нову модель поведінки прямо в процесі.</p>
+              <p>Перебудовує поведінку в процесі і формує нову модель дій.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/marginal.jpg" alt="Marginal">
+            <img src="/static/media/marginal.jpg" alt="Архетип Marginal" loading="lazy">
             <div class="arch-card-body">
               <h3>Marginal</h3>
-              <p>На межі системи, але часто бачить те, що інші пропускають.</p>
+              <p>Стоїть на межі системи, але часто бачить те, що інші ігнорують.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ВІДЕО -->
     <section class="section" id="video">
       <div class="wrap fade-in">
         <div class="video-box">
           <div class="video-top">
-            <h2 class="video-title">Детальний розбір тесту на YouTube</h2>
-            <a class="video-link" href="https://www.youtube.com/watch?v=wMNuEs_JPCE" target="_blank" rel="noopener">Відкрити відео</a>
+            <div>
+              <h2 class="section-title">Детальний розбір тесту на YouTube</h2>
+              <p class="section-lead">Пояснення логіки тесту, архетипів і того, як читати свій результат.</p>
+            </div>
+            <a class="video-link" href="https://www.youtube.com/watch?v=wMNuEs_JPCE" target="_blank" rel="noopener noreferrer">
+              Відкрити відео
+            </a>
           </div>
+
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/wMNuEs_JPCE" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+            <iframe
+              src="https://www.youtube.com/embed/wMNuEs_JPCE"
+              title="TELWHA — розбір тесту архетипів"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
             </iframe>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ПАНЕЛЬ ПРО МЕТУ ТЕСТУ -->
     <section class="section">
       <div class="wrap panel fade-in">
-        <div class="grid-2">
+        <div class="info-grid">
           <div class="card">
             <h3>Про мету тесту</h3>
-            <p>Це не просто самодіагностика. Це частина наукового кейсу, спрямованого на підвищення якості рішень і спрощення роботи трейдерів та портфельних менеджерів.</p>
+            <p>Це не просто розвага, а інструмент для точнішого спостереження за своїми реакціями і стилем рішень у трейдингу.</p>
           </div>
           <div class="card">
             <h3>Фідбек</h3>
-            <p>Ваш фідбек — внесок у розвиток кращих інструментів для всієї спільноти.</p>
+            <p>Твій фідбек допомагає покращувати інструмент і робити результати кориснішими для спільноти.</p>
           </div>
         </div>
 
-        <div class="cta" style="margin-top:20px;">
+        <div class="cta panel-cta">
           <a class="btn btn-primary" href="/">Повернутися на головну</a>
         </div>
       </div>
@@ -302,7 +338,7 @@
           <h4>Дії</h4>
           <div class="footer-links">
             <a href="/contact/">Контакти</a>
-            <a href="/trader-course/">Міні-курс трейдерам</a>
+            <a href="/trader-course/">Міні‑курс трейдерам</a>
           </div>
         </div>
       </div>
@@ -314,5 +350,49 @@
   </footer>
 
   <script src="/static/script/global.js"></script>
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const siteMenu = document.querySelector("#site-menu");
+    const dropdown = document.querySelector(".menu-dropdown");
+    const dropBtn = document.querySelector(".menu-dropbtn");
+
+    if (menuToggle && siteMenu) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = siteMenu.classList.toggle("is-open");
+        menuToggle.classList.toggle("is-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        menuToggle.setAttribute(
+          "aria-label",
+          isOpen ? "Закрити меню" : "Відкрити меню"
+        );
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".nav") && siteMenu.classList.contains("is-open")) {
+          siteMenu.classList.remove("is-open");
+          menuToggle.classList.remove("is-open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Відкрити меню");
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && siteMenu.classList.contains("is-open")) {
+          siteMenu.classList.remove("is-open");
+          menuToggle.classList.remove("is-open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Відкрити меню");
+          menuToggle.focus();
+        }
+      });
+    }
+
+    if (dropBtn && dropdown) {
+      dropBtn.addEventListener("click", () => {
+        const open = dropdown.classList.toggle("is-open");
+        dropBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+  </script>
 </body>
 </html>
