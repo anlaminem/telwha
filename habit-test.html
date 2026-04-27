@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="dark">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TELWHA | Грошові рішення під тиском</title>
+<meta name="description" content="TELWHA: короткий тест про фінансові звички, контроль, витрати та поведінкову опору.">
+<link rel="canonical" href="https://t-e-l-w-h-a.com/finlab/money-test-api/money-test.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TELWHA | Грошові рішення під тиском">
+<meta property="og:description" content="Короткий тест про поведінку з грошима: напруга, контроль, витрати та опора.">
+<meta property="og:url" content="https://t-e-l-w-h-a.com/finlab/money-test-api/money-test.html">
+<meta property="og:site_name" content="TELWHA">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FVHKD6TZJP');
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Anna Signaevska","url":"https://t-e-l-w-h-a.com","image":"https://t-e-l-w-h-a.com/static/media/main_photo.jpg","jobTitle":"Financial Psychologist & Behavioral Analyst","description":"Поведінкова економіка, фінансова психологія та TELWHA framework для стабільних рішень про гроші.","sameAs":["https://www.youtube.com/@TelwhaUA","https://www.youtube.com/@Telwha","https://www.linkedin.com/in/anna-signaevskaya"],"knowsAbout":["Behavioral Finance","Trading Psychology","Cognitive Biases","Nudge Theory","Neuroeconomics"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TELWHA","url":"https://t-e-l-w-h-a.com","description":"TELWHA: фінансова психологія, поведінкова економіка та FinLab для трейдерів, інвесторів, бізнесу.","logo":"https://t-e-l-w-h-a.com/static/media/telwha-favicon.png","sameAs":["https://www.youtube.com/@TelwhaUA","https://www.youtube.com/@Telwha","https://www.linkedin.com/in/anna-signaevskaya"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","url":"https://t-e-l-w-h-a.com","name":"TELWHA","inLanguage":"uk"}</script>
+<link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07090d;--surface:rgba(9,11,16,0.98);--surface-2:rgba(7,10,15,0.98);--text:#f3efe8;--muted:#b9bdc9;--faint:#8e94a3;--border-subtle:rgba(255,255,255,0.12);--accent:#f0b376;--accent-strong:#d58034;--shadow-soft:0 16px 42px rgba(0,0,0,0.7);--wrap:1180px}
+html[data-theme="light"]{--bg:#f6efe6;--surface:#fffdf9;--surface-2:#f7efe4;--text:#2b2119;--muted:#5f5146;--faint:#8a7666;--border-subtle:rgba(104,82,62,.22);--accent:#e8a55c;--accent-strong:#d57c33;--shadow-soft:0 20px 46px rgba(98,76,56,.18)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-moz-text-size-adjust:none;-webkit-text-size-adjust:none;text-size-adjust:none;scroll-behavior:smooth}
+body{min-height:100dvh;font-family:'Inter',sans-serif;background:radial-gradient(circle at top left, rgba(240,179,118,0.12) 0, transparent 35%),radial-gradient(circle at bottom right, rgba(80,136,255,0.08) 0, transparent 30%),var(--bg);color:var(--text);line-height:1.6}
+a{text-decoration:none;color:inherit}
+button,input,textarea,select{font:inherit;color:inherit}
+img,svg{display:block;max-width:100%;height:auto}
+.wrap{width:min(calc(100% - 28px),var(--wrap));margin-inline:auto}
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-strong));width:0;z-index:60;transform-origin:left;transition:width .3s ease}
+.topbar{position:sticky;top:0;z-index:55;backdrop-filter:blur(18px);background:rgba(5,7,10,0.68);border-bottom:1px solid rgba(255,255,255,0.05)}
+html[data-theme="light"] .topbar{background:rgba(255,250,244,0.88);border-bottom:1px solid rgba(104,82,62,.08)}
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:10px 0 12px}
+.brand{display:flex;flex-direction:column;min-width:0;flex:1 1 auto}
+.brand-row{display:flex;align-items:center}
+.brand strong{font-size:15px;letter-spacing:.16em}
+.brand .sub,.sub{display:block;margin-top:4px;max-width:100%;font-size:10px;line-height:1.3;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.menu-toggle{display:none;width:54px;height:54px;margin-left:auto;padding:0;border-radius:999px;border:1px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.04);box-shadow:inset 0 1px 0 rgba(255,255,255,0.05),0 10px 24px rgba(0,0,0,0.32);align-items:center;justify-content:center;cursor:pointer;flex:0 0 auto;transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease}
+html[data-theme="light"] .menu-toggle{border-color:rgba(104,82,62,.18);background:rgba(255,250,244,0.92);box-shadow:inset 0 1px 0 rgba(255,255,255,0.7),0 10px 24px rgba(98,76,56,.14)}
+.menu-toggle-lines{position:relative;width:18px;height:14px;display:inline-flex;flex-direction:column;justify-content:space-between}
+.menu-toggle-lines span{display:block;width:18px;height:2px;border-radius:999px;background:#f3efe9;transform-origin:center;transition:transform .22s ease,opacity .18s ease,background .18s ease}
+html[data-theme="light"] .menu-toggle-lines span{background:#3a3028}
+.menu-toggle.is-open .menu-toggle-lines span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.menu-toggle.is-open .menu-toggle-lines span:nth-child(2){opacity:0}
+.menu-toggle.is-open .menu-toggle-lines span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.menu{display:flex;align-items:center;gap:18px}
+.menu-group{display:flex;align-items:center;gap:18px}
+.menu a,.menu-dropbtn{font-size:15px;color:var(--text);background:transparent;border:0;cursor:pointer}
+.menu-dropdown{position:relative}
+.menu-dropcontent{position:absolute;top:calc(100% + 10px);left:0;display:none;min-width:180px;padding:12px;border-radius:16px;background:rgba(5,7,10,0.96);border:1px solid rgba(255,255,255,0.1);box-shadow:var(--shadow-soft);gap:10px}
+html[data-theme="light"] .menu-dropcontent{background:#fffaf4;border-color:rgba(104,82,62,.18)}
+.menu-dropdown:hover .menu-dropcontent,.menu-dropdown:focus-within .menu-dropcontent{display:grid}
+.menu-tools{display:flex;align-items:center;gap:12px}
+.lang-switcher{position:relative}
+.lang-switcher summary{list-style:none;cursor:pointer}
+.lang-switcher summary::-webkit-details-marker{display:none}
+.lang-list{position:absolute;top:calc(100% + 10px);right:0;display:grid;gap:8px;padding:10px;border-radius:16px;background:rgba(5,7,10,0.96);border:1px solid rgba(255,255,255,0.08)}
+html[data-theme="light"] .lang-list{background:#fffaf4;border-color:rgba(104,82,62,.18)}
+.theme-toggle{width:40px;height:40px;border-radius:999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);cursor:pointer}
+html[data-theme="light"] .theme-toggle{border-color:rgba(104,82,62,.18);background:#fffaf4}
+.hero{padding:24px 0 14px}
+.hero-shell{position:relative;border-radius:28px;overflow:hidden;background:radial-gradient(circle at top left, rgba(240,179,118,0.16) 0, transparent 45%),#030304;border:1px solid rgba(255,255,255,0.06);box-shadow:var(--shadow-soft);padding:1px}
+html[data-theme="light"] .hero-shell{border-color:rgba(104,82,62,.20);background:radial-gradient(circle at top left, rgba(245,198,150,.32) 0, transparent 46%),linear-gradient(145deg,#fffdf9 0,#f7efe4 55%,#f2e4d5 100%)}
+.hero-inner{position:relative;border-radius:26px;padding:24px 20px 18px;background:radial-gradient(circle at top right, rgba(240,179,118,0.12) 0, transparent 58%),rgba(5,7,10,0.94);overflow:hidden}
+html[data-theme="light"] .hero-inner{background:radial-gradient(circle at top right, rgba(249,180,90,.18) 0, transparent 55%),#fffaf4}
+.hero-glow{position:absolute;inset:-60px;background:radial-gradient(circle at 10% 0%, rgba(240,179,118,0.12) 0, transparent 48%),radial-gradient(circle at 90% 100%, rgba(80,136,255,0.1) 0, transparent 52%);opacity:.85;mix-blend-mode:screen;pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:flex-start;z-index:1}
+.hero-copy{max-width:42rem}
+h1{font-family:'Instrument Serif',serif;font-size:clamp(2rem,2.4vw + 1rem,2.8rem);line-height:1.06;margin:0 0 8px;letter-spacing:-.03em;font-weight:400}
+.hero-sub{display:block;margin-top:4px;font-size:1rem;color:var(--accent-strong)}
+.lead{margin:10px 0 12px;font-size:.95rem;color:var(--muted);max-width:40rem}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0 10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:999px;font-size:.92rem;font-weight:600;line-height:1;text-decoration:none;border:1px solid rgba(255,255,255,0.16);transition:transform .16s ease,box-shadow .18s ease,background .18s ease,border-color .18s ease,color .18s ease;cursor:pointer}
+.btn-primary{background:linear-gradient(135deg,#ffd9ac 0,#f0b376 52%,#d98542 100%);color:#18110b!important;border-color:rgba(255,220,180,0.18);box-shadow:0 16px 38px rgba(240,179,118,0.34)}
+.btn-secondary,.btn-ghost{background:rgba(255,255,255,0.03);color:var(--text)!important;border-color:rgba(255,255,255,0.18)}
+html[data-theme="light"] .btn-secondary,html[data-theme="light"] .btn-ghost{background:#fffaf4;border-color:rgba(104,82,62,.24);color:#2b2119!important}
+.hero-footnote{font-size:.8rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px;line-height:1.5}
+.hero-footnote .small-note{font-size:.78rem}
+.test-shell,.result-shell,.score-panel,.footer-panel{position:relative;border-radius:20px;padding:16px;background:linear-gradient(135deg, rgba(9,11,16,0.98), rgba(6,8,12,0.98));border:1px solid rgba(255,255,255,0.12);box-shadow:0 18px 40px rgba(0,0,0,0.55)}
+html[data-theme="light"] .test-shell,html[data-theme="light"] .result-shell,html[data-theme="light"] .score-panel,html[data-theme="light"] .footer-panel{background:#fffaf4;border-color:rgba(104,82,62,.22);box-shadow:0 18px 40px rgba(98,76,56,.16)}
+.section{padding:10px 0 18px}
+.test-layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px}
+.test-shell{padding:18px 18px 16px}
+.panel-head{display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.panel-label{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.step-pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:6px 12px;background:rgba(240,179,118,0.1);border:1px solid rgba(240,179,118,0.18);font-size:.8rem}
+.question-card{padding-top:6px;animation:fadeIn .25s ease}
+.question-card h2{font-size:clamp(1.28rem,1vw + 1rem,1.8rem);line-height:1.24;margin:0 0 8px}
+.question-note{font-size:.92rem;color:var(--muted);margin-bottom:14px}
+.answers{display:grid;gap:10px}
+.answer{width:100%;text-align:left;padding:14px 14px 13px;border-radius:18px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.09);cursor:pointer;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease,background .16s ease}
+html[data-theme="light"] .answer{background:#fffdf9;border-color:rgba(104,82,62,.18)}
+.answer:hover,.answer:focus-visible{transform:translateY(-1px);border-color:rgba(240,179,118,0.44);box-shadow:0 12px 28px rgba(0,0,0,0.22);outline:none}
+html[data-theme="light"] .answer:hover,html[data-theme="light"] .answer:focus-visible{box-shadow:0 12px 28px rgba(98,76,56,.12)}
+.answer-top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:3px}
+.answer-title{font-size:.96rem;font-weight:600}
+.answer-value{font-size:.75rem;color:var(--faint);letter-spacing:.08em;text-transform:uppercase}
+.answer-desc{font-size:.86rem;color:var(--muted);line-height:1.45}
+.question-footer{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;padding-top:12px;margin-top:14px;border-top:1px solid rgba(255,255,255,0.06)}
+html[data-theme="light"] .question-footer{border-top:1px solid rgba(104,82,62,.08)}
+.helper-note{font-size:.86rem;color:var(--muted)}
+.nav-actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn-small{min-height:42px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.03);cursor:pointer}
+html[data-theme="light"] .btn-small{border-color:rgba(104,82,62,.18);background:#fffaf4}
+.score-panel{padding:16px;position:sticky;top:88px}
+.score-panel h3{font-size:.96rem;margin-bottom:6px}
+.score-panel p{font-size:.84rem;color:var(--muted)}
+.scale-preview{display:grid;gap:12px;margin-top:14px}
+.scale-row{display:grid;gap:6px}
+.scale-top{display:flex;justify-content:space-between;gap:10px;font-size:.82rem;color:var(--muted)}
+.scale-bar{height:9px;border-radius:999px;background:rgba(255,255,255,0.06);overflow:hidden}
+html[data-theme="light"] .scale-bar{background:rgba(104,82,62,.10)}
+.scale-fill{height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--accent),var(--accent-strong));transition:width .35s ease}
+.result-shell{display:none;padding:18px}
+.result-shell.is-visible{display:block;animation:fadeIn .3s ease}
+.result-kicker{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.result-title{font-family:'Instrument Serif',serif;font-size:clamp(1.8rem,2vw + 1rem,2.6rem);line-height:1.02;letter-spacing:-.03em;font-weight:400;margin-bottom:8px}
+.result-lead{font-size:.95rem;color:var(--muted);margin-bottom:14px;max-width:42rem}
+.result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.result-card{border-radius:18px;padding:16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08)}
+html[data-theme="light"] .result-card{background:#fffdf9;border-color:rgba(104,82,62,.18)}
+.result-card h4{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+.result-card p,.result-card li{font-size:.9rem;color:var(--muted)}
+.result-card ul{padding-left:18px}
+.result-top-meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+.meta-pill{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(240,179,118,0.08);border:1px solid rgba(240,179,118,0.18);font-size:.86rem}
+.score-map{display:grid;gap:12px}
+.score-card{padding:14px 14px 12px;border-radius:16px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02)}
+html[data-theme="light"] .score-card{border-color:rgba(104,82,62,.16);background:#fffdf9}
+.score-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:8px}
+.score-label{font-size:.88rem;color:var(--text)}
+.score-meta{font-size:.8rem;color:var(--muted)}
+.score-line{width:100%;height:10px;border-radius:999px;background:rgba(255,255,255,0.06);overflow:hidden;margin-bottom:8px}
+html[data-theme="light"] .score-line{background:rgba(104,82,62,.10)}
+.score-line span{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--accent),var(--accent-strong));transition:width .45s ease}
+.post-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.footer-block{padding:10px 0 28px}
+.footer-grid{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;width:100%}
+.footer-links{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.footer-bottom{margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;width:100%;font-size:.82rem;color:var(--muted)}
+html[data-theme="light"] .footer-bottom{border-top:1px solid rgba(104,82,62,.08)}
+.fade-in{opacity:0;transform:translateY(18px) scale(.99);transition:opacity .5s ease-out,transform .5s cubic-bezier(.22,.61,.36,1)}
+.fade-in.in{opacity:1;transform:translateY(0) scale(1)}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (max-width:1100px){
+.hero-grid{grid-template-columns:minmax(0,1fr);gap:18px}
+.hero-copy{max-width:100%}
+.test-layout{grid-template-columns:minmax(0,1fr)}
+.score-panel{position:relative;top:auto}
+}
+@media (max-width:920px){
+.menu-toggle{display:inline-flex!important;width:50px;height:50px}
+.menu{display:none!important;width:100%;margin-top:10px;padding:16px;border-radius:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);flex-direction:column;align-items:flex-start;gap:16px}
+.menu.is-open{display:flex!important}
+.menu-group,.menu-tools{width:100%;display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.menu a,.menu-dropbtn{display:block;width:100%;padding:0;text-align:left}
+.menu-dropdown{width:100%;position:static}
+.menu-dropcontent{position:static!important;display:grid!important;gap:10px;min-width:0;padding:10px 0 0;background:transparent;border:0;box-shadow:none}
+.lang-switcher--inside .lang-list{left:0;right:auto}
+.hero{padding:20px 0 14px}
+.hero-inner{padding:20px 16px 16px}
+h1{font-size:clamp(1.8rem,7vw,2.3rem);line-height:1.08}
+.lead{font-size:.93rem;line-height:1.55}
+.result-grid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+.wrap{width:min(calc(100% - 20px),var(--wrap))}
+.brand{max-width:calc(100% - 102px)}
+.brand strong{font-size:14px;letter-spacing:.18em}
+.brand .sub,.brand span.sub,.sub{font-size:9px;line-height:1.3;letter-spacing:.1em}
+.menu-toggle{width:44px;height:44px}
+.menu-toggle-lines{width:16px;height:12px}
+.menu-toggle-lines span{width:16px}
+.hero{padding:16px 0 10px}
+.hero-inner{padding:18px 14px 14px;border-radius:22px}
+h1{font-size:clamp(1.56rem,7.2vw,1.96rem);line-height:1.08}
+.hero-sub{margin-top:6px;font-size:.92rem}
+.lead{font-size:.9rem;line-height:1.56}
+.cta,.post-cta,.nav-actions{gap:8px}
+.btn,.btn-small,.cta .btn,.post-cta .btn{width:100%;justify-content:center}
+.hero-footnote{flex-direction:column;align-items:flex-start;gap:8px}
+.hero-footnote .small-note{font-size:.76rem}
+.test-shell,.result-shell,.score-panel,.footer-panel,.result-card{padding:14px}
+.question-card h2{font-size:1.18rem}
+.question-note,.answer-desc,.helper-note,.score-panel p,.result-card p,.result-card li{font-size:.88rem}
+.answer{padding:14px}
+.answer-title{font-size:.92rem}
+.answer-top{align-items:flex-start}
+.answer-value{font-size:.72rem}
+.panel-head{align-items:flex-start}
+.step-pill{font-size:.76rem}
+.question-footer{position:sticky;bottom:8px;z-index:8;padding:10px 0 0;margin-top:12px;background:linear-gradient(180deg,rgba(5,7,10,0),rgba(5,7,10,.92) 30%,rgba(5,7,10,.98) 100%)}
+html[data-theme="light"] .question-footer{background:linear-gradient(180deg,rgba(246,239,230,0),rgba(246,239,230,.94) 30%,rgba(246,239,230,.98) 100%)}
+.footer-links{align-items:flex-start}
+.footer-bottom{flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){
+*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="topbar">
+  <div class="wrap nav">
+    <div class="brand">
+      <a class="brand-row" href="/"><strong>TELWHA</strong></a>
+      <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+    </div>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Відкрити меню">
+      <span class="menu-toggle-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+
+    <nav class="menu" id="site-menu">
+      <div class="menu-group">
+        <a href="/">Головна</a>
+        <a href="/finlab/">FinLab</a>
+        <a href="/about/">Про мене</a>
+      </div>
+
+      <div class="menu-group menu-dropdown">
+        <button type="button" class="menu-dropbtn">Трейдерам ▾</button>
+        <div class="menu-dropcontent">
+          <a href="/trader-course/">Міні‑курс</a>
+          <a href="/archetype-test/">Тест архетипів</a>
+        </div>
+      </div>
+
+      <div class="menu-group">
+        <a href="/articles/">Статті</a>
+        <a href="/reviews/">Відгуки</a>
+        <a href="/cases/">Кейси</a>
+        <a href="/contact/">Контакти</a>
+      </div>
+
+      <div class="menu-group menu-tools">
+        <details class="lang-switcher lang-switcher--inside">
+          <summary>🇺🇦</summary>
+          <div class="lang-list">
+            <a href="/en/index.html" aria-label="English">🇬🇧</a>
+            <a href="/es/index.html" aria-label="Español">🇪🇸</a>
+          </div>
+        </details>
+        <button class="theme-toggle" type="button" aria-label="Змінити тему">🌓</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-shell fade-in">
+      <div class="hero-inner">
+        <div class="hero-glow"></div>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1>Куди ведуть ваші фінансові звички? Дефіцит, тривога чи стабільність<br><span class="hero-sub"></span></h1>
+            <p class="lead">Гроші рідко впираються лише в цифри. Часто там є тривога, уникання, імпульс, дефіцитне стискання або потреба все контролювати. Цей тест допоможе побачити, який сценарій у вас вмикається найчастіше і на що варто спертися далі.</p>
+            <div class="cta">
+              <a class="btn btn-primary" href="#test">Почати тест</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="test">
+    <div class="wrap test-layout fade-in">
+      <div>
+        <div class="test-shell">
+          <div class="panel-head">
+            <div>
+              <div class="panel-label">Покрокове проходження</div>
+            </div>
+            <div class="step-pill" id="stepBadge">Крок 1 із 18</div>
+          </div>
+
+          <div class="question-card" id="questionCard"></div>
+
+          <div class="question-footer">
+            <div class="helper-note" id="microcopyBox">Відмічайте те, що ближче до вашого звичного сценарію.</div>
+            <div class="nav-actions">
+              <button class="btn-small" type="button" id="prevBtn">Назад</button>
+              <button class="btn-small" type="button" id="restartBtn">Спочатку</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-shell" id="resultShell">
+          <div class="result-kicker">Ваш результат</div>
+          <h2 class="result-title" id="resultTitle">—</h2>
+          <p class="result-lead" id="resultLead">—</p>
+
+          <div class="result-top-meta">
+            <div class="meta-pill" id="secondaryPattern">Другий патерн: —</div>
+            <div class="meta-pill" id="supportState">Опора: —</div>
+          </div>
+
+          <div class="result-grid">
+            <div class="result-card">
+              <h4>Ключове</h4>
+              <p id="resultBody">—</p>
+            </div>
+
+            <div class="result-card">
+              <h4>Фокус на 7 днів</h4>
+              <p id="resultFocus">—</p>
+            </div>
+
+            <div class="result-card">
+              <h4>3 кроки</h4>
+              <ul id="resultSteps"></ul>
+            </div>
+
+            <div class="result-card">
+              <h4>Що не підсилювати</h4>
+              <ul id="resultAvoid"></ul>
+            </div>
+          </div>
+
+          <div class="result-card" style="margin-top:14px;">
+            <h4>Карта шкал</h4>
+            <div class="score-map" id="scoreMap"></div>
+          </div>
+
+          <div class="post-cta">
+            <a class="btn btn-primary" href="/finlab/">Перейти у FinLab</a>
+            <a class="btn btn-secondary" href="/contact/">Записатися на консультацію і обговорити</a>
+            <button class="btn btn-ghost" type="button" id="retakeBtn">Пройти ще раз</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="score-panel">
+        <h3>Ваш профіль у процесі</h3>
+        <p>Шкали оновлюються після кожної відповіді.</p>
+        <div class="scale-preview" id="scalePreview"></div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="footer-block">
+  <div class="wrap footer-panel fade-in">
+    <div class="footer-grid">
+      <div>
+        <h4>TELWHA</h4>
+        <p>Фінансова психологія, поведінкова економіка та дослідницькі рішення TELWHA для стабільніших рішень про гроші.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about/">Про мене</a>
+        <a href="/reviews/">Відгуки</a>
+        <a href="/contact/">Контакти</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TELWHA. Всі права захищені.</span>
+      <span>Behavioral finance · financial psychology</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const QUESTIONS = [
+  {
+    id:'Q1', scale:'avoidance',
+    title:'Коли треба подивитися на баланс, борг або останні витрати, що трапляється найчастіше?',
+    note:'Оберіть найтиповішу реакцію.',
+    answers:[
+      {value:1,title:'Дивлюся спокійно',desc:'Контакт із цифрами доступний.'},
+      {value:2,title:'Іноді відкладаю',desc:'Якщо втомлена, можу повернутися пізніше.'},
+      {value:3,title:'Тягну до останнього',desc:'Є внутрішнє стискання.'},
+      {value:4,title:'Уникаю неприємної теми',desc:'Не хочу бачити картину.'},
+      {value:5,title:'Ніби відключаюсь',desc:'Туман, сором або завмирання.'}
+    ]
+  },
+  {
+    id:'Q2', scale:'avoidance',
+    title:'Коли фінансова ситуація заплутана, що вам найзнайоміше?',
+    note:'Про звичний сценарій, не про виняток.',
+    answers:[
+      {value:1,title:'Розкладаю по поличках',desc:'Навіть якщо не все ідеально.'},
+      {value:2,title:'Роблю паузу і повертаюсь',desc:'Є невелика відстрочка.'},
+      {value:3,title:'Відкладаю рішення',desc:'Хочеться не чіпати тему.'},
+      {value:4,title:'Уникаю контакту',desc:'Сподіваюсь, що стане легше само.'},
+      {value:5,title:'Зависаю',desc:'Ніби кнопка дії тимчасово зникає.'}
+    ]
+  },
+  {
+    id:'Q3', scale:'avoidance',
+    title:'Що найчастіше приходить після періоду фінансового уникання?',
+    note:'Що йде слідом найчастіше?',
+    answers:[
+      {value:1,title:'Нічого критичного',desc:'Швидко повертаюсь у контакт.'},
+      {value:2,title:'Легкий дискомфорт',desc:'Є неприємність, але не завал.'},
+      {value:3,title:'Плутанина',desc:'Стає складніше розібратись.'},
+      {value:4,title:'Сором і напруга',desc:'Тема стає важчою.'},
+      {value:5,title:'Безсилля',desc:'Здається, що вже запізно щось змінювати.'}
+    ]
+  },
+
+  {
+    id:'Q4', scale:'vigilance',
+    title:'Як часто ви перевіряєте баланс, щоб трохи заспокоїтись?',
+    note:'Йдеться не про облік, а саме про внутрішній спокій.',
+    answers:[
+      {value:1,title:'Лише за потреби',desc:'Перевірка — просто інструмент.'},
+      {value:2,title:'Іноді частіше',desc:'Буває потреба пересвідчитись.'},
+      {value:3,title:'Досить регулярно',desc:'Без цього вже не так спокійно.'},
+      {value:4,title:'Часто',desc:'Моніторинг знижує тривогу.'},
+      {value:5,title:'Дуже часто',desc:'Без перевірки важко видихнути.'}
+    ]
+  },
+  {
+    id:'Q5', scale:'vigilance',
+    title:'Коли з’являється невизначеність у грошах, ваша перша реакція?',
+    note:'Що вмикається автоматично?',
+    answers:[
+      {value:1,title:'Адаптуюсь',desc:'Думаю, що можна змінити.'},
+      {value:2,title:'Коротко напружуюсь',desc:'Але швидко повертаюсь у ясність.'},
+      {value:3,title:'Починаю переперевіряти',desc:'Хочу швидко зібрати контроль.'},
+      {value:4,title:'Сильно стискаюсь',desc:'Невизначеність відчувається як загроза.'},
+      {value:5,title:'Зациклююсь',desc:'Контроль росте швидше за ясність.'}
+    ]
+  },
+  {
+    id:'Q6', scale:'vigilance',
+    title:'Наскільки вам складно дозволити собі “достатньо добре”, а не “ідеально правильно” у фінансових рішеннях?',
+    note:'Про внутрішній стандарт.',
+    answers:[
+      {value:1,title:'Доволі легко',desc:'Можу жити без ідеальності.'},
+      {value:2,title:'Іноді важко',desc:'Але не критично.'},
+      {value:3,title:'Помітно важко',desc:'Хочеться не помилятись.'},
+      {value:4,title:'Дуже важко',desc:'Помилка сильно напружує.'},
+      {value:5,title:'Майже неможливо',desc:'Наче лише тотальний контроль дає безпеку.'}
+    ]
+  },
+
+  {
+    id:'Q7', scale:'soothing',
+    title:'Яку роль покупки найчастіше грають у вашому стані?',
+    note:'Навіть невеликі витрати теж рахуються.',
+    answers:[
+      {value:1,title:'Просто функція',desc:'Купую те, що треба.'},
+      {value:2,title:'Іноді як підтримка',desc:'Трохи приємності або винагороди.'},
+      {value:3,title:'Часто як полегшення',desc:'Після стресу це помітно працює.'},
+      {value:4,title:'Спосіб розвантаження',desc:'Напруга спадає через витрату.'},
+      {value:5,title:'Один із головних способів',desc:'Покупка швидко змінює стан.'}
+    ]
+  },
+  {
+    id:'Q8', scale:'soothing',
+    title:'Що найчастіше буває після імпульсної або “заспокійливої” покупки?',
+    note:'Про типовий цикл.',
+    answers:[
+      {value:1,title:'Все ок',desc:'Без особливого післясмаку.'},
+      {value:2,title:'Легкий сумнів',desc:'Часом думаю, чи це було треба.'},
+      {value:3,title:'Короткий видих, потім думки',desc:'Полегшення не дуже довге.'},
+      {value:4,title:'Провина або напруга',desc:'Післясмак відчутний.'},
+      {value:5,title:'Знайомий цикл',desc:'Стрес → витрата → полегшення → нова напруга.'}
+    ]
+  },
+  {
+    id:'Q9', scale:'soothing',
+    title:'Коли вам важко емоційно, наскільки доступна пауза перед необов’язковою покупкою?',
+    note:'Про доступ до вибору.',
+    answers:[
+      {value:1,title:'Доступна',desc:'Можу взяти паузу.'},
+      {value:2,title:'Переважно доступна',desc:'Іноді складніше, але можу.'},
+      {value:3,title:'Не завжди',desc:'У стресі вибір звужується.'},
+      {value:4,title:'Часто складно',desc:'Імпульс сильніший за паузу.'},
+      {value:5,title:'Майже недоступна',desc:'У напрузі покупка йде першою.'}
+    ]
+  },
+
+  {
+    id:'Q10', scale:'status',
+    title:'Наскільки ваші витрати або фінансові рішення пов’язані з тим, як вас сприймуть інші?',
+    note:'Про схвалення, враження, приналежність.',
+    answers:[
+      {value:1,title:'Майже не пов’язані',desc:'Орієнтуюсь переважно на себе.'},
+      {value:2,title:'Трохи впливають',desc:'Але не визначають рішення.'},
+      {value:3,title:'Помітно впливають',desc:'Контекст людей має вагу.'},
+      {value:4,title:'Сильно впливають',desc:'Хочеться не виглядати “не так”.'},
+      {value:5,title:'Дуже сильно',desc:'Схвалення або статус можуть вести рішення.'}
+    ]
+  },
+  {
+    id:'Q11', scale:'status',
+    title:'Коли треба витратити, відмовити або поставити межу, що вам знайоміше?',
+    note:'Подумайте про реальну соціальну динаміку.',
+    answers:[
+      {value:1,title:'Можу спокійно вирішити',desc:'Контакт із межами є.'},
+      {value:2,title:'Іноді вагаюсь',desc:'Але все ж можу сказати “ні”.'},
+      {value:3,title:'Шукаю підтвердження',desc:'Хочеться зовнішнього дозволу.'},
+      {value:4,title:'Мені важко не підлаштовуватись',desc:'Стосунки переважають над фінансовою ясністю.'},
+      {value:5,title:'Часто йду проти себе',desc:'Щоб не розчарувати, не виглядати жадібною або “не тією”.'}
+    ]
+  },
+  {
+    id:'Q12', scale:'status',
+    title:'Як часто ви ловите себе на порівнянні свого фінансового рівня, способу життя або покупок з іншими?',
+    note:'Про status-comparison.',
+    answers:[
+      {value:1,title:'Рідко',desc:'Порівняння мало впливає.'},
+      {value:2,title:'Іноді',desc:'Буває, але швидко відпускає.'},
+      {value:3,title:'Досить часто',desc:'Порівняння чіпляє.'},
+      {value:4,title:'Часто',desc:'Воно помітно впливає на рішення.'},
+      {value:5,title:'Дуже часто',desc:'Фон порівняння постійно присутній.'}
+    ]
+  },
+
+  {
+    id:'Q13', scale:'scarcity',
+    title:'Коли ви думаєте про майбутні ризики, що вам ближче?',
+    note:'Про базову реакцію на нестачу.',
+    answers:[
+      {value:1,title:'Планую без паніки',desc:'Є здоровий запас спокою.'},
+      {value:2,title:'Трохи хвилююсь',desc:'Але не застрягаю в цьому.'},
+      {value:3,title:'Часто сканую ризики',desc:'Шукаю, де може не вистачити.'},
+      {value:4,title:'Важко розслабитись',desc:'Нестача ніби завжди поруч.'},
+      {value:5,title:'Живу з фоном дефіциту',desc:'Ніби треба постійно готуватись до гіршого.'}
+    ]
+  },
+  {
+    id:'Q14', scale:'scarcity',
+    title:'Як виглядає ваша реакція на заощадження або запас?',
+    note:'Тут важливо відрізнити опору від страху.',
+    answers:[
+      {value:1,title:'Запас підтримує',desc:'Він дає ясність, а не стискання.'},
+      {value:2,title:'Іноді тривожуся',desc:'Але в цілому все ок.'},
+      {value:3,title:'Можу надто берегти',desc:'Іноді важко дозволяти собі витрати.'},
+      {value:4,title:'Часто стискаюсь',desc:'Наче витратити = втратити безпеку.'},
+      {value:5,title:'Тримаюсь за запас напружено',desc:'Накопичення більше про страх, ніж про свободу.'}
+    ]
+  },
+  {
+    id:'Q15', scale:'scarcity',
+    title:'Що найзнайоміше у ставленні до витрат на себе?',
+    note:'Про дозволеність і самодефіцит.',
+    answers:[
+      {value:1,title:'Можу дозволяти собі потрібне',desc:'Без зайвого внутрішнього бою.'},
+      {value:2,title:'Іноді сумніваюсь',desc:'Але вмію зважити.'},
+      {value:3,title:'Часто урізаю себе',desc:'Навіть коли це не обов’язково.'},
+      {value:4,title:'Схильна до самообмеження',desc:'Безпечніше не витрачати.'},
+      {value:5,title:'Живу в режимі внутрішньої нестачі',desc:'Навіть коли об’єктивно є ресурс.'}
+    ]
+  },
+
+  {
+    id:'Q16', scale:'regulation',
+    title:'Наскільки у вас є проста фінансова опора, до якої легко повернутись?',
+    note:'Щось невелике, але робоче.',
+    answers:[
+      {value:1,title:'Майже немає',desc:'Система поки крихка.'},
+      {value:2,title:'Є окремі шматочки',desc:'Дещо працює, але нестабільно.'},
+      {value:3,title:'Частково є',desc:'Опора вже вимальовується.'},
+      {value:4,title:'Є добра база',desc:'Прості кроки справді допомагають.'},
+      {value:5,title:'Так, і вона тримає',desc:'Є ритм, межі і повторюваність.'}
+    ]
+  },
+  {
+    id:'Q17', scale:'regulation',
+    title:'Як ви зараз контактуєте з фінансовою картиною загалом?',
+    note:'Вищий бал тут = більше стійкості.',
+    answers:[
+      {value:1,title:'Мене легко вибиває',desc:'Контакт із темою крихкий.'},
+      {value:2,title:'Ще шукаю систему',desc:'Іноді тримаюсь, іноді ні.'},
+      {value:3,title:'Поступово вирівнююсь',desc:'Контакт стає стабільнішим.'},
+      {value:4,title:'Тримаю без крайнощів',desc:'Можу бачити цифри і діяти.'},
+      {value:5,title:'Є жива стійкість',desc:'Система не ідеальна, але робоча.'}
+    ]
+  },
+  {
+    id:'Q18', scale:'regulation',
+    title:'Наскільки вам доступний маленький повторюваний фінансовий ритуал?',
+    note:'Наприклад weekly check-in, ліміт або короткий перегляд.',
+    answers:[
+      {value:1,title:'Поки майже ні',desc:'Ритуал ще не закріпився.'},
+      {value:2,title:'Іноді вдається',desc:'Є спроби, але нестійкі.'},
+      {value:3,title:'Частково доступний',desc:'Щось уже повторюється.'},
+      {value:4,title:'Так, працює',desc:'Малі дії дають відчуття порядку.'},
+      {value:5,title:'Так, це опора',desc:'Повторюваність реально тримає систему.'}
+    ]
+  }
+];
+
+const SCALE_META = {
+  avoidance: {
+    label:'Уникання',
+    description:'Відкладання, туман, відключення, сором і втеча від контакту з цифрами.'
+  },
+  vigilance: {
+    label:'Гіперконтроль',
+    description:'Сканування загрози, переперевірки, напружений контроль і страх помилки.'
+  },
+  soothing: {
+    label:'Емоційне полегшення',
+    description:'Покупка або витрата як швидкий спосіб змінити стан.'
+  },
+  status: {
+    label:'Соціальний статус',
+    description:'Гроші як простір схвалення, приналежності, порівняння або враження.'
+  },
+  scarcity: {
+    label:'Дефіцит і стискання',
+    description:'Страх нестачі, накопичення зі страху, самообмеження і scarcity scanning.'
+  },
+  regulation: {
+    label:'Регуляція',
+    description:'Контакт із цифрами, межі, ритуали і жива поведінкова опора.'
+  }
+};
+
+const RESULTS = {
+  avoidance: {
+    title:'Архетип: відключення від фінансової реальності',
+    lead:'Коли напруга зростає, у вас може вмикатись не лінь, а захисне віддалення від теми грошей.',
+    body:'Це схоже на сценарій, де фінансова ясність переживається як перевантаження, тому психіка обирає паузу, туман або відкладання. Проблема не в слабкій дисципліні, а в тому, що контакт із цифрами став емоційно дорогим.',
+    focus:'Фокус на 7 днів — короткий, безпечний, повторюваний контакт без спроб “розрулити все життя за один вечір”.',
+    steps:[
+      'Поставте один 7-хвилинний money check-in у фіксований день.',
+      'Дивіться лише баланс, останні 3 витрати і 1 найближчий обов’язок.',
+      'Після перегляду робіть тільки одну маленьку дію.'
+    ],
+    avoid:[
+      'Не відкривайте одразу всі фінансові фронти.',
+      'Не змішуйте чесність із самопокаранням.',
+      'Не намагайтесь лікувати хаос жорстким марафоном контролю.'
+    ]
+  },
+  vigilance: {
+    title:'Архетип: контроль через напругу',
+    lead:'У вас фінансова безпека може триматися через переперевірку, сканування ризику і страх помилитися.',
+    body:'Це не просто любов до порядку. Тут контроль часто виконує регуляційну функцію: дає коротке відчуття безпеки, але водночас підсилює напругу і виснаження.',
+    focus:'Фокус на 7 днів — не посилювати контроль, а зробити його коротшим, яснішим і завершеним.',
+    steps:[
+      'Оберіть одне вікно для перевірки фінансів замість хаотичних повторів.',
+      'Перед перевіркою запитайте: я шукаю факт чи заспокоєння?',
+      'Після перегляду формулюйте один висновок і закривайте тему.'
+    ],
+    avoid:[
+      'Не добудовуйте нову систему в піку тривоги.',
+      'Не плутайте виснаження з відповідальністю.',
+      'Не робіть помилку доказом власної небезпеки.'
+    ]
+  },
+  soothing: {
+    title:'Архетип: емоційне самозаспокоєння через витрати',
+    lead:'Покупка у вас може виконувати роль швидкого регулятора стану — зняти напругу, нагородити, повернути відчуття життя.',
+    body:'Цей патерн не про “слабкість”, а про короткий шлях до полегшення. Але якщо інших каналів відновлення мало, витрати починають нести на собі занадто багато емоційної роботи.',
+    focus:'Фокус на 7 днів — повернути мікропаузу між емоцією і покупкою.',
+    steps:[
+      'Для необов’язкових витрат введіть паузу 20 хвилин.',
+      'Складіть список із 3 дешевших способів швидко зняти напругу.',
+      'Після імпульсу коротко фіксуйте: що я хотіла купити і що я хотіла відчути.'
+    ],
+    avoid:[
+      'Не вводьте тотальну заборону на задоволення.',
+      'Не соромте себе після кожного імпульсу.',
+      'Не залишайте втому і стрес без альтернативного каналу регуляції.'
+    ]
+  },
+  status: {
+    title:'Архетип: гроші через соціальне дзеркало',
+    lead:'Фінансові рішення у вас можуть сильно переплітатися зі схваленням, порівнянням, іміджем і страхом виглядати “не так”.',
+    body:'Тут гроші стають не лише ресурсом, а ще й мовою приналежності, визнання або самозахисту в соціальному полі. Через це межі, дозволеність і власний критерій “достатньо” можуть розмиватися.',
+    focus:'Фокус на 7 днів — відділяти власну потребу від соціального сигналу.',
+    steps:[
+      'Перед соціально чутливою витратою ставте питання: це для мене чи для враження?',
+      'Практикуйте одну маленьку фінансову межу без виправдовувань.',
+      'Після порівняння з іншими повертайтеся до свого реального пріоритету на місяць.'
+    ],
+    avoid:[
+      'Не приймайте порівняння за об’єктивну норму.',
+      'Не витрачайте, щоб лише не відчути незручність.',
+      'Не шукайте зовнішній дозвіл там, де потрібне внутрішнє рішення.'
+    ]
+  },
+  scarcity: {
+    title:'Архетип: дефіцитне стискання і страх нестачі',
+    lead:'У вас може бути сильний дефіцитний фон: ніби ресурс завжди крихкий, а безпека залежить від стискання, запасу або самозречення.',
+    body:'Це може виглядати як обережність, але всередині часто більше тривоги, ніж ясної стратегії. Заощадження тут інколи працює не як свобода, а як спроба втримати світ від небезпеки.',
+    focus:'Фокус на 7 днів — відділити здорову обережність від життя в режимі внутрішньої нестачі.',
+    steps:[
+      'Позначте одну витрату, яка є підтримкою, а не загрозою.',
+      'Розділіть запас на “опору” і “тривожне стискання” у власних нотатках.',
+      'Раз на тиждень фіксуйте 1 факт реальної стабільності, а не лише ризики.'
+    ],
+    avoid:[
+      'Не плутайте самопозбавлення з фінансовою зрілістю.',
+      'Не будуйте всю безпеку лише на забороні.',
+      'Не робіть кожну витрату доказом небезпеки.'
+    ]
+  }
+};
+
+const MICROCOPY = [
+  'Відмічайте те, що ближче до вашого звичного сценарію.',
+  'Не шукайте правильну відповідь. Шукайте впізнавану.',
+  'Тут важлива не ідеальна версія вас, а жива.',
+  'Перший впізнаний варіант часто найточніший.',
+  'Контроль теж може бути формою тривоги.',
+  'Ми дивимось не на моральність, а на механіку.',
+  'Покупка не завжди про річ. Іноді про стан.',
+  'Не засуджуйте відповідь — просто помічайте.',
+  'У стресі звуження вибору — дуже людська річ.',
+  'Соціальний тиск часто непомітний, поки його не назвати.',
+  'Тут важливі межі, а не образ “хорошої людини”.',
+  'Порівняння часто говорить голосніше за реальність.',
+  'Страх нестачі може маскуватися під раціональність.',
+  'Не всяке накопичення є опорою.',
+  'Самообмеження не завжди дорівнює зрілості.',
+  'Опора часто виглядає простіше, ніж здається.',
+  'Стійкість рідко кричить. Вона повторюється.',
+  'Ще один крок — і ви побачите свій профіль.'
+];
+
+const progress=document.getElementById('progress'),
+questionCard=document.getElementById('questionCard'),
+stepBadge=document.getElementById('stepBadge'),
+microcopyBox=document.getElementById('microcopyBox'),
+prevBtn=document.getElementById('prevBtn'),
+restartBtn=document.getElementById('restartBtn'),
+retakeBtn=document.getElementById('retakeBtn'),
+resultShell=document.getElementById('resultShell'),
+scalePreview=document.getElementById('scalePreview'),
+scoreMap=document.getElementById('scoreMap'),
+resultTitle=document.getElementById('resultTitle'),
+resultLead=document.getElementById('resultLead'),
+resultBody=document.getElementById('resultBody'),
+resultFocus=document.getElementById('resultFocus'),
+resultSteps=document.getElementById('resultSteps'),
+resultAvoid=document.getElementById('resultAvoid'),
+secondaryPattern=document.getElementById('secondaryPattern'),
+supportState=document.getElementById('supportState'),
+menuToggle=document.querySelector('.menu-toggle'),
+siteMenu=document.querySelector('#site-menu'),
+themeToggle=document.querySelector('.theme-toggle');
+
+let currentStep=0;
+let answers=new Array(QUESTIONS.length).fill(null);
+
+function animateIn(){
+  document.querySelectorAll('.fade-in').forEach(el=>{
+    const rect=el.getBoundingClientRect();
+    if(rect.top<window.innerHeight-40) el.classList.add('in');
+  });
+}
+window.addEventListener('scroll',animateIn);
+window.addEventListener('load',animateIn);
+
+function getScores(){
+  const scores={avoidance:0,vigilance:0,soothing:0,status:0,scarcity:0,regulation:0};
+  QUESTIONS.forEach((q,i)=>{scores[q.scale]+=answers[i]||0});
+  return scores;
+}
+
+function getScaleMax(){
+  const max={avoidance:0,vigilance:0,soothing:0,status:0,scarcity:0,regulation:0};
+  QUESTIONS.forEach(q=>{max[q.scale]+=5});
+  return max;
+}
+
+function renderScalePreview(){
+  const scores=getScores();
+  const max=getScaleMax();
+  scalePreview.innerHTML=Object.entries(SCALE_META).map(([key,meta])=>{
+    const percent=Math.round(((scores[key]||0)/max[key])*100);
+    return `<div class="scale-row"><div class="scale-top"><span>${meta.label}</span><span>${scores[key]||0}/${max[key]}</span></div><div class="scale-bar"><div class="scale-fill" style="width:${percent}%"></div></div></div>`;
+  }).join('');
+}
+
+function renderQuestion(){
+  const q=QUESTIONS[currentStep];
+  stepBadge.textContent=`Крок ${currentStep+1} із ${QUESTIONS.length}`;
+  microcopyBox.textContent=MICROCOPY[currentStep];
+  progress.style.width=`${(currentStep/QUESTIONS.length)*100}%`;
+
+  questionCard.innerHTML=`<h2>${q.title}</h2><p class="question-note">${q.note}</p><div class="answers">${q.answers.map(a=>`<button class="answer" type="button" data-value="${a.value}"><div class="answer-top"><span class="answer-title">${a.title}</span><span class="answer-value">${a.value}/5</span></div><div class="answer-desc">${a.desc}</div></button>`).join('')}</div>`;
+
+  questionCard.querySelectorAll('.answer').forEach(btn=>{
+    const value=Number(btn.dataset.value);
+
+    if(answers[currentStep]===value){
+      btn.style.borderColor='rgba(240,179,118,0.42)';
+      btn.style.background='rgba(240,179,118,0.09)';
+    }
+
+    btn.addEventListener('click',()=>{
+      answers[currentStep]=value;
+      renderScalePreview();
+
+      if(currentStep<QUESTIONS.length-1){
+        currentStep+=1;
+        renderQuestion();
+        window.scrollTo({top:document.getElementById('test').offsetTop-72,behavior:'smooth'});
+      }else{
+        showResults();
+      }
+    });
+  });
+
+  prevBtn.disabled=currentStep===0;
+  prevBtn.style.opacity=currentStep===0?'.5':'1';
+  renderScalePreview();
+}
+
+function supportLabel(score){
+  if(score>=13) return 'Опора: відчутна';
+  if(score>=9) return 'Опора: формується';
+  return 'Опора: низька, потребує підсилення';
+}
+
+function buildBlend(primaryKey, secondaryKey){
+  const blends = {
+    'avoidance:soothing':'Другий шар: уникання підсилюється емоційним пошуком полегшення.',
+    'avoidance:vigilance':'Другий шар: між туманом і надконтролем може бути внутрішня гойдалка.',
+    'avoidance:status':'Другий шар: уникання переплітається з напругою соціальної оцінки.',
+    'vigilance:scarcity':'Другий шар: контроль живиться страхом нестачі.',
+    'vigilance:status':'Другий шар: контроль частково пов’язаний із образом “треба бути правильною”.',
+    'vigilance:soothing':'Другий шар: після перенапруги може вмикатись компенсація через полегшення.',
+    'soothing:status':'Другий шар: витрата регулює і емоцію, і соціальну напругу.',
+    'soothing:avoidance':'Другий шар: імпульс допомагає не контактувати з важким переживанням.',
+    'status:soothing':'Другий шар: соціальне напруження переходить у витрати як швидке полегшення.',
+    'status:avoidance':'Другий шар: після соціального тиску може вмикатись відхід від фінансової теми.',
+    'status:vigilance':'Другий шар: сильне порівняння живить контроль і самоперевірку.',
+    'scarcity:vigilance':'Другий шар: дефіцит підтримує постійне threat-scanning.',
+    'scarcity:avoidance':'Другий шар: страх нестачі може парадоксально вести і в стискання, і в завмирання.',
+    'scarcity:status':'Другий шар: дефіцитний фон посилюється тиском відповідати чужим стандартам.'
+  };
+  return blends[`${primaryKey}:${secondaryKey}`] || `Другий патерн: ${SCALE_META[secondaryKey].label}`;
+}
+
+function showResults(){
+  const scores=getScores();
+  const max=getScaleMax();
+
+  const distressKeys=['avoidance','vigilance','soothing','status','scarcity'];
+  const distressSorted=distressKeys
+    .map(key=>({
+      key,
+      raw:scores[key],
+      percent:scores[key]/max[key]
+    }))
+    .sort((a,b)=>b.percent-a.percent || b.raw-a.raw);
+
+  const primaryKey=distressSorted[0].key;
+  const secondaryKey=distressSorted[1].key;
+  const res=RESULTS[primaryKey];
+
+  resultTitle.textContent=res.title;
+  resultLead.textContent=res.lead;
+  resultBody.textContent=res.body;
+  resultFocus.textContent=res.focus;
+
+  const gap=distressSorted[0].percent-distressSorted[1].percent;
+  secondaryPattern.textContent=
+    gap<0.08
+      ? `Змішаний профіль: ${SCALE_META[primaryKey].label} + ${SCALE_META[secondaryKey].label}`
+      : buildBlend(primaryKey,secondaryKey);
+
+  supportState.textContent=supportLabel(scores.regulation);
+
+  resultSteps.innerHTML=res.steps.map(item=>`<li>${item}</li>`).join('');
+  resultAvoid.innerHTML=res.avoid.map(item=>`<li>${item}</li>`).join('');
+
+  scoreMap.innerHTML=Object.entries(SCALE_META).map(([key,meta])=>{
+    const value=scores[key];
+    const percent=Math.round((value/max[key])*100);
+
+    let state='Рівень прояву';
+    if(key===primaryKey) state='Провідний архетип';
+    else if(key===secondaryKey) state='Другий шар';
+    else if(key==='regulation') state='Рівень опори';
+
+    return `<div class="score-card"><div class="score-top"><div><div class="score-label">${meta.label}</div><div class="score-meta">${state}</div></div><div class="score-meta">${value}/${max[key]}</div></div><div class="score-line"><span style="width:${percent}%"></span></div><div class="score-meta">${meta.description}</div></div>`;
+  }).join('');
+
+  progress.style.width='100%';
+  resultShell.classList.add('is-visible');
+  resultShell.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function resetTest(){
+  answers=new Array(QUESTIONS.length).fill(null);
+  currentStep=0;
+  resultShell.classList.remove('is-visible');
+  renderQuestion();
+  document.getElementById('test').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+prevBtn.addEventListener('click',()=>{
+  if(currentStep>0){
+    currentStep-=1;
+    renderQuestion();
+  }
+});
+
+restartBtn.addEventListener('click',resetTest);
+retakeBtn.addEventListener('click',resetTest);
+
+menuToggle?.addEventListener('click',()=>{
+  const isOpen=siteMenu.classList.toggle('is-open');
+  menuToggle.classList.toggle('is-open',isOpen);
+  menuToggle.setAttribute('aria-expanded',isOpen?'true':'false');
+  menuToggle.setAttribute('aria-label',isOpen?'Закрити меню':'Відкрити меню');
+});
+
+document.querySelectorAll('#site-menu a').forEach(link=>{
+  link.addEventListener('click',()=>{
+    if(window.innerWidth<=920){
+      siteMenu.classList.remove('is-open');
+      menuToggle?.classList.remove('is-open');
+      menuToggle?.setAttribute('aria-expanded','false');
+      menuToggle?.setAttribute('aria-label','Відкрити меню');
+    }
+  });
+});
+
+document.addEventListener('keydown',(e)=>{
+  if(e.key==='Escape' && siteMenu.classList.contains('is-open')){
+    siteMenu.classList.remove('is-open');
+    menuToggle?.classList.remove('is-open');
+    menuToggle?.setAttribute('aria-expanded','false');
+    menuToggle?.setAttribute('aria-label','Відкрити меню');
+  }
+});
+
+themeToggle?.addEventListener('click',()=>{
+  const root=document.documentElement;
+  root.setAttribute('data-theme',root.getAttribute('data-theme')==='light'?'dark':'light');
+});
+
+renderQuestion();
+</script>
+</body>
+</html>
