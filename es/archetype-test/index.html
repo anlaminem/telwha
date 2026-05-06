@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TELWHA | Test de arquetipos de trader</title>
-  <meta name="description" content="TELWHA: ¿Qué arquetipo de trader eres?.">
+  <meta name="description" content="TELWHA: ¿Qué arquetipo de trader eres?">
 
-  <link rel="canonical" href="https://t-e-l-w-h-a.com/es/archetype-test/">
+  //t-e-l-w-h-a.com/es/archetype-test/">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="TELWHA | Test de arquetipos de trader">
-  <meta property="og:description" content="TELWHA: ¿Qué arquetipo de trader eres?.">
+  <meta property="og:description" content="TELWHA: ¿Qué arquetipo de trader eres?">
   <meta property="og:url" content="https://t-e-l-w-h-a.com/es/archetype-test/">
   <meta property="og:site_name" content="TELWHA">
 
-
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-FVHKD6TZJP');
   </script>
+
   <!-- JSON-LD: Person (Anna) -->
   <script type="application/ld+json">
   {
@@ -70,23 +69,15 @@
     "inLanguage": "es"
   }
   </script>
-  
-  <link rel="icon" href="/static/media/telwha-favicon.png" type="png">
-  <link rel="stylesheet" href="/static/css/base.css">
-  <link rel="stylesheet" href="/static/css/layout-archetype.css">
+
+  /static/media/telwha-favicon.png" type="image/png">
+  /static/css/base.css">
+  /static/css/layout-archetype.css">
 </head>
 <body>
-  <details class="lang-switcher">
-    <summary>🇪🇸</summary>
-    <div class="lang-list">
-      <a href="/archetype-test/" aria-label="Українська">🇺🇦</a>
-      <a href="/en/archetype-test/" aria-label="English">🇬🇧</a>
-    </div>
-  </details>
-
   <div class="progress" id="progress"></div>
 
-<header class="topbar">
+  <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
         <a class="brand-row" href="/es/">
@@ -94,26 +85,54 @@
         </a>
         <span class="sub">PSICOLOGÍA FINANCIERA · ESTRATEGIA CONDUCTUAL</span>
       </div>
-      <nav class="menu">
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        aria-label="Abrir menú"
+      >
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <nav class="menu" id="site-menu">
         <div class="menu-group">
           <a href="/es/">Inicio</a>
-          <a href="/finlab/index.html">FinLab</a>
+          <a href="/finlab/">FinLab</a>
           <a href="/es/about/">Sobre mí</a>
         </div>
+
         <div class="menu-group menu-dropdown">
-          <button type="button" class="menu-dropbtn">Para traders ▾</button>
+          <button type="button" class="menu-dropbtn" aria-expanded="false">Para traders ▾</button>
           <div class="menu-dropcontent">
             <a href="/es/trader-course/">Mini‑curso</a>
             <a href="/es/archetype-test/">Test de arquetipos</a>
           </div>
         </div>
+
         <div class="menu-group">
           <a href="/es/articles/">Artículos</a>
           <a href="/es/reviews/">Testimonios</a>
           <a href="/es/cases/">Casos</a>
           <a href="/es/contact/">Contacto</a>
         </div>
-        <button class="theme-toggle" type="button">🌓</button>
+
+        <div class="menu-group menu-tools">
+          <details class="lang-switcher lang-switcher--inside">
+            <summary>🇪🇸</summary>
+            <div class="lang-list">
+              <a href="/archetype-test/" aria-label="Українська" lang="uk">🇺🇦</a>
+              <a href="/en/archetype-test/" aria-label="English" lang="en">🇬🇧</a>
+            </div>
+          </details>
+
+          <button class="theme-toggle" type="button" aria-label="Cambiar tema">🌓</button>
+        </div>
       </nav>
     </div>
   </header>
@@ -123,123 +142,147 @@
     <section class="hero">
       <div class="wrap hero-shell fade-in">
         <div class="hero-inner">
-          <div class="hero-copy fade-in">
-            <div class="eyebrow">Test</div>
+          <div class="hero-copy">
+            <div class="eyebrow">Test de arquetipos</div>
             <h1>¿Qué arquetipo de trader eres?</h1>
-            <p class="lead">Este test te ayuda a entender tus fortalezas, sesgos cognitivos y estilo de toma de decisiones en el trading.</p>
+            <p class="lead">
+              Test corto que te ayuda a ver tu estilo de decisiones, tus disparadores típicos y puntos débiles bajo presión de mercado.
+            </p>
+
             <div class="eyeline">
               <span class="chip">21 preguntas</span>
               <span class="chip">10–15 minutos</span>
               <span class="chip">Gratuito</span>
-              <span class="chip">Versión beta</span>
+              <span class="chip">Beta</span>
             </div>
+
             <div class="cta">
-              <a class="btn btn-primary" href="https://fintest-4br0.onrender.com">Hacer el test</a>
-              <a class="btn btn-secondary" href="#video">Ver el análisis</a>
+              <a
+                class="btn btn-primary"
+                href="https://fintest-4br0.onrender.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Hacer el test
+              </a>
+              <a class="btn btn-secondary" href="#video">
+                Ver el análisis
+              </a>
             </div>
           </div>
 
-          <div class="hero-side">
-            <div class="hero-note fade-in">
+          <aside class="hero-side">
+            <div class="hero-note">
               <div class="pill">
-<span class="dot"></span> trader profile</div>
-              <strong>Qué obtendrás</strong>
-              <p>Perfil de arquetipo, pistas para la estrategia, autorreflexión y mayor claridad sobre tu comportamiento en el mercado.</p>
+                <span class="dot"></span>
+                <span>trader profile</span>
+              </div>
+              <strong>Qué obtienes</strong>
+              <p>
+                Un arquetipo, pistas para tu estrategia, un mapa de reacciones de riesgo y más claridad sobre tu comportamiento en el trading.
+              </p>
             </div>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
 
-    <!-- PARA QUIÉN / QUÉ INCLUYE -->
+    <!-- PARA QUIÉN / QUÉ HAY DENTRO -->
     <section class="section" id="test">
-      <div class="wrap grid-2 fade-in">
-        <div class="card">
-          <h2 class="section-title" style="margin-bottom:12px">Para quién es el test</h2>
+      <div class="wrap info-grid fade-in">
+        <article class="card">
+          <h2 class="section-title">Para quién es el test</h2>
+          <u
           <ul>
-            <li>Para traders que quieren entender sus decisiones bajo presión.</li>
-            <li>Para quienes notan errores repetitivos o resultados inestables.</li>
-            <li>Para personas que quieren ver mejor sus riesgos y puntos fuertes.</li>
+            >Para traders que quieren entender sus decisiones bajo presión.</l/li>
+            >Para quienes observan errores que se repiten o resultados inestables.</l/li>
+            >Para personas que quieren comprender mejor su perfil de riesgo.</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="card">
-          <h2 class="section-title" style="margin-bottom:12px">Qué hay dentro</h2>
+        <article class="card">
+          <h2 class="section-title">Qué hay dentro</h2>
+          <u
           <ul>
-            <li>Arquetipos basados en investigación de comportamiento financiero y neurofisiología.</li>
-            <li>Preguntas planteadas como situaciones reales de mercado.</li>
-            <li>Sin datos personales: solo un ID único.</li>
-            <li>El resultado muestra cómo tomas realmente decisiones en el trading.</li>
+            >Arquetipos basados en comportamiento financiero y neurofisiología.</l/li>
+            >Preguntas en formato de situaciones reales de mercado.</l/li>
+            >Sin datos personales: solo un ID técnico.</l/li>
+            >Resultado para autoobservación y trabajo más preciso con tu estrategia.</li>
           </ul>
-        </div>
+        </article>
       </div>
     </section>
 
     <!-- ARQUETIPOS -->
     <section class="section">
       <div class="wrap fade-in">
-        <div class="archetype-media">
+        <div class="section-head">
+          <h2 class="section-title">Arquetipos</h2>
+          <p class="section-lead">Cada arquetipo muestra la lógica típica, la tensión y la forma de reaccionar ante el mercado.</p>
+        </div>
+
+        <div class="archetype-grid">
           <article class="arch-card">
-            <img src="/static/media/chaos.jpg" alt="Chaos">
+            <img src="/static/media/chaos.jpg" alt="Arquetipo Chaos" loading="lazy">
             <div class="arch-card-body">
               <h3>Chaos</h3>
-              <p>El trading a menudo empieza desde el caos: decisiones rápidas, consecuencias con retraso.</p>
+              <p>Decisiones rápidas, poca estructura interna, las consecuencias aparecen más tarde.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/reptile.jpg" alt="Reptile">
+            <img src="/static/media/reptile.jpg" alt="Arquetipo Reptile" loading="lazy">
             <div class="arch-card-body">
               <h3>Reptile</h3>
-              <p>Impulso, amenaza y defensa inmediata de la posición.</p>
+              <p>Impulso, defensa, reacción ante la amenaza y aumento brusco de la tensión.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/Stabilizer.jpg" alt="Stabilizer">
+            <img src="/static/media/Stabilizer.jpg" alt="Arquetipo Stabilizer" loading="lazy">
             <div class="arch-card-body">
               <h3>Stabilizer</h3>
-              <p>Control, estructura y reducción del riesgo.</p>
+              <p>Control, reglas, reducción del riesgo y búsqueda de estructura.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/trendsetter.jpg" alt="Trendsetter">
+            <img src="/static/media/trendsetter.jpg" alt="Arquetipo Trendsetter" loading="lazy">
             <div class="arch-card-body">
               <h3>Trendsetter</h3>
-              <p>Ve la dirección antes que otros y busca la oportunidad.</p>
+              <p>Ve la dirección antes que otros y busca oportunidad antes que el resto.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/antifragile.jpg" alt="Antifragile">
+            <img src="/static/media/antifragile.jpg" alt="Arquetipo Antifragile" loading="lazy">
             <div class="arch-card-body">
               <h3>Antifragile</h3>
-              <p>Se fortalece a través del estrés y la incertidumbre.</p>
+              <p>Ante la presión no se rompe, se adapta y se fortalece.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/mediator.jpg" alt="Mediator">
+            <img src="/static/media/mediator.jpg" alt="Arquetipo Mediator" loading="lazy">
             <div class="arch-card-body">
               <h3>Mediator</h3>
-              <p>Equilibra riesgo, lógica y tensión interna.</p>
+              <p>Busca equilibrio entre lógica, riesgo y tensión interna.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/Emergent.jpg" alt="Emergent">
+            <img src="/static/media/Emergent.jpg" alt="Arquetipo Emergent" loading="lazy">
             <div class="arch-card-body">
               <h3>Emergent</h3>
-              <p>Construye un nuevo modelo de conducta en pleno proceso.</p>
+              <p>Reconstruye la conducta en el proceso y forma un nuevo modelo de acción.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/marginal.jpg" alt="Marginal">
+            <img src="/static/media/marginal.jpg" alt="Arquetipo Marginal" loading="lazy">
             <div class="arch-card-body">
               <h3>Marginal</h3>
-              <p>En el borde del sistema, a menudo ve lo que otros pasan por alto.</p>
+              <p>En el borde del sistema, a menudo ve lo que otros ignoran.</p>
             </div>
           </article>
         </div>
@@ -251,11 +294,26 @@
       <div class="wrap fade-in">
         <div class="video-box">
           <div class="video-top">
-            <h2 class="video-title">Análisis detallado del test en YouTube</h2>
-            <a class="video-link" href="https://www.youtube.com/watch?v=wMNuEs_JPCE" target="_blank" rel="noopener">Abrir vídeo</a>
+            <div>
+              <h2 class="section-title">Análisis detallado del test en YouTube</h2>
+              <p class="section-lead">Explicación de la lógica del test, los arquetipos y cómo leer tu resultado.</p>
+            </div>
+            <a
+              class="video-link"
+              href="https://www.youtube.com/watch?v=wMNuEs_JPCE"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Abrir vídeo
+            </a>
           </div>
+
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/wMNuEs_JPCE" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+            <iframe
+              src="https://www.youtube.com/embed/wMNuEs_JPCE"
+              title="TELWHA — análisis del test de arquetipos"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
             </iframe>
           </div>
         </div>
@@ -265,18 +323,22 @@
     <!-- PANEL SOBRE EL OBJETIVO -->
     <section class="section">
       <div class="wrap panel fade-in">
-        <div class="grid-2">
+        <div class="info-grid">
           <div class="card">
             <h3>Sobre el objetivo del test</h3>
-            <p>No es solo autoevaluación. Forma parte de un caso de investigación orientado a mejorar la calidad de las decisiones y simplificar el trabajo de traders y gestores de cartera.</p>
+            <p>
+              No es solo entretenimiento. Es una herramienta para observar con más precisión tus reacciones y tu estilo de decisiones en el trading.
+            </p>
           </div>
           <div class="card">
             <h3>Feedback</h3>
-            <p>Tu feedback es una aportación al desarrollo de mejores herramientas para toda la comunidad.</p>
+            <p>
+              Tu feedback ayuda a mejorar la herramienta y hacer los resultados más útiles para la comunidad.
+            </p>
           </div>
         </div>
 
-        <div class="cta" style="margin-top:20px;">
+        <div class="cta panel-cta">
           <a class="btn btn-primary" href="/es/">Volver al inicio</a>
         </div>
       </div>
@@ -302,7 +364,7 @@
           <h4>Acciones</h4>
           <div class="footer-links">
             <a href="/es/contact/">Contacto</a>
-            <a href="/es/trader-course/">Mini curso para traders</a>
+            <a href="/es/trader-course/">Mini‑curso para traders</a>
           </div>
         </div>
       </div>
@@ -314,5 +376,49 @@
   </footer>
 
   <script src="/static/script/global.js"></script>
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const siteMenu = document.querySelector("#site-menu");
+    const dropdown = document.querySelector(".menu-dropdown");
+    const dropBtn = document.querySelector(".menu-dropbtn");
+
+    if (menuToggle && siteMenu) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = siteMenu.classList.toggle("is-open");
+        menuToggle.classList.toggle("is-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        menuToggle.setAttribute(
+          "aria-label",
+          isOpen ? "Cerrar menú" : "Abrir menú"
+        );
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".nav") && siteMenu.classList.contains("is-open")) {
+          siteMenu.classList.remove("is-open");
+          menuToggle.classList.remove("is-open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Abrir menú");
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && siteMenu.classList.contains("is-open")) {
+          siteMenu.classList.remove("is-open");
+          menuToggle.classList.remove("is-open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Abrir menú");
+          menuToggle.focus();
+        }
+      });
+    }
+
+    if (dropBtn && dropdown) {
+      dropBtn.addEventListener("click", () => {
+        const open = dropdown.classList.toggle("is-open");
+        dropBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+  </script>
 </body>
 </html>

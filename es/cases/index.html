@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Casos — TELWHA FinLab</title>
@@ -14,9 +14,8 @@
   <meta property="og:url" content="https://t-e-l-w-h-a.com/es/cases/">
   <meta property="og:site_name" content="TELWHA">
 
-
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -70,19 +69,13 @@
     "inLanguage": "es"
   }
   </script>
-  
-  <link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
   <link rel="stylesheet" href="/static/css/base.css">
   <link rel="stylesheet" href="/static/css/layout-cases.css">
 </head>
 <body>
-  <details class="lang-switcher">
-    <summary>🇪🇸</summary>
-    <div class="lang-list">
-      <a href="/cases/" aria-label="Українська">🇺🇦</a>
-      <a href="/en/cases/" aria-label="English">🇬🇧</a>
-    </div>
-  </details>
+  <div class="progress" id="progress"></div>
 
   <header class="topbar">
     <div class="wrap nav">
@@ -90,14 +83,30 @@
         <a class="brand-row" href="/es/">
           <strong>TELWHA</strong>
         </a>
-        <span class="sub">PSICOLOGÍA FINANCIERA · ESTRATEGIA CONDUCTUAL</span>
+        <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
       </div>
-      <nav class="menu">
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        aria-label="Abrir menú"
+      >
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <nav class="menu" id="site-menu">
         <div class="menu-group">
           <a href="/es/">Inicio</a>
-          <a href="/finlab/index.html">FinLab</a>
+          <a href="/finlab/">FinLab</a>
           <a href="/es/about/">Sobre mí</a>
         </div>
+
         <div class="menu-group menu-dropdown">
           <button type="button" class="menu-dropbtn">Para traders ▾</button>
           <div class="menu-dropcontent">
@@ -105,13 +114,25 @@
             <a href="/es/archetype-test/">Test de arquetipos</a>
           </div>
         </div>
+
         <div class="menu-group">
           <a href="/es/articles/">Artículos</a>
-          <a href="/es/reviews/">Testimonios</a>
+          <a href="/es/reviews/">Opiniones</a>
           <a href="/es/cases/">Casos</a>
           <a href="/es/contact/">Contacto</a>
         </div>
-        <button class="theme-toggle" type="button">🌓</button>
+
+        <div class="menu-group menu-tools">
+          <details class="lang-switcher lang-switcher--inside">
+            <summary>🇪🇸</summary>
+            <div class="lang-list">
+              <a href="/cases/" aria-label="Українська" lang="uk">🇺🇦</a>
+              <a href="/en/cases/" aria-label="English" lang="en">🇬🇧</a>
+            </div>
+          </details>
+
+          <button class="theme-toggle" type="button" aria-label="Cambiar tema">🌓</button>
+        </div>
       </nav>
     </div>
   </header>
@@ -122,12 +143,11 @@
         <div class="page-head-inner">
           <h1>Casos</h1>
           <p class="page-sub">
-            Cada caso muestra cómo cambian los patrones de decisión, el riesgo y la carga una vez que se estructuran los procesos.
+            Cada caso muestra cómo cambian los patrones de decisión, el riesgo y la carga una vez que se estructuran mejor los procesos.
           </p>
         </div>
       </section>
 
-      <!-- Pestañas -->
       <div class="case-tabs" aria-label="Filtrar casos">
         <button class="case-tab active" type="button" data-filter="all">
           <span class="dot"></span>
@@ -151,9 +171,7 @@
         Elige una categoría o haz clic directamente en una tarjeta: se abrirá una ventana con el análisis completo del caso.
       </p>
 
-      <!-- GRID -->
       <section class="case-grid" id="caseGrid">
-        <!-- Trading 1 -->
         <article class="case-card" data-id="trading1" data-category="trading">
           <div class="case-card-pill">Trading</div>
           <small>Diagnóstico conductual</small>
@@ -165,7 +183,6 @@
           </div>
         </article>
 
-        <!-- Trading 2 -->
         <article class="case-card" data-id="trading2" data-category="trading">
           <div class="case-card-pill">Trading</div>
           <small>Aumento de capital</small>
@@ -177,10 +194,9 @@
           </div>
         </article>
 
-        <!-- Personal 1 -->
         <article class="case-card" data-id="personal1" data-category="personal">
           <div class="case-card-pill">Personal</div>
-          <small>Caos en gastos</small>
+          <small>Caos en los gastos</small>
           <h3>«Hay dinero, pero desaparece cada mes»</h3>
           <p class="case-card-line">Ingresos altos, cero ahorros y compras emocionales.</p>
           <div class="case-card-tags">
@@ -189,7 +205,6 @@
           </div>
         </article>
 
-        <!-- Personal 2 -->
         <article class="case-card" data-id="personal2" data-category="personal">
           <div class="case-card-pill">Personal</div>
           <small>Parejas</small>
@@ -201,7 +216,6 @@
           </div>
         </article>
 
-        <!-- Business 1 -->
         <article class="case-card" data-id="business1" data-category="business">
           <div class="case-card-pill">Business</div>
           <small>Producto educativo</small>
@@ -213,7 +227,6 @@
           </div>
         </article>
 
-        <!-- Business 2 -->
         <article class="case-card" data-id="business2" data-category="business">
           <div class="case-card-pill">Business</div>
           <small>Servicio financiero</small>
@@ -226,12 +239,11 @@
         </article>
       </section>
 
-      <!-- CTA contactos -->
       <section class="cta-panel">
         <h2>Cómo obtener un análisis similar</h2>
         <div class="cta-links">
-          <a class="btn" href="https://t.me/AnnaFinPsy" target="_blank" rel="noopener">Escribir por Telegram</a>
-          <a class="btn" href="https://wa.me/380000000000" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+          <a class="btn" href="https://t.me/AnnaFinPsy" target="_blank" rel="noopener noreferrer">Escribir por Telegram</a>
+          <a class="btn" href="https://wa.me/380000000000" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
           <a class="btn" href="/es/contact/">Solicitar análisis de caso</a>
         </div>
       </section>
@@ -256,12 +268,11 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 TELWHA. Todos los derechos reservados.</span>
-        <span>Kiev, Ucrania · 🇺🇦</span>
+        <span>Kyiv, Ucrania · 🇺🇦</span>
       </div>
     </div>
   </footer>
 
-  <!-- MODAL -->
   <div class="modal-backdrop" id="caseModalBackdrop" aria-hidden="true">
     <article class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <button class="modal-close" type="button" aria-label="Cerrar">×</button>
@@ -270,6 +281,22 @@
   </div>
 
   <script src="/static/script/global.js"></script>
-<script src="/static/script/cases.js"></script>
+  <script src="/static/script/cases.js"></script>
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const siteMenu = document.querySelector("#site-menu");
+
+    if (menuToggle && siteMenu) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = siteMenu.classList.toggle("is-open");
+        menuToggle.classList.toggle("is-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        menuToggle.setAttribute(
+          "aria-label",
+          isOpen ? "Cerrar menú" : "Abrir menú"
+        );
+      });
+    }
+  </script>
 </body>
 </html>

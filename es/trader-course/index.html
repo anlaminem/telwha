@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mini curso de psicología del trading — TELWHA</title>
-  <meta name="description" content="TELWHA: Por qué después de 5 operaciones tu mente ya no funciona — y cómo cambiarlo en 30 días.">
+  <meta
+    name="description"
+    content="TELWHA: Por qué después de 5 operaciones tu mente deja de funcionar con claridad — y cómo cambiarlo en 30 días."
+  >
 
   <link rel="canonical" href="https://t-e-l-w-h-a.com/es/trader-course/">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Mini curso de psicología del trading — TELWHA">
-  <meta property="og:description" content="TELWHA: Por qué después de 5 operaciones tu mente ya no funciona — y cómo cambiarlo en 30 días.">
+  <meta
+    property="og:description"
+    content="TELWHA: Por qué después de 5 operaciones tu mente deja de funcionar con claridad — y cómo cambiarlo en 30 días."
+  >
   <meta property="og:url" content="https://t-e-l-w-h-a.com/es/trader-course/">
   <meta property="og:site_name" content="TELWHA">
 
-
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -43,7 +46,7 @@
   }
   </script>
 
-  <!-- JSON-LD: WebSite (site global, ES página) -->
+  <!-- JSON-LD: WebSite (ES page) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -54,7 +57,7 @@
   }
   </script>
 
-  <!-- JSON-LD: Course (versión ES) -->
+  <!-- JSON-LD: Course (ES version) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -70,21 +73,15 @@
     "url": "https://t-e-l-w-h-a.com/es/trader-course/"
   }
   </script>
-  
-  <link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
   <link rel="stylesheet" href="/static/css/base.css">
   <link rel="stylesheet" href="/static/css/layout-trader-course.css">
 </head>
 <body>
-  <details class="lang-switcher">
-    <summary>🇪🇸</summary>
-    <div class="lang-list">
-      <a href="/trader-course/" aria-label="Українська">🇺🇦</a>
-      <a href="/en/trader-course/" aria-label="English">🇬🇧</a>
-    </div>
-  </details>
+  <div class="progress" id="progress"></div>
 
-<header class="topbar">
+  <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
         <a class="brand-row" href="/es/">
@@ -92,12 +89,28 @@
         </a>
         <span class="sub">PSICOLOGÍA FINANCIERA · ESTRATEGIA CONDUCTUAL</span>
       </div>
-      <nav class="menu">
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        aria-label="Abrir menú"
+      >
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <nav class="menu" id="site-menu">
         <div class="menu-group">
           <a href="/es/">Inicio</a>
-          <a href="/finlab/index.html">FinLab</a>
+          <a href="/es/finlab/">FinLab</a>
           <a href="/es/about/">Sobre mí</a>
         </div>
+
         <div class="menu-group menu-dropdown">
           <button type="button" class="menu-dropbtn">Para traders ▾</button>
           <div class="menu-dropcontent">
@@ -105,162 +118,214 @@
             <a href="/es/archetype-test/">Test de arquetipos</a>
           </div>
         </div>
+
         <div class="menu-group">
           <a href="/es/articles/">Artículos</a>
           <a href="/es/reviews/">Testimonios</a>
           <a href="/es/cases/">Casos</a>
           <a href="/es/contact/">Contacto</a>
         </div>
-        <button class="theme-toggle" type="button">🌓</button>
+
+        <div class="menu-group menu-tools">
+          <details class="lang-switcher lang-switcher--inside">
+            <summary>🇪🇸</summary>
+            <div class="lang-list">
+              <a href="/trader-course/" aria-label="Українська" lang="uk">🇺🇦</a>
+              <a href="/en/trader-course/" aria-label="English" lang="en">🇬🇧</a>
+            </div>
+          </details>
+
+          <button class="theme-toggle" type="button" aria-label="Cambiar tema">🌓</button>
+        </div>
       </nav>
     </div>
   </header>
 
-<main>
-  <section class="hero" id="top">
-    <div class="wrap hero-shell">
-      <div class="hero-inner">
-        <div>
-          <div class="eyebrow">MINI CURSO PARA TRADERS</div>
-          <h1>Por qué después de <span style="color:var(--accent)">5 operaciones</span> tu mente ya no funciona — y cómo cambiarlo en 30 días</h1>
-          <p class="lead">3 lecciones breves de neuroeconomía y psicología del trading que reducen las decisiones impulsivas, la fatiga de decisión y el caos en la operativa, sin una nueva estrategia.</p>
-          <div class="eyeline">
-            <span class="chip">3 LECCIONES · 45–60 MIN</span>
-            <span class="chip">CHECKLIST + PROTOCOLO DIARIO</span>
-            <span class="chip">CANAL PRIVADO DE TELEGRAM</span>
-          </div>
-          <div class="cta">
-            <a href="#offer" class="btn btn-primary">Obtener acceso por 55 $</a>
-            <a href="#modules" class="btn btn-secondary">Ver qué hay dentro</a>
+  <main>
+    <section class="hero" id="top">
+      <div class="wrap hero-shell">
+        <div class="hero-inner">
+          <div>
+            <div class="eyebrow">MINI CURSO PARA TRADERS</div>
+            <h1>
+              Por qué después de <span style="color:var(--accent)">5 operaciones</span>
+              tu mente deja de funcionar con claridad — y cómo cambiarlo en 30 días
+            </h1>
+            <p class="lead">
+              3 lecciones breves de neuroeconomía y psicología del trading que reducen las decisiones impulsivas,
+              la fatiga de decisión y el caos en la operativa — sin una nueva estrategia.
+            </p>
+            <div class="eyeline">
+              <span class="chip">3 LECCIONES · 45–60 MIN</span>
+              <span class="chip">CHECKLIST + PROTOCOLO DIARIO</span>
+              <span class="chip">CANAL PRIVADO DE TELEGRAM</span>
+            </div>
+            <div class="cta">
+              <a href="#offer" class="btn btn-primary">Obtener acceso por 48 $</a>
+              <a href="#modules" class="btn btn-secondary">Ver qué hay dentro</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="wrap block" id="problem">
-    <h2 class="section-title">Cómo se ve el trading emocional en la práctica</h2>
-    <p class="section-sub">En el trading las decisiones se toman en el momento: bajo presión, tras una serie de pérdidas, en estado de cansancio.</p>
-    <div class="card">
-      <ul>
-        <li>El FOMO te hace entrar tarde: compras cerca de los máximos porque “y si sigue subiendo”.</li>
-        <li>Después de 2–3 stops empiezas a “vengarte” del mercado, aumentas tamaño y rompes tu gestión de riesgo.</li>
-        <li>El beneficio ganado por la mañana desaparece por la tarde cuando el cerebro ya está en piloto automático.</li>
-        <li>Mantienes posiciones perdedoras “porque duele cerrarlas” y cierras demasiado pronto las ganadoras.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="wrap block" id="modules">
-    <h2 class="section-title">Dentro del mini curso</h2>
-    <div class="icon-grid">
-      <article class="card">
-        <h3>Módulo 1. Por qué el cerebro sabotea el trading</h3>
-        <p>15–18 min</p>
-        <ul>
-          <li>Corteza prefrontal vs amígdala: cómo el estrés cambia las decisiones del trader.</li>
-          <li>3 tipos de trampas mentales: las que bloquean operaciones, provocan riesgo extra o distorsionan la imagen del mercado.</li>
-          <li>Ejercicio: análisis de 3 operaciones recientes e identificación de tus propios patrones.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h3>Módulo 2. Checklist de 30 segundos antes de operar</h3>
-        <p>18–20 min</p>
-        <ul>
-          <li>5 errores psicológicos clave: aversión a la pérdida, overtrading, confirmation bias, anclaje, fatiga de decisión.</li>
-          <li>Checklist “Antes de la operación” en PDF — 5–7 preguntas que completas en 30 segundos.</li>
-          <li>Casos: cómo el checklist cambia las decisiones en distintos escenarios de mercado.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h3>Módulo 3. Protocolo del día del trader</h3>
-        <p>15–18 min</p>
-        <ul>
-          <li>Decision fatigue: por qué después de cierto número de decisiones la disciplina cae y la impulsividad crece.</li>
-          <li>Límites diarios: número de operaciones, bloques de tiempo, reglas de pausa tras stops y rachas ganadoras.</li>
-          <li>Plantilla “Protocolo de mi día” para una semana — PDF/Google Sheet.</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="wrap block" id="about">
-    <h2 class="section-title">Quién trabaja contigo</h2>
-    <div class="grid-2">
+    <section class="wrap block" id="problem">
+      <h2 class="section-title">Cómo se ve el trading emocional en la práctica</h2>
+      <p class="section-sub">
+        En el trading las decisiones se toman en el momento: bajo presión, tras una serie de pérdidas, en estado de cansancio.
+      </p>
       <div class="card">
-        <p>Trabajé 5 años como gestora de cartera en un fondo de Kiev. Pasé por el burnout y volví al trading con otro enfoque hacia la higiene mental. Terminé un máster en economía del comportamiento, estudio más de 216 sesgos cognitivos, neuroeconomía y psicología de las decisiones financieras, y me desarrollo en FinTech. Este mini curso es un concentrado de práctica de trading y ciencia del cerebro en solo tres lecciones.</p>
-      </div>
-      <div class="card">
-        <h3>Parámetros clave</h3>
         <ul>
-          <li>Experiencia en trading — 5 años.</li>
-          <li>Más de 216 sesgos cognitivos estudiados.</li>
-          <li>Foco — economía conductual y neuroeconomía.</li>
+          <li>El FOMO te hace entrar tarde: compras cerca de los máximos porque “y si sigue subiendo”.</li>
+          <li>Después de 2–3 stops empiezas a “vengarte” del mercado, aumentas el tamaño y rompes tu gestión de riesgo.</li>
+          <li>El beneficio ganado por la mañana desaparece por la tarde cuando el cerebro ya está en piloto automático.</li>
+          <li>Mantienes posiciones perdedoras “porque duele cerrarlas” y cierras demasiado pronto las ganadoras.</li>
         </ul>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="wrap block" id="offer">
-    <h2 class="section-title">Acceso al mini curso</h2>
-    <div class="panel">
-      <div class="grid-2" style="align-items:start">
-        <div>
-          <div class="section-sub" style="margin-bottom:8px">Pago único</div>
-          <div class="price"> 55 $</div>
-          <div class="eyeline" style="margin-bottom:16px">
-            <span class="chip">CANAL DE TELEGRAM</span>
-          </div>
-          <p class="section-sub">
-            📺 3 videolecciones (45–60 min) · 📄 3 PDFs (checklist, protocolo diario, infografía de sesgos) · 🔐 Canal privado de Telegram con todo el material.
+    <section class="wrap block" id="modules">
+      <h2 class="section-title">Dentro del mini curso</h2>
+      <div class="icon-grid">
+        <article class="card">
+          <h3>Módulo 1. Por qué el cerebro sabotea el trading</h3>
+          <p>15–18 min</p>
+          <ul>
+            <li>Corteza prefrontal vs amígdala: cómo el estrés cambia las decisiones del trader.</li>
+            <li>3 tipos de trampas mentales: las que bloquean operaciones, provocan riesgo extra o distorsionan la imagen del mercado.</li>
+            <li>Ejercicio: análisis de 3 operaciones recientes e identificación de tus propios patrones.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Módulo 2. Checklist de 30 segundos antes de operar</h3>
+          <p>18–20 min</p>
+          <ul>
+            <li>5 errores psicológicos clave: aversión a la pérdida, overtrading, confirmation bias, anclaje, fatiga de decisión.</li>
+            <li>Checklist “Antes de la operación” en PDF — 5–7 preguntas que completas en 30 segundos.</li>
+            <li>Casos: cómo el checklist cambia las decisiones en distintos escenarios de mercado.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Módulo 3. Protocolo del día del trader</h3>
+          <p>15–18 min</p>
+          <ul>
+            <li>Decision fatigue: por qué después de cierto número de decisiones la disciplina cae y la impulsividad crece.</li>
+            <li>Límites diarios: número de operaciones, bloques de tiempo, reglas de pausa tras stops y rachas ganadoras.</li>
+            <li>Plantilla “Protocolo de mi día” para una semana — PDF/Google Sheet.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap block" id="about">
+      <h2 class="section-title">Quién trabaja contigo</h2>
+      <div class="grid-2">
+        <div class="card">
+          <p>
+            Trabajé 5 años como gestora de cartera en un fondo en Kiev.
+            Pasé por el burnout y volví al trading con otro enfoque hacia la higiene mental.
+            Terminé un máster en economía del comportamiento, estudio más de 216 sesgos cognitivos,
+            neuroeconomía y psicología de las decisiones financieras, y me desarrollo en FinTech.
+            Este mini curso es un concentrado de práctica de trading y ciencia del cerebro en solo tres lecciones.
           </p>
         </div>
-        <div>
-          <div class="cta">
-            <a href="https://t.me/AnnaFinPsy" class="btn btn-primary" target="_blank" rel="noopener">Escribir por Telegram para unirse</a>
-            <a href="https://wa.me/380933931614" class="btn btn-secondary" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        <div class="card">
+          <h3>Parámetros clave</h3>
+          <ul>
+            <li>Experiencia en trading — 5 años.</li>
+            <li>Más de 216 sesgos cognitivos estudiados.</li>
+            <li>Foco — economía conductual y neuroeconomía.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap block" id="offer">
+      <h2 class="section-title">Acceso al mini curso</h2>
+      <div class="panel">
+        <div class="grid-2" style="align-items:start">
+          <div>
+            <div class="section-sub" style="margin-bottom:8px">Pago único</div>
+            <div class="price">48 $</div>
+            <div class="eyeline" style="margin-bottom:16px">
+              <span class="chip">CANAL DE TELEGRAM</span>
+            </div>
+            <p class="section-sub">
+              📺 3 videolecciones (45–60 min) · 📄 3 PDFs (checklist, protocolo diario, infografía de sesgos) · 🔐 Canal privado de Telegram con todo el material.
+            </p>
           </div>
-          <p class="section-sub" style="margin-top:14px">
-            Te enviaré los datos de pago y el enlace al canal privado de Telegram.
-          </p>
+          <div>
+            <div class="cta">
+              <a
+                href="https://t.me/AnnaFinPsy"
+                class="btn btn-primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Escribir por Telegram para unirse</a>
+              <a
+                href="https://wa.me/380933931614"
+                class="btn btn-secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Escribir por WhatsApp</a>
+            </div>
+            <p class="section-sub" style="margin-top:14px">
+              Te enviaré los datos de pago y el enlace al canal privado de Telegram.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
 
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <h4>TELWHA</h4>
-        <p>Psicología financiera · economía conductual · arquitectura de elección para mejores decisiones y resultados más estables.</p>
-      </div>
-      <div style="text-align:right">
-        <h4>Navegación</h4>
-        <div class="footer-links" style="align-items:flex-end">
-          <a href="/es/">Inicio</a>
-          <a href="/es/about/">Sobre mí</a>
-          <a href="/finlab/index.html">FinLab</a>
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>TELWHA</h4>
+          <p>Psicología financiera · economía conductual · arquitectura de elección para mejores decisiones y resultados más estables.</p>
+        </div>
+        <div style="text-align:right">
+          <h4>Navegación</h4>
+          <div class="footer-links" style="align-items:flex-end">
+            <a href="/es/">Inicio</a>
+            <a href="/es/about/">Sobre mí</a>
+            <a href="/es/finlab/">FinLab</a>
+          </div>
+        </div>
+        <div>
+          <h4>Acciones</h4>
+          <div class="footer-links">
+            <a href="/es/archetype-test/">Hacer el test de arquetipos</a>
+            <a href="/es/cases/">Ver casos</a>
+          </div>
         </div>
       </div>
-      <div>
-        <h4>Acciones</h4>
-        <div class="footer-links">
-          <a href="/es/archetype-test/">Hacer el test de arquetipos</a>
-          <a href="/es/cases/">Ver casos</a>
-        </div>
+      <div class="footer-bottom">
+        <span>© 2026 TELWHA. Todos los derechos reservados.</span>
+        <span>Kyiv, Ucrania · 🇺🇦</span>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 TELWHA. Todos los derechos reservados.</span>
-      <span>Kiev, Ucrania · 🇺🇦</span>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<script src="/static/script/global.js"></script>
+  <script src="/static/script/global.js"></script>
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const siteMenu = document.querySelector("#site-menu");
+
+    if (menuToggle && siteMenu) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = siteMenu.classList.toggle("is-open");
+        menuToggle.classList.toggle("is-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        menuToggle.setAttribute(
+          "aria-label",
+          isOpen ? "Cerrar menú" : "Abrir menú"
+        );
+      });
+    }
+  </script>
 </body>
 </html>

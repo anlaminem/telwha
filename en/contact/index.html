@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — TELWHA</title>
-
-  <!-- CSS: один рівень вище, бо файл у папці en/ -->
   <meta name="description" content="TELWHA: Write to me directly.">
 
   <link rel="canonical" href="https://t-e-l-w-h-a.com/en/contact/">
@@ -17,8 +14,7 @@
   <meta property="og:url" content="https://t-e-l-w-h-a.com/en/contact/">
   <meta property="og:site_name" content="TELWHA">
 
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -26,7 +22,7 @@
     gtag('config', 'G-FVHKD6TZJP');
   </script>
 
-  <!-- JSON-LD: Person (Anna) -->
+  <!-- Person -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -35,7 +31,7 @@
     "url": "https://t-e-l-w-h-a.com",
     "image": "https://t-e-l-w-h-a.com/static/media/main_photo.jpg",
     "jobTitle": "Financial Psychologist & Behavioral Analyst",
-    "description": "Financial psychologist and behavioral analyst combining trading, behavioral finance and data in TELWHA.",
+    "description": "Financial psychologist and behavioral analyst combining work with the nervous system, the markets and data in TELWHA.",
     "sameAs": [
       "https://www.youtube.com/@TelwhaUA",
       "https://www.youtube.com/@Telwha",
@@ -44,7 +40,7 @@
   }
   </script>
 
-  <!-- JSON-LD: Organization (TELWHA) -->
+  <!-- Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -61,7 +57,7 @@
   }
   </script>
 
-  <!-- JSON-LD: ContactPage (EN) -->
+  <!-- ContactPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -72,22 +68,15 @@
     "inLanguage": "en"
   }
   </script>
-  
-  <link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
   <link rel="stylesheet" href="/static/css/base.css">
   <link rel="stylesheet" href="/static/css/layout-contact.css">
 </head>
 <body>
-  <!-- language switcher -->
-  <details class="lang-switcher">
-    <summary>🇬🇧</summary>
-    <div class="lang-list">
-      <a href="/contact/" aria-label="Українська">🇺🇦</a>
-      <a href="/es/contact/" aria-label="Español">🇪🇸</a>
-    </div>
-  </details>
+  <div class="progress" id="progress"></div>
 
- <header class="topbar">
+  <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
         <a class="brand-row" href="/en/">
@@ -95,17 +84,30 @@
         </a>
         <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
       </div>
-      <nav class="menu">
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        aria-label="Open menu"
+      >
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <nav class="menu" id="site-menu">
         <div class="menu-group">
           <a href="/en/">Home</a>
-          <a href="/finlab/index.html">" class="menu-highlightFinLab</a>
+          <a href="/en/finlab/">FinLab</a>
           <a href="/en/about/">About</a>
         </div>
 
         <div class="menu-group menu-dropdown">
-          <button type="button" class="menu-dropbtn">
-            For traders ▾
-          </button>
+          <button type="button" class="menu-dropbtn">For traders ▾</button>
           <div class="menu-dropcontent">
             <a href="/en/trader-course/">Mini‑course</a>
             <a href="/en/archetype-test/">Archetype test</a>
@@ -118,13 +120,23 @@
           <a href="/en/cases/">Cases</a>
           <a href="/en/contact/">Contact</a>
         </div>
-        <button class="theme-toggle" type="button">🌓</button>
+
+        <div class="menu-group menu-tools">
+          <details class="lang-switcher lang-switcher--inside">
+            <summary>🇬🇧</summary>
+            <div class="lang-list">
+              <a href="/contact/" aria-label="Українська" lang="uk">🇺🇦</a>
+              <a href="/es/contact/" aria-label="Español" lang="es">🇪🇸</a>
+            </div>
+          </details>
+
+          <button class="theme-toggle" type="button" aria-label="Change theme">🌓</button>
+        </div>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero">
       <div class="wrap hero-shell">
         <div class="hero-inner">
@@ -136,78 +148,78 @@
             </p>
             <div class="cta">
               <a class="btn btn-primary" href="#form">Send a request</a>
-              <a class="btn btn-secondary" href="https://t.me/AnnaFinPsy" target="_blank" rel="noopener">Telegram</a>
-              <a class="btn btn-secondary" href="https://wa.me/380933931614" target="_blank" rel="noopener">WhatsApp</a>
+              <a class="btn btn-secondary" href="https://t.me/AnnaFinPsy" target="_blank" rel="noopener noreferrer">Telegram</a>
+              <a class="btn btn-secondary" href="https://wa.me/380933931614" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             </div>
           </div>
+
           <div class="hero-note">
-            <strong>When to reach out</strong>
+            <strong>When to write</strong>
             <p>
-              Contact me if you need a consultation, want to join FinLab, get access to the mini course,
-              or if you have a request about content or collaboration.
+              Write if you need a consultation, want to join FinLab, get access to the mini course,
+              or have a request about content or collaboration.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FORM -->
-  <section class="section" id="form">
-    <div class="wrap panel">
-      <div class="grid-2">
-        <div>
-          <div class="eyebrow" style="color:#f0b376">Form</div>
-          <h2 class="section-title">Send a request</h2>
-          <p class="section-sub">
-            Your request will be sent to my email.
-          </p>
-          <p class="small">
-            Briefly describe what you need right now: consultation, FinLab, mini‑course, test, or something else.
-          </p>
-        </div>
+    <section class="section" id="form">
+      <div class="wrap panel">
+        <div class="grid-2">
+          <div>
+            <div class="eyebrow" style="color:#f0b376">Form</div>
+            <h2 class="section-title">Send a request</h2>
+            <p class="section-sub">
+              Your request will be sent to my email.
+            </p>
+            <p class="small">
+              Briefly describe what you need right now: consultation, FinLab, mini course, test, or something else.
+            </p>
+          </div>
 
-        <div>
-          <form class="form" id="contactForm" novalidate>
-            <div class="field">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" placeholder="Your name" required>
-            </div>
+          <div>
+            <form class="form" id="contactForm" novalidate>
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required>
+              </div>
 
-            <div class="field">
-              <label for="contact">Contact</label>
-              <input
-                id="contact"
-                name="contact"
-                type="text"
-                placeholder="+380..., @username or email"
-                required
-              >
-              <small class="field-hint">Enter a phone number, Telegram @username or email</small>
-            </div>
+              <div class="field">
+                <label for="contact">Contact</label>
+                <input
+                  id="contact"
+                  name="contact"
+                  type="text"
+                  placeholder="+380..., @username or email"
+                  required
+                >
+                <small class="field-hint">Enter a phone number, Telegram @username or email</small>
+              </div>
 
-            <div class="field">
-              <label for="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Briefly describe your request"
-                required
-              ></textarea>
-            </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Briefly describe your request"
+                  required
+                ></textarea>
+              </div>
 
-            <div style="position:absolute;left:-5000px;" aria-hidden="true">
-              <label for="website">Do not fill in this field</label>
-              <input id="website" type="text" name="_honey" tabindex="-1" autocomplete="off">
-            </div>
+              <div style="position:absolute;left:-5000px;" aria-hidden="true">
+                <label for="website">Do not fill in this field</label>
+                <input id="website" type="text" name="_honey" tabindex="-1" autocomplete="off">
+              </div>
 
-            <button class="btn btn-primary" type="submit">Send</button>
+              <button class="btn btn-primary" type="submit">Send</button>
 
-            <p id="formStatus" style="display:none;margin-top:12px;color:#f0b376;"></p>
-          </form>
+              <p id="formStatus" style="display:none;margin-top:12px;color:#f0b376;"></p>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
   </main>
 
   <footer class="footer">
@@ -215,9 +227,9 @@
       <div class="footer-grid">
         <div>
           <h4>TELWHA</h4>
-          <p>Financial psychology, behavioral economics and choice architecture
-             for better decisions and more stable results.</p>
+          <p>Financial psychology, behavioral economics and choice architecture for better decisions and more stable results.</p>
         </div>
+
         <div style="text-align:right">
           <h4>Navigation</h4>
           <div class="footer-links" style="align-items:flex-end">
@@ -226,15 +238,17 @@
             <a href="/en/trader-course/">Mini course</a>
           </div>
         </div>
+
         <div>
           <h4>Contacts</h4>
           <div class="footer-links">
             <a href="mailto:annasignaevskaya@gmail.com">annasignaevskaya@gmail.com</a>
-            <a href="https://t.me/AnnaFinPsy" target="_blank" rel="noopener">Telegram</a>
-            <a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://t.me/AnnaFinPsy" target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a>
           </div>
         </div>
       </div>
+
       <div class="footer-bottom">
         <span>© 2026 TELWHA. All rights reserved.</span>
         <span>Kyiv, Ukraine · 🇺🇦</span>
@@ -243,6 +257,22 @@
   </footer>
 
   <script src="/static/script/global.js"></script>
-<script src="/static/script/contact.js"></script>
+  <script src="/static/script/contact.js"></script>
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const siteMenu = document.querySelector("#site-menu");
+
+    if (menuToggle && siteMenu) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = siteMenu.classList.toggle("is-open");
+        menuToggle.classList.toggle("is-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        menuToggle.setAttribute(
+          "aria-label",
+          isOpen ? "Close menu" : "Open menu"
+        );
+      });
+    }
+  </script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cases — TELWHA FinLab</title>
@@ -14,9 +14,7 @@
   <meta property="og:url" content="https://t-e-l-w-h-a.com/en/cases/">
   <meta property="og:site_name" content="TELWHA">
 
-
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -24,7 +22,6 @@
     gtag('config', 'G-FVHKD6TZJP');
   </script>
 
-  <!-- JSON-LD: Person (Anna) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -33,7 +30,7 @@
     "url": "https://t-e-l-w-h-a.com",
     "image": "https://t-e-l-w-h-a.com/static/media/main_photo.jpg",
     "jobTitle": "Financial Psychologist & Behavioral Analyst",
-    "description": "Financial psychologist and behavioral analyst combining trading, behavioral finance and data in TELWHA.",
+    "description": "Financial psychologist and behavioral analyst combining work with the nervous system, the markets and data in TELWHA.",
     "sameAs": [
       "https://www.youtube.com/@TelwhaUA",
       "https://www.youtube.com/@Telwha",
@@ -42,7 +39,6 @@
   }
   </script>
 
-  <!-- JSON-LD: Organization (TELWHA) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -59,7 +55,6 @@
   }
   </script>
 
-  <!-- JSON-LD: Cases CollectionPage (EN) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -70,19 +65,13 @@
     "inLanguage": "en"
   }
   </script>
-  
-  <link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
   <link rel="stylesheet" href="/static/css/base.css">
   <link rel="stylesheet" href="/static/css/layout-cases.css">
 </head>
 <body>
-  <details class="lang-switcher">
-    <summary>🇬🇧</summary>
-    <div class="lang-list">
-      <a href="/cases/" aria-label="Українська">🇺🇦</a>
-      <a href="/es/cases/" aria-label="Español">🇪🇸</a>
-    </div>
-  </details>
+  <div class="progress" id="progress"></div>
 
   <header class="topbar">
     <div class="wrap nav">
@@ -92,17 +81,30 @@
         </a>
         <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
       </div>
-      <nav class="menu">
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        aria-label="Open menu"
+      >
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <nav class="menu" id="site-menu">
         <div class="menu-group">
           <a href="/en/">Home</a>
-          <a href="/finlab/index.html">" class="menu-highlightFinLab</a>
+          <a href="/finlab/index.html">FinLab</a>
           <a href="/en/about/">About</a>
         </div>
 
         <div class="menu-group menu-dropdown">
-          <button type="button" class="menu-dropbtn">
-            For traders ▾
-          </button>
+          <button type="button" class="menu-dropbtn">For traders ▾</button>
           <div class="menu-dropcontent">
             <a href="/en/trader-course/">Mini‑course</a>
             <a href="/en/archetype-test/">Archetype test</a>
@@ -115,7 +117,18 @@
           <a href="/en/cases/">Cases</a>
           <a href="/en/contact/">Contact</a>
         </div>
-        <button class="theme-toggle" type="button">🌓</button>
+
+        <div class="menu-group menu-tools">
+          <details class="lang-switcher lang-switcher--inside">
+            <summary>🇬🇧</summary>
+            <div class="lang-list">
+              <a href="/cases/" aria-label="Українська">🇺🇦</a>
+              <a href="/es/cases/" aria-label="Español">🇪🇸</a>
+            </div>
+          </details>
+
+          <button class="theme-toggle" type="button" aria-label="Change theme">🌓</button>
+        </div>
       </nav>
     </div>
   </header>
@@ -126,13 +139,12 @@
         <div class="page-head-inner">
           <h1>Cases</h1>
           <p class="page-sub">
-            Each case shows how patterns of decisions, risk and load change once processes are structured.
+            Each case shows how decision patterns, risk and pressure change once processes become more structured.
           </p>
         </div>
       </section>
 
-      <!-- Tabs -->
-      <div class="case-tabs" aria-label="Filter cases">
+      <div class="case-tabs" aria-label="Case filter">
         <button class="case-tab active" type="button" data-filter="all">
           <span class="dot"></span>
           All cases
@@ -152,36 +164,32 @@
       </div>
 
       <p class="cases-hint">
-        Choose a category or just click on a card — a window with the full case breakdown will open.
+        Choose a category or click on a card right away — a window with the full case breakdown will open.
       </p>
 
-      <!-- GRID -->
       <section class="case-grid" id="caseGrid">
-        <!-- Trading 1 -->
         <article class="case-card" data-id="trading1" data-category="trading">
           <div class="case-card-pill">Trading</div>
           <small>Behavioral Diagnostics</small>
           <h3>Chronic “energy” with hidden exhaustion</h3>
-          <p class="case-card-line">Trader 7+ years · emotional burnout, risk without profit.</p>
+          <p class="case-card-line">Trader with 7+ years of experience · emotional exhaustion, risk without profit.</p>
           <div class="case-card-tags">
             <span>emotional exhaustion</span>
             <span>market overload</span>
           </div>
         </article>
 
-        <!-- Trading 2 -->
         <article class="case-card" data-id="trading2" data-category="trading">
           <div class="case-card-pill">Trading</div>
           <small>Capital Increase</small>
-          <h3>“Analysis paralysis” after a sharp portfolio growth</h3>
-          <p class="case-card-line">Switch to managing investors’ capital, impostor‑syndrome effect.</p>
+          <h3>“Analysis paralysis” after sharp portfolio growth</h3>
+          <p class="case-card-line">Transition to working with investors’ capital, impostor effect.</p>
           <div class="case-card-tags">
             <span>analysis paralysis</span>
             <span>structure of agreements</span>
           </div>
         </article>
 
-        <!-- Personal 1 -->
         <article class="case-card" data-id="personal1" data-category="personal">
           <div class="case-card-pill">Personal</div>
           <small>Spending chaos</small>
@@ -193,36 +201,33 @@
           </div>
         </article>
 
-        <!-- Personal 2 -->
         <article class="case-card" data-id="personal2" data-category="personal">
           <div class="case-card-pill">Personal</div>
           <small>Couples</small>
-          <h3>Conflicts in a couple around investments and debt</h3>
+          <h3>Conflicts in a couple because of investments and loans</h3>
           <p class="case-card-line">Different pace, different risk profile, no shared rules.</p>
           <div class="case-card-tags">
             <span>financial conflicts</span>
-            <span>risk mismatch</span>
+            <span>different risk profiles</span>
           </div>
         </article>
 
-        <!-- Business 1 -->
         <article class="case-card" data-id="business1" data-category="business">
           <div class="case-card-pill">Business</div>
-          <small>Education product</small>
-          <h3>Low course completion although the content is strong</h3>
-          <p class="case-card-line">Financial literacy course with high module drop‑rate.</p>
+          <small>Educational product</small>
+          <h3>Low course completion even though the content is strong</h3>
+          <p class="case-card-line">Financial literacy course with a high module drop‑rate.</p>
           <div class="case-card-tags">
             <span>drop‑rate</span>
             <span>behavioral design</span>
           </div>
         </article>
 
-        <!-- Business 2 -->
         <article class="case-card" data-id="business2" data-category="business">
           <div class="case-card-pill">Business</div>
           <small>Financial service</small>
-          <h3>Clients ignore the budgeting tool</h3>
-          <p class="case-card-line">Budget module in an app with low activation.</p>
+          <h3>Clients ignore the budget planning tool</h3>
+          <p class="case-card-line">Budget module in the app, low activation.</p>
           <div class="case-card-tags">
             <span>low activation</span>
             <span>UX friction</span>
@@ -230,12 +235,11 @@
         </article>
       </section>
 
-      <!-- CTA contacts -->
       <section class="cta-panel">
         <h2>How to get a similar analysis</h2>
         <div class="cta-links">
-          <a class="btn" href="https://t.me/AnnaFinPsy" target="_blank" rel="noopener">Write on Telegram</a>
-          <a class="btn" href="https://wa.me/380000000000" target="_blank" rel="noopener">Write on WhatsApp</a>
+          <a class="btn" href="https://t.me/AnnaFinPsy" target="_blank" rel="noopener noreferrer">Write on Telegram</a>
+          <a class="btn" href="https://wa.me/380000000000" target="_blank" rel="noopener noreferrer">Write on WhatsApp</a>
           <a class="btn" href="/en/contact/">Request a case review</a>
         </div>
       </section>
@@ -265,7 +269,6 @@
     </div>
   </footer>
 
-  <!-- MODAL -->
   <div class="modal-backdrop" id="caseModalBackdrop" aria-hidden="true">
     <article class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <button class="modal-close" type="button" aria-label="Close">×</button>
@@ -274,6 +277,22 @@
   </div>
 
   <script src="/static/script/global.js"></script>
-<script src="/static/script/cases.js"></script>
+  <script src="/static/script/cases.js"></script>
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const siteMenu = document.querySelector("#site-menu");
+
+    if (menuToggle && siteMenu) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = siteMenu.classList.toggle("is-open");
+        menuToggle.classList.toggle("is-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        menuToggle.setAttribute(
+          "aria-label",
+          isOpen ? "Close menu" : "Open menu"
+        );
+      });
+    }
+  </script>
 </body>
 </html>

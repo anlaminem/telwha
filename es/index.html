@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TELWHA | Decisiones financieras con calma</title>
-  <meta name="description" content="TELWHA: Decisiones tranquilas sobre el dinero y resultados más estables incluso en tiempos de incertidumbre.">
+  <title>TELWHA | Finanzas sin caos</title>
+  <meta name="description" content="TELWHA: Decisiones serenas sobre el dinero y resultados más estables incluso en condiciones de incertidumbre.">
 
   <link rel="canonical" href="https://t-e-l-w-h-a.com/es/">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="TELWHA | Decisiones financieras con calma">
-  <meta property="og:description" content="TELWHA: Decisiones tranquilas sobre el dinero y resultados más estables incluso en tiempos de incertidumbre.">
+  <meta property="og:title" content="TELWHA | Finanzas sin caos">
+  <meta property="og:description" content="TELWHA: Decisiones serenas sobre el dinero y resultados más estables incluso en condiciones de incertidumbre.">
   <meta property="og:url" content="https://t-e-l-w-h-a.com/es/">
   <meta property="og:site_name" content="TELWHA">
 
-
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-FVHKD6TZJP');
   </script>
+
   <!-- JSON-LD: Person (Anna) -->
   <script type="application/ld+json">
   {
@@ -33,11 +34,18 @@
     "url": "https://t-e-l-w-h-a.com",
     "image": "https://t-e-l-w-h-a.com/static/media/main_photo.jpg",
     "jobTitle": "Financial Psychologist & Behavioral Analyst",
-    "description": "Psicología financiera, finanzas conductuales y el framework TELWHA para decisiones estables sobre el dinero.",
+    "description": "Economía conductual, psicología financiera y el framework TELWHA para decisiones más estables sobre el dinero.",
     "sameAs": [
       "https://www.youtube.com/@TelwhaUA",
       "https://www.youtube.com/@Telwha",
       "https://www.linkedin.com/in/anna-signaevskaya"
+    ],
+    "knowsAbout": [
+      "Behavioral Finance",
+      "Trading Psychology",
+      "Cognitive Biases",
+      "Nudge Theory",
+      "Neuroeconomics"
     ]
   }
   </script>
@@ -59,7 +67,7 @@
   }
   </script>
 
-  <!-- JSON-LD: WebSite (versión ES) -->
+  <!-- JSON-LD: WebSite -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -69,23 +77,17 @@
     "inLanguage": "es"
   }
   </script>
-  
+
   <link rel="icon" href="/static/media/telwha-favicon.png" type="png">
   <link rel="stylesheet" href="/static/css/base.css">
   <link rel="stylesheet" href="/static/css/layout-home.css">
 </head>
+
 <body>
-  <details class="lang-switcher">
-    <summary>🇪🇸</summary>
-    <div class="lang-list">
-      <a href="/index.html" aria-label="Українська">🇺🇦</a>
-      <a href="/en/index.html" aria-label="English">🇬🇧</a>
-    </div>
-  </details>
 
   <div class="progress" id="progress"></div>
 
- <header class="topbar">
+  <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
         <a class="brand-row" href="/es/">
@@ -93,12 +95,28 @@
         </a>
         <span class="sub">PSICOLOGÍA FINANCIERA · ESTRATEGIA CONDUCTUAL</span>
       </div>
-      <nav class="menu">
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        aria-label="Abrir menú"
+      >
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <nav class="menu" id="site-menu">
         <div class="menu-group">
           <a href="/es/">Inicio</a>
-          <a href="/finlab/index.html">FinLab</a>
+          <a href="/finlab/">FinLab</a>
           <a href="/es/about/">Sobre mí</a>
         </div>
+
         <div class="menu-group menu-dropdown">
           <button type="button" class="menu-dropbtn">Para traders ▾</button>
           <div class="menu-dropcontent">
@@ -106,13 +124,25 @@
             <a href="/es/archetype-test/">Test de arquetipos</a>
           </div>
         </div>
+
         <div class="menu-group">
           <a href="/es/articles/">Artículos</a>
-          <a href="/es/reviews/">Testimonios</a>
+          <a href="/es/reviews/">Opiniones</a>
           <a href="/es/cases/">Casos</a>
           <a href="/es/contact/">Contacto</a>
         </div>
-        <button class="theme-toggle" type="button">🌓</button>
+
+        <div class="menu-group menu-tools">
+          <details class="lang-switcher lang-switcher--inside">
+            <summary>🇪🇸</summary>
+            <div class="lang-list">
+              <a href="/index.html" aria-label="Українська">🇺🇦</a>
+              <a href="/en/index.html" aria-label="English">🇬🇧</a>
+            </div>
+          </details>
+
+          <button class="theme-toggle" type="button" aria-label="Cambiar tema">🌓</button>
+        </div>
       </nav>
     </div>
   </header>
@@ -125,8 +155,8 @@
           <div class="hero-grid">
             <div class="hero-copy">
               <h1>
-                Decisiones tranquilas sobre el dinero<br>
-                <span class="hero-sub">y resultados más estables incluso en tiempos de incertidumbre</span>
+                Decisiones serenas sobre el dinero<br>
+                <span class="hero-sub">y resultados más estables incluso en condiciones de incertidumbre</span>
               </h1>
               <p class="lead">
                 Combino psicología, finanzas conductuales, conocimiento de instrumentos financieros y experiencia en trading
@@ -139,13 +169,13 @@
                 <button class="btn btn-ghost" style="padding:4px 10px;font-size:0.78rem;border-radius:999px;" data-href="/finlab/">
                   FinLab Telwha
                 </button>
-                <span class="small-note">Clientes de Ucrania, la UE y EE. UU.</span>
+                <span class="small-note">Clientes de Ucrania, la UE y Estados Unidos.</span>
               </div>
             </div>
             <div class="hero-side">
               <div class="hero-panel">
                 <p>
-                  Ofrezco herramientas psicológicas y financieras adaptadas a tus objetivos y a tu forma de ser.
+                  Ofrezco herramientas psicológicas y financieras adaptadas a tus objetivos y a tu personalidad.
                 </p>
               </div>
             </div>
@@ -154,20 +184,22 @@
           <div id="segments" class="segment-cards">
             <button type="button" class="segment-card active" data-target="segment-retail">
               <div class="segment-card-pill">
-<span class="dot"></span><span>para personas con estrés financiero</span>
-</div>
-              <p>Trabajas, pero el dinero agota. Precios altos, deudas, ingresos inestables.</p>
+                <span class="dot"></span><span>para personas con estrés financiero</span>
+              </div>
+              <p>Trabajas, pero el dinero te agota. Precios altos, créditos e ingresos inestables.</p>
             </button>
+
             <button type="button" class="segment-card" data-target="segment-trader">
               <div class="segment-card-pill">
-<span class="dot"></span><span>para traders e inversores</span>
-</div>
-              <p>Conoces la estrategia, pero pulsas los botones desde la emoción y los resultados se tambalean.</p>
+                <span class="dot"></span><span>para traders / inversores</span>
+              </div>
+              <p>Conoces la estrategia, pero operas desde la emoción y tus resultados oscilan.</p>
             </button>
+
             <button type="button" class="segment-card" data-target="segment-biz">
               <div class="segment-card-pill">
-<span class="dot"></span><span>para negocios y fintech</span>
-</div>
+                <span class="dot"></span><span>para negocios / fintech</span>
+              </div>
               <p>Necesitas insights conductuales sobre tus clientes para productos, crédito e inversión.</p>
             </button>
           </div>
@@ -175,24 +207,24 @@
           <div class="segment-details-wrapper">
             <div id="segment-retail" class="segment-details active">
               <ul>
-                <li>«Gano dinero, pero nunca alcanza; parece que los “agujeros” financieros no se cierran.»</li>
-                <li>Estrés constante por facturas, deudas y precios, sensación de vivir de pago en pago.</li>
+                <li>«Gano dinero, pero nunca alcanza; parece que las “fugas” financieras no terminan.»</li>
+                <li>Estrés por facturas, créditos y precios, y la sensación de vivir de pago en pago.</li>
                 <li>Las conversaciones sobre dinero terminan en discusiones, silencio o evitación del tema.</li>
               </ul>
             </div>
 
             <div id="segment-trader" class="segment-details">
               <ul>
-                <li>FOMO, revenge trading, aumento de tamaño después de noticias o una racha de pérdidas.</li>
-                <li>El plan funciona en backtest, pero “se cae” en el trading en vivo.</li>
-                <li>Miedo a repetir grandes pérdidas y, al mismo tiempo, dificultad para alejarse del mercado.</li>
+                <li>FOMO, revenge‑trading, aumento del tamaño de posición después de noticias o una serie de pérdidas.</li>
+                <li>El plan se mantiene en backtesting, pero “se desmorona” en el trading en vivo.</li>
+                <li>Miedo a repetir grandes pérdidas y, al mismo tiempo, dificultad para soltar el mercado.</li>
               </ul>
             </div>
 
             <div id="segment-biz" class="segment-details">
               <ul>
-                <li>No está claro cómo tus clientes perciben realmente el riesgo, el crédito, la inversión y los precios.</li>
-                <li>Sientes una brecha entre el comportamiento de las personas y cómo están diseñados el producto y la comunicación.</li>
+                <li>No está del todo claro cómo los clientes perciben el riesgo, el crédito, la inversión y los precios.</li>
+                <li>Sientes una brecha entre el comportamiento real de las personas y cómo están diseñados el producto y la comunicación.</li>
                 <li>Necesitas insights conductuales de FinLab para producto, UX y marketing.</li>
               </ul>
             </div>
@@ -207,14 +239,14 @@
         <div class="photo-box">
           <img src="/static/media/main_photo.jpg" alt="Anna">
           <div class="photo-caption">
-            <p>Hola, soy Anna. Encantada.</p>
+            <p>Hola, soy Anna. Encantada de conocerte.</p>
           </div>
         </div>
 
         <div class="cases-column">
           <div class="cases-heading">Casos</div>
           <div class="cases-grid">
-            <button class="case-pill" data-href="/es/cases/#trading">
+            <button class="case-pill" data-href="cases/#trading">
               <div class="case-pill-main">
                 <span class="case-pill-title">Trading &amp; Investing</span>
                 <span class="case-pill-tagline">emociones, riesgo, capital de inversores</span>
@@ -222,7 +254,7 @@
               <span class="case-pill-badge">traders</span>
             </button>
 
-            <button class="case-pill" data-href="/es/cases/#personal">
+            <button class="case-pill" data-href="cases/#personal">
               <div class="case-pill-main">
                 <span class="case-pill-title">Finanzas personales</span>
                 <span class="case-pill-tagline">caos en gastos, parejas y dinero</span>
@@ -230,17 +262,17 @@
               <span class="case-pill-badge">no financieros</span>
             </button>
 
-            <button class="case-pill" data-href="/es/cases/#business">
+            <button class="case-pill" data-href="cases/#business">
               <div class="case-pill-main">
-                <span class="case-pill-title">Negocio y producto</span>
+                <span class="case-pill-title">Negocio &amp; Producto</span>
                 <span class="case-pill-tagline">cursos, servicios financieros, diseño conductual</span>
               </div>
-              <span class="case-pill-badge">B2C / fintech</span>
+              <span class="case-pill-badge">b2c / fintech</span>
             </button>
 
-            <button class="case-pill">
+            <button class="case-pill" type="button">
               <div class="case-pill-main">
-                <span class="case-pill-title">Casos de investigación</span>
+                <span class="case-pill-title">Casos científicos</span>
                 <span class="case-pill-tagline">inteligencia emocional, nudges, NLP, sesgos</span>
               </div>
               <span class="case-pill-badge">research</span>
@@ -253,23 +285,21 @@
     <section class="section">
       <div class="wrap grid-2 fade-in">
         <div class="card">
-          <h3>
-<span class="icon-blob"></span>Qué hago</h3>
+          <h3><span class="title-diamond"></span>Qué hago</h3>
           <ul>
-            <li>Analizo tu comportamiento financiero: cómo piensas, sientes y actúas bajo presión del dinero.</li>
-            <li>Muéstrate patrones de decisión repetitivos en momentos de estrés, falta de tiempo y ruido informativo.</li>
-            <li>Combino el trabajo con el sistema nervioso (reacciones de lucha/huida/parálisis) con acciones concretas sobre el dinero.</li>
-            <li>Lo conecto con herramientas financieras: presupuestos, carteras, estrategias y gestión de riesgos.</li>
+            <li>Analizo la conducta financiera: cómo piensas, sientes y actúas bajo presión del dinero.</li>
+            <li>Identifico patrones repetitivos de decisión en estrés, falta de tiempo y ruido informativo.</li>
+            <li>Combino el trabajo con el sistema nervioso (lucha / huida / congelación) con acciones concretas sobre el dinero.</li>
+            <li>Lo conecto con herramientas financieras: presupuestos, carteras, estrategias y gestión del riesgo.</li>
           </ul>
         </div>
         <div class="card">
-          <h3>
-<span class="icon-chart"></span>En qué me diferencio</h3>
+          <h3><span class="title-diamond"></span>Qué me diferencia</h3>
           <ul>
-            <li>No trabajo solo con emociones, sino también con pensamiento, hábitos y patrones del sistema nervioso.</li>
-            <li>No veo solo una “operación fallida” o una “compra impulsiva”, sino el mecanismo que lleva hasta allí.</li>
-            <li>Uno el trabajo psicológico con los números: resultados de trading, gastos y rentabilidad de los instrumentos.</li>
-            <li>Me centro no en subidones de motivación, sino en reglas estables y una estructura clara para las decisiones sobre el dinero.</li>
+            <li>Trabajo no solo con emociones, sino también con pensamiento, hábitos y patrones del sistema nervioso.</li>
+            <li>No veo solo una “operación fallida” o una “compra impulsiva”, sino el mecanismo que conduce a ello.</li>
+            <li>Uno el trabajo psicológico con los números: resultados de trading, gastos y rendimiento de los instrumentos.</li>
+            <li>Me centro en reglas estables y una estructura clara para las decisiones sobre el dinero.</li>
           </ul>
         </div>
       </div>
@@ -277,24 +307,25 @@
 
     <section id="lab" class="section">
       <div class="wrap panel fade-in">
-        <div class="eyebrow" style="color:#f0b376">
-<span>FinLab</span> Telwha</div>
+        <div class="eyebrow finlab-eyebrow">
+          <span>FinLab</span> Telwha
+        </div>
         <h2 class="section-title">Tests y diagnóstico</h2>
         <div class="grid-2">
-          <div class="card" style="background:#05070b;border-color:rgba(255,255,255,0.12);box-shadow:none">
-            <h3>Test de comportamiento financiero</h3>
-            <p>Un breve retrato de cómo tomas decisiones sobre dinero bajo la presión de precios, deudas y noticias. Los datos se integran en la investigación de FinLab.</p>
+          <div class="card finlab-card">
+            <h3>Test de conducta financiera</h3>
+            <p>Un corte breve de cómo tomas decisiones sobre dinero bajo la presión de precios, deudas y noticias. Los datos se integran en la investigación de FinLab.</p>
             <div class="tagrow">
               <span class="tag">Diagnóstico</span>
-              <span class="tag">Estudio masivo</span>
+              <span class="tag">Investigación masiva</span>
             </div>
             <div class="cta" style="margin-top:14px">
-              <a class="btn btn-primary" href="#">Hacer el test (5–7 min)</a>
+              <a class="btn btn-primary" href="/finlab/money-test-api/money-test.html">Hacer el test (5–7 min)</a>
             </div>
           </div>
-          <div class="card" style="background:#05070b;border-color:rgba(255,255,255,0.12);box-shadow:none">
-            <h3>Test de arquetipos de trader</h3>
-            <p>Para traders que quieren entender mejor su estilo, reacción al riesgo y errores típicos para ajustar la estrategia a sí mismos.</p>
+          <div class="card finlab-card">
+            <h3>Test de arquetipos del trader</h3>
+            <p>Para traders que quieren comprender mejor su estilo, sus reacciones al riesgo y sus errores típicos, y así ajustar la estrategia a sí mismos.</p>
             <div class="tagrow">
               <span class="tag">Arquetipos</span>
               <span class="tag">Riesgo</span>
@@ -316,7 +347,7 @@
       <div class="footer-grid fade-in">
         <div>
           <h4>TELWHA</h4>
-          <p>Psicología financiera, economía conductual y arquitectura de elección para decisiones financieras más resilientes.</p>
+          <p>Psicología financiera, economía conductual y arquitectura de elección para decisiones financieras más sólidas.</p>
         </div>
         <div style="text-align:right">
           <h4>Navegación</h4>
@@ -335,5 +366,20 @@
   </footer>
 
   <script src="/static/script/global.js"></script>
+
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const siteMenu = document.querySelector("#site-menu");
+
+    if (menuToggle && siteMenu) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = siteMenu.classList.toggle("is-open");
+        menuToggle.classList.toggle("is-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+      });
+    }
+  </script>
 </body>
+
 </html>

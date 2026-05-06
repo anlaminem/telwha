@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacto — TELWHA</title>
-
-  <!-- CSS у корені сайту -->
   <meta name="description" content="TELWHA: Escríbeme directamente.">
 
   <link rel="canonical" href="https://t-e-l-w-h-a.com/es/contact/">
@@ -16,16 +13,15 @@
   <meta property="og:description" content="TELWHA: Escríbeme directamente.">
   <meta property="og:url" content="https://t-e-l-w-h-a.com/es/contact/">
   <meta property="og:site_name" content="TELWHA">
-  
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-FVHKD6TZJP');
   </script>
-  <!-- JSON-LD: Person (Anna) -->
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -34,7 +30,7 @@
     "url": "https://t-e-l-w-h-a.com",
     "image": "https://t-e-l-w-h-a.com/static/media/main_photo.jpg",
     "jobTitle": "Financial Psychologist & Behavioral Analyst",
-    "description": "Psicología financiera, finanzas conductuales y el framework TELWHA para decisiones estables sobre el dinero.",
+    "description": "Psicóloga financiera y analista conductual que combina trabajo con el sistema nervioso, el mercado y los datos en TELWHA.",
     "sameAs": [
       "https://www.youtube.com/@TelwhaUA",
       "https://www.youtube.com/@Telwha",
@@ -43,7 +39,6 @@
   }
   </script>
 
-  <!-- JSON-LD: Organization (TELWHA) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -60,30 +55,23 @@
   }
   </script>
 
-  <!-- JSON-LD: Contact WebPage (ES) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     "name": "Contacto — TELWHA",
-    "description": "Página de contacto de TELWHA para consultas, FinLab, mini curso, tests y colaboraciones.",
+    "description": "Página de contacto de TELWHA para escribir a Anna sobre consultas, FinLab, mini curso, tests y colaboraciones.",
     "url": "https://t-e-l-w-h-a.com/es/contact/",
     "inLanguage": "es"
   }
   </script>
-  
-  <link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
   <link rel="stylesheet" href="/static/css/base.css">
   <link rel="stylesheet" href="/static/css/layout-contact.css">
 </head>
 <body>
-  <details class="lang-switcher">
-    <summary>🇪🇸</summary>
-    <div class="lang-list">
-      <a href="/contact/" aria-label="Українська">🇺🇦</a>
-      <a href="/en/contact/" aria-label="English">🇬🇧</a>
-    </div>
-  </details>
+  <div class="progress" id="progress"></div>
 
   <header class="topbar">
     <div class="wrap nav">
@@ -91,14 +79,30 @@
         <a class="brand-row" href="/es/">
           <strong>TELWHA</strong>
         </a>
-        <span class="sub">PSICOLOGÍA FINANCIERA · ESTRATEGIA CONDUCTUAL</span>
+        <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
       </div>
-      <nav class="menu">
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        aria-label="Abrir menú"
+      >
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <nav class="menu" id="site-menu">
         <div class="menu-group">
           <a href="/es/">Inicio</a>
-          <a href="/finlab/index.html">FinLab</a>
+          <a href="/finlab/">FinLab</a>
           <a href="/es/about/">Sobre mí</a>
         </div>
+
         <div class="menu-group menu-dropdown">
           <button type="button" class="menu-dropbtn">Para traders ▾</button>
           <div class="menu-dropcontent">
@@ -106,19 +110,30 @@
             <a href="/es/archetype-test/">Test de arquetipos</a>
           </div>
         </div>
+
         <div class="menu-group">
           <a href="/es/articles/">Artículos</a>
           <a href="/es/reviews/">Testimonios</a>
           <a href="/es/cases/">Casos</a>
           <a href="/es/contact/">Contacto</a>
         </div>
-        <button class="theme-toggle" type="button">🌓</button>
+
+        <div class="menu-group menu-tools">
+          <details class="lang-switcher lang-switcher--inside">
+            <summary>🇪🇸</summary>
+            <div class="lang-list">
+              <a href="/contact/" aria-label="Українська">🇺🇦</a>
+              <a href="/en/contact/" aria-label="English">🇬🇧</a>
+            </div>
+          </details>
+
+          <button class="theme-toggle" type="button" aria-label="Cambiar tema">🌓</button>
+        </div>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero">
       <div class="wrap hero-shell">
         <div class="hero-inner">
@@ -126,26 +141,25 @@
             <div class="eyebrow">Contacto</div>
             <h1>Escríbeme directamente</h1>
             <p class="lead">
-              Para consultas, FinLab, el mini curso, tests, colaboraciones y peticiones de contenido.
+              Para consultas, FinLab, mini curso, tests, colaboraciones y solicitudes sobre contenido.
             </p>
             <div class="cta">
               <a class="btn btn-primary" href="#form">Enviar solicitud</a>
-              <a class="btn btn-secondary" href="https://t.me/AnnaFinPsy" target="_blank" rel="noopener">Telegram</a>
-              <a class="btn btn-secondary" href="https://wa.me/380933931614" target="_blank" rel="noopener">WhatsApp</a>
+              <a class="btn btn-secondary" href="https://t.me/AnnaFinPsy" target="_blank" rel="noopener noreferrer">Telegram</a>
+              <a class="btn btn-secondary" href="https://wa.me/380933931614" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             </div>
           </div>
+
           <div class="hero-note">
             <strong>Cuándo escribir</strong>
             <p>
-              Escríbeme si necesitas una consulta, quieres participar en FinLab, acceder al mini curso
-              o tienes una propuesta sobre contenido o colaboración.
+              Escríbeme si necesitas una consulta, participar en FinLab, acceder al mini curso o si tienes una solicitud sobre contenido o colaboración.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-        <!-- FORM -->
     <section class="section" id="form">
       <div class="wrap panel">
         <div class="grid-2">
@@ -153,10 +167,10 @@
             <div class="eyebrow" style="color:#f0b376">Formulario</div>
             <h2 class="section-title">Enviar solicitud</h2>
             <p class="section-sub">
-              Tu solicitud se enviará a mi correo electrónico.
+              La solicitud me será enviada por correo electrónico.
             </p>
             <p class="small">
-              Describe brevemente qué necesitas ahora: consulta, FinLab, minicurso, test u otra cosa.
+              Describe brevemente qué te interesa ahora: consulta, FinLab, mini curso, test u otra cosa.
             </p>
           </div>
 
@@ -176,7 +190,7 @@
                   placeholder="+34..., @usuario o email"
                   required
                 >
-                <small class="field-hint">Indica un número de teléfono, Telegram @usuario o email</small>
+                <small class="field-hint">Indica teléfono, Telegram @usuario o email</small>
               </div>
 
               <div class="field">
@@ -209,9 +223,9 @@
       <div class="footer-grid">
         <div>
           <h4>TELWHA</h4>
-          <p>Psicología financiera, economía conductual y arquitectura de elección
-             para mejores decisiones y resultados más estables.</p>
+          <p>Psicología financiera, economía conductual y arquitectura de elección para mejores decisiones y resultados más estables.</p>
         </div>
+
         <div style="text-align:right">
           <h4>Navegación</h4>
           <div class="footer-links" style="align-items:flex-end">
@@ -220,23 +234,41 @@
             <a href="/es/trader-course/">Mini curso</a>
           </div>
         </div>
+
         <div>
           <h4>Contactos</h4>
           <div class="footer-links">
             <a href="mailto:annasignaevskaya@gmail.com">annasignaevskaya@gmail.com</a>
-            <a href="https://t.me/AnnaFinPsy" target="_blank" rel="noopener">Telegram</a>
-            <a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://t.me/AnnaFinPsy" target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a>
           </div>
         </div>
       </div>
+
       <div class="footer-bottom">
         <span>© 2026 TELWHA. Todos los derechos reservados.</span>
-        <span>Kiev, Ucrania · 🇺🇦</span>
+        <span>Kyiv, Ucrania · 🇺🇦</span>
       </div>
     </div>
   </footer>
 
   <script src="/static/script/global.js"></script>
-<script src="/static/script/contact.js"></script>
+  <script src="/static/script/contact.js"></script>
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const siteMenu = document.querySelector("#site-menu");
+
+    if (menuToggle && siteMenu) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = siteMenu.classList.toggle("is-open");
+        menuToggle.classList.toggle("is-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        menuToggle.setAttribute(
+          "aria-label",
+          isOpen ? "Cerrar menú" : "Abrir menú"
+        );
+      });
+    }
+  </script>
 </body>
 </html>

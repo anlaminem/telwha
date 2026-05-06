@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TELWHA | Trader Archetype Test</title>
-  <meta name="description" content="TELWHA: What trader archetype are you?.">
+  <meta name="description" content="TELWHA: What trader archetype are you?">
 
   <link rel="canonical" href="https://t-e-l-w-h-a.com/en/archetype-test/">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="TELWHA | Trader Archetype Test">
-  <meta property="og:description" content="TELWHA: What trader archetype are you?.">
+  <meta property="og:description" content="TELWHA: What trader archetype are you?">
   <meta property="og:url" content="https://t-e-l-w-h-a.com/en/archetype-test/">
   <meta property="og:site_name" content="TELWHA">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FVHKD6TZJP');
+  </script>
 
   <!-- JSON-LD: Person (Anna) -->
   <script type="application/ld+json">
@@ -61,22 +69,15 @@
     "inLanguage": "en"
   }
   </script>
-  
+
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
   <link rel="stylesheet" href="/static/css/base.css">
   <link rel="stylesheet" href="/static/css/layout-archetype.css">
 </head>
 <body>
-  <details class="lang-switcher">
-    <summary>🇬🇧</summary>
-    <div class="lang-list">
-      <a href="/archetype-test/" aria-label="Українська">🇺🇦</a>
-      <a href="/es/archetype-test/" aria-label="Español">🇪🇸</a>
-    </div>
-  </details>
-
   <div class="progress" id="progress"></div>
 
- <header class="topbar">
+  <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
         <a class="brand-row" href="/en/">
@@ -84,17 +85,30 @@
         </a>
         <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
       </div>
-      <nav class="menu">
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        aria-label="Open menu"
+      >
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <nav class="menu" id="site-menu">
         <div class="menu-group">
           <a href="/en/">Home</a>
-          <a href="/finlab/index.html">" class="menu-highlightFinLab</a>
+          <a href="/finlab/">FinLab</a>
           <a href="/en/about/">About</a>
         </div>
 
         <div class="menu-group menu-dropdown">
-          <button type="button" class="menu-dropbtn">
-            For traders ▾
-          </button>
+          <button type="button" class="menu-dropbtn" aria-expanded="false">For traders ▾</button>
           <div class="menu-dropcontent">
             <a href="/en/trader-course/">Mini‑course</a>
             <a href="/en/archetype-test/">Archetype test</a>
@@ -107,133 +121,166 @@
           <a href="/en/cases/">Cases</a>
           <a href="/en/contact/">Contact</a>
         </div>
-        <button class="theme-toggle" type="button">🌓</button>
+
+        <div class="menu-group menu-tools">
+          <details class="lang-switcher lang-switcher--inside">
+            <summary>🇬🇧</summary>
+            <div class="lang-list">
+              <a href="/archetype-test/" aria-label="Українська" lang="uk">🇺🇦</a>
+              <a href="/es/archetype-test/" aria-label="Español" lang="es">🇪🇸</a>
+            </div>
+          </details>
+
+          <button class="theme-toggle" type="button" aria-label="Toggle theme">🌓</button>
+        </div>
       </nav>
     </div>
   </header>
-  
+
   <main>
     <!-- HERO -->
     <section class="hero">
       <div class="wrap hero-shell fade-in">
         <div class="hero-inner">
-          <div class="hero-copy fade-in">
-            <div class="eyebrow">Test</div>
+          <div class="hero-copy">
+            <div class="eyebrow">Trader archetypes</div>
             <h1>What trader archetype are you?</h1>
-            <p class="lead">This test helps you understand your strengths, cognitive biases and decision‑making style in trading.</p>
+            <p class="lead">
+              A short test that helps you see your decision style, typical triggers and weak points in behaviour under market pressure.
+            </p>
+
             <div class="eyeline">
               <span class="chip">21 questions</span>
               <span class="chip">10–15 minutes</span>
               <span class="chip">Free</span>
-              <span class="chip">Beta version</span>
+              <span class="chip">Beta</span>
             </div>
+
             <div class="cta">
-              <a class="btn btn-primary" href="https://fintest-4br0.onrender.com">Take the test</a>
-              <a class="btn btn-secondary" href="#video">Watch the breakdown</a>
+              <a
+                class="btn btn-primary"
+                href="https://fintest-4br0.onrender.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Take the test
+              </a>
+              <a class="btn btn-secondary" href="#video">
+                Watch the breakdown
+              </a>
             </div>
           </div>
 
-          <div class="hero-side">
-            <div class="hero-note fade-in">
+          <aside class="hero-side">
+            <div class="hero-note">
               <div class="pill">
-<span class="dot"></span> trader profile</div>
+                <span class="dot"></span>
+                <span>trader profile</span>
+              </div>
               <strong>What you get</strong>
-              <p>An archetype profile, hints for your strategy, self‑reflection and more clarity about your market behaviour.</p>
+              <p>
+                An archetype, hints for your strategy, a map of risk reactions and clearer understanding of your trading behaviour.
+              </p>
             </div>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
 
     <!-- FOR WHOM / WHAT'S INSIDE -->
     <section class="section" id="test">
-      <div class="wrap grid-2 fade-in">
-        <div class="card">
-          <h2 class="section-title" style="margin-bottom:12px">Who this test is for</h2>
+      <div class="wrap info-grid fade-in">
+        <article class="card">
+          <h2 class="section-title">Who this test is for</h2>
           <ul>
             <li>Traders who want to understand their decisions under pressure.</li>
-            <li>Those who notice repeating mistakes or unstable results.</li>
-            <li>People who want a clearer view of their risks and strengths.</li>
+            <li>Those who see repeating mistakes or unstable results.</li>
+            <li>People who want to understand their risk profile better.</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="card">
-          <h2 class="section-title" style="margin-bottom:12px">What is inside</h2>
+        <article class="card">
+          <h2 class="section-title">What is inside</h2>
           <ul>
-            <li>Archetypes based on research in financial behaviour and neurophysiology.</li>
+            <li>Archetypes based on financial behaviour and neurophysiology.</li>
             <li>Questions framed as real market situations.</li>
-            <li>No personal data — only a unique ID.</li>
-            <li>The result shows how you actually make trading decisions.</li>
+            <li>No personal data, only a technical ID.</li>
+            <li>A result for self‑observation and more precise work with your strategy.</li>
           </ul>
-        </div>
+        </article>
       </div>
     </section>
 
     <!-- ARCHETYPES -->
     <section class="section">
       <div class="wrap fade-in">
-        <div class="archetype-media">
+        <div class="section-head">
+          <h2 class="section-title">Archetypes</h2>
+          <p class="section-lead">Each archetype shows typical logic, tension and ways of reacting to the market.</p>
+        </div>
+
+        <div class="archetype-grid">
           <article class="arch-card">
-            <img src="/static/media/chaos.jpg" alt="Chaos">
+            <img src="/static/media/chaos.jpg" alt="Chaos archetype" loading="lazy">
             <div class="arch-card-body">
               <h3>Chaos</h3>
-              <p>Trading often starts from chaos — decisions are fast, consequences come with a delay.</p>
+              <p>Decisions are fast, internal structure is weak, consequences show up later.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/reptile.jpg" alt="Reptile">
+            <img src="/static/media/reptile.jpg" alt="Reptile archetype" loading="lazy">
             <div class="arch-card-body">
               <h3>Reptile</h3>
-              <p>Impulse, threat and instant defence of the position.</p>
+              <p>Impulse, protection, reaction to threat and sharp rise in tension.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/Stabilizer.jpg" alt="Stabilizer">
+            <img src="/static/media/Stabilizer.jpg" alt="Stabilizer archetype" loading="lazy">
             <div class="arch-card-body">
               <h3>Stabilizer</h3>
-              <p>Control, structure and risk reduction.</p>
+              <p>Control, rules, risk reduction and a drive toward structure.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/trendsetter.jpg" alt="Trendsetter">
+            <img src="/static/media/trendsetter.jpg" alt="Trendsetter archetype" loading="lazy">
             <div class="arch-card-body">
               <h3>Trendsetter</h3>
-              <p>Sees direction earlier than others and hunts for opportunity.</p>
+              <p>Spots direction faster and looks for opportunity earlier than others.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/antifragile.jpg" alt="Antifragile">
+            <img src="/static/media/antifragile.jpg" alt="Antifragile archetype" loading="lazy">
             <div class="arch-card-body">
               <h3>Antifragile</h3>
-              <p>Becomes stronger through stress and uncertainty.</p>
+              <p>Under pressure does not break but adapts and becomes stronger.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/mediator.jpg" alt="Mediator">
+            <img src="/static/media/mediator.jpg" alt="Mediator archetype" loading="lazy">
             <div class="arch-card-body">
               <h3>Mediator</h3>
-              <p>Balances risk, logic and inner tension.</p>
+              <p>Looks for balance between logic, risk and inner tension.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/Emergent.jpg" alt="Emergent">
+            <img src="/static/media/Emergent.jpg" alt="Emergent archetype" loading="lazy">
             <div class="arch-card-body">
               <h3>Emergent</h3>
-              <p>Builds a new behaviour model right in the process.</p>
+              <p>Rebuilds behaviour along the way and forms a new model of action.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/marginal.jpg" alt="Marginal">
+            <img src="/static/media/marginal.jpg" alt="Marginal archetype" loading="lazy">
             <div class="arch-card-body">
               <h3>Marginal</h3>
-              <p>At the edge of the system, often seeing what others miss.</p>
+              <p>Stands at the edge of the system but often notices what others ignore.</p>
             </div>
           </article>
         </div>
@@ -245,11 +292,26 @@
       <div class="wrap fade-in">
         <div class="video-box">
           <div class="video-top">
-            <h2 class="video-title">Detailed test breakdown on YouTube</h2>
-            <a class="video-link" href="https://www.youtube.com/watch?v=wMNuEs_JPCE" target="_blank" rel="noopener">Open video</a>
+            <div>
+              <h2 class="section-title">Detailed test breakdown on YouTube</h2>
+              <p class="section-lead">Explanation of the test logic, archetypes and how to read your result.</p>
+            </div>
+            <a
+              class="video-link"
+              href="https://www.youtube.com/watch?v=wMNuEs_JPCE"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open video
+            </a>
           </div>
+
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/wMNuEs_JPCE" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+            <iframe
+              src="https://www.youtube.com/embed/wMNuEs_JPCE"
+              title="TELWHA — trader archetype test breakdown"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
             </iframe>
           </div>
         </div>
@@ -259,18 +321,22 @@
     <!-- ABOUT THE TEST -->
     <section class="section">
       <div class="wrap panel fade-in">
-        <div class="grid-2">
+        <div class="info-grid">
           <div class="card">
-            <h3>About the test goal</h3>
-            <p>This is not just self‑diagnosis. It is part of a research case aimed at improving decision quality and making work easier for traders and portfolio managers.</p>
+            <h3>About the test</h3>
+            <p>
+              This is not just entertainment, but a tool for more precise observation of your reactions and decision style in trading.
+            </p>
           </div>
           <div class="card">
             <h3>Feedback</h3>
-            <p>Your feedback is a contribution to better tools for the whole community.</p>
+            <p>
+              Your feedback helps improve the tool and make the results more useful for the community.
+            </p>
           </div>
         </div>
 
-        <div class="cta" style="margin-top:20px;">
+        <div class="cta panel-cta">
           <a class="btn btn-primary" href="/en/">Back to home</a>
         </div>
       </div>
@@ -296,7 +362,7 @@
           <h4>Actions</h4>
           <div class="footer-links">
             <a href="/en/contact/">Contact</a>
-            <a href="/en/trader-course/">Mini course for traders</a>
+            <a href="/en/trader-course/">Mini‑course for traders</a>
           </div>
         </div>
       </div>
@@ -308,5 +374,49 @@
   </footer>
 
   <script src="/static/script/global.js"></script>
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const siteMenu = document.querySelector("#site-menu");
+    const dropdown = document.querySelector(".menu-dropdown");
+    const dropBtn = document.querySelector(".menu-dropbtn");
+
+    if (menuToggle && siteMenu) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = siteMenu.classList.toggle("is-open");
+        menuToggle.classList.toggle("is-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        menuToggle.setAttribute(
+          "aria-label",
+          isOpen ? "Close menu" : "Open menu"
+        );
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".nav") && siteMenu.classList.contains("is-open")) {
+          siteMenu.classList.remove("is-open");
+          menuToggle.classList.remove("is-open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Open menu");
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && siteMenu.classList.contains("is-open")) {
+          siteMenu.classList.remove("is-open");
+          menuToggle.classList.remove("is-open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Open menu");
+          menuToggle.focus();
+        }
+      });
+    }
+
+    if (dropBtn && dropdown) {
+      dropBtn.addEventListener("click", () => {
+        const open = dropdown.classList.toggle("is-open");
+        dropBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+  </script>
 </body>
 </html>

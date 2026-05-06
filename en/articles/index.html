@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Articles — TELWHA</title>
@@ -15,9 +15,7 @@
   <meta property="og:url" content="https://t-e-l-w-h-a.com/en/articles/">
   <meta property="og:site_name" content="TELWHA">
 
-
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -25,18 +23,55 @@
     gtag('config', 'G-FVHKD6TZJP');
   </script>
 
-  <link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Anna Signaevska",
+    "url": "https://t-e-l-w-h-a.com",
+    "image": "https://t-e-l-w-h-a.com/static/media/main_photo.jpg",
+    "jobTitle": "Financial Psychologist & Behavioral Analyst",
+    "description": "Financial psychologist and behavioral analyst combining work with the nervous system, markets and data in TELWHA.",
+    "sameAs": [
+      "https://www.youtube.com/@TelwhaUA",
+      "https://www.youtube.com/@Telwha",
+      "https://www.linkedin.com/in/anna-signaevskaya"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "TELWHA",
+    "url": "https://t-e-l-w-h-a.com",
+    "description": "TELWHA: financial psychology, behavioral economics and FinLab for traders, investors and business.",
+    "logo": "https://t-e-l-w-h-a.com/static/media/telwha-favicon.png",
+    "sameAs": [
+      "https://www.youtube.com/@TelwhaUA",
+      "https://www.youtube.com/@Telwha",
+      "https://www.linkedin.com/in/anna-signaevskaya"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Articles — TELWHA",
+    "description": "A page with TELWHA articles and deep dives on money psychology, trading, risk and learning.",
+    "url": "https://t-e-l-w-h-a.com/en/articles/",
+    "inLanguage": "en"
+  }
+  </script>
+
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
   <link rel="stylesheet" href="/static/css/base.css">
   <link rel="stylesheet" href="/static/css/layout-articles.css">
 </head>
 <body>
-  <details class="lang-switcher">
-    <summary>🇬🇧</summary>
-    <div class="lang-list">
-      <a href="/articles/" aria-label="Українська">🇺🇦</a>
-      <a href="/es/articles/" aria-label="Español">🇪🇸</a>
-    </div>
-  </details>
 
   <header class="topbar">
     <div class="wrap nav">
@@ -46,16 +81,31 @@
         </a>
         <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
       </div>
-      <nav class="menu">
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        aria-label="Open menu"
+      >
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <nav class="menu" id="site-menu">
         <div class="menu-group">
           <a href="/en/">Home</a>
-          <a href="/finlab/index.html">" class="menu-highlightFinLab</a>
+          <a href="/finlab/">FinLab</a>
           <a href="/en/about/">About</a>
         </div>
 
         <div class="menu-group menu-dropdown">
-          <button type="button" class="menu-dropbtn">
-            For traders▾
+          <button type="button" class="menu-dropbtn" aria-expanded="false">
+            For traders ▾
           </button>
           <div class="menu-dropcontent">
             <a href="/en/trader-course/">Mini‑course</a>
@@ -69,22 +119,32 @@
           <a href="/en/cases/">Cases</a>
           <a href="/en/contact/">Contact</a>
         </div>
-        <button class="theme-toggle" type="button">🌓</button>
+
+        <div class="menu-group menu-tools">
+          <details class="lang-switcher lang-switcher--inside">
+            <summary>🇬🇧</summary>
+            <div class="lang-list">
+              <a href="/articles/" aria-label="Українська">🇺🇦</a>
+              <a href="/es/articles/" aria-label="Español">🇪🇸</a>
+            </div>
+          </details>
+          <button class="theme-toggle" type="button" aria-label="Toggle theme">🌓</button>
+        </div>
       </nav>
     </div>
   </header>
 
   <main>
     <div class="wrap">
-      <!-- HERO / INTRO -->
+
       <section class="hero-shell">
         <div class="hero-grid">
           <div>
             <div class="eyebrow">TELWHA / Articles</div>
             <h1>Articles and deep dives</h1>
             <p class="page-sub">
-              Practical pieces on money psychology, trading, risk and learning.
-              Each article is structured like a mini‑session: understand the pattern, see yourself in it, change decisions.
+              Practical materials on money psychology, trading, risk and learning.
+              Each article is built like a mini‑session: understand the pattern, recognize yourself, change the decision.
             </p>
           </div>
           <aside class="hero-featured">
@@ -92,8 +152,8 @@
             <h2>Your “irrational” actions are valuable data</h2>
             <div class="hero-featured-meta">Money psychology · 1 June 2025 · 8 min read</div>
             <p>
-              How to look at your “irrational” financial actions as data about thinking,
-              emotions and patterns — instead of failures. A practical analysis framework.
+              How to look at your “irrational” financial actions as data about thinking, emotions
+              and patterns rather than failures. A practical framework for analysis.
             </p>
             <a href="/en/articles/irrational-actions-as-data.html">
               Read the article <span>→</span>
@@ -102,26 +162,23 @@
         </div>
       </section>
 
-      <!-- FILTERS -->
       <section class="filters" aria-label="Filter articles by topic">
         <button class="filter-chip active" data-filter="all">All</button>
         <button class="filter-chip" data-filter="money">Money psychology</button>
         <button class="filter-chip" data-filter="trading">Trading</button>
         <button class="filter-chip" data-filter="couples">Couples &amp; money</button>
-        <button class="filter-chip" data-filter="finlabFinLab</button>
+        <button class="filter-chip" data-filter="finlab">FinLab</button>
         <button class="filter-chip" data-filter="experiments">Experiments</button>
       </section>
 
-      <!-- ARTICLES GRID -->
-      <section id="articles" class="articles-grid">
-        <!-- Article 1 -->
+      <section id="articles" class="articles-grid" aria-label="Articles list">
         <article class="article-card" data-tag="money">
           <div class="article-tag">Money psychology</div>
           <h2 class="article-title">Your “irrational” actions are valuable data</h2>
           <p class="article-meta">1 June 2025 · 8 min read</p>
           <p class="article-excerpt">
-            How to treat your “irrational” financial actions as data about thinking,
-            emotions and patterns, instead of as failures. A practical framework for analysis.
+            How to look at your “irrational” financial actions as data about thinking,
+            emotions and patterns rather than failures. A practical framework for analysis.
           </p>
           <div class="article-footer">
             <a class="article-link" href="/en/articles/irrational-actions-as-data.html">
@@ -131,34 +188,32 @@
           </div>
         </article>
 
-        <!-- Article 2 -->
         <article class="article-card" data-tag="trading">
           <div class="article-tag">Trading</div>
-          <h2 class="article-title">Why after 5 trades your brain “melts”</h2>
+          <h2 class="article-title">Why after 5 trades the brain loses clarity</h2>
           <p class="article-meta">12 June 2025 · 6 min read</p>
           <p class="article-excerpt">
-            Decision fatigue in trading: how the number of decisions per day eats your discipline,
+            Decision fatigue in trading: how the number of decisions per day erodes discipline,
             increases impulsivity, and what to do about it in practice.
           </p>
           <div class="article-footer">
-            <a class="article-link" href="articles/decision-fatigue-trading.html">
+            <a class="article-link" href="/en/articles/decision-fatigue-trading.html">
               Read <span>→</span>
             </a>
             <span class="article-video-flag"></span>
           </div>
         </article>
 
-        <!-- Article 3 -->
         <article class="article-card" data-tag="couples">
           <div class="article-tag">Couples &amp; money</div>
-          <h2 class="article-title">When money talks always end in conflict</h2>
+          <h2 class="article-title">When money conversations end in conflict</h2>
           <p class="article-meta">20 June 2025 · 7 min read</p>
           <p class="article-excerpt">
-            Why the same triggers keep repeating in money conversations in a couple,
-            and how to turn financial conflict into a joint decision‑making process.
+            Why the same triggers keep repeating in conversations about money in a couple,
+            and how to turn financial conflict into a shared decision-making process.
           </p>
           <div class="article-footer">
-            <a class="article-link" href="articles/couples-money-conflicts.html">
+            <a class="article-link" href="/en/articles/couples-money-conflicts.html">
               Read <span>→</span>
             </a>
             <span class="article-video-flag"></span>
@@ -180,13 +235,13 @@
           <div class="footer-links" style="align-items:flex-end">
             <a href="/en/">Home</a>
             <a href="/en/about/">About</a>
-            <a href="/finlab/index.html">FinLab</a>
+            <a href="/finlab/">FinLab</a>
           </div>
         </div>
         <div>
           <h4>Actions</h4>
           <div class="footer-links">
-            <a href="/en/trader-course/">Mini course for traders</a>
+            <a href="/en/trader-course/">Mini‑course for traders</a>
             <a href="/en/archetype-test/">Archetype test</a>
           </div>
         </div>
@@ -199,6 +254,50 @@
   </footer>
 
   <script src="/static/script/global.js"></script>
-<script src="/static/script/articles.js"></script>
+  <script src="/static/script/articles.js"></script>
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const siteMenu = document.querySelector("#site-menu");
+    const dropdown = document.querySelector(".menu-dropdown");
+    const dropBtn = document.querySelector(".menu-dropbtn");
+
+    if (menuToggle && siteMenu) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = siteMenu.classList.toggle("is-open");
+        menuToggle.classList.toggle("is-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        menuToggle.setAttribute(
+          "aria-label",
+          isOpen ? "Close menu" : "Open menu"
+        );
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".nav") && siteMenu.classList.contains("is-open")) {
+          siteMenu.classList.remove("is-open");
+          menuToggle.classList.remove("is-open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Open menu");
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && siteMenu.classList.contains("is-open")) {
+          siteMenu.classList.remove("is-open");
+          menuToggle.classList.remove("is-open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Open menu");
+          menuToggle.focus();
+        }
+      });
+    }
+
+    if (dropBtn && dropdown) {
+      dropBtn.addEventListener("click", () => {
+        const open = dropdown.classList.toggle("is-open");
+        dropBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+  </script>
 </body>
 </html>
