@@ -751,55 +751,70 @@
     hint.classList.toggle("is-warning", Boolean(isWarning && message));
   }
 
-  function focusBlock(itemId) {
-    const target = document.querySelector(`.question-block[data-question="${itemId}"]`);
-    if (!target) return;
-    document.querySelectorAll(".question-block--active").forEach((block) => {
-      block.classList.remove("question-block--active");
-    });
-    target.classList.add("question-block--active");
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
+ function focusBlock(itemId, behavior = "smooth") {
+  const target = document.querySelector(`.question-block[data-question="${itemId}"]`);
+  if (!target) return;
+
+  document.querySelectorAll(".question-block--active").forEach((block) => {
+    block.classList.remove("question-block--active");
+  });
+
+  target.classList.add("question-block--active");
+
+  const sticky = document.getElementById("js-ux-sticky");
+  const stickyHeight = sticky ? sticky.offsetHeight : 0;
+  const extraOffset = window.innerWidth <= 768 ? 18 : 12;
+  const targetTop = window.scrollY + target.getBoundingClientRect().top - stickyHeight - extraOffset;
+
+  window.scrollTo({
+    top: Math.max(0, targetTop),
+    behavior
+  });
+}
+
+function jumpToFirstUnanswered() {
+  const firstUnanswered = getFirstUnansweredId();
+  if (firstUnanswered) focusBlock(firstUnanswered);
+}
+
+function setAnswer(button) {
+  const itemId = button.dataset.itemId;
+  const raw = button.dataset.raw;
+  const optionCode = button.dataset.optionCode;
+  const wasUnanswered = answers[itemId] === undefined;
+
+  const group = document.querySelectorAll(`[data-item-id="${itemId}"]`);
+  group.forEach(btn => btn.classList.remove("selected"));
+  button.classList.add("selected");
+
+  answers[itemId] = {
+    item_id: itemId,
+    raw: raw !== undefined ? raw : null,
+    option_code: optionCode !== undefined ? optionCode : null
+  };
+
+  const block = document.querySelector(`.question-block[data-question="${itemId}"]`);
+  if (block) {
+    block.classList.remove("question-block--error");
+    block.classList.remove("question-block--active");
   }
 
-  function jumpToFirstUnanswered() {
-    const firstUnanswered = getFirstUnansweredId();
-    if (firstUnanswered) focusBlock(firstUnanswered);
-  }
+  setBlockHint(itemId, "");
+  errorBox.hidden = true;
+  errorBox.textContent = "";
+  updateProgress();
 
-  function setAnswer(button) {
-    const itemId = button.dataset.itemId;
-    const raw = button.dataset.raw;
-    const optionCode = button.dataset.optionCode;
-    const wasUnanswered = answers[itemId] === undefined;
-
-    const group = document.querySelectorAll(`[data-item-id="${itemId}"]`);
-    group.forEach(btn => btn.classList.remove("selected"));
-    button.classList.add("selected");
-
-    answers[itemId] = {
-      item_id: itemId,
-      raw: raw !== undefined ? raw : null,
-      option_code: optionCode !== undefined ? optionCode : null
-    };
-
-    const block = document.querySelector(`.question-block[data-question="${itemId}"]`);
-    if (block) {
-      block.classList.remove("question-block--error");
-      block.classList.remove("question-block--active");
-    }
-
-    setBlockHint(itemId, "");
-    errorBox.hidden = true;
-    errorBox.textContent = "";
-    updateProgress();
-
-    if (wasUnanswered) {
-      const nextUnanswered = getFirstUnansweredId();
-      if (nextUnanswered && nextUnanswered !== itemId) {
-        setTimeout(() => focusBlock(nextUnanswered), 140);
+  if (wasUnanswered) {
+    const nextUnanswered = getFirstUnansweredId();
+    if (nextUnanswered && nextUnanswered !== itemId) {
+      const isMobile = window.innerWidth <= 768;
+      if (!isMobile) {
+        setTimeout(() => focusBlock(nextUnanswered, "smooth"), 140);
       }
     }
   }
+}
+
 
   document.querySelectorAll(".option-chip").forEach(btn => {
     btn.addEventListener("click", () => setAnswer(btn));
