@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TELWHA | Когнітивні упередження у фінансових текстах</title>
+<meta name="description" content="Як когнітивні упередження проявляються у звітах, новинах і соцмережах — та чому без жанру і контексту AI може помилятися.">
+<link rel="canonical" href="https://t-e-l-w-h-a.com/articles/cognitive-biases-financial-texts/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="TELWHA | Когнітивні упередження у фінансових текстах">
+<meta property="og:description" content="Як когнітивні упередження проявляються у звітах, новинах і соцмережах — та чому без жанру і контексту AI може помилятися.">
+<meta property="og:url" content="https://t-e-l-w-h-a.com/articles/cognitive-biases-financial-texts/">
+<meta property="og:site_name" content="TELWHA">
+
+<link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+<link rel="stylesheet" href="/static/css/base.css">
+<link rel="stylesheet" href="/static/css/layout-article.css">
+
+<style>
+html{scroll-behavior:smooth;}
+.progress{position:fixed;inset:0 auto auto 0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,var(--accent,#8b7355),var(--accent-2,#c7a978));box-shadow:0 1px 10px rgba(0,0,0,.12)}
+
+/* Картка статті + сітка (десктоп) */
+.article-shell{position:relative;max-width:1320px;margin-inline:auto}
+.article-header{position:relative;overflow:hidden}
+.article-header::after{content:"";position:absolute;right:-80px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(199,169,120,.16),rgba(199,169,120,0) 70%);pointer-events:none}
+.article-deck{max-width:850px}
+.article-reading{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.article-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:rgba(255,255,255,.5);backdrop-filter:blur(4px);font-size:.88rem;line-height:1}
+html[data-theme="dark"] .article-chip{background:rgba(255,255,255,.04)}
+
+.article-layout{
+  display:grid;
+  grid-template-columns:minmax(0,5fr) minmax(260px,2fr);
+  gap:56px;
+  align-items:start;
+}
+
+/* Основні блоки */
+.article-main{min-width:0}
+.article-aside{position:sticky;top:92px;display:flex;flex-direction:column;gap:14px}
+.aside-card{padding:16px 16px 14px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.45));box-shadow:0 10px 30px rgba(0,0,0,.04)}
+html[data-theme="dark"] .aside-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
+.aside-card h3{font-size:.92rem;margin:0 0 10px;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
+.toc{display:flex;flex-direction:column;gap:8px}
+.toc a{display:block;padding:8px 10px;border-radius:12px;text-decoration:none;opacity:.78}
+.toc a:hover,.toc a.is-active{background:rgba(199,169,120,.14);opacity:1}
+.mini-note{font-size:.95rem;line-height:1.55;opacity:.85}
+
+.article-body>p{position:relative;margin-bottom:1.35rem}
+.article-body section[id]>p:first-of-type{margin-top:0}
+.article-body>p.is-focus{padding-left:16px;border-left:3px solid rgba(199,169,120,.8)}
+.article-body h2, .article-body section[id]{scroll-margin-top:120px}
+.article-body section[id]{position:relative;margin-top:2.2rem}
+.article-pullquote{margin:22px 0;padding:18px 20px;border-radius:18px;border:1px solid rgba(120,120,120,.14);background:linear-gradient(135deg,rgba(199,169,120,.14),rgba(199,169,120,.04));font-size:1.05rem;line-height:1.7}
+.article-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(120,120,120,.25),transparent);margin:28px 0}
+
+.mobile-jump{display:none}
+.audience-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 14px}
+.audience-tab{padding:10px 14px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:transparent;font:inherit;line-height:1.1;cursor:pointer}
+.audience-tab:hover,.audience-tab.is-active{background:rgba(199,169,120,.14);border-color:rgba(199,169,120,.35)}
+.audience-panels{margin-bottom:18px}
+.audience-panel{padding:18px 18px 2px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44))}
+html[data-theme="dark"] .audience-panel{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+.article-figures{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:22px 0 10px}
+.figure-slot{min-height:140px;padding:18px;border:1px dashed rgba(120,120,120,.26);border-radius:18px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;background:rgba(199,169,120,.06);font-weight:600}
+.figure-slot span{display:block;margin-top:6px;font-size:.88rem;font-weight:400;opacity:.75}
+
+/* Мобільна логіка: одна колонка, aside ховаємо, мобільний jump включаємо */
+@media (max-width: 980px){
+  .section > .wrap{
+    max-width:100%;
+    width:100%;
+  }
+
+  .article-shell{
+    max-width:100%;
+    width:100%;
+    margin-inline:0;
+  }
+
+  .article-layout{
+    display:block;
+  }
+
+  .article-aside{
+    display:none;
+  }
+}
+
+@media (max-width: 720px){
+  .article-reading{gap:8px}
+  .article-chip{font-size:.8rem;padding:7px 10px}
+  .aside-card{border-radius:16px}
+
+  .mobile-jump{
+    display:flex;
+    gap:8px;
+    overflow:auto;
+    padding-bottom:6px;
+    scrollbar-width:none;
+  }
+  .mobile-jump::-webkit-scrollbar{display:none}
+  .mobile-jump a{
+    white-space:nowrap;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:999px;
+    border:1px solid rgba(120,120,120,.16);
+    background:rgba(255,255,255,.52);
+    font-size:.85rem;
+  }
+  html[data-theme="dark"] .mobile-jump a{background:rgba(255,255,255,.04)}
+}
+
+/* Розширюємо коричневу картку на десктопі */
+.section > .wrap{
+  max-width:1440px;
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Когнітивні упередження у фінансових текстах",
+  "description": "Як когнітивні упередження проявляються у звітах, новинах і соцмережах — та чому без жанру і контексту AI може помилятися.",
+  "author": {"@type": "Person", "name": "Anna Signaevska"},
+  "publisher": {"@type": "Organization", "name": "TELWHA"},
+  "inLanguage": "uk",
+  "datePublished": "2026-03-01",
+  "dateModified": "2026-03-01",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://t-e-l-w-h-a.com/articles/cognitive-biases-financial-texts/"}
+}
+</script>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="topbar">
+  <div class="wrap nav">
+    <div class="brand">
+      <a class="brand-row" href="/">
+        <strong>TELWHA</strong>
+      </a>
+      <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+    </div>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-menu"
+      aria-label="Відкрити меню"
+    >
+      <span class="menu-toggle-lines" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+    <nav class="menu" id="site-menu">
+      <div class="menu-group">
+        <a href="/">Головна</a>
+        <a href="/finlab/">FinLab</a>
+        <a href="/about/">Про мене</a>
+      </div>
+
+      <div class="menu-group menu-dropdown">
+        <button type="button" class="menu-dropbtn">Трейдерам ▾</button>
+        <div class="menu-dropcontent">
+          <a href="/trader-course/">Міні‑курс</a>
+          <a href="/archetype-test/">Тест архетипів</a>
+        </div>
+      </div>
+
+      <div class="menu-group">
+        <a href="/articles/">Статті</a>
+        <a href="/reviews/">Відгуки</a>
+        <a href="/cases/">Кейси</a>
+        <a href="/contact/">Контакти</a>
+      </div>
+
+      <div class="menu-group menu-tools">
+        <details class="lang-switcher lang-switcher--inside">
+          <summary>🇺🇦</summary>
+          <div class="lang-list">
+            <a href="/en/articles/mastercase.html" aria-label="English">🇬🇧</a>
+            <a href="/es/articles/mastercase.html" aria-label="Español">🇪🇸</a>
+          </div>
+        </details>
+
+        <button class="theme-toggle" type="button" aria-label="Змінити тему">🌓</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <article class="article-shell" itemscope itemtype="https://schema.org/Article">
+        <header class="article-header fade-in">
+          <div class="eyebrow"><span>Research</span> TELWHA</div>
+          <h1 itemprop="headline">Когнітивні упередження у фінансових текстах</h1>
+          <p class="article-deck" itemprop="description">
+            Як когнітивні упередження проявляються у звітах, новинах і соцмережах — та чому без жанру і контексту AI може помилятися.
+          </p>
+          <div class="article-reading">
+            <span class="article-chip">2020–2025</span>
+            <span class="article-chip">SEC EDGAR · News · Twitter · Reddit</span>
+            <span class="article-chip">NLP · Behavioral Finance</span>
+          </div>
+        </header>
+
+        <div class="mobile-jump fade-in" aria-label="Швидка навігація по статті">
+          <a href="#part-1">Початок</a>
+          <a href="#part-2">Маркери</a>
+          <a href="#part-3">Щільність</a>
+          <a href="#part-4">Що знайшлось</a>
+          <a href="#part-5">AI</a>
+          <a href="#part-6">Як використати</a>
+        </div>
+
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="article-body" itemprop="articleBody">
+              <!-- Весь твій текст без змін -->
+              <section id="part-1">
+                <p class="is-focus">Фінансовий світ любить прикидатися раціональним. На графіку — математика. У звіті — стримані формулювання. У новинах — «нейтральний» аналіз. А потім на Reddit з’являється «unbelievable opportunity», «everyone is buying» — і ринок забуває, що таке обережність та раціональність. У цьому проєкті я дивилась не на ціни, а на слова. На те, як когнітивні трюки мозку живуть у текстах: звітах, новинах, соцмережах.</p>
+                <p>Я зібрала три шари фінансової реальності за 2020–2025 роки: звіти публічних компаній США (10‑K і 10‑Q із SEC EDGAR), фінансові новини та великі масиви постів із Twitter і Reddit, присвячені ринку. (що було)
+Звіти — офіційна сцена, де кожне слово проходить через юристів і комплаєнс. Новини — драматурги, які з одних і тих самих чисел роблять або «record-breaking performance», або «worst decline since 2008». Соцмережі — бар, де всі говорять голосно, емоційно і часто впевнені у собі значно більше, ніж це виправдано. Усі троє описують той самий ринок, але мовою різних когнітивних упереджень.</p>
+              </section>
+
+              <div class="article-pullquote fade-in">
+                Тут важливі не самі слова, а різниця між жанрами: комплаєнс, медійне рамкування і натовпова риторика можуть описувати один ринок, але створюють різні поведінкові сигнали.
+              </div>
+
+              <div class="article-divider"></div>
+
+              <section id="part-2">
+                <p>Щоб ці упередження можна було не тільки відчувати інтуїтивно(веселий був би кейс тоді), а й вимірювати, я вибрала десять ключових феноменів поведінкових фінансів і перевела їх на мову конкретних лексичних патернів. Наприклад, завищена впевненість у соцмережах часто звучить через маркери типу «I’m 100% sure», «guaranteed profit», «can’t lose», «no way this goes down», «this is a sure thing». Стадна поведінка виходить на поверхню в текстах із «everyone is buying», «we all know», «join us», «don’t miss out», «the whole market is in», де «ми» раптом знає краще за всіх окремо. Рамкування в новинах живе у формулюваннях «only minor correction» замість «double‑digit drop», «growth opportunity» замість «high risk», або в акцентах на «stability» і «resilience» навіть там, де йдеться про скорочення.</p>
+                <p>До списку увійшли також якорі — такі конструкції, як «from 52‑week high», «compared to the peak», «since all‑time high», які створюють прив’язку до певної точки як норми. Для уникнення втрат важливі вирази на кшталт «protect your capital», «avoid drawdown», «not willing to lose a single dollar», «can’t afford any loss». Інформаційне перевантаження виявляється в текстах, де підкреслюється «too much data», «endless news flow», «overwhelmed with information», «no time to process all reports», що напряму пов’язано з тим, як мозок починає економити на глибині аналізу. Окрема категорія — надмірна довіра до алгоритмів, яка звучить як «the bot knows better», «the model is always right», «just follow the algo», «AI already figured it out».</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-3">
+                <p class="is-focus">Далі потрібно було навісити на це лінійку. Підрахунок окремих слів нічого не дає, якщо не розрізняти, де упередження зустрічається рідко, але «б’є по максимуму», а де присутнє всюди легким шумом. Для кожного упередження у кожному каналі я дивилася спершу на те, в якій частці текстів з’являються характерні маркери, а потім — наскільки щільно вони присутні там, де вже є. Один звіт із поодинокою згадкою «risk» — це одне, а десятки Reddit‑постів із «we all know this will go to the moon» і «just buy, don’t overthink» — щось зовсім інше, навіть якщо лічильник «кількість маркерів» показує схожі цифри.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-4">
+                <p>Після NLP‑проходу по всьому корпусу й ручної перевірки частини фрагментів вилізло кілька цікавих сюжетів. Звіти виявилися «переповнені» упередженнями за статистикою — вони містили маркери майже завжди. Та коли дивишся на щільність, там тонкий шар. Дуже тонкий. Багато «risk», «uncertainty», «volatility», «potential», але в конструкціях типу «we are subject to market risk», «there is potential impact of volatility». Це мова захисту, а не мова паніки. Так з’явився ефект, який я для себе назвала «аномалією звітів»: майже всі тексти позначені маркерами, але реальної емоційної інтенсивності там мало.        </p>
+                <p>У соцмережах картина інша. Там рідко зустрічаються складні формули, але набагато частіше — однозначні судження. Коли аналіз фіксує кластери текстів, де поруч живуть «guaranteed», «you can’t lose here», «everyone is all‑in», «if you miss this, you’ll regret forever», «the bot already backtested this strategy», щільність маркерів завищеної впевненості, стадної поведінки й довіри до алгоритмів злітає вгору. Це не фон, а спалахи: у звичайні дні стрічка може бути відносно спокійною, зате у моменти хайпу чи страху мова різко змінюється, й саме це стає поведінковим сигналом.  </p>
+                <p>У новинах мова більш керована, але теж не нейтральна. Тут часто грають рамками: «only temporary setback» замість «значне падіння», «investors take profits» там, де по факту фіксуються масові виходи з позицій, «strong fundamentals despite short‑term volatility» навіть у ситуаціях, де числа в таблиці виглядають значно скромніше. У роботі окремо виділялися підтипи рамкування: коли акцент робиться на досягненні цілей («on track to achieve long‑term targets»), уникненні негативу («measures to avoid further losses»), підкресленні позитиву («solid growth», «resilient performance») або маркетинговій подачі («exclusive opportunity», «unique market position»). Сукупно це створює стійке інформаційне тло, де факт ніколи не приходить сам — він одразу одягнений у потрібний настрій.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-5">
+                <p>Коли звести ці три шари разом, стає видно, як легко обдурюється проста модель. Вона бачить «risk», «uncertainty» у звіті й рахує це як упередженість або страх. Вона бачить кілька мемних фраз у треді й, можливо, сумує їх із усім іншим. Без контексту звіт виглядає таким самим «емоційним», як хвиля FOMO. Хоча в одному випадку ми читаємо юридичну броню, в іншому — колективну впевненість, що «тут неможливо помилитися».
+Питання до вас. Ви теж користуєтеся AI‑моделями, щоб швидше «прочитати ринок» — пробігтись по звітах, витягнути інсайти з новин і соцмереж? Це нормально, 2026 рік усе‑таки. Але є нюанс. Алгоритм, який не відрізняє жанр, не чує іронії й не бачить когнітивних патернів мови, стає ще одним учасником стадної поведінки. Тільки без звички сумніватися. Він ловить окреме слово й одразу робить висновок про «настрій ринку», не запитуючи себе: це сигнал «ми всі біжимо», чи черговий абзац у розділі Risk factors у 10‑K.</p>
+                <p>Такі моделі витягують тексти, будують індекси «страху», «жадібності», «оптимізму», підсвічують червоним і зеленим, радять, куди натиснути. Якщо їхнє бачення мови плоске, вони повторюють ті самі когнітивні помилки, які робить людина, лише швидше. Алгоритм не втомлюється й не нервує, але й не ставить собі запитання «це справді зміна настрою чи просто стиль документа?». Саме тут потрібен додатковий шар — те, що розрізняє жанр, контекст і поведінкові патерни, а не лише рахує слова.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-6">
+                <h2>Як це використати вам?</h2>
+
+                <div class="audience-tabs" role="tablist" aria-label="Сценарії використання">
+                  <button class="audience-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="audience-fintech" id="tab-fintech" data-target="audience-fintech">FinTech / банки</button>
+                  <button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-investors" id="tab-investors" data-target="audience-investors">Аналітики / інвестори</button>
+                  <button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-users" id="tab-users" data-target="audience-users">Користувачі застосунків</button>
+                </div>
+
+                <div class="audience-panels">
+                  <section class="audience-panel is-active" id="audience-fintech" role="tabpanel" aria-labelledby="tab-fintech">
+                    <p>Для FinTech‑команд і банків це про архітектуру систем. Важливо навчити моделі відрізняти мову комплаєнсу у звітах від мови поведінкових спалахів у соцмережах і новинах. Словникові індикатори доцільно застосовувати там, де мова «жива» — у новинних текстах та обговореннях — як ранній детектор хвиль стадної поведінки та завищеної впевненості. Для звітів їх краще поєднувати з контекстними моделями на кшталт FinBERT або спеціально навченими LLM плюс обов’язковою якісною перевіркою. Тоді поверх звичайних метрик тексту можна будувати окремі профілі стадності, рамкування, довіри до алгоритмів у різних каналах, не караючи компанію тільки за те, що вона чесно виконує вимоги регулятора.</p>
+                  </section>
+
+                  <section class="audience-panel" id="audience-investors" role="tabpanel" aria-labelledby="tab-investors" hidden>
+                    <p>— для фінансових аналітиків та інвесторів ця робота нагадує, що цифри завжди приходять разом із мовою, а мова має свій набір стабільних зсувів. Звіти не варто сприймати як «чистий сигнал», якщо в них використано стандартні формули про невизначеність і ризики — вони часто більше про юридичне самозахист. Новини краще читати з питанням «у яку рамку мені зараз вкладають ці числа?». А соцмережі — розглядати як карту місць, де риторика перейшла в режим «усі впевнені, що помилитися неможливо», що саме по собі є сигналом обережності.</p>
+                  </section>
+
+                  <section class="audience-panel" id="audience-users" role="tabpanel" aria-labelledby="tab-users" hidden>
+                    <p>— для людей, які користуються фінансовими застосунками й періодично інвестують, це можливість додати до своєї внутрішньої фінансової гігієни ще один фільтр: як саме з вами говорять. Звіт, який багато разів повторює «uncertainty», ще не означає, що завтра все впаде. Новина з «historic rally» може описувати рух, який на графіку виглядає як звичайна волатильність. Тред із десятка впевнених voices про легкий прибуток може бути не прозрінням «колективного розуму», а зразковим прикладом поєднання Overconfidence, Herd Behavior і AI Overtrust у одному наборі фраз.</p>
+                  </section>
+                </div>
+
+                <div class="article-figures fade-in" aria-label="Фігури дослідження">
+                  <div class="figure-slot">Фігура 1<br><span>Додаси з магістерської</span></div>
+                  <div class="figure-slot">Фігура 2<br><span>Додаси з магістерської</span></div>
+                  <div class="figure-slot">Фігура 3<br><span>Додаси з магістерської</span></div>
+                  <div class="figure-slot">Фігура 4<br><span>Додаси з магістерської</span></div>
+                </div>
+
+                <p class="is-focus">У підсумку цей кейс про мову. І про мозок. І про те, як вони взаємодіють із грошима. Про те, як у текстах зашиті когнітивні патерни, які рухають ринок не менше, ніж макродані. І про те, що в 2026 році виграє не той, у кого більше інформації, а той, хто краще бачить, через які лінзи ця інформація проходить до нього — і до його моделей.</p>
+              </section>
+            </div>
+          </div>
+
+          <aside class="article-aside fade-in" aria-label="Навігація по статті">
+            <div class="aside-card">
+              <h3>Навігація</h3>
+              <nav class="toc">
+                <a href="#part-1">Початок</a>
+                <a href="#part-2">Лексичні патерни</a>
+                <a href="#part-3">Щільність сигналу</a>
+                <a href="#part-4">Що показав корпус</a>
+                <a href="#part-5">AI і помилки читання</a>
+                <a href="#part-6">Практичне застосування</a>
+              </nav>
+            </div>
+          </aside>
+        </div>
+
+        <section class="article-cta fade-in">
+          <a class="btn btn-ghost" href="/articles/">← До всіх статей</a>
+        </section>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid fade-in">
+      <div>
+        <h4>TELWHA</h4>
+        <p>Фінансова психологія, поведінкова економіка та архітектура вибору для стійкіших фінансових рішень.</p>
+      </div>
+      <div style="text-align:right">
+        <h4>Навігація</h4>
+        <div class="footer-links" style="align-items:flex-end">
+          <a href="/about/">Про мене</a>
+          <a href="/reviews/">Відгуки</a>
+          <a href="/contact/">Контакти</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TELWHA. Усі права захищено.</span>
+      <span>Київ, Україна · 🇺🇦</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/static/script/global.js"></script>
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const siteMenu = document.querySelector('#site-menu');
+  if (menuToggle && siteMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = siteMenu.classList.toggle('is-open');
+      menuToggle.classList.toggle('is-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      menuToggle.setAttribute('aria-label', isOpen ? 'Закрити меню' : 'Відкрити меню');
+    });
+  }
+
+  const progress = document.getElementById('progress');
+  const updateProgress = () => {
+    const doc = document.documentElement;
+    const total = doc.scrollHeight - doc.clientHeight;
+    const scrolled = total > 0 ? (doc.scrollTop / total) * 100 : 0;
+    if (progress) progress.style.width = scrolled + '%';
+  };
+  document.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  const audienceTabs = Array.from(document.querySelectorAll('.audience-tab'));
+  const audiencePanels = Array.from(document.querySelectorAll('.audience-panel'));
+  if (audienceTabs.length) {
+    audienceTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.target;
+        audienceTabs.forEach(btn => {
+          const active = btn === tab;
+          btn.classList.toggle('is-active', active);
+          btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        audiencePanels.forEach(panel => {
+          const active = panel.id === target;
+          panel.classList.toggle('is-active', active);
+          panel.hidden = !active;
+        });
+      });
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+    });
+  }, { threshold: 0.14 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+  const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  const markToc = () => {
+    let activeId = sections[0]?.id;
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 140) activeId = section.id;
+    });
+    tocLinks.forEach(link => {
+      link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
+    });
+  };
+  document.addEventListener('scroll', markToc, { passive: true });
+  markToc();
+</script>
+</body>
+</html>

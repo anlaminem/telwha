@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TELWHA | Cognitive Biases in Financial Texts</title>
+<meta name="description" content="How cognitive biases appear in reports, news, and social media — and why AI can misread them without genre and context.">
+<link rel="canonical" href="https://t-e-l-w-h-a.com/en/articles/cognitive-biases-financial-texts/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="TELWHA | Cognitive Biases in Financial Texts">
+<meta property="og:description" content="How cognitive biases appear in reports, news, and social media — and why AI can misread them without genre and context.">
+<meta property="og:url" content="https://t-e-l-w-h-a.com/en/articles/cognitive-biases-financial-texts/">
+<meta property="og:site_name" content="TELWHA">
+
+<link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+<link rel="stylesheet" href="/static/css/base.css">
+<link rel="stylesheet" href="/static/css/layout-article.css">
+
+<style>
+html{scroll-behavior:smooth;}
+.progress{position:fixed;inset:0 auto auto 0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,var(--accent,#8b7355),var(--accent-2,#c7a978));box-shadow:0 1px 10px rgba(0,0,0,.12)}
+.article-shell{position:relative;max-width:1320px;margin-inline:auto}
+.article-header{position:relative;overflow:hidden}
+.article-header::after{content:"";position:absolute;right:-80px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(199,169,120,.16),rgba(199,169,120,0) 70%);pointer-events:none}
+.article-deck{max-width:850px}
+.article-reading{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.article-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:rgba(255,255,255,.5);backdrop-filter:blur(4px);font-size:.88rem;line-height:1}
+html[data-theme="dark"] .article-chip{background:rgba(255,255,255,.04)}
+.article-layout{
+  display:grid;
+  grid-template-columns:minmax(0,5fr) minmax(260px,2fr);
+  gap:56px;
+  align-items:start;
+}
+.article-main{min-width:0}
+.article-aside{position:sticky;top:92px;display:flex;flex-direction:column;gap:14px}
+.aside-card{padding:16px 16px 14px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.45));box-shadow:0 10px 30px rgba(0,0,0,.04)}
+html[data-theme="dark"] .aside-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
+.aside-card h3{font-size:.92rem;margin:0 0 10px;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
+.toc{display:flex;flex-direction:column;gap:8px}
+.toc a{display:block;padding:8px 10px;border-radius:12px;text-decoration:none;opacity:.78}
+.toc a:hover,.toc a.is-active{background:rgba(199,169,120,.14);opacity:1}
+.mini-note{font-size:.95rem;line-height:1.55;opacity:.85}
+.article-body>p{position:relative;margin-bottom:1.35rem}
+.article-body section[id]>p:first-of-type{margin-top:0}
+.article-body>p.is-focus{padding-left:16px;border-left:3px solid rgba(199,169,120,.8)}
+.article-body h2, .article-body section[id]{scroll-margin-top:120px}
+.article-body section[id]{position:relative;margin-top:2.2rem}
+.article-pullquote{margin:22px 0;padding:18px 20px;border-radius:18px;border:1px solid rgba(120,120,120,.14);background:linear-gradient(135deg,rgba(199,169,120,.14),rgba(199,169,120,.04));font-size:1.05rem;line-height:1.7}
+.article-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(120,120,120,.25),transparent);margin:28px 0}
+.mobile-jump{display:none}
+.audience-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 14px}
+.audience-tab{padding:10px 14px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:transparent;font:inherit;line-height:1.1;cursor:pointer}
+.audience-tab:hover,.audience-tab.is-active{background:rgba(199,169,120,.14);border-color:rgba(199,169,120,.35)}
+.audience-panels{margin-bottom:18px}
+.audience-panel{padding:18px 18px 2px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44))}
+html[data-theme="dark"] .audience-panel{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+.article-figures{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:22px 0 10px}
+.figure-slot{min-height:140px;padding:18px;border:1px dashed rgba(120,120,120,.26);border-radius:18px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;background:rgba(199,169,120,.06);font-weight:600}
+.figure-slot span{display:block;margin-top:6px;font-size:.88rem;font-weight:400;opacity:.75}
+
+@media (max-width: 980px){
+  .section > .wrap{
+    max-width:100%;
+    width:100%;
+  }
+  .article-shell{
+    max-width:100%;
+    width:100%;
+    margin-inline:0;
+  }
+  .article-layout{
+    display:block;
+  }
+  .article-aside{
+    display:none;
+  }
+}
+
+@media (max-width: 720px){
+  .article-reading{gap:8px}
+  .article-chip{font-size:.8rem;padding:7px 10px}
+  .aside-card{border-radius:16px}
+  .mobile-jump{
+    display:flex;
+    gap:8px;
+    overflow:auto;
+    padding-bottom:6px;
+    scrollbar-width:none;
+  }
+  .mobile-jump::-webkit-scrollbar{display:none}
+  .mobile-jump a{
+    white-space:nowrap;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:999px;
+    border:1px solid rgba(120,120,120,.16);
+    background:rgba(255,255,255,.52);
+    font-size:.85rem;
+  }
+  html[data-theme="dark"] .mobile-jump a{background:rgba(255,255,255,.04)}
+}
+
+.section > .wrap{
+  max-width:1440px;
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Cognitive Biases in Financial Texts",
+  "description": "How cognitive biases appear in reports, news, and social media — and why AI can misread them without genre and context.",
+  "author": {"@type": "Person", "name": "Anna Signaevska"},
+  "publisher": {"@type": "Organization", "name": "TELWHA"},
+  "inLanguage": "en",
+  "datePublished": "2026-03-01",
+  "dateModified": "2026-03-01",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://t-e-l-w-h-a.com/en/articles/cognitive-biases-financial-texts/"}
+}
+</script>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="topbar">
+  <div class="wrap nav">
+    <div class="brand">
+      <a class="brand-row" href="/en/">
+        <strong>TELWHA</strong>
+      </a>
+      <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+    </div>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-menu"
+      aria-label="Open menu"
+    >
+      <span class="menu-toggle-lines" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+    <nav class="menu" id="site-menu">
+      <div class="menu-group">
+        <a href="/en/">Home</a>
+        <a href="/en/finlab/">FinLab</a>
+        <a href="/en/about/">About</a>
+      </div>
+
+      <div class="menu-group menu-dropdown">
+        <button type="button" class="menu-dropbtn">For Traders ▾</button>
+        <div class="menu-dropcontent">
+          <a href="/en/trader-course/">Mini-course</a>
+          <a href="/en/archetype-test/">Archetype Test</a>
+        </div>
+      </div>
+
+      <div class="menu-group">
+        <a href="/en/articles/">Articles</a>
+        <a href="/en/reviews/">Reviews</a>
+        <a href="/en/cases/">Cases</a>
+        <a href="/en/contact/">Contact</a>
+      </div>
+
+      <div class="menu-group menu-tools">
+        <details class="lang-switcher lang-switcher--inside">
+          <summary>🇬🇧</summary>
+          <div class="lang-list">
+            <a href="/articles/mastercase.html" aria-label="Ukrainian">🇺🇦</a>
+            <a href="/es/articles/mastercase.html" aria-label="Español">🇪🇸</a>
+          </div>
+        </details>
+
+        <button class="theme-toggle" type="button" aria-label="Switch theme">🌓</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <article class="article-shell" itemscope itemtype="https://schema.org/Article">
+        <header class="article-header fade-in">
+          <div class="eyebrow"><span>Research</span> TELWHA</div>
+          <h1 itemprop="headline">Cognitive Biases in Financial Texts</h1>
+          <p class="article-deck" itemprop="description">
+            How cognitive biases appear in reports, news, and social media — and why AI can misread them without genre and context.
+          </p>
+          <div class="article-reading">
+            <span class="article-chip">2020–2025</span>
+            <span class="article-chip">SEC EDGAR · News · Twitter · Reddit</span>
+            <span class="article-chip">NLP · Behavioral Finance</span>
+          </div>
+        </header>
+
+        <div class="mobile-jump fade-in" aria-label="Quick article navigation">
+          <a href="#part-1">Start</a>
+          <a href="#part-2">Markers</a>
+          <a href="#part-3">Density</a>
+          <a href="#part-4">Findings</a>
+          <a href="#part-5">AI</a>
+          <a href="#part-6">Application</a>
+        </div>
+
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="article-body" itemprop="articleBody">
+              <section id="part-1">
+                <p class="is-focus">The financial world likes to present itself as rational. On a chart, there is mathematics. In a report, restrained wording. In the news, “neutral” analysis. And then Reddit produces “unbelievable opportunity,” “everyone is buying,” and the market forgets what caution and rationality mean. In this project, I did not look at prices but at words. At how the brain’s cognitive tricks live inside texts: reports, news, and social media.</p>
+
+                <p>I collected three layers of financial reality from 2020–2025: reports from U.S. public companies (10‑K and 10‑Q filings from SEC EDGAR), financial news, and large sets of Twitter and Reddit posts focused on the market. Reports are the official stage, where every word passes through lawyers and compliance. News acts like a dramatist, turning the same numbers into either “record-breaking performance” or “worst decline since 2008.” Social media is more like a bar where everyone speaks loudly, emotionally, and often with much more confidence than the evidence justifies. All three describe the same market, but in the language of different cognitive biases.</p>
+              </section>
+
+              <div class="article-pullquote fade-in">
+                What matters here is not the words alone, but the difference between genres: compliance language, media framing, and crowd rhetoric may describe the same market, yet they produce different behavioral signals.
+              </div>
+
+              <div class="article-divider"></div>
+
+              <section id="part-2">
+                <p>To make these biases measurable rather than merely intuitive, I selected ten key phenomena from behavioral finance and translated them into specific lexical patterns. For example, overconfidence on social media often appears through markers such as “I’m 100% sure,” “guaranteed profit,” “can’t lose,” “no way this goes down,” and “this is a sure thing.” Herd behavior surfaces in texts with phrases like “everyone is buying,” “we all know,” “join us,” “don’t miss out,” and “the whole market is in,” where “we” suddenly sounds wiser than any individual. Framing in news coverage lives in formulations such as “only minor correction” instead of “double-digit drop,” “growth opportunity” instead of “high risk,” or in emphasis on “stability” and “resilience” even when the story is actually about decline.</p>
+
+                <p>The list also included anchoring — constructions like “from 52‑week high,” “compared to the peak,” and “since all-time high,” which tie perception to a reference point as if it were normal. For loss aversion, relevant phrases include “protect your capital,” “avoid drawdown,” “not willing to lose a single dollar,” and “can’t afford any loss.” Information overload appears in texts that stress “too much data,” “endless news flow,” “overwhelmed with information,” and “no time to process all reports,” all of which directly connect to the way the brain starts economizing on depth of analysis. A separate category is excessive trust in algorithms, expressed through phrases like “the bot knows better,” “the model is always right,” “just follow the algo,” and “AI already figured it out.”</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-3">
+                <p class="is-focus">The next step was to place a ruler over all of this. Counting separate words tells us very little if we do not distinguish between a bias that appears rarely but strikes at full intensity and one that exists everywhere as low-level noise. For each bias in each channel, I first looked at the share of texts containing characteristic markers, and then at how densely those markers appeared where they were already present. One report with a single mention of “risk” is one thing; dozens of Reddit posts saying “we all know this will go to the moon” and “just buy, don’t overthink” are something completely different, even if a raw marker count looks similar.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-4">
+                <p>After running NLP across the full corpus and manually reviewing part of the material, several interesting patterns appeared. Reports turned out to be “full” of bias markers statistically — they contained such markers almost all the time. But when density is examined, the layer is thin. Very thin. There is a lot of “risk,” “uncertainty,” “volatility,” and “potential,” but inside constructions like “we are subject to market risk” or “there is potential impact of volatility.” This is the language of protection, not panic. That is how an effect emerged which I came to think of as the “report anomaly”: almost every text is tagged by markers, yet the real emotional intensity remains low.</p>
+
+                <p>On social media, the picture is different. Complex formulas are rare there, but categorical judgments are much more common. When the analysis detects clusters of texts where “guaranteed,” “you can’t lose here,” “everyone is all-in,” “if you miss this, you’ll regret forever,” and “the bot already backtested this strategy” appear together, the density of overconfidence, herd behavior, and algorithmic trust shoots upward. This is not background noise but bursts: on ordinary days the feed may look relatively calm, yet in moments of hype or fear the language changes sharply, and that shift itself becomes a behavioral signal.</p>
+
+                <p>In news coverage, the language is more controlled, but it is not neutral either. Here framing does much of the work: “only temporary setback” instead of “significant decline,” “investors take profits” where mass exits are actually occurring, “strong fundamentals despite short-term volatility” even in cases where the table looks much less impressive. In the thesis, several subtypes of framing stood out: goal-oriented framing (“on track to achieve long-term targets”), avoidance framing (“measures to avoid further losses”), positive framing (“solid growth,” “resilient performance”), and marketing framing (“exclusive opportunity,” “unique market position”). Taken together, this creates a stable informational environment in which facts never arrive alone — they arrive already dressed in a desired mood.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-5">
+                <p>When these three layers are combined, it becomes clear how easily a simple model can be misled. It sees “risk” and “uncertainty” in a report and counts them as bias or fear. It sees a few meme-like phrases in a thread and may simply add them into the rest. Without context, a report can look as “emotional” as a wave of FOMO, even though in one case we are reading legal armor, and in the other, collective conviction that “it is impossible to be wrong here.”</p>
+
+                <p>A question for you: do you also use AI models to “read the market” faster — to scan reports, pull signals from news, and summarize social media? That is normal; it is 2026 after all. But there is a catch. An algorithm that cannot distinguish genre, hear irony, or recognize behavioral language patterns becomes one more participant in herd behavior — just without the habit of doubt. It catches a word and instantly concludes something about “market sentiment” without asking whether this is really a signal that “everyone is running,” or just another paragraph in the Risk Factors section of a 10‑K.</p>
+
+                <p>These models extract texts, build “fear,” “greed,” and “optimism” indices, highlight things in red and green, and suggest where to click. If their view of language is flat, they repeat the same cognitive mistakes as humans, only faster. The algorithm does not get tired or anxious, but it also does not ask itself whether this is truly a change in sentiment or simply the style of the document. This is exactly where an additional layer becomes necessary — one that distinguishes genre, context, and behavioral patterns, rather than just counting words.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-6">
+                <h2>How can this be used?</h2>
+
+                <div class="audience-tabs" role="tablist" aria-label="Use case scenarios">
+                  <button class="audience-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="audience-fintech" id="tab-fintech" data-target="audience-fintech">FinTech / Banks</button>
+                  <button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-investors" id="tab-investors" data-target="audience-investors">Analysts / Investors</button>
+                  <button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-users" id="tab-users" data-target="audience-users">App Users</button>
+                </div>
+
+                <div class="audience-panels">
+                  <section class="audience-panel is-active" id="audience-fintech" role="tabpanel" aria-labelledby="tab-fintech">
+                    <p>For FinTech teams and banks, this is a matter of system architecture. Models need to be trained to distinguish the language of compliance in reports from the language of behavioral spikes in social media and news. Dictionary-based indicators are most useful where language is “alive” — in news texts and public discussion — as early detectors of herd waves and overconfidence. For reports, they are better combined with contextual models such as FinBERT or specially trained LLMs, plus mandatory qualitative review. That makes it possible to build separate profiles of herd behavior, framing, and algorithmic trust across channels, without penalizing a company simply for complying honestly with regulatory requirements.</p>
+                  </section>
+
+                  <section class="audience-panel" id="audience-investors" role="tabpanel" aria-labelledby="tab-investors" hidden>
+                    <p>For financial analysts and investors, this work is a reminder that numbers always arrive together with language, and language has its own stable distortions. Reports should not be treated as “pure signal” simply because they use standard formulas about uncertainty and risk — those formulas are often more about legal self-protection. News is better read with the question: “Into what frame are these numbers being placed right now?” Social media, meanwhile, should be treated as a map of places where rhetoric has shifted into the mode of “everyone is sure it is impossible to be wrong,” which is in itself a reason for caution.</p>
+                  </section>
+
+                  <section class="audience-panel" id="audience-users" role="tabpanel" aria-labelledby="tab-users" hidden>
+                    <p>For people who use financial apps and invest from time to time, this offers one more filter for financial hygiene: how exactly people are talking to you. A report that repeats “uncertainty” many times does not automatically mean everything will collapse tomorrow. A headline about a “historic rally” may describe a move that looks like ordinary volatility on the chart. A thread full of confident voices promising easy money may be less a revelation of collective intelligence than a textbook combination of Overconfidence, Herd Behavior, and AI Overtrust in one cluster of phrases.</p>
+                  </section>
+                </div>
+
+                <div class="article-figures fade-in" aria-label="Research figures">
+                  <div class="figure-slot">Figure 1<br><span>To be added from the thesis</span></div>
+                  <div class="figure-slot">Figure 2<br><span>To be added from the thesis</span></div>
+                  <div class="figure-slot">Figure 3<br><span>To be added from the thesis</span></div>
+                  <div class="figure-slot">Figure 4<br><span>To be added from the thesis</span></div>
+                </div>
+
+                <p class="is-focus">In the end, this case is about language. And about the mind. And about how both interact with money. It is about the cognitive patterns embedded in texts, patterns that move markets no less than macro data. And it is about the fact that in 2026, the advantage belongs not to the person with more information, but to the one who better understands through which lenses that information reaches both them and their models.</p>
+              </section>
+            </div>
+          </div>
+
+          <aside class="article-aside fade-in" aria-label="Article navigation">
+            <div class="aside-card">
+              <h3>Navigation</h3>
+              <nav class="toc">
+                <a href="#part-1">Start</a>
+                <a href="#part-2">Lexical patterns</a>
+                <a href="#part-3">Signal density</a>
+                <a href="#part-4">What the corpus showed</a>
+                <a href="#part-5">AI and reading errors</a>
+                <a href="#part-6">Practical application</a>
+              </nav>
+            </div>
+          </aside>
+        </div>
+
+        <section class="article-cta fade-in">
+          <a class="btn btn-ghost" href="/en/articles/">← Back to all articles</a>
+        </section>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid fade-in">
+      <div>
+        <h4>TELWHA</h4>
+        <p>Financial psychology, behavioral economics, and choice architecture for more sustainable financial decisions.</p>
+      </div>
+      <div style="text-align:right">
+        <h4>Navigation</h4>
+        <div class="footer-links" style="align-items:flex-end">
+          <a href="/en/about/">About</a>
+          <a href="/en/reviews/">Reviews</a>
+          <a href="/en/contact/">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TELWHA. All rights reserved.</span>
+      <span>Kyiv, Ukraine · 🇺🇦</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/static/script/global.js"></script>
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const siteMenu = document.querySelector('#site-menu');
+  if (menuToggle && siteMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = siteMenu.classList.toggle('is-open');
+      menuToggle.classList.toggle('is-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+  }
+
+  const progress = document.getElementById('progress');
+  const updateProgress = () => {
+    const doc = document.documentElement;
+    const total = doc.scrollHeight - doc.clientHeight;
+    const scrolled = total > 0 ? (doc.scrollTop / total) * 100 : 0;
+    if (progress) progress.style.width = scrolled + '%';
+  };
+  document.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  const audienceTabs = Array.from(document.querySelectorAll('.audience-tab'));
+  const audiencePanels = Array.from(document.querySelectorAll('.audience-panel'));
+  if (audienceTabs.length) {
+    audienceTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.target;
+        audienceTabs.forEach(btn => {
+          const active = btn === tab;
+          btn.classList.toggle('is-active', active);
+          btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        audiencePanels.forEach(panel => {
+          const active = panel.id === target;
+          panel.classList.toggle('is-active', active);
+          panel.hidden = !active;
+        });
+      });
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+    });
+  }, { threshold: 0.14 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+  const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  const markToc = () => {
+    let activeId = sections[0]?.id;
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 140) activeId = section.id;
+    });
+    tocLinks.forEach(link => {
+      link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
+    });
+  };
+  document.addEventListener('scroll', markToc, { passive: true });
+  markToc();
+</script>
+</body>
+</html>

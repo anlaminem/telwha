@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TELWHA | Sesgos cognitivos en textos financieros</title>
+<meta name="description" content="Cómo aparecen los sesgos cognitivos en informes, noticias y redes sociales, y por qué la IA puede interpretarlos mal sin género ni contexto.">
+<link rel="canonical" href="https://t-e-l-w-h-a.com/es/articles/cognitive-biases-financial-texts/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="TELWHA | Sesgos cognitivos en textos financieros">
+<meta property="og:description" content="Cómo aparecen los sesgos cognitivos en informes, noticias y redes sociales, y por qué la IA puede interpretarlos mal sin género ni contexto.">
+<meta property="og:url" content="https://t-e-l-w-h-a.com/es/articles/cognitive-biases-financial-texts/">
+<meta property="og:site_name" content="TELWHA">
+
+<link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+<link rel="stylesheet" href="/static/css/base.css">
+<link rel="stylesheet" href="/static/css/layout-article.css">
+
+<style>
+html{scroll-behavior:smooth;}
+.progress{position:fixed;inset:0 auto auto 0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,var(--accent,#8b7355),var(--accent-2,#c7a978));box-shadow:0 1px 10px rgba(0,0,0,.12)}
+.article-shell{position:relative;max-width:1320px;margin-inline:auto}
+.article-header{position:relative;overflow:hidden}
+.article-header::after{content:"";position:absolute;right:-80px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(199,169,120,.16),rgba(199,169,120,0) 70%);pointer-events:none}
+.article-deck{max-width:850px}
+.article-reading{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.article-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:rgba(255,255,255,.5);backdrop-filter:blur(4px);font-size:.88rem;line-height:1}
+html[data-theme="dark"] .article-chip{background:rgba(255,255,255,.04)}
+.article-layout{
+  display:grid;
+  grid-template-columns:minmax(0,5fr) minmax(260px,2fr);
+  gap:56px;
+  align-items:start;
+}
+.article-main{min-width:0}
+.article-aside{position:sticky;top:92px;display:flex;flex-direction:column;gap:14px}
+.aside-card{padding:16px 16px 14px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.45));box-shadow:0 10px 30px rgba(0,0,0,.04)}
+html[data-theme="dark"] .aside-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
+.aside-card h3{font-size:.92rem;margin:0 0 10px;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
+.toc{display:flex;flex-direction:column;gap:8px}
+.toc a{display:block;padding:8px 10px;border-radius:12px;text-decoration:none;opacity:.78}
+.toc a:hover,.toc a.is-active{background:rgba(199,169,120,.14);opacity:1}
+.mini-note{font-size:.95rem;line-height:1.55;opacity:.85}
+.article-body>p{position:relative;margin-bottom:1.35rem}
+.article-body section[id]>p:first-of-type{margin-top:0}
+.article-body>p.is-focus{padding-left:16px;border-left:3px solid rgba(199,169,120,.8)}
+.article-body h2, .article-body section[id]{scroll-margin-top:120px}
+.article-body section[id]{position:relative;margin-top:2.2rem}
+.article-pullquote{margin:22px 0;padding:18px 20px;border-radius:18px;border:1px solid rgba(120,120,120,.14);background:linear-gradient(135deg,rgba(199,169,120,.14),rgba(199,169,120,.04));font-size:1.05rem;line-height:1.7}
+.article-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(120,120,120,.25),transparent);margin:28px 0}
+.mobile-jump{display:none}
+.audience-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 14px}
+.audience-tab{padding:10px 14px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:transparent;font:inherit;line-height:1.1;cursor:pointer}
+.audience-tab:hover,.audience-tab.is-active{background:rgba(199,169,120,.14);border-color:rgba(199,169,120,.35)}
+.audience-panels{margin-bottom:18px}
+.audience-panel{padding:18px 18px 2px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44))}
+html[data-theme="dark"] .audience-panel{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+.article-figures{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:22px 0 10px}
+.figure-slot{min-height:140px;padding:18px;border:1px dashed rgba(120,120,120,.26);border-radius:18px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;background:rgba(199,169,120,.06);font-weight:600}
+.figure-slot span{display:block;margin-top:6px;font-size:.88rem;font-weight:400;opacity:.75}
+
+@media (max-width: 980px){
+  .section > .wrap{
+    max-width:100%;
+    width:100%;
+  }
+  .article-shell{
+    max-width:100%;
+    width:100%;
+    margin-inline:0;
+  }
+  .article-layout{
+    display:block;
+  }
+  .article-aside{
+    display:none;
+  }
+}
+
+@media (max-width: 720px){
+  .article-reading{gap:8px}
+  .article-chip{font-size:.8rem;padding:7px 10px}
+  .aside-card{border-radius:16px}
+  .mobile-jump{
+    display:flex;
+    gap:8px;
+    overflow:auto;
+    padding-bottom:6px;
+    scrollbar-width:none;
+  }
+  .mobile-jump::-webkit-scrollbar{display:none}
+  .mobile-jump a{
+    white-space:nowrap;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:999px;
+    border:1px solid rgba(120,120,120,.16);
+    background:rgba(255,255,255,.52);
+    font-size:.85rem;
+  }
+  html[data-theme="dark"] .mobile-jump a{background:rgba(255,255,255,.04)}
+}
+
+.section > .wrap{
+  max-width:1440px;
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Sesgos cognitivos en textos financieros",
+  "description": "Cómo aparecen los sesgos cognitivos en informes, noticias y redes sociales, y por qué la IA puede interpretarlos mal sin género ni contexto.",
+  "author": {"@type": "Person", "name": "Anna Signaevska"},
+  "publisher": {"@type": "Organization", "name": "TELWHA"},
+  "inLanguage": "es",
+  "datePublished": "2026-03-01",
+  "dateModified": "2026-03-01",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://t-e-l-w-h-a.com/es/articles/cognitive-biases-financial-texts/"}
+}
+</script>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="topbar">
+  <div class="wrap nav">
+    <div class="brand">
+      <a class="brand-row" href="/es/">
+        <strong>TELWHA</strong>
+      </a>
+      <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+    </div>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-menu"
+      aria-label="Abrir menú"
+    >
+      <span class="menu-toggle-lines" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+    <nav class="menu" id="site-menu">
+      <div class="menu-group">
+        <a href="/es/">Inicio</a>
+        <a href="/es/finlab/">FinLab</a>
+        <a href="/es/about/">Sobre mí</a>
+      </div>
+
+      <div class="menu-group menu-dropdown">
+        <button type="button" class="menu-dropbtn">Para traders ▾</button>
+        <div class="menu-dropcontent">
+          <a href="/es/trader-course/">Mini curso</a>
+          <a href="/es/archetype-test/">Test de arquetipos</a>
+        </div>
+      </div>
+
+      <div class="menu-group">
+        <a href="/es/articles/">Artículos</a>
+        <a href="/es/reviews/">Reseñas</a>
+        <a href="/es/cases/">Casos</a>
+        <a href="/es/contact/">Contacto</a>
+      </div>
+
+      <div class="menu-group menu-tools">
+        <details class="lang-switcher lang-switcher--inside">
+          <summary>🇪🇸</summary>
+          <div class="lang-list">
+            <a href="/articles/mastercase.html" aria-label="Ukrainian">🇺🇦</a>
+            <a href="/en/articles/mastercase.html" aria-label="English">🇬🇧</a>
+          </div>
+        </details>
+
+        <button class="theme-toggle" type="button" aria-label="Cambiar tema">🌓</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <article class="article-shell" itemscope itemtype="https://schema.org/Article">
+        <header class="article-header fade-in">
+          <div class="eyebrow"><span>Research</span> TELWHA</div>
+          <h1 itemprop="headline">Sesgos cognitivos en textos financieros</h1>
+          <p class="article-deck" itemprop="description">
+            Cómo aparecen los sesgos cognitivos en informes, noticias y redes sociales, y por qué la IA puede interpretarlos mal sin género ni contexto.
+          </p>
+          <div class="article-reading">
+            <span class="article-chip">2020–2025</span>
+            <span class="article-chip">SEC EDGAR · News · Twitter · Reddit</span>
+            <span class="article-chip">NLP · Behavioral Finance</span>
+          </div>
+        </header>
+
+        <div class="mobile-jump fade-in" aria-label="Navegación rápida del artículo">
+          <a href="#part-1">Inicio</a>
+          <a href="#part-2">Marcadores</a>
+          <a href="#part-3">Densidad</a>
+          <a href="#part-4">Hallazgos</a>
+          <a href="#part-5">IA</a>
+          <a href="#part-6">Aplicación</a>
+        </div>
+
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="article-body" itemprop="articleBody">
+              <section id="part-1">
+                <p class="is-focus">El mundo financiero disfruta presentándose como racional. En un gráfico hay matemáticas. En un informe, formulaciones contenidas. En las noticias, análisis “neutral”. Y luego aparece Reddit con “unbelievable opportunity”, “everyone is buying”, y el mercado olvida lo que significan la prudencia y la racionalidad. En este proyecto no observé los precios, sino las palabras. Observé cómo los trucos cognitivos del cerebro viven dentro de los textos: informes, noticias y redes sociales.</p>
+
+                <p>Reuní tres capas de realidad financiera entre 2020 y 2025: informes de empresas públicas de EE. UU. (10‑K y 10‑Q de SEC EDGAR), noticias financieras y grandes conjuntos de publicaciones de Twitter y Reddit dedicadas al mercado. Los informes son el escenario oficial, donde cada palabra pasa por abogados y compliance. Las noticias funcionan como dramaturgos: convierten los mismos números en “record-breaking performance” o en “worst decline since 2008”. Las redes sociales se parecen más a un bar, donde todos hablan alto, con emoción y, a menudo, con mucha más confianza de la que justifican los hechos. Los tres describen el mismo mercado, pero en el lenguaje de distintos sesgos cognitivos.</p>
+              </section>
+
+              <div class="article-pullquote fade-in">
+                Aquí lo importante no son solo las palabras, sino la diferencia entre géneros: el lenguaje de compliance, el encuadre mediático y la retórica de la multitud pueden describir el mismo mercado, pero generan señales conductuales distintas.
+              </div>
+
+              <div class="article-divider"></div>
+
+              <section id="part-2">
+                <p>Para que estos sesgos pudieran medirse y no solo percibirse de forma intuitiva, seleccioné diez fenómenos clave de las finanzas conductuales y los traduje en patrones léxicos concretos. Por ejemplo, la sobreconfianza en redes sociales suele aparecer mediante marcadores como “I’m 100% sure”, “guaranteed profit”, “can’t lose”, “no way this goes down” y “this is a sure thing”. El comportamiento gregario emerge en textos con frases como “everyone is buying”, “we all know”, “join us”, “don’t miss out” y “the whole market is in”, donde el “nosotros” de pronto parece saber más que cualquier individuo. El framing en las noticias vive en formulaciones como “only minor correction” en lugar de “double-digit drop”, “growth opportunity” en vez de “high risk”, o en el énfasis sobre “stability” y “resilience” incluso cuando el tema real es una caída.</p>
+
+                <p>La lista también incluyó anclaje: construcciones como “from 52‑week high”, “compared to the peak” y “since all-time high”, que fijan la percepción a un punto de referencia como si fuera la norma. Para la aversión a la pérdida, importan expresiones como “protect your capital”, “avoid drawdown”, “not willing to lose a single dollar” y “can’t afford any loss”. La sobrecarga informativa aparece en textos que subrayan “too much data”, “endless news flow”, “overwhelmed with information” y “no time to process all reports”, lo que conecta directamente con la manera en que el cerebro empieza a ahorrar en profundidad de análisis. Una categoría aparte es la confianza excesiva en algoritmos, expresada mediante frases como “the bot knows better”, “the model is always right”, “just follow the algo” y “AI already figured it out”.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-3">
+                <p class="is-focus">El siguiente paso fue ponerle una regla a todo esto. Contar palabras sueltas no sirve de mucho si no distinguimos entre un sesgo que aparece raramente pero golpea con máxima intensidad y otro que está presente en todas partes como ruido de fondo. Para cada sesgo en cada canal, primero observé en qué proporción de textos aparecían los marcadores característicos, y luego qué tan densamente estaban presentes allí donde ya existían. Un informe con una sola mención de “risk” es una cosa; decenas de posts en Reddit con “we all know this will go to the moon” y “just buy, don’t overthink” son otra completamente distinta, aunque el conteo bruto de marcadores parezca similar.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-4">
+                <p>Tras aplicar NLP al corpus completo y revisar manualmente parte del material, surgieron varios patrones interesantes. Los informes resultaron estar “llenos” de marcadores de sesgo desde un punto de vista estadístico: los contenían casi siempre. Pero cuando se observa la densidad, la capa es fina. Muy fina. Hay mucho “risk”, “uncertainty”, “volatility” y “potential”, pero dentro de construcciones como “we are subject to market risk” o “there is potential impact of volatility”. Ese es el lenguaje de la protección, no del pánico. Así apareció un efecto que empecé a llamar la “anomalía de los informes”: casi todos los textos están marcados por indicadores, pero la verdadera intensidad emocional es baja.</p>
+
+                <p>En redes sociales, el panorama es distinto. Allí son raras las fórmulas complejas, pero mucho más frecuentes los juicios categóricos. Cuando el análisis detecta grupos de textos donde aparecen juntos “guaranteed”, “you can’t lose here”, “everyone is all-in”, “if you miss this, you’ll regret forever” y “the bot already backtested this strategy”, la densidad de sobreconfianza, comportamiento gregario y confianza algorítmica se dispara. No se trata de ruido de fondo, sino de estallidos: en días normales el feed puede parecer relativamente tranquilo, pero en momentos de hype o miedo el lenguaje cambia con brusquedad, y ese cambio en sí mismo se convierte en señal conductual.</p>
+
+                <p>En las noticias, el lenguaje está más controlado, pero tampoco es neutral. Aquí el framing hace gran parte del trabajo: “only temporary setback” en lugar de “caída significativa”, “investors take profits” cuando en realidad se producen salidas masivas, “strong fundamentals despite short-term volatility” incluso cuando la tabla resulta bastante menos impresionante. En la tesis destacaban varios subtipos de framing: framing orientado a objetivos (“on track to achieve long-term targets”), framing de evitación (“measures to avoid further losses”), framing positivo (“solid growth”, “resilient performance”) y framing de marketing (“exclusive opportunity”, “unique market position”). En conjunto, esto crea un entorno informativo estable en el que los hechos nunca llegan solos: llegan ya vestidos con el estado de ánimo deseado.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-5">
+                <p>Cuando estas tres capas se combinan, se vuelve evidente lo fácil que es engañar a un modelo simple. Ve “risk” y “uncertainty” en un informe y los cuenta como sesgo o miedo. Ve unas cuantas frases tipo meme en un hilo y quizá solo las suma al resto. Sin contexto, un informe puede parecer tan “emocional” como una ola de FOMO, aunque en un caso estemos leyendo armadura legal, y en el otro, convicción colectiva de que “aquí es imposible equivocarse”.</p>
+
+                <p>Una pregunta para ti: ¿también usas modelos de IA para “leer el mercado” más rápido, revisar informes, extraer señales de noticias y resumir redes sociales? Es normal; al fin y al cabo estamos en 2026. Pero hay una trampa. Un algoritmo que no distingue género, no reconoce ironía y no ve patrones conductuales del lenguaje se convierte en un participante más del comportamiento gregario, solo que sin el hábito de dudar. Detecta una palabra y enseguida concluye algo sobre el “sentimiento del mercado”, sin preguntarse si realmente se trata de una señal de que “todos corren”, o simplemente de otro párrafo en la sección Risk Factors de un 10‑K.</p>
+
+                <p>Estos modelos extraen textos, construyen índices de “miedo”, “codicia” y “optimismo”, resaltan cosas en rojo y verde y sugieren dónde hacer clic. Si su visión del lenguaje es plana, repiten los mismos errores cognitivos que comete una persona, solo que más rápido. El algoritmo no se cansa ni se pone nervioso, pero tampoco se pregunta si esto es realmente un cambio de sentimiento o simplemente el estilo del documento. Justamente ahí hace falta una capa adicional: una que distinga género, contexto y patrones conductuales, en lugar de limitarse a contar palabras.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-6">
+                <h2>¿Cómo puede aplicarse?</h2>
+
+                <div class="audience-tabs" role="tablist" aria-label="Escenarios de uso">
+                  <button class="audience-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="audience-fintech" id="tab-fintech" data-target="audience-fintech">FinTech / Bancos</button>
+                  <button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-investors" id="tab-investors" data-target="audience-investors">Analistas / Inversores</button>
+                  <button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-users" id="tab-users" data-target="audience-users">Usuarios de apps</button>
+                </div>
+
+                <div class="audience-panels">
+                  <section class="audience-panel is-active" id="audience-fintech" role="tabpanel" aria-labelledby="tab-fintech">
+                    <p>Para los equipos FinTech y los bancos, esto es una cuestión de arquitectura de sistemas. Los modelos deben aprender a distinguir el lenguaje de compliance en los informes del lenguaje de picos conductuales en redes sociales y noticias. Los indicadores basados en diccionarios son más útiles allí donde el lenguaje está “vivo”: en los textos periodísticos y en la conversación pública, como detectores tempranos de oleadas gregarias y sobreconfianza. En el caso de los informes, es mejor combinarlos con modelos contextuales como FinBERT o con LLM especialmente entrenados, además de una revisión cualitativa obligatoria. Eso permite construir perfiles separados de comportamiento gregario, framing y confianza algorítmica según el canal, sin penalizar a una empresa solo por cumplir honestamente con requisitos regulatorios.</p>
+                  </section>
+
+                  <section class="audience-panel" id="audience-investors" role="tabpanel" aria-labelledby="tab-investors" hidden>
+                    <p>Para analistas financieros e inversores, este trabajo recuerda que los números siempre llegan acompañados de lenguaje, y que el lenguaje tiene sus propias distorsiones estables. Los informes no deberían tratarse como “señal pura” simplemente porque usan fórmulas estándar sobre incertidumbre y riesgo; esas fórmulas a menudo hablan más de autoprotección legal. Las noticias conviene leerlas con una pregunta: “¿En qué marco están colocando estos números ahora mismo?”. Y las redes sociales deberían verse como un mapa de lugares donde la retórica ha pasado al modo de “todos están seguros de que es imposible equivocarse”, lo cual ya es, por sí mismo, una señal de cautela.</p>
+                  </section>
+
+                  <section class="audience-panel" id="audience-users" role="tabpanel" aria-labelledby="tab-users" hidden>
+                    <p>Para quienes usan aplicaciones financieras e invierten de vez en cuando, esto aporta un filtro más a la higiene financiera: cómo exactamente te están hablando. Un informe que repite muchas veces “uncertainty” no significa automáticamente que todo vaya a hundirse mañana. Un titular sobre un “historic rally” puede describir un movimiento que en el gráfico parece volatilidad normal. Un hilo lleno de voces seguras que prometen dinero fácil puede ser menos una revelación de inteligencia colectiva y más una combinación de manual entre Overconfidence, Herd Behavior y AI Overtrust en un mismo grupo de frases.</p>
+                  </section>
+                </div>
+
+                <div class="article-figures fade-in" aria-label="Figuras de la investigación">
+                  <div class="figure-slot">Figura 1<br><span>Se añadirá desde la tesis</span></div>
+                  <div class="figure-slot">Figura 2<br><span>Se añadirá desde la tesis</span></div>
+                  <div class="figure-slot">Figura 3<br><span>Se añadirá desde la tesis</span></div>
+                  <div class="figure-slot">Figura 4<br><span>Se añadirá desde la tesis</span></div>
+                </div>
+
+                <p class="is-focus">En el fondo, este caso trata sobre el lenguaje. Y sobre la mente. Y sobre cómo ambos interactúan con el dinero. Trata de los patrones cognitivos incrustados en los textos, patrones que mueven los mercados no menos que los datos macro. Y trata también de que, en 2026, la ventaja no pertenece a quien tiene más información, sino a quien comprende mejor a través de qué lentes esa información llega tanto a la persona como a sus modelos.</p>
+              </section>
+            </div>
+          </div>
+
+          <aside class="article-aside fade-in" aria-label="Navegación del artículo">
+            <div class="aside-card">
+              <h3>Navegación</h3>
+              <nav class="toc">
+                <a href="#part-1">Inicio</a>
+                <a href="#part-2">Patrones léxicos</a>
+                <a href="#part-3">Densidad de señal</a>
+                <a href="#part-4">Lo que mostró el corpus</a>
+                <a href="#part-5">IA y errores de lectura</a>
+                <a href="#part-6">Aplicación práctica</a>
+              </nav>
+            </div>
+          </aside>
+        </div>
+
+        <section class="article-cta fade-in">
+          <a class="btn btn-ghost" href="/es/articles/">← Volver a todos los artículos</a>
+        </section>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid fade-in">
+      <div>
+        <h4>TELWHA</h4>
+        <p>Psicología financiera, economía conductual y arquitectura de elección para decisiones financieras más sostenibles.</p>
+      </div>
+      <div style="text-align:right">
+        <h4>Navegación</h4>
+        <div class="footer-links" style="align-items:flex-end">
+          <a href="/es/about/">Sobre mí</a>
+          <a href="/es/reviews/">Reseñas</a>
+          <a href="/es/contact/">Contacto</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TELWHA. Todos los derechos reservados.</span>
+      <span>Kyiv, Ucrania · 🇺🇦</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/static/script/global.js"></script>
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const siteMenu = document.querySelector('#site-menu');
+  if (menuToggle && siteMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = siteMenu.classList.toggle('is-open');
+      menuToggle.classList.toggle('is-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      menuToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+    });
+  }
+
+  const progress = document.getElementById('progress');
+  const updateProgress = () => {
+    const doc = document.documentElement;
+    const total = doc.scrollHeight - doc.clientHeight;
+    const scrolled = total > 0 ? (doc.scrollTop / total) * 100 : 0;
+    if (progress) progress.style.width = scrolled + '%';
+  };
+  document.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  const audienceTabs = Array.from(document.querySelectorAll('.audience-tab'));
+  const audiencePanels = Array.from(document.querySelectorAll('.audience-panel'));
+  if (audienceTabs.length) {
+    audienceTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.target;
+        audienceTabs.forEach(btn => {
+          const active = btn === tab;
+          btn.classList.toggle('is-active', active);
+          btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        audiencePanels.forEach(panel => {
+          const active = panel.id === target;
+          panel.classList.toggle('is-active', active);
+          panel.hidden = !active;
+        });
+      });
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+    });
+  }, { threshold: 0.14 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+  const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  const markToc = () => {
+    let activeId = sections[0]?.id;
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 140) activeId = section.id;
+    });
+    tocLinks.forEach(link => {
+      link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
+    });
+  };
+  document.addEventListener('scroll', markToc, { passive: true });
+  markToc();
+</script>
+</body>
+</html>

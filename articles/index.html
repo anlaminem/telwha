@@ -77,8 +77,6 @@
 </head>
 <body>
 
-  <!-- lang-switcher тепер всередині меню, окремий блок зверху не потрібен -->
-
   <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
@@ -148,7 +146,8 @@
             <div class="eyebrow">TELWHA / Articles</div>
             <h1>Статті та розбори</h1>
             <p class="page-sub">
-              Практичні матеріали про психологію грошей, трейдинг, ризик і навчання. Кожна стаття побудована як міні‑сесія: зрозуміти патерн, побачити себе, змінити рішення.
+              Практичні матеріали про психологію грошей, трейдинг, ризик і навчання.
+              Кожна стаття побудована як міні‑сесія: зрозуміти патерн, побачити себе, змінити рішення.
             </p>
           </div>
           <aside class="hero-featured">
@@ -229,7 +228,23 @@
           </div>
         </article>
 
-        <!-- Далі додаєш article.article-card з потрібним data-tag -->
+        <!-- Стаття 4 -->
+        <article class="article-card" data-tag="finlab">
+          <div class="article-tag">FinLab · Дослідження</div>
+          <h2 class="article-title">Когнітивні упередження у фінансових текстах</h2>
+          <p class="article-meta">1 березня 2026 · 10 хв читання</p>
+          <p class="article-excerpt">
+            Як когнітивні упередження проявляються у звітах, новинах і соцмережах, і чому
+            без жанру та контексту AI‑моделі можуть змішувати юридичну мову, hype і страх ринку
+            в один викривлений сигнал.
+          </p>
+          <div class="article-footer">
+            <a class="article-link" href="/articles/mastercase.html">
+              Читати <span>→</span>
+            </a>
+            <span class="article-video-flag"></span>
+          </div>
+        </article>
       </section>
     </div>
   </main>
@@ -267,7 +282,6 @@
   <script src="/static/script/global.js"></script>
   <script src="/static/script/articles.js"></script>
   <script>
-    // mobile menu toggle, узгоджений з іншими сторінками
     (function () {
       const toggle = document.querySelector('.menu-toggle');
       const menu = document.querySelector('#site-menu');
