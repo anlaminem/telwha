@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TELWHA | Short‑стратегія на листингах Bybit</title>
+<meta name="description" content="Кейс про симулятор short‑стратегії на нових лістингах Bybit: тест TP/SL, grid search та часові патерни входу.">
+<link rel="canonical" href="https://t-e-l-w-h-a.com/articles/bybit-short-listings-case/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="TELWHA | Short‑стратегія на листингах Bybit">
+<meta property="og:description" content="Кейс про симулятор short‑стратегії на нових лістингах Bybit: тест TP/SL, grid search та часові патерни входу.">
+<meta property="og:url" content="https://t-e-l-w-h-a.com/articles/bybit-short-listings-case/">
+<meta property="og:site_name" content="TELWHA">
+
+<link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+<link rel="stylesheet" href="/static/css/base.css">
+<link rel="stylesheet" href="/static/css/layout-article.css">
+
+<style>
+html{scroll-behavior:smooth;}
+.progress{position:fixed;inset:0 auto auto 0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,var(--accent,#8b7355),var(--accent-2,#c7a978));box-shadow:0 1px 10px rgba(0,0,0,.12)}
+.article-shell{position:relative;max-width:1320px;margin-inline:auto}
+.article-header{position:relative;overflow:hidden}
+.article-header::after{content:"";position:absolute;right:-80px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(199,169,120,.16),rgba(199,169,120,0) 70%);pointer-events:none}
+.article-deck{max-width:850px}
+.article-reading{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.article-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:rgba(255,255,255,.5);backdrop-filter:blur(4px);font-size:.88rem;line-height:1}
+html[data-theme="dark"] .article-chip{background:rgba(255,255,255,.04)}
+.article-layout{display:grid;grid-template-columns:minmax(0,5fr) minmax(260px,2fr);gap:56px;align-items:start;}
+.article-main{min-width:0}
+.article-aside{position:sticky;top:92px;display:flex;flex-direction:column;gap:14px}
+.aside-card{padding:16px 16px 14px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.45));box-shadow:0 10px 30px rgba(0,0,0,.04)}
+html[data-theme="dark"] .aside-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
+.aside-card h3{font-size:.92rem;margin:0 0 10px;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
+.toc{display:flex;flex-direction:column;gap:8px}
+.toc a{display:block;padding:8px 10px;border-radius:12px;text-decoration:none;opacity:.78}
+.toc a:hover,.toc a.is-active{background:rgba(199,169,120,.14);opacity:1}
+.mini-note{font-size:.95rem;line-height:1.55;opacity:.85}
+.article-body>p{position:relative;margin-bottom:1.35rem}
+.article-body section[id]>p:first-of-type{margin-top:0}
+.article-body>p.is-focus,.article-body section[id]>p.is-focus{padding-left:16px;border-left:3px solid rgba(199,169,120,.8)}
+.article-body h2, .article-body section[id]{scroll-margin-top:120px}
+.article-body section[id]{position:relative;margin-top:2.2rem}
+.article-pullquote{margin:22px 0;padding:18px 20px;border-radius:18px;border:1px solid rgba(120,120,120,.14);background:linear-gradient(135deg,rgba(199,169,120,.14),rgba(199,169,120,.04));font-size:1.05rem;line-height:1.7}
+.article-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(120,120,120,.25),transparent);margin:28px 0}
+.mobile-jump{display:none}
+.metrics-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:24px 0 10px}
+.metric-card{padding:16px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.46));box-shadow:0 10px 30px rgba(0,0,0,.04)}
+.metric-card small{display:block;opacity:.7;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
+.metric-card strong{font-size:1.45rem;line-height:1.1}
+html[data-theme="dark"] .metric-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
+.code-block{margin:18px 0 22px}
+.code-block details{border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.74),rgba(255,255,255,.48));overflow:hidden}
+html[data-theme="dark"] .code-block details{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+.code-block summary{cursor:pointer;list-style:none;padding:16px 18px;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.code-block summary::-webkit-details-marker{display:none}
+.code-label{display:inline-flex;align-items:center;gap:10px}
+.code-kicker{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;opacity:.62}
+.code-arrow{transition:transform .22s ease;opacity:.7}
+.code-block details[open] .code-arrow{transform:rotate(180deg)}
+.code-block pre{margin:0;padding:0 18px 18px;overflow:auto}
+.code-block code{display:block;padding:16px;border-radius:14px;background:rgba(25,25,25,.94);color:#f5efe6;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9rem;line-height:1.6;white-space:pre;min-width:680px}
+.inline-list{padding-left:18px}
+.inline-list li{margin:0 0 .7rem}
+.note-box{margin:18px 0;padding:18px;border-radius:18px;border:1px solid rgba(120,120,120,.14);background:rgba(199,169,120,.08)}
+@media (max-width: 980px){
+  .section > .wrap{max-width:100%;width:100%}
+  .article-shell{max-width:100%;width:100%;margin-inline:0}
+  .article-layout{display:block}
+  .article-aside{display:none}
+  .metrics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width: 720px){
+  .article-reading{gap:8px}
+  .article-chip{font-size:.8rem;padding:7px 10px}
+  .aside-card{border-radius:16px}
+  .mobile-jump{display:flex;gap:8px;overflow:auto;padding-bottom:6px;scrollbar-width:none}
+  .mobile-jump::-webkit-scrollbar{display:none}
+  .mobile-jump a{white-space:nowrap;text-decoration:none;padding:8px 12px;border-radius:999px;border:1px solid rgba(120,120,120,.16);background:rgba(255,255,255,.52);font-size:.85rem}
+  html[data-theme="dark"] .mobile-jump a{background:rgba(255,255,255,.04)}
+  .metrics-grid{grid-template-columns:1fr}
+  .code-block code{min-width:560px}
+}
+.section > .wrap{max-width:1440px}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Short‑стратегія на листингах Bybit: тест TP/SL та часу входу",
+  "description": "Кейс про симулятор short‑стратегії на нових лістингах Bybit: тест TP/SL, grid search та часові патерни входу.",
+  "author": {"@type": "Person", "name": "Anna Signaevska"},
+  "publisher": {"@type": "Organization", "name": "TELWHA"},
+  "inLanguage": "uk",
+  "datePublished": "2026-05-12",
+  "dateModified": "2026-05-12",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://t-e-l-w-h-a.com/articles/bybit-short-listings-case/"}
+}
+</script>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="topbar">
+  <div class="wrap nav">
+    <div class="brand">
+      <a class="brand-row" href="/">
+        <strong>TELWHA</strong>
+      </a>
+      <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+    </div>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Відкрити меню">
+      <span class="menu-toggle-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+
+    <nav class="menu" id="site-menu">
+      <div class="menu-group">
+        <a href="/">Головна</a>
+        <a href="/finlab/">FinLab</a>
+        <a href="/about/">Про мене</a>
+      </div>
+      <div class="menu-group menu-dropdown">
+        <button type="button" class="menu-dropbtn">Трейдерам ▾</button>
+        <div class="menu-dropcontent">
+          <a href="/trader-course/">Міні‑курс</a>
+          <a href="/archetype-test/">Тест архетипів</a>
+        </div>
+      </div>
+      <div class="menu-group">
+        <a href="/articles/">Статті</a>
+        <a href="/reviews/">Відгуки</a>
+        <a href="/cases/">Кейси</a>
+        <a href="/contact/">Контакти</a>
+      </div>
+      <div class="menu-group menu-tools">
+        <details class="lang-switcher lang-switcher--inside">
+          <summary>🇺🇦</summary>
+          <div class="lang-list">
+            <a href="/en/articles/short_case.html" aria-label="English">🇬🇧</a>
+            <a href="/es/articles/short_case.html" aria-label="Español">🇪🇸</a>
+          </div>
+        </details>
+        <button class="theme-toggle" type="button" aria-label="Змінити тему">🌓</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <article class="article-shell" itemscope itemtype="https://schema.org/Article">
+        <header class="article-header fade-in">
+          <div class="eyebrow"><span>Case study</span> TELWHA</div>
+          <h1 itemprop="headline">Short‑стратегія на листингах Bybit: тест TP/SL та часу входу</h1>
+          <p class="article-deck" itemprop="description">
+            Кейс про симулятор short‑стратегії на нових лістингах Bybit: як перевірити ідею через історичні свічки, grid search і часові патерни, а не через дуже впевнене «мені здається».
+          </p>
+          <div class="article-reading">
+            <span class="article-chip">10 listing events</span>
+            <span class="article-chip">Bybit V5 Market Kline API</span>
+            <span class="article-chip">Python · Backtest · Grid Search</span>
+          </div>
+
+          <div class="metrics-grid fade-in" aria-label="Ключові результати кейсу">
+            <div class="metric-card"><small>Total PnL</small><strong>14.95 USD</strong></div>
+            <div class="metric-card"><small>Win rate</small><strong>60%</strong></div>
+            <div class="metric-card"><small>Setup</small><strong>TP 5% · SL 4%</strong></div>
+            <div class="metric-card"><small>Time window</small><strong>06:00 UTC</strong></div>
+          </div>
+        </header>
+
+        <div class="mobile-jump fade-in" aria-label="Швидка навігація по статті">
+          <a href="#part-1">Ідея</a>
+          <a href="#part-2">Дані</a>
+          <a href="#part-3">Симулятор</a>
+          <a href="#part-4">Grid search</a>
+          <a href="#part-5">Результат</a>
+          <a href="#part-6">Висновки</a>
+        </div>
+
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="article-body" itemprop="articleBody">
+              <section id="part-1">
+                <p class="is-focus">Новий контракт з’являється на біржі, перші хвилини все летить у різні боки, далі частина учасників згадує про ризик‑менеджмент. Це коротке «післялістингове» вікно і стало об’єктом цього кейсу.</p>
+                <p>Завдання виглядало стандартно для будь‑якого продукту з ринковою логікою: формалізувати гіпотезу, зібрати дані, побудувати симулятор, прогнати параметри і побачити, чи є стабільна перевага. Конкретно тут — short‑угоди на confirmed listing events Bybit з фіксованим ризиком та чіткою логікою TP/SL.</p>
+              </section>
+
+              <div class="article-pullquote fade-in">
+                Якщо стратегія не проходить простий backtest, вона не має шансу вижити в середовищі, де рішення приймаються на швидкості продукту, а не презентації.
+              </div>
+
+              <div class="article-divider"></div>
+
+              <section id="part-2">
+                <p>Для тесту я використала десять confirmed listing events USDT‑контрактів. Для кожного запуску завантажувалось хвилинне вікно даних: від 18 годин до моменту лістингу до 10 годин після. Pre‑listing частина на цьому етапі збережена як контекст для майбутнього аналізу патернів, post‑listing частина використовується безпосередньо в симуляції угоди. Дані бралися через Bybit V5 Market Kline endpoint, який повертає historical candles для заданого символу, інтервалу та часових меж. </p>
+                <p>Момент лістингу задається як <code>entry_dt</code>, а рамка даних — як <code>start_dt</code> і <code>end_dt</code>. У результаті в моделі є нормальний контекст перед подією і повний обрізок після неї.</p>
+
+                <div class="code-block">
+                  <details>
+                    <summary>
+                      <span class="code-label"><span class="code-kicker">Code</span> Вікно даних навколо лістингу</span>
+                      <span class="code-arrow">▾</span>
+                    </summary>
+                    <pre><code>for symbol, entry_str in allpairs:
+    entry_dt = parse_entry_dt(entry_str)
+    start_dt = entry_dt - timedelta(hours=18)
+    end_dt = entry_dt + timedelta(hours=10)
+
+    df = get_klines(symbol, start_dt, end_dt, category="linear", interval="1")</code></pre>
+                  </details>
+                </div>
+
+                <p>Функція отримання свічок приводить timestamps до мілісекунд, робить запит до API й повертає впорядкований DataFrame. Ніяких «синтетичних» даних, лише те, що лежить в історії інструмента. [web:133]</p>
+
+                <div class="code-block">
+                  <details>
+                    <summary>
+                      <span class="code-label"><span class="code-kicker">Code</span> Отримання historical kline</span>
+                      <span class="code-arrow">▾</span>
+                    </summary>
+                    <pre><code>def get_klines(symbol, start_dt, end_dt, category="linear", interval="1"):
+    start_ts = int(start_dt.timestamp() * 1000)
+    end_ts = int(end_dt.timestamp() * 1000)
+
+    resp = session.get_kline(
+        category=category,
+        symbol=symbol,
+        interval=interval,
+        start=start_ts,
+        end=end_ts,
+        limit=1000
+    )
+
+    rows = resp["result"]["list"]
+    df = pd.DataFrame(
+        rows,
+        columns=["timestamp", "open", "high", "low", "close", "volume", "turnover"]
+    )
+    df["datetime"] = pd.to_datetime(df["timestamp"].astype("int64"), unit="ms", utc=True)
+    return df.sort_values("datetime").reset_index(drop=True)</code></pre>
+                  </details>
+                </div>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-3">
+                <p class="is-focus">Далі — симулятор угоди. Вхід починається з першої свічки не раніше <code>entry_dt</code>, далі послідовно перевіряються TP, SL і тайм‑аут.</p>
+                <p>Схема навмисно мінімалістична: одна точка входу, фіксований розмір ризику, лінійний перебір свічок до спрацьовування TP/SL або завершення сценарію. Такий каркас дозволяє швидко інтерпретувати результат і не ховати логику в шарах складності.</p>
+
+                <div class="code-block">
+                  <details>
+                    <summary>
+                      <span class="code-label"><span class="code-kicker">Code</span> Точка входу в short</span>
+                      <span class="code-arrow">▾</span>
+                    </summary>
+                    <pre><code>mask = df["datetime"] >= entry_dt
+if not mask.any():
+    return None
+
+entry_idx = mask.idxmax()
+entry_price = float(df.loc[entry_idx, "close"])</code></pre>
+                  </details>
+                </div>
+
+                <div class="code-block">
+                  <details>
+                    <summary>
+                      <span class="code-label"><span class="code-kicker">Code</span> Базова симуляція short‑угоди</span>
+                      <span class="code-arrow">▾</span>
+                    </summary>
+                    <pre><code>def simulate_short_trade(df, entry_dt, entry_amount=100.0,
+                         tp_pct=5.0, sl_pct=4.0, duration_min=600):
+    mask = df["datetime"] >= entry_dt
+    if not mask.any():
+        return None
+
+    entry_idx = mask.idxmax()
+    entry_price = float(df.loc[entry_idx, "close"])
+    pos_qty = entry_amount / entry_price
+
+    tp_price = entry_price * (1 - tp_pct / 100.0)
+    sl_price = entry_price * (1 + sl_pct / 100.0)
+    end_idx = min(entry_idx + duration_min, len(df) - 1)
+
+    for i in range(entry_idx + 1, end_idx + 1):
+        high_i = float(df.loc[i, "high"])
+        low_i = float(df.loc[i, "low"])
+
+        if low_i <= tp_price:
+            return {"PnL": (entry_price - tp_price) * pos_qty,
+                    "closure_type": "TP"}
+        if high_i >= sl_price:
+            return {"PnL": (entry_price - sl_price) * pos_qty,
+                    "closure_type": "STOP"}
+
+    last_close = float(df.loc[end_idx, "close"])
+    return {"PnL": (entry_price - last_close) * pos_qty,
+            "closure_type": "TIMEOUT"}</code></pre>
+                  </details>
+                </div>
+
+                <p>На цю основу накладено розширену версію з кількома TP‑рівнями, частковими виходами та усередненням. Там, де продукту потрібна гнучкіша логіка керування позицією, саме ці блоки і змінюються першими.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-4">
+                <p>Наступний шар — підбір параметрів. Замість сперечатися, чи TP 5% «звучить солідніше», ніж 4%, було прогнано grid search: кілька варіантів першого і другого TP, кілька рівнів стоп‑лоса і кілька структур розподілу позиції (full exit і split‑сценарії).</p>
+                <p>Підхід стандартний для будь‑якого backtest‑модуля: визначити сітку параметрів, прогнати їх на однаковій вибірці й уже потім дивитись, що має сенс переносити в продакшн.</p>
+
+                <div class="code-block">
+                  <details>
+                    <summary>
+                      <span class="code-label"><span class="code-kicker">Code</span> Grid search по TP/SL та TP‑shares</span>
+                      <span class="code-arrow">▾</span>
+                    </summary>
+                    <pre><code>for tp1, tp2, stop, tp_sh in product(tp1_grid, tp2_grid,
+                                     stop_grid, tp_shares_grid):
+    tplevels = [tp1, tp2, tp3]
+
+    trades_df_g, total_pnl_g, mean_pnl_g, win_rate_g = run_backtest(
+        allpairs=allpairs,
+        data_cache=data_cache,
+        entry_amount=100.0,
+        tplevels=tplevels,
+        tpshares=tp_sh,
+        stoplosspct=stop,
+        avglevels=2,
+        avgpct=5.0,
+        avgamount=50.0,
+        duration_min=600,
+    )</code></pre>
+                  </details>
+                </div>
+
+                <div class="note-box">
+                  Якщо продукту потрібен «режим експерименту», саме тут зручно підключати альтернативні сітки параметрів і порівнювати їх на нових батчах листингів.
+                </div>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-5">
+                <p class="is-focus">На вибірці з 10 лістингів найкращим став простий набір: TP levels = [5, 6, 12], TP shares = [1.0, 0.0, 0.0], stop loss = 4%. Тобто повний вихід на першому TP виявився ефективнішим за будь‑які split‑структури.</p>
+                <p>Кінцеві цифри для цієї конфігурації: сумарний результат 14.95 USD при фіксованому ризику 100 USD на угоду, середній результат 1.50 USD на трейд, win rate 60%, структура закриттів — 6 TP, 4 SL, 0 timeout. Для маленької вибірки це скромні величини, але цього достатньо, щоб відрізнити життєздатну гіпотезу від суто емоційної.</p>
+
+                <div class="code-block">
+                  <details>
+                    <summary>
+                      <span class="code-label"><span class="code-kicker">Code</span> Підсумок найкращої конфігурації</span>
+                      <span class="code-arrow">▾</span>
+                    </summary>
+                    <pre><code>print("FINAL SUMMARY")
+print("Best TP levels:", best_tplevels)
+print("Best TP shares:", best_tpshares)
+print("Best stop loss:", best_stop)
+print("Trades:", len(best_trades_df))
+print("Total PnL:", round(best_total_pnl, 2))
+print("Mean PnL:", round(best_mean_pnl, 2))
+print("Win rate:", round(best_win_rate * 100, 2), "%")</code></pre>
+                  </details>
+                </div>
+
+                <p>Окремо був прорахований час входу. Найслабше вікно на цій вибірці — 04:00 UTC; найбільш стабільно позитивне — 06:00 UTC. Для продукту це дає простий, але корисний сигнал: час — валідний кандидат на додатковий фільтр ризику, а не лише декоративний параметр.</p>
+
+                <div class="code-block">
+                  <details>
+                    <summary>
+                      <span class="code-label"><span class="code-kicker">Code</span> Статистика по годинах входу</span>
+                      <span class="code-arrow">▾</span>
+                    </summary>
+                    <pre><code>hour_stats = (
+    analysis_time
+    .groupby("entry_hour")
+    .agg(
+        trades=("PnL", "count"),
+        total_pnl=("PnL", "sum"),
+        mean_pnl=("PnL", "mean"),
+        winrate=("PnL", lambda x: (x > 0).mean())
+    )
+    .sort_values("entry_hour")
+)</code></pre>
+                  </details>
+                </div>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-6">
+                <h2>Що це дає продукту</h2>
+                <p>З точки зору архітектури рішення результат можна описати так: базова short‑логіка працює з TP 5% та SL 4%, повним виходом на першому TP і часовим фільтром, який віддає перевагу 06:00 UTC і змушує ставитись обережніше до 04:00 UTC. Це прозорий набір правил, який легко перенести в продукт, змоніторити на ширшій вибірці та, за потреби, адаптувати під інший універс інструментів.</p>
+                <p>Для команд, що будують власні стратегії чи сервіси на ринку, важливий не тільки конкретний сетап, а сам підхід: чітке формулювання гіпотези, явний зв’язок із даними біржі, backtest із контрольованою сіткою параметрів і читабельні метрики на виході. У цій конструкції можна змінювати інструменти, горизонти, універс, але механіка перевірки лишиться стабільною.</p>
+
+                <ul class="inline-list">
+                  <li>База: short‑симулятор на історичних свічках Bybit із нормальним контролем TP/SL.</li>
+                  <li>Висновок: простий full exit на TP1 показав кращу поведінку, ніж split‑виходи, на тестовому наборі лістингів.</li>
+                </ul>
+
+                <div class="article-pullquote fade-in">
+                  Формальна перевірка гіпотези не гарантує ідеальну стратегію. Вона гарантує одне: ви перестаєте платити ринку за ті рішення, які можна було відфільтрувати ще на стадії ноутбука.
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <aside class="article-aside fade-in" aria-label="Навігація по статті">
+            <div class="aside-card">
+              <h3>Навігація</h3>
+              <nav class="toc">
+                <a href="#part-1">Ідея кейсу</a>
+                <a href="#part-2">Дані й вікно</a>
+                <a href="#part-3">Симулятор</a>
+                <a href="#part-4">Grid search</a>
+                <a href="#part-5">Результати</a>
+                <a href="#part-6">Практичний висновок</a>
+              </nav>
+            </div>
+            <div class="aside-card">
+              <h3>Коротко</h3>
+              <p class="mini-note">Short‑стратегія на лістингах Bybit із фіксованим ризиком, повним виходом на першому TP, контролем часу входу та зрозумілою логікою перенесення в продукт.</p>
+            </div>
+          </aside>
+        </div>
+
+        <section class="article-cta fade-in">
+          <a class="btn btn-ghost" href="/articles/">← До всіх статей</a>
+        </section>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid fade-in">
+      <div>
+        <h4>TELWHA</h4>
+        <p>Фінансова психологія, поведінкова економіка та архітектура вибору для стійкіших фінансових рішень.</p>
+      </div>
+      <div style="text-align:right">
+        <h4>Навігація</h4>
+        <div class="footer-links" style="align-items:flex-end">
+          <a href="/about/">Про мене</a>
+          <a href="/reviews/">Відгуки</a>
+          <a href="/contact/">Контакти</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TELWHA. Усі права захищено.</span>
+      <span>Київ, Україна · 🇺🇦</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/static/script/global.js"></script>
+<script>
+const menuToggle = document.querySelector('.menu-toggle');
+const siteMenu = document.querySelector('#site-menu');
+if (menuToggle && siteMenu) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = siteMenu.classList.toggle('is-open');
+    menuToggle.classList.toggle('is-open', isOpen);
+    menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    menuToggle.setAttribute('aria-label', isOpen ? 'Закрити меню' : 'Відкрити меню');
+  });
+}
+
+const progress = document.getElementById('progress');
+const updateProgress = () => {
+  const doc = document.documentElement;
+  const total = doc.scrollHeight - doc.clientHeight;
+  const scrolled = total > 0 ? (doc.scrollTop / total) * 100 : 0;
+  if (progress) progress.style.width = scrolled + '%';
+};
+document.addEventListener('scroll', updateProgress, { passive: true });
+updateProgress();
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('is-visible');
+  });
+}, { threshold: 0.14 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+const markToc = () => {
+  let activeId = sections[0]?.id;
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= 140) activeId = section.id;
+  });
+  tocLinks.forEach(link => {
+    link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
+  });
+};
+document.addEventListener('scroll', markToc, { passive: true });
+markToc();
+</script>
+</body>
+</html>
