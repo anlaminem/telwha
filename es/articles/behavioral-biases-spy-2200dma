@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TELWHA | Sesgos conductuales en trading: caso SPY 200DMA</title>
+<meta name="description" content="Un caso de TELWHA sobre cómo el house money effect, el confirmation bias, la escalation of commitment y el status quo bias cambian los resultados de una estrategia SPY 200DMA, y qué significa eso para traders y productos fintech.">
+<link rel="canonical" href="https://t-e-l-w-h-a.com/es/articles/behavioral-biases-spy-200dma/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TELWHA | Sesgos conductuales en trading: caso SPY 200DMA">
+<meta property="og:description" content="Cómo cuatro sesgos cognitivos cambian la rentabilidad, el drawdown y el comportamiento de trading en una estrategia SPY 200DMA, y qué deberían sacar de ello los equipos fintech.">
+<meta property="og:url" content="https://t-e-l-w-h-a.com/es/articles/behavioral-biases-spy-200dma/">
+<meta property="og:site_name" content="TELWHA">
+<link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+<link rel="stylesheet" href="/static/css/base.css">
+<link rel="stylesheet" href="/static/css/layout-article.css">
+
+<style>
+html{scroll-behavior:smooth;}
+.progress{position:fixed;inset:0 auto auto 0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,var(--accent,#8b7355),var(--accent-2,#c7a978));box-shadow:0 1px 10px rgba(0,0,0,.12)}
+.article-shell{position:relative;max-width:1320px;margin-inline:auto}
+.article-header{position:relative;overflow:hidden}
+.article-header::after{content:"";position:absolute;right:-80px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(199,169,120,.16),rgba(199,169,120,0) 70%);pointer-events:none}
+.article-deck{max-width:850px}
+.article-reading{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.article-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:rgba(255,255,255,.5);backdrop-filter:blur(4px);font-size:.88rem;line-height:1}
+html[data-theme="dark"] .article-chip{background:rgba(255,255,255,.04)}
+.article-layout{display:grid;grid-template-columns:minmax(0,5fr) minmax(260px,2fr);gap:56px;align-items:start;}
+.article-main{min-width:0}
+.article-aside{position:sticky;top:92px;display:flex;flex-direction:column;gap:14px}
+.aside-card{padding:16px 16px 14px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.45));box-shadow:0 10px 30px rgba(0,0,0,.04)}
+html[data-theme="dark"] .aside-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
+.aside-card h3{font-size:.92rem;margin:0 0 10px;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
+.toc{display:flex;flex-direction:column;gap:8px}
+.toc a{display:block;padding:8px 10px;border-radius:12px;text-decoration:none;opacity:.78}
+.toc a:hover,.toc a.is-active{background:rgba(199,169,120,.14);opacity:1}
+.mini-note{font-size:.95rem;line-height:1.55;opacity:.85}
+.article-body>p{position:relative;margin-bottom:1.35rem}
+.article-body section[id]>p:first-of-type{margin-top:0}
+.article-body>p.is-focus{padding-left:16px;border-left:3px solid rgba(199,169,120,.8)}
+.article-body h2, .article-body section[id]{scroll-margin-top:120px}
+.article-body section[id]{position:relative;margin-top:2.2rem}
+.article-pullquote{margin:22px 0;padding:18px 20px;border-radius:18px;border:1px solid rgba(120,120,120,.14);background:linear-gradient(135deg,rgba(199,169,120,.14),rgba(199,169,120,.04));font-size:1.05rem;line-height:1.7}
+.article-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(120,120,120,.25),transparent);margin:28px 0}
+.mobile-jump{display:none}
+.audience-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 14px}
+.audience-tab{padding:10px 14px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:transparent;font:inherit;line-height:1.1;cursor:pointer}
+.audience-tab:hover,.audience-tab.is-active{background:rgba(199,169,120,.14);border-color:rgba(199,169,120,.35)}
+.audience-panels{margin-bottom:18px}
+.audience-panel{padding:18px 18px 2px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44))}
+html[data-theme="dark"] .audience-panel{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+.article-figures{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:22px 0 10px}
+.figure-card{padding:14px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44))}
+.figure-card img{width:100%;height:auto;border-radius:12px;display:block}
+.figure-card figcaption{margin-top:10px;font-size:.92rem;line-height:1.55;opacity:.82}
+.metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0 8px}
+.metric-card{padding:16px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44))}
+.metric-card strong{display:block;font-size:1.25rem;margin-top:8px}
+.key-list{display:grid;gap:10px;margin:16px 0}
+.note-box{padding:16px 18px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(135deg,rgba(199,169,120,.14),rgba(199,169,120,.04));margin:18px 0}
+.code-block{margin:18px 0;padding:18px;border-radius:18px;background:#141414;color:#f3f3f3;overflow:auto;font-size:.92rem;line-height:1.55}
+.code-block code{white-space:pre-wrap}
+@media (max-width: 980px){.section > .wrap{max-width:100%;width:100%;}.article-shell{max-width:100%;width:100%;margin-inline:0;}.article-layout{display:block;}.article-aside{display:none;}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (max-width: 720px){.article-reading{gap:8px}.article-chip{font-size:.8rem;padding:7px 10px}.aside-card{border-radius:16px}.mobile-jump{display:flex;gap:8px;overflow:auto;padding-bottom:6px;scrollbar-width:none}.mobile-jump::-webkit-scrollbar{display:none}.mobile-jump a{white-space:nowrap;text-decoration:none;padding:8px 12px;border-radius:999px;border:1px solid rgba(120,120,120,.16);background:rgba(255,255,255,.52);font-size:.85rem}html[data-theme="dark"] .mobile-jump a{background:rgba(255,255,255,.04)}.article-figures,.metric-grid{grid-template-columns:1fr;}}
+.section > .wrap{max-width:1440px;}
+</style>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Sesgos conductuales en trading: caso SPY 200DMA","description":"Cómo el house money effect, el confirmation bias, la escalation of commitment y el status quo bias cambian los resultados de una estrategia SPY 200DMA, y qué significa eso para traders y productos fintech.","author":{"@type":"Person","name":"Anna Signaevska"},"publisher":{"@type":"Organization","name":"TELWHA"},"inLanguage":"es","datePublished":"2026-05-13","dateModified":"2026-05-13","mainEntityOfPage":{"@type":"WebPage","@id":"https://t-e-l-w-h-a.com/es/articles/behavioral-biases-spy-200dma/"}}</script>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="topbar"><div class="wrap nav"><div class="brand"><a class="brand-row" href="/es/"><strong>TELWHA</strong></a><span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span></div><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú" data-open-label="Abrir menú" data-close-label="Cerrar menú"><span class="menu-toggle-lines" aria-hidden="true"><span></span><span></span><span></span></span></button><nav class="menu" id="site-menu"><div class="menu-group"><a href="/es/">Inicio</a><a href="/es/finlab/">FinLab</a><a href="/es/about/">Sobre mí</a></div><div class="menu-group menu-dropdown"><button type="button" class="menu-dropbtn">Para traders ▾</button><div class="menu-dropcontent"><a href="/es/trader-course/">Mini curso</a><a href="/es/archetype-test/">Test de arquetipos</a></div></div><div class="menu-group"><a href="/es/articles/">Artículos</a><a href="/es/reviews/">Reseñas</a><a href="/es/cases/">Casos</a><a href="/es/contact/">Contacto</a></div><div class="menu-group menu-tools"><details class="lang-switcher lang-switcher--inside"><summary>🇪🇸</summary><div class="lang-list"><a href="/articles/behavioral-biases-spy-200dma.html" aria-label="Ukrainian">🇺🇦</a><a href="/en/articles/behavioral-biases-spy-200dma.html" aria-label="English">🇬🇧</a></div></details><button class="theme-toggle" type="button" aria-label="Cambiar tema">🌓</button></div></nav></div></header>
+<main><section class="section"><div class="wrap"><article class="article-shell" itemscope itemtype="https://schema.org/Article"><header class="article-header fade-in"><div class="eyebrow"><span>Case study</span> TELWHA</div><h1 itemprop="headline">Sesgos conductuales en trading: caso SPY 200DMA</h1><p class="article-deck" itemprop="description">Qué ocurre cuando una estrategia racional es ejecutada no por reglas, sino por el cerebro humano. Usando SPY 200DMA como ejemplo, modelé cuatro sesgos cognitivos (errores sistemáticos de pensamiento) y observé cómo cambian la rentabilidad, el drawdown y toda la lógica del comportamiento en el mercado.</p><div class="article-reading"><span class="article-chip">2015–2026</span><span class="article-chip">SPY · 200DMA · Behavioral Finance</span><span class="article-chip">R · Quantmod · PerformanceAnalytics</span></div></header><div class="mobile-jump fade-in" aria-label="Navegación rápida del artículo"><a href="#part-1">Inicio</a><a href="#part-2">Modelos</a><a href="#part-3">Resultados</a><a href="#part-4">Qué significa</a><a href="#part-5">Para fintech</a><a href="#part-6">Gráficos y código</a></div><div class="article-layout"><div class="article-main"><div class="article-body" itemprop="articleBody">
+<section id="part-1"><p class="is-focus">A las finanzas les gusta presentarse como racionales. Hay una estrategia, una regla de entrada, una regla de salida y un backtest limpio (una prueba histórica de la estrategia). Sobre el papel, todo parece perfecto. En la vida real, sin embargo, hay una persona entre la regla y el botón de “comprar”. Y las personas no ejecutan sistemas de forma perfecta. Dudan, retrasan salidas, añaden riesgo después de una racha ganadora y posponen decisiones justo cuando hace falta actuar.</p><p>En este caso, tomé una estrategia baseline simple: SPY (un fondo cotizado que sigue el índice S&amp;P 500) con una regla 200DMA (media móvil de 200 días: si el precio está por encima, seguimos en posición; si está por debajo, pasamos a liquidez). Después dejé el mercado sin cambios (¿cómo no? 😅) y cambié solo el comportamiento de la persona que ejecuta el sistema. En otras palabras, superpuse cuatro sesgos cognitivos típicos sobre la misma estrategia y observé qué hacían con el resultado.</p><div class="metric-grid fade-in"><div class="metric-card"><span>Baseline CAGR</span><strong>11.0%</strong></div><div class="metric-card"><span>Baseline MaxDD</span><strong>19.8%</strong></div><div class="metric-card"><span>Baseline trades</span><strong>31</strong></div><div class="metric-card"><span>Periodo de prueba</span><strong>11 years</strong></div></div><p>El resultado fue más fuerte de lo que esperaba. Dos sesgos apenas dañaron el sistema. Dos lo empeoraron. Uno generó un efecto positivo muy fuerte. Y la combinación de los cuatro creó un resultado extraño pero lógico: la estrategia casi se convirtió en buy and hold y realizó solo una operación durante todo el período.</p></section>
+<div class="article-pullquote fade-in">La clave no es que la gente “cometa errores”. Lo importante de verdad es que distintos tipos de errores producen consecuencias financieras distintas. Algunos cuestan solo unas décimas de punto porcentual al año. Otros pueden remodelar por completo el perfil de riesgo y rentabilidad.</div><div class="article-divider"></div>
+<section id="part-2"><h2>Qué modelos probé</h2><p>No me gusta hablar vagamente de “emociones en el mercado”, así que traduje cada sesgo en una regla clara que realmente puede programarse. Cada fenómeno psicológico se convirtió en un modelo conductual separado.</p><div class="key-list"><p><strong>1. House money effect</strong> (actuar como si las ganancias recientes fueran “dinero gratis”): después de una racha de días ganadores, el trader aumenta el tamaño de la posición. En el modelo, tras 3 días ganadores seguidos, la posición aumenta 1.5x.</p><p><strong>2. Confirmation bias</strong> (buscar una señal más antes de aceptar que estás equivocado): el trader ignora la primera señal de salida porque quiere una confirmación extra de que realmente es hora de salir. En el modelo, se omite la primera señal de venta.</p><p><strong>3. Escalation of commitment</strong> (seguir aferrado a una posición perdedora porque admitir el error cuesta psicológicamente): la salida se retrasa si el drawdown es más profundo que -8%.</p><p><strong>4. Status quo bias</strong> (preferir la inacción porque el cambio se siente incómodo): la señal se acepta solo después de 3 días de confirmación.</p><p><strong>5. Combined</strong>: los cuatro sesgos están activos al mismo tiempo, que es lo que suele pasar en la vida real.</p></div><p>Lo importante aquí es que no intento demostrar que los sesgos sean “siempre malos”. Lo que muestro es que cambian la ejecución del sistema. Después de eso, el mercado decide si ese cambio te ayuda o te perjudica.</p></section>
+<div class="article-divider"></div>
+<section id="part-3"><h2>Qué mostraron los resultados</h2><p class="is-focus">El hallazgo más extraño fue este: la mayor rentabilidad no vino del modelo baseline racional, sino del modelo combined, donde todos los sesgos trabajaban juntos. Y ahí es exactamente donde la interpretación se vuelve peligrosa. Si miras solo el CAGR (compound annual growth rate, o rentabilidad anual media), puedes llegar a la conclusión equivocada.</p><p>Estos fueron los resultados reales del modelo:</p><div class="note-box"><p><strong>Combined</strong>: CAGR 28.6%, Sharpe ratio (rentabilidad relativa a la calidad del riesgo) 1.53, MaxDD (drawdown máximo) 33.7%, 1 operación, Terminal Wealth (capital final si empiezas con 1) 14.2.</p><p><strong>House money</strong>: CAGR 20.5%, Sharpe 1.64, MaxDD 17.9%, 31 operaciones, Terminal Wealth 7.14.</p><p><strong>Escalation</strong>: CAGR 11.5%, Sharpe 0.96, MaxDD 19.8%, 30 operaciones, Terminal Wealth 3.14.</p><p><strong>Baseline</strong>: CAGR 11.0%, Sharpe 0.93, MaxDD 19.8%, 31 operaciones, Terminal Wealth 3.01.</p><p><strong>Status quo</strong>: CAGR 10.7%, Sharpe 0.87, MaxDD 21.1%, 14 operaciones, Terminal Wealth 2.93.</p><p><strong>Confirmation</strong>: CAGR 10.3%, Sharpe 0.85, MaxDD 23.3%, 25 operaciones, Terminal Wealth 2.81.</p></div><p>A primera vista, combined parece el ganador. Pero si el modelo hizo solo 1 operación en 11 años, eso ya no es un “mejor sistema de trading”. Es casi una lógica conductual distinta. Entró al mercado y casi nunca salió. En otras palabras, la combinación de sesgos creó un behavioral lock-in (un estado en el que el trader se vuelve psicológicamente incapaz de salir).</p><p>Esto lleva a la conclusión principal: los modelos conductuales no pueden juzgarse solo por la rentabilidad. Hay que mirar el mecanismo y el contexto. ¿Por qué exactamente el modelo ganó dinero? ¿Porque ejecutó mejor? ¿O porque en la práctica desactivó la disciplina de salida?</p></section>
+<div class="article-divider"></div>
+<section id="part-4"><h2>Qué significa esto para un trader o inversor común</h2><p><strong>House money effect</strong> funcionó bien en este caso. Eso significa que cuando el mercado ya está subiendo y un trader aumenta tamaño después de una racha de ganancias, puede superar al sistema baseline. Pero esto no es un truco universal. Funciona mientras el activo tenga una fuerte tendencia alcista. En un mercado lateral o durante una caída prolongada, el mismo comportamiento destruiría capital.</p><p><strong>Confirmation bias</strong> resultó ser daño puro. Cuando una persona retrasa la salida y quiere una confirmación más, no se vuelve más inteligente. Simplemente sale más tarde y a peor precio. En los números puede no parecer dramático. Sin embargo, a lo largo del tiempo, incluso perder 0.7 puntos porcentuales al año crea una gran diferencia en el capital final.</p><p><strong>Status quo bias</strong> también perjudica, aunque de forma más suave. Cuando retrasas la acción simplemente porque actuar se siente psicológicamente incómodo, el mercado no espera. Si una estrategia tiene una regla, su valor reside precisamente en activarse a tiempo.</p><p><strong>Combined</strong> es la historia más peligrosa aquí. No muestra un “superpoder del sesgo”. Muestra cómo varios pequeños desplazamientos conductuales, actuando juntos, pueden transformar por completo el sistema. Así es exactamente como algunas personas permanecen años en una posición y lo llaman “convicción de largo plazo”, cuando en realidad ya han perdido la capacidad de salir.</p></section>
+<div class="article-divider"></div>
+<section id="part-5"><h2>Qué deberían sacar de esto las fintech</h2><div class="audience-tabs" role="tablist" aria-label="Escenarios de uso"><button class="audience-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="audience-fintech" id="tab-fintech" data-target="audience-fintech">Fintech / producto</button><button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-traders" id="tab-traders" data-target="audience-traders">Traders / inversores</button><button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-risk" id="tab-risk" data-target="audience-risk">Riesgo / compliance</button></div><div class="audience-panels"><section class="audience-panel is-active" id="audience-fintech" role="tabpanel" aria-labelledby="tab-fintech"><p>La interfaz no es neutral. Si tu app empuja a los usuarios a añadir riesgo después de ganar, hace que vender sea más difícil que comprar, oculta métricas negativas o no les recuerda revisar una posición, no estás solo mejorando el engagement. Estás programando una desviación conductual. A veces eso elevará la rentabilidad en un mercado alcista, pero también puede aumentar el riesgo de un colapso brusco y doloroso.</p></section><section class="audience-panel" id="audience-traders" role="tabpanel" aria-labelledby="tab-traders" hidden><p>Para los traders, la lección es simple: los errores más peligrosos no parecen errores. Parecen “esperaré un poco más”, “ya he pasado demasiado con esta posición”, “el mercado lo confirmará” o “después de tres operaciones ganadoras puedo añadir más riesgo”. En otras palabras, se sienten lógicos en el momento. Por eso necesitas reglas de ejecución automáticas o, al menos, límites duros definidos de antemano.</p></section><section class="audience-panel" id="audience-risk" role="tabpanel" aria-labelledby="tab-risk" hidden><p>Para los equipos de riesgo y compliance, esto es un argumento directo de que bias-as-a-feature es una idea peligrosa de producto. Si el producto empuja sistemáticamente a los clientes hacia decisiones que aumentan el drawdown, la concentración o el retraso de salida, esto deja de ser solo una cuestión de UX. Se convierte en una cuestión de responsabilidad empresarial por la arquitectura de elección que crea.</p></section></div><p>Una oportunidad aparte para las fintech es la behavioral analytics. No se trata solo de mostrar al usuario beneficio y riesgo, sino de mostrarle su patrón de errores: retrasas salidas, añades riesgo después de una racha de ganancias, te bloqueas en drawdown, evitas cambios en la cartera. En ese punto, el dashboard deja de ser solo un dashboard y se convierte en un espejo conductual.</p></section>
+<div class="article-divider"></div>
+<section id="part-6"><h2>Gráficos y código</h2><div class="article-figures fade-in" aria-label="Gráficos del caso"><figure class="figure-card"><img src="/static/media/p_small_multiples.png" alt="Comparación de la estrategia baseline con sesgos conductuales por separado" loading="lazy"><figcaption>Gráfico 1. Baseline frente a cada sesgo por separado. Aquí se vuelve visualmente claro que house money se adelanta, mientras confirmation y status quo se quedan atrás.</figcaption></figure><figure class="figure-card"><img src="/static/media/p_combined.png" alt="Comparación entre el modelo baseline y el combined" loading="lazy"><figcaption>Gráfico 2. Baseline frente a combined. Combined parece impresionante en la superficie, pero detrás de esa curva solo hay una operación y un perfil de riesgo muy distinto.</figcaption></figure><figure class="figure-card"><img src="/static/media/p_behavior_cost.png" alt="Costo conductual de distintos sesgos respecto al baseline" loading="lazy"><figcaption>Gráfico 3. Behavior cost. Los valores negativos significan que el modelo sesgado superó al baseline. Los valores positivos significan que el comportamiento destruyó parte de la rentabilidad.</figcaption></figure><figure class="figure-card"><img src="/static/media/p_drawdown.png" alt="Comparación de drawdowns para baseline, escalation y combined" loading="lazy"><figcaption>Gráfico 4. Comparación de drawdown. Un gráfico de apoyo que muestra el precio de una curva de equity bonita: combined tiene el drawdown más profundo.</figcaption></figure></div><div class="code-block"><code>baseline <- SPY %>%
+  fortify.zoo() %>%
+  as_tibble() %>%
+  transmute(
+    date = as.Date(Index),
+    adjusted = SPY.Adjusted,
+    ret = adjusted / lag(adjusted) - 1
+  ) %>%
+  mutate(
+    sma200 = SMA(adjusted, n = 200),
+    raw_signal = if_else(adjusted > sma200, 1L, 0L, missing = 0L),
+    signal = lag(raw_signal, 1, default = 0L),
+    position = signal,
+    strategy_ret = position * ret
+  )</code></div><p class="is-focus">La idea central de este caso no es que “las personas sean irracionales”. Eso sería demasiado banal. La idea es que la irracionalidad puede describirse como un mecanismo, probarse como un modelo y traducirse en decisiones concretas de producto, inversión y riesgo. Ahí es donde empieza el valor real de las finanzas conductuales.</p></section>
+</div></div><aside class="article-aside fade-in" aria-label="Navegación del artículo"><div class="aside-card"><h3>Navegación</h3><nav class="toc"><a href="#part-1">Inicio</a><a href="#part-2">Modelos de sesgo</a><a href="#part-3">Resultados</a><a href="#part-4">Para traders</a><a href="#part-5">Para fintech</a><a href="#part-6">Gráficos y código</a></nav></div><div class="aside-card"><h3>En breve</h3><p class="mini-note">El CAGR más alto vino del modelo combined, pero al coste de un behavioral lock-in y un drawdown del 33.7%. El mejor modelo individual fue house money. El más perjudicial para la disciplina baseline fue confirmation bias.</p></div></aside></div><section class="article-cta fade-in"><a class="btn btn-ghost" href="/es/articles/">← Volver a todos los artículos</a></section></article></div></section></main>
+<footer class="footer"><div class="wrap"><div class="footer-grid fade-in"><div><h4>TELWHA</h4><p>Psicología financiera, economía conductual y arquitectura de elección para decisiones financieras más resilientes.</p></div><div style="text-align:right"><h4>Navegación</h4><div class="footer-links" style="align-items:flex-end"><a href="/es/about/">Sobre mí</a><a href="/es/reviews/">Reseñas</a><a href="/es/contact/">Contacto</a></div></div></div><div class="footer-bottom"><span>© 2026 TELWHA. Todos los derechos reservados.</span><span>Kyiv, Ukraine · 🇺🇦</span></div></div></footer>
+
+<script src="/static/script/global.js"></script>
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const siteMenu = document.querySelector('#site-menu');
+  if (menuToggle && siteMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = siteMenu.classList.toggle('is-open');
+      menuToggle.classList.toggle('is-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      menuToggle.setAttribute('aria-label', isOpen ? menuToggle.dataset.closeLabel : menuToggle.dataset.openLabel);
+    });
+  }
+
+  const progress = document.getElementById('progress');
+  const updateProgress = () => {
+    const doc = document.documentElement;
+    const total = doc.scrollHeight - doc.clientHeight;
+    const scrolled = total > 0 ? (doc.scrollTop / total) * 100 : 0;
+    if (progress) progress.style.width = scrolled + '%';
+  };
+  document.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  const audienceTabs = Array.from(document.querySelectorAll('.audience-tab'));
+  const audiencePanels = Array.from(document.querySelectorAll('.audience-panel'));
+  if (audienceTabs.length) {
+    audienceTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.target;
+        audienceTabs.forEach(btn => {
+          const active = btn === tab;
+          btn.classList.toggle('is-active', active);
+          btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        audiencePanels.forEach(panel => {
+          const active = panel.id === target;
+          panel.classList.toggle('is-active', active);
+          panel.hidden = !active;
+        });
+      });
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+    });
+  }, { threshold: 0.14 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+  const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  const markToc = () => {
+    let activeId = sections[0]?.id;
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 140) activeId = section.id;
+    });
+    tocLinks.forEach(link => {
+      link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
+    });
+  };
+  document.addEventListener('scroll', markToc, { passive: true });
+  markToc();
+</script>
+
+</body></html>
