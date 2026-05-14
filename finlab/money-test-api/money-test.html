@@ -688,6 +688,29 @@
   const fullTestBody = document.getElementById("js-full-test-body");
   const questionBlocks = Array.from(document.querySelectorAll(".question-block"));
   const sessionStartedAt = new Date().toISOString();
+  const ANALYTICS_WINDOW_DAYS = 45;
+  const MIN_COMPLETION_SECONDS = 150;
+
+  function generateAttemptId() {
+    return `att_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+  }
+
+  function getOrCreateRespondentToken() {
+    const key = "finlab_money_test_respondent_token_v1";
+    try {
+      let token = window.name && window.name.startsWith("finlab_rt_") ? window.name : "";
+      if (!token) {
+        token = `${key}_${Date.now()}_${Math.random().toString(36).slice(2, 12)}`;
+        window.name = token;
+      }
+      return token;
+    } catch (error) {
+      return `${key}_${Date.now()}_${Math.random().toString(36).slice(2, 12)}`;
+    }
+  }
+
+  const respondentToken = getOrCreateRespondentToken();
+  const attemptId = generateAttemptId();
   const sectionMap = {
     FA: required.filter((id) => id.startsWith("FA")),
     PA: required.filter((id) => id.startsWith("PA")),
@@ -1498,9 +1521,11 @@ function setAnswer(button) {
   };
   }
 
-  function buildPayload(profile, metrics, overallResult) {
+  function buildPayload(profile, metrics, overallResult, saveMeta = {}) {
     const answeredCount = required.filter((id) => answers[id] !== undefined).length;
     const isCompleted = answeredCount === required.length;
+    const completedAtIso = isCompleted ? new Date().toISOString() : null;
+    const durationSeconds = Math.max(0, Math.round((Date.now() - new Date(sessionStartedAt).getTime()) / 1000));
     const pa1Code = code("PA1");
 
     const employmentMap = {
@@ -1521,13 +1546,28 @@ function setAnswer(button) {
       5: "mixed"
     };
 
+    const qualityFlags = {
+      too_fast: durationSeconds < MIN_COMPLETION_SECONDS,
+      incomplete: !isCompleted,
+      same_option_pattern: false
+    };
+
+    const includeInAggregate = Boolean(
+      isCompleted &&
+      !qualityFlags.too_fast &&
+      !saveMeta.is_repeat_window
+    );
+
     return {
       response_id: `resp_${Date.now()}`,
+      respondent_token: respondentToken,
+      respondent_id: respondentToken,
+      attempt_id: attemptId,
       survey_version: "short-v1",
-      scoring_version: "short-archetype-v3",
+      scoring_version: "short-archetype-v4",
 
       metadata: {
-        duration_seconds: Math.max(0, Math.round((Date.now() - new Date(sessionStartedAt).getTime()) / 1000)),
+        duration_seconds: durationSeconds,
         completion_status: isCompleted ? "completed" : (answeredCount > 0 ? "partial" : "abandoned"),
         answered_count: answeredCount,
         required_count: 33,
@@ -1535,7 +1575,21 @@ function setAnswer(button) {
         employment_type: employmentMap[pa1Code] || null,
         routing_flags: {},
         started_at: sessionStartedAt,
-        completed_at: isCompleted ? new Date().toISOString() : null
+        completed_at: completedAtIso,
+        analytics_window_days: ANALYTICS_WINDOW_DAYS
+      },
+
+      response_control: {
+        respondent_token: respondentToken,
+        attempt_id: attemptId,
+        is_repeat: Boolean(saveMeta.is_repeat),
+        is_repeat_window: Boolean(saveMeta.is_repeat_window),
+        prior_attempt_count: Number(saveMeta.prior_attempt_count || 0),
+        prior_completed_count: Number(saveMeta.prior_completed_count || 0),
+        last_completed_at: saveMeta.last_completed_at || null,
+        include_in_aggregate: includeInAggregate,
+        aggregate_status: includeInAggregate ? "unique_valid" : (qualityFlags.too_fast ? "excluded_too_fast" : (saveMeta.is_repeat_window ? "excluded_repeat_window" : "excluded_other")),
+        quality_flags: qualityFlags
       },
 
       raw_answers: Object.fromEntries(
@@ -1646,7 +1700,13 @@ function setAnswer(button) {
 
       completed_at: meta.completed_at || '',
       completion_status: meta.completion_status || '',
-      answered_count: String(meta.answered_count ?? '')
+      answered_count: String(meta.answered_count ?? ''),
+      respondent_token: payload.respondent_token || '',
+      attempt_id: payload.attempt_id || '',
+      include_in_aggregate: String(payload?.response_control?.include_in_aggregate ?? ''),
+      aggregate_status: payload?.response_control?.aggregate_status || '',
+      is_repeat: String(payload?.response_control?.is_repeat ?? ''),
+      is_repeat_window: String(payload?.response_control?.is_repeat_window ?? '')
     };
 
     try {
@@ -1663,7 +1723,19 @@ function setAnswer(button) {
     }
   }
 
-  submitBtn.addEventListener("click", () => {
+  async function collectExistingResponseMeta() {
+    if (!window.getRespondentHistoryMeta) {
+      return { is_repeat: false, is_repeat_window: false, prior_attempt_count: 0, prior_completed_count: 0, last_completed_at: null };
+    }
+    try {
+      return await window.getRespondentHistoryMeta(respondentToken, ANALYTICS_WINDOW_DAYS);
+    } catch (error) {
+      console.error('History meta read failed:', error);
+      return { is_repeat: false, is_repeat_window: false, prior_attempt_count: 0, prior_completed_count: 0, last_completed_at: null };
+    }
+  }
+
+  submitBtn.addEventListener("click", async () => {
     const missed = required.filter((id) => answers[id] === undefined);
 
     if (missed.length) {
@@ -1680,11 +1752,14 @@ function setAnswer(button) {
     errorBox.hidden = true;
     errorBox.textContent = "";
 
+    submitBtn.disabled = true;
+
     const metrics = computeMetrics();
     window.__latestMetrics = metrics;
     const profile = getArchetype(metrics);
     const overallResult = buildOverallResult(metrics);
-    const payload = buildPayload(profile, metrics, overallResult);
+    const saveMeta = await collectExistingResponseMeta();
+    const payload = buildPayload(profile, metrics, overallResult, saveMeta);
 
     renderResult(profile, payload, overallResult);
 
@@ -1695,6 +1770,8 @@ function setAnswer(button) {
       console.log("SAVE RESULTS", results);
     }).catch((error) => {
       console.error("SAVE ERROR", error);
+    }).finally(() => {
+      submitBtn.disabled = false;
     });
   });
 
@@ -1753,7 +1830,7 @@ function setAnswer(button) {
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
-  import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+  import { getFirestore, collection, addDoc, serverTimestamp, query, where, getDocs, orderBy, limit } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyCKRZeWrWAU0Sh9PDPehzZN_9z4CVgZKN0",
@@ -1767,6 +1844,39 @@ function setAnswer(button) {
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
+
+  window.getRespondentHistoryMeta = async function(respondentToken, windowDays = 45) {
+    try {
+      const colRef = collection(db, "money_test_responses");
+      const q = query(colRef, where("respondent_token", "==", respondentToken));
+      const snap = await getDocs(q);
+      const docs = snap.docs.map(doc => doc.data());
+      const completed = docs.filter(item => item?.metadata?.completion_status === "completed");
+      const latestCompleted = completed
+        .map(item => item?.metadata?.completed_at)
+        .filter(Boolean)
+        .sort()
+        .slice(-1)[0] || null;
+
+      let isRepeatWindow = false;
+      if (latestCompleted) {
+        const diffMs = Date.now() - new Date(latestCompleted).getTime();
+        const diffDays = diffMs / (1000 * 60 * 60 * 24);
+        isRepeatWindow = diffDays <= windowDays;
+      }
+
+      return {
+        is_repeat: docs.length > 0,
+        is_repeat_window: isRepeatWindow,
+        prior_attempt_count: docs.length,
+        prior_completed_count: completed.length,
+        last_completed_at: latestCompleted
+      };
+    } catch (error) {
+      console.error("Respondent history lookup failed:", error);
+      return { is_repeat: false, is_repeat_window: false, prior_attempt_count: 0, prior_completed_count: 0, last_completed_at: null };
+    }
+  };
 
   window.saveResultToFirebase = async function(payload) {
     try {

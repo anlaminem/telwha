@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "survey-result-short-v1.json",
-  "title": "Survey Result Payload — Short Form V1",
+  "$id": "survey-result-schema.v1.json",
+  "title": "Survey Result Payload — Money Test Short Form V1",
   "type": "object",
   "required": [
     "response_id",
@@ -15,13 +15,29 @@
       "type": "string",
       "minLength": 1
     },
+    "respondent_token": {
+      "type": ["string", "null"],
+      "minLength": 1
+    },
+    "respondent_id": {
+      "type": ["string", "null"],
+      "minLength": 1
+    },
+    "attempt_id": {
+      "type": ["string", "null"],
+      "minLength": 1
+    },
     "survey_version": {
       "type": "string",
       "const": "short-v1"
     },
     "scoring_version": {
       "type": "string",
-      "const": "short-heuristic-v1"
+      "enum": [
+        "short-heuristic-v1",
+        "short-archetype-v3",
+        "short-archetype-v4"
+      ]
     },
     "metadata": {
       "type": "object",
@@ -33,7 +49,7 @@
       ],
       "properties": {
         "duration_seconds": {
-          "type": "integer",
+          "type": ["integer", "null"],
           "minimum": 0
         },
         "completion_status": {
@@ -68,6 +84,85 @@
         "completed_at": {
           "type": ["string", "null"],
           "format": "date-time"
+        },
+        "analytics_window_days": {
+          "type": ["integer", "null"],
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "response_control": {
+      "type": "object",
+      "required": [
+        "respondent_token",
+        "attempt_id",
+        "is_repeat",
+        "is_repeat_window",
+        "include_in_aggregate",
+        "aggregate_status",
+        "quality_flags"
+      ],
+      "properties": {
+        "respondent_token": {
+          "type": "string",
+          "minLength": 1
+        },
+        "attempt_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "is_repeat": {
+          "type": "boolean"
+        },
+        "is_repeat_window": {
+          "type": "boolean"
+        },
+        "prior_attempt_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "prior_completed_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "last_completed_at": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "include_in_aggregate": {
+          "type": "boolean"
+        },
+        "aggregate_status": {
+          "type": "string",
+          "enum": [
+            "unique_valid",
+            "excluded_too_fast",
+            "excluded_repeat_window",
+            "excluded_same_option_pattern",
+            "excluded_incomplete",
+            "excluded_other"
+          ]
+        },
+        "quality_flags": {
+          "type": "object",
+          "required": [
+            "too_fast",
+            "incomplete",
+            "same_option_pattern"
+          ],
+          "properties": {
+            "too_fast": {
+              "type": "boolean"
+            },
+            "incomplete": {
+              "type": "boolean"
+            },
+            "same_option_pattern": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": false
@@ -283,10 +378,34 @@
               "type": ["integer", "null"],
               "minimum": 0,
               "maximum": 4
+            },
+            "candidate_scores": {
+              "type": ["object", "null"],
+              "additionalProperties": {
+                "type": "number"
+              }
             }
           },
           "additionalProperties": false
         }
+      },
+      "additionalProperties": false
+    },
+    "overall_result": {
+      "type": "object",
+      "properties": {
+        "summary": { "type": ["string", "null"] },
+        "strength": { "type": ["string", "null"] },
+        "risk": { "type": ["string", "null"] },
+        "metrics": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "actions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "full_test": { "type": ["string", "null"] }
       },
       "additionalProperties": false
     },
@@ -304,7 +423,32 @@
           "type": "array",
           "items": { "type": "string" }
         },
-        "next_best_action": { "type": ["string", "null"] }
+        "money_scripts": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "nervous_system_pattern": { "type": ["string", "null"] },
+        "micro_actions_7d": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "micro_actions_30d": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "priority_area": { "type": ["string", "null"] },
+        "next_best_action": { "type": ["string", "null"] },
+        "cta_variant": { "type": ["string", "null"] },
+        "dominant_biases": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "dominant_triggers": {
+          "type": "array",
+          "items": {
+            "type": ["string", "number", "boolean", "null", "object", "array"]
+          }
+        }
       },
       "additionalProperties": false
     }
@@ -328,6 +472,21 @@
             "properties": {
               "answered_count": { "const": 33 }
             }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": ["response_control"]
+      },
+      "then": {
+        "properties": {
+          "respondent_token": {
+            "type": ["string", "null"]
+          },
+          "attempt_id": {
+            "type": ["string", "null"]
           }
         }
       }

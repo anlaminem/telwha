@@ -13,12 +13,8 @@ class ReportBuilder:
         self.schema_title = self.result_schema.get("title") if isinstance(self.result_schema, dict) else None
         self.schema_id = self.result_schema.get("$id") if isinstance(self.result_schema, dict) else None
 
-        # Short vs full schema: short = кластерний рівень, full = 13 архетипів
-        self.is_short_schema = bool(self.schema_id == "survey-result-short-v1.json") or bool(
-            self.schema_title and "Short Form" in self.schema_title
-        )
+        self.is_short_schema = self._detect_short_schema(self.result_schema)
 
-        # narrative_content розділяємо на дві секції
         self.narrative_content: Dict[str, Any] = {}
         self.full_archetypes_content: Dict[str, Any] = {}
         self.short_clusters_content: Dict[str, Any] = {}
@@ -37,8 +33,40 @@ class ReportBuilder:
         with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
 
+    def _detect_short_schema(self, schema: Dict[str, Any]) -> bool:
+        if not isinstance(schema, dict):
+            return False
+
+        schema_id = str(schema.get("$id", "")).strip().lower()
+        schema_title = str(schema.get("title", "")).strip().lower()
+
+        if "short form" in schema_title:
+            return True
+        if "short" in schema_title and "survey result payload" in schema_title:
+            return True
+        if schema_id in {"survey-result-short-v1.json", "survey-result-schema.v1.json"}:
+            return True
+
+        props = schema.get("properties", {})
+        if not isinstance(props, dict):
+            return False
+
+        archetype_result = props.get("archetype_result", {})
+        if not isinstance(archetype_result, dict):
+            return False
+
+        primary_id = ((archetype_result.get("properties") or {}).get("primary_id") or {})
+        enum_values = primary_id.get("enum", [])
+        if isinstance(enum_values, list) and any(str(v).endswith("_CLUSTER") for v in enum_values):
+            return True
+
+        survey_version = props.get("survey_version", {})
+        if isinstance(survey_version, dict) and survey_version.get("const") == "short-v1":
+            return True
+
+        return False
+
     def _load_narrative_content(self, path: Path) -> None:
-        """Читає narrative і розкладає його на full_archetypes / short_clusters."""
         data = self._load_json(path)
         if not isinstance(data, dict):
             self.narrative_content = {}
@@ -46,7 +74,6 @@ class ReportBuilder:
             self.short_clusters_content = {}
             return
 
-        # Зберігаємо raw для debug
         self.narrative_content = {str(k).strip(): v for k, v in data.items() if k != "_meta"}
 
         full_block = data.get("full_archetypes", {})
@@ -126,6 +153,15 @@ class ReportBuilder:
         except Exception:
             return None
 
+    def _safe_str(self, value: Any) -> Optional[str]:
+        if value is None:
+            return None
+        try:
+            text = str(value).strip()
+            return text if text else None
+        except Exception:
+            return None
+
     # ---------- конвертація dataframes ----------
 
     def _df_to_scale_dict(self, scales_df: pd.DataFrame) -> Dict[str, Dict[str, Any]]:
@@ -176,10 +212,6 @@ class ReportBuilder:
     # ---------- вибір narrative ----------
 
     def _get_archetype_content(self, archetype_code: Optional[str]) -> Dict[str, Any]:
-        """
-        Для full-schema шукаємо в full_archetypes_content (ключі типу 'ZP', 'FS'...).
-        Для short-schema шукаємо в short_clusters_content (ключі типу 'ZP_CLUSTER'...).
-        """
         if not archetype_code:
             return {}
 
@@ -241,6 +273,55 @@ class ReportBuilder:
             },
         }
 
+    # ---------- загальні summary-блоки ----------
+
+    def _make_overall_result(
+        self,
+        primary: Optional[str],
+        profile: Dict[str, Any],
+        meta: Dict[str, Any],
+        actions: List[Any],
+        scales: Dict[str, Dict[str, Any]],
+    ) -> Dict[str, Any]:
+        intro = profile.get("intro_paragraphs", []) or []
+        summary = intro[0] if intro else profile.get("subtitle")
+
+        strength = profile.get("key_strength")
+        risk = profile.get("key_vulnerability")
+
+        metrics = []
+        for scale_name, scale_payload in scales.items():
+            score = scale_payload.get("score")
+            if score is None:
+                continue
+            metrics.append(f"{scale_name}: {score:.2f}/5")
+
+        action_texts = []
+        for action in actions[:3]:
+            if isinstance(action, dict):
+                action_texts.append(
+                    action.get("title") or action.get("text") or action.get("action")
+                )
+            elif isinstance(action, str):
+                action_texts.append(action)
+
+        full_test = None
+        base_emotion = meta.get("base_emotion")
+        if primary or base_emotion:
+            full_test = (
+                f"Повний профіль покаже, як патерн {primary or 'поведінки'} "
+                f"пов’язаний із напругою, сценаріями та фінансовими тригерами."
+            )
+
+        return {
+            "summary": summary,
+            "strength": strength,
+            "risk": risk,
+            "metrics": [m for m in metrics if m],
+            "actions": [a for a in action_texts if a],
+            "full_test": full_test,
+        }
+
     # ---------- формування user_report ----------
 
     def _make_user_report(self, primary: Optional[str], primary_content: Dict[str, Any]) -> Dict[str, Any]:
@@ -272,6 +353,33 @@ class ReportBuilder:
             elif isinstance(first_action, str):
                 next_best_action = first_action
 
+        micro_actions_7d = []
+        for a in actions[:2]:
+            if isinstance(a, dict):
+                val = a.get("title") or a.get("text") or a.get("action")
+                if val:
+                    micro_actions_7d.append(val)
+            elif isinstance(a, str):
+                micro_actions_7d.append(a)
+
+        micro_actions_30d = []
+        for a in actions[2:4]:
+            if isinstance(a, dict):
+                val = a.get("title") or a.get("text") or a.get("action")
+                if val:
+                    micro_actions_30d.append(val)
+            elif isinstance(a, str):
+                micro_actions_30d.append(a)
+
+        dominant_biases = []
+        for b in biases[:3]:
+            if isinstance(b, dict) and b.get("name"):
+                dominant_biases.append(b.get("name"))
+            elif isinstance(b, str):
+                dominant_biases.append(b)
+
+        dominant_triggers = [x for x in break_contexts[:3] if x]
+
         return {
             "report_title": profile.get("title") or primary,
             "report_summary_short": profile.get("subtitle"),
@@ -282,39 +390,18 @@ class ReportBuilder:
             "top_risks": top_risks,
             "money_scripts": meta.get("signature_phrases", []),
             "nervous_system_pattern": meta.get("base_emotion"),
-            "micro_actions_7d": [
-                a.get("title") if isinstance(a, dict) else a
-                for a in actions[:2]
-                if (
-                    isinstance(a, dict)
-                    and (a.get("title") or a.get("text") or a.get("action"))
-                )
-                or isinstance(a, str)
-            ],
-            "micro_actions_30d": [
-                a.get("title") if isinstance(a, dict) else a
-                for a in actions[2:4]
-                if (
-                    isinstance(a, dict)
-                    and (a.get("title") or a.get("text") or a.get("action"))
-                )
-                or isinstance(a, str)
-            ],
+            "micro_actions_7d": micro_actions_7d,
+            "micro_actions_30d": micro_actions_30d,
             "priority_area": None,
             "next_best_action": next_best_action,
             "cta_variant": None,
-            "dominant_biases": [
-                b.get("name") if isinstance(b, dict) else b
-                for b in biases[:3]
-                if (isinstance(b, dict) and b.get("name")) or isinstance(b, str)
-            ],
-            "dominant_triggers": break_contexts[:3],
+            "dominant_biases": dominant_biases,
+            "dominant_triggers": dominant_triggers,
         }
 
     # ---------- debug і фінальний report ----------
 
     def _build_debug(self, assignment: Dict[str, Any]) -> Dict[str, Any]:
-        # Для дебага корисно знати, які ключі доступні в обох секціях
         return {
             "assignment_reason": assignment.get("reason"),
             "schema_loaded": True,
@@ -337,6 +424,19 @@ class ReportBuilder:
         archetypes_ranked = self._df_to_archetype_rows(archetype_df)
         user_report = self._make_user_report(primary, primary_content)
 
+        primary_profile = self._extract_profile_summary(primary_content) if primary_content else {}
+        secondary_profile = self._extract_profile_summary(secondary_content) if secondary_content else {}
+        primary_meta = self._extract_meta(primary_content) if primary_content else {}
+        primary_actions = self._extract_actions(primary_content) if primary_content else []
+
+        overall_result = self._make_overall_result(
+            primary=primary,
+            profile=primary_profile,
+            meta=primary_meta,
+            actions=primary_actions,
+            scales=scales,
+        )
+
         report = {
             "case_id": case_id,
             "profile_summary": {
@@ -345,13 +445,11 @@ class ReportBuilder:
                 "secondary_archetype": secondary,
                 "secondary_score": assignment.get("secondary_score"),
                 "mix_flag": assignment.get("mix_flag", False),
-                "primary_content": self._extract_profile_summary(primary_content)
-                if primary_content
-                else {},
+                "primary_content": primary_profile if primary_content else {},
                 "secondary_overlay": (
                     {
-                        "title": secondary_content.get("screen_1", {}).get("title"),
-                        "subtitle": secondary_content.get("screen_1", {}).get("subtitle"),
+                        "title": secondary_profile.get("title"),
+                        "subtitle": secondary_profile.get("subtitle"),
                     }
                     if secondary_content
                     else None
@@ -359,6 +457,7 @@ class ReportBuilder:
             },
             "scales": scales,
             "archetypes_ranked": archetypes_ranked,
+            "overall_result": overall_result,
             "primary_archetype_report": (
                 {
                     "screen_1": primary_content.get("screen_1", {}),
