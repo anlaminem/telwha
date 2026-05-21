@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TELWHA | Cómo los insights de gasto con IA pueden cambiar el comportamiento financiero</title>
+<meta name="description" content="Prueba A/B conductual para una app fintech: cómo los spending insights y nudges basados en IA cambian la discretionary spend share, el engagement y la adopción.">
+<link rel="canonical" href="https://t-e-l-w-h-a.com/es/articles/ai-spending-insights-financial-behavior/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="TELWHA | Cómo los insights de gasto con IA pueden cambiar el comportamiento financiero">
+<meta property="og:description" content="Prueba A/B conductual para una app fintech: cómo los spending insights y nudges basados en IA cambian la discretionary spend share, el engagement y la adopción.">
+<meta property="og:url" content="https://t-e-l-w-h-a.com/es/articles/ai-spending-insights-financial-behavior/">
+<meta property="og:site_name" content="TELWHA">
+
+<link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+<link rel="stylesheet" href="/static/css/base.css">
+<link rel="stylesheet" href="/static/css/layout-article.css">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=zodiak@400,700&display=swap" rel="stylesheet">
+
+<style>
+:root,[data-theme="light"]{
+  --font-body:'Satoshi',system-ui,sans-serif;
+  --font-display:'Zodiak',Georgia,serif;
+  --accent:#8b7355;
+  --accent-2:#c7a978;
+}
+html{scroll-behavior:smooth;}
+.progress{position:fixed;inset:0 auto auto 0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,var(--accent,#8b7355),var(--accent-2,#c7a978));box-shadow:0 1px 10px rgba(0,0,0,.12)}
+.article-shell{position:relative;max-width:1320px;margin-inline:auto}
+.article-header{position:relative;overflow:hidden}
+.article-header::after{content:"";position:absolute;right:-80px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(199,169,120,.16),rgba(199,169,120,0) 70%);pointer-events:none}
+.article-deck{max-width:850px}
+.article-reading{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.article-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:rgba(255,255,255,.5);backdrop-filter:blur(4px);font-size:.88rem;line-height:1}
+html[data-theme="dark"] .article-chip{background:rgba(255,255,255,.04)}
+.article-layout{display:grid;grid-template-columns:minmax(0,5fr) minmax(260px,2fr);gap:56px;align-items:start}
+.article-main{min-width:0}
+.article-aside{position:sticky;top:92px;display:flex;flex-direction:column;gap:14px}
+.aside-card{padding:16px 16px 14px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.45));box-shadow:0 10px 30px rgba(0,0,0,.04)}
+html[data-theme="dark"] .aside-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
+.aside-card h3{font-size:.92rem;margin:0 0 10px;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
+.toc{display:flex;flex-direction:column;gap:8px}.toc a{display:block;padding:8px 10px;border-radius:12px;text-decoration:none;opacity:.78}.toc a:hover,.toc a.is-active{background:rgba(199,169,120,.14);opacity:1}
+.article-body>p{position:relative;margin-bottom:1.35rem}
+.article-body section[id]>p:first-of-type{margin-top:0}
+.article-body>p.is-focus,.article-body section[id] > p.is-focus{padding-left:16px;border-left:3px solid rgba(199,169,120,.8)}
+.article-body h2,.article-body section[id]{scroll-margin-top:120px}
+.article-body section[id]{position:relative;margin-top:2.2rem}
+.article-pullquote{margin:22px 0;padding:18px 20px;border-radius:18px;border:1px solid rgba(120,120,120,.14);background:linear-gradient(135deg,rgba(199,169,120,.14),rgba(199,169,120,.04));font-size:1.05rem;line-height:1.7}
+.article-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(120,120,120,.25),transparent);margin:28px 0}
+.mobile-jump{display:none}
+.figure-grid{display:grid;grid-template-columns:1fr;gap:22px;margin:22px 0 10px}
+.figure-card{padding:14px;border:1px solid rgba(120,120,120,.14);border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.46));box-shadow:0 10px 30px rgba(0,0,0,.04)}
+html[data-theme="dark"] .figure-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
+.figure-card img{width:100%;border-radius:14px;border:1px solid rgba(120,120,120,.12)}
+.figure-card figcaption{max-width:none;font-size:.98rem;line-height:1.7;color:inherit;padding:12px 4px 2px}
+.data-table{width:100%;margin:18px 0;border-collapse:collapse;font-size:.98rem}
+.data-table th,.data-table td{padding:12px 14px;border:1px solid rgba(120,120,120,.14);text-align:left;vertical-align:top}
+.data-table th{background:rgba(199,169,120,.08)}
+ul.clean-list{padding-left:1.2rem;margin:1rem 0}
+ul.clean-list li{margin:.55rem 0}
+details.tech-note{margin:18px 0;padding:14px 16px;border-radius:16px;border:1px solid rgba(120,120,120,.14);background:rgba(199,169,120,.06)}
+details.tech-note summary{cursor:pointer;font-weight:600}
+.section > .wrap{max-width:1440px}
+@media (max-width:980px){.section>.wrap{max-width:100%;width:100%}.article-shell{max-width:100%;width:100%;margin-inline:0}.article-layout{display:block}.article-aside{display:none}}
+@media (max-width:720px){.article-reading{gap:8px}.article-chip{font-size:.8rem;padding:7px 10px}.aside-card{border-radius:16px}.mobile-jump{display:flex;gap:8px;overflow:auto;padding-bottom:6px;scrollbar-width:none}.mobile-jump::-webkit-scrollbar{display:none}.mobile-jump a{white-space:nowrap;text-decoration:none;padding:8px 12px;border-radius:999px;border:1px solid rgba(120,120,120,.16);background:rgba(255,255,255,.52);font-size:.85rem}html[data-theme="dark"] .mobile-jump a{background:rgba(255,255,255,.04)}}
+
+.cta-panel{margin:32px 0 8px;padding:22px 22px;border:1px solid rgba(120,120,120,.14);border-radius:22px;background:linear-gradient(135deg,rgba(199,169,120,.16),rgba(199,169,120,.05));display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.cta-copy{max-width:760px}
+.cta-copy p{max-width:none;margin:0}
+.cta-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-consult,.btn-secondary-link{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:600;border:1px solid transparent}
+.btn-consult{background:var(--accent);color:#fff;box-shadow:0 10px 24px rgba(139,115,85,.18)}
+.btn-consult:hover{background:#735d45}
+.btn-secondary-link{border-color:rgba(120,120,120,.2);color:inherit;background:rgba(255,255,255,.55)}
+html[data-theme="dark"] .btn-secondary-link{background:rgba(255,255,255,.04)}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Cómo los insights de gasto con IA pueden cambiar el comportamiento financiero",
+  "description": "Prueba A/B conductual para una app fintech sobre spending insights y nudges basados en IA, discretionary share, adopción y engagement.",
+  "author": {"@type": "Person", "name": "Anna Signaevska"},
+  "publisher": {"@type": "Organization", "name": "TELWHA"},
+  "inLanguage": "es",
+  "datePublished": "2026-05-20",
+  "dateModified": "2026-05-20",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://t-e-l-w-h-a.com/es/articles/ai-spending-insights-financial-behavior/"}
+}
+</script>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="topbar">
+  <div class="wrap nav">
+    <div class="brand">
+      <a class="brand-row" href="/"><strong>TELWHA</strong></a>
+      <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+    </div>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú">
+      <span class="menu-toggle-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+
+    <nav class="menu" id="site-menu">
+      <div class="menu-group">
+        <a href="/">Inicio</a>
+        <a href="/finlab/">FinLab</a>
+        <a href="/about/">Sobre mí</a>
+      </div>
+      <div class="menu-group"><a href="/articles/">Artículos</a><a href="/reviews/">Reseñas</a><a href="/cases/">Casos</a><a href="/contact/">Contacto</a></div>
+      <div class="menu-group menu-tools">
+        <details class="lang-switcher lang-switcher--inside">
+          <summary>🇪🇸</summary>
+          <div class="lang-list">
+            <a href="/en/articles/ai-spending-insights-case-uk.html" aria-label="English">🇬🇧</a>
+            <a href="/articles/ai-spending-insights-case-uk.html" aria-label="Українська">🇺🇦</a>
+          </div>
+        </details>
+        <button class="theme-toggle" type="button" aria-label="Cambiar tema" data-theme-toggle>🌓</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <article class="article-shell" itemscope itemtype="https://schema.org/Article">
+        <header class="article-header fade-in">
+          <div class="eyebrow"><span>Case study</span> TELWHA</div>
+          <h1 itemprop="headline">Cómo los insights de gasto con IA pueden cambiar el comportamiento financiero: una prueba A/B conductual para una app fintech</h1>
+          <p class="article-deck" itemprop="description">Un caso sobre cómo los AI-Based Spending Insights & Nudges cambian la discretionary spend share sin romper el engagement ni perjudicar el gasto esencial.</p>
+          <div class="article-reading">
+            <span class="article-chip">10 000 usuarios sintéticos</span>
+            <span class="article-chip">3 meses pre + 3 meses post</span>
+            <span class="article-chip">Fintech · Behavioral analytics · Experimentation</span>
+          </div>
+        </header>
+
+        <div class="mobile-jump fade-in" aria-label="Navegación rápida por el artículo">
+          <a href="#part-1">Problema</a>
+          <a href="#part-2">Hipótesis</a>
+          <a href="#part-3">Marco</a>
+          <a href="#part-4">Diseño</a>
+          <a href="#part-5">Resultados</a>
+          <a href="#part-6">Negocio</a>
+          <a href="#part-7">Aplicación</a>
+          <a href="#part-8">Límites</a>
+        </div>
+
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="article-body" itemprop="articleBody">
+
+              <section id="part-1">
+                <p class="is-focus">Los productos fintech se enfrentan cada vez más no a un problema de falta de datos, sino a un problema de cambio de comportamiento. Los usuarios jóvenes quieren estabilidad financiera, un fondo de emergencia y mayor control sobre su dinero, pero en la vida real suelen actuar bajo el impulso, la presión social y estímulos emocionales de corto plazo.</p>
+                <p>Este caso modela un experimento A/B para un banco digital o una app de PFM que lanza la funcionalidad <strong>AI-Based Spending Insights & Nudges</strong>. El objetivo es comprobar si una capa personalizada de spending insights puede reducir la discretionary spend share sin dañar el gasto esencial ni disminuir el engagement con la app.</p>
+                <p>En el experimento simulado, el grupo treatment redujo la discretionary share en 1.53 puntos porcentuales frente al grupo control; al mismo tiempo, las sessions per user no cayeron y el interés por la pantalla de insights aumentó de forma significativa. Esto hace que el caso no sea solo estadísticamente interesante, sino también relevante desde el punto de vista de producto para el entorno fintech, donde cualquier funcionalidad de behavior change debe demostrar a la vez efecto, seguridad y adopción.</p>
+              </section>
+
+              <div class="article-pullquote fade-in">Para fintech no basta con mostrar transacciones. Hay que hacer visibles los gastos, conectarlos con los objetivos del usuario y no crear una nueva fuente de fricción o evitación.</div>
+
+              <div class="article-divider"></div>
+
+              <section id="part-2">
+                <h2>Por qué este es un problema real de producto</h2>
+                <p>Para la Generación Z y los millennials jóvenes, el conflicto entre el deseo de estabilidad y el comportamiento real es especialmente visible. La interfaz móvil se convierte en el canal clave mediante el cual un banco o un servicio de PFM puede influir en los hábitos financieros, porque la interacción diaria con el dinero ya no ocurre en una sucursal, sino dentro de la app.</p>
+                <p>Al mismo tiempo, la resiliencia financiera de esta audiencia sigue siendo limitada. Por eso, incluso pequeñas decisiones sobre los gastos cotidianos pueden tener un peso desproporcionado en la sensación de control, el estrés y el avance hacia metas personales.</p>
+                <p>El contexto social también empuja activamente al consumo. El entorno del gasto es cada vez más instantáneo, frictionless y conductualmente provocador; por eso, un producto fintech debe funcionar no solo como un ledger, sino también como una behavioral interface.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-3">
+                <h2>Hipótesis de producto</h2>
+                <p>En el centro del caso está la funcionalidad AI-Based Spending Insights & Nudges para una app móvil bancaria o de finanzas personales. Analiza la estructura de gasto del usuario, identifica categorías discrecionales — eating out, entertainment, shopping y travel — y genera insights personalizados y nudges suaves que no prohíben gastar, sino que muestran el coste de los patrones actuales en términos de savings goals, control y resiliencia financiera.</p>
+                <p>La versión simple de la hipótesis de producto suena así: si se hace más visible el discretionary spend y se lo conecta con objetivos personales, el usuario puede ajustar ligeramente la estructura de sus gastos. Pero para un negocio real eso no basta. La funcionalidad solo se considera exitosa cuando cumple simultáneamente tres condiciones: reduce la discretionary share, no perjudica el essential spend y no disminuye el engagement con la app.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-4">
+                <h2>Marco conductual del caso</h2>
+                <p>La fortaleza de este caso no está solo en el análisis A/B, sino en el intento de construir un modelo de usuario más realista. En lugar de un diseño plano del tipo “hay distintos ingresos y distintos segmentos”, los synthetic data incorporaron latent behavioral traits que modelan patrones conocidos de comportamiento financiero.</p>
+                <ul class="clean-list">
+                  <li><strong>FOMO susceptibility</strong> refuerza el discretionary behavior: mayores proporciones de gasto en entertainment, eating out, shopping y travel, así como mayor frecuencia de transacciones impulsivas.</li>
+                  <li><strong>Status seeking</strong> modela el conspicuous consumption: gastos que cumplen una función social de señalización.</li>
+                  <li><strong>Financial stress</strong> modela fragilidad, mayor volatilidad del gasto y mayor sensibilidad a herramientas de control.</li>
+                  <li><strong>Stability need</strong> refleja la inclinación hacia el orden, el fondo de emergencia, la seguridad y la previsibilidad.</li>
+                  <li><strong>Goal orientation</strong> modela la capacidad de pensar las finanzas como un sistema de objetivos y no solo como deseos inmediatos.</li>
+                </ul>
+                <p>Este marco permite observar no solo el average treatment effect, sino también la heterogeneity: para quién funciona mejor la funcionalidad, quién la adopta con más facilidad y dónde se necesita otra comunicación.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-5">
+                <h2>Diseño del experimento</h2>
+                <p>El experimento se construyó como un user-level randomized controlled trial, en línea con la lógica real de product experimentation en servicios financieros móviles.</p>
+                <table class="data-table">
+                  <thead>
+                    <tr><th>Elemento</th><th>Diseño del caso</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Nivel de aleatorización</td><td>Usuario</td></tr>
+                    <tr><td>Horizonte</td><td>3 meses pre + 3 meses post</td></tr>
+                    <tr><td>Tamaño</td><td>10 000 usuarios sintéticos</td></tr>
+                    <tr><td>Treatment</td><td>v2_AI_insights con acceso a insights y nudges</td></tr>
+                    <tr><td>Control</td><td>producto estándar sin spending insights</td></tr>
+                    <tr><td>Primary metric</td><td>discretionary share of spend</td></tr>
+                    <tr><td>Guardrails</td><td>essential share, transactions, volatility, sessions</td></tr>
+                    <tr><td>Mechanism metrics</td><td>adoption, insights views, engagement</td></tr>
+                  </tbody>
+                </table>
+                <p>La primary metric del caso es la discretionary share, es decir, la proporción del gasto destinada a categorías discrecionales sobre el total spend. Es una métrica más relevante desde el punto de vista de producto que una simple reducción absoluta del gasto, porque permite evaluar un cambio en la estructura del comportamiento y no solo un “apretarse el cinturón”.</p>
+                <p>Los guardrails fueron fundamentales. La success condition en este caso no es solo un DiD positivo sobre discretionary share, sino un efecto positivo sin daño sobre essentials y engagement.</p>
+
+                <details class="tech-note">
+                  <summary>Detalles técnicos de generación y análisis</summary>
+                  <p>Se crearon tres tablas principales: <code>users.csv</code> — treatment assignment, segmentos, demografía y latent traits; <code>transactions.csv</code> — spend por categorías, importes y periodos pre/post; <code>sessions.csv</code> — actividad en la app, views e interacción con insights.</p>
+                  <p>En la capa estadística se utilizaron user-level pre/post aggregation, Welch’s t-test para user-level delta, diff-in-diff regression para estimar el incremental treatment effect y logistic regression para modelar la adopción dentro del treatment group.</p>
+                </details>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-6">
+                <h2>Qué mostró el experimento</h2>
+                <p class="is-focus"><strong>1. Primary effect: la discretionary share realmente disminuyó.</strong> En el grupo control, la discretionary share casi no cambió: de 29.44% a 29.23%. En el grupo treatment, el cambio fue mucho mayor: de 29.42% a 27.69%. El efecto diff-in-diff fue de -1.53 puntos porcentuales, y el intervalo de confianza del 95% estuvo entre -2.03 y -1.02 p.p., lo que respalda la interpretación del effect como estadísticamente y prácticamente relevante para una intervención de producto.</p>
+                <p>Este es un resultado importante desde la lógica fintech. La funcionalidad no intentaba “prohibir gastar”; su objetivo era modificar ligeramente el spend mix. Ese es precisamente el tipo de efecto realista y útil en un producto que opera no mediante sanción, sino mediante salience, framing y nudges suaves.</p>
+
+                <div class="figure-grid">
+                  <figure class="figure-card fade-in">
+                    <img src="/static/media/disc_share_pre_post_by_group.png" alt="Gráfico comparando la discretionary share en los grupos control y treatment antes y después del lanzamiento de la funcionalidad" width="1496" height="958" loading="lazy">
+                    <figcaption>El gráfico muestra que en el grupo control la proporción de gasto discrecional casi no cambia entre pre y post, mientras que en el grupo treatment disminuye de forma visible. Esto visualiza el efecto principal de la funcionalidad: un cambio en la estructura del gasto sin un recorte brusco del total spend.</figcaption>
+                  </figure>
+
+                  <figure class="figure-card fade-in">
+                    <img src="/static/media/did_disc_share_pre_post.png" alt="Gráfico diff-in-diff para discretionary share en los grupos control y treatment" width="1365" height="768" loading="lazy">
+                    <figcaption>El gráfico diff-in-diff muestra que la tendencia en control se mantiene casi plana, mientras que en treatment, tras el lanzamiento de la funcionalidad, la curva de discretionary share cae con claridad. La anotación incremental change ≈ -1.53 p.p. destaca precisamente el efecto incremental y no solo el movimiento general.</figcaption>
+                  </figure>
+                </div>
+
+                <p><strong>2. Heterogeneity: el efecto no fue igual para todos.</strong> El análisis por segmentos mostró que el treatment no funcionó de forma simétrica. El efecto más fuerte se observó entre los starter users, donde la reducción de discretionary share fue de alrededor de -2.01 p.p., mientras que para mass fue de aproximadamente -1.58 p.p. y para affluent de cerca de -1.49 p.p.</p>
+
+                <figure class="figure-card fade-in">
+                  <img src="/static/media/delta_disc_share_by_segment_group.png" alt="Gráfico segmentado del cambio en discretionary share para usuarios affluent, mass y starter" width="1296" height="768" loading="lazy">
+                  <figcaption>El gráfico muestra el cambio en discretionary share por segmentos: affluent, mass y starter. En cada segmento se observa que treatment genera un desplazamiento negativo mayor, y el efecto más fuerte aparece precisamente en starter users, lo que respalda la idea de una mayor sensibilidad a los nudges en grupos financieramente más vulnerables.</figcaption>
+                </figure>
+
+                <p><strong>3. Guardrails: ni los essentials ni el engagement cayeron.</strong> Una de las conclusiones más importantes del caso es que el primary effect no se “compró” al precio de efectos secundarios dañinos. La essential share no mostró una caída peligrosa, y el transaction count se mantuvo estable entre grupos.</p>
+                <p>Aún más importante: el uso de la app no cayó. Las sessions per user se mantuvieron estables, mientras que las views of insights screen, por el contrario, aumentaron allí donde el treatment fue realmente adoptado.</p>
+
+                <figure class="figure-card fade-in">
+                  <img src="/static/media/insights_views_per_user_pre_post.png" alt="Gráfico de visualizaciones de la pantalla de insights por usuario en control y treatment antes y después del lanzamiento" width="600" height="400" loading="lazy">
+                  <figcaption>El gráfico Insights views per user pre/post muestra que en el grupo control las visualizaciones de insights permanecen prácticamente en cero, mientras que en el grupo treatment crecen con fuerza después del lanzamiento. Esto significa que los usuarios no solo recibieron acceso a la funcionalidad, sino que realmente empezaron a usarla, y es precisamente a través de este mecanismo como puede interpretarse el cambio de comportamiento.</figcaption>
+                </figure>
+
+                <p><strong>4. Adoption and mechanism: la funcionalidad no funcionó por sí sola.</strong> El análisis de adopción mostró que la funcionalidad no fue aceptada al azar. El predictor direccional más fuerte fue <code>goal_orientation_score</code>, con un odds ratio de 2.315 y un 95% CI [1.092, 4.906]. Los demás coeficientes también fueron direccionalmente coherentes con lo esperado: <code>financial_stress_score</code> y <code>trust_in_ai_score</code> tuvieron signo positivo, mientras que <code>avoidance_tendency_score</code> mostró signo negativo.</p>
+                <p>En términos prácticos, esto significa algo simple: este tipo de funcionalidad funciona mejor no de manera uniforme para todos, sino allí donde ya existe cierta disposición hacia las metas, la búsqueda de control y la interacción con consejo digital. Esta es una conclusión importante para la estrategia de producto: las behavior-change features no solo deben lanzarse, sino también segmentarse y personalizarse.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-7">
+                <h2>Qué significa esto para el negocio</h2>
+                <p>El efecto estadístico del artículo no es un fin en sí mismo. La pregunta para un negocio fintech es si la funcionalidad produce un cambio útil en el comportamiento del usuario sin crear una nueva fuente de fricción.</p>
+                <p>En el periodo post, el gasto medio por usuario durante 3 meses fue de 5,609.63, y la reducción incremental de discretionary share fue de 1.53 p.p. Esto da una estimación de aproximadamente 85.65 de gasto reasignado por usuario en 3 meses. A escala de 100 mil usuarios, esto equivale a cerca de 8.57 millones por trimestre o 34.26 millones en equivalente anual.</p>
+                <p>Esta cifra no debe interpretarse como ingreso directo para el banco. Su interpretación correcta es behavioral reallocation away from discretionary categories. Para el banco, esto puede significar un posicionamiento más fuerte como socio en financial wellbeing, una mejor base para future products en savings, investing o coaching, y una posible reducción de riesgos asociados con conductas financieras inestables de los clientes.</p>
+                <p><strong>Decision rules for rollout.</strong> Un rollout más amplio solo tiene sentido cuando la discretionary share disminuye con significación estadística y, al mismo tiempo, essential share, sessions per user y days active no envían señales negativas. Lo lógico es comenzar el escalado por los segmentos donde el signal already strongest; en este caso, starter y goal-oriented users. Después se necesitan pruebas separadas de tone of voice, frequency y framing para perfiles FOMO-sensitive, avoidance-prone y stress-driven.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-8">
+                <h2>Cómo se puede aplicar en tu producto</h2>
+                <p>El valor de un caso así no se limita a una mobile banking app para el retail masivo. La lógica de los behavior-based spending insights puede adaptarse a distintos tipos de negocios fintech.</p>
+                <ul class="clean-list">
+                  <li><strong>Neobancos y bancos móviles.</strong> Este caso puede servir como base para lanzar una capa ligera de financial hints en la home screen, el inbox o la comunicación push.</li>
+                  <li><strong>Apps de PFM, budgeting y money coaching.</strong> El caso puede adaptarse a un nivel más profundo de personalización mediante perfiles como goal-oriented, stress-driven, avoidance-prone y FOMO-sensitive.</li>
+                  <li><strong>Apps de inversión, wealthtech y brokerage products.</strong> La misma lógica se traslada a impulsive investing, panic decisions, overtrading y reacción a la volatility.</li>
+                  <li><strong>BNPL, lending y credit products.</strong> El enfoque puede utilizarse como una capa temprana de prevención del riesgo mediante alerts, budgeting prompts, adaptive communication y preventive behavioral design.</li>
+                </ul>
+                <p>Sobre esta misma lógica también pueden construirse otros casos: savings nudges and emergency fund formation, overspending alerts vs avoidance behavior, o behavioral segmentation para prevención de riesgo en crédito o BNPL.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <div class="cta-panel fade-in">
+                <div class="cta-copy">
+                  <p><strong>15 minutos gratis para bancos y apps fintech.</strong> Si necesitas entender cómo behavioral analytics, los insights con IA o experimentos de este tipo pueden ser útiles específicamente para tu producto, se puede conversar brevemente sobre la tarea, los datos y los posibles puntos de impacto.</p>
+                </div>
+                <div class="cta-actions">
+                  <a class="btn-consult" href="/contact/">Reservar una consulta</a>
+                </div>
+              </div>
+
+              <section id="part-9">
+                <h2>Limitaciones del caso</h2>
+                <p>Este caso no es un production experiment con datos bancarios reales. Todos los usuarios, transacciones y latent traits son sintéticos y se crearon como un modelo analítico. Por eso, los resultados numéricos deben interpretarse aquí como una demostración de investigación de una lógica de diseño correcta, y no como una predicción literal de lo que ocurrirá exactamente en un banco real.</p>
+                <p>Además, los latent traits de este caso están modelados y no medidos de forma directa. Esto significa que son adecuados para un diseño explicativo y demostrativo, pero en un producto real requerirían proxy signals, survey linkage, observed behavioral signals o una capa de medición independiente.</p>
+                <p>Otra limitación es el horizonte temporal. Incluso si la funcionalidad reduce la discretionary share en promedio durante 3 meses, eso no implica por sí solo un cambio duradero de hábitos. Un producto real necesitaría nuevas olas de experimentos: personalización del message framing, frequency control, análisis de long-term retention y verificación de si aparece un delayed avoidance effect.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-10">
+                <h2>Conclusión</h2>
+                <p class="is-focus">La conclusión principal del caso es simple: los AI-based spending insights pueden ser una funcionalidad fintech útil si se diseñan como una intervención conductual y no simplemente como otro dashboard. En el experimento A/B simulado redujeron la discretionary share, no dañaron el essential spend y no disminuyeron el engagement; además, funcionaron mejor allí donde el usuario ya tenía al menos un marco interno mínimo de metas y control.</p>
+                <p>Para el producto, esto significa que el siguiente nivel de madurez no es simplemente lanzar nudges para todos, sino personalizar según readiness, stress level, goal orientation y modo de interacción digital. Es precisamente en la intersección entre behavioral finance, product analytics y thoughtful experimentation donde hoy surge valor real para los servicios fintech.</p>
+                <p>Si en tu producto existe la necesidad de reducir conductas no deseadas del usuario, aumentar la efectividad de los financial insights o entender cómo las intervenciones conductuales pueden influir en métricas clave del negocio, una investigación de este tipo puede adaptarse a tu contexto, tus datos y tus decisiones de producto.</p>
+              </section>
+            </div>
+          </div>
+
+          <aside class="article-aside fade-in" aria-label="Navegación del artículo">
+            <div class="aside-card">
+              <h3>Navegación</h3>
+              <nav class="toc">
+                <a href="#part-1">Problema</a>
+                <a href="#part-2">Por qué importa</a>
+                <a href="#part-3">Hipótesis de producto</a>
+                <a href="#part-4">Marco conductual</a>
+                <a href="#part-5">Diseño experimental</a>
+                <a href="#part-6">Resultados</a>
+                <a href="#part-7">Valor de negocio</a>
+                <a href="#part-8">Aplicación práctica</a>
+                <a href="#part-9">Limitaciones</a>
+                <a href="#part-10">Conclusión</a>
+              </nav>
+            </div>
+          </aside>
+        </div>
+
+        <section class="article-cta fade-in">
+          <a class="btn btn-ghost" href="/articles/">← Volver a todos los artículos</a>
+        </section>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid fade-in">
+      <div>
+        <h4>TELWHA</h4>
+        <p>Psicología financiera, economía conductual y arquitectura de elección para decisiones financieras más sostenibles.</p>
+      </div>
+      <div style="text-align:right">
+        <h4>Navegación</h4>
+        <div class="footer-links" style="align-items:flex-end">
+          <a href="/about/">Sobre mí</a>
+          <a href="/reviews/">Reseñas</a>
+          <a href="/contact/">Contacto</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TELWHA. Todos los derechos reservados.</span>
+      <span>Kyiv, Ucrania · 🇺🇦</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/static/script/global.js"></script>
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const siteMenu = document.querySelector('#site-menu');
+  if (menuToggle && siteMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = siteMenu.classList.toggle('is-open');
+      menuToggle.classList.toggle('is-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      menuToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+    });
+  }
+
+  const progress = document.getElementById('progress');
+  const updateProgress = () => {
+    const doc = document.documentElement;
+    const total = doc.scrollHeight - doc.clientHeight;
+    const scrolled = total > 0 ? (doc.scrollTop / total) * 100 : 0;
+    if (progress) progress.style.width = scrolled + '%';
+  };
+  document.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+    });
+  }, { threshold: 0.14 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+  const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  const markToc = () => {
+    let activeId = sections[0]?.id;
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 140) activeId = section.id;
+    });
+    tocLinks.forEach(link => {
+      link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
+    });
+  };
+  document.addEventListener('scroll', markToc, { passive: true });
+  markToc();
+
+  (function(){
+    const t=document.querySelector('[data-theme-toggle]');
+    const r=document.documentElement;
+    let d=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+    r.setAttribute('data-theme',d);
+    if(t){
+      t.addEventListener('click',()=>{
+        d=d==='dark'?'light':'dark';
+        r.setAttribute('data-theme',d);
+      });
+    }
+  })();
+</script>
+</body>
+</html>

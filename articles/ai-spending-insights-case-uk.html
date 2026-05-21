@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="light">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TELWHA | Як AI-інсайти про витрати можуть змінювати фінансову поведінку</title>
+<meta name="description" content="Behavioral A/B test для fintech-додатку: як AI-based spending insights & nudges змінюють discretionary spend share, engagement та adoption.">
+<link rel="canonical" href="https://t-e-l-w-h-a.com/articles/ai-spending-insights-financial-behavior/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="TELWHA | Як AI-інсайти про витрати можуть змінювати фінансову поведінку">
+<meta property="og:description" content="Behavioral A/B test для fintech-додатку: як AI-based spending insights & nudges змінюють discretionary spend share, engagement та adoption.">
+<meta property="og:url" content="https://t-e-l-w-h-a.com/articles/ai-spending-insights-financial-behavior/">
+<meta property="og:site_name" content="TELWHA">
+
+<link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+<link rel="stylesheet" href="/static/css/base.css">
+<link rel="stylesheet" href="/static/css/layout-article.css">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=zodiak@400,700&display=swap" rel="stylesheet">
+
+<style>
+:root,[data-theme="light"]{
+  --font-body:'Satoshi',system-ui,sans-serif;
+  --font-display:'Zodiak',Georgia,serif;
+  --accent:#8b7355;
+  --accent-2:#c7a978;
+}
+html{scroll-behavior:smooth;}
+.progress{position:fixed;inset:0 auto auto 0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,var(--accent,#8b7355),var(--accent-2,#c7a978));box-shadow:0 1px 10px rgba(0,0,0,.12)}
+.article-shell{position:relative;max-width:1320px;margin-inline:auto}
+.article-header{position:relative;overflow:hidden}
+.article-header::after{content:"";position:absolute;right:-80px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(199,169,120,.16),rgba(199,169,120,0) 70%);pointer-events:none}
+.article-deck{max-width:850px}
+.article-reading{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.article-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:rgba(255,255,255,.5);backdrop-filter:blur(4px);font-size:.88rem;line-height:1}
+html[data-theme="dark"] .article-chip{background:rgba(255,255,255,.04)}
+.article-layout{display:grid;grid-template-columns:minmax(0,5fr) minmax(260px,2fr);gap:56px;align-items:start}
+.article-main{min-width:0}
+.article-aside{position:sticky;top:92px;display:flex;flex-direction:column;gap:14px}
+.aside-card{padding:16px 16px 14px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.45));box-shadow:0 10px 30px rgba(0,0,0,.04)}
+html[data-theme="dark"] .aside-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
+.aside-card h3{font-size:.92rem;margin:0 0 10px;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
+.toc{display:flex;flex-direction:column;gap:8px}.toc a{display:block;padding:8px 10px;border-radius:12px;text-decoration:none;opacity:.78}.toc a:hover,.toc a.is-active{background:rgba(199,169,120,.14);opacity:1}
+.article-body>p{position:relative;margin-bottom:1.35rem}
+.article-body section[id]>p:first-of-type{margin-top:0}
+.article-body>p.is-focus,.article-body section[id] > p.is-focus{padding-left:16px;border-left:3px solid rgba(199,169,120,.8)}
+.article-body h2,.article-body section[id]{scroll-margin-top:120px}
+.article-body section[id]{position:relative;margin-top:2.2rem}
+.article-pullquote{margin:22px 0;padding:18px 20px;border-radius:18px;border:1px solid rgba(120,120,120,.14);background:linear-gradient(135deg,rgba(199,169,120,.14),rgba(199,169,120,.04));font-size:1.05rem;line-height:1.7}
+.article-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(120,120,120,.25),transparent);margin:28px 0}
+.mobile-jump{display:none}
+.figure-grid{display:grid;grid-template-columns:1fr;gap:22px;margin:22px 0 10px}
+.figure-card{padding:14px;border:1px solid rgba(120,120,120,.14);border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.46));box-shadow:0 10px 30px rgba(0,0,0,.04)}
+html[data-theme="dark"] .figure-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
+.figure-card img{width:100%;border-radius:14px;border:1px solid rgba(120,120,120,.12)}
+.figure-card figcaption{max-width:none;font-size:.98rem;line-height:1.7;color:inherit;padding:12px 4px 2px}
+.data-table{width:100%;margin:18px 0;border-collapse:collapse;font-size:.98rem}
+.data-table th,.data-table td{padding:12px 14px;border:1px solid rgba(120,120,120,.14);text-align:left;vertical-align:top}
+.data-table th{background:rgba(199,169,120,.08)}
+ul.clean-list{padding-left:1.2rem;margin:1rem 0}
+ul.clean-list li{margin:.55rem 0}
+details.tech-note{margin:18px 0;padding:14px 16px;border-radius:16px;border:1px solid rgba(120,120,120,.14);background:rgba(199,169,120,.06)}
+details.tech-note summary{cursor:pointer;font-weight:600}
+.section > .wrap{max-width:1440px}
+@media (max-width:980px){.section>.wrap{max-width:100%;width:100%}.article-shell{max-width:100%;width:100%;margin-inline:0}.article-layout{display:block}.article-aside{display:none}}
+@media (max-width:720px){.article-reading{gap:8px}.article-chip{font-size:.8rem;padding:7px 10px}.aside-card{border-radius:16px}.mobile-jump{display:flex;gap:8px;overflow:auto;padding-bottom:6px;scrollbar-width:none}.mobile-jump::-webkit-scrollbar{display:none}.mobile-jump a{white-space:nowrap;text-decoration:none;padding:8px 12px;border-radius:999px;border:1px solid rgba(120,120,120,.16);background:rgba(255,255,255,.52);font-size:.85rem}html[data-theme="dark"] .mobile-jump a{background:rgba(255,255,255,.04)}}
+
+.cta-panel{margin:32px 0 8px;padding:22px 22px;border:1px solid rgba(120,120,120,.14);border-radius:22px;background:linear-gradient(135deg,rgba(199,169,120,.16),rgba(199,169,120,.05));display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.cta-copy{max-width:760px}
+.cta-copy p{max-width:none;margin:0}
+.cta-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-consult,.btn-secondary-link{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:600;border:1px solid transparent}
+.btn-consult{background:var(--accent);color:#fff;box-shadow:0 10px 24px rgba(139,115,85,.18)}
+.btn-consult:hover{background:#735d45}
+.btn-secondary-link{border-color:rgba(120,120,120,.2);color:inherit;background:rgba(255,255,255,.55)}
+html[data-theme="dark"] .btn-secondary-link{background:rgba(255,255,255,.04)}
+
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Як AI-інсайти про витрати можуть змінювати фінансову поведінку",
+  "description": "Behavioral A/B test для fintech-додатку про AI-based spending insights & nudges, discretionary share, adoption і engagement.",
+  "author": {"@type": "Person", "name": "Anna Signaevska"},
+  "publisher": {"@type": "Organization", "name": "TELWHA"},
+  "inLanguage": "uk",
+  "datePublished": "2026-05-20",
+  "dateModified": "2026-05-20",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://t-e-l-w-h-a.com/articles/ai-spending-insights-financial-behavior/"}
+}
+</script>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="topbar">
+  <div class="wrap nav">
+    <div class="brand">
+      <a class="brand-row" href="/"><strong>TELWHA</strong></a>
+      <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+    </div>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Відкрити меню">
+      <span class="menu-toggle-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+
+    <nav class="menu" id="site-menu">
+      <div class="menu-group">
+        <a href="/">Головна</a>
+        <a href="/finlab/">FinLab</a>
+        <a href="/about/">Про мене</a>
+      </div>
+      <div class="menu-group"><a href="/articles/">Статті</a><a href="/reviews/">Відгуки</a><a href="/cases/">Кейси</a><a href="/contact/">Контакти</a></div>
+      <div class="menu-group menu-tools">
+        <details class="lang-switcher lang-switcher--inside">
+          <summary>🇺🇦</summary>
+          <div class="lang-list">
+            <a href="/en/articles/ai-spending-insights-case-uk.html" aria-label="English">🇬🇧</a>
+            <a href="/es/articles/ai-spending-insights-case-uk.html" aria-label="Español">🇪🇸</a>
+          </div>
+        </details>
+        <button class="theme-toggle" type="button" aria-label="Змінити тему" data-theme-toggle>🌓</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <article class="article-shell" itemscope itemtype="https://schema.org/Article">
+        <header class="article-header fade-in">
+          <div class="eyebrow"><span>Case study</span> TELWHA</div>
+          <h1 itemprop="headline">Як AI-інсайти про витрати можуть змінювати фінансову поведінку: behavioral A/B test для fintech-додатку</h1>
+          <p class="article-deck" itemprop="description">Кейс про те, як AI-Based Spending Insights & Nudges змінюють discretionary spend share, не ламаючи engagement і не шкодячи essential spend.</p>
+          <div class="article-reading">
+            <span class="article-chip">10 000 synthetic users</span>
+            <span class="article-chip">3 місяці pre + 3 місяці post</span>
+            <span class="article-chip">Fintech · Behavioral analytics · Experimentation</span>
+          </div>
+        </header>
+
+        <div class="mobile-jump fade-in" aria-label="Швидка навігація по статті">
+          <a href="#part-1">Проблема</a>
+          <a href="#part-2">Гіпотеза</a>
+          <a href="#part-3">Рамка</a>
+          <a href="#part-4">Дизайн</a>
+          <a href="#part-5">Результати</a>
+          <a href="#part-6">Бізнес</a>
+          <a href="#part-7">Застосування</a>
+          <a href="#part-8">Обмеження</a>
+        </div>
+
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="article-body" itemprop="articleBody">
+
+              <section id="part-1">
+                <p class="is-focus">Фінтех-продукти все частіше стикаються не з проблемою нестачі даних, а з проблемою зміни поведінки. Молоді користувачі хочуть фінансової стабільності, резервного фонду та більшого контролю над грошима, але в реальному житті часто діють під впливом імпульсу, соціального тиску та короткострокових емоційних стимулів.</p>
+                <p>Цей кейс моделює A/B-експеримент для цифрового банку / PFM-додатку, який запускає фічу <strong>AI-Based Spending Insights & Nudges</strong>. Мета — перевірити, чи може персоналізований шар spending insights зменшити discretionary spend share без шкоди для essential spend і без падіння engagement із застосунком.</p>
+                <p>У змодельованому експерименті treatment-група знизила discretionary share на 1.53 процентного пункту відносно control, при цьому sessions per user не просіли, а інтерес до insights screen суттєво зріс. Це робить кейс не просто статистично цікавим, а продуктово релевантним для fintech-середовища, де будь-яка behavior-change фіча має одночасно показати effect, safety і adoption.</p>
+              </section>
+
+              <div class="article-pullquote fade-in">Для fintech недостатньо просто показати транзакції. Потрібно зробити витрати помітними, пов’язати їх із цілями користувача і не створити нового джерела friction або уникання.</div>
+
+              <div class="article-divider"></div>
+
+              <section id="part-2">
+                <h2>Чому це реальна продуктова проблема</h2>
+                <p>Для Gen Z і молодих мілленіалів конфлікт між бажанням стабільності та реальною поведінкою є особливо помітним. Саме мобільний інтерфейс стає ключовим каналом, через який банк або PFM-сервіс може впливати на фінансові звички, бо щоденна взаємодія з грошима відбувається вже не у відділенні, а в застосунку.</p>
+                <p>Одночасно фінансова стійкість цієї аудиторії залишається обмеженою. Тому навіть невеликі рішення щодо повсякденних витрат можуть мати непропорційно велику вагу для відчуття контролю, стресу та руху до цілей.</p>
+                <p>Соціальний контекст також активно тисне на споживання. Середовище витрат дедалі більше стає миттєвим, frictionless і поведінково провокативним, а отже fintech-продукт має працювати не лише як ledger, а і як behavioral interface.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-3">
+                <h2>Продуктова гіпотеза</h2>
+                <p>У центрі кейсу — фіча AI-Based Spending Insights & Nudges для мобільного банківського / personal finance застосунку. Вона аналізує структуру витрат користувача, виділяє discretionary категорії — eating out, entertainment, shopping, travel — і генерує персоналізовані інсайти та м’які nudges, які не забороняють витрачати, а показують ціну поточних патернів у термінах savings goals, контролю та фінансової стійкості.</p>
+                <p>Проста версія продуктової гіпотези звучить так: якщо зробити discretionary spend більш помітним і прив’язати його до персональних цілей, користувач може трохи скоригувати структуру витрат. Але для реального бізнесу цього недостатньо. Фіча вважається успішною лише тоді, коли одночасно виконує три умови: знижує discretionary share, не шкодить essential spend і не зменшує engagement із застосунком.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-4">
+                <h2>Поведінкова рамка кейсу</h2>
+                <p>Сильна сторона цього кейсу — не просто A/B-аналіз, а спроба побудувати більш реалістичну модель користувача. Замість плаского дизайну на кшталт «є різні доходи й різні сегменти» у synthetic data були закладені latent behavioral traits, які моделюють відомі з досліджень патерни фінансової поведінки.</p>
+                <ul class="clean-list">
+                  <li><strong>FOMO susceptibility</strong> підсилює discretionary behavior: вищі частки витрат на entertainment, eating out, shopping і travel, а також більшу частоту імпульсивних транзакцій.</li>
+                  <li><strong>Status seeking</strong> моделює conspicuous consumption — витрати, які виконують сигнальну соціальну функцію.</li>
+                  <li><strong>Financial stress</strong> моделює крихкість, вищу волатильність витрат і більшу чутливість до інструментів контролю.</li>
+                  <li><strong>Stability need</strong> відображає потяг до порядку, резервного фонду, безпеки та передбачуваності.</li>
+                  <li><strong>Goal orientation</strong> моделює здатність мислити фінансами як системою цілей, а не лише поточних бажань.</li>
+                </ul>
+                <p>Саме така рамка дозволяє дивитися не тільки на average treatment effect, а й на heterogeneity: для кого фіча спрацьовує краще, хто її охочіше приймає і де потрібна інша комунікація.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-5">
+                <h2>Дизайн експерименту</h2>
+                <p>Експеримент був побудований як user-level randomized controlled trial, що відповідає реальній логіці product experimentation у мобільних фінансових сервісах.</p>
+                <table class="data-table">
+                  <thead>
+                    <tr><th>Елемент</th><th>Дизайн кейсу</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Рівень рандомізації</td><td>Користувач</td></tr>
+                    <tr><td>Горизонт</td><td>3 місяці pre + 3 місяці post</td></tr>
+                    <tr><td>Розмір</td><td>10 000 synthetic users</td></tr>
+                    <tr><td>Treatment</td><td>v2_AI_insights з доступом до інсайтів і нуджів</td></tr>
+                    <tr><td>Control</td><td>стандартний продукт без spending insights</td></tr>
+                    <tr><td>Primary metric</td><td>discretionary share of spend</td></tr>
+                    <tr><td>Guardrails</td><td>essential share, transactions, volatility, sessions</td></tr>
+                    <tr><td>Mechanism metrics</td><td>adoption, insights views, engagement</td></tr>
+                  </tbody>
+                </table>
+                <p>Primary metric у кейсі — discretionary share, тобто частка витрат на discretionary категорії від total spend. Це більш продуктово релевантна метрика, ніж просто абсолютне зниження spend, бо вона дозволяє оцінювати саме зміну структури поведінки, а не лише «затягування паска».</p>
+                <p>Guardrails були принципово важливими. Success condition у цьому кейсі — не просто позитивний DiD по discretionary share, а позитивний DiD без шкоди для essentials і engagement.</p>
+
+                <details class="tech-note">
+                  <summary>Технічні деталі генерації та аналізу</summary>
+                  <p>Було створено три основні таблиці: <code>users.csv</code> — treatment assignment, сегменти, демографія, latent traits; <code>transactions.csv</code> — spend по категоріях, сумах, періодах pre/post; <code>sessions.csv</code> — активність у застосунку, views, interaction with insights.</p>
+                  <p>У статистичному шарі використовувались user-level pre/post aggregation, Welch’s t-test для user-level delta, diff-in-diff regression для оцінки incremental treatment effect і logistic regression для моделювання adoption у treatment group.</p>
+                </details>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-6">
+                <h2>Що показав експеримент</h2>
+                <p class="is-focus"><strong>1. Primary effect: discretionary share реально знизився.</strong> У control-групі discretionary share майже не змінився: з 29.44% до 29.23%. У treatment-групі зміна була суттєвішою: з 29.42% до 27.69%. Diff-in-diff ефект склав -1.53 процентного пункту, а 95% довірчий інтервал лежав у межах від -2.03 до -1.02 п.п., що підтримує інтерпретацію effect як статистично й практично змістовного для продуктового інтервеншну.</p>
+                <p>Це важливий результат з точки зору fintech-логіки. Фіча не намагалась «заборонити витрати»; її завданням було трохи змінити spend mix. Саме такий тип ефекту є реалістичним і корисним у продукті, який працює не через санкцію, а через salience, framing і м’які nudges.</p>
+
+                <div class="figure-grid">
+                  <figure class="figure-card fade-in">
+                    <img src="/static/media/disc_share_pre_post_by_group.png" alt="Графік порівняння discretionary share у control і treatment групах до та після запуску фічі" width="1496" height="958" loading="lazy">
+                    <figcaption>На графіку видно, що в control-групі частка discretionary витрат майже не змінюється між pre та post, тоді як у treatment-групі вона помітно знижується. Це візуалізує основний ефект фічі: зміну структури витрат без різкого зрізання загального spend.</figcaption>
+                  </figure>
+
+                  <figure class="figure-card fade-in">
+                    <img src="/static/media/did_disc_share_pre_post.png" alt="Diff-in-diff графік для discretionary share у control і treatment групах" width="1365" height="768" loading="lazy">
+                    <figcaption>Diff-in-diff діаграма показує, що тренд у control залишається майже пласким, тоді як у treatment після запуску фічі крива discretionary share різко йде вниз. Підпис incremental change ≈ -1.53 p.p. підсвічує саме інкрементальний ефект, а не просто загальний рух.</figcaption>
+                  </figure>
+                </div>
+
+                <p><strong>2. Heterogeneity: ефект не був однаковим для всіх.</strong> Сегментний аналіз показав, що treatment працював несиметрично. Найсильніший ефект спостерігався серед starter users, де зниження discretionary share було близько -2.01 п.п., тоді як для mass — близько -1.58 п.п., а для affluent — близько -1.49 п.п.</p>
+
+                <figure class="figure-card fade-in">
+                  <img src="/static/media/delta_disc_share_by_segment_group.png" alt="Сегментний графік зміни discretionary share для affluent, mass і starter користувачів" width="1296" height="768" loading="lazy">
+                  <figcaption>Графік показує зміну discretionary share по сегментах: affluent, mass і starter. Для кожного сегмента видно, що treatment дає більший негативний зсув, а найсильніший ефект спостерігається саме у starter users, що підтримує ідею більшої чутливості до нуджів у фінансово вразливіших груп.</figcaption>
+                </figure>
+
+                <p><strong>3. Guardrails: essentials і engagement не просіли.</strong> Один із найважливіших висновків кейсу полягає в тому, що primary effect не був куплений ціною шкідливих побічних наслідків. Essential share не продемонстрував небезпечного просідання, а transaction count залишився стабільним між групами.</p>
+                <p>Ще важливіше — не просіло користування застосунком. Sessions per user залишилися стабільними, а views of insights screen — навпаки, зросли там, де treatment був реально прийнятий.</p>
+
+                <figure class="figure-card fade-in">
+                  <img src="/static/media/insights_views_per_user_pre_post.png" alt="Графік переглядів insights screen на користувача у control і treatment до та після запуску" width="600" height="400" loading="lazy">
+                  <figcaption>Діаграма Insights views per user pre/post показує, що у control-групі перегляди інсайтів залишаються практично нульовими, тоді як у treatment-групі після запуску фічі різко зростають. Це означає, що користувачі не просто отримали доступ до фічі, а реально почали її використовувати — і саме через цей механізм можна інтерпретувати зміну поведінки.</figcaption>
+                </figure>
+
+                <p><strong>4. Adoption and mechanism: фіча спрацювала не сама по собі.</strong> Adoption аналіз показав, що фіча приймалась не випадково. Найсильнішим напрямним предиктором став <code>goal_orientation_score</code> з odds ratio 2.315 і 95% CI [1.092, 4.906]. Інші коефіцієнти були напрямно узгодженими з очікуванням: <code>financial_stress_score</code> і <code>trust_in_ai_score</code> мали позитивний знак, тоді як <code>avoidance_tendency_score</code> — негативний.</p>
+                <p>У практичному сенсі це означає просту річ: така фіча найкраще працює не на всіх однаково, а там, де є готовність до цілей, пошуку контролю та взаємодії з цифровою порадою. Це важливий висновок для product strategy: behavior-change features потрібно не лише запускати, а й таргетувати та персоналізувати.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-7">
+                <h2>Що це означає для бізнесу</h2>
+                <p>Статистичний ефект у статті не самоціль. Питання для fintech-бізнесу полягає в тому, чи дає фіча корисний зсув у поведінці користувача без створення нового джерела friction.</p>
+                <p>У post-періоді середній spend на користувача за 3 місяці становив 5,609.63, а інкрементальне зменшення discretionary share — 1.53 п.п. Це дає оцінку близько 85.65 перерозподіленого spend на одного користувача за 3 місяці. У масштабі 100 тис. користувачів це приблизно 8.57 млн за квартал або 34.26 млн у річному еквіваленті.</p>
+                <p>Цю цифру не варто трактувати як прямий дохід банку. Її правильна інтерпретація — behavioral reallocation away from discretionary categories. Для банку це може означати посилення позиціонування як партнера у financial wellbeing, кращу основу для future products у savings / investing / coaching і потенційне зниження ризиків, пов’язаних із нестійкою поведінкою клієнтів.</p>
+                <p><strong>Decision rules for rollout.</strong> Ширший rollout має сенс лише тоді, коли discretionary share знижується статистично значущо, а essential share, sessions per user і days active не дають негативного сигналу. Починати масштабування логічно із сегментів, де signal already strongest — у цьому кейсі це starter і goal-oriented users. Далі потрібні окремі тести tone of voice, frequency та framing для FOMO-sensitive, avoidance-prone і stress-driven профілів.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-8">
+                <h2>Як це можна застосувати у вашому продукті</h2>
+                <p>Цінність такого кейсу не обмежується тільки mobile banking app для масового retail-сегмента. Логіка behavior-based spending insights може бути адаптована під різні типи fintech-бізнесів.</p>
+                <ul class="clean-list">
+                  <li><strong>Необанки та мобільні банки.</strong> Цей кейс можна використати як основу для запуску легкого шару фінансових підказок у home screen, inbox або push-комунікації.</li>
+                  <li><strong>PFM, budgeting та money coaching apps.</strong> Кейс можна адаптувати в глибший рівень персоналізації через профілі на кшталт goal-oriented, stress-driven, avoidance-prone і FOMO-sensitive.</li>
+                  <li><strong>Інвест-апки, wealthtech і brokerage products.</strong> Та сама логіка переноситься на impulsive investing, panic decisions, overtrading та реакцію на volatility.</li>
+                  <li><strong>BNPL, lending та credit products.</strong> Підхід можна використати як ранній layer профілактики ризику через alerts, budgeting prompts, adaptive communication і preventive behavioral design.</li>
+                </ul>
+                <p>На базі цієї логіки можна будувати й інші кейси: savings nudges and emergency fund formation, overspending alerts vs avoidance behavior, behavioral segmentation for credit or BNPL risk prevention.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              
+
+              <div class="cta-panel fade-in">
+                <div class="cta-copy">
+                  <p><strong>15 хвилин безкоштовно для банків та fintech-додатків.</strong> Якщо вам потрібно зрозуміти, як behavioral analytics, AI-інсайти або експерименти такого типу можуть бути корисними саме у вашому продукті, можна коротко обговорити задачу, дані та потенційні точки впливу.</p>
+                </div>
+                <div class="cta-actions">
+                  <a class="btn-consult" href="/contact/">Записатись на консультацію</a>
+                </div>
+              </div>
+
+              <section id="part-9">
+                <h2>Обмеження кейсу</h2>
+                <p>Цей кейс не є production experiment на реальних банківських даних. Усі користувачі, транзакції та latent traits є synthetic і створені як аналітична модель. Тому числові результати тут треба трактувати як дослідницьку демонстрацію правильної логіки дизайну, а не як буквальний прогноз того, що саме відбудеться в реальному банку.</p>
+                <p>Крім того, latent traits у цьому кейсі змодельовані, а не виміряні безпосередньо. Це означає, що вони добре підходять для пояснювального та демонстраційного дизайну, але в реальному продукті потребували б proxy-ознак, survey linkage, observed behavioral signals або окремого measurement layer.</p>
+                <p>Ще одне обмеження — часовий горизонт. Навіть якщо фіча знижує discretionary share у середньому за 3 місяці, це ще не означає довгострокову зміну звичок. Реальному продукту знадобилися б наступні хвилі експериментів: персоналізація message framing, frequency control, long-term retention analysis і перевірка, чи не виникає delayed avoidance effect.</p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-10">
+                <h2>Висновок</h2>
+                <p class="is-focus">Головний висновок кейсу простий: AI-based spending insights можуть бути корисною fintech-фічею, якщо вони проєктуються як поведінкове втручання, а не просто як ще один dashboard. У змодельованому A/B-експерименті вони зменшили discretionary share, не вдарили по essential spend і не знизили engagement, а найкраще працювали там, де в користувача вже була хоча б мінімальна внутрішня рамка цілей і контролю.</p>
+                <p>Для продукту це означає, що наступний рівень зрілості — не просто запуск nudges для всіх, а персоналізація за readiness, stress level, goal orientation і способом цифрової взаємодії. Саме на перетині behavioral finance, product analytics і thoughtful experimentation сьогодні й виникає реальна цінність для fintech-сервісів.</p>
+                <p>Якщо у вашому продукті є задача зменшити небажану поведінку користувача, підвищити ефективність фінансових інсайтів або зрозуміти, як саме поведінкові інтервенції можуть вплинути на ключові показники бізнесу, подібне дослідження можна адаптувати під ваш контекст, ваші дані й ваші продуктові рішення.</p>
+              </section>
+            </div>
+          </div>
+
+          <aside class="article-aside fade-in" aria-label="Навігація по статті">
+            <div class="aside-card">
+              <h3>Навігація</h3>
+              <nav class="toc">
+                <a href="#part-1">Проблема</a>
+                <a href="#part-2">Чому це важливо</a>
+                <a href="#part-3">Продуктова гіпотеза</a>
+                <a href="#part-4">Поведінкова рамка</a>
+                <a href="#part-5">Дизайн експерименту</a>
+                <a href="#part-6">Результати</a>
+                <a href="#part-7">Бізнес-значення</a>
+                <a href="#part-8">Практичне застосування</a>
+                <a href="#part-9">Обмеження</a>
+                <a href="#part-10">Висновок</a>
+              </nav>
+            </div>
+          </aside>
+        </div>
+
+        <section class="article-cta fade-in">
+          <a class="btn btn-ghost" href="/articles/">← До всіх статей</a>
+        </section>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid fade-in">
+      <div>
+        <h4>TELWHA</h4>
+        <p>Фінансова психологія, поведінкова економіка та архітектура вибору для стійкіших фінансових рішень.</p>
+      </div>
+      <div style="text-align:right">
+        <h4>Навігація</h4>
+        <div class="footer-links" style="align-items:flex-end">
+          <a href="/about/">Про мене</a>
+          <a href="/reviews/">Відгуки</a>
+          <a href="/contact/">Контакти</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TELWHA. Усі права захищено.</span>
+      <span>Київ, Україна · 🇺🇦</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/static/script/global.js"></script>
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const siteMenu = document.querySelector('#site-menu');
+  if (menuToggle && siteMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = siteMenu.classList.toggle('is-open');
+      menuToggle.classList.toggle('is-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      menuToggle.setAttribute('aria-label', isOpen ? 'Закрити меню' : 'Відкрити меню');
+    });
+  }
+
+  const progress = document.getElementById('progress');
+  const updateProgress = () => {
+    const doc = document.documentElement;
+    const total = doc.scrollHeight - doc.clientHeight;
+    const scrolled = total > 0 ? (doc.scrollTop / total) * 100 : 0;
+    if (progress) progress.style.width = scrolled + '%';
+  };
+  document.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+    });
+  }, { threshold: 0.14 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+  const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  const markToc = () => {
+    let activeId = sections[0]?.id;
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 140) activeId = section.id;
+    });
+    tocLinks.forEach(link => {
+      link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
+    });
+  };
+  document.addEventListener('scroll', markToc, { passive: true });
+  markToc();
+
+  (function(){
+    const t=document.querySelector('[data-theme-toggle]');
+    const r=document.documentElement;
+    let d=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+    r.setAttribute('data-theme',d);
+    if(t){
+      t.addEventListener('click',()=>{
+        d=d==='dark'?'light':'dark';
+        r.setAttribute('data-theme',d);
+      });
+    }
+  })();
+</script>
+</body>
+</html>
