@@ -106,6 +106,45 @@ html[data-theme="dark"] .audience-panel{background:linear-gradient(180deg,rgba(2
 .section > .wrap{
   max-width:1440px;
 }
+.article-figures {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.figure-slot {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  padding: 14px;
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.02);
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+}
+
+.figure-slot img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.figure-slot span {
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.88);
+}
 </style>
 
 <script type="application/ld+json">
@@ -285,10 +324,25 @@ html[data-theme="dark"] .audience-panel{background:linear-gradient(180deg,rgba(2
                 </div>
 
                 <div class="article-figures fade-in" aria-label="Research figures">
-                  <div class="figure-slot">Figure 1<br><span>To be added from the thesis</span></div>
-                  <div class="figure-slot">Figure 2<br><span>To be added from the thesis</span></div>
-                  <div class="figure-slot">Figure 3<br><span>To be added from the thesis</span></div>
-                  <div class="figure-slot">Figure 4<br><span>To be added from the thesis</span></div>
+                  <a class="figure-slot" href="/static/media/figure_1.png" target="_blank">
+                    <img src="/static/media/figure_1.png" alt="Фігура 1">
+                    <span>Figure 1</span>
+                  </a>
+
+                  <a class="figure-slot" href="/static/media/figure_2.png" target="_blank">
+                    <img src="/static/media/figure_2.png" alt="Фігура 2">
+                    <span>Figure 2</span>
+                  </a>
+
+                  <a class="figure-slot" href="/static/media/figure_3.png" target="_blank">
+                    <img src="/static/media/figure_3.png" alt="Фігура 3">
+                    <span>Figure 3</span>
+                  </a>
+
+                  <a class="figure-slot" href="/static/media/figure_4.png" target="_blank">
+                    <img src="/static/media/figure_4.png" alt="Фігура 4">
+                    <span>Figure 4</span>
+                  </a>
                 </div>
 
                 <p class="is-focus">In the end, this case is about language. And about the mind. And about how both interact with money. It is about the cognitive patterns embedded in texts, patterns that move markets no less than macro data. And it is about the fact that in 2026, the advantage belongs not to the person with more information, but to the one who better understands through which lenses that information reaches both them and their models.</p>
