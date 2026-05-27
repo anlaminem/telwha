@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TELWHA · Факт чи брехня</title>
+  <meta name="description" content="Інтерактивна гра TELWHA: 20 фінансових тверджень, упередження, дані та мінікейси. Оберіть: факт чи брехня — і одразу побачте, що показує кейс.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --bg: #f6efe6;
+      --surface: #fffaf4;
+      --surface-2: #fffdf9;
+      --surface-3: #f7efe4;
+      --text: #2b2119;
+      --muted: #5f5146;
+      --faint: #8a7666;
+      --border: rgba(104, 82, 62, 0.18);
+      --border-soft: rgba(104, 82, 62, 0.10);
+      --accent: #e8a55c;
+      --accent-strong: #d57c33;
+      --accent-soft: rgba(232, 165, 92, 0.14);
+      --good: #3f7a32;
+      --good-soft: rgba(63, 122, 50, 0.12);
+      --bad: #9b3267;
+      --bad-soft: rgba(155, 50, 103, 0.10);
+      --shadow: 0 20px 46px rgba(98, 76, 56, 0.14);
+      --hero-shadow: 0 24px 60px rgba(98, 76, 56, 0.18);
+      --wrap: 1180px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #07090d;
+      --surface: rgba(9, 11, 16, 0.98);
+      --surface-2: rgba(7, 10, 15, 0.98);
+      --surface-3: rgba(255, 255, 255, 0.03);
+      --text: #f3efe8;
+      --muted: #b9bdc9;
+      --faint: #8e94a3;
+      --border: rgba(255, 255, 255, 0.12);
+      --border-soft: rgba(255, 255, 255, 0.07);
+      --accent: #f0b376;
+      --accent-strong: #d58034;
+      --accent-soft: rgba(240, 179, 118, 0.12);
+      --good: #7bc061;
+      --good-soft: rgba(123, 192, 97, 0.14);
+      --bad: #d16aa5;
+      --bad-soft: rgba(209, 106, 165, 0.14);
+      --shadow: 0 16px 42px rgba(0, 0, 0, 0.62);
+      --hero-shadow: 0 22px 56px rgba(0, 0, 0, 0.66);
+      --wrap: 1180px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      -webkit-text-size-adjust: none;
+      text-size-adjust: none;
+      scroll-behavior: smooth;
+    }
+    body {
+      min-height: 100dvh;
+      font-family: Inter, system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(240, 179, 118, 0.12) 0, transparent 34%),
+        radial-gradient(circle at bottom right, rgba(91, 121, 214, 0.10) 0, transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; }
+    img, svg { display: block; max-width: 100%; }
+    .wrap {
+      width: min(calc(100% - 28px), var(--wrap));
+      margin-inline: auto;
+    }
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 90;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+      transition: width 0.28s ease;
+      transform-origin: left;
+    }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      backdrop-filter: blur(18px);
+      background: rgba(5, 7, 10, 0.68);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    [data-theme="light"] .topbar {
+      background: rgba(255, 250, 244, 0.88);
+      border-bottom: 1px solid rgba(104, 82, 62, 0.08);
+    }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0 12px;
+    }
+    .brand {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .brand-row {
+      display: flex;
+      align-items: center;
+    }
+    .brand strong {
+      font-size: 15px;
+      letter-spacing: 0.16em;
+    }
+    .brand .sub {
+      display: block;
+      margin-top: 4px;
+      font-size: 10px;
+      line-height: 1.3;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      margin-left: auto;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 10px 24px rgba(0,0,0,0.24);
+      cursor: pointer;
+    }
+    [data-theme="light"] .menu-toggle {
+      background: var(--surface);
+      box-shadow: 0 10px 24px rgba(98, 76, 56, 0.12);
+    }
+    .menu-toggle-lines {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 18px;
+      height: 14px;
+    }
+    .menu-toggle-lines span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--text);
+      transform-origin: center;
+      transition: transform 0.22s ease, opacity 0.18s ease;
+    }
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) { opacity: 0; }
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .menu-group, .menu-tools {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .menu a,
+    .menu-dropbtn,
+    .lang-switcher summary {
+      font-size: 15px;
+      color: var(--text);
+      opacity: 0.92;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      list-style: none;
+    }
+    .lang-switcher summary::-webkit-details-marker { display: none; }
+    .menu-dropdown { position: relative; }
+    .menu-dropcontent {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      display: none;
+      min-width: 180px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(5, 7, 10, 0.96);
+      box-shadow: var(--shadow);
+      gap: 10px;
+    }
+    [data-theme="light"] .menu-dropcontent { background: #fffaf4; }
+    .menu-dropdown:hover .menu-dropcontent,
+    .menu-dropdown:focus-within .menu-dropcontent { display: grid; }
+    .lang-switcher { position: relative; }
+    .lang-list {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      display: none;
+      gap: 8px;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(5, 7, 10, 0.96);
+    }
+    [data-theme="light"] .lang-list { background: #fffaf4; }
+    .lang-switcher[open] .lang-list { display: grid; }
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    [data-theme="light"] .theme-toggle { background: var(--surface); }
+
+    .hero {
+      padding: 24px 0 16px;
+    }
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      padding: 1px;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 30px;
+      background: radial-gradient(circle at top left, rgba(240, 179, 118, 0.16) 0, transparent 45%), #030304;
+      box-shadow: var(--hero-shadow);
+    }
+    [data-theme="light"] .hero-shell {
+      border-color: rgba(104, 82, 62, 0.18);
+      background: radial-gradient(circle at top left, rgba(245, 198, 150, 0.32) 0, transparent 46%), linear-gradient(145deg, #fffdf9 0, #f7efe4 55%, #f2e4d5 100%);
+    }
+    .hero-inner {
+      position: relative;
+      overflow: hidden;
+      padding: 30px 28px 24px;
+      border-radius: 28px;
+      background: radial-gradient(circle at top right, rgba(240, 179, 118, 0.12) 0, transparent 58%), rgba(5, 7, 10, 0.94);
+    }
+    [data-theme="light"] .hero-inner {
+      background: radial-gradient(circle at top right, rgba(249, 180, 90, 0.16) 0, transparent 55%), #fffaf4;
+    }
+    .hero-glow {
+      position: absolute;
+      inset: -70px;
+      pointer-events: none;
+      opacity: 0.88;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(240, 179, 118, 0.14) 0, transparent 44%),
+        radial-gradient(circle at 90% 100%, rgba(80, 136, 255, 0.10) 0, transparent 48%);
+      mix-blend-mode: screen;
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      gap: 20px;
+      align-items: start;
+    }
+    .hero-grid-single {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .hero-copy-wide {
+      max-width: 760px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid rgba(240, 179, 118, 0.18);
+      border-radius: 999px;
+      background: rgba(240, 179, 118, 0.10);
+      color: var(--accent);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    h1 {
+      margin: 0 0 14px;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(2.1rem, 5vw, 4.4rem);
+      line-height: 0.96;
+      font-weight: 400;
+      max-width: 9.5ch;
+      letter-spacing: -0.045em;
+      text-wrap: balance;
+    }
+    .lead {
+      max-width: 50ch;
+      color: var(--text);
+      font-size: 1rem;
+    }
+    .hero-note {
+      margin-top: 14px;
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+    .section-kicker,
+    .reveal-meta {
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+
+    .section {
+      padding: 10px 0 28px;
+    }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .section-head h2 {
+      font-size: 1.3rem;
+    }
+    .section-head p {
+      max-width: 56ch;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .question-groups {
+      display: grid;
+      gap: 18px;
+    }
+    .group-shell {
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--surface), var(--surface-2));
+      box-shadow: var(--shadow);
+    }
+    .group-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .group-head h3 {
+      font-size: 1rem;
+    }
+    .group-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid rgba(240, 179, 118, 0.15);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .questions {
+      display: grid;
+      gap: 14px;
+    }
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--surface-3);
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(240, 179, 118, 0.24);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.14);
+    }
+    .card-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .case-no {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+    .status {
+      font-size: 0.8rem;
+      color: var(--faint);
+      white-space: nowrap;
+    }
+    .statement {
+      font-size: 1.12rem;
+      line-height: 1.4;
+      max-width: 50ch;
+    }
+    .answers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .answer-btn {
+      min-width: 122px;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      cursor: pointer;
+      transition: transform 0.16s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+    [data-theme="light"] .answer-btn { background: rgba(255,255,255,0.82); }
+    .answer-btn:hover,
+    .answer-btn:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(240, 179, 118, 0.44);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.16);
+      outline: none;
+    }
+    .answer-btn.is-disabled {
+      opacity: 0.62;
+      pointer-events: none;
+    }
+    .answer-btn.is-right {
+      background: var(--good-soft);
+      border-color: rgba(123, 192, 97, 0.34);
+      color: var(--good);
+      opacity: 1;
+    }
+    .answer-btn.is-wrong {
+      background: var(--bad-soft);
+      border-color: rgba(209, 106, 165, 0.34);
+      color: var(--bad);
+      opacity: 1;
+    }
+    .reveal {
+      display: none;
+      margin-top: 16px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      grid-template-columns: minmax(0, 1.45fr) 240px;
+      gap: 16px;
+      align-items: start;
+    }
+    [data-theme="light"] .reveal {
+      background: linear-gradient(135deg, #fffdf9, #f8f0e6);
+    }
+    .reveal.open { display: grid; }
+    .reveal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(240, 179, 118, 0.18);
+      background: rgba(240, 179, 118, 0.10);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .reveal h4 {
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+    .reveal p {
+      color: var(--text);
+      font-size: 0.94rem;
+    }
+    .trap-box {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-soft);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .chart-box {
+      display: grid;
+      gap: 8px;
+      align-self: stretch;
+    }
+    .chart-btn {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 0;
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.16);
+      cursor: zoom-in;
+    }
+    .chart-btn img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      pointer-events: none;
+    }
+    .chart-caption {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+    .footer {
+      padding: 10px 0 28px;
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 18px;
+      width: 100%;
+      padding: 16px 0;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-grid h4 {
+      margin-bottom: 8px;
+    }
+    .footer-grid p,
+    .footer-bottom {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      width: 100%;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-soft);
+    }
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(8, 8, 12, 0.84);
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-dialog {
+      position: relative;
+      width: min(1120px, 100%);
+    }
+    .lightbox-dialog img {
+      width: 100%;
+      max-height: 84vh;
+      object-fit: contain;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.32);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 0;
+      background: white;
+      color: #222;
+      font-size: 1.4rem;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 920px) {
+      .menu-toggle { display: inline-flex !important; }
+      .menu {
+        display: none !important;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        width: 100%;
+        margin-top: 10px;
+        padding: 16px;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        background: rgba(255,255,255,0.03);
+      }
+      [data-theme="light"] .menu { background: var(--surface); }
+      .menu.is-open { display: flex !important; }
+      .menu-group, .menu-tools {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        width: 100%;
+      }
+      .section-head { flex-direction: column; align-items: start; }
+      .reveal, .reveal.open { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(calc(100% - 20px), var(--wrap)); }
+      .brand { max-width: calc(100% - 96px); }
+      .brand strong { font-size: 14px; letter-spacing: 0.18em; }
+      .brand .sub { font-size: 9px; line-height: 1.3; letter-spacing: 0.1em; }
+      .menu-toggle { width: 44px; height: 44px; }
+      .menu-toggle-lines { width: 16px; height: 12px; }
+      .menu-toggle-lines span { width: 16px; }
+      .hero { padding: 16px 0 10px; }
+      .hero-inner { padding: 20px 16px 16px; border-radius: 24px; }
+      h1 { font-size: clamp(1.9rem, 7.6vw, 2.8rem); line-height: 1.02; }
+      .lead, .hero-note, .section-head p, .reveal p, .trap-box { font-size: 0.9rem; }
+      .group-shell, .card, .reveal { padding: 14px; }
+      .statement { font-size: 1.02rem; }
+      .answers { flex-direction: column; }
+      .answer-btn { width: 100%; }
+      .chart-btn img { height: auto; }
+      .footer-links { align-items: flex-start !important; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand">
+        <a class="brand-row" href="#hero"><strong>TELWHA</strong></a>
+        <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+      </div>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Відкрити меню">
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <nav class="menu" id="site-menu">
+        <div class="menu-group">
+          <a href="/">Головна</a>
+          <a href="/finlab/">FinLab</a>
+          <a href="/about/">Про мене</a>
+        </div>
+
+        <div class="menu-group menu-dropdown">
+          <button type="button" class="menu-dropbtn">Трейдерам ▾</button>
+          <div class="menu-dropcontent">
+            <a href="/trader-course/">Міні‑курс</a>
+            <a href="/archetype-test/">Тест архетипів</a>
+          </div>
+        </div>
+
+        <div class="menu-group">
+          <a href="/articles/">Статті</a>
+          <a href="/reviews/">Відгуки</a>
+          <a href="/cases/">Кейси</a>
+          <a href="/contact/">Контакти</a>
+        </div>
+
+        <div class="menu-group menu-tools">
+          <details class="lang-switcher lang-switcher--inside">
+            <summary>🇺🇦</summary>
+            <div class="lang-list">
+              <a href="/en/fact-or-fiction-cases.html" aria-label="English">🇬🇧</a>
+              <a href="/es/fact-or-fiction-cases.html" aria-label="Español">🇪🇸</a>
+            </div>
+          </details>
+
+          <button class="theme-toggle" type="button" aria-label="Змінити тему" data-theme-toggle>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="wrap hero-shell">
+        <div class="hero-inner">
+          <div class="hero-glow"></div>
+          <div class="hero-grid hero-grid-single">
+            <div class="hero-copy-wide">
+              <div class="eyebrow">TELWHA · Факт чи брехня</div>
+              <h1>20 фінансових міфів про гроші</h1>
+              <p class="hero-note">Усі твердження тут побудовані на моїх власних мінікейcах: я працювала з актуальними, реальними або коректно змодельованими даними, будувала графіки й перекладала цифри на зрозумілу поведінкову логіку.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="test">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker"></div>
+            <h2>Факт чи брехня?</h2>
+          </div>
+          <p>Пояснення відкривається одразу під питанням — разом із коротким висновком і поведінковою пасткою.</p>
+        </div>
+
+<div class="question-groups" id="questions">
+  <section class="group-shell">
+    <div class="group-head">
+      <h3>Борги, доходи, заощадження</h3>
+      <div class="group-pill">1–5</div>
+    </div>
+    <div class="questions">
+      <article class="card" data-correct="lie">
+        <div class="card-top"><span class="case-no">Питання 1</span><span class="status">Факт чи брехня?</span></div>
+        <p class="statement">Незабезпечені борги — це переважно проблема лише людей з низькими доходами.</p>
+        <div class="answers"><button class="answer-btn" data-answer="fact">Факт</button><button class="answer-btn" data-answer="lie">Брехня</button></div>
+        <div class="reveal">
+          <div>
+            <span class="reveal-badge">Правильна відповідь: брехня</span>
+            <div class="reveal-meta">Що показує мій кейс</div>
+            <h4>Борг не дорівнює бідності</h4>
+            <p>У кейсі на основі даних Інституту фіскальних досліджень видно, що значна частка незабезпечених боргів припадає саме на домогосподарства з вище середнього доходу. Тобто борг — це не лише історія про нестачу грошей, а ще й про ліквідність(доступність), стиль фінансування та поведінкові мотиви.</p>
+            <div class="trap-box"><strong>Пастка:</strong> класовий стереотип — змішувати борг із хронічною бідністю.</div>
+          </div>
+          <div class="chart-box">
+            <button class="chart-btn" data-full="/static/media/case_19_unsecured_debt_income_assets.jpg" aria-label="Збільшити графік до кейсу про незабезпечені борги" type="button">
+              <img src="/static/media/case_19_unsecured_debt_income_assets.jpg" alt="Графік до кейсу про незабезпечені борги" loading="lazy" width="700" height="480">
+            </button>
+            <div class="chart-caption">Незабезпечений борг є і серед домогосподарств із вищими доходами.</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-correct="lie">
+        <div class="card-top"><span class="case-no">Питання 2</span><span class="status">Факт чи брехня?</span></div>
+        <p class="statement">Якщо людина має гроші на рахунку, вона завжди одразу погасить дорогий борг.</p>
+        <div class="answers"><button class="answer-btn" data-answer="fact">Факт</button><button class="answer-btn" data-answer="lie">Брехня</button></div>
+        <div class="reveal">
+          <div>
+            <span class="reveal-badge">Правильна відповідь: брехня</span>
+            <div class="reveal-meta">Що показує мій кейс</div>
+            <h4>Буфер часто перемагає арифметику</h4>
+            <p>У кейсах про заощадження, кредитний борг і поведінкові мотиви видно, що люди нерідко тримають борг і резерв одночасно. Арифметично вигідніше погасити борг, але психологічно важливо не втратити відчуття запасу й контролю.</p>
+            <div class="trap-box"><strong>Пастка:</strong> ментальний облік і ціна спокійної ночі.</div>
+          </div>
+          <div class="chart-box">
+            <button class="chart-btn" data-full="/static/media/case_20_assets_can_repay_debt.jpg" aria-label="Збільшити графік 2" type="button">
+              <img src="/static/media/case_20_assets_can_repay_debt.jpg" alt="Графік до кейсу про борг і резерв" loading="lazy" width="700" height="480">
+            </button>
+            <div class="chart-caption">Активи для погашення боргу є не завжди означають, що борг закриють одразу.</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-correct="lie">
+        <div class="card-top"><span class="case-no">Питання 3</span><span class="status">Факт чи брехня?</span></div>
+        <p class="statement">Той, хто має подушку безпеки, уже розумно поводиться з грошима.</p>
+        <div class="answers"><button class="answer-btn" data-answer="fact">Факт</button><button class="answer-btn" data-answer="lie">Брехня</button></div>
+        <div class="reveal">
+          <div>
+            <span class="reveal-badge">Правильна відповідь: брехня</span>
+            <div class="reveal-meta">Що показує мій кейс</div>
+            <h4>Резерв не скасовує упереджень</h4>
+            <p>Подушка безпеки справді часто знижує фінансову крихкість і дає більше відчуття контролю. Але вона не робить людину автоматично раціональною: тривога, відкладання рішень або імпульсивні реакції можуть залишатися.</p>
+            <div class="trap-box"><strong>Пастка:</strong> плутати наявність ресурсу з відсутністю поведінкових помилок.</div>
+          </div>
+          <div class="chart-box">
+            <button class="chart-btn" data-full="/static/media/case_16_emergency_savings_debt.jpg" aria-label="Збільшити графік 3" type="button">
+              <img src="/static/media/case_16_emergency_savings_debt.jpg" alt="Графік до кейсу про подушку безпеки" loading="lazy" width="700" height="480">
+            </button>
+            <div class="chart-caption">Резерв знижує крихкість, але не прибирає поведінкові упередження.</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-correct="lie">
+        <div class="card-top"><span class="case-no">Питання 4</span><span class="status">Факт чи брехня?</span></div>
+        <p class="statement">Якщо домогосподарство має достатньо фінансових активів, воно не буде тягнути незабезпечений борг.</p>
+        <div class="answers"><button class="answer-btn" data-answer="fact">Факт</button><button class="answer-btn" data-answer="lie">Брехня</button></div>
+        <div class="reveal">
+          <div>
+            <span class="reveal-badge">Правильна відповідь: брехня</span>
+            <div class="reveal-meta">Що показує мій кейс</div>
+            <h4>Активи не гарантують “ідеального” рішення</h4>
+            <p>У кейсі на основі reported findings видно, що більше половини домогосподарств із незабезпеченим боргом мали достатньо фінансових активів, щоб його погасити. Але люди не завжди діють за формулою “бачу борг — закриваю борг”: окремо існують логіка ліквідності(доступність), страх втратити буфер і звичка тримати все в різних “кишенях”.</p>
+            <div class="trap-box"><strong>Пастка:</strong> раціоналістична ілюзія — думати, що люди автоматично обирають математично найкращий варіант.</div>
+          </div>
+          <div class="chart-box">
+            <button class="chart-btn" data-full="/static/media/case_20_assets_can_repay_debt.jpg" aria-label="Збільшити графік 4" type="button">
+              <img src="/static/media/case_20_assets_can_repay_debt.jpg" alt="Графік до кейсу про активи й борг" loading="lazy" width="700" height="480">
+            </button>
+            <div class="chart-caption">Частина домогосподарств має активи для погашення боргу, але не робить цього.</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-correct="lie">
+        <div class="card-top"><span class="case-no">Питання 5</span><span class="status">Факт чи брехня?</span></div>
+        <p class="statement">Борги — це в основному про бідність: як тільки доходи ростуть, борги зникають.</p>
+        <div class="answers"><button class="answer-btn" data-answer="fact">Факт</button><button class="answer-btn" data-answer="lie">Брехня</button></div>
+        <div class="reveal">
+          <div>
+            <span class="reveal-badge">Правильна відповідь: брехня</span>
+            <div class="reveal-meta">Що показує мій кейс</div>
+            <h4>З доходом борги не зникають — вони змінюються</h4>
+            <p>У кейсах про дохід і борги видно, що зі зростанням доходу борг не зникає автоматично. Змінюється його структура, мета і контекст: від покриття нестачі до інструмента ліквідності, споживання або великих покупок.</p>
+            <div class="trap-box"><strong>Пастка:</strong> лінійне мислення — ніби “заможні” автоматично живуть без боргів.</div>
+          </div>
+          <div class="chart-box">
+            <button class="chart-btn" data-full="/static/media/case_18_debt_net_worth.jpg" aria-label="Збільшити графік 5" type="button">
+              <img src="/static/media/case_18_debt_net_worth.jpg" alt="Графік до кейсу про борги та дохід" loading="lazy" width="700" height="480">
+            </button>
+            <div class="chart-caption">Борг не зникає автоматично з ростом доходу чи чистого капіталу.</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="group-shell">
+    <div class="group-head">
+      <h3>Спосіб оплати й цифрові гроші</h3>
+      <div class="group-pill">6–10</div>
+    </div>
+    <div class="questions">
+      <article class="card" data-correct="lie"><div class="card-top"><span class="case-no">Питання 6</span><span class="status">Факт чи брехня?</span></div><p class="statement">Як людина платить — готівкою, карткою чи телефоном — майже не впливає на суму витрат.</p><div class="answers"><button class="answer-btn" data-answer="fact">Факт</button><button class="answer-btn" data-answer="lie">Брехня</button></div><div class="reveal"><div><span class="reveal-badge">Правильна відповідь: брехня</span><div class="reveal-meta">Що показує мій кейс</div><h4>Спосіб оплати змінює відчуття витрати</h4><p>У кейсі про безготівковий ефект найнижчі витрати були при оплаті готівкою, вищі — карткою, а ще вищі — телефоном. Коли контакт із грошима стає менш відчутним, витрачати психологічно легше.</p><div class="trap-box"><strong>Пастка:</strong> ілюзія, що спосіб оплати нейтральний і не впливає на поведінку.</div></div><div class="chart-box"><button class="chart-btn" data-full="/static/media/case_11_contactless_vs_spending.jpg" aria-label="Збільшити графік 6" type="button"><img src="/static/media/case_11_contactless_vs_spending.jpg" alt="Графік до кейсу про способи оплати" loading="lazy" width="700" height="480"></button><div class="chart-caption">Готівка, картка і телефон по-різному впливають на суму витрат.</div></div></div></article>
+
+      <article class="card" data-correct="lie"><div class="card-top"><span class="case-no">Питання 7</span><span class="status">Факт чи брехня?</span></div><p class="statement">Мобільні платежі не змінюють поведінку — це просто зручніша версія картки.</p><div class="answers"><button class="answer-btn" data-answer="fact">Факт</button><button class="answer-btn" data-answer="lie">Брехня</button></div><div class="reveal"><div><span class="reveal-badge">Правильна відповідь: брехня</span><div class="reveal-meta">Що показує мій кейс</div><h4>Ще менше тертя — ще легше витрачати</h4><p>У кейсі про мобільні платежі саме вони давали вищі витрати, ніж картка. Чим менш “реально” відчувається момент розставання з грошима, тим простіше вийти за межі запланованого.</p><div class="trap-box"><strong>Пастка:</strong> недооцінка ролі маленьких фрикцій, які стримують витрати.</div></div><div class="chart-box"><button class="chart-btn" data-full="/static/media/case_14_mobile_payments.jpg" aria-label="Збільшити графік 7" type="button"><img src="/static/media/case_14_mobile_payments.jpg" alt="Графік до кейсу про мобільні платежі" loading="lazy" width="700" height="480"></button><div class="chart-caption">Мобільні платежі ще більше послаблюють відчуття витрати.</div></div></div></article>
+
+      <article class="card" data-correct="lie"><div class="card-top"><span class="case-no">Питання 8</span><span class="status">Факт чи брехня?</span></div><p class="statement">Купуй зараз, плати потім — це просто технічний формат оплати, а не поведінкова пастка.</p><div class="answers"><button class="answer-btn" data-answer="fact">Факт</button><button class="answer-btn" data-answer="lie">Брехня</button></div><div class="reveal"><div><span class="reveal-badge">Правильна відповідь: брехня</span><div class="reveal-meta">Що показує мій кейс</div><h4>Зручність теж штовхає до рішень</h4><p>У кейсі про “купи зараз, плати потім” користувачі мали вищі середні чеки й більші обертові залишки боргу. Коли платіж відсувається в майбутнє, навантаження здається менш відчутним і сказати “так” легше.</p><div class="trap-box"><strong>Пастка:</strong> упередження теперішнього — недооцінювати майбутній тягар заради зручності зараз.</div></div><div class="chart-box"><button class="chart-btn" data-full="/static/media/case_12_bnpl_present_bias.jpg" aria-label="Збільшити графік 8" type="button"><img src="/static/media/case_12_bnpl_present_bias.jpg" alt="Графік до кейсу про купуй зараз плати потім" loading="lazy" width="700" height="480"></button><div class="chart-caption">BNPL пов’язаний із більшими чеками та вищими борговими залишками.</div></div></div></article>
+
+      <article class="card" data-correct="lie"><div class="card-top"><span class="case-no">Питання 9</span><span class="status">Факт чи брехня?</span></div><p class="statement">Якщо в країні вже є інтернет і смартфони, цифровими фінансами користуються майже всі.</p><div class="answers"><button class="answer-btn" data-answer="fact">Факт</button><button class="answer-btn" data-answer="lie">Брехня</button></div><div class="reveal"><div><span class="reveal-badge">Правильна відповідь: брехня</span><div class="reveal-meta">Що показує мій кейс</div><h4>Доступ не дорівнює звичці</h4><p>У кейсах про цифрові фінанси видно, що сам по собі інтернет не гарантує активного використання фінансових сервісів. На це впливають довіра, інституції, звички, рівень формальної фінансової включеності й контекст країни.</p><div class="trap-box"><strong>Пастка:</strong> технологічна сліпота — вважати доступ достатньою умовою для поведінки.</div></div><div class="chart-box"><button class="chart-btn" data-full="/static/media/case_07_internet_vs_digital.jpg" aria-label="Збільшити графік 9" type="button"><img src="/static/media/case_07_internet_vs_digital.jpg" alt="Графік до кейсу про цифрові фінанси" loading="lazy" width="700" height="480"></button><div class="chart-caption">Доступ до інтернету пов’язаний із цифровими фінансами, але не гарантує їх масове використання.</div></div></div></article>
+
+      <article class="card" data-correct="lie"><div class="card-top"><span class="case-no">Питання 10</span><span class="status">Факт чи брехня?</span></div><p class="statement">У багатших країнах люди менше залазять у кредити — вони ж можуть собі дозволити без боргів.</p><div class="answers"><button class="answer-btn" data-answer="fact">Факт</button><button class="answer-btn" data-answer="lie">Брехня</button></div><div class="reveal"><div><span class="reveal-badge">Правильна відповідь: брехня</span><div class="reveal-meta">Що показує мій кейс</div><h4>Заможність не означає життя без позик</h4><p>У кейсах на основі міжнародних даних видно, що зростання добробуту не прибирає борги, а лише змінює їхню форму. Більше доходу часто означає не відсутність кредитів, а інший тип кредитної активності.</p><div class="trap-box"><strong>Пастка:</strong> уявлення, що фінансова спроможність автоматично веде до життя без боргів.</div></div><div class="chart-box"><button class="chart-btn" data-full="/static/media/case_04_borrowing_formal_vs_informal.png" aria-label="Збільшити графік 10" type="button"><img src="/static/media/case_04_borrowing_formal_vs_informal.png" alt="Графік до кейсу про кредити у багатших країнах" loading="lazy" width="700" height="480"></button><div class="chart-caption">Із рівнем добробуту змінюється не наявність боргу, а його форма.</div></div></div></article>
+    </div>
+  </section>
+
+  <section class="group-shell">
+    <div class="group-head"><h3>Дивні збіги, яким легко повірити</h3><div class="group-pill">11–13</div></div>
+    <div class="questions">
+      <article class="card" data-correct="lie"><div class="card-top"><span class="case-no">Питання 11</span><span class="status">Факт чи брехня?</span></div><p class="statement">Чим більше фільмів з Ніколасом Кейджем виходить, тим більше людей тонуть у басейнах.</p><div class="answers"><button class="answer-btn" data-answer="fact">Факт</button><button class="answer-btn" data-answer="lie">Брехня</button></div><div class="reveal"><div><span class="reveal-badge">Правильна відповідь: брехня</span><div class="reveal-meta">Що показує мій кейс</div><h4>Гарна кореляція може бути повною нісенітницею</h4><p>У моєму кейсі є графік, де ці два ряди даних рухаються майже разом, але реального сенсового зв’язку між ними немає. Це класичний приклад того, як цифри можуть виглядати переконливо, навіть коли історія за ними абсурдна.</p><div class="trap-box"><strong>Пастка:</strong> бачити красивий збіг і автоматично вигадувати причину та наслідок.</div></div><div class="chart-box"><button class="chart-btn" data-full="/static/media/case_02_spurious_cage_pools.png" aria-label="Збільшити графік 11" type="button"><img src="/static/media/case_02_spurious_cage_pools.png" alt="Графік до кейсу про Ніколаса Кейджа та басейни" loading="lazy" width="700" height="480"></button><div class="chart-caption">Сильна кореляція ще не означає реальний зв’язок між явищами.</div></div></div></article>
+
+      <article class="card" data-correct="lie"><div class="card-top"><span class="case-no">Питання 12</span><span class="status">Факт чи брехня?</span></div><p class="statement">Споживання маргарину може пояснити розлучення в одному з американських штатів.</p><div class="answers"><button class="answer-btn" data-answer="fact">Факт</button><button class="answer-btn" data-answer="lie">Брехня</button></div><div class="reveal"><div><span class="reveal-badge">Правильна відповідь: брехня</span><div class="reveal-meta">Що показує мій кейс</div><h4>Не все, що чудово “лягає” на графік, має сенс</h4><p>У цьому кейсі лінії виглядають так, ніби маргарин справді “псує шлюби”. Але насправді це сильний випадковий збіг, а не доказ причинного зв’язку — і саме тому він такий показовий.</p><div class="trap-box"><strong>Пастка:</strong> закохуватися в красиву лінію на графіку й не питати, чи є реальний механізм.</div></div><div class="chart-box"><button class="chart-btn" data-full="/static/media/case_03_divorce_vs_margarine.jpg" aria-label="Збільшити графік 12" type="button"><img src="/static/media/case_03_divorce_vs_margarine.jpg" alt="Графік до кейсу про маргарин і розлучення" loading="lazy" width="700" height="480"></button><div class="chart-caption">Навіть майже ідеальна кореляція може бути хибною.</div></div></div></article>
+
+      <article class="card" data-correct="lie"><div class="card-top"><span class="case-no">Питання 13</span><span class="status">Факт чи брехня?</span></div><p class="statement">Вік Міс Америки пов’язаний із кількістю дивних смертей від пари та гарячих предметів.</p><div class="answers"><button class="answer-btn" data-answer="fact">Факт</button><button class="answer-btn" data-answer="lie">Брехня</button></div><div class="reveal"><div><span class="reveal-badge">Правильна відповідь: брехня</span><div class="reveal-meta">Що показує мій кейс</div><h4>Цифри іноді вигадують історії краще за людей</h4><p>У кейсі між цими показниками теж є кореляція, яка виглядає дуже “серйозно”. Але будь-яке причинне пояснення тут звучить як фантазія, а не як науковий висновок — і саме в цьому цінність прикладу.</p><div class="trap-box"><strong>Пастка:</strong> приймати будь-яку історію з цифрами за правду, якщо вона добре виглядає на графіку.</div></div><div class="chart-box"><button class="chart-btn" data-full="/static/media/case_09_miss_america_vs_steam.jpg" aria-label="Збільшити графік 13" type="button"><img src="/static/media/case_09_miss_america_vs_steam.jpg" alt="Графік до кейсу про Міс Америку" loading="lazy" width="700" height="480"></button><div class="chart-caption">Красивий графік може створювати ілюзію сенсу там, де його немає.</div></div></div></article>
+    </div>
+  </section>
+
+  <section class="group-shell">
+    <div class="group-head"><h3>Упередження, вибір, самоконтроль</h3><div class="group-pill">14–20</div></div>
+    <div class="questions">
+      <article class="card" data-correct="lie"><div class="card-top"><span class="case-no">Питання 14</span><span class="status">Факт чи брехня?</span></div><p class="statement">Люди помиляються в грошах переважно через те, що їм бракує інформації.</p><div class="answers"><button class="answer-btn" data-answer="fact">Факт</button><button class="answer-btn" data-answer="lie">Брехня</button></div><div class="reveal"><div><span class="reveal-badge">Правильна відповідь: брехня</span><div class="reveal-meta">Що показує мій кейс</div><h4>Проблема часто не в знаннях, а в поведінці</h4><p>У моїх кейсах видно, що люди помиляються не лише через брак інформації, а через відкладання, надмірну впевненість, страх втрати, соціальні порівняння та інші упередження. Тобто знати “як правильно” ще не означає робити саме так.</p><div class="trap-box"><strong>Пастка:</strong> зводити складну поведінку лише до нестачі знань.</div></div><div class="chart-box"><button class="chart-btn" data-full="/static/media/case_15_confidence_balance.jpg" aria-label="Збільшити графік 14" type="button"><img src="/static/media/case_15_confidence_balance.jpg" alt="Графік до кейсу про фінансові упередження" loading="lazy" width="700" height="480"></button><div class="chart-caption">Поведінкові упередження часто сильніші за сам факт знання.</div></div></div></article>
+
+      <article class="card" data-correct="lie"><div class="card-top"><span class="case-no">Питання 15</span><span class="status">Факт чи брехня?</span></div><p class="statement">Якщо добре пояснити людині, що робити з грошима, вона просто візьме й почне так робити.</p><div class="answers"><button class="answer-btn" data-answer="fact">Факт</button><button class="answer-btn" data-answer="lie">Брехня</button></div><div class="reveal"><div><span class="reveal-badge">Правильна відповідь: брехня</span><div class="reveal-meta">Що показує мій кейс</div><h4>Розуміння не гарантує дії</h4><p>Кейси про налаштування вибору показують, що навіть коли людям усе пояснили, вони не поспішають змінювати поведінку. Статус-кво, відкладання, страх помилки й зайві кроки часто сильніші за хорошу інструкцію.</p><div class="trap-box"><strong>Пастка:</strong> раціоналістичний оптимізм — думати, що знання автоматично перетворюється на дію.</div></div><div class="chart-box"><button class="chart-btn" data-full="/static/media/case_13_auto_enrolment_defaults.jpg" aria-label="Збільшити графік 15" type="button"><img src="/static/media/case_13_auto_enrolment_defaults.jpg" alt="Графік до кейсу про вибір і поведінку" loading="lazy" width="700" height="480"></button><div class="chart-caption">Навіть правильну дію люди часто відкладають без зміни архітектури вибору.</div></div></div></article>
+
+      <article class="card" data-correct="lie"><div class="card-top"><span class="case-no">Питання 16</span><span class="status">Факт чи брехня?</span></div><p class="statement">Щоб люди більше заощаджували, достатньо дати їм правильний вибір — далі все вирішить раціональність.</p><div class="answers"><button class="answer-btn" data-answer="fact">Факт</button><button class="answer-btn" data-answer="lie">Брехня</button></div><div class="reveal"><div><span class="reveal-badge">Правильна відповідь: брехня</span><div class="reveal-meta">Що показує мій кейс</div><h4>Вибір “за замовчуванням” часто сильніший за наміри</h4><p>У кейсі про автоматичне підключення до заощаджень участь різко зростала не тоді, коли людям просто давали опції, а коли міняли стандартний сценарій. Люди часто залишаються в тому, що задано системою за замовчуванням.</p><div class="trap-box"><strong>Пастка:</strong> недооцінка сили статус-кво та вибору за замовчуванням.</div></div><div class="chart-box"><button class="chart-btn" data-full="/static/media/case_13_auto_enrolment_defaults.jpg" aria-label="Збільшити графік 16" type="button"><img src="/static/media/case_13_auto_enrolment_defaults.jpg" alt="Графік до кейсу про автоматичне підключення до заощаджень" loading="lazy" width="700" height="480"></button><div class="chart-caption">Опція за замовчуванням різко змінює участь у заощадженнях.</div></div></div></article>
+
+      <article class="card" data-correct="lie"><div class="card-top"><span class="case-no">Питання 17</span><span class="status">Факт чи брехня?</span></div><p class="statement">Якщо є опція відкладати більше на пенсію, люди самі активно її оберуть.</p><div class="answers"><button class="answer-btn" data-answer="fact">Факт</button><button class="answer-btn" data-answer="lie">Брехня</button></div><div class="reveal"><div><span class="reveal-badge">Правильна відповідь: брехня</span><div class="reveal-meta">Що показує мій кейс</div><h4>Правильна опція не завжди означає активний вибір</h4><p>У кейсі про відкладення на пенсію зростання внесків відбувалося завдяки автоматичним крокам і м’яким налаштуванням, а не тому, що люди самі масово переходили на кращий варіант. Сам факт, що опція існує, ще не змінює поведінку.</p><div class="trap-box"><strong>Пастка:</strong> переоцінка активних рішень і недооцінка інерції.</div></div><div class="chart-box"><button class="chart-btn" data-full="/static/media/case_13_auto_enrolment_defaults.jpg" aria-label="Збільшити графік 17" type="button"><img src="/static/media/case_13_auto_enrolment_defaults.jpg" alt="Графік до кейсу про пенсійні внески" loading="lazy" width="700" height="480"></button><div class="chart-caption">Сам факт наявності хорошої опції не гарантує, що її оберуть.</div></div></div></article>
+
+      <article class="card" data-correct="lie"><div class="card-top"><span class="case-no">Питання 18</span><span class="status">Факт чи брехня?</span></div><p class="statement">У фінансах чим більше впевненості в собі, тим краще.</p><div class="answers"><button class="answer-btn" data-answer="fact">Факт</button><button class="answer-btn" data-answer="lie">Брехня</button></div><div class="reveal"><div><span class="reveal-badge">Правильна відповідь: брехня</span><div class="reveal-meta">Що показує мій кейс</div><h4>Надмірна впевненість теж шкодить</h4><p>У кейсі про фінансову впевненість найкраще виглядала не крайня самовпевненість, а збалансований рівень упевненості. Занадто низька впевненість паралізує, але занадто висока підштовхує до переоцінки своїх можливостей.</p><div class="trap-box"><strong>Пастка:</strong> надмірна впевненість — сприймати її як чистий ресурс, а не як подвійне лезо.</div></div><div class="chart-box"><button class="chart-btn" data-full="/static/media/case_15_confidence_balance.jpg" aria-label="Збільшити графік 18" type="button"><img src="/static/media/case_15_confidence_balance.jpg" alt="Графік до кейсу про фінансову впевненість" loading="lazy" width="700" height="480"></button><div class="chart-caption">Найкраще працює збалансована, а не надмірна впевненість.</div></div></div></article>
+
+      <article class="card" data-correct="lie"><div class="card-top"><span class="case-no">Питання 19</span><span class="status">Факт чи брехня?</span></div><p class="statement">Один загальний “горщик” грошей працює не гірше, ніж кілька окремих “конвертів”.</p><div class="answers"><button class="answer-btn" data-answer="fact">Факт</button><button class="answer-btn" data-answer="lie">Брехня</button></div><div class="reveal"><div><span class="reveal-badge">Правильна відповідь: брехня</span><div class="reveal-meta">Що показує мій кейс</div><h4>Розподіл на “конверти” реально змінює поведінку</h4><p>У кейсі про один спільний рахунок і окремі “конверти” люди з ментально або фактично розділеними коштами інакше заощаджували й інакше витрачали. Формально гроші ті самі, але спосіб їхнього психологічного упорядкування впливає на рішення.</p><div class="trap-box"><strong>Пастка:</strong> ігнорувати ментальний облік і вважати, що всі гроші сприймаються однаково.</div></div><div class="chart-box"><button class="chart-btn" data-full="/static/media/case_17_mental_accounting_envelopes.jpg" aria-label="Збільшити графік 19" type="button"><img src="/static/media/case_17_mental_accounting_envelopes.jpg" alt="Графік до кейсу про конверти і спільний горщик" loading="lazy" width="700" height="480"></button><div class="chart-caption">Ментальний поділ грошей змінює витрати і схильність до заощадження.</div></div></div></article>
+
+      <article class="card" data-correct="lie"><div class="card-top"><span class="case-no">Питання 20</span><span class="status">Факт чи брехня?</span></div><p class="statement">Якщо людина суворо економить і постійно себе обмежує, це майже завжди означає фінансову зрілість.</p><div class="answers"><button class="answer-btn" data-answer="fact">Факт</button><button class="answer-btn" data-answer="lie">Брехня</button></div><div class="reveal"><div><span class="reveal-badge">Правильна відповідь: брехня</span><div class="reveal-meta">Що показує мій кейс</div><h4>Іноді “економність” — це не опора, а тривога</h4><p>У кейсах про дефіцитне мислення видно, що суворе самообмеження не завжди означає здорову фінансову зрілість. Часто за ним стоїть не стратегія, а постійний страх нестачі й внутрішнє відчуття, що безпечно тільки тоді, коли собі майже нічого не дозволяєш.</p><div class="trap-box"><strong>Пастка:</strong> плутати обережність із життям у режимі внутрішньої нестачі.</div></div><div class="chart-box"><button class="chart-btn" data-full="/static/media/case_16_emergency_savings_debt.jpg" aria-label="Збільшити графік 20" type="button"><img src="/static/media/case_16_emergency_savings_debt.jpg" alt="Графік до кейсу про дефіцитне мислення" loading="lazy" width="700" height="480"></button><div class="chart-caption">За суворим самообмеженням може стояти тривога, а не зріла стратегія.</div></div></div></article>
+    </div>
+  </section>
+</div>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-dialog">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Закрити збільшене зображення" type="button">×</button>
+      <img id="lightboxImage" src="" alt="Збільшений графік">
+    </div>
+  </div>
+
+  <script>
+    const root = document.documentElement;
+    const themeToggle = document.querySelector('[data-theme-toggle]');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const siteMenu = document.getElementById('site-menu');
+    const progress = document.getElementById('progress');
+
+    let currentTheme = root.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    root.setAttribute('data-theme', currentTheme);
+
+    function updateThemeIcon() {
+      if (!themeToggle) return;
+      themeToggle.innerHTML = currentTheme === 'dark'
+        ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>'
+        : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>';
+    }
+    updateThemeIcon();
+
+    themeToggle?.addEventListener('click', () => {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', currentTheme);
+      updateThemeIcon();
+    });
+
+    menuToggle?.addEventListener('click', () => {
+      const isOpen = siteMenu.classList.toggle('is-open');
+      menuToggle.classList.toggle('is-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    const cards = document.querySelectorAll('.card');
+    let answered = 0;
+
+    function updateProgress() {
+      const total = cards.length;
+      progress.style.width = ((answered / total) * 100) + '%';
+    }
+
+    cards.forEach(card => {
+      const correct = card.dataset.correct;
+      const buttons = card.querySelectorAll('.answer-btn');
+      const reveal = card.querySelector('.reveal');
+      const status = card.querySelector('.status');
+
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const chosen = button.dataset.answer;
+          buttons.forEach(btn => {
+            btn.classList.add('is-disabled');
+            if (btn.dataset.answer === correct) btn.classList.add('is-right');
+            if (btn.dataset.answer === chosen && chosen !== correct) btn.classList.add('is-wrong');
+          });
+          status.textContent = chosen === correct ? 'Влучно' : 'Не зовсім';
+          reveal.classList.add('open');
+          if (!card.dataset.answered) {
+            card.dataset.answered = 'true';
+            answered += 1;
+            updateProgress();
+          }
+        }, { once: true });
+      });
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.chart-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const img = button.querySelector('img');
+        const fullSrc = button.dataset.full || (img ? img.getAttribute('src') : '');
+
+        if (!fullSrc) return;
+
+        lightboxImage.src = fullSrc;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImage.src = '';
+    }
+
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightbox?.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
+  </script>
+</body>
+</html>

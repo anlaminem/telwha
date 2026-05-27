@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TELWHA · Fact or Fiction</title>
+  <meta name="description" content="An interactive TELWHA game: 20 financial statements, biases, data, and mini cases. Choose fact or fiction and instantly see what the case actually shows.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --bg: #f6efe6;
+      --surface: #fffaf4;
+      --surface-2: #fffdf9;
+      --surface-3: #f7efe4;
+      --text: #2b2119;
+      --muted: #5f5146;
+      --faint: #8a7666;
+      --border: rgba(104, 82, 62, 0.18);
+      --border-soft: rgba(104, 82, 62, 0.10);
+      --accent: #e8a55c;
+      --accent-strong: #d57c33;
+      --accent-soft: rgba(232, 165, 92, 0.14);
+      --good: #3f7a32;
+      --good-soft: rgba(63, 122, 50, 0.12);
+      --bad: #9b3267;
+      --bad-soft: rgba(155, 50, 103, 0.10);
+      --shadow: 0 20px 46px rgba(98, 76, 56, 0.14);
+      --hero-shadow: 0 24px 60px rgba(98, 76, 56, 0.18);
+      --wrap: 1180px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #07090d;
+      --surface: rgba(9, 11, 16, 0.98);
+      --surface-2: rgba(7, 10, 15, 0.98);
+      --surface-3: rgba(255, 255, 255, 0.03);
+      --text: #f3efe8;
+      --muted: #b9bdc9;
+      --faint: #8e94a3;
+      --border: rgba(255, 255, 255, 0.12);
+      --border-soft: rgba(255, 255, 255, 0.07);
+      --accent: #f0b376;
+      --accent-strong: #d58034;
+      --accent-soft: rgba(240, 179, 118, 0.12);
+      --good: #7bc061;
+      --good-soft: rgba(123, 192, 97, 0.14);
+      --bad: #d16aa5;
+      --bad-soft: rgba(209, 106, 165, 0.14);
+      --shadow: 0 16px 42px rgba(0, 0, 0, 0.62);
+      --hero-shadow: 0 22px 56px rgba(0, 0, 0, 0.66);
+      --wrap: 1180px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      -webkit-text-size-adjust: none;
+      text-size-adjust: none;
+      scroll-behavior: smooth;
+    }
+    body {
+      min-height: 100dvh;
+      font-family: Inter, system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(240, 179, 118, 0.12) 0, transparent 34%),
+        radial-gradient(circle at bottom right, rgba(91, 121, 214, 0.10) 0, transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; }
+    img, svg { display: block; max-width: 100%; }
+    .wrap {
+      width: min(calc(100% - 28px), var(--wrap));
+      margin-inline: auto;
+    }
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 90;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+      transition: width 0.28s ease;
+      transform-origin: left;
+    }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      backdrop-filter: blur(18px);
+      background: rgba(5, 7, 10, 0.68);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    [data-theme="light"] .topbar {
+      background: rgba(255, 250, 244, 0.88);
+      border-bottom: 1px solid rgba(104, 82, 62, 0.08);
+    }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0 12px;
+    }
+    .brand {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .brand-row {
+      display: flex;
+      align-items: center;
+    }
+    .brand strong {
+      font-size: 15px;
+      letter-spacing: 0.16em;
+    }
+    .brand .sub {
+      display: block;
+      margin-top: 4px;
+      font-size: 10px;
+      line-height: 1.3;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      margin-left: auto;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 10px 24px rgba(0,0,0,0.24);
+      cursor: pointer;
+    }
+    [data-theme="light"] .menu-toggle {
+      background: var(--surface);
+      box-shadow: 0 10px 24px rgba(98, 76, 56, 0.12);
+    }
+    .menu-toggle-lines {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 18px;
+      height: 14px;
+    }
+    .menu-toggle-lines span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--text);
+      transform-origin: center;
+      transition: transform 0.22s ease, opacity 0.18s ease;
+    }
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) { opacity: 0; }
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .menu-group, .menu-tools {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .menu a,
+    .menu-dropbtn,
+    .lang-switcher summary {
+      font-size: 15px;
+      color: var(--text);
+      opacity: 0.92;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      list-style: none;
+    }
+    .lang-switcher summary::-webkit-details-marker { display: none; }
+    .menu-dropdown { position: relative; }
+    .menu-dropcontent {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      display: none;
+      min-width: 180px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(5, 7, 10, 0.96);
+      box-shadow: var(--shadow);
+      gap: 10px;
+    }
+    [data-theme="light"] .menu-dropcontent { background: #fffaf4; }
+    .menu-dropdown:hover .menu-dropcontent,
+    .menu-dropdown:focus-within .menu-dropcontent { display: grid; }
+    .lang-switcher { position: relative; }
+    .lang-list {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      display: none;
+      gap: 8px;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(5, 7, 10, 0.96);
+    }
+    [data-theme="light"] .lang-list { background: #fffaf4; }
+    .lang-switcher[open] .lang-list { display: grid; }
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    [data-theme="light"] .theme-toggle { background: var(--surface); }
+
+    .hero {
+      padding: 24px 0 16px;
+    }
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      padding: 1px;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 30px;
+      background: radial-gradient(circle at top left, rgba(240, 179, 118, 0.16) 0, transparent 45%), #030304;
+      box-shadow: var(--hero-shadow);
+    }
+    [data-theme="light"] .hero-shell {
+      border-color: rgba(104, 82, 62, 0.18);
+      background: radial-gradient(circle at top left, rgba(245, 198, 150, 0.32) 0, transparent 46%), linear-gradient(145deg, #fffdf9 0, #f7efe4 55%, #f2e4d5 100%);
+    }
+    .hero-inner {
+      position: relative;
+      overflow: hidden;
+      padding: 30px 28px 24px;
+      border-radius: 28px;
+      background: radial-gradient(circle at top right, rgba(240, 179, 118, 0.12) 0, transparent 58%), rgba(5, 7, 10, 0.94);
+    }
+    [data-theme="light"] .hero-inner {
+      background: radial-gradient(circle at top right, rgba(249, 180, 90, 0.16) 0, transparent 55%), #fffaf4;
+    }
+    .hero-glow {
+      position: absolute;
+      inset: -70px;
+      pointer-events: none;
+      opacity: 0.88;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(240, 179, 118, 0.14) 0, transparent 44%),
+        radial-gradient(circle at 90% 100%, rgba(80, 136, 255, 0.10) 0, transparent 48%);
+      mix-blend-mode: screen;
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      gap: 20px;
+      align-items: start;
+    }
+    .hero-grid-single {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .hero-copy-wide {
+      max-width: 760px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid rgba(240, 179, 118, 0.18);
+      border-radius: 999px;
+      background: rgba(240, 179, 118, 0.10);
+      color: var(--accent);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    h1 {
+      margin: 0 0 14px;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(2.1rem, 5vw, 4.4rem);
+      line-height: 0.96;
+      font-weight: 400;
+      max-width: 10ch;
+      letter-spacing: -0.045em;
+      text-wrap: balance;
+    }
+    .lead {
+      max-width: 50ch;
+      color: var(--text);
+      font-size: 1rem;
+    }
+    .hero-note {
+      margin-top: 14px;
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+    .section-kicker,
+    .reveal-meta {
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+
+    .section {
+      padding: 10px 0 28px;
+    }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .section-head h2 {
+      font-size: 1.3rem;
+    }
+    .section-head p {
+      max-width: 56ch;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .question-groups {
+      display: grid;
+      gap: 18px;
+    }
+    .group-shell {
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--surface), var(--surface-2));
+      box-shadow: var(--shadow);
+    }
+    .group-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .group-head h3 {
+      font-size: 1rem;
+    }
+    .group-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid rgba(240, 179, 118, 0.15);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .questions {
+      display: grid;
+      gap: 14px;
+    }
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--surface-3);
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(240, 179, 118, 0.24);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.14);
+    }
+    .card-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .case-no {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+    .status {
+      font-size: 0.8rem;
+      color: var(--faint);
+      white-space: nowrap;
+    }
+    .statement {
+      font-size: 1.12rem;
+      line-height: 1.4;
+      max-width: 50ch;
+    }
+    .answers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .answer-btn {
+      min-width: 122px;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      cursor: pointer;
+      transition: transform 0.16s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+    [data-theme="light"] .answer-btn { background: rgba(255,255,255,0.82); }
+    .answer-btn:hover,
+    .answer-btn:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(240, 179, 118, 0.44);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.16);
+      outline: none;
+    }
+    .answer-btn.is-disabled {
+      opacity: 0.62;
+      pointer-events: none;
+    }
+    .answer-btn.is-right {
+      background: var(--good-soft);
+      border-color: rgba(123, 192, 97, 0.34);
+      color: var(--good);
+      opacity: 1;
+    }
+    .answer-btn.is-wrong {
+      background: var(--bad-soft);
+      border-color: rgba(209, 106, 165, 0.34);
+      color: var(--bad);
+      opacity: 1;
+    }
+    .reveal {
+      display: none;
+      margin-top: 16px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      grid-template-columns: minmax(0, 1.45fr) 240px;
+      gap: 16px;
+      align-items: start;
+    }
+    [data-theme="light"] .reveal {
+      background: linear-gradient(135deg, #fffdf9, #f8f0e6);
+    }
+    .reveal.open { display: grid; }
+    .reveal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(240, 179, 118, 0.18);
+      background: rgba(240, 179, 118, 0.10);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .reveal h4 {
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+    .reveal p {
+      color: var(--text);
+      font-size: 0.94rem;
+    }
+    .trap-box {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-soft);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .chart-box {
+      display: grid;
+      gap: 8px;
+      align-self: stretch;
+    }
+    .chart-btn {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 0;
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.16);
+      cursor: zoom-in;
+    }
+    .chart-btn img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      pointer-events: none;
+    }
+    .chart-caption {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(8, 8, 12, 0.84);
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-dialog {
+      position: relative;
+      width: min(1120px, 100%);
+    }
+    .lightbox-dialog img {
+      width: 100%;
+      max-height: 84vh;
+      object-fit: contain;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.32);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 0;
+      background: white;
+      color: #222;
+      font-size: 1.4rem;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 920px) {
+      .menu-toggle { display: inline-flex !important; }
+      .menu {
+        display: none !important;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        width: 100%;
+        margin-top: 10px;
+        padding: 16px;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        background: rgba(255,255,255,0.03);
+      }
+      [data-theme="light"] .menu { background: var(--surface); }
+      .menu.is-open { display: flex !important; }
+      .menu-group, .menu-tools {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        width: 100%;
+      }
+      .section-head { flex-direction: column; align-items: start; }
+      .reveal, .reveal.open { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(calc(100% - 20px), var(--wrap)); }
+      .brand { max-width: calc(100% - 96px); }
+      .brand strong { font-size: 14px; letter-spacing: 0.18em; }
+      .brand .sub { font-size: 9px; line-height: 1.3; letter-spacing: 0.1em; }
+      .menu-toggle { width: 44px; height: 44px; }
+      .menu-toggle-lines { width: 16px; height: 12px; }
+      .menu-toggle-lines span { width: 16px; }
+      .hero { padding: 16px 0 10px; }
+      .hero-inner { padding: 20px 16px 16px; border-radius: 24px; }
+      h1 { font-size: clamp(1.9rem, 7.6vw, 2.8rem); line-height: 1.02; }
+      .lead, .hero-note, .section-head p, .reveal p, .trap-box { font-size: 0.9rem; }
+      .group-shell, .card, .reveal { padding: 14px; }
+      .statement { font-size: 1.02rem; }
+      .answers { flex-direction: column; }
+      .answer-btn { width: 100%; }
+      .chart-btn img { height: auto; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand">
+        <a class="brand-row" href="#hero"><strong>TELWHA</strong></a>
+        <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+      </div>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <nav class="menu" id="site-menu">
+        <div class="menu-group">
+          <a href="/">Home</a>
+          <a href="/finlab/">FinLab</a>
+          <a href="/about/">About</a>
+        </div>
+
+        <div class="menu-group menu-dropdown">
+          <button type="button" class="menu-dropbtn">For traders ▾</button>
+          <div class="menu-dropcontent">
+            <a href="/trader-course/">Mini course</a>
+            <a href="/archetype-test/">Archetype test</a>
+          </div>
+        </div>
+
+        <div class="menu-group">
+          <a href="/articles/">Articles</a>
+          <a href="/reviews/">Reviews</a>
+          <a href="/cases/">Cases</a>
+          <a href="/contact/">Contact</a>
+        </div>
+
+        <div class="menu-group menu-tools">
+          <details class="lang-switcher lang-switcher--inside">
+            <summary>🇬🇧</summary>
+            <div class="lang-list">
+              <a href="/fact-or-fiction-cases.html" aria-label="Ukrainian">🇺🇦</a>
+              <a href="/es/fact-or-fiction-cases.html" aria-label="Español">🇪🇸</a>
+            </div>
+          </details>
+
+          <button class="theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="wrap hero-shell">
+        <div class="hero-inner">
+          <div class="hero-glow"></div>
+          <div class="hero-grid hero-grid-single">
+            <div class="hero-copy-wide">
+              <div class="eyebrow">TELWHA · Fact or Fiction</div>
+              <h1>20 financial myths about money</h1>
+              <p class="hero-note">Every statement here is built on my own mini cases: I worked with current, real, or carefully simulated data, created the charts, and translated the numbers into clear behavioral logic.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="test">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker"></div>
+            <h2>Fact or fiction?</h2>
+          </div>
+          <p>The explanation opens right below each question, together with a short takeaway and the behavioral trap behind it.</p>
+        </div>
+
+        <div class="question-groups" id="questions">
+          <section class="group-shell">
+            <div class="group-head">
+              <h3>Debt, income, savings</h3>
+              <div class="group-pill">1–5</div>
+            </div>
+            <div class="questions">
+
+              <article class="card" data-correct="lie">
+                <div class="card-top"><span class="case-no">Question 1</span><span class="status">Fact or fiction?</span></div>
+                <p class="statement">Unsecured debt is mainly a problem only for low-income households.</p>
+                <div class="answers"><button class="answer-btn" data-answer="fact">Fact</button><button class="answer-btn" data-answer="lie">Fiction</button></div>
+                <div class="reveal">
+                  <div>
+                    <span class="reveal-badge">Correct answer: fiction</span>
+                    <div class="reveal-meta">What my case shows</div>
+                    <h4>Debt is not the same as poverty</h4>
+                    <p>In this case, based on Institute for Fiscal Studies data, a meaningful share of unsecured debt appears among households with above-average income. In other words, debt is not only a story about financial shortage, but also about liquidity, financing style, and behavioral motives.</p>
+                    <div class="trap-box"><strong>Trap:</strong> a class stereotype — treating debt as the same thing as chronic poverty.</div>
+                  </div>
+                  <div class="chart-box">
+                    <button class="chart-btn" data-full="/static/media/case_19_unsecured_debt_income_assets.jpg" aria-label="Open chart for unsecured debt case" type="button">
+                      <img src="/static/media/case_19_unsecured_debt_income_assets.jpg" alt="Chart for the unsecured debt case" loading="lazy" width="700" height="480">
+                    </button>
+                    <div class="chart-caption">Unsecured debt is also present among higher-income households.</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card" data-correct="lie">
+                <div class="card-top"><span class="case-no">Question 2</span><span class="status">Fact or fiction?</span></div>
+                <p class="statement">If a person has money in the bank, they will always pay off expensive debt immediately.</p>
+                <div class="answers"><button class="answer-btn" data-answer="fact">Fact</button><button class="answer-btn" data-answer="lie">Fiction</button></div>
+                <div class="reveal">
+                  <div>
+                    <span class="reveal-badge">Correct answer: fiction</span>
+                    <div class="reveal-meta">What my case shows</div>
+                    <h4>A buffer often beats arithmetic</h4>
+                    <p>Cases on savings, credit debt, and behavioral motives show that people often keep debt and reserves at the same time. Mathematically, paying off the debt may be better, but psychologically it matters not to lose the feeling of backup and control.</p>
+                    <div class="trap-box"><strong>Trap:</strong> mental accounting and the price of a calm night’s sleep.</div>
+                  </div>
+                  <div class="chart-box">
+                    <button class="chart-btn" data-full="/static/media/case_20_assets_can_repay_debt.jpg" aria-label="Open chart 2" type="button">
+                      <img src="/static/media/case_20_assets_can_repay_debt.jpg" alt="Chart for debt and reserves case" loading="lazy" width="700" height="480">
+                    </button>
+                    <div class="chart-caption">Having assets to repay debt does not mean debt will be paid off right away.</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card" data-correct="lie">
+                <div class="card-top"><span class="case-no">Question 3</span><span class="status">Fact or fiction?</span></div>
+                <p class="statement">Anyone with an emergency fund is already handling money wisely.</p>
+                <div class="answers"><button class="answer-btn" data-answer="fact">Fact</button><button class="answer-btn" data-answer="lie">Fiction</button></div>
+                <div class="reveal">
+                  <div>
+                    <span class="reveal-badge">Correct answer: fiction</span>
+                    <div class="reveal-meta">What my case shows</div>
+                    <h4>A reserve does not cancel bias</h4>
+                    <p>An emergency fund often reduces financial fragility and increases the feeling of control. But it does not automatically make someone rational: anxiety, delay, or impulsive reactions may still remain.</p>
+                    <div class="trap-box"><strong>Trap:</strong> confusing the presence of resources with the absence of behavioral errors.</div>
+                  </div>
+                  <div class="chart-box">
+                    <button class="chart-btn" data-full="/static/media/case_16_emergency_savings_debt.jpg" aria-label="Open chart 3" type="button">
+                      <img src="/static/media/case_16_emergency_savings_debt.jpg" alt="Chart for emergency fund case" loading="lazy" width="700" height="480">
+                    </button>
+                    <div class="chart-caption">A reserve lowers fragility, but it does not remove behavioral bias.</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card" data-correct="lie">
+                <div class="card-top"><span class="case-no">Question 4</span><span class="status">Fact or fiction?</span></div>
+                <p class="statement">If a household has enough financial assets, it will not carry unsecured debt.</p>
+                <div class="answers"><button class="answer-btn" data-answer="fact">Fact</button><button class="answer-btn" data-answer="lie">Fiction</button></div>
+                <div class="reveal">
+                  <div>
+                    <span class="reveal-badge">Correct answer: fiction</span>
+                    <div class="reveal-meta">What my case shows</div>
+                    <h4>Assets do not guarantee the “ideal” choice</h4>
+                    <p>In this case, based on reported findings, more than half of households with unsecured debt had enough financial assets to repay it. But people do not always act according to the formula “I see debt, so I close debt”: liquidity logic, fear of losing a buffer, and the habit of keeping money in separate “pockets” all matter too.</p>
+                    <div class="trap-box"><strong>Trap:</strong> the rationalist illusion — assuming people automatically choose the mathematically best option.</div>
+                  </div>
+                  <div class="chart-box">
+                    <button class="chart-btn" data-full="/static/media/case_20_assets_can_repay_debt.jpg" aria-label="Open chart 4" type="button">
+                      <img src="/static/media/case_20_assets_can_repay_debt.jpg" alt="Chart for assets and debt case" loading="lazy" width="700" height="480">
+                    </button>
+                    <div class="chart-caption">Some households have enough assets to repay debt but do not do so.</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card" data-correct="lie">
+                <div class="card-top"><span class="case-no">Question 5</span><span class="status">Fact or fiction?</span></div>
+                <p class="statement">Debt is mostly about poverty: once income rises, debt disappears.</p>
+                <div class="answers"><button class="answer-btn" data-answer="fact">Fact</button><button class="answer-btn" data-answer="lie">Fiction</button></div>
+                <div class="reveal">
+                  <div>
+                    <span class="reveal-badge">Correct answer: fiction</span>
+                    <div class="reveal-meta">What my case shows</div>
+                    <h4>As income grows, debt changes — it does not vanish</h4>
+                    <p>Cases on income and debt show that rising income does not automatically erase debt. What changes is its structure, purpose, and context: from covering shortage to acting as a liquidity tool, a consumption tool, or a way to finance large purchases.</p>
+                    <div class="trap-box"><strong>Trap:</strong> linear thinking — as if wealthier people automatically live debt-free.</div>
+                  </div>
+                  <div class="chart-box">
+                    <button class="chart-btn" data-full="/static/media/case_18_debt_net_worth.jpg" aria-label="Open chart 5" type="button">
+                      <img src="/static/media/case_18_debt_net_worth.jpg" alt="Chart for debt and income case" loading="lazy" width="700" height="480">
+                    </button>
+                    <div class="chart-caption">Debt does not automatically disappear as income or net worth grows.</div>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </section>
+
+          <section class="group-shell">
+            <div class="group-head">
+              <h3>Payment methods and digital money</h3>
+              <div class="group-pill">6–10</div>
+            </div>
+            <div class="questions">
+
+              <article class="card" data-correct="lie">
+                <div class="card-top"><span class="case-no">Question 6</span><span class="status">Fact or fiction?</span></div>
+                <p class="statement">Whether a person pays with cash, card, or phone barely affects how much they spend.</p>
+                <div class="answers"><button class="answer-btn" data-answer="fact">Fact</button><button class="answer-btn" data-answer="lie">Fiction</button></div>
+                <div class="reveal">
+                  <div>
+                    <span class="reveal-badge">Correct answer: fiction</span>
+                    <div class="reveal-meta">What my case shows</div>
+                    <h4>The payment method changes how spending feels</h4>
+                    <p>In the cashless effect case, the lowest spending appeared with cash, higher spending with cards, and even higher spending with phones. The less tangible the moment of payment feels, the easier it becomes to spend.</p>
+                    <div class="trap-box"><strong>Trap:</strong> the illusion that payment methods are neutral and do not shape behavior.</div>
+                  </div>
+                  <div class="chart-box">
+                    <button class="chart-btn" data-full="/static/media/case_11_contactless_vs_spending.jpg" aria-label="Open chart 6" type="button">
+                      <img src="/static/media/case_11_contactless_vs_spending.jpg" alt="Chart for payment methods case" loading="lazy" width="700" height="480">
+                    </button>
+                    <div class="chart-caption">Cash, card, and phone affect spending differently.</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card" data-correct="lie">
+                <div class="card-top"><span class="case-no">Question 7</span><span class="status">Fact or fiction?</span></div>
+                <p class="statement">Mobile payments do not change behavior — they are just a more convenient version of card payments.</p>
+                <div class="answers"><button class="answer-btn" data-answer="fact">Fact</button><button class="answer-btn" data-answer="lie">Fiction</button></div>
+                <div class="reveal">
+                  <div>
+                    <span class="reveal-badge">Correct answer: fiction</span>
+                    <div class="reveal-meta">What my case shows</div>
+                    <h4>Less friction makes spending easier</h4>
+                    <p>In the mobile payments case, they produced higher spending than card payments. The less “real” the moment of parting with money feels, the easier it is to move beyond the original plan.</p>
+                    <div class="trap-box"><strong>Trap:</strong> underestimating the role of small frictions that keep spending in check.</div>
+                  </div>
+                  <div class="chart-box">
+                    <button class="chart-btn" data-full="/static/media/case_14_mobile_payments.jpg" aria-label="Open chart 7" type="button">
+                      <img src="/static/media/case_14_mobile_payments.jpg" alt="Chart for mobile payments case" loading="lazy" width="700" height="480">
+                    </button>
+                    <div class="chart-caption">Mobile payments weaken the feeling of spending even more.</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card" data-correct="lie">
+                <div class="card-top"><span class="case-no">Question 8</span><span class="status">Fact or fiction?</span></div>
+                <p class="statement">Buy now, pay later is just a technical payment format, not a behavioral trap.</p>
+                <div class="answers"><button class="answer-btn" data-answer="fact">Fact</button><button class="answer-btn" data-answer="lie">Fiction</button></div>
+                <div class="reveal">
+                  <div>
+                    <span class="reveal-badge">Correct answer: fiction</span>
+                    <div class="reveal-meta">What my case shows</div>
+                    <h4>Convenience can push decisions too</h4>
+                    <p>In the buy-now-pay-later case, users had higher average order sizes and larger revolving debt balances. When payment is shifted into the future, the burden feels lighter in the moment, and saying yes becomes easier.</p>
+                    <div class="trap-box"><strong>Trap:</strong> present bias — underestimating future burden in exchange for convenience now.</div>
+                  </div>
+                  <div class="chart-box">
+                    <button class="chart-btn" data-full="/static/media/case_12_bnpl_present_bias.jpg" aria-label="Open chart 8" type="button">
+                      <img src="/static/media/case_12_bnpl_present_bias.jpg" alt="Chart for BNPL case" loading="lazy" width="700" height="480">
+                    </button>
+                    <div class="chart-caption">BNPL is linked to bigger baskets and higher debt balances.</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card" data-correct="lie">
+                <div class="card-top"><span class="case-no">Question 9</span><span class="status">Fact or fiction?</span></div>
+                <p class="statement">If a country already has internet and smartphones, almost everyone will use digital finance.</p>
+                <div class="answers"><button class="answer-btn" data-answer="fact">Fact</button><button class="answer-btn" data-answer="lie">Fiction</button></div>
+                <div class="reveal">
+                  <div>
+                    <span class="reveal-badge">Correct answer: fiction</span>
+                    <div class="reveal-meta">What my case shows</div>
+                    <h4>Access is not the same as habit</h4>
+                    <p>Cases on digital finance show that internet access alone does not guarantee active use of financial services. Trust, institutions, habits, formal financial inclusion, and country context all shape actual behavior.</p>
+                    <div class="trap-box"><strong>Trap:</strong> technological blindness — assuming access is a sufficient condition for behavior.</div>
+                  </div>
+                  <div class="chart-box">
+                    <button class="chart-btn" data-full="/static/media/case_07_internet_vs_digital.jpg" aria-label="Open chart 9" type="button">
+                      <img src="/static/media/case_07_internet_vs_digital.jpg" alt="Chart for digital finance case" loading="lazy" width="700" height="480">
+                    </button>
+                    <div class="chart-caption">Internet access is linked to digital finance, but it does not guarantee mass adoption.</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card" data-correct="lie">
+                <div class="card-top"><span class="case-no">Question 10</span><span class="status">Fact or fiction?</span></div>
+                <p class="statement">People in richer countries rely less on borrowing because they can afford to live without debt.</p>
+                <div class="answers"><button class="answer-btn" data-answer="fact">Fact</button><button class="answer-btn" data-answer="lie">Fiction</button></div>
+                <div class="reveal">
+                  <div>
+                    <span class="reveal-badge">Correct answer: fiction</span>
+                    <div class="reveal-meta">What my case shows</div>
+                    <h4>Wealth does not mean a life without borrowing</h4>
+                    <p>Cases based on international data show that rising prosperity does not remove debt — it changes its form. Higher income often means not the absence of borrowing, but a different type of credit activity.</p>
+                    <div class="trap-box"><strong>Trap:</strong> assuming financial capacity automatically leads to debt-free living.</div>
+                  </div>
+                  <div class="chart-box">
+                    <button class="chart-btn" data-full="/static/media/case_04_borrowing_formal_vs_informal.png" aria-label="Open chart 10" type="button">
+                      <img src="/static/media/case_04_borrowing_formal_vs_informal.png" alt="Chart for borrowing in richer countries case" loading="lazy" width="700" height="480">
+                    </button>
+                    <div class="chart-caption">As prosperity grows, the form of debt changes more than its existence.</div>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </section>
+
+          <section class="group-shell">
+            <div class="group-head"><h3>Strange patterns that are easy to believe</h3><div class="group-pill">11–13</div></div>
+            <div class="questions">
+
+              <article class="card" data-correct="lie">
+                <div class="card-top"><span class="case-no">Question 11</span><span class="status">Fact or fiction?</span></div>
+                <p class="statement">The more Nicolas Cage films are released, the more people drown in swimming pools.</p>
+                <div class="answers"><button class="answer-btn" data-answer="fact">Fact</button><button class="answer-btn" data-answer="lie">Fiction</button></div>
+                <div class="reveal">
+                  <div>
+                    <span class="reveal-badge">Correct answer: fiction</span>
+                    <div class="reveal-meta">What my case shows</div>
+                    <h4>A beautiful correlation can still be nonsense</h4>
+                    <p>In this case, the two lines move almost together, but there is no meaningful real-world connection between them. It is a classic example of how numbers can look convincing even when the story behind them is absurd.</p>
+                    <div class="trap-box"><strong>Trap:</strong> seeing a neat pattern and automatically inventing cause and effect.</div>
+                  </div>
+                  <div class="chart-box">
+                    <button class="chart-btn" data-full="/static/media/case_02_spurious_cage_pools.png" aria-label="Open chart 11" type="button">
+                      <img src="/static/media/case_02_spurious_cage_pools.png" alt="Chart for Nicolas Cage and pools case" loading="lazy" width="700" height="480">
+                    </button>
+                    <div class="chart-caption">A strong correlation still does not mean a real relationship.</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card" data-correct="lie">
+                <div class="card-top"><span class="case-no">Question 12</span><span class="status">Fact or fiction?</span></div>
+                <p class="statement">Margarine consumption can explain the divorce rate in a US state.</p>
+                <div class="answers"><button class="answer-btn" data-answer="fact">Fact</button><button class="answer-btn" data-answer="lie">Fiction</button></div>
+                <div class="reveal">
+                  <div>
+                    <span class="reveal-badge">Correct answer: fiction</span>
+                    <div class="reveal-meta">What my case shows</div>
+                    <h4>Not everything that fits beautifully on a chart makes sense</h4>
+                    <p>In this case, the lines look as if margarine really does “damage marriages.” But in reality, it is just a strong accidental correlation, not evidence of causation — and that is exactly why the example is so useful.</p>
+                    <div class="trap-box"><strong>Trap:</strong> falling in love with a beautiful line on a chart without asking whether there is a real mechanism behind it.</div>
+                  </div>
+                  <div class="chart-box">
+                    <button class="chart-btn" data-full="/static/media/case_03_divorce_vs_margarine.jpg" aria-label="Open chart 12" type="button">
+                      <img src="/static/media/case_03_divorce_vs_margarine.jpg" alt="Chart for margarine and divorce case" loading="lazy" width="700" height="480">
+                    </button>
+                    <div class="chart-caption">Even an almost perfect correlation can be false.</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card" data-correct="lie">
+                <div class="card-top"><span class="case-no">Question 13</span><span class="status">Fact or fiction?</span></div>
+                <p class="statement">Miss America’s age is linked to unusual deaths caused by steam and hot objects.</p>
+                <div class="answers"><button class="answer-btn" data-answer="fact">Fact</button><button class="answer-btn" data-answer="lie">Fiction</button></div>
+                <div class="reveal">
+                  <div>
+                    <span class="reveal-badge">Correct answer: fiction</span>
+                    <div class="reveal-meta">What my case shows</div>
+                    <h4>Numbers sometimes invent stories better than people do</h4>
+                    <p>In this case too, the indicators are correlated in a way that looks surprisingly serious. But any causal explanation here sounds like fiction, not science — and that is exactly what makes the example valuable.</p>
+                    <div class="trap-box"><strong>Trap:</strong> treating any data-driven story as true if it looks persuasive on a chart.</div>
+                  </div>
+                  <div class="chart-box">
+                    <button class="chart-btn" data-full="/static/media/case_09_miss_america_vs_steam.jpg" aria-label="Open chart 13" type="button">
+                      <img src="/static/media/case_09_miss_america_vs_steam.jpg" alt="Chart for Miss America case" loading="lazy" width="700" height="480">
+                    </button>
+                    <div class="chart-caption">A polished chart can create the illusion of meaning where none exists.</div>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </section>
+
+          <section class="group-shell">
+            <div class="group-head"><h3>Bias, choice, self-control</h3><div class="group-pill">14–20</div></div>
+            <div class="questions">
+
+              <article class="card" data-correct="lie">
+                <div class="card-top"><span class="case-no">Question 14</span><span class="status">Fact or fiction?</span></div>
+                <p class="statement">People mostly make money mistakes because they do not have enough information.</p>
+                <div class="answers"><button class="answer-btn" data-answer="fact">Fact</button><button class="answer-btn" data-answer="lie">Fiction</button></div>
+                <div class="reveal">
+                  <div>
+                    <span class="reveal-badge">Correct answer: fiction</span>
+                    <div class="reveal-meta">What my case shows</div>
+                    <h4>The problem is often behavior, not knowledge</h4>
+                    <p>My cases show that people make money mistakes not only because of limited information, but because of delay, overconfidence, loss aversion, social comparison, and other biases. Knowing what is “correct” does not automatically mean doing it.</p>
+                    <div class="trap-box"><strong>Trap:</strong> reducing complex behavior to a simple information gap.</div>
+                  </div>
+                  <div class="chart-box">
+                    <button class="chart-btn" data-full="/static/media/case_15_confidence_balance.jpg" aria-label="Open chart 14" type="button">
+                      <img src="/static/media/case_15_confidence_balance.jpg" alt="Chart for financial bias case" loading="lazy" width="700" height="480">
+                    </button>
+                    <div class="chart-caption">Behavioral biases are often stronger than knowledge itself.</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card" data-correct="lie">
+                <div class="card-top"><span class="case-no">Question 15</span><span class="status">Fact or fiction?</span></div>
+                <p class="statement">If you clearly explain what a person should do with money, they will simply start doing it.</p>
+                <div class="answers"><button class="answer-btn" data-answer="fact">Fact</button><button class="answer-btn" data-answer="lie">Fiction</button></div>
+                <div class="reveal">
+                  <div>
+                    <span class="reveal-badge">Correct answer: fiction</span>
+                    <div class="reveal-meta">What my case shows</div>
+                    <h4>Understanding does not guarantee action</h4>
+                    <p>Cases on choice architecture show that even when people are given a clear explanation, they do not rush to change their behavior. Status quo bias, delay, fear of mistakes, and extra steps can all be stronger than a good instruction.</p>
+                    <div class="trap-box"><strong>Trap:</strong> rationalist optimism — assuming knowledge automatically turns into action.</div>
+                  </div>
+                  <div class="chart-box">
+                    <button class="chart-btn" data-full="/static/media/case_13_auto_enrolment_defaults.jpg" aria-label="Open chart 15" type="button">
+                      <img src="/static/media/case_13_auto_enrolment_defaults.jpg" alt="Chart for choice and behavior case" loading="lazy" width="700" height="480">
+                    </button>
+                    <div class="chart-caption">Even the right action is often postponed unless the choice architecture changes.</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card" data-correct="lie">
+                <div class="card-top"><span class="case-no">Question 16</span><span class="status">Fact or fiction?</span></div>
+                <p class="statement">To make people save more, it is enough to give them the right option — rationality will do the rest.</p>
+                <div class="answers"><button class="answer-btn" data-answer="fact">Fact</button><button class="answer-btn" data-answer="lie">Fiction</button></div>
+                <div class="reveal">
+                  <div>
+                    <span class="reveal-badge">Correct answer: fiction</span>
+                    <div class="reveal-meta">What my case shows</div>
+                    <h4>Defaults are often stronger than intentions</h4>
+                    <p>In the auto-enrolment case, participation increased sharply not when people were simply offered options, but when the default scenario itself changed. People often stay with what the system sets for them by default.</p>
+                    <div class="trap-box"><strong>Trap:</strong> underestimating the power of status quo and default choice.</div>
+                  </div>
+                  <div class="chart-box">
+                    <button class="chart-btn" data-full="/static/media/case_13_auto_enrolment_defaults.jpg" aria-label="Open chart 16" type="button">
+                      <img src="/static/media/case_13_auto_enrolment_defaults.jpg" alt="Chart for auto-enrolment case" loading="lazy" width="700" height="480">
+                    </button>
+                    <div class="chart-caption">A default option can sharply change savings participation.</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card" data-correct="lie">
+                <div class="card-top"><span class="case-no">Question 17</span><span class="status">Fact or fiction?</span></div>
+                <p class="statement">If there is an option to save more for retirement, people will actively choose it on their own.</p>
+                <div class="answers"><button class="answer-btn" data-answer="fact">Fact</button><button class="answer-btn" data-answer="lie">Fiction</button></div>
+                <div class="reveal">
+                  <div>
+                    <span class="reveal-badge">Correct answer: fiction</span>
+                    <div class="reveal-meta">What my case shows</div>
+                    <h4>The right option does not always lead to active choice</h4>
+                    <p>In the retirement saving case, contribution growth happened because of automatic steps and soft design choices, not because people were actively switching to the better option at scale. The existence of a good option alone does not change behavior.</p>
+                    <div class="trap-box"><strong>Trap:</strong> overestimating active decision-making and underestimating inertia.</div>
+                  </div>
+                  <div class="chart-box">
+                    <button class="chart-btn" data-full="/static/media/case_13_auto_enrolment_defaults.jpg" aria-label="Open chart 17" type="button">
+                      <img src="/static/media/case_13_auto_enrolment_defaults.jpg" alt="Chart for retirement contribution case" loading="lazy" width="700" height="480">
+                    </button>
+                    <div class="chart-caption">The mere existence of a good option does not guarantee people will choose it.</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card" data-correct="lie">
+                <div class="card-top"><span class="case-no">Question 18</span><span class="status">Fact or fiction?</span></div>
+                <p class="statement">In finance, the more self-confidence a person has, the better.</p>
+                <div class="answers"><button class="answer-btn" data-answer="fact">Fact</button><button class="answer-btn" data-answer="lie">Fiction</button></div>
+                <div class="reveal">
+                  <div>
+                    <span class="reveal-badge">Correct answer: fiction</span>
+                    <div class="reveal-meta">What my case shows</div>
+                    <h4>Overconfidence can also do harm</h4>
+                    <p>In the financial confidence case, the strongest outcome was not extreme confidence, but a balanced level of confidence. Too little confidence can paralyze action, but too much can push people to overestimate their own ability.</p>
+                    <div class="trap-box"><strong>Trap:</strong> treating confidence as a pure asset rather than a double-edged tool.</div>
+                  </div>
+                  <div class="chart-box">
+                    <button class="chart-btn" data-full="/static/media/case_15_confidence_balance.jpg" aria-label="Open chart 18" type="button">
+                      <img src="/static/media/case_15_confidence_balance.jpg" alt="Chart for financial confidence case" loading="lazy" width="700" height="480">
+                    </button>
+                    <div class="chart-caption">Balanced confidence works better than excessive confidence.</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card" data-correct="lie">
+                <div class="card-top"><span class="case-no">Question 19</span><span class="status">Fact or fiction?</span></div>
+                <p class="statement">One general “money pot” works just as well as keeping several separate “envelopes.”</p>
+                <div class="answers"><button class="answer-btn" data-answer="fact">Fact</button><button class="answer-btn" data-answer="lie">Fiction</button></div>
+                <div class="reveal">
+                  <div>
+                    <span class="reveal-badge">Correct answer: fiction</span>
+                    <div class="reveal-meta">What my case shows</div>
+                    <h4>Envelope logic really changes behavior</h4>
+                    <p>In the case comparing one shared account with separate envelopes, people with mentally or practically divided money saved differently and spent differently. Formally the money is the same, but the way it is psychologically organized changes decisions.</p>
+                    <div class="trap-box"><strong>Trap:</strong> ignoring mental accounting and assuming all money feels the same.</div>
+                  </div>
+                  <div class="chart-box">
+                    <button class="chart-btn" data-full="/static/media/case_17_mental_accounting_envelopes.jpg" aria-label="Open chart 19" type="button">
+                      <img src="/static/media/case_17_mental_accounting_envelopes.jpg" alt="Chart for envelopes and shared money case" loading="lazy" width="700" height="480">
+                    </button>
+                    <div class="chart-caption">Mental separation of money changes spending and saving behavior.</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card" data-correct="lie">
+                <div class="card-top"><span class="case-no">Question 20</span><span class="status">Fact or fiction?</span></div>
+                <p class="statement">If a person is extremely frugal and constantly restricts themselves, that almost always means financial maturity.</p>
+                <div class="answers"><button class="answer-btn" data-answer="fact">Fact</button><button class="answer-btn" data-answer="lie">Fiction</button></div>
+                <div class="reveal">
+                  <div>
+                    <span class="reveal-badge">Correct answer: fiction</span>
+                    <div class="reveal-meta">What my case shows</div>
+                    <h4>Sometimes “frugality” is anxiety, not stability</h4>
+                    <p>Cases about scarcity thinking show that strict self-denial does not always signal healthy financial maturity. Often it reflects not strategy, but a persistent fear of shortage and an inner feeling that safety exists only when almost nothing is allowed.</p>
+                    <div class="trap-box"><strong>Trap:</strong> confusing carefulness with living in a permanent internal scarcity mode.</div>
+                  </div>
+                  <div class="chart-box">
+                    <button class="chart-btn" data-full="/static/media/case_16_emergency_savings_debt.jpg" aria-label="Open chart 20" type="button">
+                      <img src="/static/media/case_16_emergency_savings_debt.jpg" alt="Chart for scarcity mindset case" loading="lazy" width="700" height="480">
+                    </button>
+                    <div class="chart-caption">Strict self-restraint may come from anxiety rather than a mature strategy.</div>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-dialog">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close enlarged image" type="button">×</button>
+      <img id="lightboxImage" src="" alt="Enlarged chart">
+    </div>
+  </div>
+
+  <script>
+    const root = document.documentElement;
+    const themeToggle = document.querySelector('[data-theme-toggle]');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const siteMenu = document.getElementById('site-menu');
+    const progress = document.getElementById('progress');
+
+    let currentTheme = root.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    root.setAttribute('data-theme', currentTheme);
+
+    function updateThemeIcon() {
+      if (!themeToggle) return;
+      themeToggle.innerHTML = currentTheme === 'dark'
+        ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>'
+        : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>';
+    }
+    updateThemeIcon();
+
+    themeToggle?.addEventListener('click', () => {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', currentTheme);
+      updateThemeIcon();
+    });
+
+    menuToggle?.addEventListener('click', () => {
+      const isOpen = siteMenu.classList.toggle('is-open');
+      menuToggle.classList.toggle('is-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    const cards = document.querySelectorAll('.card');
+    let answered = 0;
+
+    function updateProgress() {
+      const total = cards.length;
+      progress.style.width = ((answered / total) * 100) + '%';
+    }
+
+    cards.forEach(card => {
+      const correct = card.dataset.correct;
+      const buttons = card.querySelectorAll('.answer-btn');
+      const reveal = card.querySelector('.reveal');
+      const status = card.querySelector('.status');
+
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const chosen = button.dataset.answer;
+          buttons.forEach(btn => {
+            btn.classList.add('is-disabled');
+            if (btn.dataset.answer === correct) btn.classList.add('is-right');
+            if (btn.dataset.answer === chosen && chosen !== correct) btn.classList.add('is-wrong');
+          });
+          status.textContent = chosen === correct ? 'Correct' : 'Not quite';
+          reveal.classList.add('open');
+          if (!card.dataset.answered) {
+            card.dataset.answered = 'true';
+            answered += 1;
+            updateProgress();
+          }
+        }, { once: true });
+      });
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.chart-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const img = button.querySelector('img');
+        const fullSrc = button.dataset.full || (img ? img.getAttribute('src') : '');
+
+        if (!fullSrc) return;
+
+        lightboxImage.src = fullSrc;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImage.src = '';
+    }
+
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightbox?.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
+  </script>
+</body>
+</html>
