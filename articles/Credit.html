@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TELWHA | Однакова прострочка, різна поведінка боржника</title>
+<meta name="description" content="Поведінкова сегментація у стягненні заборгованості: чому однакова прострочка не означає однакову поведінку боржника і не потребує однакової стратегії.">
+<link rel="canonical" href="https://t-e-l-w-h-a.com/cases/same-delinquency-different-borrower/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="TELWHA | Однакова прострочка, різна поведінка боржника">
+<meta property="og:description" content="Поведінкова сегментація у стягненні заборгованості: чому однакова прострочка не означає однакову поведінку боржника і не потребує однакової стратегії.">
+<meta property="og:url" content="https://t-e-l-w-h-a.com/cases/same-delinquency-different-borrower/">
+<meta property="og:site_name" content="TELWHA">
+
+<link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+<link rel="stylesheet" href="/static/css/base.css">
+<link rel="stylesheet" href="/static/css/layout-article.css">
+
+<style>
+html{scroll-behavior:smooth;}
+.progress{position:fixed;inset:0 auto auto 0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,var(--accent,#8b7355),var(--accent-2,#c7a978));box-shadow:0 1px 10px rgba(0,0,0,.12)}
+
+.article-shell{position:relative;max-width:1320px;margin-inline:auto}
+.article-header{position:relative;overflow:hidden}
+.article-header::after{content:"";position:absolute;right:-80px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(199,169,120,.16),rgba(199,169,120,0) 70%);pointer-events:none}
+.article-deck{max-width:920px}
+.article-reading{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.article-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:rgba(255,255,255,.5);backdrop-filter:blur(4px);font-size:.88rem;line-height:1}
+html[data-theme="dark"] .article-chip{background:rgba(255,255,255,.04)}
+
+.article-layout{
+  display:grid;
+  grid-template-columns:minmax(0,5fr) minmax(260px,2fr);
+  gap:56px;
+  align-items:start;
+}
+
+.article-main{min-width:0}
+.article-aside{position:sticky;top:92px;display:flex;flex-direction:column;gap:14px}
+.aside-card{padding:16px 16px 14px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.45));box-shadow:0 10px 30px rgba(0,0,0,.04)}
+html[data-theme="dark"] .aside-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
+.aside-card h3{font-size:.92rem;margin:0 0 10px;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
+.toc{display:flex;flex-direction:column;gap:8px}
+.toc a{display:block;padding:8px 10px;border-radius:12px;text-decoration:none;opacity:.78}
+.toc a:hover,.toc a.is-active{background:rgba(199,169,120,.14);opacity:1}
+
+.article-body>p{position:relative;margin-bottom:1.35rem}
+.article-body section[id]>p:first-of-type{margin-top:0}
+.article-body>p.is-focus{padding-left:16px;border-left:3px solid rgba(199,169,120,.8)}
+.article-body h2,.article-body h3,.article-body section[id]{scroll-margin-top:120px}
+.article-body section[id]{position:relative;margin-top:2.2rem}
+.article-pullquote{margin:22px 0;padding:18px 20px;border-radius:18px;border:1px solid rgba(120,120,120,.14);background:linear-gradient(135deg,rgba(199,169,120,.14),rgba(199,169,120,.04));font-size:1.05rem;line-height:1.7}
+.article-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(120,120,120,.25),transparent);margin:28px 0}
+
+.mobile-jump{display:none}
+
+.audience-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 14px}
+.audience-tab{padding:10px 14px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:transparent;font:inherit;line-height:1.1;cursor:pointer}
+.audience-tab:hover,.audience-tab.is-active{background:rgba(199,169,120,.14);border-color:rgba(199,169,120,.35)}
+.audience-panels{margin-bottom:18px}
+.audience-panel{padding:18px 18px 2px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44))}
+html[data-theme="dark"] .audience-panel{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+
+.case-figure{margin:24px 0 10px}
+.case-figure a{text-decoration:none;color:inherit}
+.case-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:24px;
+  border:1px solid rgba(120,120,120,.14);
+  background:rgba(255,255,255,.55);
+  box-shadow:0 14px 40px rgba(0,0,0,.06);
+}
+html[data-theme="dark"] .case-figure img{
+  background:rgba(255,255,255,.03);
+  box-shadow:none;
+}
+.case-figure figcaption{
+  margin-top:10px;
+  font-size:.95rem;
+  opacity:.74;
+}
+
+.insight-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  margin:22px 0 10px;
+}
+.insight-card{
+  padding:18px;
+  border:1px solid rgba(120,120,120,.14);
+  border-radius:20px;
+  background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44));
+}
+html[data-theme="dark"] .insight-card{
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+}
+.insight-card h3{margin:0 0 10px;font-size:1.02rem}
+.insight-card p{margin:0;font-size:.98rem;line-height:1.65}
+
+.segment-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  margin:18px 0 12px;
+}
+.segment-card{
+  padding:18px;
+  border:1px solid rgba(120,120,120,.14);
+  border-radius:20px;
+  background:rgba(199,169,120,.06);
+}
+.segment-card h3{margin:0 0 8px;font-size:1rem}
+.segment-card p{margin:0;font-size:.98rem;line-height:1.62}
+
+.logic-box{
+  margin:18px 0 8px;
+  padding:18px;
+  border:1px solid rgba(120,120,120,.14);
+  border-radius:20px;
+  background:linear-gradient(180deg,rgba(255,255,255,.66),rgba(255,255,255,.42));
+}
+html[data-theme="dark"] .logic-box{
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+}
+.logic-box h3{margin:0 0 10px;font-size:1rem}
+.logic-list{margin:0;padding-left:18px}
+.logic-list li{margin-bottom:10px;line-height:1.62}
+
+.takeaway-box{
+  margin:20px 0 10px;
+  padding:22px;
+  border-radius:22px;
+  border:1px solid rgba(120,120,120,.14);
+  background:linear-gradient(135deg,rgba(199,169,120,.18),rgba(199,169,120,.05));
+}
+.takeaway-box h3{margin:0 0 12px}
+.takeaway-box p:last-child{margin-bottom:0}
+
+details.methodology{
+  margin-top:22px;
+  border:1px solid rgba(120,120,120,.14);
+  border-radius:20px;
+  background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.46));
+  overflow:hidden;
+}
+html[data-theme="dark"] details.methodology{
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+}
+details.methodology summary{
+  cursor:pointer;
+  list-style:none;
+  padding:18px 20px;
+  font-weight:700;
+}
+details.methodology summary::-webkit-details-marker{display:none}
+details.methodology[open] summary{
+  border-bottom:1px solid rgba(120,120,120,.12);
+}
+.methodology-inner{
+  padding:18px 20px 22px;
+}
+.methodology-inner h4{
+  margin:18px 0 8px;
+  font-size:1rem;
+}
+.methodology-inner ul{
+  margin:0 0 12px 18px;
+}
+.methodology-inner li{
+  margin-bottom:8px;
+  line-height:1.6;
+}
+
+.article-cta{margin-top:26px}
+
+@media (max-width: 980px){
+  .section > .wrap{max-width:100%;width:100%}
+  .article-shell{max-width:100%;width:100%;margin-inline:0}
+  .article-layout{display:block}
+  .article-aside{display:none}
+  .insight-grid,.segment-grid{grid-template-columns:1fr}
+}
+
+@media (max-width: 720px){
+  .article-reading{gap:8px}
+  .article-chip{font-size:.8rem;padding:7px 10px}
+  .aside-card{border-radius:16px}
+  .mobile-jump{
+    display:flex;
+    gap:8px;
+    overflow:auto;
+    padding-bottom:6px;
+    scrollbar-width:none;
+  }
+  .mobile-jump::-webkit-scrollbar{display:none}
+  .mobile-jump a{
+    white-space:nowrap;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:999px;
+    border:1px solid rgba(120,120,120,.16);
+    background:rgba(255,255,255,.52);
+    font-size:.85rem;
+  }
+  html[data-theme="dark"] .mobile-jump a{background:rgba(255,255,255,.04)}
+}
+
+.section > .wrap{max-width:1440px}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Однакова прострочка, різна поведінка боржника",
+  "description": "Поведінкова сегментація у стягненні заборгованості: чому однакова прострочка не означає однакову поведінку боржника і не потребує однакової стратегії.",
+  "author": {"@type": "Person", "name": "Anna Signaevska"},
+  "publisher": {"@type": "Organization", "name": "TELWHA"},
+  "inLanguage": "uk",
+  "datePublished": "2026-05-28",
+  "dateModified": "2026-05-28",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://t-e-l-w-h-a.com/articles/Credit.html"}
+}
+</script>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="topbar">
+  <div class="wrap nav">
+    <div class="brand">
+      <a class="brand-row" href="/">
+        <strong>TELWHA</strong>
+      </a>
+      <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+    </div>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-menu"
+      aria-label="Відкрити меню"
+    >
+      <span class="menu-toggle-lines" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+    <nav class="menu" id="site-menu">
+      <div class="menu-group">
+        <a href="/">Головна</a>
+        <a href="/finlab/">FinLab</a>
+        <a href="/about/">Про мене</a>
+      </div>
+
+      <div class="menu-group menu-dropdown">
+        <button type="button" class="menu-dropbtn">Трейдерам ▾</button>
+        <div class="menu-dropcontent">
+          <a href="/trader-course/">Міні‑курс</a>
+          <a href="/archetype-test/">Тест архетипів</a>
+        </div>
+      </div>
+
+      <div class="menu-group">
+        <a href="/articles/">Статті</a>
+        <a href="/reviews/">Відгуки</a>
+        <a href="/cases/">Кейси</a>
+        <a href="/contact/">Контакти</a>
+      </div>
+
+      <div class="menu-group menu-tools">
+        <details class="lang-switcher lang-switcher--inside">
+          <summary>🇺🇦</summary>
+          <div class="lang-list">
+            <a href="/en/articles/Credit.html" aria-label="English">🇬🇧</a>
+            <a href="/es/articles/Credit.html" aria-label="Español">🇪🇸</a>
+          </div>
+        </details>
+
+        <button class="theme-toggle" type="button" aria-label="Змінити тему">🌓</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <article class="article-shell" itemscope itemtype="https://schema.org/Article">
+        <header class="article-header fade-in">
+          <div class="eyebrow"><span>Case Study</span> TELWHA</div>
+          <h1 itemprop="headline">Однакова прострочка, різна поведінка боржника</h1>
+          <p class="article-deck" itemprop="description">
+            Однакова прострочка не означає однакову поведінку боржника — і не потребує однакової стратегії роботи зі стягненням заборгованості.
+          </p>
+          <div class="article-reading">
+            <span class="article-chip">FinTech · Стягнення заборгованості</span>
+            <span class="article-chip">Поведінкова сегментація</span>
+            <span class="article-chip">Людиноцентричний сервіс</span>
+          </div>
+        </header>
+
+        <div class="mobile-jump fade-in" aria-label="Швидка навігація по кейсу">
+          <a href="#part-1">Проблема</a>
+          <a href="#part-2">Що показав графік</a>
+          <a href="#part-3">Сегменти</a>
+          <a href="#part-4">Практичне значення</a>
+          <a href="#part-5">Методологія</a>
+        </div>
+
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="article-body" itemprop="articleBody">
+              <section id="part-1">
+                <p class="is-focus">
+                  Традиційні системи стягнення заборгованості часто сегментують клієнтів лише за рівнем прострочки, кількістю днів затримки або кредитним скором. Але всередині одного рівня прострочки поведінка боржників може суттєво відрізнятися: хтось просто забуває про платіж, хтось має тимчасові труднощі з грошовим потоком, хтось уникає контакту через тривогу, а хтось системно тестує межі допуску.
+                </p>
+                <p>
+                  У цьому кейсі я досліджувала не просто прострочку як факт, а поведінку всередині однакового статусу прострочки. Центральна ідея проста: однакова прострочка не означає однакового боржника. Якщо поведінкові профілі різні, то і стратегія взаємодії має бути різною.
+                </p>
+              </section>
+
+              <div class="article-pullquote fade-in">
+                Найкраща стратегія стягнення заборгованості — не та, що жорсткіша для всіх, а та, що точніше відповідає поведінці конкретного типу боржника.
+              </div>
+
+              <div class="article-divider"></div>
+
+              <section id="part-2">
+                <h2>Що показав графік</h2>
+                <p>
+                  Навіть у межах одного рівня прострочки реакція боржників виявилась неоднаковою. У частини клієнтів час від нагадування до дії становив лише 13 годин, тоді як у профілів, що уникають контакту, затримка реакції сягала 107 годин. Це означає, що сам рівень прострочки не пояснює, як саме людина поводиться під фінансовим тиском.
+                </p>
+                <p>
+                  Візуалізація також показує, що підібрана під поведінковий профіль стратегія повернення боргу виглядає сильнішою за однаковий підхід для всіх. Для одних спрацьовує просте нагадування, для інших — гнучкий графік оплати, а для окремих сегментів — швидша ескалація.
+                </p>
+
+                <figure class="case-figure fade-in">
+                  <a href="https://public.tableau.com/static/images/Sa/SameDelinquencyDifferentBorrower/SameDelinquencyDifferentBorrower/1.png" target="_blank" rel="noopener noreferrer">
+                    <img
+                      src="https://public.tableau.com/static/images/Sa/SameDelinquencyDifferentBorrower/SameDelinquencyDifferentBorrower/1.png"
+                      alt="Візуалізація поведінкових сегментів боржників у межах одного рівня прострочки"
+                      width="1300"
+                      height="975"
+                      loading="lazy"
+                    >
+                  </a>
+                  <figcaption>
+                    Візуалізація поведінкових сегментів у межах одного рівня прострочки.
+                  </figcaption>
+                </figure>
+
+                <div class="insight-grid fade-in">
+                  <div class="insight-card">
+                    <h3>Швидкість реакції</h3>
+                    <p>
+                      Час від нагадування до дії виявився одним із найсильніших поведінкових сигналів. Він показує не просто повільність, а тип взаємодії людини з фінансовим стресом.
+                    </p>
+                  </div>
+                  <div class="insight-card">
+                    <h3>Підібраний підхід</h3>
+                    <p>
+                      У межах моделі підібраний підхід до стягнення заборгованості дає кращий очікуваний результат, ніж однакова схема для всіх. Перевага виникає не через жорсткість, а через точніше попадання в реальну причину затримки.
+                    </p>
+                  </div>
+                  <div class="insight-card">
+                    <h3>Поведінковий профіль</h3>
+                    <p>
+                      Усередині одного рівня прострочки видно різні патерни: уникання, кооперативність, забудькуватість і стратегічна затримка. Саме вони, а не лише дні прострочки, мають визначати спосіб взаємодії.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-3">
+                <h2>Чотири поведінкові сегменти</h2>
+                <p>
+                  Замість того щоб дивитися на всіх боржників як на одну масу, я розклала один і той самий рівень прострочки на чотири поведінкові типи. Це дозволяє побачити психологічний механізм за фінансовою поведінкою, а не лише статус боргу.
+                </p>
+
+                <div class="segment-grid fade-in">
+                  <div class="segment-card">
+                    <h3>Забудькуваті</h3>
+                    <p>
+                      Зазвичай платять вчасно, але іноді пропускають термін або реагують із невеликим запізненням. Для них достатньо м’якого нагадування та простого шляху до оплати.
+                    </p>
+                  </div>
+                  <div class="segment-card">
+                    <h3>Тимчасовий стрес грошового потоку</h3>
+                    <p>
+                      Не уникають платежу навмисно, але мають тимчасовий дефіцит коштів. Для цього профілю краще працюють гнучкий графік, менші частини платежу та перенесення дати оплати.
+                    </p>
+                  </div>
+                  <div class="segment-card">
+                    <h3>Ті, хто уникає дії</h3>
+                    <p>
+                      Відкладають контакт і рішення, навіть коли ситуацію ще можна стабілізувати. Тут краще працює спокійна, безтискова комунікація з чітким і простим шляхом до дії.
+                    </p>
+                  </div>
+                  <div class="segment-card">
+                    <h3>Стратегічні затримувачі</h3>
+                    <p>
+                      Регулярно тестують межі та використовують допуск до затримки як частину власної стратегії. Для них потрібен швидший перехід до жорсткішого сценарію та менше поблажливості.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="logic-box fade-in">
+                  <h3>Операційна логіка</h3>
+                  <ul class="logic-list">
+                    <li>Клієнтів, які швидко реагують і зазвичай виконують обіцянку оплатити, доцільно направляти у м’який цифровий сценарій з простим посиланням на оплату.</li>
+                    <li>Клієнтам із тимчасовим стресом грошового потоку краще пропонувати зміну графіка, менші частини платежу або відтермінування.</li>
+                    <li>Для тих, хто уникає контакту і затягує реакцію, агресивніша комунікація може погіршити результат; ефективнішим буде спокійний, структурований і безтисковий сценарій.</li>
+                    <li>Для клієнтів, які системно затримують платіж, маршрут має бути жорсткішим і швидше переходити до ескалації.</li>
+                  </ul>
+                </div>
+
+                <div class="takeaway-box fade-in">
+                  <h3>Ключовий висновок</h3>
+                  <p>
+                    Однакова прострочка може приховувати різні поведінкові механізми, а отже однакова стратегія взаємодії для всіх клієнтів є логічно слабкою.
+                  </p>
+                  <p>
+                    Найкращі системи стягнення заборгованості — не обов’язково жорсткіші. Вони точніше підібрані під тип поведінки. Тиснути на людину, яка уникає контакту, означає посилювати опір. Давати надто м’який режим стратегічному затримувачу означає підкріплювати невигідний для компанії патерн.
+                  </p>
+                  <p>
+                    Однакова прострочка не означає однакового боржника.
+                  </p>
+                </div>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-4">
+                <h2>Практичне значення</h2>
+
+                <div class="audience-tabs" role="tablist" aria-label="Сценарії використання">
+                  <button class="audience-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="audience-business" id="tab-business" data-target="audience-business">Бізнес і продукт</button>
+                  <button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-users" id="tab-users" data-target="audience-users">Люди і клієнтський досвід</button>
+                  <button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-technical" id="tab-technical" data-target="audience-technical">Технічна оцінка</button>
+                </div>
+
+                <div class="audience-panels">
+                  <section class="audience-panel is-active" id="audience-business" role="tabpanel" aria-labelledby="tab-business">
+                    <p>
+                      Стягнення заборгованості можна будувати точніше, якщо сегментувати клієнтів не лише за прострочкою або скором, а й за поведінкою.
+                    </p>
+                    <p>
+                      Практична цінність такого підходу — у точнішій маршрутизації клієнтів, меншій кількості невлучних дій і кращому балансі між поверненням боргу та клієнтським досвідом.
+                    </p>
+                  </section>
+
+                  <section class="audience-panel" id="audience-users" role="tabpanel" aria-labelledby="tab-users" hidden>
+                    <p>
+                      Не варто зводити усіх боржників до одного типу. Людина з тимчасовими труднощами та людина, яка системно затягує оплату, — це не одна і та сама ситуація.
+                    </p>
+                    <p>
+                      Поведінково чутливіша система може бути водночас і результативнішою для компанії, і менш руйнівною для клієнтського досвіду.
+                    </p>
+                  </section>
+
+                  <section class="audience-panel" id="audience-technical" role="tabpanel" aria-labelledby="tab-technical" hidden>
+                    <p>
+                      Кейс показує, як можна побудувати синтетичне, але правдоподібне дослідницьке середовище, де сегментація спирається не лише на ризик, а на поведінкові ознаки.
+                    </p>
+                    <p>
+                      Візуальна частина побудована в Tableau, а структура даних і логіка ознак — у Python та VS Code.
+                    </p>
+                  </section>
+                </div>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-5">
+                <h2>Методологія та технічні деталі</h2>
+                <p>
+                  Це синтетичний портфоліо-кейс, побудований на основі сучасної практики стягнення заборгованості, поведінкової сегментації, логіки оцінки платоспроможності та принципів роботи з вразливими клієнтами.
+                </p>
+
+                <details class="methodology fade-in">
+                  <summary>Відкрити технічний блок</summary>
+                  <div class="methodology-inner">
+                    <h4>Тип кейсу</h4>
+                    <p>
+                      Синтетичний портфоліо-кейс, побудований на основі сучасної практики стягнення заборгованості, поведінкової сегментації та регуляторних підходів до вразливих клієнтів.
+                    </p>
+
+                    <h4>Структура даних</h4>
+                    <ul>
+                      <li>Один рівень прострочки: від 16 до 30 днів.</li>
+                      <li>Базові ознаки: дні прострочки, сума боргу, кількість пропущених платежів, стаж клієнта, історія попередніх прострочок.</li>
+                      <li>Поведінкові ознаки: швидкість реакції на нагадування, виконання обіцянки оплатити, частота часткових платежів, уникання контакту, чутливість до гнучкого графіка погашення.</li>
+                      <li>Додатковий шар платоспроможності: нестабільність доходу, фінансовий тиск наприкінці місяця, умовний показник грошового резерву.</li>
+                    </ul>
+
+                    <h4>Підхід до сегментації</h4>
+                    <p>
+                      Мета сегментації тут — не передбачити дефолт як такий, а показати, що однакова прострочка може приховувати різні механізми поведінки і потребувати різних сценаріїв взаємодії.
+                    </p>
+
+                    <h4>Інструменти</h4>
+                    <ul>
+                      <li>Python</li>
+                      <li>VS Code</li>
+                      <li>Tableau</li>
+                    </ul>
+
+                    <h4>Чому дані синтетичні</h4>
+                    <p>
+                      Публічні набори даних, у яких одночасно є прострочка, реакція на нагадування, канали комунікації, результати різних стратегій взаємодії та поведінкові ознаки, майже недоступні через приватність і регуляторні обмеження.
+                    </p>
+
+                    <h4>Джерела логіки</h4>
+                    <ul>
+                      <li>McKinsey: поведінкова сегментація та інноваційні підходи у collections.</li>
+                      <li>FCA: підхід до справедливого ставлення до вразливих клієнтів.</li>
+                      <li>Сучасна практика оцінки платоспроможності через сигнали руху коштів і тимчасового фінансового стресу.</li>
+                    </ul>
+                  </div>
+                </details>
+              </section>
+            </div>
+          </div>
+
+          <aside class="article-aside fade-in" aria-label="Навігація по кейсу">
+            <div class="aside-card">
+              <h3>Навігація</h3>
+              <nav class="toc">
+                <a href="#part-1">Проблема</a>
+                <a href="#part-2">Що показав графік</a>
+                <a href="#part-3">Чотири сегменти</a>
+                <a href="#part-4">Практичне значення</a>
+                <a href="#part-5">Методологія</a>
+              </nav>
+            </div>
+          </aside>
+        </div>
+
+        <section class="article-cta fade-in">
+          <a class="btn btn-ghost" href="/cases/">← До всіх кейсів</a>
+        </section>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid fade-in">
+      <div>
+        <h4>TELWHA</h4>
+        <p>Фінансова психологія, поведінкова економіка та архітектура вибору для стійкіших фінансових рішень.</p>
+      </div>
+      <div style="text-align:right">
+        <h4>Навігація</h4>
+        <div class="footer-links" style="align-items:flex-end">
+          <a href="/about/">Про мене</a>
+          <a href="/reviews/">Відгуки</a>
+          <a href="/contact/">Контакти</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TELWHA. Усі права захищено.</span>
+      <span>Київ, Україна · 🇺🇦</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/static/script/global.js"></script>
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const siteMenu = document.querySelector('#site-menu');
+  if (menuToggle && siteMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = siteMenu.classList.toggle('is-open');
+      menuToggle.classList.toggle('is-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      menuToggle.setAttribute('aria-label', isOpen ? 'Закрити меню' : 'Відкрити меню');
+    });
+  }
+
+  const progress = document.getElementById('progress');
+  const updateProgress = () => {
+    const doc = document.documentElement;
+    const total = doc.scrollHeight - doc.clientHeight;
+    const scrolled = total > 0 ? (doc.scrollTop / total) * 100 : 0;
+    if (progress) progress.style.width = scrolled + '%';
+  };
+  document.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  const audienceTabs = Array.from(document.querySelectorAll('.audience-tab'));
+  const audiencePanels = Array.from(document.querySelectorAll('.audience-panel'));
+  if (audienceTabs.length) {
+    audienceTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.target;
+        audienceTabs.forEach(btn => {
+          const active = btn === tab;
+          btn.classList.toggle('is-active', active);
+          btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        audiencePanels.forEach(panel => {
+          const active = panel.id === target;
+          panel.classList.toggle('is-active', active);
+          panel.hidden = !active;
+        });
+      });
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+    });
+  }, { threshold: 0.14 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+  const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  const markToc = () => {
+    let activeId = sections[0]?.id;
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 140) activeId = section.id;
+    });
+    tocLinks.forEach(link => {
+      link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
+    });
+  };
+  document.addEventListener('scroll', markToc, { passive: true });
+  markToc();
+</script>
+</body>
+</html>

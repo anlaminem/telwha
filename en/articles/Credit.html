@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TELWHA | Same Delinquency, Different Borrower Behavior</title>
+<meta name="description" content="Behavioral segmentation in debt collections: why the same delinquency does not mean the same borrower behavior and does not require the same strategy.">
+<link rel="canonical" href="https://t-e-l-w-h-a.com/en/cases/same-delinquency-different-borrower/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="TELWHA | Same Delinquency, Different Borrower Behavior">
+<meta property="og:description" content="Behavioral segmentation in debt collections: why the same delinquency does not mean the same borrower behavior and does not require the same strategy.">
+<meta property="og:url" content="https://t-e-l-w-h-a.com/en/cases/same-delinquency-different-borrower/">
+<meta property="og:site_name" content="TELWHA">
+
+<link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+<link rel="stylesheet" href="/static/css/base.css">
+<link rel="stylesheet" href="/static/css/layout-article.css">
+
+<style>
+html{scroll-behavior:smooth;}
+.progress{position:fixed;inset:0 auto auto 0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,var(--accent,#8b7355),var(--accent-2,#c7a978));box-shadow:0 1px 10px rgba(0,0,0,.12)}
+
+.article-shell{position:relative;max-width:1320px;margin-inline:auto}
+.article-header{position:relative;overflow:hidden}
+.article-header::after{content:"";position:absolute;right:-80px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(199,169,120,.16),rgba(199,169,120,0) 70%);pointer-events:none}
+.article-deck{max-width:920px}
+.article-reading{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.article-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:rgba(255,255,255,.5);backdrop-filter:blur(4px);font-size:.88rem;line-height:1}
+html[data-theme="dark"] .article-chip{background:rgba(255,255,255,.04)}
+
+.article-layout{
+  display:grid;
+  grid-template-columns:minmax(0,5fr) minmax(260px,2fr);
+  gap:56px;
+  align-items:start;
+}
+
+.article-main{min-width:0}
+.article-aside{position:sticky;top:92px;display:flex;flex-direction:column;gap:14px}
+.aside-card{padding:16px 16px 14px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.45));box-shadow:0 10px 30px rgba(0,0,0,.04)}
+html[data-theme="dark"] .aside-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
+.aside-card h3{font-size:.92rem;margin:0 0 10px;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
+.toc{display:flex;flex-direction:column;gap:8px}
+.toc a{display:block;padding:8px 10px;border-radius:12px;text-decoration:none;opacity:.78}
+.toc a:hover,.toc a.is-active{background:rgba(199,169,120,.14);opacity:1}
+
+.article-body>p{position:relative;margin-bottom:1.35rem}
+.article-body section[id]>p:first-of-type{margin-top:0}
+.article-body>p.is-focus{padding-left:16px;border-left:3px solid rgba(199,169,120,.8)}
+.article-body h2,.article-body h3,.article-body section[id]{scroll-margin-top:120px}
+.article-body section[id]{position:relative;margin-top:2.2rem}
+.article-pullquote{margin:22px 0;padding:18px 20px;border-radius:18px;border:1px solid rgba(120,120,120,.14);background:linear-gradient(135deg,rgba(199,169,120,.14),rgba(199,169,120,.04));font-size:1.05rem;line-height:1.7}
+.article-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(120,120,120,.25),transparent);margin:28px 0}
+
+.mobile-jump{display:none}
+
+.audience-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 14px}
+.audience-tab{padding:10px 14px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:transparent;font:inherit;line-height:1.1;cursor:pointer}
+.audience-tab:hover,.audience-tab.is-active{background:rgba(199,169,120,.14);border-color:rgba(199,169,120,.35)}
+.audience-panels{margin-bottom:18px}
+.audience-panel{padding:18px 18px 2px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44))}
+html[data-theme="dark"] .audience-panel{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+
+.case-figure{margin:24px 0 10px}
+.case-figure a{text-decoration:none;color:inherit}
+.case-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:24px;
+  border:1px solid rgba(120,120,120,.14);
+  background:rgba(255,255,255,.55);
+  box-shadow:0 14px 40px rgba(0,0,0,.06);
+}
+html[data-theme="dark"] .case-figure img{
+  background:rgba(255,255,255,.03);
+  box-shadow:none;
+}
+.case-figure figcaption{
+  margin-top:10px;
+  font-size:.95rem;
+  opacity:.74;
+}
+
+.insight-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  margin:22px 0 10px;
+}
+.insight-card{
+  padding:18px;
+  border:1px solid rgba(120,120,120,.14);
+  border-radius:20px;
+  background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44));
+}
+html[data-theme="dark"] .insight-card{
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+}
+.insight-card h3{margin:0 0 10px;font-size:1.02rem}
+.insight-card p{margin:0;font-size:.98rem;line-height:1.65}
+
+.segment-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  margin:18px 0 12px;
+}
+.segment-card{
+  padding:18px;
+  border:1px solid rgba(120,120,120,.14);
+  border-radius:20px;
+  background:rgba(199,169,120,.06);
+}
+.segment-card h3{margin:0 0 8px;font-size:1rem}
+.segment-card p{margin:0;font-size:.98rem;line-height:1.62}
+
+.logic-box{
+  margin:18px 0 8px;
+  padding:18px;
+  border:1px solid rgba(120,120,120,.14);
+  border-radius:20px;
+  background:linear-gradient(180deg,rgba(255,255,255,.66),rgba(255,255,255,.42));
+}
+html[data-theme="dark"] .logic-box{
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+}
+.logic-box h3{margin:0 0 10px;font-size:1rem}
+.logic-list{margin:0;padding-left:18px}
+.logic-list li{margin-bottom:10px;line-height:1.62}
+
+.takeaway-box{
+  margin:20px 0 10px;
+  padding:22px;
+  border-radius:22px;
+  border:1px solid rgba(120,120,120,.14);
+  background:linear-gradient(135deg,rgba(199,169,120,.18),rgba(199,169,120,.05));
+}
+.takeaway-box h3{margin:0 0 12px}
+.takeaway-box p:last-child{margin-bottom:0}
+
+details.methodology{
+  margin-top:22px;
+  border:1px solid rgba(120,120,120,.14);
+  border-radius:20px;
+  background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.46));
+  overflow:hidden;
+}
+html[data-theme="dark"] details.methodology{
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+}
+details.methodology summary{
+  cursor:pointer;
+  list-style:none;
+  padding:18px 20px;
+  font-weight:700;
+}
+details.methodology summary::-webkit-details-marker{display:none}
+details.methodology[open] summary{
+  border-bottom:1px solid rgba(120,120,120,.12);
+}
+.methodology-inner{
+  padding:18px 20px 22px;
+}
+.methodology-inner h4{
+  margin:18px 0 8px;
+  font-size:1rem;
+}
+.methodology-inner ul{
+  margin:0 0 12px 18px;
+}
+.methodology-inner li{
+  margin-bottom:8px;
+  line-height:1.6;
+}
+
+.article-cta{margin-top:26px}
+
+@media (max-width: 980px){
+  .section > .wrap{max-width:100%;width:100%}
+  .article-shell{max-width:100%;width:100%;margin-inline:0}
+  .article-layout{display:block}
+  .article-aside{display:none}
+  .insight-grid,.segment-grid{grid-template-columns:1fr}
+}
+
+@media (max-width: 720px){
+  .article-reading{gap:8px}
+  .article-chip{font-size:.8rem;padding:7px 10px}
+  .aside-card{border-radius:16px}
+  .mobile-jump{
+    display:flex;
+    gap:8px;
+    overflow:auto;
+    padding-bottom:6px;
+    scrollbar-width:none;
+  }
+  .mobile-jump::-webkit-scrollbar{display:none}
+  .mobile-jump a{
+    white-space:nowrap;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:999px;
+    border:1px solid rgba(120,120,120,.16);
+    background:rgba(255,255,255,.52);
+    font-size:.85rem;
+  }
+  html[data-theme="dark"] .mobile-jump a{background:rgba(255,255,255,.04)}
+}
+
+.section > .wrap{max-width:1440px}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Same Delinquency, Different Borrower Behavior",
+  "description": "Behavioral segmentation in debt collections: why the same delinquency does not mean the same borrower behavior and does not require the same strategy.",
+  "author": {"@type": "Person", "name": "Anna Signaevska"},
+  "publisher": {"@type": "Organization", "name": "TELWHA"},
+  "inLanguage": "en",
+  "datePublished": "2026-05-28",
+  "dateModified": "2026-05-28",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://t-e-l-w-h-a.com/en/articles/Credit.html"}
+}
+</script>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="topbar">
+  <div class="wrap nav">
+    <div class="brand">
+      <a class="brand-row" href="/en/">
+        <strong>TELWHA</strong>
+      </a>
+      <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+    </div>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-menu"
+      aria-label="Open menu"
+    >
+      <span class="menu-toggle-lines" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+    <nav class="menu" id="site-menu">
+      <div class="menu-group">
+        <a href="/en/">Home</a>
+        <a href="/en/finlab/">FinLab</a>
+        <a href="/en/about/">About</a>
+      </div>
+
+      <div class="menu-group menu-dropdown">
+        <button type="button" class="menu-dropbtn">For traders ▾</button>
+        <div class="menu-dropcontent">
+          <a href="/en/trader-course/">Mini course</a>
+          <a href="/en/archetype-test/">Archetype test</a>
+        </div>
+      </div>
+
+      <div class="menu-group">
+        <a href="/en/articles/">Articles</a>
+        <a href="/en/reviews/">Reviews</a>
+        <a href="/en/cases/">Cases</a>
+        <a href="/en/contact/">Contact</a>
+      </div>
+
+      <div class="menu-group menu-tools">
+        <details class="lang-switcher lang-switcher--inside">
+          <summary>🇬🇧</summary>
+          <div class="lang-list">
+            <a href="/articles/Credit.html" aria-label="Ukrainian">🇺🇦</a>
+            <a href="/es/articles/Credit.html" aria-label="Español">🇪🇸</a>
+          </div>
+        </details>
+
+        <button class="theme-toggle" type="button" aria-label="Toggle theme">🌓</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <article class="article-shell" itemscope itemtype="https://schema.org/Article">
+        <header class="article-header fade-in">
+          <div class="eyebrow"><span>Case Study</span> TELWHA</div>
+          <h1 itemprop="headline">Same Delinquency, Different Borrower Behavior</h1>
+          <p class="article-deck" itemprop="description">
+            The same delinquency does not mean the same borrower behavior — and it does not require the same debt collections strategy.
+          </p>
+          <div class="article-reading">
+            <span class="article-chip">FinTech · Debt Collections</span>
+            <span class="article-chip">Behavioral Segmentation</span>
+            <span class="article-chip">Human-Centered Servicing</span>
+          </div>
+        </header>
+
+        <div class="mobile-jump fade-in" aria-label="Quick case navigation">
+          <a href="#part-1">Problem</a>
+          <a href="#part-2">What the chart showed</a>
+          <a href="#part-3">Segments</a>
+          <a href="#part-4">Practical value</a>
+          <a href="#part-5">Methodology</a>
+        </div>
+
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="article-body" itemprop="articleBody">
+              <section id="part-1">
+                <p class="is-focus">
+                  Traditional debt collection systems often segment customers only by delinquency level, days past due, or credit score. But within the same delinquency tier, borrower behavior can differ significantly: some simply forget a payment, some face temporary cash-flow stress, some avoid contact because of anxiety, and some systematically test the limits of tolerance.
+                </p>
+                <p>
+                  In this case, I explored not delinquency as a status alone, but behavior within the same overdue state. The core idea is simple: the same delinquency does not mean the same borrower. If behavioral profiles differ, the interaction strategy should differ too.
+                </p>
+              </section>
+
+              <div class="article-pullquote fade-in">
+                The best debt collections strategy is not the one that is harsher for everyone, but the one that is more precisely matched to the behavior of a specific borrower type.
+              </div>
+
+              <div class="article-divider"></div>
+
+              <section id="part-2">
+                <h2>What the chart showed</h2>
+                <p>
+                  Even within the same delinquency level, borrower responses turned out to be far from uniform. For some customers, the time from reminder to action was only 13 hours, while for more avoidant profiles the reaction delay reached 107 hours. This suggests that delinquency level alone does not explain how a person behaves under financial pressure.
+                </p>
+                <p>
+                  The visualization also shows that a strategy tailored to a behavioral profile appears stronger than a uniform approach for everyone. For some, a simple reminder is enough; for others, a flexible repayment schedule works better; and for certain segments, faster escalation is more appropriate.
+                </p>
+
+                <figure class="case-figure fade-in">
+                  <a href="https://public.tableau.com/static/images/Sa/SameDelinquencyDifferentBorrower/SameDelinquencyDifferentBorrower/1.png" target="_blank" rel="noopener noreferrer">
+                    <img
+                      src="https://public.tableau.com/static/images/Sa/SameDelinquencyDifferentBorrower/SameDelinquencyDifferentBorrower/1.png"
+                      alt="Visualization of behavioral borrower segments within the same delinquency level"
+                      width="1300"
+                      height="975"
+                      loading="lazy"
+                    >
+                  </a>
+                  <figcaption>
+                    Visualization of behavioral segments within the same delinquency level.
+                  </figcaption>
+                </figure>
+
+                <div class="insight-grid fade-in">
+                  <div class="insight-card">
+                    <h3>Response speed</h3>
+                    <p>
+                      The time from reminder to action emerged as one of the strongest behavioral signals. It reflects not just slowness, but a person’s style of interacting with financial stress.
+                    </p>
+                  </div>
+                  <div class="insight-card">
+                    <h3>Matched treatment</h3>
+                    <p>
+                      Within the model, a matched collections approach shows a better expected result than a single uniform path. The advantage does not come from greater harshness, but from a closer fit to the real reason behind the delay.
+                    </p>
+                  </div>
+                  <div class="insight-card">
+                    <h3>Behavioral profile</h3>
+                    <p>
+                      Within the same delinquency level, distinct patterns appear: avoidance, cooperativeness, forgetfulness, and strategic delay. These patterns, rather than overdue days alone, should shape the mode of engagement.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-3">
+                <h2>Four behavioral segments</h2>
+                <p>
+                  Instead of treating all overdue borrowers as a single group, I broke the same delinquency level into four behavioral types. This makes it possible to see the psychological mechanism behind financial behavior, not just the debt status.
+                </p>
+
+                <div class="segment-grid fade-in">
+                  <div class="segment-card">
+                    <h3>Forgetful</h3>
+                    <p>
+                      They usually pay on time but occasionally miss a due date or respond with a slight delay. For them, a soft reminder and a simple path to payment are often enough.
+                    </p>
+                  </div>
+                  <div class="segment-card">
+                    <h3>Temporary cash-flow stress</h3>
+                    <p>
+                      They are not intentionally avoiding payment, but they face a temporary shortage of funds. For this profile, a flexible schedule, smaller installments, or a shifted due date tend to work better.
+                    </p>
+                  </div>
+                  <div class="segment-card">
+                    <h3>Avoidant</h3>
+                    <p>
+                      They postpone contact and delay action even when the situation is still recoverable. Here, calm, low-pressure communication with a clear and simple action path works better.
+                    </p>
+                  </div>
+                  <div class="segment-card">
+                    <h3>Strategic delayers</h3>
+                    <p>
+                      They regularly test boundaries and use tolerance windows as part of their own strategy. For them, a faster move into a firmer path with less leniency is more appropriate.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="logic-box fade-in">
+                  <h3>Operational logic</h3>
+                  <ul class="logic-list">
+                    <li>Customers who respond quickly and usually keep their promise to pay are better routed into a soft digital path with an easy payment link.</li>
+                    <li>Customers facing temporary cash-flow stress are better served by schedule changes, smaller installments, or short deferrals.</li>
+                    <li>For those who avoid contact and delay response, more aggressive communication may worsen the outcome; a calm, structured, low-pressure path is likely to work better.</li>
+                    <li>For customers who systematically delay payment, the path should be firmer and move to escalation sooner.</li>
+                  </ul>
+                </div>
+
+                <div class="takeaway-box fade-in">
+                  <h3>Key takeaway</h3>
+                  <p>
+                    The same delinquency can hide different behavioral mechanisms. As a result, one uniform engagement strategy for all customers is logically weak.
+                  </p>
+                  <p>
+                    The best debt collection systems are not necessarily harsher. They are more precisely matched to the type of behavior. Pressuring a person who avoids contact can intensify resistance. Giving an overly soft path to a strategic delayer can reinforce a pattern that is costly for the business.
+                  </p>
+                  <p>
+                    The same delinquency does not mean the same borrower.
+                  </p>
+                </div>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-4">
+                <h2>Practical value</h2>
+
+                <div class="audience-tabs" role="tablist" aria-label="Use scenarios">
+                  <button class="audience-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="audience-business" id="tab-business" data-target="audience-business">Business and product</button>
+                  <button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-users" id="tab-users" data-target="audience-users">People and customer experience</button>
+                  <button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-technical" id="tab-technical" data-target="audience-technical">Technical view</button>
+                </div>
+
+                <div class="audience-panels">
+                  <section class="audience-panel is-active" id="audience-business" role="tabpanel" aria-labelledby="tab-business">
+                    <p>
+                      Debt collections can be designed more precisely when customers are segmented not only by delinquency or score, but also by behavior.
+                    </p>
+                    <p>
+                      The practical value of this approach lies in more accurate routing, fewer misfired actions, and a better balance between recovery and customer experience.
+                    </p>
+                  </section>
+
+                  <section class="audience-panel" id="audience-users" role="tabpanel" aria-labelledby="tab-users" hidden>
+                    <p>
+                      Not all overdue borrowers should be reduced to one type. A person going through temporary hardship and a person who systematically delays payment are not the same situation.
+                    </p>
+                    <p>
+                      A more behaviorally sensitive system can be both more effective for the company and less damaging for the customer experience.
+                    </p>
+                  </section>
+
+                  <section class="audience-panel" id="audience-technical" role="tabpanel" aria-labelledby="tab-technical" hidden>
+                    <p>
+                      This case shows how a synthetic but plausible research environment can be built, where segmentation relies not only on risk but also on behavioral features.
+                    </p>
+                    <p>
+                      The visual layer was built in Tableau, while the data structure and feature logic were developed in Python and VS Code.
+                    </p>
+                  </section>
+                </div>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-5">
+                <h2>Methodology and technical details</h2>
+                <p>
+                  This is a synthetic portfolio case built on modern debt collections practice, behavioral segmentation logic, affordability thinking, and principles for working with vulnerable customers.
+                </p>
+
+                <details class="methodology fade-in">
+                  <summary>Open technical section</summary>
+                  <div class="methodology-inner">
+                    <h4>Case type</h4>
+                    <p>
+                      A synthetic portfolio case built on modern debt collections practice, behavioral segmentation, and regulatory approaches to vulnerable customers.
+                    </p>
+
+                    <h4>Data structure</h4>
+                    <ul>
+                      <li>One delinquency level: 16 to 30 days past due.</li>
+                      <li>Core variables: days past due, outstanding balance, missed payments, customer tenure, and prior delinquency history.</li>
+                      <li>Behavioral variables: reminder response speed, promise-to-pay fulfillment, partial payment frequency, contact avoidance, and sensitivity to flexible repayment schedules.</li>
+                      <li>Additional affordability layer: income instability, end-of-month financial stress, and a proxy cash buffer indicator.</li>
+                    </ul>
+
+                    <h4>Segmentation approach</h4>
+                    <p>
+                      The goal of segmentation here is not to predict default as such, but to show that the same delinquency can hide different behavioral mechanisms and require different engagement paths.
+                    </p>
+
+                    <h4>Tools</h4>
+                    <ul>
+                      <li>Python</li>
+                      <li>VS Code</li>
+                      <li>Tableau</li>
+                    </ul>
+
+                    <h4>Why the data is synthetic</h4>
+                    <p>
+                      Public datasets that simultaneously include delinquency status, reminder response, communication channels, results of different treatment strategies, and behavioral features are rarely available because of privacy and regulatory constraints.
+                    </p>
+
+                    <h4>Logic sources</h4>
+                    <ul>
+                      <li>McKinsey: behavioral segmentation and innovative approaches in collections.</li>
+                      <li>FCA: fair treatment of vulnerable customers.</li>
+                      <li>Modern affordability practice using cash-flow signals and temporary financial stress indicators.</li>
+                    </ul>
+                  </div>
+                </details>
+              </section>
+            </div>
+          </div>
+
+          <aside class="article-aside fade-in" aria-label="Case navigation">
+            <div class="aside-card">
+              <h3>Navigation</h3>
+              <nav class="toc">
+                <a href="#part-1">Problem</a>
+                <a href="#part-2">What the chart showed</a>
+                <a href="#part-3">Four segments</a>
+                <a href="#part-4">Practical value</a>
+                <a href="#part-5">Methodology</a>
+              </nav>
+            </div>
+          </aside>
+        </div>
+
+        <section class="article-cta fade-in">
+          <a class="btn btn-ghost" href="/en/cases/">← Back to all cases</a>
+        </section>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid fade-in">
+      <div>
+        <h4>TELWHA</h4>
+        <p>Financial psychology, behavioral economics, and choice architecture for more resilient financial decisions.</p>
+      </div>
+      <div style="text-align:right">
+        <h4>Navigation</h4>
+        <div class="footer-links" style="align-items:flex-end">
+          <a href="/en/about/">About</a>
+          <a href="/en/reviews/">Reviews</a>
+          <a href="/en/contact/">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TELWHA. All rights reserved.</span>
+      <span>Kyiv, Ukraine · 🇺🇦</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/static/script/global.js"></script>
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const siteMenu = document.querySelector('#site-menu');
+  if (menuToggle && siteMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = siteMenu.classList.toggle('is-open');
+      menuToggle.classList.toggle('is-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+  }
+
+  const progress = document.getElementById('progress');
+  const updateProgress = () => {
+    const doc = document.documentElement;
+    const total = doc.scrollHeight - doc.clientHeight;
+    const scrolled = total > 0 ? (doc.scrollTop / total) * 100 : 0;
+    if (progress) progress.style.width = scrolled + '%';
+  };
+  document.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  const audienceTabs = Array.from(document.querySelectorAll('.audience-tab'));
+  const audiencePanels = Array.from(document.querySelectorAll('.audience-panel'));
+  if (audienceTabs.length) {
+    audienceTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.target;
+        audienceTabs.forEach(btn => {
+          const active = btn === tab;
+          btn.classList.toggle('is-active', active);
+          btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        audiencePanels.forEach(panel => {
+          const active = panel.id === target;
+          panel.classList.toggle('is-active', active);
+          panel.hidden = !active;
+        });
+      });
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+    });
+  }, { threshold: 0.14 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+  const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  const markToc = () => {
+    let activeId = sections[0]?.id;
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 140) activeId = section.id;
+    });
+    tocLinks.forEach(link => {
+      link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
+    });
+  };
+  document.addEventListener('scroll', markToc, { passive: true });
+  markToc();
+</script>
+</body>
+</html>
