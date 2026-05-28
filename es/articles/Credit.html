@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TELWHA | Misma morosidad, comportamiento diferente</title>
+<meta name="description" content="Segmentación conductual en la gestión de cobros: por qué el mismo nivel de morosidad no implica el mismo comportamiento del prestatario ni requiere la misma estrategia.">
+<link rel="canonical" href="https://t-e-l-w-h-a.com/es/cases/same-delinquency-different-borrower/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="TELWHA | Misma morosidad, comportamiento diferente">
+<meta property="og:description" content="Segmentación conductual en la gestión de cobros: por qué el mismo nivel de morosidad no implica el mismo comportamiento del prestatario ni requiere la misma estrategia.">
+<meta property="og:url" content="https://t-e-l-w-h-a.com/es/cases/same-delinquency-different-borrower/">
+<meta property="og:site_name" content="TELWHA">
+
+<link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+<link rel="stylesheet" href="/static/css/base.css">
+<link rel="stylesheet" href="/static/css/layout-article.css">
+
+<style>
+html{scroll-behavior:smooth;}
+.progress{position:fixed;inset:0 auto auto 0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,var(--accent,#8b7355),var(--accent-2,#c7a978));box-shadow:0 1px 10px rgba(0,0,0,.12)}
+
+.article-shell{position:relative;max-width:1320px;margin-inline:auto}
+.article-header{position:relative;overflow:hidden}
+.article-header::after{content:"";position:absolute;right:-80px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(199,169,120,.16),rgba(199,169,120,0) 70%);pointer-events:none}
+.article-deck{max-width:920px}
+.article-reading{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.article-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:rgba(255,255,255,.5);backdrop-filter:blur(4px);font-size:.88rem;line-height:1}
+html[data-theme="dark"] .article-chip{background:rgba(255,255,255,.04)}
+
+.article-layout{
+  display:grid;
+  grid-template-columns:minmax(0,5fr) minmax(260px,2fr);
+  gap:56px;
+  align-items:start;
+}
+
+.article-main{min-width:0}
+.article-aside{position:sticky;top:92px;display:flex;flex-direction:column;gap:14px}
+.aside-card{padding:16px 16px 14px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.45));box-shadow:0 10px 30px rgba(0,0,0,.04)}
+html[data-theme="dark"] .aside-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
+.aside-card h3{font-size:.92rem;margin:0 0 10px;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
+.toc{display:flex;flex-direction:column;gap:8px}
+.toc a{display:block;padding:8px 10px;border-radius:12px;text-decoration:none;opacity:.78}
+.toc a:hover,.toc a.is-active{background:rgba(199,169,120,.14);opacity:1}
+
+.article-body>p{position:relative;margin-bottom:1.35rem}
+.article-body section[id]>p:first-of-type{margin-top:0}
+.article-body>p.is-focus{padding-left:16px;border-left:3px solid rgba(199,169,120,.8)}
+.article-body h2,.article-body h3,.article-body section[id]{scroll-margin-top:120px}
+.article-body section[id]{position:relative;margin-top:2.2rem}
+.article-pullquote{margin:22px 0;padding:18px 20px;border-radius:18px;border:1px solid rgba(120,120,120,.14);background:linear-gradient(135deg,rgba(199,169,120,.14),rgba(199,169,120,.04));font-size:1.05rem;line-height:1.7}
+.article-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(120,120,120,.25),transparent);margin:28px 0}
+
+.mobile-jump{display:none}
+
+.audience-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 14px}
+.audience-tab{padding:10px 14px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:transparent;font:inherit;line-height:1.1;cursor:pointer}
+.audience-tab:hover,.audience-tab.is-active{background:rgba(199,169,120,.14);border-color:rgba(199,169,120,.35)}
+.audience-panels{margin-bottom:18px}
+.audience-panel{padding:18px 18px 2px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44))}
+html[data-theme="dark"] .audience-panel{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+
+.case-figure{margin:24px 0 10px}
+.case-figure a{text-decoration:none;color:inherit}
+.case-figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:24px;
+  border:1px solid rgba(120,120,120,.14);
+  background:rgba(255,255,255,.55);
+  box-shadow:0 14px 40px rgba(0,0,0,.06);
+}
+html[data-theme="dark"] .case-figure img{
+  background:rgba(255,255,255,.03);
+  box-shadow:none;
+}
+.case-figure figcaption{
+  margin-top:10px;
+  font-size:.95rem;
+  opacity:.74;
+}
+
+.insight-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  margin:22px 0 10px;
+}
+.insight-card{
+  padding:18px;
+  border:1px solid rgba(120,120,120,.14);
+  border-radius:20px;
+  background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44));
+}
+html[data-theme="dark"] .insight-card{
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+}
+.insight-card h3{margin:0 0 10px;font-size:1.02rem}
+.insight-card p{margin:0;font-size:.98rem;line-height:1.65}
+
+.segment-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  margin:18px 0 12px;
+}
+.segment-card{
+  padding:18px;
+  border:1px solid rgba(120,120,120,.14);
+  border-radius:20px;
+  background:rgba(199,169,120,.06);
+}
+.segment-card h3{margin:0 0 8px;font-size:1rem}
+.segment-card p{margin:0;font-size:.98rem;line-height:1.62}
+
+.logic-box{
+  margin:18px 0 8px;
+  padding:18px;
+  border:1px solid rgba(120,120,120,.14);
+  border-radius:20px;
+  background:linear-gradient(180deg,rgba(255,255,255,.66),rgba(255,255,255,.42));
+}
+html[data-theme="dark"] .logic-box{
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+}
+.logic-box h3{margin:0 0 10px;font-size:1rem}
+.logic-list{margin:0;padding-left:18px}
+.logic-list li{margin-bottom:10px;line-height:1.62}
+
+.takeaway-box{
+  margin:20px 0 10px;
+  padding:22px;
+  border-radius:22px;
+  border:1px solid rgba(120,120,120,.14);
+  background:linear-gradient(135deg,rgba(199,169,120,.18),rgba(199,169,120,.05));
+}
+.takeaway-box h3{margin:0 0 12px}
+.takeaway-box p:last-child{margin-bottom:0}
+
+details.methodology{
+  margin-top:22px;
+  border:1px solid rgba(120,120,120,.14);
+  border-radius:20px;
+  background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.46));
+  overflow:hidden;
+}
+html[data-theme="dark"] details.methodology{
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+}
+details.methodology summary{
+  cursor:pointer;
+  list-style:none;
+  padding:18px 20px;
+  font-weight:700;
+}
+details.methodology summary::-webkit-details-marker{display:none}
+details.methodology[open] summary{
+  border-bottom:1px solid rgba(120,120,120,.12);
+}
+.methodology-inner{
+  padding:18px 20px 22px;
+}
+.methodology-inner h4{
+  margin:18px 0 8px;
+  font-size:1rem;
+}
+.methodology-inner ul{
+  margin:0 0 12px 18px;
+}
+.methodology-inner li{
+  margin-bottom:8px;
+  line-height:1.6;
+}
+
+.article-cta{margin-top:26px}
+
+@media (max-width: 980px){
+  .section > .wrap{max-width:100%;width:100%}
+  .article-shell{max-width:100%;width:100%;margin-inline:0}
+  .article-layout{display:block}
+  .article-aside{display:none}
+  .insight-grid,.segment-grid{grid-template-columns:1fr}
+}
+
+@media (max-width: 720px){
+  .article-reading{gap:8px}
+  .article-chip{font-size:.8rem;padding:7px 10px}
+  .aside-card{border-radius:16px}
+  .mobile-jump{
+    display:flex;
+    gap:8px;
+    overflow:auto;
+    padding-bottom:6px;
+    scrollbar-width:none;
+  }
+  .mobile-jump::-webkit-scrollbar{display:none}
+  .mobile-jump a{
+    white-space:nowrap;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:999px;
+    border:1px solid rgba(120,120,120,.16);
+    background:rgba(255,255,255,.52);
+    font-size:.85rem;
+  }
+  html[data-theme="dark"] .mobile-jump a{background:rgba(255,255,255,.04)}
+}
+
+.section > .wrap{max-width:1440px}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Misma morosidad, comportamiento diferente",
+  "description": "Segmentación conductual en la gestión de cobros: por qué el mismo nivel de morosidad no implica el mismo comportamiento del prestatario ni requiere la misma estrategia.",
+  "author": {"@type": "Person", "name": "Anna Signaevska"},
+  "publisher": {"@type": "Organization", "name": "TELWHA"},
+  "inLanguage": "es",
+  "datePublished": "2026-05-28",
+  "dateModified": "2026-05-28",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://t-e-l-w-h-a.com/es/articles/Credit.html"}
+}
+</script>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="topbar">
+  <div class="wrap nav">
+    <div class="brand">
+      <a class="brand-row" href="/es/">
+        <strong>TELWHA</strong>
+      </a>
+      <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+    </div>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-menu"
+      aria-label="Abrir menú"
+    >
+      <span class="menu-toggle-lines" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+    <nav class="menu" id="site-menu">
+      <div class="menu-group">
+        <a href="/es/">Inicio</a>
+        <a href="/es/finlab/">FinLab</a>
+        <a href="/es/about/">Sobre mí</a>
+      </div>
+
+      <div class="menu-group menu-dropdown">
+        <button type="button" class="menu-dropbtn">Para traders ▾</button>
+        <div class="menu-dropcontent">
+          <a href="/es/trader-course/">Mini curso</a>
+          <a href="/es/archetype-test/">Test de arquetipos</a>
+        </div>
+      </div>
+
+      <div class="menu-group">
+        <a href="/es/articles/">Artículos</a>
+        <a href="/es/reviews/">Opiniones</a>
+        <a href="/es/cases/">Casos</a>
+        <a href="/es/contact/">Contacto</a>
+      </div>
+
+      <div class="menu-group menu-tools">
+        <details class="lang-switcher lang-switcher--inside">
+          <summary>🇪🇸</summary>
+          <div class="lang-list">
+            <a href="/articles/Credit.html" aria-label="Ucraniano">🇺🇦</a>
+            <a href="/en/articles/Credit.html" aria-label="English">🇬🇧</a>
+          </div>
+        </details>
+
+        <button class="theme-toggle" type="button" aria-label="Cambiar tema">🌓</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <article class="article-shell" itemscope itemtype="https://schema.org/Article">
+        <header class="article-header fade-in">
+          <div class="eyebrow"><span>Case Study</span> TELWHA</div>
+          <h1 itemprop="headline">Misma morosidad, comportamiento diferente</h1>
+          <p class="article-deck" itemprop="description">
+            El mismo nivel de morosidad no implica el mismo comportamiento del prestatario, ni requiere la misma estrategia de gestión de cobros.
+          </p>
+          <div class="article-reading">
+            <span class="article-chip">FinTech · Gestión de cobros</span>
+            <span class="article-chip">Segmentación conductual</span>
+            <span class="article-chip">Servicio centrado en la persona</span>
+          </div>
+        </header>
+
+        <div class="mobile-jump fade-in" aria-label="Navegación rápida por el caso">
+          <a href="#part-1">Problema</a>
+          <a href="#part-2">Qué mostró el gráfico</a>
+          <a href="#part-3">Segmentos</a>
+          <a href="#part-4">Valor práctico</a>
+          <a href="#part-5">Metodología</a>
+        </div>
+
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="article-body" itemprop="articleBody">
+              <section id="part-1">
+                <p class="is-focus">
+                  Los sistemas tradicionales de cobros suelen segmentar a los clientes solo por nivel de morosidad, días de atraso o score crediticio. Pero dentro de un mismo tramo de morosidad, el comportamiento de los prestatarios puede ser muy diferente: algunos simplemente olvidan el pago, otros atraviesan un estrés temporal de liquidez, otros evitan el contacto por ansiedad y otros ponen a prueba de forma sistemática los límites de tolerancia.
+                </p>
+                <p>
+                  En este caso no analizo la morosidad solo como un estado, sino el comportamiento dentro del mismo nivel de atraso. La idea central es simple: misma morosidad no significa mismo prestatario. Si los perfiles conductuales son distintos, la estrategia de interacción también debe ser diferente.
+                </p>
+              </section>
+
+              <div class="article-pullquote fade-in">
+                La mejor estrategia de cobros no es la más dura para todos, sino la que se ajusta con mayor precisión al comportamiento de cada tipo de prestatario.
+              </div>
+
+              <div class="article-divider"></div>
+
+              <section id="part-2">
+                <h2>Qué mostró el gráfico</h2>
+                <p>
+                  Incluso dentro del mismo nivel de morosidad, las respuestas de los prestatarios resultaron lejos de ser uniformes. Para algunos clientes, el tiempo desde el recordatorio hasta la acción fue de solo 13 horas, mientras que para perfiles más evitativos la demora llegó a 107 horas. Esto sugiere que el nivel de morosidad por sí solo no explica cómo se comporta una persona bajo presión financiera.
+                </p>
+                <p>
+                  La visualización también muestra que una estrategia ajustada al perfil conductual parece más sólida que un enfoque uniforme para todos. Para algunos basta con un recordatorio simple; para otros funciona mejor un plan de pagos flexible; y para ciertos segmentos es más adecuada una escalación más rápida.
+                </p>
+
+                <figure class="case-figure fade-in">
+                  <a href="https://public.tableau.com/static/images/Sa/SameDelinquencyDifferentBorrower/SameDelinquencyDifferentBorrower/1.png" target="_blank" rel="noopener noreferrer">
+                    <img
+                      src="https://public.tableau.com/static/images/Sa/SameDelinquencyDifferentBorrower/SameDelinquencyDifferentBorrower/1.png"
+                      alt="Visualización de segmentos de prestatarios dentro del mismo nivel de morosidad"
+                      width="1300"
+                      height="975"
+                      loading="lazy"
+                    >
+                  </a>
+                  <figcaption>
+                    Visualización de segmentos conductuales dentro de un mismo nivel de morosidad.
+                  </figcaption>
+                </figure>
+
+                <div class="insight-grid fade-in">
+                  <div class="insight-card">
+                    <h3>Velocidad de respuesta</h3>
+                    <p>
+                      El tiempo desde el recordatorio hasta la acción apareció como una de las señales conductuales más fuertes. Refleja no solo lentitud, sino el estilo de interacción de la persona con el estrés financiero.
+                    </p>
+                  </div>
+                  <div class="insight-card">
+                    <h3>Tratamiento adecuado</h3>
+                    <p>
+                      En el modelo, un enfoque de cobros ajustado al perfil muestra un mejor resultado esperado que un único camino uniforme. La ventaja no proviene de más dureza, sino de una mayor alineación con la causa real del atraso.
+                    </p>
+                  </div>
+                  <div class="insight-card">
+                    <h3>Perfil conductual</h3>
+                    <p>
+                      Dentro del mismo nivel de morosidad aparecen patrones distintos: evitación, cooperación, olvido y retraso estratégico. Estos patrones, más que los días de atraso por sí solos, deberían guiar el modo de interacción.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-3">
+                <h2>Cuatro segmentos de comportamiento</h2>
+                <p>
+                  En lugar de tratar a todos los clientes en mora como un solo grupo, descompuse el mismo nivel de atraso en cuatro tipos conductuales. Esto permite ver el mecanismo psicológico detrás del comportamiento financiero, y no solo el estado de la deuda.
+                </p>
+
+                <div class="segment-grid fade-in">
+                  <div class="segment-card">
+                    <h3>Olvidadizos</h3>
+                    <p>
+                      Suelen pagar a tiempo pero, a veces, pasan por alto la fecha de vencimiento o responden con un ligero retraso. Para ellos, un recordatorio suave y una ruta de pago sencilla suelen ser suficientes.
+                    </p>
+                  </div>
+                  <div class="segment-card">
+                    <h3>Estrés temporal de liquidez</h3>
+                    <p>
+                      No evitan el pago de forma intencionada, pero atraviesan una escasez temporal de fondos. Para este perfil, un calendario flexible, cuotas más pequeñas o el cambio de fecha de pago tienden a funcionar mejor.
+                    </p>
+                  </div>
+                  <div class="segment-card">
+                    <h3>Evitativos</h3>
+                    <p>
+                      Posponen el contacto y retrasan la acción incluso cuando la situación aún es recuperable. Aquí funciona mejor una comunicación tranquila, con baja presión y un camino de acción claro y simple.
+                    </p>
+                  </div>
+                  <div class="segment-card">
+                    <h3>Retrasadores estratégicos</h3>
+                    <p>
+                      Ponen a prueba los límites y utilizan las ventanas de tolerancia como parte de su estrategia. Para ellos es más adecuado un camino más firme, con menos indulgencia y una escalación más rápida.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="logic-box fade-in">
+                  <h3>Lógica operativa</h3>
+                  <ul class="logic-list">
+                    <li>Los clientes que responden rápido y suelen cumplir su promesa de pago se benefician de un recorrido digital suave con un enlace de pago sencillo.</li>
+                    <li>Los clientes con estrés temporal de liquidez necesitan más bien cambios en el calendario, cuotas más pequeñas o breves aplazamientos.</li>
+                    <li>Para quienes evitan el contacto y demoran la respuesta, una comunicación más agresiva puede empeorar el resultado; un camino calmado, estructurado y con baja presión suele funcionar mejor.</li>
+                    <li>Para los clientes que retrasan el pago de forma sistemática, el recorrido debe ser más firme y avanzar antes hacia la escalación.</li>
+                  </ul>
+                </div>
+
+                <div class="takeaway-box fade-in">
+                  <h3>Conclusión clave</h3>
+                  <p>
+                    El mismo nivel de morosidad puede ocultar mecanismos de comportamiento diferentes. Por tanto, una única estrategia de interacción para todos los clientes es lógicamente débil.
+                  </p>
+                  <p>
+                    Los mejores sistemas de cobros no son necesariamente más duros. Están mejor ajustados al tipo de comportamiento. Presionar a una persona que evita el contacto puede intensificar la resistencia. Ofrecer un recorrido demasiado suave a un retrasador estratégico puede reforzar un patrón costoso para la empresa.
+                  </p>
+                  <p>
+                    Misma morosidad no significa mismo prestatario.
+                  </p>
+                </div>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-4">
+                <h2>Valor práctico</h2>
+
+                <div class="audience-tabs" role="tablist" aria-label="Escenarios de uso">
+                  <button class="audience-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="audience-business" id="tab-business" data-target="audience-business">Negocio y producto</button>
+                  <button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-users" id="tab-users" data-target="audience-users">Personas y experiencia</button>
+                  <button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-technical" id="tab-technical" data-target="audience-technical">Vista técnica</button>
+                </div>
+
+                <div class="audience-panels">
+                  <section class="audience-panel is-active" id="audience-business" role="tabpanel" aria-labelledby="tab-business">
+                    <p>
+                      La gestión de cobros puede diseñarse con mayor precisión cuando la segmentación de clientes se basa no solo en la morosidad o el score, sino también en el comportamiento.
+                    </p>
+                    <p>
+                      El valor práctico de este enfoque está en un enrutamiento más acertado, menos acciones desalineadas y un mejor equilibrio entre recuperación y experiencia del cliente.
+                    </p>
+                  </section>
+
+                  <section class="audience-panel" id="audience-users" role="tabpanel" aria-labelledby="tab-users" hidden>
+                    <p>
+                      No todos los clientes en mora deben reducirse a un solo tipo. Una persona que atraviesa dificultades temporales y otra que retrasa el pago de forma sistemática no representan la misma situación.
+                    </p>
+                    <p>
+                      Un sistema más sensible al comportamiento puede ser a la vez más eficaz para la empresa y menos dañino para la experiencia del cliente.
+                    </p>
+                  </section>
+
+                  <section class="audience-panel" id="audience-technical" role="tabpanel" aria-labelledby="tab-technical" hidden>
+                    <p>
+                      Este caso muestra cómo construir un entorno de investigación sintético pero plausible, donde la segmentación se base no solo en el riesgo, sino también en variables conductuales.
+                    </p>
+                    <p>
+                      La capa visual se desarrolló en Tableau, mientras que la estructura de datos y la lógica de las variables se elaboraron en Python y VS Code.
+                    </p>
+                  </section>
+                </div>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-5">
+                <h2>Metodología y detalles técnicos</h2>
+                <p>
+                  Este es un caso sintético de portfolio, construido a partir de la práctica moderna de gestión de cobros, la lógica de segmentación conductual, el pensamiento de asequibilidad y los principios de trabajo con clientes vulnerables.
+                </p>
+
+                <details class="methodology fade-in">
+                  <summary>Abrir sección técnica</summary>
+                  <div class="methodology-inner">
+                    <h4>Tipo de caso</h4>
+                    <p>
+                      Caso sintético de portfolio basado en la práctica actual de gestión de cobros, segmentación conductual y enfoques regulatorios hacia clientes vulnerables.
+                    </p>
+
+                    <h4>Estructura de datos</h4>
+                    <ul>
+                      <li>Un solo nivel de morosidad: de 16 a 30 días de atraso.</li>
+                      <li>Variables principales: días en atraso, saldo pendiente, pagos omitidos, antigüedad del cliente e historial de morosidad previa.</li>
+                      <li>Variables conductuales: rapidez de respuesta al recordatorio, cumplimiento de la promesa de pago, frecuencia de pagos parciales, evitación de contacto y sensibilidad a planes de pago flexibles.</li>
+                      <li>Capa adicional de asequibilidad: inestabilidad de ingresos, estrés financiero a fin de mes e indicador proxy de colchón de liquidez.</li>
+                    </ul>
+
+                    <h4>Enfoque de segmentación</h4>
+                    <p>
+                      El objetivo de la segmentación aquí no es predecir el incumplimiento como tal, sino mostrar que el mismo nivel de morosidad puede ocultar mecanismos de comportamiento distintos y requerir recorridos de interacción diferentes.
+                    </p>
+
+                    <h4>Herramientas</h4>
+                    <ul>
+                      <li>Python</li>
+                      <li>VS Code</li>
+                      <li>Tableau</li>
+                    </ul>
+
+                    <h4>Por qué los datos son sintéticos</h4>
+                    <p>
+                      Los conjuntos de datos públicos que incluyen simultáneamente morosidad, respuesta a recordatorios, canales de comunicación, resultados de distintas estrategias de tratamiento y variables conductuales son muy escasos debido a restricciones de privacidad y regulación.
+                    </p>
+
+                    <h4>Fuentes de lógica</h4>
+                    <ul>
+                      <li>Prácticas de segmentación conductual e innovación en estrategias de cobros en firmas globales.</li>
+                      <li>Enfoques regulatorios hacia el trato justo de clientes vulnerables en mercados financieros.</li>
+                      <li>Práctica moderna de evaluación de asequibilidad mediante señales de flujo de caja y estrés financiero temporal.</li>
+                    </ul>
+                  </div>
+                </details>
+              </section>
+            </div>
+          </div>
+
+          <aside class="article-aside fade-in" aria-label="Navegación por el caso">
+            <div class="aside-card">
+              <h3>Navegación</h3>
+              <nav class="toc">
+                <a href="#part-1">Problema</a>
+                <a href="#part-2">Qué mostró el gráfico</a>
+                <a href="#part-3">Cuatro segmentos</a>
+                <a href="#part-4">Valor práctico</a>
+                <a href="#part-5">Metodología</a>
+              </nav>
+            </div>
+          </aside>
+        </div>
+
+        <section class="article-cta fade-in">
+          <a class="btn btn-ghost" href="/es/cases/">← Volver a todos los casos</a>
+        </section>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid fade-in">
+      <div>
+        <h4>TELWHA</h4>
+        <p>Psicología financiera, economía conductual y arquitectura de elección para decisiones financieras más resilientes.</p>
+      </div>
+      <div style="text-align:right">
+        <h4>Navegación</h4>
+        <div class="footer-links" style="align-items:flex-end">
+          <a href="/es/about/">Sobre mí</a>
+          <a href="/es/reviews/">Opiniones</a>
+          <a href="/es/contact/">Contacto</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TELWHA. Todos los derechos reservados.</span>
+      <span>Kyiv, Ucrania · 🇺🇦</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/static/script/global.js"></script>
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const siteMenu = document.querySelector('#site-menu');
+  if (menuToggle && siteMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = siteMenu.classList.toggle('is-open');
+      menuToggle.classList.toggle('is-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      menuToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+    });
+  }
+
+  const progress = document.getElementById('progress');
+  const updateProgress = () => {
+    const doc = document.documentElement;
+    const total = doc.scrollHeight - doc.clientHeight;
+    const scrolled = total > 0 ? (doc.scrollTop / total) * 100 : 0;
+    if (progress) progress.style.width = scrolled + '%';
+  };
+  document.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  const audienceTabs = Array.from(document.querySelectorAll('.audience-tab'));
+  const audiencePanels = Array.from(document.querySelectorAll('.audience-panel'));
+  if (audienceTabs.length) {
+    audienceTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.target;
+        audienceTabs.forEach(btn => {
+          const active = btn === tab;
+          btn.classList.toggle('is-active', active);
+          btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        audiencePanels.forEach(panel => {
+          const active = panel.id === target;
+          panel.classList.toggle('is-active', active);
+          panel.hidden = !active;
+        });
+      });
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+    });
+  }, { threshold: 0.14 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+  const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  const markToc = () => {
+    let activeId = sections[0]?.id;
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 140) activeId = section.id;
+    });
+    tocLinks.forEach(link => {
+      link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
+    });
+  };
+  document.addEventListener('scroll', markToc, { passive: true });
+  markToc();
+</script>
+</body>
+</html>
