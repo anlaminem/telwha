@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TELWHA | Monitoreo explicable de riesgo de transacciones para fintech</title>
+<meta name="description" content="Caso de portafolio sobre monitoreo explicable de riesgo de transacciones para fintech: Python, Tableau, cola de investigación, explicabilidad y flujo de monitoreo de fraude.">
+<link rel="canonical" href="https://t-e-l-w-h-a.com/es/cases/explainable-transaction-risk-monitoring/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="TELWHA | Monitoreo explicable de riesgo de transacciones para fintech">
+<meta property="og:description" content="Caso de portafolio sobre monitoreo explicable de riesgo de transacciones para fintech: Python, Tableau, cola de investigación, explicabilidad y flujo de monitoreo de fraude.">
+<meta property="og:url" content="https://t-e-l-w-h-a.com/es/cases/explainable-transaction-risk-monitoring/">
+<meta property="og:site_name" content="TELWHA">
+
+<link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+<link rel="stylesheet" href="/static/css/base.css">
+<link rel="stylesheet" href="/static/css/layout-article.css">
+
+<style>
+html{scroll-behavior:smooth;}
+.progress{position:fixed;inset:0 auto auto 0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,var(--accent,#8b7355),var(--accent-2,#c7a978));box-shadow:0 1px 10px rgba(0,0,0,.12)}
+.article-shell{position:relative;max-width:1320px;margin-inline:auto}
+.article-header{position:relative;overflow:hidden}
+.article-header::after{content:"";position:absolute;right:-80px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(199,169,120,.16),rgba(199,169,120,0) 70%);pointer-events:none}
+.article-deck{max-width:920px}
+.article-reading{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.article-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:rgba(255,255,255,.5);backdrop-filter:blur(4px);font-size:.88rem;line-height:1}
+html[data-theme="dark"] .article-chip{background:rgba(255,255,255,.04)}
+.article-layout{display:grid;grid-template-columns:minmax(0,5fr) minmax(260px,2fr);gap:56px;align-items:start}
+.article-main{min-width:0}
+.article-aside{position:sticky;top:92px;display:flex;flex-direction:column;gap:14px}
+.aside-card{padding:16px 16px 14px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.45));box-shadow:0 10px 30px rgba(0,0,0,.04)}
+html[data-theme="dark"] .aside-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
+.aside-card h3{font-size:.92rem;margin:0 0 10px;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
+.toc{display:flex;flex-direction:column;gap:8px}
+.toc a{display:block;padding:8px 10px;border-radius:12px;text-decoration:none;opacity:.78}
+.toc a:hover,.toc a.is-active{background:rgba(199,169,120,.14);opacity:1}
+.article-body>p{position:relative;margin-bottom:1.35rem}
+.article-body section[id]>p:first-of-type{margin-top:0}
+.article-body .is-focus{padding-left:16px;border-left:3px solid rgba(199,169,120,.8)}
+.article-body h2,.article-body h3,.article-body section[id]{scroll-margin-top:120px}
+.article-body section[id]{position:relative;margin-top:2.2rem}
+.article-pullquote{margin:22px 0;padding:18px 20px;border-radius:18px;border:1px solid rgba(120,120,120,.14);background:linear-gradient(135deg,rgba(199,169,120,.14),rgba(199,169,120,.04));font-size:1.05rem;line-height:1.7}
+.article-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(120,120,120,.25),transparent);margin:28px 0}
+.mobile-jump{display:none}
+.insight-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:22px 0 10px}
+.insight-card{padding:18px;border:1px solid rgba(120,120,120,.14);border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44))}
+html[data-theme="dark"] .insight-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+.insight-card h3{margin:0 0 10px;font-size:1.02rem}
+.insight-card p{margin:0;font-size:.98rem;line-height:1.65}
+.tableau-card{margin:24px 0 10px;padding:16px;border:1px solid rgba(120,120,120,.14);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.74),rgba(255,255,255,.5));box-shadow:0 14px 40px rgba(0,0,0,.06);overflow:hidden}
+html[data-theme="dark"] .tableau-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
+.tableau-frame{position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(120,120,120,.12);background:rgba(255,255,255,.5)}
+html[data-theme="dark"] .tableau-frame{background:rgba(255,255,255,.03)}
+.tableauPlaceholder{width:100% !important}
+.case-note{margin-top:10px;font-size:.95rem;opacity:.74}
+.takeaway-box{margin:20px 0 10px;padding:22px;border-radius:22px;border:1px solid rgba(120,120,120,.14);background:linear-gradient(135deg,rgba(199,169,120,.18),rgba(199,169,120,.05))}
+.takeaway-box p:last-child{margin-bottom:0}
+details.methodology{margin-top:22px;border:1px solid rgba(120,120,120,.14);border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.46));overflow:hidden}
+html[data-theme="dark"] details.methodology{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+details.methodology summary{cursor:pointer;list-style:none;padding:18px 20px;font-weight:700}
+details.methodology summary::-webkit-details-marker{display:none}
+details.methodology[open] summary{border-bottom:1px solid rgba(120,120,120,.12)}
+.methodology-inner{padding:18px 20px 22px}
+.methodology-inner h4{margin:18px 0 8px;font-size:1rem}
+.methodology-inner ul{margin:0 0 12px 18px}
+.methodology-inner li{margin-bottom:8px;line-height:1.6}
+.article-cta{margin-top:26px}
+@media (max-width: 980px){.section>.wrap{max-width:100%;width:100%}.article-shell{max-width:100%;width:100%;margin-inline:0}.article-layout{display:block}.article-aside{display:none}.insight-grid{grid-template-columns:1fr}}
+@media (max-width: 720px){.article-reading{gap:8px}.article-chip{font-size:.8rem;padding:7px 10px}.aside-card{border-radius:16px}.mobile-jump{display:flex;gap:8px;overflow:auto;padding-bottom:6px;scrollbar-width:none}.mobile-jump::-webkit-scrollbar{display:none}.mobile-jump a{white-space:nowrap;text-decoration:none;padding:8px 12px;border-radius:999px;border:1px solid rgba(120,120,120,.16);background:rgba(255,255,255,.52);font-size:.85rem}html[data-theme="dark"] .mobile-jump a{background:rgba(255,255,255,.04)}.tableau-card{padding:12px}}
+.section>.wrap{max-width:1440px}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Monitoreo explicable de riesgo de transacciones para fintech",
+  "description": "Caso de portafolio sobre monitoreo explicable de riesgo de transacciones para fintech: Python, Tableau, cola de investigación, explicabilidad y flujo de monitoreo de fraude.",
+  "author": {"@type": "Person", "name": "Anna Signaevska"},
+  "publisher": {"@type": "Organization", "name": "TELWHA"},
+  "inLanguage": "es",
+  "datePublished": "2026-06-01",
+  "dateModified": "2026-06-01",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://t-e-l-w-h-a.com/es/cases/explainable-transaction-risk-monitoring/"}
+}
+</script>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="topbar">
+  <div class="wrap nav">
+    <div class="brand">
+      <a class="brand-row" href="/es/">
+        <strong>TELWHA</strong>
+      </a>
+      <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+    </div>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú">
+      <span class="menu-toggle-lines" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+    <nav class="menu" id="site-menu">
+      <div class="menu-group">
+        <a href="/es/">Inicio</a>
+        <a href="/es/finlab/">FinLab</a>
+        <a href="/es/about/">Sobre mí</a>
+      </div>
+
+      <div class="menu-group menu-dropdown">
+        <button type="button" class="menu-dropbtn">Para traders ▾</button>
+        <div class="menu-dropcontent">
+          <a href="/es/trader-course/">Mini curso</a>
+          <a href="/es/archetype-test/">Test de arquetipos</a>
+        </div>
+      </div>
+
+      <div class="menu-group">
+        <a href="/es/articles/">Artículos</a>
+        <a href="/es/reviews/">Opiniones</a>
+        <a href="/es/cases/">Casos</a>
+        <a href="/es/contact/">Contacto</a>
+      </div>
+
+      <div class="menu-group menu-tools">
+        <details class="lang-switcher lang-switcher--inside">
+          <summary>🇪🇸</summary>
+          <div class="lang-list">
+            <a href="/articles/explainable-transaction-risk-monitoring.html.html" aria-label="Українська">🇺🇦</a>
+            <a href="/en/articles/explainable-transaction-risk-monitoring.html" aria-label="English">🇬🇧</a>
+          </div>
+        </details>
+
+        <button class="theme-toggle" type="button" aria-label="Cambiar tema">🌓</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <article class="article-shell" itemscope itemtype="https://schema.org/Article">
+        <header class="article-header fade-in">
+          <h1 itemprop="headline">Monitoreo explicable de riesgo de transacciones para fintech</h1>
+          <div class="article-reading">
+            <span class="article-chip">Python · Tableau · Analítica de fraude</span>
+            <span class="article-chip">Explainability · Risk Ops</span>
+            <span class="article-chip">Finanzas conductuales · FinTech</span>
+          </div>
+        </header>
+
+        <div class="mobile-jump fade-in" aria-label="Navegación rápida por el caso">
+          <a href="#part-1">Problema</a>
+          <a href="#part-2">Qué hice</a>
+          <a href="#part-3">Dashboard</a>
+          <a href="#part-4">Hallazgos</a>
+          <a href="#part-5">Metodología</a>
+        </div>
+
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="article-body" itemprop="articleBody">
+
+              <section id="part-1">
+                <p class="is-focus">
+                  En el monitoreo de transacciones es muy fácil caer en la lógica de “cuantos más alerts, mejor”. En la práctica esto termina en colas enormes donde el riesgo importante se pierde entre señales débiles.
+                </p>
+                <p>
+                  En este proyecto construí una capa de riesgo explicable sobre un dataset público de fraude, de forma que cada caso marcado tuviera no solo un score, sino también un nivel de severidad, un disparador principal y una breve explicación de por qué se escaló.
+                </p>
+              </section>
+
+              <div class="article-pullquote fade-in">
+                El objetivo no era añadir otro score, sino hacer que el riesgo fuera legible: dónde aparece, cómo lo escala el sistema y qué es lo que realmente ve primero la persona que revisa los casos.
+              </div>
+
+              <div class="article-divider"></div>
+
+              <section id="part-2">
+                <h2>Qué hice</h2>
+                <p>
+                  Utilicé un dataset de transacciones con etiqueta de fraude para simular un flujo de monitoreo con casi 284.000 transacciones, 473 casos de fraude, un segmento de alto riesgo y una capa de crítica por separado. [file:326]
+                </p>
+                <p>
+                  En Python construí un Combined Risk Score que combina varias señales interpretables: importe inusual, actividad fuera de horario, riesgo basado en modelo y componentes de anomalía. Encima de esto definí buckets de severidad, alert flags, un primary risk trigger y breves textos de reason-for-flag para cada transacción marcada.
+                </p>
+
+                <div class="insight-grid fade-in">
+                  <div class="insight-card">
+                    <h3>Lógica de riesgo</h3>
+                    <p>
+                      Preparación a nivel de transacción, indicadores de riesgo, Combined Risk Score, buckets de severidad y campos de explicabilidad.
+                    </p>
+                  </div>
+                  <div class="insight-card">
+                    <h3>Dashboard</h3>
+                    <p>
+                      Vista de KPI, tasa de fraude por severidad, patrones temporales de alerts y cola de investigación en un solo espacio de trabajo.
+                    </p>
+                  </div>
+                  <div class="insight-card">
+                    <h3>Cola de revisión</h3>
+                    <p>
+                      Cola estructurada por prioridad, severidad, trigger y motivo del flag, pensada para la revisión y no solo como listado bruto.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-3">
+                <h2>Qué muestra el dashboard</h2>
+                <p>
+                  El dashboard está diseñado como una única pantalla de trabajo. La parte superior muestra el flujo global, el centro se enfoca en la calidad de los alerts por severidad y la parte inferior pasa a los patrones temporales y a la cola de investigación.
+                </p>
+
+                <div class="tableau-card fade-in">
+                  <div class="tableau-frame">
+                    <div class='tableauPlaceholder' id='viz1780304197063' style='position: relative'>
+                      <noscript>
+                        <a href='#'>
+                          <img alt='Dashboard 1' src='https://public.tableau.com/static/images/RZ/RZFQC34TT/1_rss.png' style='border: none' />
+                        </a>
+                      </noscript>
+                      <object class='tableauViz' style='display:none;'>
+                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                        <param name='embed_code_version' value='3' />
+                        <param name='path' value='shared/RZFQC34TT' />
+                        <param name='toolbar' value='yes' />
+                        <param name='static_image' value='https://public.tableau.com/static/images/RZ/RZFQC34TT/1.png' />
+                        <param name='animate_transition' value='yes' />
+                        <param name='display_static_image' value='yes' />
+                        <param name='display_spinner' value='yes' />
+                        <param name='display_overlay' value='yes' />
+                        <param name='display_count' value='yes' />
+                        <param name='language' value='en-GB' />
+                      </object>
+                    </div>
+                  </div>
+                  <p class="case-note">El dashboard de Tableau está incrustado directamente en la página, lo que permite pasar de los KPI generales a transacciones concretas en la cola.</p>
+                </div>
+
+                <p>
+                  En la parte superior se ve la imagen básica: 283.726 transacciones, 473 casos de fraude, una tasa de fraude del 0,17 %, 970 transacciones de alto riesgo y 142 críticas. Esto deja claro que la zona de atención elevada es solo una fracción muy pequeña del flujo total. [file:326]
+                </p>
+                <p>
+                  El bloque analítico clave es la tasa de fraude por severidad. Ahí se ve qué segmentos concentran realmente el fraude y cuáles generan volumen de alerts sin valor proporcional. La cola de investigación traduce esta lógica a la operación diaria: severidad, prioridad, trigger y motivo de escalado para cada caso.
+                </p>
+
+                <div class="takeaway-box fade-in">
+                  <p>
+                    Aquí el dashboard no es un adorno visual, sino una ruta corta desde la señal hasta la acción: qué escala el sistema, por qué lo hace y qué ve exactamente la persona que revisa la cola.
+                  </p>
+                </div>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-4">
+                <h2>Qué fue lo más interesante</h2>
+
+                <p>
+                  A nivel de todo el flujo, la tasa de fraude es baja: 0,17 %, es decir, 473 casos. Sin embargo, el riesgo está distribuido de manera muy desigual. El segmento de alto riesgo cubre solo 970 transacciones y el segmento crítico apenas 142. La tarea principal del sistema no es “revisarlo todo”, sino centrar la atención manual en la parte adecuada del flujo. [file:326]
+                </p>
+
+                <p>
+                  El segmento operativo más útil fue High / P2. Es pequeño en volumen, pero concentra una parte significativa de los casos de fraude. Desde el punto de vista de operaciones, esto es lo que se busca: un segmento lo bastante estrecho para poder revisarlo a mano y al mismo tiempo lo bastante denso en riesgo como para justificar esa atención.
+                </p>
+
+                <p>
+                  El segmento Critical / P1 se comporta de otra manera. Es la zona de escalado más “ruidosa”, pero su precisión parece menor de lo que se esperaría del nivel de mayor prioridad. Parte de los alerts críticos termina en outcome no fraudulento, lo que convierte a este segmento en candidato claro a un ajuste de umbrales.
+                </p>
+
+                <p>
+                  El análisis de triggers también muestra la diferencia entre señales fuertes y débiles. El riesgo basado en modelos concentra mejor el fraude, mientras que señales simples como importe inusual o actividad fuera de horario pueden generar mucho volumen de alerts sin la misma calidad. En la práctica, algunas reglas funcionan más como generadores de ruido si no se combinan con otras señales más sólidas.
+                </p>
+
+                <p>
+                  Los patrones temporales añaden otra capa de lectura. Los segmentos nocturnos tienen menor volumen de transacciones, pero una probabilidad más alta de comportamiento sospechoso. Aun así, el trigger “off-hours” por sí solo es demasiado amplio; resulta más útil cuando refuerza un contexto ya riesgoso, y no como único motivo de escalado.
+                </p>
+
+                <p>
+                  En conjunto, el caso no trata solo de “detectar fraude”, sino de cómo el sistema distribuye la atención. High funciona como un segmento operativo fuerte, Medium puede actuar como zona tampón para revisiones adicionales y Critical, en su versión actual, es el mejor candidato para ser reconfigurado.
+                </p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-5">
+                <details class="methodology fade-in">
+                  <summary>Detalles técnicos</summary>
+                  <div class="methodology-inner">
+                    <h4>Tipo de caso</h4>
+                    <p>
+                      Simulación de portafolio de un flujo de monitoreo de fraude sobre un dataset público a nivel de transacción, con lógica de riesgo propia, segmentación por severidad y cola de investigación.
+                    </p>
+
+                    <h4>Trabajo en Python</h4>
+                    <ul>
+                      <li>Limpieza y preparación de datos a nivel de transacción.</li>
+                      <li>Cálculo de indicadores de riesgo: importe inusual, actividad fuera de horario, riesgo por importe/tiempo, señales de modelo y componentes de anomalía.</li>
+                      <li>Construcción de un Combined Risk Score y segmentación en Low / Medium / High / Critical.</li>
+                      <li>Creación de alert flags, primary risk triggers y breves explicaciones de reason-for-flag para transacciones marcadas.</li>
+                      <li>Cálculo de KPI básicos: tamaño del flujo, tasa de fraude, volumen de high‑risk y volumen crítico. [file:326]</li>
+                    </ul>
+
+                    <h4>Trabajo en Tableau</h4>
+                    <ul>
+                      <li>Vista de KPI de alto nivel para evaluar rápidamente el flujo.</li>
+                      <li>Tasa de fraude por severidad para medir la calidad de los segmentos.</li>
+                      <li>Patrones temporales de alerts.</li>
+                      <li>Cola de investigación con prioridad, severidad, trigger y explicación.</li>
+                    </ul>
+
+                    <h4>Stack técnico</h4>
+                    <ul>
+                      <li>Python</li>
+                      <li>VS Code</li>
+                      <li>Tableau Public</li>
+                    </ul>
+                  </div>
+                </details>
+              </section>
+            </div>
+          </div>
+
+          <aside class="article-aside fade-in" aria-label="Navegación por el caso">
+            <div class="aside-card">
+              <h3>Navegación</h3>
+              <nav class="toc">
+                <a href="#part-1">Problema</a>
+                <a href="#part-2">Qué hice</a>
+                <a href="#part-3">Dashboard</a>
+                <a href="#part-4">Hallazgos</a>
+                <a href="#part-5">Metodología</a>
+              </nav>
+            </div>
+          </aside>
+        </div>
+
+        <section class="article-cta fade-in">
+          <a class="btn btn-ghost" href="/es/cases/">← Volver a todos los casos</a>
+        </section>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid fade-in">
+      <div>
+        <h4>TELWHA</h4>
+        <p>Psicología financiera, economía conductual y arquitectura de elección para decisiones financieras más sólidas.</p>
+      </div>
+      <div style="text-align:right">
+        <h4>Navegación</h4>
+        <div class="footer-links" style="align-items:flex-end">
+          <a href="/es/about/">Sobre mí</a>
+          <a href="/es/reviews/">Opiniones</a>
+          <a href="/es/contact/">Contacto</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TELWHA. Todos los derechos reservados.</span>
+      <span>Kyiv, Ucrania · 🇺🇦</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/static/script/global.js"></script>
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const siteMenu = document.querySelector('#site-menu');
+  if (menuToggle && siteMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = siteMenu.classList.toggle('is-open');
+      menuToggle.classList.toggle('is-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      menuToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+    });
+  }
+
+  const progress = document.getElementById('progress');
+  const updateProgress = () => {
+    const doc = document.documentElement;
+    const total = doc.scrollHeight - doc.clientHeight;
+    const scrolled = total > 0 ? (doc.scrollTop / total) * 100 : 0;
+    if (progress) progress.style.width = scrolled + '%';
+  };
+  document.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+    });
+  }, { threshold: 0.14 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+  const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  const markToc = () => {
+    let activeId = sections[0]?.id;
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 140) activeId = section.id;
+    });
+    tocLinks.forEach(link => {
+      link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
+    });
+  };
+  document.addEventListener('scroll', markToc, { passive: true });
+  markToc();
+
+  (function() {
+    var divElement = document.getElementById('viz1780304197063');
+    if (!divElement) return;
+    var vizElement = divElement.getElementsByTagName('object')[0];
+    if (!vizElement) return;
+    if (divElement.offsetWidth > 900) {
+      vizElement.style.width = '100%';
+      vizElement.style.height = '827px';
+    } else if (divElement.offsetWidth > 500) {
+      vizElement.style.width = '100%';
+      vizElement.style.height = '827px';
+    } else {
+      vizElement.style.width = '100%';
+      vizElement.style.height = '880px';
+    }
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+  })();
+</script>
+</body>
+</html>

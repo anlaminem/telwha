@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TELWHA | Explainable Transaction Risk Monitoring for Fintech</title>
+<meta name="description" content="Портфельний кейс про explainable transaction risk monitoring для фінтеху: Python, Tableau, investigator queue, explainability і поведінковий контекст fraud monitoring.">
+<link rel="canonical" href="https://t-e-l-w-h-a.com/cases/explainable-transaction-risk-monitoring/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="TELWHA | Explainable Transaction Risk Monitoring for Fintech">
+<meta property="og:description" content="Портфельний кейс про explainable transaction risk monitoring для фінтеху: Python, Tableau, investigator queue, explainability і поведінковий контекст fraud monitoring.">
+<meta property="og:url" content="https://t-e-l-w-h-a.com/cases/explainable-transaction-risk-monitoring/">
+<meta property="og:site_name" content="TELWHA">
+
+<link rel="icon" href="/static/media/telwha-favicon.png" type="png">
+<link rel="stylesheet" href="/static/css/base.css">
+<link rel="stylesheet" href="/static/css/layout-article.css">
+
+<style>
+html{scroll-behavior:smooth;}
+.progress{position:fixed;inset:0 auto auto 0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,var(--accent,#8b7355),var(--accent-2,#c7a978));box-shadow:0 1px 10px rgba(0,0,0,.12)}
+.article-shell{position:relative;max-width:1320px;margin-inline:auto}
+.article-header{position:relative;overflow:hidden}
+.article-header::after{content:"";position:absolute;right:-80px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(199,169,120,.16),rgba(199,169,120,0) 70%);pointer-events:none}
+.article-deck{max-width:920px}
+.article-reading{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.article-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:rgba(255,255,255,.5);backdrop-filter:blur(4px);font-size:.88rem;line-height:1}
+html[data-theme="dark"] .article-chip{background:rgba(255,255,255,.04)}
+.article-layout{display:grid;grid-template-columns:minmax(0,5fr) minmax(260px,2fr);gap:56px;align-items:start}
+.article-main{min-width:0}
+.article-aside{position:sticky;top:92px;display:flex;flex-direction:column;gap:14px}
+.aside-card{padding:16px 16px 14px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.45));box-shadow:0 10px 30px rgba(0,0,0,.04)}
+html[data-theme="dark"] .aside-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
+.aside-card h3{font-size:.92rem;margin:0 0 10px;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
+.toc{display:flex;flex-direction:column;gap:8px}
+.toc a{display:block;padding:8px 10px;border-radius:12px;text-decoration:none;opacity:.78}
+.toc a:hover,.toc a.is-active{background:rgba(199,169,120,.14);opacity:1}
+.article-body>p{position:relative;margin-bottom:1.35rem}
+.article-body section[id]>p:first-of-type{margin-top:0}
+.article-body .is-focus{padding-left:16px;border-left:3px solid rgba(199,169,120,.8)}
+.article-body h2,.article-body h3,.article-body section[id]{scroll-margin-top:120px}
+.article-body section[id]{position:relative;margin-top:2.2rem}
+.article-pullquote{margin:22px 0;padding:18px 20px;border-radius:18px;border:1px solid rgba(120,120,120,.14);background:linear-gradient(135deg,rgba(199,169,120,.14),rgba(199,169,120,.04));font-size:1.05rem;line-height:1.7}
+.article-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(120,120,120,.25),transparent);margin:28px 0}
+.mobile-jump{display:none}
+.insight-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:22px 0 10px}
+.insight-card{padding:18px;border:1px solid rgba(120,120,120,.14);border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44))}
+html[data-theme="dark"] .insight-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+.insight-card h3{margin:0 0 10px;font-size:1.02rem}
+.insight-card p{margin:0;font-size:.98rem;line-height:1.65}
+.tableau-card{margin:24px 0 10px;padding:16px;border:1px solid rgba(120,120,120,.14);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.74),rgba(255,255,255,.5));box-shadow:0 14px 40px rgba(0,0,0,.06);overflow:hidden}
+html[data-theme="dark"] .tableau-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
+.tableau-frame{position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(120,120,120,.12);background:rgba(255,255,255,.5)}
+html[data-theme="dark"] .tableau-frame{background:rgba(255,255,255,.03)}
+.tableauPlaceholder{width:100% !important}
+.case-note{margin-top:10px;font-size:.95rem;opacity:.74}
+.takeaway-box{margin:20px 0 10px;padding:22px;border-radius:22px;border:1px solid rgba(120,120,120,.14);background:linear-gradient(135deg,rgba(199,169,120,.18),rgba(199,169,120,.05))}
+.takeaway-box p:last-child{margin-bottom:0}
+details.methodology{margin-top:22px;border:1px solid rgba(120,120,120,.14);border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.46));overflow:hidden}
+html[data-theme="dark"] details.methodology{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+details.methodology summary{cursor:pointer;list-style:none;padding:18px 20px;font-weight:700}
+details.methodology summary::-webkit-details-marker{display:none}
+details.methodology[open] summary{border-bottom:1px solid rgba(120,120,120,.12)}
+.methodology-inner{padding:18px 20px 22px}
+.methodology-inner h4{margin:18px 0 8px;font-size:1rem}
+.methodology-inner ul{margin:0 0 12px 18px}
+.methodology-inner li{margin-bottom:8px;line-height:1.6}
+.article-cta{margin-top:26px}
+@media (max-width: 980px){.section>.wrap{max-width:100%;width:100%}.article-shell{max-width:100%;width:100%;margin-inline:0}.article-layout{display:block}.article-aside{display:none}.insight-grid{grid-template-columns:1fr}}
+@media (max-width: 720px){.article-reading{gap:8px}.article-chip{font-size:.8rem;padding:7px 10px}.aside-card{border-radius:16px}.mobile-jump{display:flex;gap:8px;overflow:auto;padding-bottom:6px;scrollbar-width:none}.mobile-jump::-webkit-scrollbar{display:none}.mobile-jump a{white-space:nowrap;text-decoration:none;padding:8px 12px;border-radius:999px;border:1px solid rgba(120,120,120,.16);background:rgba(255,255,255,.52);font-size:.85rem}html[data-theme="dark"] .mobile-jump a{background:rgba(255,255,255,.04)}.tableau-card{padding:12px}}
+.section>.wrap{max-width:1440px}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Explainable Transaction Risk Monitoring for Fintech",
+  "description": "Портфельний кейс про explainable transaction risk monitoring для фінтеху: Python, Tableau, investigator queue, explainability і поведінковий контекст fraud monitoring.",
+  "author": {"@type": "Person", "name": "Anna Signaevska"},
+  "publisher": {"@type": "Organization", "name": "TELWHA"},
+  "inLanguage": "uk",
+  "datePublished": "2026-06-01",
+  "dateModified": "2026-06-01",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://t-e-l-w-h-a.com/cases/explainable-transaction-risk-monitoring/"}
+}
+</script>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="topbar">
+  <div class="wrap nav">
+    <div class="brand">
+      <a class="brand-row" href="/">
+        <strong>TELWHA</strong>
+      </a>
+      <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+    </div>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Відкрити меню">
+      <span class="menu-toggle-lines" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+    <nav class="menu" id="site-menu">
+      <div class="menu-group">
+        <a href="/">Головна</a>
+        <a href="/finlab/">FinLab</a>
+        <a href="/about/">Про мене</a>
+      </div>
+
+      <div class="menu-group menu-dropdown">
+        <button type="button" class="menu-dropbtn">Трейдерам ▾</button>
+        <div class="menu-dropcontent">
+          <a href="/trader-course/">Міні‑курс</a>
+          <a href="/archetype-test/">Тест архетипів</a>
+        </div>
+      </div>
+
+      <div class="menu-group">
+        <a href="/articles/">Статті</a>
+        <a href="/reviews/">Відгуки</a>
+        <a href="/cases/">Кейси</a>
+        <a href="/contact/">Контакти</a>
+      </div>
+
+      <div class="menu-group menu-tools">
+        <details class="lang-switcher lang-switcher--inside">
+          <summary>🇺🇦</summary>
+          <div class="lang-list">
+            <a href="/en/articles/explainable-transaction-risk-monitoring.html" aria-label="English">🇬🇧</a>
+            <a href="/es/articles/explainable-transaction-risk-monitoring.html" aria-label="Español">🇪🇸</a>
+          </div>
+        </details>
+
+        <button class="theme-toggle" type="button" aria-label="Змінити тему">🌓</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <article class="article-shell" itemscope itemtype="https://schema.org/Article">
+        <header class="article-header fade-in">
+          <h1 itemprop="headline">Explainable Transaction Risk Monitoring for Fintech</h1>
+          <div class="article-reading">
+            <span class="article-chip">Python · Tableau · Fraud Analytics</span>
+            <span class="article-chip">Explainability · Risk Ops</span>
+            <span class="article-chip">Behavioral Finance · FinTech</span>
+          </div>
+        </header>
+
+        <div class="mobile-jump fade-in" aria-label="Швидка навігація по кейсу">
+          <a href="#part-1">Проблема</a>
+          <a href="#part-2">Що зроблено</a>
+          <a href="#part-3">Дашборд</a>
+          <a href="#part-4">Що знайшли</a>
+          <a href="#part-5">Методологія</a>
+        </div>
+
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="article-body" itemprop="articleBody">
+
+              <section id="part-1">
+                <p class="is-focus">
+                  У transaction monitoring завжди є спокуса позначати якомога більше сигналів. У результаті команда review бачить великий потік алертів, але не завжди швидко розуміє, де справді сконцентрований ризик.
+                </p>
+                <p>
+                  У цьому проєкті я зібрала explainable risk‑логіку поверх публічного fraud‑датасету так, щоб кожен flagged case мав не лише score, а й severity, основний тригер і коротке пояснення причини ескалації.
+                </p>
+              </section>
+
+              <div class="article-pullquote fade-in">
+                Мета була не в тому, щоб додати ще один score, а в тому, щоб зробити ризик читабельним: де він виникає, як саме система його підсвічує і що потрапляє в review first.
+              </div>
+
+              <div class="article-divider"></div>
+
+              <section id="part-2">
+                <h2>Що я зробила</h2>
+                <p>
+                  Я використала transaction‑level fraud‑датасет як базу для симуляції risk monitoring workflow: майже 284 тисячі транзакцій, 473 fraud‑кейси, окремий high‑risk сегмент і окрема critical‑ескалація.
+                </p>
+                <p>
+                  У Python я побудувала Combined Risk Score, який поєднує кілька інтерпретованих сигналів: unusual amount, off‑hours activity, модельну та anomaly‑компоненту. На цій основі я сформувала severity bucket, alert flag, primary risk trigger і короткі reason‑for‑flag пояснення для flagged transactions.
+                </p>
+
+                <div class="insight-grid fade-in">
+                  <div class="insight-card">
+                    <h3>Risk logic</h3>
+                    <p>
+                      Transaction‑level підготовка, risk indicators, Combined Risk Score, severity bucket’и та explainability fields.
+                    </p>
+                  </div>
+                  <div class="insight-card">
+                    <h3>Dashboard</h3>
+                    <p>
+                      KPI, fraud rate by severity, часові патерни алертів та investigator queue в одному робочому просторі.
+                    </p>
+                  </div>
+                  <div class="insight-card">
+                    <h3>Queue</h3>
+                    <p>
+                      Черга з priority, severity, trigger і reason for flag, яка дозволяє читати кейси не як сирий список, а як структуру для review.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-3">
+                <h2>Що показує дашборд</h2>
+                <p>
+                  Дашборд зібраний як одна робоча сторінка. У верхній частині видно стан потоку в цілому, далі — якість алертів за severity, нижче — часові патерни, а внизу — investigator queue.
+                </p>
+
+                <div class="tableau-card fade-in">
+                  <div class="tableau-frame">
+                    <div class='tableauPlaceholder' id='viz1780304197063' style='position: relative'>
+                      <noscript>
+                        <a href='#'>
+                          <img alt='Dashboard 1' src='https://public.tableau.com/static/images/RZ/RZFQC34TT/1_rss.png' style='border: none' />
+                        </a>
+                      </noscript>
+                      <object class='tableauViz' style='display:none;'>
+                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                        <param name='embed_code_version' value='3' />
+                        <param name='path' value='shared/RZFQC34TT' />
+                        <param name='toolbar' value='yes' />
+                        <param name='static_image' value='https://public.tableau.com/static/images/RZ/RZFQC34TT/1.png' />
+                        <param name='animate_transition' value='yes' />
+                        <param name='display_static_image' value='yes' />
+                        <param name='display_spinner' value='yes' />
+                        <param name='display_overlay' value='yes' />
+                        <param name='display_count' value='yes' />
+                        <param name='language' value='en-GB' />
+                      </object>
+                    </div>
+                  </div>
+                  <p class="case-note">Tableau‑дашборд вбудований прямо в сторінку: від загальних KPI можна перейти до конкретних транзакцій у queue.</p>
+                </div>
+
+                <p>
+                  У верхньому блоці видно базову картину: 283,726 транзакцій, 473 fraud‑кейси, fraud rate 0.17 %, 970 high‑risk і 142 critical транзакції. Це дозволяє одразу побачити, що зона підвищеної уваги становить лише невелику частину всього потоку. 
+                </p>
+                <p>
+                  Далі ключовим стає fraud rate by severity: саме цей блок показує, які сегменти справді концентрують fraud, а які створюють багато алертів без пропорційної користі. Нижня queue переводить це в операційний формат: severity, priority, trigger і причина флагу для кожного кейсу.
+                </p>
+
+                <div class="takeaway-box fade-in">
+                  <p>
+                    Дашборд тут працює не як декоративна візуалізація, а як короткий маршрут від сигналу до рішення: що система ескалує, чому саме і що з цим бачить людина в review.
+                  </p>
+                </div>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-4">
+                <h2>Що цікавого знайшли?</h2>
+
+                <p>
+                  На рівні всього потоку fraud rate невеликий — 0.17 % або 473 кейси. Але ризик розподілений дуже нерівномірно: high‑risk сегмент охоплює лише 970 транзакцій, а critical — 142. Це означає, що основна задача системи не “перевірити все”, а правильно звузити зону ручної уваги. 
+                </p>
+
+                <p>
+                  Найсильнішим виявився сегмент High / P2. Він невеликий за обсягом, але саме тут концентрується значна частина fraud‑випадків. З точки зору review‑логіки це хороший сигнал: система виділяє сегмент, який достатньо вузький для ручної обробки і водночас достатньо насичений ризиком.
+                </p>
+
+                <p>
+                  Critical / P1 поводиться інакше. Це найгучніша зона ескалації, але точність усередині неї нижча, ніж очікується від найвищого пріоритету. Частина critical‑алертів завершується non‑fraud outcome, тому цей сегмент виглядає не як “найкращий улов”, а як зона, де пороги ескалації можуть бути занадто жорсткими або занадто широкими.
+                </p>
+
+                <p>
+                  Аналіз тригерів теж показує різницю між сильним і слабким сигналом. Model‑driven risk дає кращу концентрацію fraud, тоді як окремі прості ознаки на кшталт unusual amount чи off‑hours activity можуть створювати великий обсяг алертів, але самі по собі не дають такої ж якості. У практичному сенсі це означає, що частина правил працює як джерело шуму, якщо її не комбінувати з іншими ознаками.
+                </p>
+
+                <p>
+                  Часові патерни додають ще один рівень інтерпретації. Нічні сегменти мають менший обсяг транзакцій, але вищу ймовірність підозрілої поведінки. Проте сам по собі off‑hours тригер надто широкий: його корисність зростає лише тоді, коли він підсилює вже наявний ризиковий контекст, а не виступає єдиною причиною ескалації.
+                </p>
+
+                <p>
+                  У підсумку цей кейс показує не просто факт наявності fraud, а те, як система розподіляє увагу. High працює як сильний операційний сегмент, Medium може бути буферною зоною для додаткового review, а Critical у поточному вигляді виглядає кандидатом на переналаштування.
+                </p>
+              </section>
+
+              <div class="article-divider"></div>
+
+              <section id="part-5">
+                <details class="methodology fade-in">
+                  <summary>Трохи технічних деталей</summary>
+                  <div class="methodology-inner">
+                    <h4>Тип кейсу</h4>
+                    <p>
+                      Портфельна симуляція fraud‑моніторингу на публічному transaction‑level датасеті з окремою risk‑логікою, severity segmentation та investigator queue.
+                    </p>
+
+                    <h4>Python‑частина</h4>
+                    <ul>
+                      <li>Очищення і підготовка транзакційних даних.</li>
+                      <li>Розрахунок risk‑ознак: unusual amount, off‑hours, amount‑/time‑based ризик, модельний та anomaly‑компоненти.</li>
+                      <li>Побудова Combined Risk Score і сегментація на Low / Medium / High / Critical.</li>
+                      <li>Формування alert flag, primary risk trigger та коротких текстових пояснень для flagged transactions.</li>
+                      <li>Розрахунок базових KPI: обсяг потоку, fraud rate, кількість high‑risk і critical транзакцій. </li>
+                    </ul>
+
+                    <h4>Tableau‑частина</h4>
+                    <ul>
+                      <li>High‑level KPI для швидкого огляду потоку.</li>
+                      <li>Fraud rate by severity для оцінки якості сегментів.</li>
+                      <li>Часові патерни алертів.</li>
+                      <li>Investigator queue з priority, severity, trigger і поясненнями.</li>
+                    </ul>
+
+                    <h4>Технічний стек</h4>
+                    <ul>
+                      <li>Python</li>
+                      <li>VS Code</li>
+                      <li>Tableau Public</li>
+                    </ul>
+                  </div>
+                </details>
+              </section>
+            </div>
+          </div>
+
+          <aside class="article-aside fade-in" aria-label="Навігація по кейсу">
+            <div class="aside-card">
+              <h3>Навігація</h3>
+              <nav class="toc">
+                <a href="#part-1">Проблема</a>
+                <a href="#part-2">Що зроблено</a>
+                <a href="#part-3">Дашборд</a>
+                <a href="#part-4">Що знайшли</a>
+                <a href="#part-5">Методологія</a>
+              </nav>
+            </div>
+          </aside>
+        </div>
+
+        <section class="article-cta fade-in">
+          <a class="btn btn-ghost" href="/cases/">← До всіх кейсів</a>
+        </section>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid fade-in">
+      <div>
+        <h4>TELWHA</h4>
+        <p>Фінансова психологія, поведінкова економіка та архітектура вибору для стійкіших фінансових рішень.</p>
+      </div>
+      <div style="text-align:right">
+        <h4>Навігація</h4>
+        <div class="footer-links" style="align-items:flex-end">
+          <a href="/about/">Про мене</a>
+          <a href="/reviews/">Відгуки</a>
+          <a href="/contact/">Контакти</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TELWHA. Усі права захищено.</span>
+      <span>Київ, Україна · 🇺🇦</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/static/script/global.js"></script>
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const siteMenu = document.querySelector('#site-menu');
+  if (menuToggle && siteMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = siteMenu.classList.toggle('is-open');
+      menuToggle.classList.toggle('is-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      menuToggle.setAttribute('aria-label', isOpen ? 'Закрити меню' : 'Відкрити меню');
+    });
+  }
+
+  const progress = document.getElementById('progress');
+  const updateProgress = () => {
+    const doc = document.documentElement;
+    const total = doc.scrollHeight - doc.clientHeight;
+    const scrolled = total > 0 ? (doc.scrollTop / total) * 100 : 0;
+    if (progress) progress.style.width = scrolled + '%';
+  };
+  document.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+    });
+  }, { threshold: 0.14 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+  const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  const markToc = () => {
+    let activeId = sections[0]?.id;
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 140) activeId = section.id;
+    });
+    tocLinks.forEach(link => {
+      link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
+    });
+  };
+  document.addEventListener('scroll', markToc, { passive: true });
+  markToc();
+
+  (function() {
+    var divElement = document.getElementById('viz1780304197063');
+    if (!divElement) return;
+    var vizElement = divElement.getElementsByTagName('object')[0];
+    if (!vizElement) return;
+    if (divElement.offsetWidth > 900) {
+      vizElement.style.width = '100%';
+      vizElement.style.height = '827px';
+    } else if (divElement.offsetWidth > 500) {
+      vizElement.style.width = '100%';
+      vizElement.style.height = '827px';
+    } else {
+      vizElement.style.width = '100%';
+      vizElement.style.height = '880px';
+    }
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+  })();
+</script>
+</body>
+</html>
