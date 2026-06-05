@@ -1,285 +1,239 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TELWHA | Decisiones financieras bajo presión</title>
-  <meta
-    name="description"
-    content="TELWHA: una prueba breve sobre hábitos financieros, control, gastos y regulación conductual."
-  />
-  <link rel="canonical" href="https://t-e-l-w-h-a.com/es/finlab/money-test-api/money-test.html" />
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TELWHA | Test de hábitos financieros</title>
+  <meta name="description" content="Test breve de hábitos financieros de TELWHA: evitación, control, modo escasez, gasto impulsivo y apoyo regulador.">
+  <link rel="canonical" href="https://t-e-l-w-h-a.com/habit-test.html">
 
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="TELWHA | Decisiones financieras bajo presión" />
-  <meta
-    property="og:description"
-    content="Una prueba breve sobre tu conducta con el dinero: tensión, control, gasto y regulación."
-  />
-  <meta property="og:url" content="https://t-e-l-w-h-a.com/es/finlab/money-test-api/money-test.html" />
-  <meta property="og:site_name" content="TELWHA" />
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TELWHA | Test de hábitos financieros">
+  <meta property="og:description" content="Descubre qué escenario de comportamiento financiero se activa con más frecuencia en tu día a día.">
+  <meta property="og:url" content="https://t-e-l-w-h-a.com/habit-test.html">
+  <meta property="og:site_name" content="TELWHA">
+
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
+
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-FVHKD6TZJP');
   </script>
 
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Anna Signaevska",
-      "url": "https://t-e-l-w-h-a.com",
-      "image": "https://t-e-l-w-h-a.com/static/media/main_photo.jpg",
-      "jobTitle": "Financial Psychologist & Behavioral Analyst",
-      "description": "Psicología financiera, economía conductual y el framework TELWHA para decisiones más estables sobre el dinero.",
-      "sameAs": [
-        "https://www.youtube.com/@TelwhaUA",
-        "https://www.youtube.com/@Telwha",
-        "https://www.linkedin.com/in/anna-signaevskaya"
-      ],
-      "knowsAbout": [
-        "Behavioral Finance",
-        "Trading Psychology",
-        "Cognitive Biases",
-        "Nudge Theory",
-        "Neuroeconomics"
-      ]
-    }
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Anna Signaevska",
+    "url":"https://t-e-l-w-h-a.com",
+    "image":"https://t-e-l-w-h-a.com/static/media/mainphoto.jpg",
+    "jobTitle":"Psicóloga financiera y analista del comportamiento",
+    "description":"TELWHA: psicología financiera, economía del comportamiento y patrones conductuales en el trabajo con el dinero.",
+    "sameAs":[
+      "https://www.youtube.com/@TelwhaUA",
+      "https://www.youtube.com/@Telwha",
+      "https://www.linkedin.com/in/anna-signaevskaya"
+    ]
+  }
   </script>
 
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "TELWHA",
-      "url": "https://t-e-l-w-h-a.com",
-      "description": "TELWHA: psicología financiera, economía conductual y FinLab para traders, inversores y negocios.",
-      "logo": "https://t-e-l-w-h-a.com/static/media/telwha-favicon.png",
-      "sameAs": [
-        "https://www.youtube.com/@TelwhaUA",
-        "https://www.youtube.com/@Telwha",
-        "https://www.linkedin.com/in/anna-signaevskaya"
-      ]
-    }
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"TELWHA",
+    "url":"https://t-e-l-w-h-a.com",
+    "description":"TELWHA: economía del comportamiento, psicología financiera y FinLab.",
+    "logo":"https://t-e-l-w-h-a.com/static/media/telwha-favicon.png"
+  }
   </script>
-
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "url": "https://t-e-l-w-h-a.com",
-      "name": "TELWHA",
-      "inLanguage": "es"
-    }
-  </script>
-
-  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
 
   <style>
-    :root {
-      --bg: #07090d;
-      --surface: rgba(9, 11, 16, 0.98);
-      --surface-2: rgba(7, 10, 15, 0.98);
-      --text: #f3efe8;
-      --muted: #b9bdc9;
-      --faint: #8e94a3;
-      --border-subtle: rgba(255, 255, 255, 0.12);
-      --accent: #f0b376;
-      --accent-strong: #d58034;
-      --shadow-soft: 0 16px 42px rgba(0, 0, 0, 0.7);
-      --wrap: 1180px;
+    :root,
+    [data-theme="light"] {
+      --font-display: "Boska", Georgia, serif;
+      --font-body: "Satoshi", Inter, sans-serif;
+
+      --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+      --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
+      --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+      --text-2xl: clamp(2.2rem, 1.5rem + 2vw, 4.4rem);
+
+      --color-bg: #f5f3ef;
+      --color-surface: #fcfbf8;
+      --color-surface-2: #f2efe9;
+      --color-border: rgba(40, 37, 29, 0.10);
+      --color-divider: rgba(40, 37, 29, 0.08);
+      --color-text: #22201a;
+      --color-text-muted: #65625b;
+      --color-text-faint: #8b877f;
+      --color-text-inverse: #f9f8f5;
+      --color-primary: #0f5d5f;
+      --color-primary-hover: #0b4b4d;
+      --color-primary-soft: rgba(15, 93, 95, 0.08);
+      --color-accent: #9a6a35;
+      --color-accent-soft: rgba(154, 106, 53, 0.08);
+      --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
+      --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
+      --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --content-default: 1160px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    html[data-theme="light"] {
-      --bg: #f6efe6;
-      --surface: #fffdf9;
-      --surface-2: #f7efe4;
-      --text: #2b2119;
-      --muted: #5f5146;
-      --faint: #8a7666;
-      --border-subtle: rgba(104, 82, 62, 0.22);
-      --accent: #e8a55c;
-      --accent-strong: #d57c33;
-      --shadow-soft: 0 20px 46px rgba(98, 76, 56, 0.18);
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1d1b18;
+      --color-surface-2: #24211d;
+      --color-border: rgba(255, 255, 255, 0.10);
+      --color-divider: rgba(255, 255, 255, 0.08);
+      --color-text: #ece6dd;
+      --color-text-muted: #b7afa2;
+      --color-text-faint: #91897c;
+      --color-text-inverse: #171614;
+      --color-primary: #6ca7a7;
+      --color-primary-hover: #84baba;
+      --color-primary-soft: rgba(108, 167, 167, 0.10);
+      --color-accent: #c79c68;
+      --color-accent-soft: rgba(199, 156, 104, 0.09);
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
+      --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html {
-      -moz-text-size-adjust: none;
-      -webkit-text-size-adjust: none;
-      text-size-adjust: none;
       scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     body {
-      min-height: 100dvh;
-      font-family: 'Inter', sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(240, 179, 118, 0.12) 0, transparent 35%),
-        radial-gradient(circle at bottom right, rgba(80, 136, 255, 0.08) 0, transparent 30%),
-        var(--bg);
-      color: var(--text);
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
       line-height: 1.6;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; color: inherit; }
+    button { border: 0; background: none; cursor: pointer; }
+    ul { list-style: none; }
 
-    button,
-    input,
-    textarea,
-    select {
-      font: inherit;
-      color: inherit;
-    }
-
-    img,
-    svg {
-      display: block;
-      max-width: 100%;
-      height: auto;
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: 10px;
     }
 
     .wrap {
-      width: min(calc(100% - 28px), var(--wrap));
+      width: min(100% - 28px, var(--content-default));
       margin-inline: auto;
     }
 
     .progress {
       position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 60;
-      height: 3px;
+      inset: 0 auto auto 0;
+      z-index: 120;
       width: 0;
-      background: linear-gradient(90deg, var(--accent), var(--accent-strong));
-      transform-origin: left;
-      transition: width 0.3s ease;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
     }
 
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 55;
+      z-index: 100;
+      padding: 12px 0;
       backdrop-filter: blur(18px);
-      background: rgba(5, 7, 10, 0.68);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    html[data-theme="light"] .topbar {
-      background: rgba(255, 250, 244, 0.88);
-      border-bottom: 1px solid rgba(104, 82, 62, 0.08);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid var(--color-divider);
     }
 
     .nav {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: auto 1fr;
       align-items: center;
-      gap: 10px;
-      padding: 10px 0 12px;
+      gap: 18px;
     }
 
     .brand {
       display: flex;
-      flex: 1 1 auto;
       flex-direction: column;
+      gap: 4px;
       min-width: 0;
     }
 
     .brand-row {
-      display: flex;
+      display: inline-flex;
       align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
     }
 
-    .brand strong {
-      font-size: 15px;
-      letter-spacing: 0.16em;
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      color: var(--color-primary);
+      flex: 0 0 auto;
     }
 
-    .brand .sub,
-    .sub {
-      display: block;
-      margin-top: 4px;
-      max-width: 100%;
-      font-size: 10px;
-      line-height: 1.3;
-      letter-spacing: 0.12em;
+    .brand-sub {
+      color: var(--color-text-faint);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--faint);
+      max-width: 240px;
     }
 
     .menu-toggle {
       display: none;
       align-items: center;
       justify-content: center;
-      flex: 0 0 auto;
-      width: 54px;
-      height: 54px;
-      margin-left: auto;
-      padding: 0;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.04);
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.05),
-        0 10px 24px rgba(0, 0, 0, 0.32);
-      cursor: pointer;
-      transition:
-        transform 0.18s ease,
-        background 0.18s ease,
-        border-color 0.18s ease,
-        box-shadow 0.18s ease;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      transition: var(--transition);
     }
 
-    html[data-theme="light"] .menu-toggle {
-      border-color: rgba(104, 82, 62, 0.18);
-      background: rgba(255, 250, 244, 0.92);
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.7),
-        0 10px 24px rgba(98, 76, 56, 0.14);
-    }
+    .menu-toggle:hover { background: var(--color-surface-2); }
 
     .menu-toggle-lines {
-      position: relative;
       display: inline-flex;
       flex-direction: column;
-      justify-content: space-between;
-      width: 18px;
-      height: 14px;
+      gap: 4px;
     }
 
     .menu-toggle-lines span {
-      display: block;
       width: 18px;
       height: 2px;
       border-radius: 999px;
-      background: #f3efe9;
-      transform-origin: center;
-      transition:
-        transform 0.22s ease,
-        opacity 0.18s ease,
-        background 0.18s ease;
-    }
-
-    html[data-theme="light"] .menu-toggle-lines span {
-      background: #3a3028;
+      background: var(--color-text);
+      transition: transform var(--transition), opacity var(--transition);
     }
 
     .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
@@ -297,623 +251,650 @@
     .menu {
       display: flex;
       align-items: center;
-      gap: 18px;
-    }
-
-    .menu-group {
-      display: flex;
-      align-items: center;
-      gap: 18px;
+      justify-content: flex-end;
+      gap: 4px;
+      min-width: 0;
+      flex-wrap: nowrap;
     }
 
     .menu a,
-    .menu-dropbtn {
-      font-size: 15px;
-      color: var(--text);
-      background: transparent;
-      border: 0;
-      cursor: pointer;
+    .menu .dropbtn,
+    .theme-toggle,
+    .lang-link {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      white-space: nowrap;
+      line-height: 1.1;
+      flex-shrink: 0;
     }
 
-    .menu-dropdown {
+    .menu a:hover,
+    .menu .dropbtn:hover,
+    .theme-toggle:hover,
+    .lang-link:hover {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+    }
+
+    .menu a.is-highlight,
+    .menu .dropbtn.is-highlight {
+      color: var(--color-text-inverse);
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, var(--color-accent)));
+      border: 1px solid transparent;
+      box-shadow: var(--shadow-sm);
+    }
+
+    [data-theme="dark"] .menu a.is-highlight,
+    [data-theme="dark"] .menu .dropbtn.is-highlight {
+      color: #141311;
+    }
+
+    .dropdown {
       position: relative;
+      flex-shrink: 0;
     }
 
-    .menu-dropcontent {
+    .dropbtn {
+      gap: 6px;
+    }
+
+    .dropbtn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform var(--transition);
+      flex: 0 0 auto;
+    }
+
+    .dropdown:hover .dropbtn svg,
+    .dropdown:focus-within .dropbtn svg,
+    .dropdown.is-open .dropbtn svg {
+      transform: rotate(180deg);
+    }
+
+    .dropcontent {
       position: absolute;
-      top: calc(100% + 10px);
+      top: calc(100% + 2px);
       left: 0;
-      display: none;
-      min-width: 180px;
-      padding: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      background: rgba(5, 7, 10, 0.96);
-      box-shadow: var(--shadow-soft);
-      gap: 10px;
-    }
-
-    html[data-theme="light"] .menu-dropcontent {
-      background: #fffaf4;
-      border-color: rgba(104, 82, 62, 0.18);
-    }
-
-    .menu-dropdown:hover .menu-dropcontent,
-    .menu-dropdown:focus-within .menu-dropcontent {
+      z-index: 300;
+      min-width: 240px;
       display: grid;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    }
+
+    .dropdown:hover .dropcontent,
+    .dropdown:focus-within .dropcontent,
+    .dropdown.is-open .dropcontent {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .dropcontent a {
+      justify-content: flex-start;
+      padding: 12px 14px;
+      border-radius: 12px;
+      white-space: normal;
+      line-height: 1.35;
+      position: relative;
+      z-index: 1;
     }
 
     .menu-tools {
       display: flex;
       align-items: center;
-      gap: 12px;
-    }
-
-    .lang-switcher {
-      position: relative;
-    }
-
-    .lang-switcher summary {
-      list-style: none;
-      cursor: pointer;
-    }
-
-    .lang-switcher summary::-webkit-details-marker {
-      display: none;
+      gap: 6px;
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid var(--color-divider);
+      flex-shrink: 0;
     }
 
     .lang-list {
-      position: absolute;
-      top: calc(100% + 10px);
-      right: 0;
-      display: grid;
-      gap: 8px;
-      padding: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      background: rgba(5, 7, 10, 0.96);
+      display: flex;
+      gap: 4px;
     }
 
-    html[data-theme="light"] .lang-list {
-      background: #fffaf4;
-      border-color: rgba(104, 82, 62, 0.18);
+    .lang-link.is-active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
     }
 
     .theme-toggle {
-      width: 40px;
-      height: 40px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.04);
-      cursor: pointer;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
     }
 
-    html[data-theme="light"] .theme-toggle {
-      border-color: rgba(104, 82, 62, 0.18);
-      background: #fffaf4;
+    .theme-toggle svg {
+      width: 17px;
+      height: 17px;
     }
 
     .hero {
-      padding: 24px 0 14px;
+      padding: clamp(34px, 6vw, 74px) 0 26px;
     }
 
     .hero-shell {
       position: relative;
       overflow: hidden;
-      padding: 1px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 28px;
-      background:
-        radial-gradient(circle at top left, rgba(240, 179, 118, 0.16) 0, transparent 45%),
-        #030304;
-      box-shadow: var(--shadow-soft);
+      padding: clamp(26px, 4vw, 46px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      box-shadow: var(--shadow-lg);
     }
 
-    html[data-theme="light"] .hero-shell {
-      border-color: rgba(104, 82, 62, 0.2);
-      background:
-        radial-gradient(circle at top left, rgba(245, 198, 150, 0.32) 0, transparent 46%),
-        linear-gradient(145deg, #fffdf9 0, #f7efe4 55%, #f2e4d5 100%);
-    }
-
-    .hero-inner {
-      position: relative;
-      overflow: hidden;
-      padding: 24px 20px 18px;
-      border-radius: 26px;
-      background:
-        radial-gradient(circle at top right, rgba(240, 179, 118, 0.12) 0, transparent 58%),
-        rgba(5, 7, 10, 0.94);
-    }
-
-    html[data-theme="light"] .hero-inner {
-      background:
-        radial-gradient(circle at top right, rgba(249, 180, 90, 0.18) 0, transparent 55%),
-        #fffaf4;
-    }
-
-    .hero-glow {
+    .hero-shell::before {
+      content: "";
       position: absolute;
-      inset: -60px;
-      background:
-        radial-gradient(circle at 10% 0%, rgba(240, 179, 118, 0.12) 0, transparent 48%),
-        radial-gradient(circle at 90% 100%, rgba(80, 136, 255, 0.1) 0, transparent 52%);
-      opacity: 0.85;
-      mix-blend-mode: screen;
+      inset: 0;
       pointer-events: none;
+      background:
+        radial-gradient(circle at 14% 18%, rgba(15, 93, 95, 0.06), transparent 22%),
+        radial-gradient(circle at 86% 16%, rgba(154, 106, 53, 0.05), transparent 20%);
     }
 
     .hero-grid {
       position: relative;
-      z-index: 1;
       display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 20px;
-      align-items: flex-start;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      gap: 28px;
+      align-items: stretch;
     }
 
     .hero-copy {
-      max-width: 42rem;
-    }
-
-    h1 {
-      margin: 0 0 8px;
-      font-family: 'Instrument Serif', serif;
-      font-size: clamp(2rem, 2.4vw + 1rem, 2.8rem);
-      line-height: 1.06;
-      letter-spacing: -0.03em;
-      font-weight: 400;
-    }
-
-    .hero-sub {
-      display: block;
-      margin-top: 4px;
-      font-size: 1rem;
-      color: var(--accent-strong);
-    }
-
-    .lead {
-      margin: 10px 0 12px;
-      max-width: 40rem;
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-
-    .cta {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      margin: 14px 0 10px;
+      flex-direction: column;
+      gap: 18px;
     }
 
-    .btn {
+    .eyebrow {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 18px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 999px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      line-height: 1;
-      text-decoration: none;
-      cursor: pointer;
-      transition:
-        transform 0.16s ease,
-        box-shadow 0.18s ease,
-        background 0.18s ease,
-        border-color 0.18s ease,
-        color 0.18s ease;
+      gap: 10px;
+      margin-bottom: 4px;
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #ffd9ac 0, #f0b376 52%, #d98542 100%);
-      color: #18110b !important;
-      border-color: rgba(255, 220, 180, 0.18);
-      box-shadow: 0 16px 38px rgba(240, 179, 118, 0.34);
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--color-primary);
     }
 
-    .btn-secondary,
-    .btn-ghost {
-      background: rgba(255, 255, 255, 0.03);
-      color: var(--text) !important;
-      border-color: rgba(255, 255, 255, 0.18);
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 0.97;
+      letter-spacing: -0.03em;
+      max-width: 11ch;
     }
 
-    html[data-theme="light"] .btn-secondary,
-    html[data-theme="light"] .btn-ghost {
-      background: #fffaf4;
-      border-color: rgba(104, 82, 62, 0.24);
-      color: #2b2119 !important;
+    .hero-support {
+      max-width: 58ch;
+      color: var(--color-text-muted);
+      font-size: var(--text-lg);
     }
 
-    .hero-footnote {
+    .hero-lead {
+      max-width: 62ch;
+      color: var(--color-text);
+      font-size: var(--text-base);
+    }
+
+    .hero-meta {
       display: flex;
       flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 6px;
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
-      margin-top: 10px;
-      font-size: 0.8rem;
-      line-height: 1.5;
-      color: var(--muted);
+      gap: 8px;
     }
 
-    .hero-footnote .small-note {
-      font-size: 0.78rem;
+    .hero-meta span::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--color-primary);
     }
 
+    .hero-side {
+      display: grid;
+      gap: 16px;
+      align-content: start;
+    }
+
+    .stat-card,
     .test-shell,
-    .result-shell,
     .score-panel,
-    .footer-panel {
-      position: relative;
-      padding: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 20px;
-      background: linear-gradient(135deg, rgba(9, 11, 16, 0.98), rgba(6, 8, 12, 0.98));
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+    .result-shell,
+    .footer-box {
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+      box-shadow: var(--shadow-sm);
+      border-radius: 24px;
     }
 
-    html[data-theme="light"] .test-shell,
-    html[data-theme="light"] .result-shell,
-    html[data-theme="light"] .score-panel,
-    html[data-theme="light"] .footer-panel {
-      background: #fffaf4;
-      border-color: rgba(104, 82, 62, 0.22);
-      box-shadow: 0 18px 40px rgba(98, 76, 56, 0.16);
+    .stat-card {
+      padding: 22px;
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    }
+
+    .stat-eyebrow {
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-faint);
+      margin-bottom: 8px;
+    }
+
+    .stat-title {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .stat-copy {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
     }
 
     .section {
-      padding: 10px 0 18px;
+      padding: 0 0 70px;
     }
 
     .test-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 300px;
-      gap: 16px;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 24px;
+      align-items: start;
     }
 
     .test-shell {
-      padding: 18px 18px 16px;
+      padding: 26px;
+      background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-surface-2) 84%, transparent));
+      box-shadow: var(--shadow-md);
     }
 
     .panel-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 8px;
     }
 
-    .panel-label {
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
+    .panel-kicker {
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--faint);
+      color: var(--color-text-faint);
+      font-weight: 700;
+    }
+
+    .panel-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      margin-top: 4px;
     }
 
     .step-pill {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border: 1px solid rgba(240, 179, 118, 0.18);
+      min-height: 36px;
+      padding: 0 12px;
       border-radius: 999px;
-      background: rgba(240, 179, 118, 0.1);
-      font-size: 0.8rem;
-    }
-
-    .question-card {
-      padding-top: 6px;
-      animation: fadeIn 0.25s ease;
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: var(--text-xs);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
     }
 
     .question-card h2 {
-      margin: 0 0 8px;
-      font-size: clamp(1.28rem, 1vw + 1rem, 1.8rem);
-      line-height: 1.24;
+      font-size: var(--text-lg);
+      line-height: 1.22;
+      margin-bottom: 10px;
     }
 
     .question-note {
-      margin-bottom: 14px;
-      font-size: 0.92rem;
-      color: var(--muted);
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      max-width: 62ch;
     }
 
     .answers {
       display: grid;
-      gap: 10px;
+      gap: 12px;
     }
 
     .answer {
       width: 100%;
-      padding: 14px 14px 13px;
       text-align: left;
-      border: 1px solid rgba(255, 255, 255, 0.09);
+      padding: 16px 16px 14px;
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.02);
-      cursor: pointer;
-      transition:
-        transform 0.16s ease,
-        box-shadow 0.16s ease,
-        border-color 0.16s ease,
-        background 0.16s ease;
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 98%, transparent);
+      transition: var(--transition);
     }
 
-    html[data-theme="light"] .answer {
-      background: #fffdf9;
-      border-color: rgba(104, 82, 62, 0.18);
-    }
-
-    .answer:hover,
-    .answer:focus-visible {
+    .answer:hover {
       transform: translateY(-1px);
-      border-color: rgba(240, 179, 118, 0.44);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
-      outline: none;
+      background: var(--color-surface-2);
+      box-shadow: var(--shadow-sm);
     }
 
-    html[data-theme="light"] .answer:hover,
-    html[data-theme="light"] .answer:focus-visible {
-      box-shadow: 0 12px 28px rgba(98, 76, 56, 0.12);
+    .answer.is-selected {
+      border-color: color-mix(in srgb, var(--color-primary) 44%, var(--color-border));
+      background: color-mix(in srgb, var(--color-primary-soft) 80%, var(--color-surface));
     }
 
     .answer-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 3px;
+      gap: 16px;
+      margin-bottom: 6px;
     }
 
     .answer-title {
-      font-size: 0.96rem;
-      font-weight: 600;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--color-text);
     }
 
     .answer-value {
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
+      font-size: 0.76rem;
+      color: var(--color-text-faint);
       text-transform: uppercase;
-      color: var(--faint);
+      letter-spacing: 0.08em;
+      flex-shrink: 0;
     }
 
     .answer-desc {
-      font-size: 0.86rem;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
       line-height: 1.45;
-      color: var(--muted);
     }
 
     .question-footer {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      gap: 16px;
+      align-items: center;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    html[data-theme="light"] .question-footer {
-      border-top: 1px solid rgba(104, 82, 62, 0.08);
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--color-divider);
     }
 
     .helper-note {
-      font-size: 0.86rem;
-      color: var(--muted);
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      max-width: 44ch;
     }
 
     .nav-actions {
       display: flex;
-      flex-wrap: wrap;
       gap: 10px;
+      flex-wrap: wrap;
     }
 
-    .btn-small {
-      min-height: 42px;
-      padding: 0 16px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.03);
-      cursor: pointer;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+      white-space: nowrap;
+      border: 1px solid transparent;
     }
 
-    html[data-theme="light"] .btn-small {
-      border-color: rgba(104, 82, 62, 0.18);
-      background: #fffaf4;
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary,
+    .btn-ghost {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text);
+    }
+
+    .btn-secondary:hover,
+    .btn-ghost:hover {
+      background: var(--color-surface-2);
+      transform: translateY(-1px);
     }
 
     .score-panel {
+      padding: 22px;
       position: sticky;
       top: 88px;
-      padding: 16px;
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
     }
 
     .score-panel h3 {
-      margin-bottom: 6px;
-      font-size: 0.96rem;
+      font-size: var(--text-lg);
+      line-height: 1.15;
+      margin-bottom: 8px;
     }
 
     .score-panel p {
-      font-size: 0.84rem;
-      color: var(--muted);
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 18px;
     }
 
     .scale-preview {
       display: grid;
-      gap: 12px;
-      margin-top: 14px;
+      gap: 14px;
     }
 
     .scale-row {
       display: grid;
-      gap: 6px;
+      gap: 7px;
     }
 
     .scale-top {
       display: flex;
       justify-content: space-between;
-      gap: 10px;
-      font-size: 0.82rem;
-      color: var(--muted);
+      gap: 12px;
+      font-size: 0.84rem;
+      color: var(--color-text-muted);
     }
 
     .scale-bar {
-      height: 9px;
-      overflow: hidden;
+      height: 10px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    html[data-theme="light"] .scale-bar {
-      background: rgba(104, 82, 62, 0.1);
+      background: color-mix(in srgb, var(--color-text) 8%, transparent);
+      overflow: hidden;
     }
 
     .scale-fill {
       height: 100%;
       width: 0;
       border-radius: inherit;
-      background: linear-gradient(90deg, var(--accent), var(--accent-strong));
-      transition: width 0.35s ease;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+      transition: width 420ms ease;
     }
 
     .result-shell {
       display: none;
-      padding: 18px;
+      margin-top: 20px;
+      padding: 24px;
+      background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-surface-2) 84%, transparent));
+      box-shadow: var(--shadow-md);
     }
 
     .result-shell.is-visible {
       display: block;
-      animation: fadeIn 0.3s ease;
     }
 
     .result-kicker {
-      margin-bottom: 8px;
-      font-size: 0.76rem;
-      letter-spacing: 0.16em;
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--color-accent);
+      font-weight: 700;
+      margin-bottom: 8px;
     }
 
     .result-title {
-      margin-bottom: 8px;
-      font-family: 'Instrument Serif', serif;
-      font-size: clamp(1.8rem, 2vw + 1rem, 2.6rem);
-      line-height: 1.02;
-      letter-spacing: -0.03em;
-      font-weight: 400;
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
     }
 
     .result-lead {
-      margin-bottom: 14px;
-      max-width: 42rem;
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-
-    .result-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .result-card {
-      padding: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    html[data-theme="light"] .result-card {
-      background: #fffdf9;
-      border-color: rgba(104, 82, 62, 0.18);
-    }
-
-    .result-card h4 {
-      margin-bottom: 8px;
-      font-size: 0.78rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--faint);
-    }
-
-    .result-card p,
-    .result-card li {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .result-card ul {
-      padding-left: 18px;
+      color: var(--color-text-muted);
+      font-size: 1rem;
+      margin-bottom: 18px;
+      max-width: 64ch;
     }
 
     .result-top-meta {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 14px;
+      margin-bottom: 18px;
     }
 
     .meta-pill {
       display: inline-flex;
       align-items: center;
-      padding: 8px 12px;
-      border: 1px solid rgba(240, 179, 118, 0.18);
+      min-height: 38px;
+      padding: 0 14px;
       border-radius: 999px;
-      background: rgba(240, 179, 118, 0.08);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
       font-size: 0.86rem;
+      font-weight: 500;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .result-card,
+    .score-card {
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 98%, transparent);
+    }
+
+    .result-card h4 {
+      font-size: var(--text-xs);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-faint);
+      margin-bottom: 10px;
+    }
+
+    .result-card p,
+    .result-card li,
+    .score-meta {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .result-card ul {
+      display: grid;
+      gap: 10px;
+      padding-left: 18px;
+      list-style: disc;
     }
 
     .score-map {
       display: grid;
       gap: 12px;
+      margin-top: 14px;
     }
 
     .score-card {
       padding: 14px 14px 12px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 16px;
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    html[data-theme="light"] .score-card {
-      border-color: rgba(104, 82, 62, 0.16);
-      background: #fffdf9;
     }
 
     .score-top {
       display: flex;
-      align-items: center;
       justify-content: space-between;
       gap: 10px;
+      align-items: flex-start;
       margin-bottom: 8px;
     }
 
     .score-label {
       font-size: 0.88rem;
-      color: var(--text);
-    }
-
-    .score-meta {
-      font-size: 0.8rem;
-      color: var(--muted);
+      color: var(--color-text);
+      font-weight: 700;
     }
 
     .score-line {
+      position: relative;
+      display: block;
       width: 100%;
       height: 10px;
-      margin-bottom: 8px;
-      overflow: hidden;
+      margin: 8px 0 10px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    html[data-theme="light"] .score-line {
-      background: rgba(104, 82, 62, 0.1);
+      background: color-mix(in srgb, var(--color-text) 8%, transparent);
+      overflow: hidden;
     }
 
     .score-line span {
@@ -921,342 +902,231 @@
       height: 100%;
       width: 0;
       border-radius: inherit;
-      background: linear-gradient(90deg, var(--accent), var(--accent-strong));
-      transition: width 0.45s ease;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+      transition: width .6s cubic-bezier(.22,.61,.36,1);
     }
 
     .post-cta {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
+      gap: 12px;
+      margin-top: 18px;
     }
 
-    .footer-block {
-      padding: 10px 0 28px;
+    .footer {
+      padding: 0 0 26px;
+    }
+
+    .footer-box {
+      padding: 26px;
+      background: color-mix(in srgb, var(--color-surface) 86%, transparent);
     }
 
     .footer-grid {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 18px;
-      width: 100%;
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer h4 {
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-faint);
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .footer a:hover {
+      color: var(--color-text);
     }
 
     .footer-links {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 8px;
+      display: grid;
+      gap: 10px;
+      justify-items: end;
     }
 
     .footer-bottom {
       display: flex;
       justify-content: space-between;
+      gap: 16px;
       flex-wrap: wrap;
-      gap: 12px;
-      width: 100%;
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    html[data-theme="light"] .footer-bottom {
-      border-top: 1px solid rgba(104, 82, 62, 0.08);
+      padding-top: 22px;
+      margin-top: 22px;
+      border-top: 1px solid var(--color-divider);
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
     }
 
     .fade-in {
       opacity: 0;
-      transform: translateY(18px) scale(0.99);
-      transition:
-        opacity 0.5s ease-out,
-        transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+      transform: translateY(18px);
+      transition: opacity 500ms ease, transform 500ms ease;
     }
 
-    .fade-in.in {
+    .fade-in.is-visible {
       opacity: 1;
-      transform: translateY(0) scale(1);
+      transform: translateY(0);
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
+    @media (max-width: 1180px) {
+      .brand-sub {
+        max-width: 190px;
       }
-      to {
-        opacity: 1;
-        transform: none;
+      .menu a,
+      .menu .dropbtn,
+      .theme-toggle,
+      .lang-link {
+        padding: 7px 9px;
+        font-size: 0.86rem;
       }
     }
 
-    @media (max-width: 1100px) {
-      .hero-grid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 18px;
-      }
-
-      .hero-copy {
-        max-width: 100%;
-      }
-
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .footer-grid,
+      .result-grid,
       .test-layout {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: 1fr;
       }
-
       .score-panel {
-        position: relative;
-        top: auto;
+        position: static;
       }
     }
 
     @media (max-width: 920px) {
+      .nav {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        position: relative;
+      }
+
       .menu-toggle {
-        display: inline-flex !important;
-        width: 50px;
-        height: 50px;
+        display: inline-flex;
       }
 
       .menu {
-        display: none !important;
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 14px;
+        right: 14px;
+        display: none;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-        width: 100%;
-        margin-top: 10px;
-        padding: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.03);
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid var(--color-border);
+        border-radius: 22px;
+        background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+        box-shadow: var(--shadow-lg);
       }
 
       .menu.is-open {
-        display: flex !important;
-      }
-
-      .menu-group,
-      .menu-tools {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        width: 100%;
       }
 
       .menu a,
-      .menu-dropbtn {
-        display: block;
-        width: 100%;
-        padding: 0;
-        text-align: left;
+      .menu .dropbtn,
+      .theme-toggle,
+      .lang-link {
+        justify-content: flex-start;
+        border-radius: 14px;
+        font-size: 0.95rem;
+        padding: 10px 12px;
       }
 
-      .menu-dropdown {
-        position: static;
-        width: 100%;
-      }
-
-      .menu-dropcontent {
-        position: static !important;
-        display: grid !important;
-        min-width: 0;
-        padding: 10px 0 0;
-        border: 0;
-        background: transparent;
-        box-shadow: none;
-        gap: 10px;
-      }
-
-      .lang-switcher--inside .lang-list {
-        left: 0;
-        right: auto;
-      }
-
-      .hero {
-        padding: 20px 0 14px;
-      }
-
-      .hero-inner {
-        padding: 20px 16px 16px;
-      }
-
-      h1 {
-        font-size: clamp(1.8rem, 7vw, 2.3rem);
-        line-height: 1.08;
-      }
-
-      .lead {
-        font-size: 0.93rem;
-        line-height: 1.55;
-      }
-
-      .result-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .wrap {
-        width: min(calc(100% - 20px), var(--wrap));
-      }
-
-      .brand {
-        max-width: calc(100% - 102px);
-      }
-
-      .brand strong {
-        font-size: 14px;
-        letter-spacing: 0.18em;
-      }
-
-      .brand .sub,
-      .brand span.sub,
-      .sub {
-        font-size: 9px;
-        line-height: 1.3;
-        letter-spacing: 0.1em;
-      }
-
-      .menu-toggle {
-        width: 44px;
-        height: 44px;
-      }
-
-      .menu-toggle-lines {
-        width: 16px;
-        height: 12px;
-      }
-
-      .menu-toggle-lines span {
-        width: 16px;
-      }
-
-      .hero {
-        padding: 16px 0 10px;
-      }
-
-      .hero-inner {
-        padding: 18px 14px 14px;
-        border-radius: 22px;
-      }
-
-      h1 {
-        font-size: clamp(1.56rem, 7.2vw, 1.96rem);
-        line-height: 1.08;
-      }
-
-      .hero-sub {
-        margin-top: 6px;
-        font-size: 0.92rem;
-      }
-
-      .lead {
-        font-size: 0.9rem;
-        line-height: 1.56;
-      }
-
-      .cta,
-      .post-cta,
-      .nav-actions {
-        gap: 8px;
-      }
-
-      .btn,
-      .btn-small,
-      .cta .btn,
-      .post-cta .btn {
-        width: 100%;
+      .menu a.is-highlight {
         justify-content: center;
       }
 
-      .hero-footnote {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+      .dropdown {
+        width: 100%;
       }
 
-      .hero-footnote .small-note {
-        font-size: 0.76rem;
+      .dropcontent {
+        position: static;
+        min-width: 0;
+        margin-top: 8px;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+        display: none;
+        box-shadow: none;
+        border-radius: 16px;
+        background: var(--color-surface-2);
       }
 
+      .dropdown.is-open .dropcontent {
+        display: grid;
+      }
+
+      .menu-tools {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+        padding-top: 6px;
+        border-top: 1px solid var(--color-divider);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(100% - 24px, var(--content-default));
+      }
+
+      .hero-shell,
       .test-shell,
       .result-shell,
       .score-panel,
-      .footer-panel,
-      .result-card {
-        padding: 14px;
+      .footer-box {
+        border-radius: 22px;
       }
 
-      .question-card h2 {
-        font-size: 1.18rem;
+      .hero-title {
+        max-width: 100%;
       }
 
-      .question-note,
-      .answer-desc,
-      .helper-note,
-      .score-panel p,
-      .result-card p,
-      .result-card li {
-        font-size: 0.88rem;
-      }
-
-      .answer {
-        padding: 14px;
-      }
-
-      .answer-title {
-        font-size: 0.92rem;
-      }
-
-      .answer-top {
+      .question-footer,
+      .post-cta,
+      .nav-actions,
+      .hero-meta {
+        flex-direction: column;
         align-items: flex-start;
       }
 
-      .answer-value {
-        font-size: 0.72rem;
-      }
-
-      .panel-head {
-        align-items: flex-start;
-      }
-
-      .step-pill {
-        font-size: 0.76rem;
-      }
-
-      .question-footer {
-        position: sticky;
-        bottom: 8px;
-        z-index: 8;
-        margin-top: 12px;
-        padding: 10px 0 0;
-        background: linear-gradient(180deg, rgba(5, 7, 10, 0), rgba(5, 7, 10, 0.92) 30%, rgba(5, 7, 10, 0.98) 100%);
-      }
-
-      html[data-theme="light"] .question-footer {
-        background: linear-gradient(180deg, rgba(246, 239, 230, 0), rgba(246, 239, 230, 0.94) 30%, rgba(246, 239, 230, 0.98) 100%);
+      .post-cta .btn,
+      .nav-actions .btn {
+        width: 100%;
       }
 
       .footer-links {
-        align-items: flex-start;
+        justify-items: start;
       }
 
       .footer-bottom {
         flex-direction: column;
-        align-items: flex-start;
+      }
+
+      .brand-sub {
+        max-width: 170px;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
         animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+      }
+      .fade-in {
+        opacity: 1;
+        transform: none;
       }
     }
   </style>
@@ -1265,766 +1135,1189 @@
   <div class="progress" id="progress"></div>
 
   <header class="topbar">
-    <div class="wrap nav">
-      <div class="brand">
-        <a class="brand-row" href="/es/"><strong>TELWHA</strong></a>
-        <span class="sub">PSICOLOGÍA FINANCIERA · ESTRATEGIA CONDUCTUAL</span>
-      </div>
-
-      <button
-        class="menu-toggle"
-        type="button"
-        aria-expanded="false"
-        aria-controls="site-menu"
-        aria-label="Abrir menú"
-      >
-        <span class="menu-toggle-lines" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-      </button>
-
-      <nav class="menu" id="site-menu">
-        <div class="menu-group">
-          <a href="/es/">Inicio</a>
-          <a href="/es/finlab/">FinLab</a>
-          <a href="/es/about/">Sobre mí</a>
+    <div class="wrap">
+      <nav class="nav">
+        <div class="brand">
+          <a class="brand-row" href="/" aria-label="TELWHA">
+            <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path>
+              <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path>
+              <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path>
+            </svg>
+            <strong>TELWHA</strong>
+          </a>
+          <span class="brand-sub">Psicología financiera conductual</span>
         </div>
 
-        <div class="menu-group menu-dropdown">
-          <button type="button" class="menu-dropbtn">Para traders ▾</button>
-          <div class="menu-dropcontent">
-            <a href="/es/trader-course/">Mini curso</a>
-            <a href="/es/archetype-test/">Test de arquetipos</a>
-          </div>
-        </div>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú">
+          <span class="menu-toggle-lines" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+        </button>
 
-        <div class="menu-group">
-          <a href="/es/articles/">Artículos</a>
-          <a href="/es/reviews/">Reseñas</a>
-          <a href="/es/cases/">Casos</a>
-          <a href="/es/contact/">Contacto</a>
-        </div>
+        <nav class="menu" id="site-menu" aria-label="Navegación principal">
+          <a href="/">Inicio</a>
+          <a href="/about/">Sobre mí</a>
+          <a href="/cases/">Casos</a>
+          <a href="/articles/">Artículos</a>
+          <a href="/finlab/">FinLab</a>
 
-        <div class="menu-group menu-tools">
-          <details class="lang-switcher lang-switcher--inside">
-            <summary>🇪🇸</summary>
-            <div class="lang-list">
-              <a href="/habit-test.html" aria-label="Українська">🇺🇦</a>
-              <a href="/en/habit-test.html" aria-label="English">🇬🇧</a>
+          <div class="dropdown">
+            <button type="button" class="dropbtn is-highlight" aria-expanded="false">
+              Compruébate
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+            <div class="dropcontent">
+              <a href="/finlab/money-test-api/money-test.html">Test del dinero</a>
+              <a href="/habit-test.html">Test de hábitos</a>
+              <a href="/fact-or-fiction-cases.html">Caso: hecho o trampa</a>
             </div>
-          </details>
-          <button class="theme-toggle" type="button" aria-label="Cambiar tema">🌓</button>
-        </div>
+          </div>
+
+          <div class="dropdown">
+            <button type="button" class="dropbtn" aria-expanded="false">
+              Para traders
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+            <div class="dropcontent">
+              <a href="/trader-course/">Mini curso</a>
+              <a href="/archetype-test/">Test de arquetipo</a>
+            </div>
+          </div>
+
+          <a href="/reviews/">Reseñas</a>
+          <a href="/contact/">Contacto</a>
+
+          <div class="menu-tools">
+            <div class="lang-list" aria-label="Idiomas">
+              <a class="lang-link" href="/habit-test.html" lang="uk" aria-label="Ucraniano">UA</a>
+              <a class="lang-link" href="/en/habit-test.html" lang="en" aria-label="Inglés">EN</a>
+              <a class="lang-link is-active" href="/es/habit-test.html" lang="es" aria-label="Español">ES</a>
+            </div>
+
+            <button class="theme-toggle" type="button" aria-label="Cambiar tema">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M12 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M4.93 4.93L6.34 6.34" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M17.66 17.66L19.07 19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M3 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M19 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M4.93 19.07L6.34 17.66" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M17.66 6.34L19.07 4.93" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"></circle>
+              </svg>
+            </button>
+          </div>
+        </nav>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero">
-      <div class="wrap hero-shell fade-in">
-        <div class="hero-inner">
-          <div class="hero-glow"></div>
+      <div class="wrap">
+        <div class="hero-shell fade-in">
           <div class="hero-grid">
             <div class="hero-copy">
-              <h1>
-                ¿A dónde te llevan tus hábitos financieros? ¿Escasez, ansiedad o estabilidad?
-                <br />
-                <span class="hero-sub"></span>
-              </h1>
-              <p class="lead">
-                El dinero rara vez se reduce solo a cifras. A menudo detrás hay ansiedad, evitación,
-                impulso, contracción por escasez o necesidad de controlarlo todo. Este test te ayudará
-                a ver qué patrón se activa con más frecuencia y en qué conviene apoyarte a partir de ahora.
+              <div class="eyebrow">TELWHA</div>
+              <h1 class="hero-title">Test de hábitos financieros</h1>
+              <p class="hero-support">
+                Evitación del dinero, hipercontrol, modo escasez, gasto impulsivo y apoyo regulador.
               </p>
-              <div class="cta">
-                <a class="btn btn-primary" href="#test">Empezar el test</a>
+              <p class="hero-lead">
+                No se trata de “buenos” o “malos” hábitos, sino de lo que intenta hacer tu sistema nervioso con el dinero cuando siente sobrecarga, inseguridad o presión.
+              </p>
+              <div class="hero-meta">
+                <span>18 preguntas</span>
+                <span>3–5 minutos</span>
+                <span>Basado en investigación</span>
               </div>
             </div>
+
+            <aside class="hero-side" aria-label="Nota introductoria">
+              <div class="stat-card">
+                <div class="stat-eyebrow">Por qué este test</div>
+                <div class="stat-title">
+                  Para notar no solo “lagunas de educación financiera”, sino también los escenarios conductuales que hay detrás.
+                </div>
+                <p class="stat-copy">
+                  Algunas personas evitan tareas con dinero porque están sobrecargadas. Otras controlan cada detalle porque así sienten seguridad. Otras se van al gasto impulsivo cuando están agotadas. El test trata de estos patrones y de cómo te apoyan o debilitan en el comportamiento financiero cotidiano.
+                </p>
+              </div>
+            </aside>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="test">
-      <div class="wrap test-layout fade-in">
-        <div>
-          <div class="test-shell">
-            <div class="panel-head">
-              <div>
-                <div class="panel-label">Recorrido paso a paso</div>
+    <section class="section">
+      <div class="wrap">
+        <div class="test-layout">
+          <div>
+            <div class="test-shell fade-in">
+              <div class="panel-head">
+                <div>
+                  <div class="panel-kicker">Test de hábitos financieros</div>
+                  <div class="panel-title">Responde como actúas en realidad, no como “deberías”</div>
+                </div>
+                <div class="step-pill" id="stepBadge">1 / 18</div>
               </div>
-              <div class="step-pill" id="stepBadge">Paso 1 de 18</div>
+
+              <div class="question-card" id="questionCard"></div>
+
+              <div class="question-footer">
+                <div class="helper-note" id="helperNote">
+                  Si ninguna opción encaja perfectamente, elige la que más se acerca a cómo actúas habitualmente.
+                </div>
+                <div class="nav-actions">
+                  <button class="btn btn-ghost" id="prevBtn" type="button">Atrás</button>
+                  <button class="btn btn-ghost" id="restartBtn" type="button">Empezar de nuevo</button>
+                </div>
+              </div>
             </div>
 
-            <div class="question-card" id="questionCard"></div>
+            <div class="result-shell fade-in" id="resultShell">
+              <div class="result-kicker">Tu patrón</div>
+              <h2 class="result-title" id="resultTitle"></h2>
+              <p class="result-lead" id="resultLead"></p>
 
-            <div class="question-footer">
-              <div class="helper-note" id="microcopyBox">
-                Marca lo que más se acerque a tu patrón habitual.
+              <div class="result-top-meta">
+                <div class="meta-pill" id="secondaryPattern"></div>
+                <div class="meta-pill" id="supportState"></div>
               </div>
-              <div class="nav-actions">
-                <button class="btn-small" type="button" id="prevBtn">Atrás</button>
-                <button class="btn-small" type="button" id="restartBtn">Reiniciar</button>
+
+              <div class="result-grid">
+                <div class="result-card">
+                  <h4>De qué va este patrón</h4>
+                  <p id="resultBody"></p>
+                </div>
+
+                <div class="result-card">
+                  <h4>Dónde enfocar en los próximos 7 días</h4>
+                  <p id="resultFocus"></p>
+                </div>
+
+                <div class="result-card">
+                  <h4>3 pasos para experimentar</h4>
+                  <ul id="resultSteps"></ul>
+                </div>
+
+                <div class="result-card">
+                  <h4>En qué es mejor no apoyarse ahora</h4>
+                  <ul id="resultAvoid"></ul>
+                </div>
+
+                <div class="result-card" style="margin-top:16px;">
+                  <h4>Cómo se ven tus escalas</h4>
+                  <div class="score-map" id="scoreMap"></div>
+                </div>
+              </div>
+
+              <div class="post-cta">
+                <a class="btn btn-primary" href="/finlab/">Ir a FinLab</a>
+                <a class="btn btn-secondary" href="/contact/">Escríbeme</a>
+                <button class="btn btn-ghost" type="button" id="retakeBtn">Repetir el test</button>
               </div>
             </div>
           </div>
 
-          <div class="result-shell" id="resultShell">
-            <div class="result-kicker">Tu resultado</div>
-            <h2 class="result-title" id="resultTitle">—</h2>
-            <p class="result-lead" id="resultLead">—</p>
+          <aside class="score-panel fade-in">
+            <h3>Escalas de este test</h3>
+            <p>
+              Cada pregunta suma puntos a una de las escalas de comportamiento. Verás no solo el patrón principal, sino también qué tan fuertes son los demás.
+            </p>
 
-            <div class="result-top-meta">
-              <div class="meta-pill" id="secondaryPattern">Patrón secundario: —</div>
-              <div class="meta-pill" id="supportState">Base de apoyo: —</div>
-            </div>
-
-            <div class="result-grid">
-              <div class="result-card">
-                <h4>Lo esencial</h4>
-                <p id="resultBody">—</p>
-              </div>
-
-              <div class="result-card">
-                <h4>Enfoque para 7 días</h4>
-                <p id="resultFocus">—</p>
-              </div>
-
-              <div class="result-card">
-                <h4>3 pasos</h4>
-                <ul id="resultSteps"></ul>
-              </div>
-
-              <div class="result-card">
-                <h4>Qué no reforzar</h4>
-                <ul id="resultAvoid"></ul>
-              </div>
-            </div>
-
-            <div class="result-card" style="margin-top: 14px;">
-              <h4>Mapa de escalas</h4>
-              <div class="score-map" id="scoreMap"></div>
-            </div>
-
-            <div class="post-cta">
-              <a class="btn btn-primary" href="/es/finlab/">Ir a FinLab</a>
-              <a class="btn btn-secondary" href="/es/contact/">Reservar una consulta y comentarlo</a>
-              <button class="btn btn-ghost" type="button" id="retakeBtn">Hacerlo otra vez</button>
-            </div>
-          </div>
+            <div class="scale-preview" id="scalePreview"></div>
+          </aside>
         </div>
-
-        <aside class="score-panel">
-          <h3>Tu perfil en proceso</h3>
-          <p>Las escalas se actualizan después de cada respuesta.</p>
-          <div class="scale-preview" id="scalePreview"></div>
-        </aside>
       </div>
     </section>
   </main>
 
-  <footer class="footer-block">
-    <div class="wrap footer-panel fade-in">
-      <div class="footer-grid">
-        <div>
-          <h4>TELWHA</h4>
-          <p>Psicología financiera, economía conductual y soluciones de investigación TELWHA.</p>
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-box fade-in">
+        <div class="footer-grid">
+          <div>
+            <h4>TELWHA</h4>
+            <p>Psicología financiera y economía del comportamiento para decisiones con dinero que duren más que el primer impulso.</p>
+          </div>
+          <div style="text-align:right;">
+            <h4>Navegación</h4>
+            <div class="footer-links">
+              <a href="/about/">Sobre mí</a>
+              <a href="/finlab/">FinLab</a>
+              <a href="/reviews/">Reseñas</a>
+              <a href="/contact/">Contacto</a>
+            </div>
+          </div>
         </div>
-        <div class="footer-links">
-          <a href="/es/about/">Sobre mí</a>
-          <a href="/es/reviews/">Reseñas</a>
-          <a href="/es/contact/">Contacto</a>
+        <div class="footer-bottom">
+          <span>© 2026 TELWHA. Todos los derechos reservados.</span>
+          <span>Finanzas conductuales · psicología financiera</span>
         </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 TELWHA. Todos los derechos reservados.</span>
-        <span>Behavioral finance · financial psychology</span>
       </div>
     </div>
   </footer>
 
   <script>
+    const progress = document.getElementById("progress");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const siteMenu = document.getElementById("site-menu");
+    const themeToggle = document.querySelector(".theme-toggle");
+    const root = document.documentElement;
+
+    function updateProgressBar() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressValue = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      if (progress) {
+        progress.style.width = progressValue + "%";
+      }
+    }
+
+    updateProgressBar();
+    window.addEventListener("scroll", updateProgressBar, { passive: true });
+
+    if (menuToggle && siteMenu) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = siteMenu.classList.toggle("is-open");
+        menuToggle.classList.toggle("is-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+      });
+
+      document.querySelectorAll(".dropdown .dropbtn").forEach((button) => {
+        button.addEventListener("click", () => {
+          if (window.innerWidth > 920) return;
+          const parent = button.parentElement;
+          const isOpen = parent.classList.toggle("is-open");
+          button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+      });
+
+      document.querySelectorAll("#site-menu a[href]").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle?.classList.remove("is-open");
+            menuToggle?.setAttribute("aria-expanded", "false");
+            menuToggle?.setAttribute("aria-label", "Abrir menú");
+          }
+        });
+      });
+    }
+
+    let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    root.setAttribute("data-theme", currentTheme);
+
+    themeToggle?.addEventListener("click", () => {
+      currentTheme = currentTheme === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", currentTheme);
+    });
+
+    const helperLines = [
+      "Si ninguna opción encaja perfectamente, elige la que más se acerca a cómo actúas habitualmente.",
+      "Imagina una semana promedio, no una situación de estrés extremo ni de vacaciones.",
+      "Si tus respuestas difieren entre finanzas personales y de negocio, céntrate primero en las personales.",
+      "Intenta no sobrepensar: la primera respuesta intuitiva suele ser la más precisa para este test.",
+      "Si quieres, puedes repetir el test más tarde y ver si algo cambió.",
+      "Puedes detenerte en cualquier momento; el resultado no se guarda en ningún sitio.",
+      "Este test no es un diagnóstico ni sustituye a la terapia.",
+      "Fíjate no solo en el resultado principal, sino también en las escalas de apoyo.",
+      "El objetivo no es “arreglarte”, sino entender qué intenta hacer tu sistema con el dinero.",
+      "Algunos patrones ayudan en un contexto y molestan en otro — y eso es normal.",
+      "Observa qué preguntas generan más tensión o resistencia.",
+      "Si quieres, puedes ir apuntando tus reacciones y pensamientos mientras respondes.",
+      "Puedes volver a este test dentro de unos meses y comparar los resultados.",
+      "Responde con honestidad, incluso si la respuesta no te gusta.",
+      "Nadie más que tú verá estas respuestas.",
+      "Puedes usar el resultado como dirección para pequeños experimentos, no como etiqueta rígida.",
+      "Recuerda que los patrones son flexibles, no rasgos fijos.",
+      "Puedes hacer una breve pausa antes de terminar si te sientes cansada o cansado."
+    ];
+
     const QUESTIONS = [
       {
-        id: 'Q1',
-        scale: 'avoidance',
-        title: 'Cuando necesitas mirar tu saldo, tus deudas o tus gastos recientes, ¿qué pasa con más frecuencia?',
-        note: 'Elige la reacción más típica.',
+        scale: "avoidance",
+        title: "Cuando pienso en revisar mis finanzas (cuentas, gastos, deudas)…",
+        note: "Elige la opción que más se acerque a cómo lo haces en realidad la mayor parte del tiempo.",
         answers: [
-          { value: 1, title: 'Lo miro con calma', desc: 'El contacto con las cifras está disponible.' },
-          { value: 2, title: 'A veces lo pospongo', desc: 'Si estoy cansada, puedo volver más tarde.' },
-          { value: 3, title: 'Lo dejo para el final', desc: 'Hay una contracción interna.' },
-          { value: 4, title: 'Evito el tema incómodo', desc: 'No quiero ver el panorama.' },
-          { value: 5, title: 'Es como si me desconectara', desc: 'Niebla, vergüenza o congelamiento.' }
+          [
+            "Suelo posponerlo para más adelante",
+            "Sé que es importante, pero muy a menudo lo muevo a “mañana” o “la semana que viene”.",
+            3
+          ],
+          [
+            "Me digo que lo haré cuando tenga más tiempo y energía",
+            "Siento que ahora “no es el momento” y que necesito estar en mejor estado para mirar las finanzas.",
+            4
+          ],
+          [
+            "Lo hago solo cuando algo va mal",
+            "Me siento a revisar las finanzas principalmente cuando hay un problema o situación aguda.",
+            2
+          ],
+          [
+            "Tengo una rutina mínima y más o menos la sigo",
+            "Puede que no me encante, pero igualmente abro mis cuentas según una rutina simple.",
+            1
+          ],
+          [
+            "Miro mis finanzas incluso más de lo necesario y aun así siento que no hago suficiente",
+            "Tiende más al sobrecontrol que a la evitación.",
+            0
+          ]
         ]
       },
       {
-        id: 'Q2',
-        scale: 'avoidance',
-        title: 'Cuando la situación financiera se vuelve confusa, ¿qué te resulta más familiar?',
-        note: 'Piensa en el patrón habitual, no en una excepción.',
+        scale: "avoidance",
+        title: "¿Cómo suelo reaccionar a cartas o notificaciones relacionadas con dinero (facturas, correos del banco, etc.)?",
+        note: "Piensa en las últimas semanas.",
         answers: [
-          { value: 1, title: 'La ordeno paso a paso', desc: 'Incluso si no todo es perfecto.' },
-          { value: 2, title: 'Hago una pausa y vuelvo', desc: 'Hay un pequeño aplazamiento.' },
-          { value: 3, title: 'Retraso la decisión', desc: 'Prefiero no tocar el tema.' },
-          { value: 4, title: 'Evito el contacto', desc: 'Espero que se vuelva más fácil solo.' },
-          { value: 5, title: 'Me quedo bloqueada', desc: 'Como si el botón de actuar desapareciera por un tiempo.' }
+          [
+            "A menudo no las abro durante un tiempo",
+            "Las dejo para “después”, a veces varios días o más.",
+            3
+          ],
+          [
+            "Las abro pero cierro rápido si siento incomodidad",
+            "Las leo por encima y trato de no entrar en detalles.",
+            4
+          ],
+          [
+            "Las abro solo cuando ya no puedo ignorarlas",
+            "Por ejemplo, cuando la fecha límite está muy cerca o hay consecuencias.",
+            2
+          ],
+          [
+            "Abro la mayoría en uno o dos días",
+            "A veces las retraso, pero normalmente las gestiono a tiempo.",
+            1
+          ],
+          [
+            "Casi siempre las abro de inmediato y puedo revisarlas varias veces",
+            "Esto es más vigilancia que evitación.",
+            0
+          ]
         ]
       },
       {
-        id: 'Q3',
-        scale: 'avoidance',
-        title: '¿Qué suele venir después de un periodo de evitación financiera?',
-        note: '¿Qué aparece con más frecuencia a continuación?',
+        scale: "avoidance",
+        title: "Cuando necesito empezar una nueva tarea financiera (p. ej. presupuesto, impuestos, abrir una cuenta)…",
+        note: "Cómo sueles comportarte, no la versión ideal.",
         answers: [
-          { value: 1, title: 'Nada crítico', desc: 'Vuelvo al contacto rápidamente.' },
-          { value: 2, title: 'Una molestia leve', desc: 'Es incómodo, pero no un colapso.' },
-          { value: 3, title: 'Confusión', desc: 'Se vuelve más difícil aclararlo.' },
-          { value: 4, title: 'Vergüenza y tensión', desc: 'El tema se vuelve más pesado.' },
-          { value: 5, title: 'Sensación de impotencia', desc: 'Parece que ya es demasiado tarde para cambiar algo.' }
+          [
+            "Siento una fuerte resistencia interna y busco otras tareas en su lugar",
+            "Puedo empezar a reorganizar otras cosas solo para no hacer esto.",
+            4
+          ],
+          [
+            "Lo complico demasiado en mi cabeza y me bloqueo",
+            "Creo que necesito un plan perfecto, así que no hago nada.",
+            3
+          ],
+          [
+            "Empiezo y paro, saltando entre cosas",
+            "Lo intento, luego me distraigo y vuelvo más tarde.",
+            2
+          ],
+          [
+            "Puedo empezar aunque sienta algo de incomodidad",
+            "No me encanta, pero avanzo paso a paso.",
+            1
+          ],
+          [
+            "Empiezo rápido y más bien tiendo a hacer de más que a evitar",
+            "Más sobre control que sobre evitación.",
+            0
+          ]
         ]
       },
       {
-        id: 'Q4',
-        scale: 'vigilance',
-        title: '¿Con qué frecuencia revisas tu saldo para calmarte un poco?',
-        note: 'No se trata de control contable, sino de calma interior.',
+        scale: "vigilance",
+        title: "¿Con qué frecuencia reviso mis saldos, gastos o cartera?",
+        note: "Céntrate en un mes promedio.",
         answers: [
-          { value: 1, title: 'Solo cuando hace falta', desc: 'Revisar es solo una herramienta.' },
-          { value: 2, title: 'A veces más seguido', desc: 'A veces necesito comprobarlo.' },
-          { value: 3, title: 'Con bastante regularidad', desc: 'Sin eso ya no estoy tan tranquila.' },
-          { value: 4, title: 'A menudo', desc: 'El monitoreo baja la ansiedad.' },
-          { value: 5, title: 'Muy a menudo', desc: 'Sin revisar me cuesta respirar.' }
+          [
+            "Varias veces al día, incluso cuando no pasa nada especial",
+            "Necesito ver constantemente qué está ocurriendo.",
+            4
+          ],
+          [
+            "Una vez al día o casi todos los días",
+            "Si no lo hago, me siento incómoda o incómodo.",
+            3
+          ],
+          [
+            "Varias veces a la semana",
+            "Lo suficiente para sentir que estoy al tanto.",
+            2
+          ],
+          [
+            "Aproximadamente una vez a la semana o menos, siguiendo una rutina simple",
+            "No reviso más de lo necesario.",
+            1
+          ],
+          [
+            "Casi nunca, salvo que algo vaya mal",
+            "Esto es más evitación que vigilancia.",
+            0
+          ]
         ]
       },
       {
-        id: 'Q5',
-        scale: 'vigilance',
-        title: 'Cuando aparece incertidumbre en el dinero, ¿cuál es tu primera reacción?',
-        note: '¿Qué se activa automáticamente?',
+        scale: "vigilance",
+        title: "Si presto dinero o alguien me debe…",
+        note: "Recuerda algunas situaciones recientes.",
         answers: [
-          { value: 1, title: 'Me adapto', desc: 'Pienso qué puedo cambiar.' },
-          { value: 2, title: 'Me tenso un poco', desc: 'Pero vuelvo rápido a la claridad.' },
-          { value: 3, title: 'Empiezo a revisar de nuevo', desc: 'Quiero recuperar el control rápido.' },
-          { value: 4, title: 'Me contraigo mucho', desc: 'La incertidumbre se siente como amenaza.' },
-          { value: 5, title: 'Me obsesiono', desc: 'El control crece más rápido que la claridad.' }
+          [
+            "Lo controlo de cerca y recuerdo a la persona con regularidad",
+            "No puedo relajarme hasta que lo devuelva.",
+            4
+          ],
+          [
+            "Pienso a menudo en si me lo devolverán",
+            "Puede que no escriba directamente, pero me preocupa mucho.",
+            3
+          ],
+          [
+            "Sé quién me debe y aproximadamente cuánto, pero no lo vigilo de forma constante",
+            "Puedo enviar un recordatorio, pero no me obsesiono.",
+            2
+          ],
+          [
+            "Normalmente presto solo una cantidad que puedo permitirme olvidar",
+            "Si lo he prestado, acepto la posibilidad de que no vuelva.",
+            1
+          ],
+          [
+            "Casi nunca presto",
+            "Esto se relaciona más con límites y evitación que con vigilancia.",
+            0
+          ]
         ]
       },
       {
-        id: 'Q6',
-        scale: 'vigilance',
-        title: '¿Qué tan difícil te resulta permitirte algo “suficientemente bueno” en vez de “perfectamente correcto” en decisiones financieras?',
-        note: 'Se trata del estándar interno.',
+        scale: "vigilance",
+        title: "¿Qué hago con los pequeños gastos cotidianos?",
+        note: "Por ejemplo, café, snacks, pequeñas compras online.",
         answers: [
-          { value: 1, title: 'Bastante fácil', desc: 'Puedo vivir sin perfección.' },
-          { value: 2, title: 'A veces cuesta', desc: 'Pero no es crítico.' },
-          { value: 3, title: 'Cuesta bastante', desc: 'Quiero no equivocarme.' },
-          { value: 4, title: 'Muy difícil', desc: 'El error me tensa mucho.' },
-          { value: 5, title: 'Casi imposible', desc: 'Como si solo el control total diera seguridad.' }
+          [
+            "Hago seguimiento de casi cada pequeño gasto",
+            "Quiero saber adónde va cada unidad de dinero.",
+            4
+          ],
+          [
+            "A menudo recalculo mentalmente o en una app durante el día",
+            "Necesito estar segura o seguro de que todo está bajo control.",
+            3
+          ],
+          [
+            "Sé más o menos cuánto puedo gastar y me mantengo dentro de ese límite",
+            "No sigo cada pequeño detalle.",
+            2
+          ],
+          [
+            "No sigo los detalles, solo categorías generales de vez en cuando",
+            "El control aproximado me basta.",
+            1
+          ],
+          [
+            "No hago seguimiento y normalmente no sé en qué se ha ido el dinero",
+            "Más sobre falta de control que sobre vigilancia.",
+            0
+          ]
         ]
       },
       {
-        id: 'Q7',
-        scale: 'soothing',
-        title: '¿Qué papel suelen tener las compras en tu estado emocional?',
-        note: 'También cuentan los gastos pequeños.',
+        scale: "soothing",
+        title: "Cuando siento un estrés fuerte o un cansancio intenso…",
+        note: "Con qué frecuencia utilizas acciones relacionadas con dinero para calmarte.",
         answers: [
-          { value: 1, title: 'Solo una función práctica', desc: 'Compro lo que hace falta.' },
-          { value: 2, title: 'A veces como apoyo', desc: 'Un poco de placer o recompensa.' },
-          { value: 3, title: 'A menudo como alivio', desc: 'Después del estrés se nota.' },
-          { value: 4, title: 'Una forma de descargarme', desc: 'La tensión baja a través del gasto.' },
-          { value: 5, title: 'Uno de mis principales recursos', desc: 'La compra cambia rápido mi estado.' }
+          [
+            "A menudo compro algo para sentirme mejor",
+            "Compras, comida a domicilio, pequeñas compras impulsivas me alivian durante un rato.",
+            4
+          ],
+          [
+            "Aumento el gasto en comodidad (delivery, taxis, caprichos)",
+            "Me cuesta limitarme cuando estoy agotada o agotado.",
+            3
+          ],
+          [
+            "A veces me permito algo extra, pero dentro de un límite aproximado",
+            "Puedo darme un gusto, pero intento no perder el control por completo.",
+            2
+          ],
+          [
+            "Rara vez uso el dinero para regular mi estado",
+            "Tengo otras formas de calmarme.",
+            1
+          ],
+          [
+            "En estrés más bien me bloqueo y dejo de gastar",
+            "Más sobre evitación/modo escasez que sobre consolarse con el gasto.",
+            0
+          ]
         ]
       },
       {
-        id: 'Q8',
-        scale: 'soothing',
-        title: '¿Qué suele pasar después de una compra impulsiva o “para calmarte”?',
-        note: 'Piensa en el ciclo típico.',
+        scale: "soothing",
+        title: "¿Qué pasa con mi planificación financiera cuando estoy emocionalmente agotada o agotado?",
+        note: "Piensa en tu comportamiento real, no en la versión ideal.",
         answers: [
-          { value: 1, title: 'Todo bien', desc: 'Sin un gran efecto posterior.' },
-          { value: 2, title: 'Una duda leve', desc: 'A veces me pregunto si era necesario.' },
-          { value: 3, title: 'Alivio breve y luego pensamientos', desc: 'El alivio no dura mucho.' },
-          { value: 4, title: 'Culpa o tensión', desc: 'El efecto posterior se siente.' },
-          { value: 5, title: 'Un ciclo conocido', desc: 'Estrés → gasto → alivio → nueva tensión.' }
+          [
+            "La planificación desaparece y entro en modo “solo hoy”",
+            "Me cuesta pensar en el futuro cuando estoy muy cansada o cansado.",
+            4
+          ],
+          [
+            "Me permito más “para hoy” y pospongo tareas a largo plazo",
+            "Por ejemplo, dejo de pensar en ahorro o deudas.",
+            3
+          ],
+          [
+            "Hago una planificación mínima para mantener cierta estructura",
+            "Reduzco el volumen, pero no lo dejo del todo.",
+            2
+          ],
+          [
+            "La planificación se mantiene más o menos igual",
+            "El cansancio afecta más a otras áreas que a las finanzas.",
+            1
+          ],
+          [
+            "Empiezo a planificar aún más de forma rígida",
+            "Más sobre control que sobre consuelo.",
+            0
+          ]
         ]
       },
       {
-        id: 'Q9',
-        scale: 'soothing',
-        title: 'Cuando emocionalmente lo pasas mal, ¿qué tan accesible está una pausa antes de una compra no necesaria?',
-        note: 'Se trata del acceso a elegir.',
+        scale: "soothing",
+        title: "¿Con qué frecuencia compro cosas que no había planeado antes de verlas?",
+        note: "Por ejemplo, recomendaciones en apps, rebajas, “solo hoy”.",
         answers: [
-          { value: 1, title: 'Sí está accesible', desc: 'Puedo hacer una pausa.' },
-          { value: 2, title: 'En general sí', desc: 'A veces cuesta más, pero puedo.' },
-          { value: 3, title: 'No siempre', desc: 'Con estrés la elección se estrecha.' },
-          { value: 4, title: 'A menudo es difícil', desc: 'El impulso es más fuerte que la pausa.' },
-          { value: 5, title: 'Casi no está disponible', desc: 'Bajo tensión la compra va primero.' }
+          [
+            "Muy a menudo, sobre todo cuando estoy cansada o molesta",
+            "Luego me arrepiento al menos de algunas de esas compras.",
+            4
+          ],
+          [
+            "Bastante a menudo, aunque normalmente dentro de una cantidad pequeña",
+            "No destruye mi presupuesto, pero se nota.",
+            3
+          ],
+          [
+            "A veces, pero suelo pensarlo al momento de pagar",
+            "Puedo quitar artículos del carrito.",
+            2
+          ],
+          [
+            "Rara vez, en general me ajusto a lo que había planeado",
+            "Las compras impulsivas son más la excepción.",
+            1
+          ],
+          [
+            "Casi nunca",
+            "Me cuesta más permitirme algo que frenar los impulsos.",
+            0
+          ]
         ]
       },
       {
-        id: 'Q10',
-        scale: 'status',
-        title: '¿Hasta qué punto tus gastos o decisiones financieras están ligados a cómo te perciben los demás?',
-        note: 'Aprobación, impresión, pertenencia.',
+        scale: "status",
+        title: "Cuando veo cómo viven otras personas (redes, amistades, colegas)…",
+        note: "Sobre todo en aspectos financieros y de estilo de vida.",
         answers: [
-          { value: 1, title: 'Casi no están ligados', desc: 'Me guío sobre todo por mí.' },
-          { value: 2, title: 'Influyen un poco', desc: 'Pero no determinan la decisión.' },
-          { value: 3, title: 'Influyen bastante', desc: 'El contexto social pesa.' },
-          { value: 4, title: 'Influyen mucho', desc: 'No quiero parecer “fuera de lugar”.' },
-          { value: 5, title: 'Influyen muchísimo', desc: 'La aprobación o el estatus pueden guiar la decisión.' }
+          [
+            "A menudo me comparo y siento que voy por detrás",
+            "Esto puede influir en mis decisiones y compras.",
+            4
+          ],
+          [
+            "A veces siento presión por “alcanzarles”",
+            "Puedo gastar más solo para no sentirme peor que los demás.",
+            3
+          ],
+          [
+            "Me comparo, pero raramente afecta decisiones financieras concretas",
+            "Está más en los pensamientos que en el comportamiento.",
+            2
+          ],
+          [
+            "Casi no me comparo financieramente con otras personas",
+            "Puedo tener curiosidad, pero eso no decide por mí.",
+            1
+          ],
+          [
+            "Más bien siento que otros me juzgan y me cierro",
+            "Más sobre vergüenza y evitación.",
+            0
+          ]
         ]
       },
       {
-        id: 'Q11',
-        scale: 'status',
-        title: 'Cuando toca gastar, negarte o poner un límite, ¿qué te resulta más familiar?',
-        note: 'Piensa en la dinámica social real.',
+        scale: "status",
+        title: "¿Qué tan importante es para mí que mis compras parezcan “sensatas” a ojos de los demás?",
+        note: "Imagina que alguien pudiera ver todos tus gastos.",
         answers: [
-          { value: 1, title: 'Puedo decidir con calma', desc: 'Hay contacto con mis límites.' },
-          { value: 2, title: 'A veces dudo', desc: 'Pero aun así puedo decir “no”.' },
-          { value: 3, title: 'Busco confirmación', desc: 'Quiero permiso desde fuera.' },
-          { value: 4, title: 'Me cuesta no adaptarme', desc: 'La relación pesa más que la claridad financiera.' },
-          { value: 5, title: 'A menudo voy contra mí', desc: 'Para no decepcionar ni parecer tacaña o “incorrecta”.' }
+          [
+            "Muy importante, a menudo pienso en cómo se vería desde fuera",
+            "Esto puede influir en qué compro y qué rechazo.",
+            4
+          ],
+          [
+            "Importante en algunas categorías (formación, regalos, imagen)",
+            "Quiero que mis decisiones parezcan justificadas.",
+            3
+          ],
+          [
+            "A veces lo tengo en cuenta, pero no es el factor principal",
+            "Puedo comprar algo incluso si otros no lo aprobarían.",
+            2
+          ],
+          [
+            "Poco importante",
+            "Elijo más desde mis propias prioridades.",
+            1
+          ],
+          [
+            "Me preocupa más que se note que no estoy manejando bien mis finanzas",
+            "Más sobre vergüenza y evitación.",
+            0
+          ]
         ]
       },
       {
-        id: 'Q12',
-        scale: 'status',
-        title: '¿Con qué frecuencia te comparas con otras personas en tu nivel financiero, estilo de vida o compras?',
-        note: 'Sobre comparación de estatus.',
+        scale: "status",
+        title: "Cuando gano más o recibo dinero extra…",
+        note: "Por ejemplo, bonus, regalo, pago más grande.",
         answers: [
-          { value: 1, title: 'Rara vez', desc: 'La comparación influye poco.' },
-          { value: 2, title: 'A veces', desc: 'Pasa, pero se me va rápido.' },
-          { value: 3, title: 'Bastante seguido', desc: 'La comparación me engancha.' },
-          { value: 4, title: 'A menudo', desc: 'Influye notablemente en mis decisiones.' },
-          { value: 5, title: 'Muy a menudo', desc: 'El fondo de comparación está casi siempre presente.' }
+          [
+            "A menudo quiero mostrarlo de alguna manera (invitar, comprar algo visible)",
+            "Me gusta que otras personas puedan notar mi éxito.",
+            4
+          ],
+          [
+            "Parte va a algo agradable y visible",
+            "Lo percibo como una recompensa merecida.",
+            3
+          ],
+          [
+            "Primero suelo cerrar obligaciones y después pienso en caprichos",
+            "El estatus no es el motor principal.",
+            2
+          ],
+          [
+            "Sobre todo refuerzo mi base financiera y no hago nada “para lucirme”",
+            "Si compro algo bonito, es más para mí que para los demás.",
+            1
+          ],
+          [
+            "El dinero extra me genera más tensión que alegría",
+            "Más sobre escasez/miedo que sobre estatus.",
+            0
+          ]
         ]
       },
       {
-        id: 'Q13',
-        scale: 'scarcity',
-        title: 'Cuando piensas en riesgos futuros, ¿qué te resulta más cercano?',
-        note: 'Se trata de la reacción básica ante la escasez.',
+        scale: "scarcity",
+        title: "¿Con qué frecuencia siento que el dinero no alcanza, incluso cuando objetivamente cubre lo básico?",
+        note: "Céntrate en la sensación, no en las cifras.",
         answers: [
-          { value: 1, title: 'Planifico sin pánico', desc: 'Hay una reserva sana de calma.' },
-          { value: 2, title: 'Me preocupo un poco', desc: 'Pero no me quedo atrapada ahí.' },
-          { value: 3, title: 'Escaneo riesgos a menudo', desc: 'Busco dónde puede faltar algo.' },
-          { value: 4, title: 'Me cuesta relajarme', desc: 'La escasez parece estar siempre cerca.' },
-          { value: 5, title: 'Vivo con un fondo de carencia', desc: 'Como si hubiera que prepararse siempre para lo peor.' }
+          [
+            "Casi todo el tiempo",
+            "Da igual cuáles sean los números, la sensación de “no alcanza” vuelve.",
+            4
+          ],
+          [
+            "Bastante a menudo",
+            "Me cuesta relajarme incluso cuando tengo colchón de seguridad.",
+            3
+          ],
+          [
+            "A veces, sobre todo en periodos de estrés",
+            "Depende de mi estado general.",
+            2
+          ],
+          [
+            "Rara vez",
+            "Puedo preocuparme, pero no domina el paisaje.",
+            1
+          ],
+          [
+            "Casi nunca",
+            "Sé lo que tengo y lo que puedo permitirme.",
+            0
+          ]
         ]
       },
       {
-        id: 'Q14',
-        scale: 'scarcity',
-        title: '¿Cómo es tu relación con el ahorro o la reserva?',
-        note: 'Aquí importa distinguir apoyo de miedo.',
+        scale: "scarcity",
+        title: "¿Cómo me siento cuando gasto dinero en mí (no en otros ni en obligaciones)?",
+        note: "Por ejemplo, formación, salud, descanso, hobbies.",
         answers: [
-          { value: 1, title: 'La reserva me sostiene', desc: 'Me da claridad, no contracción.' },
-          { value: 2, title: 'A veces me inquieto', desc: 'Pero en general está bien.' },
-          { value: 3, title: 'Puedo guardar de más', desc: 'A veces me cuesta permitirme gastar.' },
-          { value: 4, title: 'A menudo me contraigo', desc: 'Como si gastar fuera perder seguridad.' },
-          { value: 5, title: 'Me aferro a la reserva con tensión', desc: 'Ahorrar trata más del miedo que de la libertad.' }
+          [
+            "Casi siempre con culpa o ansiedad",
+            "Siento que “malgasto” o que le quito algo a algo más importante.",
+            4
+          ],
+          [
+            "A menudo dudo y tardo mucho en decidir",
+            "Necesito muchos argumentos para permitirme algo.",
+            3
+          ],
+          [
+            "A veces dudo, pero puedo permitirme si le veo valor",
+            "Negocio conmigo, pero no siempre renuncio.",
+            2
+          ],
+          [
+            "Relativamente tranquila o tranquilo, si cabe en el presupuesto",
+            "Considero este tipo de gastos como algo normal.",
+            1
+          ],
+          [
+            "Puedo gastar en mí con facilidad; el problema es más poner límites",
+            "Más sobre consuelo/gasto impulsivo que sobre escasez.",
+            0
+          ]
         ]
       },
       {
-        id: 'Q15',
-        scale: 'scarcity',
-        title: '¿Qué te resulta más familiar respecto a gastar en ti misma?',
-        note: 'Se trata del permiso y la autoescasez.',
+        scale: "scarcity",
+        title: "¿Qué pasa cuando recibo una suma inesperada (bonus, regalo, devolución)?",
+        note: "Cómo actúas normalmente, no el guion ideal.",
         answers: [
-          { value: 1, title: 'Puedo darme lo necesario', desc: 'Sin una lucha interna extra.' },
-          { value: 2, title: 'A veces dudo', desc: 'Pero sé sopesarlo.' },
-          { value: 3, title: 'A menudo me recorto', desc: 'Incluso cuando no hace falta.' },
-          { value: 4, title: 'Tiendo a la autolimitación', desc: 'Se siente más seguro no gastar.' },
-          { value: 5, title: 'Vivo en carencia interna', desc: 'Incluso cuando objetivamente hay recursos.' }
+          [
+            "Pienso de inmediato que sigue sin ser suficiente y que debo ahorrar todo",
+            "Me cuesta incluso imaginar gastar una parte.",
+            4
+          ],
+          [
+            "Casi siempre lo dejo apartado “por si acaso”",
+            "Me siento más tranquila o tranquilo cuando queda intocable.",
+            3
+          ],
+          [
+            "Lo reparto entre ahorro y algunas necesidades actuales",
+            "Intento equilibrar seguridad y vida presente.",
+            2
+          ],
+          [
+            "Puedo destinar una parte a disfrutar sin sentir una culpa fuerte",
+            "Aun así mantengo la base bajo control.",
+            1
+          ],
+          [
+            "Gasto la mayor parte rápidamente",
+            "Más sobre consuelo/estatus que sobre escasez.",
+            0
+          ]
         ]
       },
       {
-        id: 'Q16',
-        scale: 'regulation',
-        title: '¿Hasta qué punto tienes un apoyo financiero simple al que te resulta fácil volver?',
-        note: 'Algo pequeño, pero funcional.',
+        scale: "regulation",
+        title: "¿Cómo es mi rutina financiera regular ahora mismo?",
+        note: "Por ejemplo, revisión semanal, presupuesto, control de obligaciones.",
         answers: [
-          { value: 1, title: 'Casi no lo tengo', desc: 'El sistema todavía es frágil.' },
-          { value: 2, title: 'Hay piezas sueltas', desc: 'Algunas cosas funcionan, pero de forma inestable.' },
-          { value: 3, title: 'Lo tengo en parte', desc: 'El apoyo ya empieza a tomar forma.' },
-          { value: 4, title: 'Tengo una buena base', desc: 'Los pasos simples ayudan de verdad.' },
-          { value: 5, title: 'Sí, y me sostiene', desc: 'Hay ritmo, límites y repetición.' }
+          [
+            "No tengo una rutina estable, todo pasa de forma espontánea",
+            "Reacciono a las situaciones en lugar de seguir una estructura.",
+            4
+          ],
+          [
+            "Tuve una rutina, pero a menudo se rompe durante semanas",
+            "Me cuesta mantenerla estable.",
+            3
+          ],
+          [
+            "Tengo una rutina simple, pero a veces la salto",
+            "Sin embargo, suelo volver a ella.",
+            2
+          ],
+          [
+            "Tengo una rutina clara pero no sobrecargada y la sigo en gran medida",
+            "Es realista y me sostiene.",
+            1
+          ],
+          [
+            "Tengo una rutina muy rígida, con muchos detalles y reglas",
+            "A veces crea tensión en lugar de apoyo.",
+            0
+          ]
         ]
       },
       {
-        id: 'Q17',
-        scale: 'regulation',
-        title: '¿Cómo estás hoy en contacto con tu panorama financiero en general?',
-        note: 'Aquí una puntuación más alta = más estabilidad.',
+        scale: "regulation",
+        title: "¿Cómo reacciono cuando algo va mal con el dinero (gasto inesperado, retraso en pago, error)?",
+        note: "Mira tu patrón típico.",
         answers: [
-          { value: 1, title: 'Me desestabiliza con facilidad', desc: 'El contacto con el tema es frágil.' },
-          { value: 2, title: 'Todavía busco un sistema', desc: 'A veces me sostengo y a veces no.' },
-          { value: 3, title: 'Poco a poco me equilibro', desc: 'El contacto se vuelve más estable.' },
-          { value: 4, title: 'Lo sostengo sin extremos', desc: 'Puedo ver las cifras y actuar.' },
-          { value: 5, title: 'Hay una estabilidad viva', desc: 'El sistema no es perfecto, pero funciona.' }
+          [
+            "Me bloqueo, pospongo decisiones y trato de no pensar en ello",
+            "La situación puede alargarse.",
+            4
+          ],
+          [
+            "Entro en pánico interno y doy vueltas a los peores escenarios",
+            "Me cuesta pensar con claridad.",
+            3
+          ],
+          [
+            "Primero reacciono desde la emoción, pero luego me siento a ver qué hacer",
+            "Necesito tiempo para procesar, pero actúo.",
+            2
+          ],
+          [
+            "Paso relativamente rápido a pasos concretos",
+            "Las emociones están, pero no bloquean las acciones.",
+            1
+          ],
+          [
+            "Paso de inmediato al hipercontrol y empiezo a tomar muchas decisiones a la vez",
+            "Más sobre control rígido que sobre falta de regulación.",
+            0
+          ]
         ]
       },
       {
-        id: 'Q18',
-        scale: 'regulation',
-        title: '¿Qué tan accesible te resulta un pequeño ritual financiero repetible?',
-        note: 'Por ejemplo, un check-in semanal, un límite o una revisión breve.',
+        scale: "regulation",
+        title: "Si miro los últimos 3 meses, ¿con qué frecuencia revisé mi situación financiera en conjunto?",
+        note: "No cada transacción, sino el cuadro general: ingresos, gastos, ahorro, obligaciones.",
         answers: [
-          { value: 1, title: 'Por ahora casi nada', desc: 'El ritual aún no está fijado.' },
-          { value: 2, title: 'A veces lo consigo', desc: 'Hay intentos, pero sin estabilidad.' },
-          { value: 3, title: 'Está accesible en parte', desc: 'Algo ya se repite.' },
-          { value: 4, title: 'Sí, funciona', desc: 'Las pequeñas acciones me dan sensación de orden.' },
-          { value: 5, title: 'Sí, es mi apoyo', desc: 'La repetición realmente sostiene el sistema.' }
+          [
+            "Ni una sola vez",
+            "Sé qué pasa más bien por sensación que por cifras.",
+            4
+          ],
+          [
+            "Una vez, y fue más reacción al estrés que revisión regular",
+            "Por ejemplo, después de un conflicto o de una preocupación fuerte.",
+            3
+          ],
+          [
+            "Aproximadamente una vez al mes",
+            "Veo el cuadro general, aunque no sea muy al detalle.",
+            2
+          ],
+          [
+            "Tengo un check-in mensual o semanal claro",
+            "Me ayuda a no acumular tensión.",
+            1
+          ],
+          [
+            "Reviso demasiado a menudo y aun así siento que no llego",
+            "Más sobre vigilancia y ansiedad.",
+            0
+          ]
         ]
       }
     ];
 
-    const SCALE_META = {
+    const SCALEMETA = {
       avoidance: {
-        label: 'Evitación',
-        description: 'Aplazamiento, niebla, desconexión, vergüenza y huida del contacto con las cifras.'
+        label: "Evitación",
+        description: "Posponer tareas, correspondencia y decisiones financieras, sobre todo en estrés."
       },
       vigilance: {
-        label: 'Hipervigilancia',
-        description: 'Escaneo de amenaza, comprobaciones repetidas, control tenso y miedo al error.'
+        label: "Vigilancia",
+        description: "Comprobaciones frecuentes, foco en el control y en los detalles, miedo a pasar algo por alto."
       },
       soothing: {
-        label: 'Alivio emocional',
-        description: 'La compra o el gasto como forma rápida de cambiar el estado emocional.'
+        label: "Consolarse con dinero",
+        description: "Uso del gasto o de la planificación para regular emociones y estrés."
       },
       status: {
-        label: 'Estatus social',
-        description: 'El dinero como espacio de aprobación, pertenencia, comparación o impresión.'
+        label: "Estatus y comparación",
+        description: "El dinero como forma de no quedarse atrás, no parecer “peor” y sentir éxito."
       },
       scarcity: {
-        label: 'Escasez y contracción',
-        description: 'Miedo a la falta, acumulación por temor, autolimitación y escaneo de escasez.'
+        label: "Modo escasez",
+        description: "Sensación persistente de “no alcanza”, dificultad para permitirse gastos para una misma o uno mismo."
       },
       regulation: {
-        label: 'Regulación',
-        description: 'Contacto con las cifras, límites, rituales y una base conductual viva.'
+        label: "Regulación y estructura",
+        description: "Qué tan estables y de apoyo son tus rutinas y reacciones en contacto con el dinero."
       }
     };
 
     const RESULTS = {
       avoidance: {
-        title: 'Arquetipo: desconexión de la realidad financiera',
-        lead: 'Cuando la tensión aumenta, en ti puede activarse no la pereza, sino un alejamiento protector del tema del dinero.',
-        body: 'Se parece a un escenario donde la claridad financiera se vive como sobrecarga, así que la psique elige pausa, niebla o aplazamiento. El problema no es la falta de disciplina, sino que el contacto con las cifras se volvió emocionalmente costoso.',
-        focus: 'Enfoque para 7 días: contacto breve, seguro y repetible sin intentar “resolver toda la vida en una sola noche”.',
+        title: "Evitación de tareas financieras",
+        lead: "Tu sistema a menudo te protege de los temas de dinero mediante posponer, congelarte o reducir el contacto.",
+        body: "La evitación no va de pereza, sino de sobrecarga. El dinero se asocia con tensión, vergüenza o miedo a no poder con ello, así que el sistema nervioso elige retrasar el contacto. El problema es que así la ansiedad baja a corto plazo, pero la incertidumbre crece a largo plazo.",
+        focus: "En los próximos 7 días el foco principal es un contacto pequeño y realista con las finanzas en lugar de grandes “arreglos radicales”.",
         steps: [
-          'Programa un money check-in de 7 minutos en un día fijo.',
-          'Mira solo el saldo, los últimos 3 gastos y 1 obligación cercana.',
-          'Después de revisar, haz solo una acción pequeña.'
+          "Elige una microtarea con dinero que puedas hacer en 10–15 minutos (por ejemplo, abrir una cuenta, responder a un correo, apuntar una categoría de gastos).",
+          "Pon esta tarea en el calendario como pondrías una llamada con otra persona.",
+          "Al terminar, anota no solo el resultado, sino también cómo se siente tu cuerpo antes y después."
         ],
         avoid: [
-          'No abras todos los frentes financieros a la vez.',
-          'No confundas honestidad con autocastigo.',
-          'No intentes curar el caos con un maratón rígido de control.'
+          "No intentes “solucionarlo todo de golpe” en una sola noche: eso reforzará la evitación después.",
+          "No te compares con la versión ideal que “lo hace todo a tiempo”.",
+          "No te castigues con restricciones duras justo después de sentarte por fin a revisar las finanzas."
         ]
       },
       vigilance: {
-        title: 'Arquetipo: control a través de la tensión',
-        lead: 'Tu sensación de seguridad financiera puede sostenerse a través de comprobaciones repetidas, escaneo del riesgo y miedo a equivocarte.',
-        body: 'No es solo amor por el orden. Aquí el control suele cumplir una función reguladora: da una sensación breve de seguridad, pero al mismo tiempo aumenta la tensión y el agotamiento.',
-        focus: 'Enfoque para 7 días: no reforzar el control, sino volverlo más breve, claro y cerrado.',
+        title: "Hiper-vigilancia y control",
+        lead: "Tu sistema a menudo intenta manejar la incertidumbre a través de más control, más comprobaciones y más atención al detalle.",
+        body: "La vigilancia puede ser útil cuando construyes un sistema, pero en niveles altos se convierte en agotamiento. El sistema nervioso exige cada vez más información y control para sentirse seguro, pero la sensación de seguridad no llega. Esto consume tiempo y energía y te mantiene en tensión constante.",
+        focus: "En los próximos 7 días el foco principal es probar qué pasa si reduces algunas comprobaciones sin perder información importante.",
         steps: [
-          'Elige una sola ventana para revisar finanzas en lugar de repeticiones caóticas.',
-          'Antes de revisar, pregúntate: ¿busco un hecho o busco tranquilizarme?',
-          'Después de revisar, formula una sola conclusión y cierra el tema.'
+          "Elige un tipo de comprobación (por ejemplo, saldos o cartera) y baja la frecuencia un nivel (por ejemplo, de varias veces al día a una vez por la noche).",
+          "Escribe de qué tienes miedo si compruebas menos y qué ocurre en realidad.",
+          "Añade un pequeño elemento de confianza al sistema (recordatorio automático, límite, aviso) en lugar de más control manual."
         ],
         avoid: [
-          'No construyas un sistema nuevo en pleno pico de ansiedad.',
-          'No confundas agotamiento con responsabilidad.',
-          'No conviertas un error en prueba de peligro personal.'
+          "No intentes dejar todas las comprobaciones a la vez: la tarea es bajar un poco el nivel, no irte al extremo contrario.",
+          "No te culpes si revisas más: obsérvalo y vuelve al experimento.",
+          "No construyas tablas y rastreadores aún más complejos en lugar de revisar cuántas veces miras los datos."
         ]
       },
       soothing: {
-        title: 'Arquetipo: autorregulación emocional a través del gasto',
-        lead: 'Para ti la compra puede funcionar como un regulador rápido del estado: bajar tensión, recompensarte o devolverte sensación de vida.',
-        body: 'Este patrón no habla de “debilidad”, sino de un camino corto hacia el alivio. Pero si hay pocos canales alternativos de recuperación, el gasto empieza a cargar con demasiado trabajo emocional.',
-        focus: 'Enfoque para 7 días: recuperar una micropausa entre la emoción y la compra.',
+        title: "Consolarse a través del gasto",
+        lead: "Tu sistema utiliza a menudo compras y decisiones financieras como forma de regular emociones, cansancio o tensión.",
+        body: "El dinero se convierte fácilmente en una herramienta para cambiar rápido de estado: distraerse, premiarse, sentir algo agradable. El problema es que estas decisiones dan alivio corto a costa de estabilidad a largo plazo. El objetivo no es prohibirte todo, sino añadir otras formas de apoyo para que el dinero no sea el único canal.",
+        focus: "En los próximos 7 días el foco principal es notar el momento en que el gasto se convierte en forma de lidiar con emociones y tener al menos una alternativa.",
         steps: [
-          'Introduce una pausa de 20 minutos para gastos no necesarios.',
-          'Haz una lista con 3 formas más baratas de bajar tensión rápido.',
-          'Después del impulso, anota brevemente: qué quería comprar y qué quería sentir.'
+          "Antes de una compra no planificada, pregúntate: “¿Qué quiero realmente ahora: este objeto o otro estado?”",
+          "Prepara una lista corta de formas no monetarias de calmarte (paseo, respiración, pausa de 10 minutos sin móvil) y prueba al menos una vez usarlas en lugar de comprar.",
+          "Si de todas formas decides comprar, hazlo de forma consciente: fija un límite pequeño y nómbralo como experimento elegido, no como fracaso."
         ],
         avoid: [
-          'No impongas una prohibición total al placer.',
-          'No te avergüences después de cada impulso.',
-          'No dejes el cansancio y el estrés sin un canal alternativo de regulación.'
+          "No introduzcas prohibiciones rígidas tipo “ningún capricho”: suelen provocar rebote.",
+          "No te avergüences después de cada compra: la vergüenza solo aumenta la necesidad de consuelo.",
+          "No intentes resolver problemas emocionales solo optimizando el presupuesto."
         ]
       },
       status: {
-        title: 'Arquetipo: dinero a través del espejo social',
-        lead: 'Tus decisiones financieras pueden entrelazarse fuertemente con aprobación, comparación, imagen y miedo a verte “incorrecta”.',
-        body: 'Aquí el dinero se vuelve no solo un recurso, sino también un lenguaje de pertenencia, reconocimiento o autoprotección en el campo social. Por eso los límites, el permiso y tu propio criterio de “suficiente” pueden desdibujarse.',
-        focus: 'Enfoque para 7 días: separar tu necesidad real de la señal social.',
+        title: "Estatus y comparación",
+        lead: "Tus decisiones financieras están a menudo conectadas con cómo te ves ante los demás y con la comparación con quienes te rodean.",
+        body: "El estatus y el reconocimiento son necesidades naturales. La dificultad aparece cuando las decisiones se toman principalmente para no quedarse atrás, no parecer “peor” o confirmar el valor propio mediante señales visibles. Esto aumenta la presión y puede llevar a gastos poco alineados con tus prioridades reales.",
+        focus: "En los próximos 7 días el foco principal es separar dónde la compra habla realmente de ti y dónde habla sobre todo de los demás.",
         steps: [
-          'Antes de un gasto socialmente sensible, pregúntate: ¿esto es para mí o para impresionar?',
-          'Practica un pequeño límite financiero sin justificártelo.',
-          'Después de compararte con otras personas, vuelve a tu prioridad real del mes.'
+          "Cuando tengas ganas de comprar algo visible (gadget, ropa, formación), pregúntate: “¿Lo querría igual si nadie se enterara?”",
+          "Escribe 3–5 marcadores de éxito que no se vean desde fuera (colchón de seguridad, menos ansiedad, flexibilidad de horario, etc.).",
+          "Observa las situaciones en las que la comparación te empuja a decisiones impulsivas y permítete una pausa de al menos una noche."
         ],
         avoid: [
-          'No tomes la comparación como una norma objetiva.',
-          'No gastes solo para no sentir incomodidad.',
-          'No busques permiso externo donde hace falta una decisión interna.'
+          "No intentes “apagar” por completo la comparación: no es realista.",
+          "No desvalorices tu deseo de reconocimiento: es mejor redirigirlo que avergonzarlo.",
+          "No hagas grandes compras de estatus en periodos de crisis emocional."
         ]
       },
       scarcity: {
-        title: 'Arquetipo: contracción por escasez y miedo a la falta',
-        lead: 'Puede haber en ti un fondo fuerte de escasez: como si el recurso siempre fuera frágil y la seguridad dependiera de apretarte, acumular o negarte cosas.',
-        body: 'Eso puede parecer prudencia, pero por dentro suele haber más ansiedad que estrategia clara. A veces el ahorro funciona aquí no como libertad, sino como intento de proteger el mundo del peligro.',
-        focus: 'Enfoque para 7 días: separar la prudencia sana de vivir en modo de carencia interna.',
+        title: "Modo escasez",
+        lead: "Tu sistema reacciona a menudo a las finanzas desde la posición de “no alcanza” aunque los números sean más estables.",
+        body: "El modo escasez no depende solo de los números actuales, sino también de la experiencia pasada y de la sensibilidad del sistema nervioso. Puede protegerte de riesgos, pero en niveles altos te roba la posibilidad de descansar, invertir en ti y sentir satisfacción por lo que ya tienes.",
+        focus: "En los próximos 7 días el foco principal es probar pequeños pasos seguros fuera de la escasez total sin ignorar los límites reales.",
         steps: [
-          'Identifica un gasto que sea apoyo y no amenaza.',
-          'Divide en tus notas la reserva entre “apoyo” y “contracción ansiosa”.',
-          'Una vez por semana registra 1 hecho de estabilidad real, no solo riesgos.'
+          "Escribe qué es lo que ya está estable en tus finanzas (aunque sea pequeño): ingresos regulares, cualquier ahorro, gastos previsibles.",
+          "Elige un gasto pequeño para ti que no rompa el presupuesto y permítetelo de forma consciente, observando tus sensaciones.",
+          "Haz un plan breve: qué harás exactamente si tus ingresos bajan — esto a menudo reduce el miedo de fondo."
         ],
         avoid: [
-          'No confundas privarte con madurez financiera.',
-          'No construyas toda la seguridad solo sobre la prohibición.',
-          'No conviertas cada gasto en prueba de peligro.'
+          "No te fuerces a grandes gastos “por práctica”: empieza por micro-pasos.",
+          "No te compares con quienes gastan con facilidad: tu sistema nervioso tiene otra historia.",
+          "No ignores riesgos financieros reales bajo el lema “tengo que salir del modo escasez”."
+        ]
+      },
+      regulation: {
+        title: "Apoyo a través de la estructura",
+        lead: "Tu escala de regulación muestra en qué medida tus rutinas y reacciones te apoyan o te debilitan en contacto con el dinero.",
+        body: "Una buena regulación es cuando la estructura es suficiente para sostenerte pero no tanta como para convertirse en fuente de estrés. Si la puntuación aquí es baja, no significa que seas “mala o malo con el dinero”, sino que tu sistema aún no ha encontrado un ritmo estable que encaje con tu vida real.",
+        focus: "En los próximos 7 días el foco principal es probar un check-in financiero muy sencillo y realista.",
+        steps: [
+          "Elige un día y hora para una revisión semanal de 10–15 minutos (por ejemplo, domingo por la mañana o lunes por la tarde).",
+          "Decide de antemano qué mirarás exactamente: saldos, pagos próximos, una categoría de gastos.",
+          "Tras una semana, ajusta el volumen: si fue demasiado, reduce; si muy poco, añade un punto más."
+        ],
+        avoid: [
+          "No construyas desde el inicio un sistema complejo con muchas hojas de cálculo.",
+          "No copies la rutina de otra persona sin adaptación: tu contexto es distinto.",
+          "No esperes el “momento perfecto” para empezar: una estructura simple e imperfecta es mejor que ninguna."
         ]
       }
     };
 
-    const MICROCOPY = [
-      'Marca lo que más se acerque a tu patrón habitual.',
-      'No busques la respuesta correcta. Busca la reconocible.',
-      'Aquí importa no tu versión ideal, sino la real.',
-      'La primera opción que reconoces suele ser la más precisa.',
-      'El control también puede ser una forma de ansiedad.',
-      'No observamos moralidad, sino mecánica.',
-      'Comprar no siempre trata del objeto. A veces trata del estado.',
-      'No juzgues la respuesta: solo obsérvala.',
-      'Bajo estrés, el estrechamiento de opciones es profundamente humano.',
-      'La presión social suele ser invisible hasta que se nombra.',
-      'Aquí importan los límites, no la imagen de “buena persona”.',
-      'La comparación a menudo habla más fuerte que la realidad.',
-      'El miedo a la escasez puede disfrazarse de racionalidad.',
-      'No todo ahorro funciona como apoyo.',
-      'La autolimitación no siempre equivale a madurez.',
-      'El apoyo suele verse más simple de lo que parece.',
-      'La estabilidad rara vez grita. Se repite.',
-      'Un paso más y verás tu perfil.'
-    ];
+    function supportLabel(score) {
+      if (score >= 13) return "La estructura está sobrecargada o ausente; mejor simplificarla.";
+      if (score >= 9) return "La estructura es inestable pero puede fortalecerse de forma gradual.";
+      return "La estructura es más bien de apoyo; puedes construir sobre ella.";
+    }
 
-    const progress = document.getElementById('progress');
-    const questionCard = document.getElementById('questionCard');
-    const stepBadge = document.getElementById('stepBadge');
-    const microcopyBox = document.getElementById('microcopyBox');
-    const prevBtn = document.getElementById('prevBtn');
-    const restartBtn = document.getElementById('restartBtn');
-    const retakeBtn = document.getElementById('retakeBtn');
-    const resultShell = document.getElementById('resultShell');
-    const scalePreview = document.getElementById('scalePreview');
-    const scoreMap = document.getElementById('scoreMap');
-    const resultTitle = document.getElementById('resultTitle');
-    const resultLead = document.getElementById('resultLead');
-    const resultBody = document.getElementById('resultBody');
-    const resultFocus = document.getElementById('resultFocus');
-    const resultSteps = document.getElementById('resultSteps');
-    const resultAvoid = document.getElementById('resultAvoid');
-    const secondaryPattern = document.getElementById('secondaryPattern');
-    const supportState = document.getElementById('supportState');
-    const menuToggle = document.querySelector('.menu-toggle');
-    const siteMenu = document.querySelector('#site-menu');
-    const themeToggle = document.querySelector('.theme-toggle');
+    function buildBlend(primaryKey, secondaryKey) {
+      const blends = {
+        "avoidance:soothing": "Evitación + consuelo: pospones y usas el dinero para regularte.",
+        "avoidance:vigilance": "Evitación + vigilancia: oscilas entre ignorar y sobrecontrolar.",
+        "vigilance:scarcity": "Vigilancia + escasez: mucho control desde la sensación de “no alcanza”.",
+        "vigilance:status": "Vigilancia + estatus: control detallado y comparación constante.",
+        "soothing:status": "Consuelo + estatus: el dinero sirve para calmar y para sentir éxito.",
+        "status:avoidance": "Estatus + evitación: importan las señales visibles, pero se posponen los temas difíciles.",
+        "scarcity:vigilance": "Escasez + vigilancia: muchas comprobaciones y preocupación por los recursos."
+      };
+      return blends[primaryKey + ":" + secondaryKey] || SCALEMETA[secondaryKey].label;
+    }
 
-    let currentStep = 0;
+    const questionCard = document.getElementById("questionCard");
+    const stepBadge = document.getElementById("stepBadge");
+    const helperNote = document.getElementById("helperNote");
+    const prevBtn = document.getElementById("prevBtn");
+    const restartBtn = document.getElementById("restartBtn");
+    const retakeBtn = document.getElementById("retakeBtn");
+    const scalePreview = document.getElementById("scalePreview");
+    const resultShell = document.getElementById("resultShell");
+    const resultTitle = document.getElementById("resultTitle");
+    const resultLead = document.getElementById("resultLead");
+    const resultBody = document.getElementById("resultBody");
+    const resultFocus = document.getElementById("resultFocus");
+    const resultSteps = document.getElementById("resultSteps");
+    const resultAvoid = document.getElementById("resultAvoid");
+    const secondaryPattern = document.getElementById("secondaryPattern");
+    const supportState = document.getElementById("supportState");
+    const scoreMap = document.getElementById("scoreMap");
+
+    let currentQuestion = 0;
     let answers = new Array(QUESTIONS.length).fill(null);
 
-    function animateIn() {
-      document.querySelectorAll('.fade-in').forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 40) el.classList.add('in');
+    function getMaxScores() {
+      const max = {};
+      Object.keys(SCALEMETA).forEach(key => {
+        max[key] = 0;
       });
-    }
-
-    window.addEventListener('scroll', animateIn);
-    window.addEventListener('load', animateIn);
-
-    function getScores() {
-      const scores = {
-        avoidance: 0,
-        vigilance: 0,
-        soothing: 0,
-        status: 0,
-        scarcity: 0,
-        regulation: 0
-      };
-
-      QUESTIONS.forEach((q, i) => {
-        scores[q.scale] += answers[i] || 0;
-      });
-
-      return scores;
-    }
-
-    function getScaleMax() {
-      const max = {
-        avoidance: 0,
-        vigilance: 0,
-        soothing: 0,
-        status: 0,
-        scarcity: 0,
-        regulation: 0
-      };
-
-      QUESTIONS.forEach((q) => {
+      QUESTIONS.forEach(q => {
         max[q.scale] += 5;
       });
-
       return max;
     }
 
-    function renderScalePreview() {
-      const scores = getScores();
-      const max = getScaleMax();
+    function getScores() {
+      const scores = {};
+      Object.keys(SCALEMETA).forEach(key => {
+        scores[key] = 0;
+      });
+      QUESTIONS.forEach((q, i) => {
+        if (answers[i] !== null) {
+          scores[q.scale] += answers[i];
+        }
+      });
+      return scores;
+    }
 
-      scalePreview.innerHTML = Object.entries(SCALE_META)
+    function updateScalePreview() {
+      const scores = getScores();
+      const max = getMaxScores();
+      scalePreview.innerHTML = Object.entries(SCALEMETA)
         .map(([key, meta]) => {
-          const percent = Math.round(((scores[key] || 0) / max[key]) * 100);
+          const value = scores[key];
+          const percent = max[key] ? Math.round((value / max[key]) * 100) : 0;
           return `
             <div class="scale-row">
               <div class="scale-top">
                 <span>${meta.label}</span>
-                <span>${scores[key] || 0}/${max[key]}</span>
+                <span>${value} / ${max[key]}</span>
               </div>
               <div class="scale-bar">
-                <div class="scale-fill" style="width:${percent}%"></div>
+                <div class="scale-fill" style="width:${percent}%;"></div>
               </div>
             </div>
           `;
         })
-        .join('');
+        .join("");
     }
 
     function renderQuestion() {
-      const q = QUESTIONS[currentStep];
-      stepBadge.textContent = `Paso ${currentStep + 1} de ${QUESTIONS.length}`;
-      microcopyBox.textContent = MICROCOPY[currentStep];
-      progress.style.width = `${(currentStep / QUESTIONS.length) * 100}%`;
+      const q = QUESTIONS[currentQuestion];
+      stepBadge.textContent = `${currentQuestion + 1} / ${QUESTIONS.length}`;
+      helperNote.textContent = helperLines[currentQuestion] || helperLines[helperLines.length - 1];
+      prevBtn.disabled = currentQuestion === 0;
+      prevBtn.style.opacity = currentQuestion === 0 ? 0.5 : 1;
 
       questionCard.innerHTML = `
         <h2>${q.title}</h2>
         <p class="question-note">${q.note}</p>
         <div class="answers">
           ${q.answers
-            .map(
-              (a) => `
-                <button class="answer" type="button" data-value="${a.value}">
+            .map((answer, idx) => {
+              const isSelected = answers[currentQuestion] === answer[2];
+              return `
+                <button class="answer ${isSelected ? "is-selected" : ""}" type="button" data-value="${answer[2]}">
                   <div class="answer-top">
-                    <span class="answer-title">${a.title}</span>
-                    <span class="answer-value">${a.value}/5</span>
+                    <span class="answer-title">${answer[0]}</span>
+                    <span class="answer-value">${idx + 1}</span>
                   </div>
-                  <div class="answer-desc">${a.desc}</div>
+                  <div class="answer-desc">${answer[1]}</div>
                 </button>
-              `
-            )
-            .join('')}
+              `;
+            })
+            .join("")}
         </div>
       `;
 
-      questionCard.querySelectorAll('.answer').forEach((btn) => {
-        const value = Number(btn.dataset.value);
-
-        if (answers[currentStep] === value) {
-          btn.style.borderColor = 'rgba(240,179,118,0.42)';
-          btn.style.background = 'rgba(240,179,118,0.09)';
-        }
-
-        btn.addEventListener('click', () => {
-          answers[currentStep] = value;
-          renderScalePreview();
-
-          if (currentStep < QUESTIONS.length - 1) {
-            currentStep += 1;
+      questionCard.querySelectorAll(".answer").forEach((button) => {
+        button.addEventListener("click", () => {
+          answers[currentQuestion] = Number(button.dataset.value);
+          updateScalePreview();
+          if (currentQuestion < QUESTIONS.length - 1) {
+            currentQuestion += 1;
             renderQuestion();
-            window.scrollTo({
-              top: document.getElementById('test').offsetTop - 72,
-              behavior: 'smooth'
-            });
           } else {
             showResults();
           }
         });
       });
-
-      prevBtn.disabled = currentStep === 0;
-      prevBtn.style.opacity = currentStep === 0 ? '0.5' : '1';
-      renderScalePreview();
-    }
-
-    function supportLabel(score) {
-      if (score >= 13) return 'Base de apoyo: sólida';
-      if (score >= 9) return 'Base de apoyo: en formación';
-      return 'Base de apoyo: baja, necesita refuerzo';
-    }
-
-    function buildBlend(primaryKey, secondaryKey) {
-      const blends = {
-        'avoidance:soothing': 'Segunda capa: la evitación se refuerza con la búsqueda emocional de alivio.',
-        'avoidance:vigilance': 'Segunda capa: puede haber un vaivén interno entre niebla y sobrecontrol.',
-        'avoidance:status': 'Segunda capa: la evitación se entrelaza con la tensión de la evaluación social.',
-        'vigilance:scarcity': 'Segunda capa: el control se alimenta del miedo a la escasez.',
-        'vigilance:status': 'Segunda capa: el control está ligado en parte a la imagen de “debo hacerlo bien”.',
-        'vigilance:soothing': 'Segunda capa: después de la sobrecarga puede activarse compensación a través del alivio.',
-        'soothing:status': 'Segunda capa: el gasto regula tanto la emoción como la tensión social.',
-        'soothing:avoidance': 'Segunda capa: el impulso ayuda a no entrar en contacto con una vivencia difícil.',
-        'status:soothing': 'Segunda capa: la tensión social se convierte en gasto como alivio rápido.',
-        'status:avoidance': 'Segunda capa: después de la presión social puede activarse la retirada del tema financiero.',
-        'status:vigilance': 'Segunda capa: la comparación intensa alimenta el control y la autocomprobación.',
-        'scarcity:vigilance': 'Segunda capa: la escasez sostiene un escaneo constante de amenaza.',
-        'scarcity:avoidance': 'Segunda capa: el miedo a la falta puede llevar paradójicamente tanto a contraerse como a congelarse.',
-        'scarcity:status': 'Segunda capa: el fondo de escasez se intensifica por la presión de ajustarse a estándares ajenos.'
-      };
-
-      return blends[`${primaryKey}:${secondaryKey}`] || `Patrón secundario: ${SCALE_META[secondaryKey].label}`;
     }
 
     function showResults() {
       const scores = getScores();
-      const max = getScaleMax();
-      const distressKeys = ['avoidance', 'vigilance', 'soothing', 'status', 'scarcity'];
+      const max = getMaxScores();
 
+      const distressKeys = ["avoidance", "vigilance", "soothing", "status", "scarcity"];
       const distressSorted = distressKeys
-        .map((key) => ({ key, raw: scores[key], percent: scores[key] / max[key] }))
+        .map(key => ({
+          key,
+          raw: scores[key],
+          percent: max[key] ? scores[key] / max[key] : 0
+        }))
         .sort((a, b) => b.percent - a.percent || b.raw - a.raw);
 
       const primaryKey = distressSorted[0].key;
       const secondaryKey = distressSorted[1].key;
-      const res = RESULTS[primaryKey];
 
-      resultTitle.textContent = res.title;
-      resultLead.textContent = res.lead;
-      resultBody.textContent = res.body;
-      resultFocus.textContent = res.focus;
+      const result = RESULTS[primaryKey];
+
+      resultTitle.textContent = result.title;
+      resultLead.textContent = result.lead;
+      resultBody.textContent = result.body;
+      resultFocus.textContent = result.focus;
 
       const gap = distressSorted[0].percent - distressSorted[1].percent;
       secondaryPattern.textContent =
-        gap < 0.08
-          ? `Perfil mixto: ${SCALE_META[primaryKey].label} + ${SCALE_META[secondaryKey].label}`
-          : buildBlend(primaryKey, secondaryKey);
+        gap <= 0.08
+          ? buildBlend(primaryKey, secondaryKey)
+          : SCALEMETA[secondaryKey].label;
 
       supportState.textContent = supportLabel(scores.regulation);
-      resultSteps.innerHTML = res.steps.map((item) => `<li>${item}</li>`).join('');
-      resultAvoid.innerHTML = res.avoid.map((item) => `<li>${item}</li>`).join('');
 
-      scoreMap.innerHTML = Object.entries(SCALE_META)
+      resultSteps.innerHTML = result.steps.map(item => `<li>${item}</li>`).join("");
+      resultAvoid.innerHTML = result.avoid.map(item => `<li>${item}</li>`).join("");
+
+      scoreMap.innerHTML = Object.entries(SCALEMETA)
         .map(([key, meta]) => {
           const value = scores[key];
-          const percent = Math.round((value / max[key]) * 100);
-          let state = 'Nivel de expresión';
-
-          if (key === primaryKey) state = 'Arquetipo principal';
-          else if (key === secondaryKey) state = 'Segunda capa';
-          else if (key === 'regulation') state = 'Nivel de apoyo';
+          const percent = max[key] ? Math.round((value / max[key]) * 100) : 0;
+          let state;
+          if (key === primaryKey) state = "Patrón principal";
+          else if (key === secondaryKey) state = "Patrón secundario";
+          else if (key === "regulation") state = "Base de regulación";
+          else state = "Fondo";
 
           return `
             <div class="score-card">
@@ -2033,71 +2326,69 @@
                   <div class="score-label">${meta.label}</div>
                   <div class="score-meta">${state}</div>
                 </div>
-                <div class="score-meta">${value}/${max[key]}</div>
+                <div class="score-meta">${value} / ${max[key]}</div>
               </div>
-              <div class="score-line"><span style="width:${percent}%"></span></div>
+              <div class="score-line">
+                <span data-width="${percent}%"></span>
+              </div>
               <div class="score-meta">${meta.description}</div>
             </div>
           `;
         })
-        .join('');
+        .join("");
 
-      progress.style.width = '100%';
-      resultShell.classList.add('is-visible');
-      resultShell.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      resultShell.classList.add("is-visible");
+
+      requestAnimationFrame(() => {
+        scoreMap.querySelectorAll(".score-line span").forEach((bar) => {
+          bar.style.width = "0";
+        });
+        requestAnimationFrame(() => {
+          scoreMap.querySelectorAll(".score-line span").forEach((bar) => {
+            bar.style.width = bar.dataset.width;
+          });
+        });
+      });
+
+      resultShell.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     function resetTest() {
+      currentQuestion = 0;
       answers = new Array(QUESTIONS.length).fill(null);
-      currentStep = 0;
-      resultShell.classList.remove('is-visible');
+      resultShell.classList.remove("is-visible");
       renderQuestion();
-      document.getElementById('test').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      updateScalePreview();
+      window.scrollTo({
+        top: document.querySelector(".test-shell").offsetTop - 100,
+        behavior: "smooth"
+      });
     }
 
-    prevBtn.addEventListener('click', () => {
-      if (currentStep > 0) {
-        currentStep -= 1;
-        renderQuestion();
-      }
+    prevBtn.addEventListener("click", () => {
+      if (currentQuestion === 0) return;
+      currentQuestion -= 1;
+      renderQuestion();
     });
 
-    restartBtn.addEventListener('click', resetTest);
-    retakeBtn.addEventListener('click', resetTest);
+    restartBtn.addEventListener("click", resetTest);
+    retakeBtn?.addEventListener("click", resetTest);
 
-    menuToggle?.addEventListener('click', () => {
-      const isOpen = siteMenu.classList.toggle('is-open');
-      menuToggle.classList.toggle('is-open', isOpen);
-      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      menuToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
 
-    document.querySelectorAll('#site-menu a').forEach((link) => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 920) {
-          siteMenu.classList.remove('is-open');
-          menuToggle?.classList.remove('is-open');
-          menuToggle?.setAttribute('aria-expanded', 'false');
-          menuToggle?.setAttribute('aria-label', 'Abrir menú');
-        }
-      });
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && siteMenu.classList.contains('is-open')) {
-        siteMenu.classList.remove('is-open');
-        menuToggle?.classList.remove('is-open');
-        menuToggle?.setAttribute('aria-expanded', 'false');
-        menuToggle?.setAttribute('aria-label', 'Abrir menú');
-      }
-    });
-
-    themeToggle?.addEventListener('click', () => {
-      const root = document.documentElement;
-      root.setAttribute('data-theme', root.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
-    });
+    document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
 
     renderQuestion();
+    updateScalePreview();
   </script>
 </body>
 </html>

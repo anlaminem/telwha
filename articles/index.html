@@ -1,21 +1,27 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" data-theme="light">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Статті — TELWHA</title>
-  <meta name="description" content="TELWHA: Статті та розбори.">
 
+  <title>TELWHA | Статті</title>
+  <meta name="description" content="Статті TELWHA про психологію грошей, трейдинг, ризик, поведінкові патерни та FinLab-дослідження.">
   <link rel="canonical" href="https://t-e-l-w-h-a.com/articles/">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Статті — TELWHA">
-  <meta property="og:description" content="TELWHA: Статті та розбори.">
+  <meta property="og:title" content="TELWHA | Статті">
+  <meta property="og:description" content="Освітні, аналітичні та дослідницькі матеріали TELWHA про гроші, трейдинг, ризик і поведінкові механізми.">
   <meta property="og:url" content="https://t-e-l-w-h-a.com/articles/">
   <meta property="og:site_name" content="TELWHA">
 
-  <!-- Google Analytics 4 -->
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
+
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -24,66 +30,898 @@
     gtag('config', 'G-FVHKD6TZJP');
   </script>
 
-  <!-- JSON-LD: Person (Anna) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Anna Signaevska",
-    "url": "https://t-e-l-w-h-a.com",
-    "image": "https://t-e-l-w-h-a.com/static/media/main_photo.jpg",
-    "jobTitle": "Financial Psychologist & Behavioral Analyst",
-    "description": "Фінансова психологиня та поведінкова аналітикиня, поєдную роботу з нервовою системою, біржею та даними в TELWHA.",
-    "sameAs": [
-      "https://www.youtube.com/@TelwhaUA",
-      "https://www.youtube.com/@Telwha",
-      "https://www.linkedin.com/in/anna-signaevskaya"
-    ]
-  }
-  </script>
-
-  <!-- JSON-LD: Organization (TELWHA) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "TELWHA",
-    "url": "https://t-e-l-w-h-a.com",
-    "description": "TELWHA: фінансова психологія, поведінкова економіка та FinLab для трейдерів, інвесторів і бізнесу.",
-    "logo": "https://t-e-l-w-h-a.com/static/media/telwha-favicon.png",
-    "sameAs": [
-      "https://www.youtube.com/@TelwhaUA",
-      "https://www.youtube.com/@Telwha",
-      "https://www.linkedin.com/in/anna-signaevskaya"
-    ]
-  }
-  </script>
-
-  <!-- JSON-LD: Articles CollectionPage (UK) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Статті — TELWHA",
-    "description": "Сторінка зі статтями та розборами TELWHA про психологію грошей, трейдинг, ризик і навчання.",
+    "name": "TELWHA | Статті",
+    "description": "Освітні, аналітичні та дослідницькі матеріали TELWHA про психологію грошей, трейдинг, ризик і FinLab.",
     "url": "https://t-e-l-w-h-a.com/articles/",
     "inLanguage": "uk"
   }
   </script>
 
-  <link rel="icon" href="/static/media/telwha-favicon.png" type="png">
-  <link rel="stylesheet" href="/static/css/base.css">
-  <link rel="stylesheet" href="/static/css/layout-articles.css">
+  <style>
+    :root,
+    [data-theme="light"] {
+      --font-display: "Boska", Georgia, serif;
+      --font-body: "Satoshi", "Inter", sans-serif;
+
+      --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+      --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
+      --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+      --text-2xl: clamp(2.2rem, 1.5rem + 2vw, 4rem);
+
+      --color-bg: #f5f3ef;
+      --color-surface: #fcfbf8;
+      --color-surface-2: #f2efe9;
+      --color-border: rgba(40, 37, 29, 0.10);
+      --color-divider: rgba(40, 37, 29, 0.08);
+
+      --color-text: #22201a;
+      --color-text-muted: #65625b;
+      --color-text-faint: #8b877f;
+      --color-text-inverse: #f9f8f5;
+
+      --color-primary: #0f5d5f;
+      --color-primary-hover: #0b4b4d;
+      --color-primary-soft: rgba(15, 93, 95, 0.08);
+
+      --color-accent: #9a6a35;
+      --color-accent-soft: rgba(154, 106, 53, 0.08);
+
+      --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
+      --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
+      --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
+
+      --content-default: 1160px;
+      --radius-xl: 32px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1d1b18;
+      --color-surface-2: #24211d;
+      --color-border: rgba(255, 255, 255, 0.10);
+      --color-divider: rgba(255, 255, 255, 0.08);
+
+      --color-text: #ece6dd;
+      --color-text-muted: #b7afa2;
+      --color-text-faint: #91897c;
+      --color-text-inverse: #171614;
+
+      --color-primary: #6ca7a7;
+      --color-primary-hover: #84baba;
+      --color-primary-soft: rgba(108, 167, 167, 0.10);
+
+      --color-accent: #c79c68;
+      --color-accent-soft: rgba(199, 156, 104, 0.09);
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
+      --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { border: 0; background: none; cursor: pointer; font: inherit; color: inherit; }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .wrap {
+      width: min(100% - 28px, var(--content-default));
+      margin-inline: auto;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 120;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      color: var(--color-primary);
+      flex: 0 0 auto;
+    }
+
+    .brand-sub {
+      color: var(--color-text-faint);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      max-width: 240px;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      transition: var(--transition);
+    }
+
+    .menu-toggle:hover {
+      background: var(--color-surface-2);
+    }
+
+    .menu-toggle-lines {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-toggle-lines span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--color-text);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      min-width: 0;
+      flex-wrap: nowrap;
+    }
+
+    .menu a,
+    .menu .dropbtn,
+    .theme-toggle,
+    .lang-link {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      white-space: nowrap;
+      line-height: 1.1;
+      flex-shrink: 0;
+    }
+
+    .menu a:hover,
+    .menu .dropbtn:hover,
+    .theme-toggle:hover,
+    .lang-link:hover {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+    }
+
+    .menu a.is-active {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+    }
+
+    .menu a.is-highlight,
+    .menu .dropbtn.is-highlight {
+      color: var(--color-text-inverse);
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, var(--color-accent)));
+      border: 1px solid transparent;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .menu a.is-highlight:hover,
+    .menu .dropbtn.is-highlight:hover {
+      background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+      color: var(--color-text-inverse);
+    }
+
+    [data-theme="dark"] .menu a.is-highlight,
+    [data-theme="dark"] .menu .dropbtn.is-highlight {
+      color: #141311;
+    }
+
+    .dropdown {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .dropbtn {
+      gap: 6px;
+    }
+
+    .dropbtn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform var(--transition);
+      flex: 0 0 auto;
+    }
+
+    .dropdown:hover .dropbtn svg,
+    .dropdown:focus-within .dropbtn svg,
+    .dropdown.is-open .dropbtn svg {
+      transform: rotate(180deg);
+    }
+
+    .dropcontent {
+      position: absolute;
+      top: calc(100% + 2px);
+      left: 0;
+      z-index: 300;
+      min-width: 240px;
+      display: grid;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    }
+
+    .dropdown:hover .dropcontent,
+    .dropdown:focus-within .dropcontent,
+    .dropdown.is-open .dropcontent {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .dropcontent a {
+      justify-content: flex-start;
+      border-radius: 12px;
+      padding: 12px 14px;
+      white-space: normal;
+      line-height: 1.35;
+    }
+
+    .menu-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid var(--color-divider);
+      flex-shrink: 0;
+    }
+
+    .lang-list {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-link.is-active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+    }
+
+    .theme-toggle svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .page {
+      padding: 34px 0 90px;
+    }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 46px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 24px;
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(15, 93, 95, 0.06), transparent 24%),
+        radial-gradient(circle at 85% 18%, rgba(154, 106, 53, 0.05), transparent 22%);
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--color-primary);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 0.97;
+      letter-spacing: -0.03em;
+      max-width: 11ch;
+      margin-bottom: 14px;
+    }
+
+    .hero-sub {
+      max-width: 62ch;
+      color: var(--color-text-muted);
+      font-size: var(--text-lg);
+    }
+
+    .hero-note {
+      margin-top: 18px;
+      color: var(--color-text);
+      font-size: 0.98rem;
+      max-width: 62ch;
+    }
+
+    .hero-note a {
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+
+    .hero-featured,
+    .section-card,
+    .article-card,
+    .cta-panel {
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-featured {
+      padding: 22px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-primary-soft) 55%, var(--color-surface)));
+    }
+
+    .hero-featured-label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .hero-featured h2 {
+      font-size: var(--text-lg);
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .hero-featured-meta {
+      color: var(--color-text-faint);
+      font-size: 0.88rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-featured p {
+      color: var(--color-text-muted);
+      margin-bottom: 14px;
+      font-size: 0.94rem;
+    }
+
+    .hero-featured a {
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+
+    .section-card {
+      padding: 24px;
+      border-radius: 28px;
+      margin-bottom: 18px;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .filter-chip {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .filter-chip:hover,
+    .filter-chip.active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border-color: rgba(15, 93, 95, 0.26);
+    }
+
+    .articles-hint {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .article-card {
+      display: grid;
+      gap: 14px;
+      padding: 22px;
+      border-radius: 24px;
+      min-height: 100%;
+      transition: var(--transition);
+    }
+
+    .article-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .article-card.is-hidden {
+      display: none;
+    }
+
+    .article-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      width: fit-content;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .article-title {
+      font-size: var(--text-lg);
+      line-height: 1.15;
+    }
+
+    .article-meta {
+      color: var(--color-text-faint);
+      font-size: 0.88rem;
+    }
+
+    .article-excerpt {
+      color: var(--color-text-muted);
+      font-size: 0.94rem;
+    }
+
+    .article-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .article-link {
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 0.94rem;
+    }
+
+    .article-video-flag {
+      color: var(--color-text-faint);
+      font-size: 0.82rem;
+    }
+
+    .article-badge {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--color-accent-soft) 70%, var(--color-surface));
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .articles-separator {
+      padding: 6px 0 22px;
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+    }
+
+    .articles-separator a {
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+
+    .cta-panel {
+      margin-top: 22px;
+      padding: 24px;
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-accent-soft) 52%, var(--color-surface)));
+    }
+
+    .cta-panel h2 {
+      font-size: var(--text-lg);
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .cta-panel p {
+      color: var(--color-text-muted);
+      max-width: 58ch;
+      font-size: 0.92rem;
+    }
+
+    .cta-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+      white-space: nowrap;
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--color-surface);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+      box-shadow: none;
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-surface-2);
+    }
+
+    .footer {
+      padding: 36px 0 26px;
+      border-top: 1px solid var(--color-divider);
+      background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+      margin-top: 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer h4 {
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-faint);
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .footer a:hover {
+      color: var(--color-text);
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      justify-items: end;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 22px;
+      margin-top: 22px;
+      border-top: 1px solid var(--color-divider);
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+    }
+
+    @media (max-width: 1180px) {
+      .articles-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .footer-grid,
+      .cta-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 14px;
+        right: 14px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid var(--color-border);
+        border-radius: 22px;
+        background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .menu.is-open {
+        display: flex;
+      }
+
+      .menu a,
+      .menu .dropbtn,
+      .theme-toggle,
+      .lang-link {
+        justify-content: flex-start;
+        border-radius: 14px;
+        font-size: 0.95rem;
+        padding: 10px 12px;
+      }
+
+      .dropdown {
+        width: 100%;
+      }
+
+      .dropcontent {
+        position: static;
+        min-width: 0;
+        margin-top: 8px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+        display: none;
+        box-shadow: none;
+        border-radius: 16px;
+        background: var(--color-surface-2);
+      }
+
+      .dropdown.is-open .dropcontent {
+        display: grid;
+      }
+
+      .menu-tools {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+        padding-top: 6px;
+        border-top: 1px solid var(--color-divider);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(100% - 24px, var(--content-default));
+      }
+
+      .hero-shell,
+      .hero-featured,
+      .section-card,
+      .article-card,
+      .cta-panel {
+        border-radius: 22px;
+      }
+
+      .hero-title {
+        max-width: 100%;
+      }
+
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-links {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .cta-links .btn {
+        width: 100%;
+      }
+
+      .footer-links {
+        justify-items: start;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .brand-sub {
+        max-width: 170px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="progress" id="progress"></div>
 
   <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
-        <a class="brand-row" href="/">
+        <a class="brand-row" href="/" aria-label="TELWHA — на головну">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
           <strong>TELWHA</strong>
         </a>
-        <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+        <span class="brand-sub">Behavioral Finance · Psychology</span>
       </div>
 
       <button
@@ -93,245 +931,220 @@
         aria-controls="site-menu"
         aria-label="Відкрити меню"
       >
-        <span class="menu-toggle-lines">
-          <span></span>
-          <span></span>
-          <span></span>
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span><span></span><span></span>
         </span>
       </button>
 
-      <nav class="menu" id="site-menu">
-        <div class="menu-group">
-          <a href="/">Головна</a>
-          <a href="/finlab/">FinLab</a>
-          <a href="/about/">Про мене</a>
-        </div>
+      <nav class="menu" id="site-menu" aria-label="Основна навігація">
+        <a href="/">Головна</a>
+        <a href="/about/">Про мене</a>
+        <a href="/cases/">Кейси</a>
+        <a href="/articles/" class="is-active">Статті</a>
+        <a href="/finlab/">FinLab</a>
 
-        <div class="menu-group menu-dropdown">
-          <button type="button" class="menu-dropbtn">Трейдерам ▾</button>
-          <div class="menu-dropcontent">
-            <a href="/trader-course/">Міні‑курс</a>
-            <a href="/archetype-test/">Тест архетипів</a>
+        <div class="dropdown">
+          <button type="button" class="dropbtn is-highlight" aria-expanded="false" aria-haspopup="true">
+            Перевір себе
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/finlab/money-test-api/money-test.html">Тест фінансової поведінки</a>
+            <a href="/habit-test.html">Куди ведуть ваші звички?</a>
+            <a href="/fact-or-fiction-cases.html">Факт чи фікція?</a>
           </div>
         </div>
 
-        <div class="menu-group">
-          <a href="/articles/">Статті</a>
-          <a href="/reviews/">Відгуки</a>
-          <a href="/cases/">Кейси</a>
-          <a href="/contact/">Контакти</a>
+        <div class="dropdown">
+          <button type="button" class="dropbtn" aria-expanded="false" aria-haspopup="true">
+            Трейдерам
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/trader-course/">Міні-курс</a>
+            <a href="/archetype-test/">Архетип трейдера</a>
+          </div>
         </div>
 
-        <div class="menu-group menu-tools">
-          <details class="lang-switcher lang-switcher--inside">
-            <summary>🇺🇦</summary>
-            <div class="lang-list">
-              <a href="/en/articles/" aria-label="English">🇬🇧</a>
-              <a href="/es/articles/" aria-label="Español">🇪🇸</a>
-            </div>
-          </details>
-          <button class="theme-toggle" type="button">🌓</button>
+        <a href="/reviews/">Відгуки</a>
+        <a href="/contact/">Контакти</a>
+
+        <div class="menu-tools">
+          <div class="lang-list" aria-label="Мови сайту">
+            <a class="lang-link is-active" href="/articles/" lang="uk" aria-label="Українська">UA</a>
+            <a class="lang-link" href="/en/articles/" lang="en" aria-label="English">EN</a>
+            <a class="lang-link" href="/es/articles/" lang="es" aria-label="Español">ES</a>
+          </div>
+
+          <button class="theme-toggle" type="button" aria-label="Змінити тему">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M12 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4.93 4.93L6.34 6.34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M17.66 17.66L19.07 19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M3 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M19 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4.93 19.07L6.34 17.66" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M17.66 6.34L19.07 4.93" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </button>
         </div>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main class="page">
     <div class="wrap">
-
-      <!-- HERO / INTRO -->
       <section class="hero-shell">
         <div class="hero-grid">
           <div>
             <div class="eyebrow">TELWHA / Articles</div>
-            <h1>Статті та розбори</h1>
-            <p class="page-sub">
-              Практичні матеріали про психологію грошей, трейдинг, ризик і навчання.
-              Кожна стаття побудована як міні‑сесія: зрозуміти патерн, побачити себе, змінити рішення.
+            <h1 class="hero-title">Статті та розбори</h1>
+            <p class="hero-sub">
+              Освітні, аналітичні та дослідницькі матеріали про психологію грошей, трейдинг, ризик, поведінкові патерни та FinLab.
             </p>
           </div>
+
           <aside class="hero-featured">
             <div class="hero-featured-label">Рекомендовано почати з цього</div>
             <h2>Ваші “нераціональні” вчинки — це цінні дані</h2>
             <div class="hero-featured-meta">Психологія грошей · 1 червня 2025 · 8 хв читання</div>
             <p>
-              Як дивитись на свої «нераціональні» фінансові вчинки як на дані про мислення, емоції
+              Як дивитись на свої “нераціональні” фінансові вчинки як на дані про мислення, емоції
               та патерни, а не як на провали. Практична рамка розбору.
             </p>
-            <a href="/articles/irrational-actions-as-data.html">
-              Читати статтю <span>→</span>
-            </a>
+            <a href="/articles/irrational-actions-as-data.html">Читати статтю →</a>
           </aside>
         </div>
       </section>
 
-      <!-- FILTERS -->
-      <section class="filters" aria-label="Фільтр статей за рубриками">
-        <button class="filter-chip active" data-filter="all">Усе</button>
-        <button class="filter-chip" data-filter="money">Психологія грошей</button>
-        <button class="filter-chip" data-filter="trading">Трейдинг</button>
-        <button class="filter-chip" data-filter="couples">Пари та гроші</button>
-        <button class="filter-chip" data-filter="finlab">FinLab</button>
-        <button class="filter-chip" data-filter="experiments">Експерименти</button>
-      </section>
+      <section class="section-card">
+        <section class="filters" aria-label="Фільтр статей за рубриками">
+          <button class="filter-chip active" type="button" data-filter="all">Усе</button>
+          <button class="filter-chip" type="button" data-filter="money">Психологія грошей</button>
+          <button class="filter-chip" type="button" data-filter="trading">Трейдинг</button>
+          <button class="filter-chip" type="button" data-filter="couples">Пари та гроші</button>
+          <button class="filter-chip" type="button" data-filter="finlab">FinLab</button>
+          <button class="filter-chip" type="button" data-filter="experiments">Експерименти</button>
+        </section>
 
-      <!-- ARTICLES GRID -->
-      <section id="articles" class="articles-grid" aria-label="Список статей">
-        <!-- Стаття 1 -->
-        <article class="article-card" data-tag="money">
-          <div class="article-tag">Психологія грошей</div>
-          <h2 class="article-title">Ваші “нераціональні” вчинки — це цінні дані</h2>
-          <p class="article-meta">1 червня 2025 · 8 хв читання</p>
-          <p class="article-excerpt">
-            Як дивитись на свої «нераціональні» фінансові вчинки як на дані про мислення, емоції
-            та патерни, а не як на провали. Практична рамка розбору.
-          </p>
-          <div class="article-footer">
-            <a class="article-link" href="/articles/irrational-actions-as-data.html">
-              Читати <span>→</span>
-            </a>
-            <span class="article-video-flag">+ відео на YouTube</span>
-          </div>
-        </article>
+        <p class="articles-hint">
+          У цьому розділі немає окремих практичних кейсів Bybit, collections і transaction risk monitoring — вони вже перенесені в “Кейси”.
+        </p>
 
-        <!-- Стаття 2 -->
-        <article class="article-card" data-tag="trading">
-          <div class="article-tag">Трейдинг</div>
-          <h2 class="article-title">Чому після 5 угод мозок «пливе»</h2>
-          <p class="article-meta">12 червня 2025 · 6 хв читання</p>
-          <p class="article-excerpt">
-            Decision fatigue в торгівлі: як кількість рішень за день з’їдає дисципліну, збільшує
-            імпульсивність і що з цим робити на практиці.
-          </p>
-          <div class="article-footer">
-            <a class="article-link" href="/articles/decision-fatigue-trading.html">
-              Читати <span>→</span>
-            </a>
-            <span class="article-video-flag"></span>
-          </div>
-        </article>
-
-        <!-- Стаття 3 -->
-        <article class="article-card" data-tag="couples">
-          <div class="article-tag">Пари та гроші</div>
-          <h2 class="article-title">Коли фінансові розмови закінчуються сваркою</h2>
-          <p class="article-meta">20 червня 2025 · 7 хв читання</p>
-          <p class="article-excerpt">
-            Чому одні й ті самі тригери повторюються в розмовах про гроші в парі, і як перевести
-            фінансовий конфлікт у формат спільного рішення.
-          </p>
-          <div class="article-footer">
-            <a class="article-link" href="/articles/couples-money-conflicts.html">
-              Читати <span>→</span>
-            </a>
-            <span class="article-video-flag"></span>
-          </div>
-        </article>
-
-          <!-- Стаття 4 -->
-          <article class="article-card" data-tag="cases">
-            <div class="article-tag">Кейси</div>
-            <h2 class="article-title">Short‑стратегія на листингах Bybit: тест TP/SL та часу входу</h2>
-            <p class="article-meta">12 травня 2026 · 8 хв читання</p>
+        <section id="articles" class="articles-grid" aria-label="Список статей">
+          <article class="article-card" data-tag="money">
+            <div class="article-tag">Психологія грошей</div>
+            <h2 class="article-title">Ваші “нераціональні” вчинки — це цінні дані</h2>
+            <p class="article-meta">1 червня 2025 · 8 хв читання</p>
             <p class="article-excerpt">
-              Як перевірити short‑гіпотезу на нових лістингах Bybit через historical candles,
-              симулятор угоди, grid search параметрів і аналіз часу входу — без гадань і зайвого пафосу.
+              Як дивитись на свої “нераціональні” фінансові вчинки як на дані про мислення, емоції
+              та патерни, а не як на провали. Практична рамка розбору.
             </p>
             <div class="article-footer">
-              <a class="article-link" href="/articles/short_case.html">
-                Читати <span>→</span>
-              </a>
+              <a class="article-link" href="/articles/irrational-actions-as-data.html">Читати →</a>
+              <span class="article-video-flag">+ відео на YouTube</span>
+            </div>
+          </article>
+
+          <article class="article-card" data-tag="trading">
+            <div class="article-tag">Трейдинг</div>
+            <h2 class="article-title">Чому після 5 угод мозок “пливе”</h2>
+            <p class="article-meta">12 червня 2025 · 6 хв читання</p>
+            <p class="article-excerpt">
+              Decision fatigue в торгівлі: як кількість рішень за день з’їдає дисципліну, збільшує
+              імпульсивність і що з цим робити на практиці.
+            </p>
+            <div class="article-footer">
+              <a class="article-link" href="/articles/decision-fatigue-trading.html">Читати →</a>
               <span class="article-video-flag"></span>
             </div>
           </article>
 
-        <!-- Стаття 5 -->
-        <article class="article-card" data-tag="finlab">
-          <div class="article-tag">FinLab · Дослідження</div>
-          <h2 class="article-title">Когнітивні упередження у фінансових текстах</h2>
-          <p class="article-meta">1 березня 2026 · 10 хв читання</p>
-          <p class="article-excerpt">
-            Як когнітивні упередження проявляються у звітах, новинах і соцмережах, і чому
-            без жанру та контексту AI‑моделі можуть змішувати юридичну мову, hype і страх ринку
-            в один викривлений сигнал.
-          </p>
-          <div class="article-footer">
-            <a class="article-link" href="/articles/mastercase.html">
-              Читати <span>→</span>
-            </a>
-            <span class="article-video-flag"></span>
-          </div>
-        </article>
-          <!-- Стаття 6 -->
+          <article class="article-card" data-tag="couples">
+            <div class="article-tag">Пари та гроші</div>
+            <h2 class="article-title">Коли фінансові розмови закінчуються сваркою</h2>
+            <p class="article-meta">20 червня 2025 · 7 хв читання</p>
+            <p class="article-excerpt">
+              Чому одні й ті самі тригери повторюються в розмовах про гроші в парі, і як перевести
+              фінансовий конфлікт у формат спільного рішення.
+            </p>
+            <div class="article-footer">
+              <a class="article-link" href="/articles/couples-money-conflicts.html">Читати →</a>
+              <span class="article-video-flag"></span>
+            </div>
+          </article>
+
+          <article class="article-card" data-tag="finlab">
+            <div class="article-tag">FinLab · Дослідження</div>
+            <h2 class="article-title">Когнітивні упередження у фінансових текстах</h2>
+            <p class="article-meta">1 березня 2026 · 10 хв читання</p>
+            <p class="article-excerpt">
+              Як когнітивні упередження проявляються у звітах, новинах і соцмережах, і чому
+              без жанру та контексту AI-моделі можуть змішувати юридичну мову, hype і страх ринку
+              в один викривлений сигнал.
+            </p>
+            <div class="article-footer">
+              <a class="article-link" href="/articles/mastercase.html">Читати →</a>
+              <span class="article-video-flag"></span>
+            </div>
+          </article>
+
           <article class="article-card" data-tag="finlab experiments">
-    <div class="article-tag">FinLab · Експерименти</div>
-    <h2 class="article-title">Поведінкові упередження в трейдингу: кейс SPY 200DMA</h2>
-    <p class="article-meta">13 травня 2026 · 9 хв читання</p>
-    <p class="article-excerpt">
-      Як house money effect, confirmation bias, escalation of commitment і status quo bias
-      змінюють прибутковість, просадку та логіку виконання SPY 200DMA стратегії — і що це
-      означає для трейдерів, ризику та фінтех-продуктів.
-    </p>
-    <div class="article-footer">
-      <a class="article-link" href="/articles/behavioral-biases-spy-200dma.html">
-        Читати <span>→</span>
-      </a>
-      <span class="article-video-flag"></span>
-    </div>
+            <div class="article-tag">FinLab · Експерименти</div>
+            <h2 class="article-title">Поведінкові упередження в трейдингу: кейс SPY 200DMA</h2>
+            <p class="article-meta">13 травня 2026 · 9 хв читання</p>
+            <p class="article-excerpt">
+              Як house money effect, confirmation bias, escalation of commitment і status quo bias
+              змінюють прибутковість, просадку та логіку виконання SPY 200DMA стратегії — і що це
+              означає для трейдерів, ризику та фінтех-продуктів.
+            </p>
+            <div class="article-badge">Research-style material</div>
+            <div class="article-footer">
+              <a class="article-link" href="/articles/behavioral-biases-spy-200dma.html">Читати →</a>
+              <span class="article-video-flag"></span>
+            </div>
+          </article>
 
-  </article>
+          <article class="article-card" data-tag="finlab experiments">
+            <div class="article-tag">FinLab · Експерименти</div>
+            <h2 class="article-title">Як AI-інсайти про витрати можуть змінювати фінансову поведінку</h2>
+            <p class="article-meta">20 травня 2026 · 9 хв читання</p>
+            <p class="article-excerpt">
+              Кейс про те, як AI-based spending insights у мобільному фінансовому продукті
+              можуть змінювати структуру витрат, підвищувати salience і давати behavior effect
+              без негативного сигналу по engagement.
+            </p>
+            <div class="article-badge">Product experiment</div>
+            <div class="article-footer">
+              <a class="article-link" href="/articles/ai-spending-insights-case-uk.html">Читати →</a>
+              <span class="article-video-flag"></span>
+            </div>
+          </article>
+        </section>
+      </section>
 
-  <!-- Стаття 7 -->
-<article class="article-card" data-tag="finlab experiments">
-  <div class="article-tag">FinLab · Експерименти</div>
-  <h2 class="article-title">Як AI-інсайти про витрати можуть змінювати фінансову поведінку</h2>
-  <p class="article-meta">20 травня 2026 · 9 хв читання</p>
-  <p class="article-excerpt">
-  Кейс про те, як AI-based spending insights у мобільному фінансовому продукті
-  можуть змінювати структуру витрат, підвищувати salience і давати behavior effect
-  без негативного сигналу по engagement.
-</p>
-  <div class="article-footer">
-    <a class="article-link" href="/articles/ai-spending-insights-case-uk.html">
-      Читати <span>→</span>
-    </a>
-    <span class="article-video-flag"></span>
-  </div>
-</article>
-<article class="article-card" data-tag="cases finlab experiments">
-  <div class="article-tag">Кейси · FinTech</div>
-  <h2 class="article-title">Однакова прострочка, різна поведінка боржника</h2>
-  <p class="article-meta">28 травня 2026 · 8 хв читання</p>
-  <p class="article-excerpt">
-    Поведінковий кейс про те, чому один і той самий bucket прострочки може приховувати різні профілі боржників
-    — і як сегментація за поведінкою та підібрані treatment paths покращують повернення боргу і роблять сервіс людянішим.
-  </p>
-  <div class="article-footer">
-    <a class="article-link" href="/articles/Credit.html">
-      Читати <span>→</span>
-    </a>
-    <span class="article-video-flag"></span>
-  </div>
-</article>
+      <div class="articles-separator">
+        Потрібні практичні scenario-based приклади, behavioral case studies або FinTech-кейси? Дивись
+        <a href="/cases/">розділ “Кейси”</a>.
+      </div>
 
-<!-- Стаття 8 -->
-<article class="article-card" data-tag="cases finlab experiments">
-  <div class="article-tag">Кейси · FinTech</div>
-  <h2 class="article-title">Моніторинг ризику платіжних транзакцій для Fintech</h2>
-  <p class="article-meta">1 червня 2026 · 9 хв читання</p>
-  <p class="article-excerpt">
-    Кейс про explainable fraud monitoring на transaction-level датасеті:
-    Combined Risk Score, severity segmentation, investigator queue і dashboard
-    для потоку з 283,726 транзакцій, 473 fraud-кейсів, 970 high-risk та 142 critical випадків.
-  </p>
-  <div class="article-footer">
-    <a class="article-link" href="/articles/explainable-transaction-risk-monitoring.html">
-      Читати <span>→</span>
-    </a>
-    <span class="article-video-flag"></span>
-  </div>
-</article>
-
+      <section class="cta-panel">
+        <div>
+          <h2>Хочеш почати з практичного напряму?</h2>
+          <p>
+            Перейди до кейсів, якщо хочеш побачити прикладні розбори, або залишайся в статтях, якщо зараз потрібне пояснення патерну, моделі чи механізму.
+          </p>
+        </div>
+        <div class="cta-links">
+          <a class="btn" href="/cases/">Перейти до кейсів</a>
+          <a class="btn btn-secondary" href="/contact/">Зв’язатися</a>
+        </div>
       </section>
     </div>
   </main>
@@ -345,42 +1158,139 @@
         </div>
         <div style="text-align:right">
           <h4>Навігація</h4>
-          <div class="footer-links" style="align-items:flex-end">
+          <div class="footer-links">
             <a href="/">Головна</a>
             <a href="/about/">Про мене</a>
             <a href="/finlab/">FinLab</a>
           </div>
         </div>
-        <div>
-          <h4>Дії</h4>
-          <div class="footer-links">
-            <a href="/trader-course/">Міні‑курс трейдерам</a>
-            <a href="/archetype-test/">Тест архетипів</a>
-          </div>
-        </div>
       </div>
       <div class="footer-bottom">
         <span>© 2026 TELWHA. Усі права захищено.</span>
-        <span>Київ, Україна · 🇺🇦</span>
+        <span>Київ, Україна</span>
       </div>
     </div>
   </footer>
 
-  <script src="/static/script/global.js"></script>
-  <script src="/static/script/articles.js"></script>
   <script>
-    (function () {
-      const toggle = document.querySelector('.menu-toggle');
-      const menu = document.querySelector('#site-menu');
-      if (!toggle || !menu) return;
+    const progress = document.getElementById("progress");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const siteMenu = document.getElementById("site-menu");
+    const themeToggle = document.querySelector(".theme-toggle");
+    const root = document.documentElement;
+    const dropdowns = document.querySelectorAll(".dropdown");
 
-      toggle.addEventListener('click', () => {
-        const isOpen = menu.classList.toggle('is-open');
-        toggle.classList.toggle('is-open', isOpen);
-        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        toggle.setAttribute('aria-label', isOpen ? 'Закрити меню' : 'Відкрити меню');
+    const filterButtons = document.querySelectorAll(".filter-chip");
+    const articleCards = document.querySelectorAll(".article-card");
+
+    function updateProgressBar() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressValue = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      if (progress) progress.style.width = progressValue + "%";
+    }
+
+    function closeAllDropdowns(except = null) {
+      dropdowns.forEach((dropdown) => {
+        if (dropdown === except) return;
+        dropdown.classList.remove("is-open");
+        const btn = dropdown.querySelector(".dropbtn");
+        btn?.setAttribute("aria-expanded", "false");
       });
-    })();
+    }
+
+    updateProgressBar();
+    window.addEventListener("scroll", updateProgressBar, { passive: true });
+
+    if (menuToggle && siteMenu) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = siteMenu.classList.toggle("is-open");
+        menuToggle.classList.toggle("is-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        menuToggle.setAttribute("aria-label", isOpen ? "Закрити меню" : "Відкрити меню");
+
+        if (!isOpen) {
+          closeAllDropdowns();
+        }
+      });
+    }
+
+    dropdowns.forEach((dropdown) => {
+      const button = dropdown.querySelector(".dropbtn");
+
+      button?.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        const isOpen = dropdown.classList.contains("is-open");
+        closeAllDropdowns(dropdown);
+
+        dropdown.classList.toggle("is-open", !isOpen);
+        button.setAttribute("aria-expanded", !isOpen ? "true" : "false");
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".dropdown")) {
+        closeAllDropdowns();
+      }
+
+      if (!e.target.closest(".nav") && siteMenu?.classList.contains("is-open") && window.innerWidth <= 920) {
+        siteMenu.classList.remove("is-open");
+        menuToggle?.classList.remove("is-open");
+        menuToggle?.setAttribute("aria-expanded", "false");
+        menuToggle?.setAttribute("aria-label", "Відкрити меню");
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeAllDropdowns();
+
+        if (siteMenu?.classList.contains("is-open") && window.innerWidth <= 920) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Відкрити меню");
+          menuToggle?.focus();
+        }
+      }
+    });
+
+    document.querySelectorAll('#site-menu a[href]').forEach((link) => {
+      link.addEventListener("click", () => {
+        closeAllDropdowns();
+
+        if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Відкрити меню");
+        }
+      });
+    });
+
+    let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    root.setAttribute("data-theme", currentTheme);
+
+    themeToggle?.addEventListener("click", () => {
+      currentTheme = currentTheme === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", currentTheme);
+    });
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+        filterButtons.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        articleCards.forEach((card) => {
+          const tagString = card.dataset.tag || "";
+          const tags = tagString.split(" ");
+          const show = filter === "all" || tags.includes(filter);
+          card.classList.toggle("is-hidden", !show);
+        });
+      });
+    });
   </script>
 </body>
 </html>

@@ -1,38 +1,1187 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FinLab by TELWHA — test de comportamiento financiero</title>
-  <meta
-    name="description"
-    content="FinLab by TELWHA — un test anónimo de comportamiento financiero para ucranianos. Descubre tu arquetipo, tus escenarios de estrés y tu lugar dentro de las estadísticas anónimas."
-  >
-
-  <link rel="canonical" href="https://t-e-l-w-h-a.com/es/finlab/">
+  <title>FinLab by TELWHA — test de comportamiento financiero para ucranianos</title>
+  <meta name="description" content="FinLab by TELWHA — test anónimo de comportamiento financiero para ucranianos. Descubre tu arquetipo, tus escenarios de estrés y tu lugar en las estadísticas anónimas.">
+  <link rel="canonical" href="https://t-e-l-w-h-a.com/finlab/">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="FinLab by TELWHA — test de comportamiento financiero">
-  <meta
-    property="og:description"
-    content="FinLab muestra cómo te comportas realmente con el dinero en estrés, incertidumbre y en decisiones cotidianas."
-  >
-  <meta property="og:url" content="https://t-e-l-w-h-a.com/es/finlab/">
+  <meta property="og:title" content="FinLab by TELWHA — test de comportamiento financiero para ucranianos">
+  <meta property="og:description" content="FinLab muestra cómo te comportas con el dinero bajo estrés, incertidumbre y en las decisiones cotidianas.">
+  <meta property="og:url" content="https://t-e-l-w-h-a.com/finlab/">
   <meta property="og:site_name" content="TELWHA">
 
   <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
 
-  <link rel="stylesheet" href="/static/css/base.css">
-  <link rel="stylesheet" href="/static/css/layout-finlab.css">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root,
+    [data-theme="light"] {
+      --font-display: "Boska", Georgia, serif;
+      --font-body: "Satoshi", "Inter", sans-serif;
+
+      --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+      --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
+      --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+      --text-2xl: clamp(2.2rem, 1.4rem + 2.4vw, 4.2rem);
+
+      --color-bg: #f5f3ef;
+      --color-surface: #fcfbf8;
+      --color-surface-2: #f2efe9;
+      --color-surface-3: #ebe7df;
+      --color-border: rgba(40, 37, 29, 0.10);
+      --color-divider: rgba(40, 37, 29, 0.08);
+
+      --color-text: #22201a;
+      --color-text-muted: #65625b;
+      --color-text-faint: #8b877f;
+      --color-text-inverse: #f9f8f5;
+
+      --color-primary: #0f5d5f;
+      --color-primary-hover: #0b4b4d;
+      --color-primary-soft: rgba(15, 93, 95, 0.08);
+
+      --color-accent: #9a6a35;
+      --color-accent-soft: rgba(154, 106, 53, 0.08);
+
+      --color-red: #a04b46;
+      --color-blue: #3f6f97;
+      --color-gold: #9a6a35;
+      --color-green: #4f7a4e;
+
+      --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
+      --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
+      --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
+
+      --content-default: 1180px;
+      --radius-sm: 14px;
+      --radius-md: 22px;
+      --radius-lg: 28px;
+      --radius-xl: 34px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1d1b18;
+      --color-surface-2: #24211d;
+      --color-surface-3: #2a2622;
+      --color-border: rgba(255, 255, 255, 0.10);
+      --color-divider: rgba(255, 255, 255, 0.08);
+
+      --color-text: #ece6dd;
+      --color-text-muted: #b7afa2;
+      --color-text-faint: #91897c;
+      --color-text-inverse: #171614;
+
+      --color-primary: #6ca7a7;
+      --color-primary-hover: #84baba;
+      --color-primary-soft: rgba(108, 167, 167, 0.10);
+
+      --color-accent: #c79c68;
+      --color-accent-soft: rgba(199, 156, 104, 0.09);
+
+      --color-red: #d9837b;
+      --color-blue: #7eb1db;
+      --color-gold: #ddb06a;
+      --color-green: #89ba82;
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
+      --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button {
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .wrap {
+      width: min(100% - 28px, var(--content-default));
+      margin-inline: auto;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 120;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      color: var(--color-primary);
+      flex: 0 0 auto;
+    }
+
+    .sub {
+      color: var(--color-text-faint);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      max-width: 260px;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      transition: var(--transition);
+    }
+
+    .menu-toggle:hover {
+      background: var(--color-surface-2);
+    }
+
+    .menu-toggle-lines {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-toggle-lines span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--color-text);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      min-width: 0;
+      flex-wrap: nowrap;
+    }
+
+    .menu a,
+    .menu .dropbtn,
+    .theme-toggle,
+    .lang-link {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      white-space: nowrap;
+      line-height: 1.1;
+      flex-shrink: 0;
+    }
+
+    .menu a:hover,
+    .menu .dropbtn:hover,
+    .theme-toggle:hover,
+    .lang-link:hover {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+    }
+
+    .menu a.is-active {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+    }
+
+    .menu a.is-highlight,
+    .menu .dropbtn.is-highlight {
+      color: var(--color-text-inverse);
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, var(--color-accent)));
+      border: 1px solid transparent;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .menu a.is-highlight:hover,
+    .menu .dropbtn.is-highlight:hover {
+      background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+      color: var(--color-text-inverse);
+    }
+
+    [data-theme="dark"] .menu a.is-highlight,
+    [data-theme="dark"] .menu .dropbtn.is-highlight {
+      color: #141311;
+    }
+
+    .dropdown {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .dropbtn {
+      gap: 6px;
+    }
+
+    .dropbtn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform var(--transition);
+      flex: 0 0 auto;
+    }
+
+    .dropdown:hover .dropbtn svg,
+    .dropdown:focus-within .dropbtn svg,
+    .dropdown.is-open .dropbtn svg {
+      transform: rotate(180deg);
+    }
+
+    .dropcontent {
+      position: absolute;
+      top: calc(100% + 2px);
+      left: 0;
+      z-index: 300;
+      min-width: 240px;
+      display: grid;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    }
+
+    .dropdown:hover .dropcontent,
+    .dropdown:focus-within .dropcontent,
+    .dropdown.is-open .dropcontent {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .dropcontent a {
+      justify-content: flex-start;
+      padding: 12px 14px;
+      border-radius: 12px;
+      white-space: normal;
+      line-height: 1.35;
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid var(--color-divider);
+      flex-shrink: 0;
+    }
+
+    .lang-list {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-link.is-active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      width: 44px;
+      padding-inline: 0;
+      font-size: 1rem;
+    }
+
+    main {
+      padding: 34px 0 90px;
+    }
+
+    .finlab-wrap {
+      width: min(100% - 28px, var(--content-default));
+      margin-inline: auto;
+    }
+
+    .finlab-shell {
+      display: grid;
+      gap: 20px;
+    }
+
+    .finlab-panel,
+    .finlab-card,
+    .finlab-stat-card,
+    .finlab-arch,
+    .finlab-biz,
+    .finlab-step,
+    .finlab-proof,
+    .finlab-final,
+    .finlab-acc {
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .finlab-hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 48px);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+    }
+
+    .finlab-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 14% 18%, rgba(15, 93, 95, 0.06), transparent 24%),
+        radial-gradient(circle at 86% 16%, rgba(154, 106, 53, 0.05), transparent 22%);
+    }
+
+    .finlab-hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .finlab-brandline {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .finlab-brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 65%, var(--color-accent)));
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .finlab-brand-mark::before,
+    .finlab-brand-mark::after {
+      content: "";
+      position: absolute;
+      background: rgba(255,255,255,0.85);
+      border-radius: 999px;
+    }
+
+    .finlab-brand-mark::before {
+      width: 18px;
+      height: 2px;
+      left: 10px;
+      top: 11px;
+    }
+
+    .finlab-brand-mark::after {
+      width: 2px;
+      height: 18px;
+      left: 18px;
+      top: 10px;
+    }
+
+    .finlab-brand-text-main {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .finlab-brand-text-sub {
+      color: var(--color-text-faint);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .finlab-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .finlab-eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--color-primary);
+      box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-primary) 12%, transparent);
+    }
+
+    .finlab-hero-copy h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+      max-width: 11ch;
+      margin-bottom: 16px;
+    }
+
+    .finlab-hero-lead {
+      max-width: 60ch;
+      color: var(--color-text-muted);
+      font-size: var(--text-lg);
+      margin-bottom: 18px;
+    }
+
+    .finlab-hero-points {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .finlab-hero-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--color-text);
+    }
+
+    .finlab-hero-point i,
+    .finlab-list i {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--color-primary);
+      flex: 0 0 auto;
+      margin-top: 0.48rem;
+      box-shadow: 0 0 0 5px color-mix(in srgb, var(--color-primary) 12%, transparent);
+    }
+
+    .finlab-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .finlab-btn {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: 0.94rem;
+      font-weight: 700;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .finlab-btn-primary {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .finlab-btn-primary:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .finlab-btn-secondary {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+    }
+
+    .finlab-btn-secondary:hover {
+      background: var(--color-surface-2);
+    }
+
+    .finlab-hero-note {
+      color: var(--color-text-faint);
+      font-size: 0.92rem;
+      max-width: 62ch;
+    }
+
+    .finlab-trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .finlab-proof {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    }
+
+    .finlab-proof strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .finlab-proof span {
+      color: var(--color-text-muted);
+      font-size: 0.88rem;
+    }
+
+    .finlab-hero-data {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .finlab-panel {
+      padding: 20px 22px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-primary-soft) 45%, var(--color-surface)));
+    }
+
+    .finlab-data-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .finlab-data-title {
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .finlab-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-faint);
+      font-size: 0.76rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .finlab-total {
+      padding: 18px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, var(--color-surface-2), var(--color-surface));
+      border: 1px solid var(--color-border);
+      margin-bottom: 14px;
+    }
+
+    .finlab-total-label {
+      color: var(--color-text-faint);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .finlab-total-value {
+      font-size: clamp(2rem, 1.5rem + 2vw, 3.4rem);
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      margin-bottom: 6px;
+      color: var(--color-text);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .finlab-total-copy {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .finlab-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .finlab-stat-card {
+      padding: 16px;
+      border-radius: 20px;
+      background: var(--color-surface);
+    }
+
+    .finlab-stat-label {
+      color: var(--color-text-faint);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .finlab-stat-value {
+      font-size: 1.65rem;
+      line-height: 1.1;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .finlab-stat-value.red { color: var(--color-red); }
+    .finlab-stat-value.blue { color: var(--color-blue); }
+    .finlab-stat-value.gold { color: var(--color-gold); }
+    .finlab-stat-value.green { color: var(--color-green); }
+
+    .finlab-stat-level {
+      color: var(--color-text-muted);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    .finlab-section {
+      padding: 26px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 98%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .finlab-section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .finlab-section-kicker::before {
+      content: "";
+      width: 20px;
+      height: 1px;
+      background: var(--color-primary);
+    }
+
+    .finlab-section h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      max-width: 15ch;
+    }
+
+    .finlab-section-lead {
+      color: var(--color-text-muted);
+      max-width: 66ch;
+      margin-bottom: 18px;
+      font-size: 0.98rem;
+    }
+
+    .finlab-results-grid,
+    .finlab-business-grid,
+    .finlab-archetypes,
+    .finlab-steps {
+      display: grid;
+      gap: 16px;
+    }
+
+    .finlab-results-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .finlab-steps {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .finlab-archetypes {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .finlab-business-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .finlab-card,
+    .finlab-step,
+    .finlab-arch,
+    .finlab-biz {
+      padding: 22px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    }
+
+    .finlab-card h3,
+    .finlab-step h3,
+    .finlab-biz h3 {
+      font-size: 1.03rem;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .finlab-card p,
+    .finlab-step p,
+    .finlab-biz p {
+      color: var(--color-text-muted);
+      font-size: 0.94rem;
+    }
+
+    .finlab-list {
+      display: grid;
+      gap: 10px;
+      list-style: none;
+    }
+
+    .finlab-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--color-text-muted);
+    }
+
+    .finlab-step-number {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--color-primary-soft);
+      color: var(--color-primary);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .finlab-arch-code {
+      color: var(--color-text-faint);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .finlab-arch-name {
+      font-size: 1.08rem;
+      line-height: 1.15;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .finlab-arch-share {
+      font-size: 1.6rem;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+      color: var(--color-primary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .finlab-arch p {
+      color: var(--color-text-muted);
+      font-size: 0.94rem;
+    }
+
+    .finlab-accordion {
+      display: grid;
+      gap: 12px;
+    }
+
+    .finlab-acc {
+      border-radius: 22px;
+      overflow: hidden;
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    }
+
+    .finlab-acc-btn {
+      width: 100%;
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px 20px;
+      text-align: left;
+    }
+
+    .finlab-acc-title {
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .finlab-acc-arrow {
+      color: var(--color-text-faint);
+      font-size: 1.2rem;
+      transition: transform var(--transition);
+      flex: 0 0 auto;
+    }
+
+    .finlab-acc-panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows var(--transition);
+    }
+
+    .finlab-acc-panel > div {
+      overflow: hidden;
+    }
+
+    .finlab-acc-panel-inner {
+      padding: 0 20px 20px;
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+    }
+
+    .finlab-acc.open .finlab-acc-panel {
+      grid-template-rows: 1fr;
+    }
+
+    .finlab-acc.open .finlab-acc-arrow {
+      transform: rotate(90deg);
+    }
+
+    .finlab-final {
+      padding: 26px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-accent-soft) 48%, var(--color-surface)));
+      box-shadow: var(--shadow-md);
+    }
+
+    .finlab-final h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      max-width: 14ch;
+    }
+
+    .finlab-final p {
+      max-width: 62ch;
+      color: var(--color-text-muted);
+      margin-bottom: 16px;
+    }
+
+    .finlab-footer-note {
+      color: var(--color-text-faint);
+      font-size: 0.88rem;
+      margin-top: 10px;
+    }
+
+    .footer {
+      padding: 36px 0 26px;
+      border-top: 1px solid var(--color-divider);
+      background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+      margin-top: 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer h4 {
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-faint);
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .footer a:hover {
+      color: var(--color-text);
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      justify-items: end;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 22px;
+      margin-top: 22px;
+      border-top: 1px solid var(--color-divider);
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+    }
+
+    @media (max-width: 1180px) {
+      .finlab-results-grid,
+      .finlab-steps,
+      .finlab-archetypes,
+      .finlab-business-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .finlab-hero-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .finlab-trust-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 14px;
+        right: 14px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid var(--color-border);
+        border-radius: 22px;
+        background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .menu.is-open {
+        display: flex;
+      }
+
+      .menu a,
+      .menu .dropbtn,
+      .theme-toggle,
+      .lang-link {
+        justify-content: flex-start;
+        border-radius: 14px;
+        font-size: 0.95rem;
+        padding: 10px 12px;
+      }
+
+      .menu a.is-highlight,
+      .menu .dropbtn.is-highlight {
+        justify-content: center;
+      }
+
+      .dropdown {
+        width: 100%;
+      }
+
+      .dropcontent {
+        position: static;
+        min-width: 0;
+        margin-top: 8px;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+        display: none;
+        box-shadow: none;
+        border-radius: 16px;
+        background: var(--color-surface-2);
+      }
+
+      .dropdown.is-open .dropcontent {
+        display: grid;
+      }
+
+      .menu-tools {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+        padding-top: 6px;
+        border-top: 1px solid var(--color-divider);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap,
+      .finlab-wrap {
+        width: min(100% - 24px, var(--content-default));
+      }
+
+      .finlab-hero,
+      .finlab-section,
+      .finlab-final,
+      .finlab-card,
+      .finlab-step,
+      .finlab-arch,
+      .finlab-biz,
+      .finlab-proof,
+      .finlab-acc {
+        border-radius: 22px;
+      }
+
+      .finlab-hero-copy h1,
+      .finlab-section h2,
+      .finlab-final h2 {
+        max-width: 100%;
+      }
+
+      .finlab-results-grid,
+      .finlab-steps,
+      .finlab-archetypes,
+      .finlab-business-grid,
+      .finlab-stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .finlab-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .finlab-btn {
+        width: 100%;
+      }
+
+      .footer-links {
+        justify-items: start;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="progress" id="progress"></div>
+
   <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
-        <a class="brand-row" href="/es/">
+        <a class="brand-row" href="/" aria-label="TELWHA — ir a la página principal">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
           <strong>TELWHA</strong>
         </a>
-        <span class="sub">PSICOLOGÍA FINANCIERA · ESTRATEGIA CONDUCTUAL</span>
       </div>
 
       <button
@@ -43,44 +1192,54 @@
         aria-label="Abrir menú"
       >
         <span class="menu-toggle-lines" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </span>
       </button>
 
-      <nav class="menu" id="site-menu">
-        <div class="menu-group">
-          <a href="/es/">Inicio</a>
-          <a href="/es/finlab/">FinLab</a>
-          <a href="/es/about/">Sobre mí</a>
-        </div>
+      <nav class="menu" id="site-menu" aria-label="Navegación principal">
+        <a href="/">Inicio</a>
+        <a href="/about/">Sobre mí</a>
+        <a href="/cases/">Casos</a>
+        <a href="/articles/">Artículos</a>
+        <a href="/finlab/" class="is-active">FinLab</a>
 
-        <div class="menu-group menu-dropdown">
-          <button type="button" class="menu-dropbtn">Para traders ▾</button>
-          <div class="menu-dropcontent">
-            <a href="/es/trader-course/">Mini‑curso</a>
-            <a href="/es/archetype-test/">Test de arquetipos</a>
+        <div class="dropdown">
+          <button type="button" class="dropbtn is-highlight" aria-expanded="false">
+            Ponerte a prueba
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/finlab/money-test-api/money-test.html">Test de comportamiento financiero</a>
+            <a href="/habit-test.html">¿A dónde te llevan tus hábitos?</a>
+            <a href="/fact-or-fiction-cases.html">¿Hecho o ficción?</a>
           </div>
         </div>
 
-        <div class="menu-group">
-          <a href="/es/articles/">Artículos</a>
-          <a href="/es/reviews/">Testimonios</a>
-          <a href="/es/cases/">Casos</a>
-          <a href="/es/contact/">Contacto</a>
+        <div class="dropdown">
+          <button type="button" class="dropbtn" aria-expanded="false">
+            Para traders
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/trader-course/">Mini-curso</a>
+            <a href="/archetype-test/">Arquetipo de trader</a>
+          </div>
         </div>
 
-        <div class="menu-group menu-tools">
-          <details class="lang-switcher lang-switcher--inside">
-            <summary>🇪🇸</summary>
-            <div class="lang-list">
-              <a href="/finlab/" aria-label="Українська" lang="uk">🇺🇦</a>
-              <a href="/en/finlab/" aria-label="English" lang="en">🇬🇧</a>
-            </div>
-          </details>
+        <a href="/reviews/">Reseñas</a>
+        <a href="/contact/">Contacto</a>
 
-          <button class="theme-toggle" type="button" aria-label="Cambiar tema">🌙</button>
+        <div class="menu-tools">
+          <div class="lang-list" aria-label="Idiomas del sitio">
+            <a class="lang-link" href="/finlab/" lang="uk" aria-label="Ucraniano">UA</a>
+            <a class="lang-link" href="/en/finlab/" lang="en" aria-label="Inglés">EN</a>
+            <a class="lang-link is-active" href="/es/finlab/" lang="es" aria-label="Español">ES</a>
+          </div>
+          <button class="theme-toggle" type="button" aria-label="Cambiar tema">☀️</button>
         </div>
       </nav>
     </div>
@@ -88,248 +1247,316 @@
 
   <main>
     <div class="finlab-wrap">
-      <header class="finlab-header">
-        <div class="finlab-brand">
-          <div class="finlab-brand-mark" aria-hidden="true"></div>
-          <div>
-            <div class="finlab-brand-text-main">FinLab TELWHA</div>
-            <div class="finlab-brand-text-sub">Diagnóstico del comportamiento con el dinero</div>
+      <div class="finlab-shell">
+        <section class="finlab-hero">
+          <div class="finlab-hero-grid">
+            <div class="finlab-hero-copy">
+              <div class="finlab-brandline">
+                <div class="finlab-brand-mark" aria-hidden="true"></div>
+                <div>
+                  <div class="finlab-brand-text-main">FinLab by TELWHA</div>
+                  <div class="finlab-brand-text-sub">Money behavior diagnostics</div>
+                </div>
+              </div>
+
+              <div class="finlab-eyebrow">
+                <span class="finlab-eyebrow-dot"></span>
+                <span>Test conductual anónimo para ucranianos</span>
+              </div>
+
+              <h1>Mira cómo te comportas con el dinero bajo presión</h1>
+
+              <p class="finlab-hero-lead">
+                FinLab no muestra quién quieres parecer en las finanzas, sino cómo actúas en escenarios reales:
+                cuando se acumula estrés, cuando pospones decisiones, cuando falta claridad o cuando todo se sostiene solo por tensión interna.
+              </p>
+
+              <div class="finlab-hero-points">
+                <div class="finlab-hero-point"><i></i><span>Tu arquetipo de comportamiento financiero y un segundo patrón marcado.</span></div>
+                <div class="finlab-hero-point"><i></i><span>Tus escenarios de estrés, evitación, control o sobrecarga.</span></div>
+                <div class="finlab-hero-point"><i></i><span>Tu lugar en las estadísticas anónimas de FinLab.</span></div>
+              </div>
+
+              <div class="finlab-actions">
+                <a class="finlab-btn finlab-btn-primary" href="/finlab/money-test-api/money-test.html">Hacer el test</a>
+                <a class="finlab-btn finlab-btn-secondary" href="#how-it-works">Cómo funciona</a>
+              </div>
+
+              <div class="finlab-trust-row">
+                <div class="finlab-proof">
+                  <strong>Anónimo</strong>
+                  <span>Solo se publica la estadística agregada, no las respuestas individuales.</span>
+                </div>
+                <div class="finlab-proof">
+                  <strong>7–10 minutos</strong>
+                  <span>Formato corto sin sobrecarga, pero con profundidad conductual suficiente.</span>
+                </div>
+                <div class="finlab-proof">
+                  <strong>No solo un “tipo”</strong>
+                  <span>El resultado muestra arquetipo, escenarios de riesgo y primeros pasos prácticos.</span>
+                </div>
+              </div>
+            </div>
+
+            <aside class="finlab-hero-data">
+              <div class="finlab-panel">
+                <div class="finlab-data-head">
+                  <div class="finlab-data-title">Insights en vivo de FinLab</div>
+                  <div class="finlab-chip" id="statsUpdatedChip">los datos se actualizan</div>
+                </div>
+
+                <div class="finlab-total">
+                  <div class="finlab-total-label">Ya han hecho el test</div>
+                  <div class="finlab-total-value" id="totalResponses">—</div>
+                  <div class="finlab-total-copy">resultados anónimos del comportamiento financiero de ucranianos</div>
+                </div>
+
+                <div class="finlab-stats-grid">
+                  <div class="finlab-stat-card">
+                    <div class="finlab-stat-label">Estrés por dinero</div>
+                    <div class="finlab-stat-value red" id="stressShare">—</div>
+                    <div class="finlab-stat-level">tienen un nivel elevado de estrés relacionado con el dinero</div>
+                  </div>
+
+                  <div class="finlab-stat-card">
+                    <div class="finlab-stat-label">Base financiera</div>
+                    <div class="finlab-stat-value blue" id="reserveShare">—</div>
+                    <div class="finlab-stat-level">no sienten que tengan un colchón financiero suficiente</div>
+                  </div>
+
+                  <div class="finlab-stat-card">
+                    <div class="finlab-stat-label">Claridad financiera</div>
+                    <div class="finlab-stat-value gold" id="visibilityShare">—</div>
+                    <div class="finlab-stat-level">no tienen claridad suficiente sobre sus finanzas</div>
+                  </div>
+
+                  <div class="finlab-stat-card">
+                    <div class="finlab-stat-label">Behavior insight</div>
+                    <div class="finlab-stat-value green" id="familyPatternFact">Hecho</div>
+                    <div class="finlab-stat-level">Los modelos financieros familiares influyen en las decisiones de dinero en la adultez</div>
+                  </div>
+                </div>
+              </div>
+            </aside>
           </div>
-        </div>
-      </header>
+        </section>
 
-      <section class="finlab-hero">
-        <div class="finlab-hero-copy">
-          <div class="finlab-eyebrow">
-            <span class="finlab-eyebrow-dot"></span>
-            <span>Test anónimo para ucranianos</span>
-          </div>
-
-          <h1>Mira cómo te relacionas con el dinero, sin ilusiones</h1>
-
-          <p class="finlab-hero-lead">
-            FinLab muestra no “quién eres en teoría”, sino cómo actúas en situaciones financieras reales:
-            dónde te aprieta el estrés, dónde pospones decisiones, dónde falta claridad o conocimiento
-            y dónde ya existe una base sólida.
+        <section class="finlab-section">
+          <div class="finlab-section-kicker">Qué obtendrás</div>
+          <p class="finlab-section-lead">
+            FinLab no reduce a una persona a una sola etiqueta. Después de completarlo, verás tu arquetipo, tus puntos fuertes,
+            escenarios de riesgo y los primeros pasos que tiene sentido dar justo en tu caso.
           </p>
 
-          <div class="finlab-hero-points">
-            <div class="finlab-hero-point">
-              <i></i>
-              <span>Tu arquetipo de comportamiento financiero.</span>
+          <div class="finlab-results-grid">
+            <div class="finlab-card">
+              <h3>Arquetipo y segundo patrón</h3>
+              <p>
+                Ves tu arquetipo dominante de comportamiento financiero y, si lo hay, un segundo patrón marcado que también influye en las decisiones.
+              </p>
             </div>
-            <div class="finlab-hero-point">
-              <i></i>
-              <span>Tus patrones de estrés, evitación o sobrecarga.</span>
+
+            <div class="finlab-card">
+              <h3>Escenarios de tensión</h3>
+              <p>
+                El resultado muestra dónde aparecen para ti el control, la evitación, el caos, la sobrecarga o la sensación de estar bajo presión.
+              </p>
             </div>
-            <div class="finlab-hero-point">
-              <i></i>
-              <span>Tu lugar dentro de la estadística anónima de FinLab.</span>
+
+            <div class="finlab-card">
+              <h3>Primeros pasos</h3>
+              <p>
+                Recibes no recomendaciones genéricas, sino acciones iniciales que tienen sentido en tu escenario financiero concreto.
+              </p>
             </div>
           </div>
+        </section>
+
+        <section class="finlab-section" id="how-it-works">
+          <div class="finlab-section-kicker">Cómo funciona</div>
+
+          <div class="finlab-steps">
+            <div class="finlab-step">
+              <div class="finlab-step-number">1</div>
+              <h3>Haces el test</h3>
+            </div>
+
+            <div class="finlab-step">
+              <div class="finlab-step-number">2</div>
+              <h3>Recibes el resultado</h3>
+            </div>
+
+            <div class="finlab-step">
+              <div class="finlab-step-number">3</div>
+              <h3>Lo comparas con la muestra</h3>
+            </div>
+          </div>
+
+          <div class="finlab-actions" style="margin-top:18px;">
+            <a class="finlab-btn finlab-btn-primary" href="/finlab/money-test-api/money-test.html">Hacer el test</a>
+          </div>
+        </section>
+
+        <section class="finlab-section" id="archetypes">
+          <div class="finlab-section-kicker">Arquetipos</div>
+          <h2>Arquetipos más frecuentes</h2>
+          <p class="finlab-section-lead">
+            No son tipos “mejores” o “peores”. Son formas recurrentes de adaptación financiera al estrés, la incertidumbre, la experiencia familiar y la presión de la realidad.
+          </p>
+
+          <div class="finlab-archetypes">
+            <div class="finlab-arch">
+              <div class="finlab-arch-code" id="arch1Code">—</div>
+              <div class="finlab-arch-name" id="arch1Name">Arquetipo 1</div>
+              <div class="finlab-arch-share" id="arch1Share">—</div>
+              <p id="arch1Text">La descripción del arquetipo se actualizará automáticamente.</p>
+            </div>
+
+            <div class="finlab-arch">
+              <div class="finlab-arch-code" id="arch2Code">—</div>
+              <div class="finlab-arch-name" id="arch2Name">Arquetipo 2</div>
+              <div class="finlab-arch-share" id="arch2Share">—</div>
+              <p id="arch2Text">La descripción del arquetipo se actualizará automáticamente.</p>
+            </div>
+
+            <div class="finlab-arch">
+              <div class="finlab-arch-code" id="arch3Code">—</div>
+              <div class="finlab-arch-name" id="arch3Name">Arquetipo 3</div>
+              <div class="finlab-arch-share" id="arch3Share">—</div>
+              <p id="arch3Text">La descripción del arquetipo se actualizará automáticamente.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="finlab-section">
+          <div class="finlab-section-kicker">Método y utilidad</div>
+          <h2>Qué mide exactamente FinLab</h2>
+          <p class="finlab-section-lead">
+            El test no mira solo un “tipo de personalidad”, sino escalas conductuales concretas que afectan las acciones financieras en la vida real.
+          </p>
+
+          <div class="finlab-results-grid">
+            <div class="finlab-card">
+              <h3>Claridad y control</h3>
+              <ul class="finlab-list">
+                <li><i></i><span>Hasta qué punto la persona ve su panorama financiero.</span></li>
+                <li><i></i><span>Si existe una base real en forma de reservas y decisiones tomadas.</span></li>
+              </ul>
+            </div>
+
+            <div class="finlab-card">
+              <h3>Comportamiento emocional</h3>
+              <ul class="finlab-list">
+                <li><i></i><span>Tensión, evitación, gastos emocionales, agotamiento, estrés financiero.</span></li>
+                <li><i></i><span>Reacciones ante la incertidumbre, el cansancio y la presión del entorno.</span></li>
+              </ul>
+            </div>
+
+            <div class="finlab-card">
+              <h3>Escenarios y repeticiones</h3>
+              <ul class="finlab-list">
+                <li><i></i><span>Posponer decisiones, carga de deudas, acciones caóticas o exceso de control.</span></li>
+                <li><i></i><span>Patrones financieros familiares que pueden seguir actuando en la vida adulta.</span></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="finlab-section">
+          <div class="finlab-section-kicker">Para negocio</div>
+          <h2>¿Dónde son útiles estos insights?</h2>
+          <p class="finlab-section-lead">
+            Si trabajas con personas que toman decisiones financieras, estos datos ayudan a entender con más precisión dónde se pierden, se tensan, posponen o no llegan a la acción.
+          </p>
+
+          <div class="finlab-business-grid">
+            <div class="finlab-biz">
+              <h3>Producto</h3>
+              <p>Ver en qué etapa a la persona le falta claridad, confianza o disposición interna para avanzar.</p>
+            </div>
+
+            <div class="finlab-biz">
+              <h3>Comunicación</h3>
+              <p>Hablar con más precisión: no con promesas genéricas, sino en el lenguaje de barreras reales, motivaciones y disparadores conductuales.</p>
+            </div>
+
+            <div class="finlab-biz">
+              <h3>Servicio y ventas</h3>
+              <p>Entender mejor por qué la gente duda, pospone decisiones o se cae del proceso antes de la compra, elección o cambio de hábito.</p>
+            </div>
+          </div>
+
+          <div class="finlab-actions" style="margin-top:18px;">
+            <a class="finlab-btn finlab-btn-primary" href="/contact/">Recibir demo de insights</a>
+            <a class="finlab-btn finlab-btn-secondary" href="/contact/">Hablar sobre tu proyecto</a>
+          </div>
+        </section>
+
+        <section class="finlab-section">
+          <div class="finlab-section-kicker">FAQ y privacidad</div>
+          <h2>Qué es importante saber antes de hacer el test</h2>
+
+          <div class="finlab-accordion">
+            <div class="finlab-acc">
+              <button class="finlab-acc-btn" type="button" aria-expanded="false">
+                <span class="finlab-acc-title">Qué muestra exactamente el resultado</span>
+                <span class="finlab-acc-arrow">›</span>
+              </button>
+              <div class="finlab-acc-panel">
+                <div>
+                  <div class="finlab-acc-panel-inner">
+                    El resultado muestra un arquetipo de comportamiento financiero, un posible segundo patrón marcado, riesgos conductuales, escenarios de estrés, evitación, control o sobrecarga y los primeros pasos con los que merece la pena empezar.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="finlab-acc">
+              <button class="finlab-acc-btn" type="button" aria-expanded="false">
+                <span class="finlab-acc-title">Qué ocurre con los datos</span>
+                <span class="finlab-acc-arrow">›</span>
+              </button>
+              <div class="finlab-acc-panel">
+                <div>
+                  <div class="finlab-acc-panel-inner">
+                    La persona recibe un resultado personal. En el sitio solo se muestran estadísticas generales anónimas, sin respuestas individuales de las personas participantes. Esto es para investigar patrones recurrentes, no para publicar o identificar a individuos concretos.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="finlab-acc">
+              <button class="finlab-acc-btn" type="button" aria-expanded="false">
+                <span class="finlab-acc-title">Por qué se creó FinLab</span>
+                <span class="finlab-acc-arrow">›</span>
+              </button>
+              <div class="finlab-acc-panel">
+                <div>
+                  <div class="finlab-acc-panel-inner">
+                    FinLab se creó para ver mejor los escenarios financieros recurrentes de los ucranianos y construir insights, productos, materiales y apoyo más precisos basados en el comportamiento, no en suposiciones o consejos financieros abstractos.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="finlab-final">
+          <h2>Mira tu resultado sin ilusiones</h2>
+          <p>
+            Haz el test y mira qué arquetipo predomina en ti, dónde exactamente están tu tensión o puntos débiles
+            y cómo te ves en comparación con las estadísticas anónimas de FinLab.
+          </p>
 
           <div class="finlab-actions">
             <a class="finlab-btn finlab-btn-primary" href="/finlab/money-test-api/money-test.html">Hacer el test</a>
-            <a class="finlab-btn finlab-btn-secondary" href="#archetypes">Ver arquetipos</a>
           </div>
 
-          <p class="finlab-hero-note">
-            En el sitio solo se muestran resultados anónimos agregados, no las respuestas personales de participantes individuales.
-          </p>
-        </div>
-
-        <aside class="finlab-hero-data">
-          <div class="finlab-data-head">
-            <div class="finlab-data-title">Qué se ve en los resultados de FinLab</div>
-            <div class="finlab-chip" id="statsUpdatedChip">datos en actualización</div>
+          <div class="finlab-footer-note">
+            Anónimo. Sin publicación de respuestas personales. Solo resultado individual y estadística agregada.
           </div>
-
-          <div class="finlab-total">
-            <div class="finlab-total-label">Ya completaron el test</div>
-            <div class="finlab-total-value" id="totalResponses">—</div>
-            <div class="finlab-total-copy">resultados anónimos sobre comportamiento financiero</div>
-          </div>
-
-          <div class="finlab-stats-grid">
-            <div class="finlab-stat-card">
-              <div class="finlab-stat-label">Estrés por dinero</div>
-              <div class="finlab-stat-value red" id="stressShare">—</div>
-              <div class="finlab-stat-level">tienen un nivel elevado de estrés relacionado con el dinero</div>
-            </div>
-
-            <div class="finlab-stat-card">
-              <div class="finlab-stat-label">Colchón financiero</div>
-              <div class="finlab-stat-value blue" id="reserveShare">—</div>
-              <div class="finlab-stat-level">no sienten que tengan suficiente base financiera</div>
-            </div>
-
-            <div class="finlab-stat-card">
-              <div class="finlab-stat-label">Claridad en el dinero</div>
-              <div class="finlab-stat-value gold" id="visibilityShare">—</div>
-              <div class="finlab-stat-level">no tienen suficiente claridad sobre su propia situación financiera</div>
-            </div>
-
-            <div class="finlab-stat-card">
-              <div class="finlab-stat-value green" id="familyPatternFact">Dato</div>
-              <div class="finlab-stat-level">Los patrones financieros familiares influyen en las decisiones adultas sobre dinero</div>
-            </div>
-          </div>
-        </aside>
-      </section>
-
-      <section class="finlab-section">
-        <div class="finlab-section-kicker">Qué te da el test</div>
-        <h2>No solo un resultado, sino una imagen clara de tu comportamiento</h2>
-        <p class="finlab-section-lead">
-          Después de completar el test verás tu arquetipo, tus fortalezas, los escenarios de riesgo
-          y los primeros pasos que tienen sentido en tu caso.
-        </p>
-
-        <div class="finlab-split">
-          <div class="finlab-card">
-            <h3>Lo que verás</h3>
-            <ul class="finlab-list">
-              <li><i></i><span>Tu arquetipo principal y, si existe, un segundo arquetipo igualmente marcado.</span></li>
-              <li><i></i><span>Patrones de tensión, evitación, control, caos o sobrecarga.</span></li>
-              <li><i></i><span>Zonas de riesgo en hábitos, decisiones y conducta financiera.</span></li>
-              <li><i></i><span>Primeras acciones concretas con las que vale la pena empezar.</span></li>
-            </ul>
-          </div>
-
-          <div class="finlab-card">
-            <h3>Quizá te reconozcas aquí</h3>
-            <ul class="finlab-list">
-              <li><i></i><span>Parece que sabes qué deberías hacer con el dinero, pero sigues posponiendo decisiones importantes.</span></li>
-              <li><i></i><span>A veces sientes que el problema no está en las cifras, sino en un guion interno repetitivo que no logras nombrar bien.</span></li>
-              <li><i></i><span>No buscas otro consejo del tipo “lleva un presupuesto”, sino ver con honestidad qué te está pasando y por qué se repite.</span></li>
-              <li><i></i><span>La crisis, la guerra, la inestabilidad y el cansancio sí afectan las decisiones financieras — eso es real.</span></li>
-              <li><i></i><span>Pero bajo la misma presión la gente reacciona de forma distinta: unos se encogen, otros evitan, otros se agitan y otros cargan con todo hasta agotarse.</span></li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="finlab-section" id="archetypes">
-        <div class="finlab-section-kicker">Arquetipos</div>
-        <h2>Los arquetipos más frecuentes entre los participantes de FinLab</h2>
-
-        <div class="finlab-archetypes">
-          <div class="finlab-arch">
-            <div class="finlab-arch-code" id="arch1Code">—</div>
-            <div class="finlab-arch-name" id="arch1Name">Arquetipo 1</div>
-            <div class="finlab-arch-share" id="arch1Share">—</div>
-            <p id="arch1Text">La descripción del arquetipo se actualizará automáticamente.</p>
-          </div>
-
-          <div class="finlab-arch">
-            <div class="finlab-arch-code" id="arch2Code">—</div>
-            <div class="finlab-arch-name" id="arch2Name">Arquetipo 2</div>
-            <div class="finlab-arch-share" id="arch2Share">—</div>
-            <p id="arch2Text">La descripción del arquetipo se actualizará automáticamente.</p>
-          </div>
-
-          <div class="finlab-arch">
-            <div class="finlab-arch-code" id="arch3Code">—</div>
-            <div class="finlab-arch-name" id="arch3Name">Arquetipo 3</div>
-            <div class="finlab-arch-share" id="arch3Share">—</div>
-            <p id="arch3Text">La descripción del arquetipo se actualizará automáticamente.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="finlab-section">
-        <div class="finlab-section-kicker">Para negocios</div>
-        <h2>Dónde estos insights son útiles para un negocio</h2>
-        <p class="finlab-section-lead">
-          Si trabajas con personas que toman decisiones financieras, estos datos ayudan a ver
-          dónde se pierden, se tensan, posponen o no llegan a la acción.
-        </p>
-
-        <div class="finlab-business-grid">
-          <div class="finlab-biz">
-            <h3>Producto</h3>
-            <p>Ver en qué etapa a la persona le falta claridad, confianza o preparación interna para avanzar.</p>
-          </div>
-
-          <div class="finlab-biz">
-            <h3>Comunicación</h3>
-            <p>Hablar con más precisión: no con promesas generales, sino en el lenguaje de sus barreras y motivaciones.</p>
-          </div>
-
-          <div class="finlab-biz">
-            <h3>Servicio y ventas</h3>
-            <p>Entender mejor por qué la gente duda, pospone decisiones o se cae antes de comprar o cambiar.</p>
-          </div>
-        </div>
-
-        <div class="finlab-actions" style="margin-top:16px;">
-          <a class="finlab-btn finlab-btn-primary" href="/es/contact/">Solicitar demo de insights</a>
-          <a class="finlab-btn finlab-btn-secondary" href="/es/contact/">Hablar de tu caso</a>
-        </div>
-      </section>
-
-      <section class="finlab-section">
-        <div class="finlab-section-kicker">Sobre FinLab</div>
-        <h2>Qué es este proyecto</h2>
-        <p class="finlab-section-lead">
-          FinLab es un laboratorio financiero para ucranianos y sobre ucranianos. Estudiamos problemas típicos,
-          escenarios y patrones de comportamiento para entender mejor cómo se relaciona la gente con el dinero.
-        </p>
-
-        <div class="finlab-accordion">
-          <div class="finlab-acc">
-            <button class="finlab-acc-btn" type="button">
-              <span class="finlab-acc-title">Qué mide exactamente nuestro test</span>
-              <span class="finlab-acc-arrow">›</span>
-            </button>
-            <div class="finlab-acc-panel">
-              Nuestro test no mide solo el arquetipo, sino también escalas separadas: claridad financiera,
-              gasto emocional, disciplina de reserva, dependencia de deuda, postergación de decisiones,
-              tensión, burnout, tensión en las relaciones y otras señales de comportamiento.
-              Los modelos y guiones financieros también pueden transmitirse entre generaciones,
-              por lo que el contexto familiar importa en las decisiones adultas sobre dinero.
-            </div>
-          </div>
-
-          <div class="finlab-acc">
-            <button class="finlab-acc-btn" type="button">
-              <span class="finlab-acc-title">Cómo se usan los resultados</span>
-              <span class="finlab-acc-arrow">›</span>
-            </button>
-            <div class="finlab-acc-panel">
-              Cada persona recibe un resultado personal. En el sitio solo se muestra estadística anónima agregada,
-              sin respuestas individuales de participantes concretos.
-            </div>
-          </div>
-
-          <div class="finlab-acc">
-            <button class="finlab-acc-btn" type="button">
-              <span class="finlab-acc-title">Por qué hacemos esto</span>
-              <span class="finlab-acc-arrow">›</span>
-            </button>
-            <div class="finlab-acc-panel">
-              Para ver con más claridad los escenarios financieros repetitivos de los ucranianos y construir
-              insights, productos, materiales y ayuda más precisos basados en la conducta, no en suposiciones.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="finlab-final">
-        <h2>Mira tu resultado</h2>
-        <p>
-          Haz el test y descubre qué arquetipo domina en ti, dónde aparecen tus tensiones o puntos débiles
-          y cómo te ves frente a la estadística anónima de FinLab.
-        </p>
-
-        <div class="finlab-actions">
-          <a class="finlab-btn finlab-btn-primary" href="/finlab/money-test-api/money-test.html">Hacer el test</a>
-        </div>
-      </section>
-
-      <footer class="finlab-footer">
-        FinLab by TELWHA — un laboratorio financiero para ucranianos.
-      </footer>
+        </section>
+      </div>
     </div>
   </main>
 
@@ -338,90 +1565,42 @@
       <div class="footer-grid">
         <div>
           <h4>TELWHA</h4>
-          <p>Psicología financiera, economía conductual y arquitectura de elección para decisiones financieras más resilientes.</p>
+          <p>Psicología financiera, economía conductual y arquitectura de decisión para mejores elecciones y resultados sostenibles.</p>
         </div>
-        <div>
+        <div style="text-align:right">
           <h4>Navegación</h4>
           <div class="footer-links">
-            <a href="/es/">Inicio</a>
-            <a href="/es/trader-course/">Mini‑curso</a>
-            <a href="/es/articles/">Artículos</a>
-          </div>
-        </div>
-        <div>
-          <h4>Contacto</h4>
-          <div class="footer-links">
-            <a href="mailto:annasignaevskaya@gmail.com">annasignaevskaya@gmail.com</a>
-            <a href="https://t.me/AnnaFinPsy" target="_blank" rel="noopener noreferrer">Telegram</a>
-            <a href="/es/contact/">Formulario de contacto</a>
+            <a href="/">Inicio</a>
+            <a href="/finlab/">FinLab</a>
+            <a href="/reviews/">Reseñas</a>
+            <a href="/contact/">Contacto</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
         <span>© 2026 TELWHA. Todos los derechos reservados.</span>
-        <span>Kyiv, Ucrania · 🇺🇦</span>
+        <span>Kyiv, Ucrania</span>
       </div>
     </div>
   </footer>
-
-  <script src="/static/script/global.js"></script>
 
   <script>
     const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbyHZWslDEkHBnyHCIxrTETqvhtF9vtqVgvVsr9cMslamdOHzyI5RYW4L_sjk0ofLaJ1/exec";
 
     const ARCHETYPE_META = {
-      ZP: {
-        name: "Salario fantasma",
-        text: "El dinero parece llegar, pero se disuelve demasiado rápido y no se convierte en una base real."
-      },
-      SK: {
-        name: "Copia familiar",
-        text: "Las decisiones financieras suelen repetir viejos guiones familiares, incluso cuando la persona quiere vivir de otra manera."
-      },
-      FS: {
-        name: "Avestruz financiera",
-        text: "Tiende a evitar cifras incómodas y decisiones financieras hasta que la tensión se vuelve demasiado evidente."
-      },
-      PN: {
-        name: "Neurótico de la planificación",
-        text: "Piensa, planifica y analiza mucho, pero se queda atrapado entre el control y la acción real."
-      },
-      VV: {
-        name: "Sobresaliente agotado",
-        text: "Carga con todo, mantiene el control y la responsabilidad, pero poco a poco paga el precio con agotamiento."
-      },
-      SB: {
-        name: "Cajero automático social",
-        text: "Se involucra en las necesidades, gastos y roles de rescate de los demás más que en sus propios límites."
-      },
-      OP: {
-        name: "Optimista imprudente",
-        text: "Tiende a creer que todo se arreglará de alguna manera y subestima los riesgos y el costo de los errores."
-      },
-      KI: {
-        name: "Inversor de libros",
-        text: "Tiene conocimientos, lee y estudia, pero a menudo hay una brecha entre la teoría y la acción financiera real."
-      },
-      TS: {
-        name: "Caja fuerte ansiosa+",
-        text: "Piensa mucho en el futuro, acumula control y seguridad, pero a menudo vive desde la tensión y la contracción."
-      },
-      DS: {
-        name: "Sprinter de dopamina+",
-        text: "Entra fácilmente en el impulso, las ráfagas rápidas y ciclos cortos de motivación, pero le cuesta sostener un ritmo estable."
-      },
-      FN: {
-        name: "Adicto financiero",
-        text: "Busca intensidad, riesgo o adrenalina emocional en el dinero y puede perder el límite entre estímulo y daño."
-      },
-      MR: {
-        name: "Millonario a plazos",
-        text: "Vive apoyándose en dinero futuro, carga de deuda o expansión del estilo de vida a crédito."
-      },
-      KG: {
-        name: "Coleccionista de guías",
-        text: "Reúne constantemente conocimientos, consejos e instrucciones, pero pospone la implementación real en su vida."
-      }
+      ZP: { name: "Sueldo fantasma", text: "El dinero parece llegar, pero se desvanece demasiado rápido sin convertirse en una base real." },
+      SK: { name: "Copia y pega familiar", text: "Las decisiones financieras a menudo repiten viejos guiones familiares, incluso cuando la persona ya quiere vivir de otra manera." },
+      FS: { name: "Avestruz financiero", text: "Tiende a evitar cifras desagradables y decisiones financieras hasta que la tensión se vuelve demasiado visible." },
+      PN: { name: "Neurótico de la planificación", text: "Piensa, planifica y analiza mucho, pero se queda atascado entre el control y la acción real." },
+      VV: { name: "Excelente agotado", text: "Carga con todo, mantiene el control y la responsabilidad, pero poco a poco paga por ello con agotamiento." },
+      SB: { name: "Cajero social", text: "Se implica con frecuencia en las necesidades y gastos ajenos y en el rol de salvador más que en sus propios límites." },
+      OP: { name: "Opti-optimista", text: "Tiende a creer que todo se arreglará de alguna forma y subestima los riesgos financieros y el coste de los errores." },
+      KI: { name: "Inversor de libros", text: "Tiene conocimientos, lee y estudia, pero a menudo hay una brecha entre la teoría y la acción financiera real." },
+      TS: { name: "Caja fuerte ansiosa+", text: "Piensa mucho en el futuro, acumula control y seguridad, pero a menudo vive con tensión y contracción interna." },
+      DS: { name: "Velocista de dopamina+", text: "Entra con facilidad en el impulso, en sprints rápidos y ciclos cortos de motivación, pero le cuesta mantener un ritmo estable." },
+      FN: { name: "Adicto financiero", text: "Busca intensidad, riesgo o impulso emocional en el dinero y puede perder la línea entre estímulo y daño." },
+      MR: { name: "Millonario a plazos", text: "Vive apoyándose en dinero futuro, carga de deudas o ampliación del estilo de vida a crédito." },
+      KG: { name: "Coleccionista de guías", text: "Acumula constantemente conocimientos, consejos e instrucciones, pero pospone su aplicación real en su propia vida." }
     };
 
     const setText = (id, value) => {
@@ -443,7 +1622,7 @@
 
     const formatInt = (value) => {
       const n = toNumber(value);
-      return n === null ? "—" : Math.round(n).toLocaleString("es-ES");
+      return n === null ? "—" : Math.round(n).toLocaleString("uk-UA");
     };
 
     const formatShare = (value) => {
@@ -462,7 +1641,7 @@
 
     function applyStatsToDom(stats) {
       setText("totalResponses", formatInt(stats.totalResponses));
-      setText("statsUpdatedChip", stats.updatedAtLabel || "datos en actualización");
+      setText("statsUpdatedChip", stats.updatedAtLabel || "los datos se actualizan automáticamente");
 
       const stressShare = stats.stress_share ?? 0.37;
       const lowReserveShare = stats.low_reserve_share ?? 0.44;
@@ -471,7 +1650,7 @@
       setText("stressShare", formatShare(stressShare));
       setText("reserveShare", formatShare(lowReserveShare));
       setText("visibilityShare", formatShare(lowVisibilityShare));
-      setText("familyPatternFact", "Dato");
+      setText("familyPatternFact", "Hecho");
 
       if (Array.isArray(stats.topArchetypes)) {
         const archetypes = stats.topArchetypes
@@ -499,8 +1678,8 @@
     async function loadStats() {
       try {
         if (!WEBAPP_URL || WEBAPP_URL.includes("PASTE_YOUR")) {
-          console.warn("WEBAPP_URL aún no fue reemplazado por una URL real de Apps Script");
-          setText("statsUpdatedChip", "agrega la URL de Apps Script");
+          console.warn("WEBAPP_URL aún no se ha sustituido por una URL real de Apps Script");
+          setText("statsUpdatedChip", "añade la URL de Apps Script");
           return;
         }
 
@@ -520,7 +1699,9 @@
     function setupAccordion() {
       document.querySelectorAll(".finlab-acc-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
-          btn.parentElement.classList.toggle("open");
+          const parent = btn.parentElement;
+          const isOpen = parent.classList.toggle("open");
+          btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
         });
       });
     }
@@ -528,8 +1709,7 @@
     function syncThemeButtonUI() {
       const themeBtn = document.querySelector(".theme-toggle");
       if (!themeBtn) return;
-
-      const current = document.documentElement.getAttribute("data-theme") || "dark";
+      const current = document.documentElement.getAttribute("data-theme") || "light";
       themeBtn.textContent = current === "dark" ? "🌙" : "☀️";
       themeBtn.setAttribute(
         "aria-label",
@@ -537,15 +1717,42 @@
       );
     }
 
+    function updateProgressBar() {
+      const progress = document.getElementById("progress");
+      if (!progress) return;
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressValue = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = progressValue + "%";
+    }
+
+    function closeAllDropdowns(except = null) {
+      document.querySelectorAll(".dropdown").forEach((dropdown) => {
+        if (dropdown === except) return;
+        dropdown.classList.remove("is-open");
+        const btn = dropdown.querySelector(".dropbtn");
+        btn?.setAttribute("aria-expanded", "false");
+      });
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
       setupAccordion();
-      syncThemeButtonUI();
       loadStats();
+      updateProgressBar();
+
+      const root = document.documentElement;
+      let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      root.setAttribute("data-theme", currentTheme);
+      syncThemeButtonUI();
+
+      window.addEventListener("scroll", updateProgressBar, { passive: true });
 
       const themeBtn = document.querySelector(".theme-toggle");
       if (themeBtn) {
         themeBtn.addEventListener("click", () => {
-          setTimeout(syncThemeButtonUI, 0);
+          currentTheme = currentTheme === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", currentTheme);
+          syncThemeButtonUI();
         });
       }
 
@@ -557,8 +1764,52 @@
           toggle.classList.toggle("is-open", isOpen);
           toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
           toggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+
+          if (!isOpen) closeAllDropdowns();
         });
       }
+
+      document.querySelectorAll(".dropbtn").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          if (window.innerWidth > 920) return;
+          event.stopPropagation();
+          const parent = button.parentElement;
+          const willOpen = !parent.classList.contains("is-open");
+          closeAllDropdowns(parent);
+          parent.classList.toggle("is-open", willOpen);
+          button.setAttribute("aria-expanded", willOpen ? "true" : "false");
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".dropdown")) {
+          closeAllDropdowns();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeAllDropdowns();
+          if (window.innerWidth <= 920 && menu?.classList.contains("is-open")) {
+            menu.classList.remove("is-open");
+            toggle?.classList.remove("is-open");
+            toggle?.setAttribute("aria-expanded", "false");
+            toggle?.setAttribute("aria-label", "Abrir menú");
+          }
+        }
+      });
+
+      document.querySelectorAll('#site-menu a[href]').forEach((link) => {
+        link.addEventListener("click", () => {
+          closeAllDropdowns();
+          if (window.innerWidth <= 920 && menu?.classList.contains("is-open")) {
+            menu.classList.remove("is-open");
+            toggle?.classList.remove("is-open");
+            toggle?.setAttribute("aria-expanded", "false");
+            toggle?.setAttribute("aria-label", "Abrir menú");
+          }
+        });
+      });
     });
   </script>
 </body>

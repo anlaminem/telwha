@@ -1,21 +1,18 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" data-theme="light">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Мінікурс з психології трейдингу — TELWHA</title>
-  <meta name="description" content="TELWHA: Чому після 5 угод твій мозок уже не працює — і як це змінити за 30 днів.">
-
+  <meta name="description" content="Короткий мінікурс TELWHA для трейдерів про втому від рішень, імпульсивні угоди та щоденну структуру, яка допомагає торгувати спокійніше.">
   <link rel="canonical" href="https://t-e-l-w-h-a.com/trader-course/">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Мінікурс з психології трейдингу — TELWHA">
-  <meta property="og:description" content="TELWHA: Чому після 5 угод твій мозок уже не працює — і як це змінити за 30 днів.">
+  <meta property="og:description" content="Практичний мінікурс про decision fatigue, імпульсивні входи та протокол дня трейдера.">
   <meta property="og:url" content="https://t-e-l-w-h-a.com/trader-course/">
   <meta property="og:site_name" content="TELWHA">
 
-  <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -24,7 +21,6 @@
     gtag('config', 'G-FVHKD6TZJP');
   </script>
 
-  <!-- JSON-LD: Person (Анна) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -33,23 +29,15 @@
     "url": "https://t-e-l-w-h-a.com",
     "image": "https://t-e-l-w-h-a.com/static/media/main_photo.jpg",
     "jobTitle": "Financial Psychologist & Behavioral Analyst",
-    "description": "Поведінкова економіка, фінансова психологія та TELWHA framework для стабільних рішень про гроші.",
+    "description": "Поведінкова економіка, фінансова психологія та TELWHA framework для стабільніших рішень про гроші.",
     "sameAs": [
       "https://www.youtube.com/@TelwhaUA",
       "https://www.youtube.com/@Telwha",
       "https://www.linkedin.com/in/anna-signaevskaya"
-    ],
-    "knowsAbout": [
-      "Behavioral Finance",
-      "Trading Psychology",
-      "Cognitive Biases",
-      "Nudge Theory",
-      "Neuroeconomics"
     ]
   }
   </script>
 
-  <!-- JSON-LD: WebSite (TELWHA) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -60,13 +48,12 @@
   }
   </script>
 
-  <!-- JSON-LD: Course page -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Course",
     "name": "Мінікурс з психології трейдингу",
-    "description": "Практичний мінікурс TELWHA про те, чому після кількох угод мозок трейдера втомлюється і як стабілізувати рішення за 30 днів.",
+    "description": "Практичний мінікурс TELWHA про втому від рішень, імпульсивні угоди та протокол дня трейдера.",
     "provider": {
       "@type": "Organization",
       "name": "TELWHA",
@@ -78,184 +65,1151 @@
   </script>
 
   <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
-  <link rel="stylesheet" href="/static/css/base.css">
-  <link rel="stylesheet" href="/static/css/layout-trader-course.css">
+
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root,
+    [data-theme="light"] {
+      --font-display: "Boska", Georgia, serif;
+      --font-body: "Satoshi", "Inter", sans-serif;
+
+      --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.82rem + 0.15vw, 1rem);
+      --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+      --text-xl: clamp(1.55rem, 1.2rem + 1vw, 2.25rem);
+      --text-2xl: clamp(2.4rem, 1.6rem + 2.2vw, 4.2rem);
+
+      --color-bg: #f5f3ef;
+      --color-surface: #fcfbf8;
+      --color-surface-2: #f2efe9;
+      --color-border: rgba(40, 37, 29, 0.10);
+      --color-divider: rgba(40, 37, 29, 0.08);
+
+      --color-text: #22201a;
+      --color-text-muted: #65625b;
+      --color-text-faint: #8b877f;
+      --color-text-inverse: #f9f8f5;
+
+      --color-primary: #0f5d5f;
+      --color-primary-hover: #0b4b4d;
+      --color-primary-soft: rgba(15, 93, 95, 0.08);
+
+      --color-accent: #9a6a35;
+
+      --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
+      --shadow-md: 0 12px 30px rgba(34, 32, 26, 0.07);
+      --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
+
+      --content-default: 1180px;
+      --radius-md: 22px;
+      --radius-lg: 28px;
+      --radius-xl: 34px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1d1b18;
+      --color-surface-2: #24211d;
+      --color-border: rgba(255, 255, 255, 0.10);
+      --color-divider: rgba(255, 255, 255, 0.08);
+
+      --color-text: #ece6dd;
+      --color-text-muted: #b7afa2;
+      --color-text-faint: #91897c;
+      --color-text-inverse: #171614;
+
+      --color-primary: #6ca7a7;
+      --color-primary-hover: #84baba;
+      --color-primary-soft: rgba(108, 167, 167, 0.10);
+
+      --color-accent: #c79c68;
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
+      --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.65;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button {
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .wrap {
+      width: min(100% - 32px, var(--content-default));
+      margin-inline: auto;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 120;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      color: var(--color-primary);
+      flex: 0 0 auto;
+    }
+
+    .brand-sub {
+      color: var(--color-text-faint);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      max-width: 240px;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      transition: var(--transition);
+    }
+
+    .menu-toggle-lines {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-toggle-lines span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--color-text);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      min-width: 0;
+      flex-wrap: nowrap;
+    }
+
+    .menu a,
+    .menu .dropbtn,
+    .theme-toggle,
+    .lang-link {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      white-space: nowrap;
+      line-height: 1.1;
+      flex-shrink: 0;
+    }
+
+    .menu a:hover,
+    .menu .dropbtn:hover,
+    .theme-toggle:hover,
+    .lang-link:hover {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+    }
+
+    .menu a.is-active {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+    }
+
+    .menu a.is-highlight,
+    .menu .dropbtn.is-highlight {
+      color: var(--color-text-inverse);
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, var(--color-accent)));
+      border: 1px solid transparent;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .menu a.is-highlight:hover,
+    .menu .dropbtn.is-highlight:hover {
+      background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+      color: var(--color-text-inverse);
+    }
+
+    [data-theme="dark"] .menu a.is-highlight,
+    [data-theme="dark"] .menu .dropbtn.is-highlight {
+      color: #141311;
+    }
+
+    .dropdown {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .dropbtn {
+      gap: 6px;
+    }
+
+    .dropbtn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform var(--transition);
+      flex: 0 0 auto;
+    }
+
+    .dropdown:hover .dropbtn svg,
+    .dropdown:focus-within .dropbtn svg,
+    .dropdown.is-open .dropbtn svg {
+      transform: rotate(180deg);
+    }
+
+        .dropcontent {
+      position: absolute;
+      top: calc(100% + 2px);
+      left: 0;
+      z-index: 300;
+      min-width: 240px;
+      display: grid;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    }
+
+    .dropdown:hover .dropcontent,
+    .dropdown:focus-within .dropcontent,
+    .dropdown.is-open .dropcontent {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .dropcontent a {
+      justify-content: flex-start;
+      padding: 12px 14px;
+      border-radius: 12px;
+      white-space: normal;
+      line-height: 1.35;
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid var(--color-divider);
+      flex-shrink: 0;
+    }
+
+    .lang-list {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-link.is-active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      width: 44px;
+      padding-inline: 0;
+      font-size: 1rem;
+    }
+
+    .theme-toggle svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    main {
+      padding: 42px 0 110px;
+    }
+
+    .section {
+      margin-bottom: 34px;
+    }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(34px, 5vw, 56px);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+      margin-bottom: 26px;
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(15, 93, 95, 0.06), transparent 24%),
+        radial-gradient(circle at 85% 18%, rgba(154, 106, 53, 0.05), transparent 22%);
+    }
+
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(280px, 0.94fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--color-primary);
+    }
+
+    .hero-copy h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      max-width: 12ch;
+      margin-bottom: 18px;
+    }
+
+    .lead {
+      max-width: 58ch;
+      color: var(--color-text-muted);
+      font-size: var(--text-lg);
+      margin-bottom: 24px;
+    }
+
+    .eyeline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .chip {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 13px;
+      border-radius: 999px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-size: 0.94rem;
+      font-weight: 700;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--color-surface);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-surface-2);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .hero-note,
+    .card,
+    .module-card,
+    .panel,
+    .faq-item {
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-note {
+      padding: 22px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-primary-soft) 50%, var(--color-surface)));
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-faint);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--color-primary);
+    }
+
+    .hero-note p {
+      color: var(--color-text-muted);
+      font-size: 0.96rem;
+    }
+
+    .section-head {
+      margin-bottom: 22px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .section-lead,
+    .section-sub {
+      color: var(--color-text-muted);
+      max-width: 68ch;
+      font-size: 0.98rem;
+    }
+
+    .module-grid,
+    .grid-2 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .module-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card,
+    .module-card,
+    .panel {
+      padding: 28px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    }
+
+    .card h2,
+    .card h3,
+    .module-card h3 {
+      font-size: 1.06rem;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .card p,
+    .module-card p {
+      color: var(--color-text-muted);
+      font-size: 0.96rem;
+    }
+
+    .card ul,
+    .module-card ul,
+    .offer-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .card li,
+    .module-card li,
+    .offer-list li {
+      color: var(--color-text-muted);
+      position: relative;
+      padding-left: 18px;
+      font-size: 0.96rem;
+    }
+
+    .card li::before,
+    .module-card li::before,
+    .offer-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.64rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--color-primary);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 12%, transparent);
+    }
+
+    .offer-list li::before {
+      background: var(--color-accent);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 14%, transparent);
+    }
+
+    .module-time {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: var(--color-primary-soft);
+      color: var(--color-primary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .price-label {
+      color: var(--color-text-faint);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 1.6rem + 2vw, 3.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .faq {
+      display: grid;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .faq-item {
+      padding: 22px 24px;
+      border-radius: 20px;
+    }
+
+    .faq-item h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .faq-item p {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+    }
+
+    .footer {
+      padding: 40px 0 28px;
+      border-top: 1px solid var(--color-divider);
+      background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+      margin-top: 34px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer h4 {
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-faint);
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .footer a:hover {
+      color: var(--color-text);
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 22px;
+      margin-top: 22px;
+      border-top: 1px solid var(--color-divider);
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+    }
+
+    @media (max-width: 1100px) {
+      .module-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-inner,
+      .grid-2,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy h1 {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 14px;
+        right: 14px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid var(--color-border);
+        border-radius: 22px;
+        background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .menu.is-open {
+        display: flex;
+      }
+
+      .menu a,
+      .menu .dropbtn,
+      .theme-toggle,
+      .lang-link {
+        justify-content: flex-start;
+        border-radius: 14px;
+        font-size: 0.95rem;
+        padding: 10px 12px;
+      }
+
+      .dropdown {
+        width: 100%;
+      }
+
+      .dropcontent {
+        position: static;
+        min-width: 0;
+        margin-top: 8px;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+        display: none;
+        box-shadow: none;
+        border-radius: 16px;
+        background: var(--color-surface-2);
+      }
+
+      .dropdown.is-open .dropcontent {
+        display: grid;
+      }
+
+      .menu-tools {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+        padding-top: 6px;
+        border-top: 1px solid var(--color-divider);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(100% - 24px, var(--content-default));
+      }
+
+      main {
+        padding: 28px 0 84px;
+      }
+
+      .section {
+        margin-bottom: 26px;
+      }
+
+      .hero-shell,
+      .card,
+      .module-card,
+      .panel,
+      .hero-note,
+      .faq-item {
+        border-radius: 22px;
+      }
+
+      .cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="progress" id="progress"></div>
 
   <header class="topbar">
-    <div class="wrap nav">
-      <div class="brand">
-        <a class="brand-row" href="/">
-          <strong>TELWHA</strong>
-        </a>
-        <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
-      </div>
+    <div class="wrap">
+      <div class="nav">
+        <div class="brand">
+          <a class="brand-row" href="/" aria-label="TELWHA">
+            <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path>
+              <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path>
+              <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path>
+            </svg>
+            <strong>TELWHA</strong>
+          </a>
+          <span class="brand-sub">Behavioral Finance Psychology</span>
+        </div>
 
-      <button
-        class="menu-toggle"
-        type="button"
-        aria-expanded="false"
-        aria-controls="site-menu"
-        aria-label="Відкрити меню"
-      >
-        <span class="menu-toggle-lines" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-      </button>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Відкрити меню">
+          <span class="menu-toggle-lines" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+        </button>
 
-      <nav class="menu" id="site-menu">
-        <div class="menu-group">
+        <nav class="menu" id="site-menu" aria-label="Основна навігація">
           <a href="/">Головна</a>
-          <a href="/finlab/">FinLab</a>
           <a href="/about/">Про мене</a>
-        </div>
-
-        <div class="menu-group menu-dropdown">
-          <button type="button" class="menu-dropbtn">Трейдерам ▾</button>
-          <div class="menu-dropcontent">
-            <a href="/trader-course/">Міні‑курс</a>
-            <a href="/archetype-test/">Тест архетипів</a>
-          </div>
-        </div>
-
-        <div class="menu-group">
-          <a href="/articles/">Статті</a>
-          <a href="/reviews/">Відгуки</a>
           <a href="/cases/">Кейси</a>
-          <a href="/contact/">Контакти</a>
-        </div>
+          <a href="/articles/">Статті</a>
+          <a href="/finlab/">FinLab</a>
 
-        <div class="menu-group menu-tools">
-          <details class="lang-switcher lang-switcher--inside">
-            <summary>🇺🇦</summary>
-            <div class="lang-list">
-              <a href="/en/trader-course/" aria-label="English">🇬🇧</a>
-              <a href="/es/trader-course/" aria-label="Español">🇪🇸</a>
+          <div class="dropdown">
+            <button type="button" class="dropbtn is-highlight" aria-expanded="false">
+              Перевір себе
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+            <div class="dropcontent">
+              <a href="/finlab/money-test-api/money-test.html">Money test</a>
+              <a href="/habit-test.html">Тест звичок</a>
+              <a href="/fact-or-fiction-cases.html">Кейс: факт чи пастка</a>
             </div>
-          </details>
+          </div>
 
-          <button class="theme-toggle" type="button" aria-label="Змінити тему">🌓</button>
-        </div>
-      </nav>
+          <div class="dropdown">
+            <button type="button" class="dropbtn" aria-expanded="false">
+              Трейдерам
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+            <div class="dropcontent">
+              <a href="/trader-course/" class="is-active">Міні-курс</a>
+              <a href="/archetype-test/">Тест архетипів</a>
+            </div>
+          </div>
+          <a href="/reviews/">Відгуки</a>
+          <a href="/contact/">Контакти</a>
+
+          <div class="menu-tools">
+            <div class="lang-list" aria-label="Мови">
+              <a class="lang-link is-active" href="/trader-course/" lang="uk" aria-label="Українська">UA</a>
+              <a class="lang-link" href="/en/trader-course/" lang="en" aria-label="English">EN</a>
+              <a class="lang-link" href="/es/trader-course/" lang="es" aria-label="Español">ES</a>
+            </div>
+
+            <button class="theme-toggle" type="button" aria-label="Змінити тему">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M12 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M4.93 4.93L6.34 6.34" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M17.66 17.66L19.07 19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M3 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M19 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M4.93 19.07L6.34 17.66" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M17.66 6.34L19.07 4.93" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"></circle>
+              </svg>
+            </button>
+          </div>
+        </nav>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="hero" id="top">
+    <section class="hero section" id="top">
       <div class="wrap hero-shell">
         <div class="hero-inner">
-          <div>
-            <div class="eyebrow">МІНІКУРС ДЛЯ ТРЕЙДЕРІВ</div>
-            <h1>Чому після <span style="color:var(--accent)">5 угод</span> твій мозок уже не працює — і як це змінити за 30 днів</h1>
+          <div class="hero-copy">
+            <div class="eyebrow">Мінікурс для трейдерів</div>
+            <h1>Як не “розсипатися” після кількох угод і тримати торгові рішення стабільнішими</h1>
             <p class="lead">
-              3 короткі уроки з нейроекономіки та психології трейдингу, які зменшать імпульсивні рішення, втому від рішень і хаос у торгівлі — без нової стратегії.
+              3 короткі уроки про decision fatigue, імпульсивні входи та базовий протокол дня трейдера. Фокус — не на стратегії, а на тому, як працює голова під ринковим тиском.
             </p>
+
             <div class="eyeline">
-              <span class="chip">3 УРОКИ · 45–60 ХВ</span>
-              <span class="chip">ЧЕКЛІСТ + ПРОТОКОЛ ДНЯ</span>
-              <span class="chip">ЗАКРИТИЙ TELEGRAM‑КАНАЛ</span>
+              <span class="chip">3 уроки · 45–60 хв</span>
+              <span class="chip">PDF-чекліст та протокол дня</span>
+              <span class="chip">Закритий Telegram-канал</span>
             </div>
+
             <div class="cta">
               <a href="#offer" class="btn btn-primary">Отримати доступ за 2 100 UAH</a>
-              <a href="#modules" class="btn btn-secondary">Подивитись, що всередині</a>
+              <a href="#modules" class="btn btn-secondary">Подивитися програму</a>
             </div>
           </div>
+
+          <aside class="hero-side">
+            <div class="hero-note">
+              <div class="pill">
+                <span class="dot"></span>
+                <span>коротко про формат</span>
+              </div>
+              <p>
+                Відео + прості робочі матеріали, які можна одразу вбудувати у свій день. Без обіцянок “ідеальної психології”, але з достатньою структурою, щоб менше ламати власну стратегію.
+              </p>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
 
-    <section class="wrap block" id="problem">
-      <h2 class="section-title">Як виглядає емоційна торгівля на практиці</h2>
-      <p class="section-sub">У торгівлі рішення приймаються в моменті — під тиском, після серії збитків, у стані втоми.</p>
-      <div class="card">
-        <ul>
-          <li>FOMO змушує входити пізно — ти купуєш на хаях, бо «раптом піде ще».</li>
-          <li>Після 2–3 стопів ти починаєш «мстити» ринку, збільшуєш обʼєм і ламаєш свій риск-менеджмент.</li>
-          <li>Прибуток, зароблений вранці, зникає після обіду, коли мозок уже в режимі автопілота.</li>
-          <li>Збиткові позиції тримаєш «бо шкода фіксувати», а прибуткові закриваєш занадто рано.</li>
-        </ul>
-      </div>
-    </section>
+    <section class="section" id="problem">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title">Що зазвичай відбувається в торгівлі</h2>
+          <p class="section-lead">
+            Стратегія на папері одна, а рішення в реальному ринку — зовсім інші. Найчастіше це не про “немає сили волі”, а про перевантаження, втому й автоматичні патерни.
+          </p>
+        </div>
 
-    <section class="wrap block" id="modules">
-      <h2 class="section-title">Всередині мінікурсу</h2>
-      <div class="icon-grid">
-        <article class="card">
-          <h3>Модуль 1. Чому мозок саботує торгівлю</h3>
-          <p>15–18 хв</p>
-          <ul>
-            <li>Префронтальна кора vs амігдала: як стрес змінює рішення трейдера.</li>
-            <li>3 типи психопасток: що блокують угоди, провокують зайвий ризик або спотворюють картину ринку.</li>
-            <li>Вправа: розбір 3 останніх угод і виявлення власних патернів.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Модуль 2. Чекліст на 30 секунд перед угодою</h3>
-          <p>18–20 хв</p>
-          <ul>
-            <li>5 ключових психопомилок: страх втрат, овертрейдинг, підтверджувальне мислення, привʼязка, втома від рішень.</li>
-            <li>Готовий чекліст «Перед угодою» у PDF — 5–7 питань, які проходиш за 30 секунд.</li>
-            <li>Кейси: як чекліст змінює рішення в ринкових сценаріях.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Модуль 3. Протокол дня трейдера</h3>
-          <p>15–18 хв</p>
-          <ul>
-            <li>Decision fatigue: чому після певної кількості рішень дисципліна падає, а імпульсивність росте.</li>
-            <li>Ліміти на день: кількість угод, тайм-блоки, правила паузи після стопів і серій виграшів.</li>
-            <li>Шаблон «Протокол мого дня» на тиждень — PDF/Google Sheet.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="wrap block" id="about">
-      <h2 class="section-title">Хто з тобою працює</h2>
-      <div class="grid-2">
         <div class="card">
-          <p>Я працювала 5 років портфельним менеджером у київському фонді. Пережила вигорання, повернулася до торгівлі вже з іншим підходом до психогігієни. Завершила магістратуру з поведінкової економіки, досліджую 216+ когнітивних упереджень, нейроекономіку та психологію фінансових рішень, розвиваюсь у FinTech. Цей мінікурс — концентрат практики трейдингу та науки про мозок, зібраний у невеличкі 3 уроки.</p>
-        </div>
-        <div class="card">
-          <h3>Ключові параметри</h3>
           <ul>
-            <li>Досвід трейдингу — 5 років.</li>
-            <li>Когнітивні упередження — 216+ досліджених.</li>
-            <li>Фокус — поведінкова економіка та нейроекономіка.</li>
+            <li>Після кількох стопів з’являється бажання “відігратися”, і ризик непомітно зростає.</li>
+            <li>Прибуток, зроблений вранці, зникає ближче до вечора, коли концентрація вже інша.</li>
+            <li>Збиткові позиції важко закрити, а прибуткові — хочеться закрити надто рано.</li>
+            <li>План ніби є, але в критичний момент рішення приймає не система, а стан.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section class="wrap block" id="offer">
-      <h2 class="section-title">Доступ до мінікурсу</h2>
-      <div class="panel">
-        <div class="grid-2" style="align-items:start">
+    <section class="section" id="modules">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title">Що ми робимо на мінікурсі</h2>
+          <p class="section-lead">
+            Три кроки: зрозуміти, де саме “ламаються” рішення → ввести коротку перевірку перед угодою → змінити структуру дня так, щоб мозок не працював весь час у перевантаженні.
+          </p>
+        </div>
+
+        <div class="module-grid">
+          <article class="module-card">
+            <div class="module-time">Модуль 1 · 15–18 хв</div>
+            <h3>Як стрес змінює рішення</h3>
+            <ul>
+              <li>Що відбувається з мисленням після серії угод.</li>
+              <li>Психопастки, які штовхають до імпульсивних дій.</li>
+              <li>Міні-розбір власних угод, щоб побачити патерни.</li>
+            </ul>
+          </article>
+
+          <article class="module-card">
+            <div class="module-time">Модуль 2 · 18–20 хв</div>
+            <h3>Чекліст перед угодою</h3>
+            <ul>
+              <li>Страх втрат, овертрейдинг, підтверджувальне мислення, прив’язка, втома від рішень.</li>
+              <li>PDF-чекліст на 30 секунд перед входом.</li>
+              <li>Приклади з ринкових ситуацій без зайвої теорії.</li>
+            </ul>
+          </article>
+
+          <article class="module-card">
+            <div class="module-time">Модуль 3 · 15–18 хв</div>
+            <h3>Протокол дня трейдера</h3>
+            <ul>
+              <li>Decision fatigue і межа, після якої якість рішень падає.</li>
+              <li>Ліміти на угоди, тайм-блоки і правила пауз.</li>
+              <li>Шаблон “Протокол мого дня” на тиждень.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fit">
+      <div class="wrap grid-2">
+        <article class="card">
+          <h2 class="section-title">Кому це підійде</h2>
+          <ul>
+            <li>Тим, хто вже торгує і бачить повторювані психологічні помилки.</li>
+            <li>Тим, хто втомився від циклу “дисципліна — зрив — провина”.</li>
+            <li>Тим, кому потрібна не мотивація, а спокійніша структура рішень.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2 class="section-title">Що курс не обіцяє</h2>
+          <ul>
+            <li>Не дає торгових сигналів і не замінює стратегію.</li>
+            <li>Не обіцяє прибутковість за 30 днів.</li>
+            <li>Не ставить діагноз і не замінює терапію; це освітній курс про поведінку в ринку.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap grid-2">
+        <article class="card">
+          <h2 class="section-title">Хто веде мінікурс</h2>
+          <p>
+            Я працюю на стику фінансової психології, поведінкової економіки й реальної торгівлі. Для мене цей курс — спосіб зібрати досвід роботи з торговими рішеннями й дослідження про мозок у компактний формат, який можна реально застосувати в щоденній практиці.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Кілька орієнтирів</h3>
+          <ul>
+            <li>Фокус — трейдинг, інвестиції, фінансові рішення під тиском.</li>
+            <li>Основа — поведінкова економіка, когнітивні упередження, нейроекономіка.</li>
+            <li>Формат — коротко, практично, без перевантаження.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="offer">
+      <div class="wrap panel">
+        <div class="grid-2" style="align-items:flex-start;">
           <div>
-            <div class="section-sub" style="margin-bottom:8px">Разовий платіж</div>
+            <div class="price-label">Разовий доступ</div>
             <div class="price">2 100 UAH</div>
-            <div class="eyeline" style="margin-bottom:16px">
-              <span class="chip">TELEGRAM‑КАНАЛ</span>
-            </div>
-            <p class="section-sub">
-              📺 3 відеоуроки (45–60 хв) · 📄 3 PDF (чекліст, протокол дня, інфографіка упереджень) · 🔐 Закритий Telegram‑канал з усіма матеріалами.
-            </p>
+            <ul class="offer-list">
+              <li>3 відеоуроки загальною тривалістю 45–60 хвилин.</li>
+              <li>PDF-чекліст перед угодою та шаблон протоколу дня.</li>
+              <li>Закритий Telegram-канал з усіма матеріалами.</li>
+            </ul>
           </div>
+
           <div>
-            <div class="cta">
-              <a href="https://t.me/AnnaFinPsy" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Написати в Telegram, щоб приєднатись</a>
-              <a href="https://wa.me/380933931614" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Написати в WhatsApp</a>
-            </div>
-            <p class="section-sub" style="margin-top:14px">
-              Я надішлю реквізити для оплати та посилання на закритий Telegram‑канал.
+            <h2 class="section-title">Як приєднатися</h2>
+            <p class="section-sub" style="margin-bottom:16px;">
+              Напишіть мені в Telegram або WhatsApp. Я надішлю реквізити та посилання на закритий канал.
             </p>
+
+            <div class="cta">
+              <a href="https://t.me/AnnaFinPsy" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                Написати в Telegram
+              </a>
+              <a href="https://wa.me/380933931614" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                Написати в WhatsApp
+              </a>
+            </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title">Короткі питання</h2>
+        </div>
+
+        <div class="faq">
+          <article class="faq-item">
+            <h3>Як швидко я отримаю доступ?</h3>
+            <p>Зазвичай протягом доби після повідомлення та оплати. Ви отримуєте посилання на закритий Telegram-канал, де зібрані всі матеріали.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3>Чи буде тут домашня робота?</h3>
+            <p>Так, але в мінімалістичному форматі: короткі вправи у власних записах і робота з чеклістом та протоколом дня в реальній торгівлі.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3>Це для новачків чи для досвідчених?</h3>
+            <p>Найбільше користі курс дає тим, хто вже торгує і хоче стабілізувати процес, а не просто зібрати ще одну теорію.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -266,21 +1220,21 @@
       <div class="footer-grid">
         <div>
           <h4>TELWHA</h4>
-          <p>Фінансова психологія · поведінкова економіка · архітектура вибору для кращих рішень і стійких результатів.</p>
+          <p>Фінансова психологія та поведінкова економіка для рішень про гроші, які тримаються довше, ніж перший імпульс.</p>
         </div>
-        <div style="text-align:right">
+        <div>
           <h4>Навігація</h4>
-          <div class="footer-links" style="align-items:flex-end">
+          <div class="footer-links">
             <a href="/">Головна</a>
             <a href="/about/">Про мене</a>
-            <a href="/finlab/index.html">FinLab</a>
+            <a href="/finlab/">FinLab</a>
           </div>
         </div>
         <div>
           <h4>Дії</h4>
           <div class="footer-links">
-            <a href="/archetype-test/">Пройти тест архетипів трейдера</a>
-            <a href="/cases/">Подивитися кейси</a>
+            <a href="/archetype-test/">Тест архетипів трейдера</a>
+            <a href="/cases/">Кейси</a>
           </div>
         </div>
       </div>
@@ -291,22 +1245,83 @@
     </div>
   </footer>
 
-  <script src="/static/script/global.js"></script>
   <script>
-    const menuToggle = document.querySelector(".menu-toggle");
-    const siteMenu = document.querySelector("#site-menu");
-
-    if (menuToggle && siteMenu) {
-      menuToggle.addEventListener("click", () => {
-        const isOpen = siteMenu.classList.toggle("is-open");
-        menuToggle.classList.toggle("is-open", isOpen);
-        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        menuToggle.setAttribute(
-          "aria-label",
-          isOpen ? "Закрити меню" : "Відкрити меню"
-        );
-      });
+    function updateProgressBar() {
+      const progress = document.getElementById("progress");
+      if (!progress) return;
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressValue = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = progressValue + "%";
     }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      updateProgressBar();
+      window.addEventListener("scroll", updateProgressBar, { passive: true });
+
+      const root = document.documentElement;
+      let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      root.setAttribute("data-theme", currentTheme);
+
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (themeBtn) {
+        themeBtn.addEventListener("click", () => {
+          currentTheme = currentTheme === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", currentTheme);
+        });
+      }
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const siteMenu = document.getElementById("site-menu");
+
+      if (menuToggle && siteMenu) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = siteMenu.classList.toggle("is-open");
+          menuToggle.classList.toggle("is-open", isOpen);
+          menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          menuToggle.setAttribute("aria-label", isOpen ? "Закрити меню" : "Відкрити меню");
+        });
+
+        document.querySelectorAll("#site-menu a[href]").forEach((link) => {
+          link.addEventListener("click", () => {
+            if (window.innerWidth <= 920 && siteMenu.classList.contains("is-open")) {
+              siteMenu.classList.remove("is-open");
+              menuToggle.classList.remove("is-open");
+              menuToggle.setAttribute("aria-expanded", "false");
+              menuToggle.setAttribute("aria-label", "Відкрити меню");
+            }
+          });
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!e.target.closest(".nav") && siteMenu.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle.classList.remove("is-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Відкрити меню");
+          }
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && siteMenu.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle.classList.remove("is-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Відкрити меню");
+            menuToggle.focus();
+          }
+        });
+      }
+
+      document.querySelectorAll(".dropdown .dropbtn").forEach((button) => {
+        button.addEventListener("click", () => {
+          if (window.innerWidth > 920) return;
+          const parent = button.parentElement;
+          const isOpen = parent.classList.toggle("is-open");
+          button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+      });
+    });
   </script>
 </body>
 </html>

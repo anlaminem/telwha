@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Casos — TELWHA FinLab</title>
-  <meta name="description" content="Casos de FinLab: cómo el diagnóstico financiero conductual ayuda a traders, personas no financieras y empresas a cambiar decisiones, riesgo y resultados.">
-  <link rel="canonical" href="https://t-e-l-w-h-a.com/es/cases/">
+
+  <title>TELWHA | Casos</title>
+  <meta name="description" content="Casos TELWHA: análisis prácticos para traders, finanzas personales, fintech y escenarios de producto conductuales.">
+  <link rel="canonical" href="https://t-e-l-w-h-a.com/cases/">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Casos — TELWHA FinLab">
-  <meta property="og:description" content="Casos de FinLab: cómo el diagnóstico financiero conductual ayuda a traders, personas no financieras y empresas a cambiar decisiones, riesgo y resultados.">
-  <meta property="og:url" content="https://t-e-l-w-h-a.com/es/cases/">
+  <meta property="og:title" content="TELWHA | Casos">
+  <meta property="og:description" content="Casos prácticos TELWHA sobre patrones de comportamiento, riesgo, decisiones financieras y escenarios de producto.">
+  <meta property="og:url" content="https://t-e-l-w-h-a.com/cases/">
   <meta property="og:site_name" content="TELWHA">
 
-  <!-- Google Analytics 4 -->
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
+
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -23,56 +30,1012 @@
     gtag('config', 'G-FVHKD6TZJP');
   </script>
 
-  <!-- JSON-LD: Person (Anna) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Anna Signaevska",
-    "url": "https://t-e-l-w-h-a.com",
-    "image": "https://t-e-l-w-h-a.com/static/media/main_photo.jpg",
-    "jobTitle": "Financial Psychologist & Behavioral Analyst",
-    "description": "Psicología financiera, finanzas conductuales y el framework TELWHA para decisiones estables sobre el dinero.",
-    "sameAs": [
-      "https://www.youtube.com/@TelwhaUA",
-      "https://www.youtube.com/@Telwha",
-      "https://www.linkedin.com/in/anna-signaevskaya"
-    ]
-  }
-  </script>
-
-  <!-- JSON-LD: Organization (TELWHA) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "TELWHA",
-    "url": "https://t-e-l-w-h-a.com",
-    "description": "TELWHA: psicología financiera, economía conductual y FinLab para traders, inversores y negocios.",
-    "logo": "https://t-e-l-w-h-a.com/static/media/telwha-favicon.png",
-    "sameAs": [
-      "https://www.youtube.com/@TelwhaUA",
-      "https://www.youtube.com/@Telwha",
-      "https://www.linkedin.com/in/anna-signaevskaya"
-    ]
-  }
-  </script>
-
-  <!-- JSON-LD: Cases CollectionPage (ES) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Casos — TELWHA FinLab",
-    "description": "Casos de FinLab sobre cómo el diagnóstico financiero conductual ayuda a traders, personas no financieras y empresas a cambiar decisiones, riesgo y resultados.",
-    "url": "https://t-e-l-w-h-a.com/es/cases/",
+    "name": "TELWHA | Casos",
+    "description": "Casos prácticos TELWHA sobre trading, finanzas personales, negocio y escenarios fintech.",
+    "url": "https://t-e-l-w-h-a.com/cases/",
     "inLanguage": "es"
   }
   </script>
 
-  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
-  <link rel="stylesheet" href="/static/css/base.css">
-  <link rel="stylesheet" href="/static/css/layout-cases.css">
+  <style>
+    :root,
+    [data-theme="light"] {
+      --font-display: "Boska", Georgia, serif;
+      --font-body: "Satoshi", "Inter", sans-serif;
+
+      --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+      --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
+      --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+      --text-2xl: clamp(2.2rem, 1.5rem + 2vw, 4rem);
+
+      --color-bg: #f5f3ef;
+      --color-surface: #fcfbf8;
+      --color-surface-2: #f2efe9;
+      --color-border: rgba(40, 37, 29, 0.10);
+      --color-divider: rgba(40, 37, 29, 0.08);
+
+      --color-text: #22201a;
+      --color-text-muted: #65625b;
+      --color-text-faint: #8b877f;
+      --color-text-inverse: #f9f8f5;
+
+      --color-primary: #0f5d5f;
+      --color-primary-hover: #0b4b4d;
+      --color-primary-soft: rgba(15, 93, 95, 0.08);
+
+      --color-accent: #9a6a35;
+      --color-accent-soft: rgba(154, 106, 53, 0.08);
+
+      --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
+      --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
+      --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
+
+      --content-default: 1160px;
+      --radius-xl: 32px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1d1b18;
+      --color-surface-2: #24211d;
+      --color-border: rgba(255, 255, 255, 0.10);
+      --color-divider: rgba(255, 255, 255, 0.08);
+
+      --color-text: #ece6dd;
+      --color-text-muted: #b7afa2;
+      --color-text-faint: #91897c;
+      --color-text-inverse: #171614;
+
+      --color-primary: #6ca7a7;
+      --color-primary-hover: #84baba;
+      --color-primary-soft: rgba(108, 167, 167, 0.10);
+
+      --color-accent: #c79c68;
+      --color-accent-soft: rgba(199, 156, 104, 0.09);
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
+      --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { border: 0; background: none; cursor: pointer; font: inherit; color: inherit; }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .wrap {
+      width: min(100% - 28px, var(--content-default));
+      margin-inline: auto;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 120;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      color: var(--color-primary);
+      flex: 0 0 auto;
+    }
+
+    .brand-sub {
+      color: var(--color-text-faint);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      max-width: 240px;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      transition: var(--transition);
+    }
+
+    .menu-toggle:hover {
+      background: var(--color-surface-2);
+    }
+
+    .menu-toggle-lines {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-toggle-lines span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--color-text);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      min-width: 0;
+      flex-wrap: nowrap;
+    }
+
+    .menu a,
+    .menu .dropbtn,
+    .theme-toggle,
+    .lang-link {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      white-space: nowrap;
+      line-height: 1.1;
+      flex-shrink: 0;
+    }
+
+    .menu a:hover,
+    .menu .dropbtn:hover,
+    .theme-toggle:hover,
+    .lang-link:hover {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+    }
+
+    .menu a.is-active {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+    }
+
+    .menu a.is-highlight,
+    .menu .dropbtn.is-highlight {
+      color: var(--color-text-inverse);
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, var(--color-accent)));
+      border: 1px solid transparent;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .menu a.is-highlight:hover,
+    .menu .dropbtn.is-highlight:hover {
+      background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+      color: var(--color-text-inverse);
+    }
+
+    [data-theme="dark"] .menu a.is-highlight,
+    [data-theme="dark"] .menu .dropbtn.is-highlight {
+      color: #141311;
+    }
+
+    .dropdown {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .dropbtn {
+      gap: 6px;
+    }
+
+    .dropbtn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform var(--transition);
+      flex: 0 0 auto;
+    }
+
+    .dropdown:hover .dropbtn svg,
+    .dropdown:focus-within .dropbtn svg,
+    .dropdown.is-open .dropbtn svg {
+      transform: rotate(180deg);
+    }
+
+    .dropcontent {
+      position: absolute;
+      top: calc(100% + 2px);
+      left: 0;
+      z-index: 300;
+      min-width: 240px;
+      display: grid;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition:
+        opacity var(--transition),
+        transform var(--transition),
+        visibility var(--transition);
+    }
+
+    .dropdown:hover .dropcontent,
+    .dropdown:focus-within .dropcontent,
+    .dropdown.is-open .dropcontent {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .dropcontent a {
+      justify-content: flex-start;
+      border-radius: 12px;
+      padding: 12px 14px;
+      white-space: normal;
+      line-height: 1.35;
+    }
+
+    .menu-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid var(--color-divider);
+      flex-shrink: 0;
+    }
+
+    .lang-list {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-link.is-active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+    }
+
+    .theme-toggle svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .page {
+      padding: 34px 0 90px;
+    }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 46px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 24px;
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(15, 93, 95, 0.06), transparent 24%),
+        radial-gradient(circle at 85% 18%, rgba(154, 106, 53, 0.05), transparent 22%);
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.85fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--color-primary);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 0.97;
+      letter-spacing: -0.03em;
+      max-width: 10ch;
+      margin-bottom: 14px;
+    }
+
+    .hero-sub {
+      max-width: 62ch;
+      color: var(--color-text-muted);
+      font-size: var(--text-lg);
+    }
+
+    .hero-note {
+      margin-top: 18px;
+      color: var(--color-text);
+      font-size: 0.98rem;
+      max-width: 62ch;
+    }
+
+    .hero-note a {
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+
+    .hero-aside {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .stat-card,
+    .case-card,
+    .hero-feature-card,
+    .cta-panel,
+    .section-card {
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-feature-card {
+      padding: 20px 22px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-primary-soft) 55%, var(--color-surface)));
+    }
+
+    .hero-feature-card h2 {
+      font-size: var(--text-lg);
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .hero-feature-card p {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .stat-card {
+      padding: 20px 22px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: var(--text-lg);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .stat-card span {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .section-card {
+      padding: 24px;
+      border-radius: 28px;
+      margin-bottom: 18px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .section-head h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p {
+      max-width: 48ch;
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .case-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .case-tab {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .case-tab .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--color-text-faint);
+      transition: var(--transition);
+    }
+
+    .case-tab:hover,
+    .case-tab.active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border-color: rgba(15, 93, 95, 0.26);
+    }
+
+    .case-tab.active .dot {
+      background: var(--color-primary);
+    }
+
+    .cases-hint {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .case-card {
+      display: grid;
+      gap: 14px;
+      padding: 22px;
+      border-radius: 24px;
+      text-align: left;
+      transition: var(--transition);
+      min-height: 100%;
+      cursor: pointer;
+    }
+
+    .case-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .case-card.is-hidden {
+      display: none;
+    }
+
+    .case-card-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      width: fit-content;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .case-card small {
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .case-card h3 {
+      font-size: var(--text-lg);
+      line-height: 1.15;
+    }
+
+    .case-card-line {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .case-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .case-card-tags span {
+      min-height: 30px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: var(--text-xs);
+      font-weight: 700;
+    }
+
+    .cases-separator {
+      padding: 6px 0 22px;
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+    }
+
+    .cases-separator a {
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+
+    .cta-panel {
+      margin-top: 22px;
+      padding: 24px;
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-accent-soft) 52%, var(--color-surface)));
+    }
+
+    .cta-panel h2 {
+      font-size: var(--text-lg);
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .cta-panel p {
+      color: var(--color-text-muted);
+      max-width: 58ch;
+      font-size: 0.92rem;
+    }
+
+    .cta-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+      white-space: nowrap;
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--color-surface);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+      box-shadow: none;
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-surface-2);
+    }
+
+    .footer {
+      padding: 36px 0 26px;
+      border-top: 1px solid var(--color-divider);
+      background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+      margin-top: 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer h4 {
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-faint);
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .footer a:hover {
+      color: var(--color-text);
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      justify-items: end;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 22px;
+      margin-top: 22px;
+      border-top: 1px solid var(--color-divider);
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(16, 13, 10, 0.42);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 200;
+    }
+
+    .modal-backdrop.is-open {
+      display: flex;
+    }
+
+    .modal {
+      width: min(760px, 100%);
+      max-height: min(86vh, 900px);
+      overflow: auto;
+      border-radius: 28px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      padding: 30px 26px 26px;
+    }
+
+    .modal-close {
+      position: sticky;
+      top: 0;
+      margin-left: auto;
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface-2);
+      font-size: 1.35rem;
+      z-index: 2;
+    }
+
+    .modal-body {
+      display: grid;
+      gap: 18px;
+      padding-top: 8px;
+    }
+
+    .modal-body .case-card-pill {
+      margin-bottom: 2px;
+    }
+
+    .modal-body h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .modal-meta {
+      color: var(--color-text-faint);
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .modal-body p,
+    .modal-body li {
+      color: var(--color-text-muted);
+    }
+
+    .modal-list {
+      display: grid;
+      gap: 10px;
+      padding-left: 18px;
+    }
+
+    .modal-list li {
+      list-style: disc;
+    }
+
+    .modal-section {
+      display: grid;
+      gap: 6px;
+    }
+
+    .modal-section h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--color-text);
+    }
+
+    .modal-article-link {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    @media (max-width: 1180px) {
+      .case-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .footer-grid,
+      .cta-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 14px;
+        right: 14px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid var(--color-border);
+        border-radius: 22px;
+        background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .menu.is-open {
+        display: flex;
+      }
+
+      .menu a,
+      .menu .dropbtn,
+      .theme-toggle,
+      .lang-link {
+        justify-content: flex-start;
+        border-radius: 14px;
+        font-size: 0.95rem;
+        padding: 10px 12px;
+      }
+
+      .dropdown {
+        width: 100%;
+      }
+
+      .dropcontent {
+        position: static;
+        min-width: 0;
+        margin-top: 8px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+        display: none;
+        box-shadow: none;
+        border-radius: 16px;
+        background: var(--color-surface-2);
+      }
+
+      .dropdown.is-open .dropcontent {
+        display: grid;
+      }
+
+      .menu-tools {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+        padding-top: 6px;
+        border-top: 1px solid var(--color-divider);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(100% - 24px, var(--content-default));
+      }
+
+      .hero-shell,
+      .section-card,
+      .case-card,
+      .cta-panel,
+      .modal {
+        border-radius: 22px;
+      }
+
+      .hero-title {
+        max-width: 100%;
+      }
+
+      .case-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-links {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .cta-links .btn {
+        width: 100%;
+      }
+
+      .footer-links {
+        justify-items: start;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .brand-sub {
+        max-width: 170px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="progress" id="progress"></div>
@@ -80,10 +1043,15 @@
   <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
-        <a class="brand-row" href="/es/">
+        <a class="brand-row" href="/" aria-label="TELWHA — ir a la página principal">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
           <strong>TELWHA</strong>
         </a>
-        <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+        <span class="brand-sub">Behavioral Finance · Psychology</span>
       </div>
 
       <button
@@ -94,157 +1062,292 @@
         aria-label="Abrir menú"
       >
         <span class="menu-toggle-lines" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </span>
       </button>
 
-      <nav class="menu" id="site-menu">
-        <div class="menu-group">
-          <a href="/es/">Inicio</a>
-          <a href="/finlab/">FinLab</a>
-          <a href="/es/about/">Sobre mí</a>
-        </div>
+      <nav class="menu" id="site-menu" aria-label="Navegación principal">
+        <a href="/">Inicio</a>
+        <a href="/about/">Sobre mí</a>
+        <a href="/cases/" class="is-active">Casos</a>
+        <a href="/articles/">Artículos</a>
+        <a href="/finlab/">FinLab</a>
 
-        <div class="menu-group menu-dropdown">
-          <button type="button" class="menu-dropbtn">Para traders ▾</button>
-          <div class="menu-dropcontent">
-            <a href="/es/trader-course/">Mini‑curso</a>
-            <a href="/es/archetype-test/">Test de arquetipos</a>
+        <div class="dropdown">
+          <button type="button" class="dropbtn is-highlight" aria-expanded="false" aria-haspopup="true">
+            Ponerte a prueba
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/finlab/money-test-api/money-test.html">Test de comportamiento financiero</a>
+            <a href="/habit-test.html">¿A dónde te llevan tus hábitos?</a>
+            <a href="/fact-or-fiction-cases.html">¿Hecho o ficción?</a>
           </div>
         </div>
 
-        <div class="menu-group">
-          <a href="/es/articles/">Artículos</a>
-          <a href="/es/reviews/">Opiniones</a>
-          <a href="/es/cases/">Casos</a>
-          <a href="/es/contact/">Contacto</a>
+        <div class="dropdown">
+          <button type="button" class="dropbtn" aria-expanded="false" aria-haspopup="true">
+            Para traders
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/trader-course/">Mini curso</a>
+            <a href="/archetype-test/">Arquetipo de trader</a>
+          </div>
         </div>
 
-        <div class="menu-group menu-tools">
-          <details class="lang-switcher lang-switcher--inside">
-            <summary>🇪🇸</summary>
-            <div class="lang-list">
-              <a href="/cases/" aria-label="Українська" lang="uk">🇺🇦</a>
-              <a href="/en/cases/" aria-label="English" lang="en">🇬🇧</a>
-            </div>
-          </details>
+        <a href="/reviews/">Reseñas</a>
+        <a href="/contact/">Contactos</a>
 
-          <button class="theme-toggle" type="button" aria-label="Cambiar tema">🌓</button>
+        <div class="menu-tools">
+          <div class="lang-list" aria-label="Idiomas del sitio">
+            <a class="lang-link" href="/cases/" lang="uk" aria-label="Ucraniano">UA</a>
+            <a class="lang-link" href="/en/cases/" lang="en" aria-label="Inglés">EN</a>
+            <a class="lang-link is-active" href="/es/cases/" lang="es" aria-label="Español">ES</a>
+          </div>
+
+          <button class="theme-toggle" type="button" aria-label="Cambiar tema">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M12 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4.93 4.93L6.34 6.34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M17.66 17.66L19.07 19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M3 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M19 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4.93 19.07L6.34 17.66" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M17.66 6.34L19.07 4.93" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </button>
         </div>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main class="page">
     <div class="wrap">
-      <section class="page-head">
-        <div class="page-head-inner">
-          <h1>Casos</h1>
-          <p class="page-sub">
-            Cada caso muestra cómo cambian los patrones de decisión, el riesgo y la carga una vez que se estructuran mejor los procesos.
-          </p>
+      <section class="hero-shell">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">TELWHA / Cases</div>
+            <h1 class="hero-title">Casos prácticos</h1>
+            <p class="hero-sub">
+              Casos reales y simulados sobre trading, finanzas personales, escenarios de negocio y productos fintech,
+              con foco conductual y una lógica de decisión clara.
+            </p>
+            <p class="hero-note">
+              Si buscas más bien explicaciones de mecanismos o textos largos, ve a la
+              <a href="/articles/">sección “Artículos”</a>.
+            </p>
+          </div>
+
+          <aside class="hero-aside">
+            <div class="hero-feature-card">
+              <h2>Cómo leer estos casos</h2>
+              <p>
+                Cada caso es una historia breve con contexto concreto, riesgo, patrones de comportamiento y
+                decisiones de producto. El objetivo es mostrar cómo piensan el cerebro, el sistema y el producto.
+              </p>
+            </div>
+
+            <div class="stat-card">
+              <strong>3 casos FinTech</strong>
+              <span>Trading &amp; Investing, Personal Finance, Business &amp; Product, FinTech risk &amp; behavior.</span>
+            </div>
+          </aside>
         </div>
       </section>
 
-      <div class="case-tabs" aria-label="Filtrar casos">
-        <button class="case-tab active" type="button" data-filter="all">
-          <span class="dot"></span>
-          Todos los casos
-        </button>
-        <button class="case-tab" type="button" data-filter="trading">
-          <span class="dot"></span>
-          Trading &amp; Investing
-        </button>
-        <button class="case-tab" type="button" data-filter="personal">
-          <span class="dot"></span>
-          Finanzas personales
-        </button>
-        <button class="case-tab" type="button" data-filter="business">
-          <span class="dot"></span>
-          Negocio y producto
-        </button>
-      </div>
-
-      <p class="cases-hint">
-        Elige una categoría o haz clic directamente en una tarjeta: se abrirá una ventana con el análisis completo del caso.
-      </p>
-
-      <section class="case-grid" id="caseGrid">
-        <article class="case-card" data-id="trading1" data-category="trading">
-          <div class="case-card-pill">Trading</div>
-          <small>Diagnóstico conductual</small>
-          <h3>Energía “crónica” con agotamiento oculto</h3>
-          <p class="case-card-line">Trader con más de 7 años · agotamiento emocional, riesgo sin beneficio.</p>
-          <div class="case-card-tags">
-            <span>agotamiento emocional</span>
-            <span>sobrecarga de mercado</span>
+      <section class="section-card">
+        <div class="section-head">
+          <div>
+            <h2>Casos por dirección</h2>
           </div>
-        </article>
+          <p>
+            Elige la dirección más cercana ahora a tu situación, tus tareas o tu producto:
+            trading, finanzas personales o contexto de negocio / FinTech.
+          </p>
+        </div>
 
-        <article class="case-card" data-id="trading2" data-category="trading">
-          <div class="case-card-pill">Trading</div>
-          <small>Aumento de capital</small>
-          <h3>“Parálisis por análisis” tras un fuerte crecimiento de la cartera</h3>
-          <p class="case-card-line">Paso a gestionar capital de inversores, efecto de impostor.</p>
-          <div class="case-card-tags">
-            <span>parálisis por análisis</span>
-            <span>estructura de acuerdos</span>
-          </div>
-        </article>
+        <div class="case-tabs" aria-label="Filtro de casos por categorías">
+          <button class="case-tab active" type="button" data-filter="all">
+            <span class="dot"></span>
+            Todos
+          </button>
+          <button class="case-tab" type="button" data-filter="trading">
+            <span class="dot"></span>
+            Trading &amp; Investing
+          </button>
+          <button class="case-tab" type="button" data-filter="personal">
+            <span class="dot"></span>
+            Personal Finance
+          </button>
+          <button class="case-tab" type="button" data-filter="business">
+            <span class="dot"></span>
+            Business &amp; Product / FinTech
+          </button>
+        </div>
 
-        <article class="case-card" data-id="personal1" data-category="personal">
-          <div class="case-card-pill">Personal</div>
-          <small>Caos en los gastos</small>
-          <h3>«Hay dinero, pero desaparece cada mes»</h3>
-          <p class="case-card-line">Ingresos altos, cero ahorros y compras emocionales.</p>
-          <div class="case-card-tags">
-            <span>caos en gastos</span>
-            <span>decisiones emocionales</span>
-          </div>
-        </article>
+        <p class="cases-hint">
+          Parte de los casos está “integrada” en artículos o vídeos. Aquí están los que están estructurados como escenarios independientes.
+        </p>
 
-        <article class="case-card" data-id="personal2" data-category="personal">
-          <div class="case-card-pill">Personal</div>
-          <small>Parejas</small>
-          <h3>Conflictos de pareja por inversiones y créditos</h3>
-          <p class="case-card-line">Ritmos diferentes, perfiles de riesgo distintos, sin reglas comunes.</p>
-          <div class="case-card-tags">
-            <span>conflictos financieros</span>
-            <span>desajuste de riesgo</span>
-          </div>
-        </article>
+        <section class="case-grid" id="caseGrid" aria-label="Lista de casos">
+          <!-- Trading cases -->
+          <article class="case-card" data-id="trading1" data-category="trading" tabindex="0">
+            <div class="case-card-pill">Trading</div>
+            <small>Behavioral Diagnostics</small>
+            <h3>Cuando un buen sistema no te salva de repetir patrones</h3>
+            <p class="case-card-line">
+              Siete patrones de comportamiento recurrentes que hunden el resultado de un trader incluso con una estrategia que funciona.
+            </p>
+            <div class="case-card-tags">
+              <span>behavioral loops</span>
+              <span>risk discipline</span>
+              <span>decision fatigue</span>
+              <span>trading journal</span>
+            </div>
+          </article>
 
-        <article class="case-card" data-id="business1" data-category="business">
-          <div class="case-card-pill">Business</div>
-          <small>Producto educativo</small>
-          <h3>Baja finalización del curso aunque el contenido es fuerte</h3>
-          <p class="case-card-line">Curso de educación financiera con alto drop‑rate de módulos.</p>
-          <div class="case-card-tags">
-            <span>drop‑rate</span>
-            <span>diseño conductual</span>
-          </div>
-        </article>
+          <article class="case-card" data-id="trading2" data-category="trading" tabindex="0">
+            <div class="case-card-pill">Trading</div>
+            <small>Capital Transition</small>
+            <h3>Analysis paralysis al pasar a un capital mayor</h3>
+            <p class="case-card-line">
+              Por qué el aumento del tamaño de la posición paraliza las decisiones y cómo rediseñar el riesgo para que el cerebro no se bloquee.
+            </p>
+            <div class="case-card-tags">
+              <span>analysis paralysis</span>
+              <span>position sizing</span>
+              <span>loss aversion</span>
+            </div>
+          </article>
 
-        <article class="case-card" data-id="business2" data-category="business">
-          <div class="case-card-pill">Business</div>
-          <small>Servicio financiero</small>
-          <h3>Los clientes ignoran la herramienta de presupuesto</h3>
-          <p class="case-card-line">Módulo de presupuesto en una app con baja activación.</p>
-          <div class="case-card-tags">
-            <span>baja activación</span>
-            <span>fricción UX</span>
-          </div>
-        </article>
+          <article class="case-card" data-id="trading3" data-category="trading" tabindex="0">
+            <div class="case-card-pill">Trading</div>
+            <small>Strategy Test · Bybit</small>
+            <h3>Caso corto: Bybit TPSL</h3>
+            <p class="case-card-line">
+              Test estratégico con historical candles + grid search para escenarios short con lógica TPSL en listings de Bybit.
+            </p>
+            <div class="case-card-tags">
+              <span>strategy test</span>
+              <span>Bybit listings</span>
+              <span>TPSL</span>
+            </div>
+          </article>
+
+          <!-- Personal finance cases -->
+          <article class="case-card" data-id="personal1" data-category="personal" tabindex="0">
+            <div class="case-card-pill">Personal</div>
+            <small>Money Patterns</small>
+            <h3>Caso sobre “procrastinación inteligente” con el dinero</h3>
+            <p class="case-card-line">
+              Cuando una persona sabe qué debería hacer con sus finanzas, pero lo pospone durante meses: así se ve el análisis conductual.
+            </p>
+            <div class="case-card-tags">
+              <span>avoidance</span>
+              <span>money scripts</span>
+              <span>behavioral audit</span>
+              <span>implementation</span>
+            </div>
+          </article>
+
+          <article class="case-card" data-id="personal2" data-category="personal" tabindex="0">
+            <div class="case-card-pill">Personal</div>
+            <small>Decision Framework</small>
+            <h3>Caso “mudarse / quedarse” desde la óptica financiera</h3>
+            <p class="case-card-line">
+              Cómo construir un mapa de opciones, riesgos y escenarios cuando la decisión sobre la reubicación depende del dinero y de la psicología.
+            </p>
+            <div class="case-card-tags">
+              <span>relocation</span>
+              <span>scenario planning</span>
+              <span>risk map</span>
+              <span>values</span>
+            </div>
+          </article>
+
+          <!-- Business / FinTech cases -->
+          <article class="case-card" data-id="business1" data-category="business" tabindex="0">
+            <div class="case-card-pill">Business</div>
+            <small>Funnels &amp; Behavior</small>
+            <h3>Caso sobre drop rate en un producto financiero</h3>
+            <p class="case-card-line">
+              Cómo las barreras conductuales en el onboarding y en el formulario pueden romper la conversión incluso con un valor de producto fuerte.
+            </p>
+            <div class="case-card-tags">
+              <span>drop-rate</span>
+              <span>funnel</span>
+              <span>friction design</span>
+            </div>
+          </article>
+
+          <article class="case-card" data-id="business2" data-category="business" tabindex="0">
+            <div class="case-card-pill">Business</div>
+            <small>UX &amp; Money</small>
+            <h3>Caso sobre un “presupuesto inteligente” que nadie usa</h3>
+            <p class="case-card-line">
+              Por qué una función se ve potente en la presentación pero no encaja en la vida real de los usuarios — con foco en salience y engagement.
+            </p>
+            <div class="case-card-tags">
+              <span>product UX</span>
+              <span>budgeting tool</span>
+              <span>salience</span>
+              <span>engagement</span>
+            </div>
+          </article>
+
+          <article class="case-card" data-id="business3" data-category="business" tabindex="0">
+            <div class="case-card-pill">FinTech</div>
+            <small>Collections Behavior</small>
+            <h3>Caso sobre buckets en collections</h3>
+            <p class="case-card-line">
+              Cómo cambian los patrones de pago según el bucket y los treatment paths en el cobro de deudas.
+            </p>
+            <div class="case-card-tags">
+              <span>collections</span>
+              <span>segmentation</span>
+              <span>treatment paths</span>
+            </div>
+          </article>
+
+          <article class="case-card" data-id="business4" data-category="business" tabindex="0">
+            <div class="case-card-pill">FinTech</div>
+            <small>Risk Monitoring</small>
+            <h3>Explainable transaction-level risk monitoring</h3>
+            <p class="case-card-line">
+              Explainable fraud monitoring, severity segmentation, investigator queue y un dashboard a nivel de transacción.
+            </p>
+            <div class="case-card-tags">
+              <span>fraud monitoring</span>
+              <span>dashboard</span>
+              <span>transaction risk</span>
+            </div>
+          </article>
+        </section>
       </section>
 
+      <div class="cases-separator">
+        Si quieres un análisis de mecanismos y no tanto un escenario, ve a la
+        <a href="/articles/">sección “Artículos”</a>.
+      </div>
+
       <section class="cta-panel">
-        <h2>Cómo obtener un análisis similar</h2>
+        <div>
+          <h2>¿Quieres hablar de tu caso?</h2>
+          <p>
+            Escríbeme si quieres analizar tu situación de trading, tu contexto financiero o un escenario de producto,
+            y lo convertiremos en un caso estructurado.
+          </p>
+        </div>
         <div class="cta-links">
-          <a class="btn" href="https://t.me/AnnaFinPsy" target="_blank" rel="noopener noreferrer">Escribir por Telegram</a>
-          <a class="btn" href="https://wa.me/380000000000" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
-          <a class="btn" href="/es/contact/">Solicitar análisis de caso</a>
+          <a class="btn" href="/contact/">Contactar</a>
+          <a class="btn btn-secondary" href="/about/">Saber más sobre el enfoque</a>
         </div>
       </section>
     </div>
@@ -255,48 +1358,460 @@
       <div class="footer-grid">
         <div>
           <h4>TELWHA</h4>
-          <p>Psicología financiera, economía conductual y arquitectura de elección para decisiones financieras más resilientes.</p>
+          <p>Psicología financiera, economía conductual y arquitectura de elección para mejores decisiones y resultados más sostenibles.</p>
         </div>
         <div style="text-align:right">
           <h4>Navegación</h4>
-          <div class="footer-links" style="align-items:flex-end">
-            <a href="/es/about/">Sobre mí</a>
-            <a href="/es/reviews/">Opiniones</a>
-            <a href="/es/contact/">Contacto</a>
+          <div class="footer-links">
+            <a href="/about/">Sobre mí</a>
+            <a href="/articles/">Artículos</a>
+            <a href="/contact/">Contactos</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
         <span>© 2026 TELWHA. Todos los derechos reservados.</span>
-        <span>Kyiv, Ucrania · 🇺🇦</span>
+        <span>Kyiv, Ucrania</span>
       </div>
     </div>
   </footer>
 
   <div class="modal-backdrop" id="caseModalBackdrop" aria-hidden="true">
     <article class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" type="button" aria-label="Cerrar">×</button>
+      <button class="modal-close" type="button" aria-label="Cerrar ventana">×</button>
       <div id="modalContent"></div>
     </article>
   </div>
 
-  <script src="/static/script/global.js"></script>
-  <script src="/static/script/cases.js"></script>
   <script>
+    const progress = document.getElementById("progress");
     const menuToggle = document.querySelector(".menu-toggle");
-    const siteMenu = document.querySelector("#site-menu");
+    const siteMenu = document.getElementById("site-menu");
+    const themeToggle = document.querySelector(".theme-toggle");
+    const root = document.documentElement;
+    const dropdowns = document.querySelectorAll(".dropdown");
 
+    const caseTabs = document.querySelectorAll(".case-tab");
+    const caseCards = document.querySelectorAll(".case-card");
+    const modalBackdrop = document.getElementById("caseModalBackdrop");
+    const modalContent = document.getElementById("modalContent");
+    const modalClose = document.querySelector(".modal-close");
+
+    // barra de progreso
+    function updateProgressBar() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressValue = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      if (progress) progress.style.width = progressValue + "%";
+    }
+    updateProgressBar();
+    window.addEventListener("scroll", updateProgressBar, { passive: true });
+
+    // helper dropdown
+    function closeAllDropdowns(except = null) {
+      dropdowns.forEach((dropdown) => {
+        if (dropdown === except) return;
+        dropdown.classList.remove("is-open");
+        const btn = dropdown.querySelector(".dropbtn");
+        btn?.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    // menú móvil
     if (menuToggle && siteMenu) {
       menuToggle.addEventListener("click", () => {
         const isOpen = siteMenu.classList.toggle("is-open");
         menuToggle.classList.toggle("is-open", isOpen);
         menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        menuToggle.setAttribute(
-          "aria-label",
-          isOpen ? "Cerrar menú" : "Abrir menú"
-        );
+        menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+
+        if (!isOpen) {
+          closeAllDropdowns();
+        }
       });
     }
+
+    // dropdowns
+    dropdowns.forEach((dropdown) => {
+      const button = dropdown.querySelector(".dropbtn");
+
+      button?.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        const isOpen = dropdown.classList.contains("is-open");
+        closeAllDropdowns(dropdown);
+
+        dropdown.classList.toggle("is-open", !isOpen);
+        button.setAttribute("aria-expanded", !isOpen ? "true" : "false");
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".dropdown")) {
+        closeAllDropdowns();
+      }
+
+      if (!e.target.closest(".nav") &&
+          siteMenu?.classList.contains("is-open") &&
+          window.innerWidth <= 920) {
+        siteMenu.classList.remove("is-open");
+        menuToggle?.classList.remove("is-open");
+        menuToggle?.setAttribute("aria-expanded", "false");
+        menuToggle?.setAttribute("aria-label", "Abrir menú");
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeAllDropdowns();
+
+        if (siteMenu?.classList.contains("is-open") && window.innerWidth <= 920) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Abrir menú");
+          menuToggle?.focus();
+        }
+
+        if (modalBackdrop?.classList.contains("is-open")) {
+          closeCaseModal();
+        }
+      }
+    });
+
+    document.querySelectorAll('#site-menu a[href]').forEach((link) => {
+      link.addEventListener("click", () => {
+        closeAllDropdowns();
+
+        if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Abrir menú");
+        }
+      });
+    });
+
+    // tema
+    let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    root.setAttribute("data-theme", currentTheme);
+
+    themeToggle?.addEventListener("click", () => {
+      currentTheme = currentTheme === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", currentTheme);
+    });
+
+    // filtro de casos
+    caseTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const filter = tab.dataset.filter;
+        caseTabs.forEach((item) => item.classList.remove("active"));
+        tab.classList.add("active");
+
+        caseCards.forEach((card) => {
+          const category = card.dataset.category;
+          const show = filter === "all" || category === filter;
+          card.classList.toggle("is-hidden", !show);
+        });
+      });
+    });
+
+    // data de detalles de casos (versión en español basada en tu contenido)
+    const caseDetails = {
+      trading1: {
+        pill: "Trading",
+        meta: "Behavioral Diagnostics",
+        title: "Cuando un buen sistema no te salva de repetir patrones",
+        intro: "Caso sobre un trader con un sistema que funciona pero que aun así repite los mismos patrones de conducta y pierde rendimiento.",
+        sections: [
+          {
+            title: "Qué está pasando",
+            items: [
+              "Serie de entradas impulsivas después de las dos primeras pérdidas.",
+              "Overtrading al final del día cuando el plan ya está cumplido.",
+              "Aguantar stops demasiado por una operación previa en negativo."
+            ]
+          },
+          {
+            title: "Patrones conductuales clave",
+            items: [
+              "Loss chasing y revenge trading.",
+              "Decision fatigue después de varias horas de trading.",
+              "Self-justification: buscar razones para mantener la posición abierta en vez de cerrarla."
+            ]
+          },
+          {
+            title: "Qué hacemos",
+            items: [
+              "Mapa de disparadores para cada patrón.",
+              "Límites para el número de decisiones y operaciones por sesión.",
+              "Reglas concretas de salida del mercado cuando el patrón se repite."
+            ]
+          },
+          {
+            title: "Qué aporta este caso",
+            items: [
+              "Modelo de diagnóstico conductual por encima de la estrategia.",
+              "Marco para crear tus propias behavior rules."
+            ]
+          }
+        ]
+      },
+      trading2: {
+        pill: "Trading",
+        meta: "Capital Transition",
+        title: "Analysis paralysis al pasar a un capital mayor",
+        intro: "Cuando el paso de, por ejemplo, 1k a 5k o 10k provoca parálisis de decisión y miedo a pulsar el botón.",
+        sections: [
+          {
+            title: "Síntomas",
+            items: [
+              "La estrategia se prueba en demo o con lotes pequeños, pero nunca se escala.",
+              "El trader busca durante horas la entrada “perfecta”.",
+              "Dudas constantes incluso con setups ideales."
+            ]
+          },
+          {
+            title: "Qué hay detrás",
+            items: [
+              "Loss aversion y cambio del precio psicológico de un solo tick.",
+              "Foco excesivo en el resultado en vez del proceso.",
+              "Caer en zonas donde “éxito = peligro”."
+            ]
+          },
+          {
+            title: "Intervenciones",
+            items: [
+              "Dividir el capital en bloques psicológicos.",
+              "Niveles de riesgo intermedios en lugar de un salto brusco.",
+              "Protocolos para gestionar rachas de pérdidas."
+            ]
+          }
+        ]
+      },
+      trading3: {
+        pill: "Trading",
+        meta: "Strategy Test · Bybit",
+        title: "Caso corto: Bybit TPSL",
+        intro: "Caso corto sobre listings de Bybit: cómo se ve un test de estrategia TPSL en historical candles con grid search de parámetros.",
+        sections: [
+          {
+            title: "Datos y método",
+            items: [
+              "Historical candles de los listings seleccionados.",
+              "Grid search sobre niveles de take-profit y stop-loss.",
+              "Análisis de drawdown y volatilidad."
+            ]
+          },
+          {
+            title: "Foco conductual",
+            items: [
+              "Cómo interpreta el trader los resultados del backtest.",
+              "Dónde sobrevalora los parámetros “ideales”.",
+              "Cómo equilibrar la zona de confort con el riesgo real."
+            ]
+          }
+        ],
+        articleUrl: "/articles/shortcase.html",
+        articleLabel: "Artículo detallado"
+      },
+      personal1: {
+        pill: "Personal",
+        meta: "Money Patterns",
+        title: "Caso sobre “procrastinación inteligente” con el dinero",
+        intro: "La persona sabe qué hacer con sus finanzas, pero retrasa la acción mientras sigue recopilando información y analizando.",
+        sections: [
+          {
+            title: "Qué vemos",
+            items: [
+              "Hay planes, hojas de cálculo y cálculos, pero no hay transacciones.",
+              "Alto nivel de ansiedad frente a cualquier cambio financiero.",
+              "Tendencia a esperar el “momento perfecto”."
+            ]
+          },
+          {
+            title: "Mecanismo conductual",
+            items: [
+              "Avoidance como forma de reducir la tensión.",
+              "Conflicto entre valores y creencias sobre el dinero.",
+              "Confusión entre research y acción."
+            ]
+          }
+        ]
+      },
+      personal2: {
+        pill: "Personal",
+        meta: "Decision Framework",
+        title: "Caso “mudarse / quedarse”",
+        intro: "Cómo estructurar una decisión de reubicación cuando todo se cruza entre dinero, seguridad y sensación de estabilidad.",
+        sections: [
+          {
+            title: "Marco de decisión",
+            items: [
+              "Escenarios A/B/C con variables financieras y no financieras.",
+              "Niveles de riesgo para distintos horizontes temporales.",
+              "Colchón financiero vs colchón psicológico."
+            ]
+          }
+        ]
+      },
+      business1: {
+        pill: "Business",
+        meta: "Funnels & Behavior",
+        title: "Caso sobre drop rate en un producto financiero",
+        intro: "El onboarding parece lógico, pero los usuarios abandonan justo antes de la acción clave.",
+        sections: [
+          {
+            title: "Dónde perdemos a la gente",
+            items: [
+              "Campo por campo: qué pasos concretos disparan la salida.",
+              "Qué elementos de copy aumentan la sensación de riesgo en lugar de reducirla.",
+              "Cómo funcionan las micro-frictions."
+            ]
+          },
+          {
+            title: "Qué cambiamos",
+            items: [
+              "Rediseñar el camino desde la óptica de la carga cognitiva.",
+              "Otros defaults y ayudas contextuales.",
+              "Nuevo mapa de drop rate después de los cambios."
+            ]
+          }
+        ]
+      },
+      business2: {
+        pill: "Business",
+        meta: "UX & Money",
+        title: "Caso sobre un “presupuesto inteligente” que nadie usa",
+        intro: "La herramienta se ve potente en la demo, pero en la vida real se abre una vez al mes y se cierra.",
+        sections: [
+          {
+            title: "Síntomas",
+            items: [
+              "Engagement bajo con NPS alto.",
+              "Las personas no ven el value en el día a día.",
+              "La función vive en una sección aparte, no en el flujo de decisiones."
+            ]
+          },
+          {
+            title: "Behavior + Product",
+            items: [
+              "Cómo otras tareas desplazan la salience.",
+              "Por qué hace falta otro formato de feedback-loop.",
+              "Qué cambiamos en UX para que la herramienta cobre vida."
+            ]
+          }
+        ]
+      },
+      business3: {
+        pill: "FinTech",
+        meta: "Collections Behavior",
+        title: "Caso sobre buckets en collections",
+        intro: "Cómo cambia el comportamiento de pago según el bucket y el tratamiento aplicado.",
+        sections: [
+          {
+            title: "Mirada conductual a los buckets",
+            items: [
+              "Cómo difiere el comportamiento entre 0–30, 30–60 y 60–90 días de retraso.",
+              "Cómo cambia la sensibilidad a canales y tono de comunicación.",
+              "Qué muestran los micro‑patrones de pago."
+            ]
+          },
+          {
+            title: "Treatment paths",
+            items: [
+              "Escenarios personalizados según bucket + riesgo.",
+              "Cómo cambia el recovery con otra secuencia de acciones."
+            ]
+          }
+        ],
+        articleUrl: "/articles/Credit.html",
+        articleLabel: "Artículo con el caso completo"
+      },
+      business4: {
+        pill: "FinTech",
+        meta: "Risk Monitoring",
+        title: "Explainable transaction-level risk monitoring",
+        intro: "Caso sobre un sistema de monitorización de fraude explicable con severity segmentation y investigator queue a nivel de transacción.",
+        sections: [
+          {
+            title: "Qué producto es",
+            items: [
+              "283 726 transacciones en la muestra.",
+              "Severity segmentation por buckets de riesgo.",
+              "Investigator queue con priorización P1/P2."
+            ]
+          },
+          {
+            title: "Behavior & Risk",
+            items: [
+              "Combined Risk Score como señal para el equipo.",
+              "Cómo explicar el motivo del flag tanto a la persona como al negocio.",
+              "Cómo se ve un dashboard que explica en lugar de asustar."
+            ]
+          }
+        ],
+        articleUrl: "/articles/explainable-transaction-risk-monitoring.html",
+        articleLabel: "Ver caso completo"
+      }
+    };
+
+    function openCaseModal(caseId) {
+      const item = caseDetails[caseId];
+      if (!item || !modalBackdrop || !modalContent) return;
+
+      const sectionsHtml = item.sections.map(section => `
+        <section class="modal-section">
+          <h3>${section.title}</h3>
+          <ul class="modal-list">
+            ${section.items.map(point => `<li>${point}</li>`).join("")}
+          </ul>
+        </section>
+      `).join("");
+
+      const articleLink = item.articleUrl
+        ? `<a class="modal-article-link" href="${item.articleUrl}" target="_blank" rel="noopener noreferrer">${item.articleLabel}</a>`
+        : "";
+
+      modalContent.innerHTML = `
+        <div class="modal-body">
+          <div class="case-card-pill">${item.pill}</div>
+          <div class="modal-meta">${item.meta}</div>
+          <h2 id="modalTitle">${item.title}</h2>
+          <p>${item.intro}</p>
+          ${sectionsHtml}
+          ${articleLink}
+        </div>
+      `;
+
+      modalBackdrop.classList.add("is-open");
+      modalBackdrop.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeCaseModal() {
+      modalBackdrop?.classList.remove("is-open");
+      modalBackdrop?.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    caseCards.forEach((card) => {
+      card.addEventListener("click", () => openCaseModal(card.dataset.id));
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openCaseModal(card.dataset.id);
+        }
+      });
+    });
+
+    modalClose?.addEventListener("click", closeCaseModal);
+
+    modalBackdrop?.addEventListener("click", (event) => {
+      if (event.target === modalBackdrop) {
+        closeCaseModal();
+      }
+    });
   </script>
 </body>
 </html>

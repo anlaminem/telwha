@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TELWHA | Test de arquetipos de trader</title>
-  <meta name="description" content="TELWHA: ¿Qué arquetipo de trader eres?">
-
-  //t-e-l-w-h-a.com/es/archetype-test/">
+  <meta name="description" content="Test gratuito de TELWHA para ver tu arquetipo de trader, patrones de comportamiento, disparadores y estilo de decisión bajo presión de mercado.">
+  <link rel="canonical" href="https://t-e-l-w-h-a.com/es/archetype-test/">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="TELWHA | Test de arquetipos de trader">
-  <meta property="og:description" content="TELWHA: ¿Qué arquetipo de trader eres?">
+  <meta property="og:description" content="Test breve de TELWHA para traders: arquetipo, patrones, disparadores y estilo de decisión bajo presión.">
   <meta property="og:url" content="https://t-e-l-w-h-a.com/es/archetype-test/">
   <meta property="og:site_name" content="TELWHA">
 
@@ -23,7 +21,6 @@
     gtag('config', 'G-FVHKD6TZJP');
   </script>
 
-  <!-- JSON-LD: Person (Anna) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -32,7 +29,7 @@
     "url": "https://t-e-l-w-h-a.com",
     "image": "https://t-e-l-w-h-a.com/static/media/main_photo.jpg",
     "jobTitle": "Financial Psychologist & Behavioral Analyst",
-    "description": "Psicología financiera, finanzas conductuales y el framework TELWHA para decisiones estables sobre el dinero.",
+    "description": "Psicóloga financiera y analista del comportamiento. Combino trabajo con el sistema nervioso, los mercados y los datos en TELWHA.",
     "sameAs": [
       "https://www.youtube.com/@TelwhaUA",
       "https://www.youtube.com/@Telwha",
@@ -41,14 +38,13 @@
   }
   </script>
 
-  <!-- JSON-LD: Organization (TELWHA) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "TELWHA",
     "url": "https://t-e-l-w-h-a.com",
-    "description": "TELWHA: psicología financiera, economía conductual y FinLab para traders, inversores y negocios.",
+    "description": "TELWHA: psicología financiera, economía del comportamiento y FinLab para traders, inversores y empresas.",
     "logo": "https://t-e-l-w-h-a.com/static/media/telwha-favicon.png",
     "sameAs": [
       "https://www.youtube.com/@TelwhaUA",
@@ -58,21 +54,918 @@
   }
   </script>
 
-  <!-- JSON-LD: Archetype Test WebPage (ES) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Test de arquetipos de trader — TELWHA",
-    "description": "Test gratuito de TELWHA para entender tu arquetipo de trader, sesgos cognitivos y estilo de toma de decisiones.",
+    "description": "Test gratuito de TELWHA para ver tu arquetipo de trader, patrones de comportamiento, disparadores y estilo de decisión bajo presión.",
     "url": "https://t-e-l-w-h-a.com/es/archetype-test/",
     "inLanguage": "es"
   }
   </script>
 
-  /static/media/telwha-favicon.png" type="image/png">
-  /static/css/base.css">
-  /static/css/layout-archetype.css">
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
+
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root,
+    [data-theme="light"] {
+      --font-display: "Boska", Georgia, serif;
+      --font-body: "Satoshi", "Inter", sans-serif;
+
+      --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+      --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
+      --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+      --text-2xl: clamp(2.2rem, 1.5rem + 2vw, 4rem);
+
+      --color-bg: #f5f3ef;
+      --color-surface: #fcfbf8;
+      --color-surface-2: #f2efe9;
+      --color-surface-3: #ebe7df;
+      --color-border: rgba(40, 37, 29, 0.10);
+      --color-divider: rgba(40, 37, 29, 0.08);
+
+      --color-text: #22201a;
+      --color-text-muted: #65625b;
+      --color-text-faint: #8b877f;
+      --color-text-inverse: #f9f8f5;
+
+      --color-primary: #0f5d5f;
+      --color-primary-hover: #0b4b4d;
+      --color-primary-soft: rgba(15, 93, 95, 0.08);
+
+      --color-accent: #9a6a35;
+      --color-accent-soft: rgba(154, 106, 53, 0.08);
+
+      --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
+      --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
+      --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
+
+      --content-default: 1180px;
+      --radius-md: 22px;
+      --radius-lg: 28px;
+      --radius-xl: 34px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1d1b18;
+      --color-surface-2: #24211d;
+      --color-surface-3: #2a2622;
+      --color-border: rgba(255, 255, 255, 0.10);
+      --color-divider: rgba(255, 255, 255, 0.08);
+
+      --color-text: #ece6dd;
+      --color-text-muted: #b7afa2;
+      --color-text-faint: #91897c;
+      --color-text-inverse: #171614;
+
+      --color-primary: #6ca7a7;
+      --color-primary-hover: #84baba;
+      --color-primary-soft: rgba(108, 167, 167, 0.10);
+
+      --color-accent: #c79c68;
+      --color-accent-soft: rgba(199, 156, 104, 0.09);
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
+      --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg, iframe { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button {
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .wrap {
+      width: min(100% - 28px, var(--content-default));
+      margin-inline: auto;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 120;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      color: var(--color-primary);
+      flex: 0 0 auto;
+    }
+
+    .sub {
+      color: var(--color-text-faint);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      max-width: 260px;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      transition: var(--transition);
+    }
+
+    .menu-toggle-lines {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-toggle-lines span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--color-text);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      min-width: 0;
+      flex-wrap: nowrap;
+    }
+
+    .menu a,
+    .menu .menu-dropbtn,
+    .theme-toggle,
+    .lang-link {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      white-space: nowrap;
+      line-height: 1.1;
+      flex-shrink: 0;
+    }
+
+    .menu a:hover,
+    .menu .menu-dropbtn:hover,
+    .theme-toggle:hover,
+    .lang-link:hover {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+    }
+
+    .menu a.is-active {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+    }
+
+    .menu-group {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .menu-dropdown {
+      position: relative;
+    }
+
+    .menu-dropbtn {
+      gap: 6px;
+    }
+
+    .menu-dropcontent {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      min-width: 220px;
+      display: grid;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: var(--transition);
+    }
+
+    .menu-dropdown:hover .menu-dropcontent,
+    .menu-dropdown:focus-within .menu-dropcontent,
+    .menu-dropdown.is-open .menu-dropcontent {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .menu-dropcontent a {
+      justify-content: flex-start;
+      padding: 12px 14px;
+      border-radius: 12px;
+      white-space: normal;
+      line-height: 1.35;
+    }
+
+    .menu-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid var(--color-divider);
+      flex-shrink: 0;
+    }
+
+    .lang-list {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-link.is-active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      width: 44px;
+      padding-inline: 0;
+      font-size: 1rem;
+    }
+
+    main {
+      padding: 34px 0 90px;
+    }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 48px);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+      margin-bottom: 18px;
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(15, 93, 95, 0.06), transparent 24%),
+        radial-gradient(circle at 85% 18%, rgba(154, 106, 53, 0.05), transparent 22%);
+    }
+
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--color-primary);
+    }
+
+    .hero-copy h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 0.97;
+      letter-spacing: -0.03em;
+      max-width: 13ch;
+      margin-bottom: 14px;
+    }
+
+    .lead {
+      max-width: 58ch;
+      color: var(--color-text-muted);
+      font-size: var(--text-lg);
+      margin-bottom: 18px;
+    }
+
+    .hero-note-text {
+      color: var(--color-text);
+      max-width: 62ch;
+      font-size: 0.98rem;
+      margin-bottom: 18px;
+    }
+
+    .eyeline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .chip {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--color-surface);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-surface-2);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .hero-note,
+    .card,
+    .arch-card,
+    .video-box,
+    .panel,
+    .trust-card,
+    .final-panel {
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-note {
+      padding: 18px 20px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-primary-soft) 50%, var(--color-surface)));
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-faint);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--color-primary);
+    }
+
+    .hero-note strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .hero-note p {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .section {
+      margin-bottom: 18px;
+    }
+
+    .section-head {
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .section-lead {
+      color: var(--color-text-muted);
+      max-width: 68ch;
+      font-size: 0.96rem;
+    }
+
+    .info-grid,
+    .trust-grid,
+    .archetype-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .info-grid,
+    .trust-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .archetype-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card,
+    .trust-card {
+      padding: 22px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    }
+
+    .card h2,
+    .card h3,
+    .trust-card h3 {
+      font-size: 1.04rem;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .card p,
+    .trust-card p {
+      color: var(--color-text-muted);
+      font-size: 0.94rem;
+    }
+
+    .card ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .card li {
+      color: var(--color-text-muted);
+      position: relative;
+      padding-left: 18px;
+      font-size: 0.94rem;
+    }
+
+    .card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.62rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--color-primary);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 12%, transparent);
+    }
+
+    .arch-card {
+      overflow: hidden;
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+
+    .arch-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .arch-card img {
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      width: 100%;
+      background: var(--color-surface-2);
+    }
+
+    .arch-card-body {
+      padding: 16px 16px 18px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .arch-card-body h3 {
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    .arch-card-body p {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .video-box,
+    .panel,
+    .final-panel {
+      padding: 24px;
+      border-radius: var(--radius-lg);
+    }
+
+    .video-top {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .video-link {
+      color: var(--color-primary);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 22px;
+      background: #000;
+    }
+
+    .video-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    }
+
+    .panel-cta {
+      margin-top: 18px;
+      justify-content: flex-start;
+    }
+
+    .trust-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .final-panel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-accent-soft) 52%, var(--color-surface)));
+    }
+
+    .final-panel h2 {
+      font-size: var(--text-lg);
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .final-panel p {
+      color: var(--color-text-muted);
+      max-width: 58ch;
+      font-size: 0.92rem;
+    }
+
+    .footer {
+      padding: 36px 0 26px;
+      border-top: 1px solid var(--color-divider);
+      background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+      margin-top: 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer h4 {
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-faint);
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .footer a:hover {
+      color: var(--color-text);
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 22px;
+      margin-top: 22px;
+      border-top: 1px solid var(--color-divider);
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+    }
+
+    @media (max-width: 1180px) {
+      .archetype-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-inner,
+      .info-grid,
+      .trust-grid,
+      .final-panel,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 14px;
+        right: 14px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid var(--color-border);
+        border-radius: 22px;
+        background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .menu.is-open {
+        display: flex;
+      }
+
+      .menu-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .menu a,
+      .menu .menu-dropbtn,
+      .theme-toggle,
+      .lang-link {
+        justify-content: flex-start;
+        border-radius: 14px;
+        font-size: 0.95rem;
+        padding: 10px 12px;
+      }
+
+      .menu-dropdown {
+        width: 100%;
+      }
+
+      .menu-dropcontent {
+        position: static;
+        min-width: 0;
+        margin-top: 8px;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+        display: none;
+        box-shadow: none;
+        border-radius: 16px;
+        background: var(--color-surface-2);
+      }
+
+      .menu-dropdown.is-open .menu-dropcontent {
+        display: grid;
+      }
+
+      .menu-tools {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+        padding-top: 6px;
+        border-top: 1px solid var(--color-divider);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(100% - 24px, var(--content-default));
+      }
+
+      .hero-shell,
+      .card,
+      .trust-card,
+      .arch-card,
+      .video-box,
+      .panel,
+      .final-panel,
+      .hero-note {
+        border-radius: 22px;
+      }
+
+      .hero-copy h1 {
+        max-width: 100%;
+      }
+
+      .archetype-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .video-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="progress" id="progress"></div>
@@ -80,10 +973,15 @@
   <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
-        <a class="brand-row" href="/es/">
+        <a class="brand-row" href="/es/" aria-label="TELWHA — inicio">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
           <strong>TELWHA</strong>
         </a>
-        <span class="sub">PSICOLOGÍA FINANCIERA · ESTRATEGIA CONDUCTUAL</span>
+        <span class="sub">Financial Psychology · Behavioral Strategy</span>
       </div>
 
       <button
@@ -94,16 +992,14 @@
         aria-label="Abrir menú"
       >
         <span class="menu-toggle-lines" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </span>
       </button>
 
-      <nav class="menu" id="site-menu">
+      <nav class="menu" id="site-menu" aria-label="Navegación principal">
         <div class="menu-group">
           <a href="/es/">Inicio</a>
-          <a href="/finlab/">FinLab</a>
+          <a href="/es/finlab/">FinLab</a>
           <a href="/es/about/">Sobre mí</a>
         </div>
 
@@ -111,7 +1007,7 @@
           <button type="button" class="menu-dropbtn" aria-expanded="false">Para traders ▾</button>
           <div class="menu-dropcontent">
             <a href="/es/trader-course/">Mini‑curso</a>
-            <a href="/es/archetype-test/">Test de arquetipos</a>
+            <a href="/es/archetype-test/" class="is-active">Test de arquetipos</a>
           </div>
         </div>
 
@@ -123,46 +1019,41 @@
         </div>
 
         <div class="menu-group menu-tools">
-          <details class="lang-switcher lang-switcher--inside">
-            <summary>🇪🇸</summary>
-            <div class="lang-list">
-              <a href="/archetype-test/" aria-label="Українська" lang="uk">🇺🇦</a>
-              <a href="/en/archetype-test/" aria-label="English" lang="en">🇬🇧</a>
-            </div>
-          </details>
+          <div class="lang-list" aria-label="Idiomas del sitio">
+            <a class="lang-link" href="/archetype-test/" lang="uk" aria-label="Українська">UA</a>
+            <a class="lang-link" href="/en/archetype-test/" lang="en" aria-label="English">EN</a>
+            <a class="lang-link is-active" href="/es/archetype-test/" lang="es" aria-label="Español">ES</a>
+          </div>
 
-          <button class="theme-toggle" type="button" aria-label="Cambiar tema">🌓</button>
+          <button class="theme-toggle" type="button" aria-label="Cambiar tema">☀️</button>
         </div>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero">
-      <div class="wrap hero-shell fade-in">
+      <div class="wrap hero-shell">
         <div class="hero-inner">
           <div class="hero-copy">
-            <div class="eyebrow">Test de arquetipos</div>
-            <h1>¿Qué arquetipo de trader eres?</h1>
+            <div class="eyebrow">Test de arquetipos de trader</div>
+            <h1>Descubre qué tipo de decisiones de trading sueles tomar</h1>
             <p class="lead">
-              Test corto que te ayuda a ver tu estilo de decisiones, tus disparadores típicos y puntos débiles bajo presión de mercado.
+              Es un test breve para traders que te ayuda a ver tu estilo típico de decisión, tus reacciones bajo presión de mercado y patrones de comportamiento que pueden influir en tu estrategia.
+            </p>
+            <p class="hero-note-text">
+              No es un diagnóstico ni sustituye a un sistema de trading. El objetivo es darte un lenguaje para observarte: cómo respondes al riesgo, a la incertidumbre, al impulso y al control.
             </p>
 
             <div class="eyeline">
               <span class="chip">21 preguntas</span>
               <span class="chip">10–15 minutos</span>
               <span class="chip">Gratuito</span>
-              <span class="chip">Beta</span>
+              <span class="chip">Online</span>
             </div>
 
             <div class="cta">
-              <a
-                class="btn btn-primary"
-                href="https://fintest-4br0.onrender.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a class="btn btn-primary" href="https://fintest-4br0.onrender.com" target="_blank" rel="noopener noreferrer">
                 Hacer el test
               </a>
               <a class="btn btn-secondary" href="#video">
@@ -178,140 +1069,170 @@
                 <span>trader profile</span>
               </div>
               <strong>Qué obtienes</strong>
-              <p>
-                Un arquetipo, pistas para tu estrategia, un mapa de reacciones de riesgo y más claridad sobre tu comportamiento en el trading.
-              </p>
+              <p>Un arquetipo de trader, una mirada breve a tus fortalezas y vulnerabilidades, un mapa de reacciones típicas y un punto de partida para trabajar tu estrategia y tu comportamiento.</p>
+            </div>
+
+            <div class="hero-note">
+              <div class="pill">
+                <span class="dot"></span>
+                <span>lectura cuidadosa</span>
+              </div>
+              <strong>Cómo leer el resultado</strong>
+              <p>Tómalo como un perfil de comportamiento y no como una etiqueta. Señala tendencias, no una verdad definitiva sobre ti como trader.</p>
             </div>
           </aside>
         </div>
       </div>
     </section>
 
-    <!-- PARA QUIÉN / QUÉ HAY DENTRO -->
     <section class="section" id="test">
-      <div class="wrap info-grid fade-in">
+      <div class="wrap info-grid">
         <article class="card">
-          <h2 class="section-title">Para quién es el test</h2>
-          <u
+          <h2 class="section-title">Para quién es este test</h2>
           <ul>
-            >Para traders que quieren entender sus decisiones bajo presión.</l/li>
-            >Para quienes observan errores que se repiten o resultados inestables.</l/li>
-            >Para personas que quieren comprender mejor su perfil de riesgo.</li>
+            <li>Traders que quieren entender mejor sus decisiones bajo presión.</li>
+            <li>Personas que notan errores repetidos, “explosiones” o ejecución inestable.</li>
+            <li>Quienes quieren ver con más claridad su perfil de riesgo y la lógica interna de sus reacciones.</li>
           </ul>
         </article>
 
         <article class="card">
-          <h2 class="section-title">Qué hay dentro</h2>
-          <u
+          <h2 class="section-title">Qué incluye el test</h2>
           <ul>
-            >Arquetipos basados en comportamiento financiero y neurofisiología.</l/li>
-            >Preguntas en formato de situaciones reales de mercado.</l/li>
-            >Sin datos personales: solo un ID técnico.</l/li>
-            >Resultado para autoobservación y trabajo más preciso con tu estrategia.</li>
+            <li>Preguntas basadas en situaciones típicas de mercado y de comportamiento.</li>
+            <li>Foco en estilo de decisión y reacciones ante riesgo, impulso, control e incertidumbre.</li>
+            <li>Un resultado pensado para la autoobservación, no para encerrarte en un tipo.</li>
+            <li>No necesitas entregar datos personales innecesarios para completarlo.</li>
           </ul>
         </article>
       </div>
     </section>
 
-    <!-- ARQUETIPOS -->
     <section class="section">
-      <div class="wrap fade-in">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title">En qué puede ayudarte este test</h2>
+          <p class="section-lead">
+            El mejor resultado no es solo “un nombre bonito de arquetipo”, sino entender mejor dónde entras en impulso, en sobre‑control, en reacción defensiva o, al contrario, en un estilo de decisión más maduro.
+          </p>
+        </div>
+
+        <div class="trust-grid">
+          <article class="trust-card">
+            <h3>Un lenguaje para observarte</h3>
+            <p>El test te ayuda a nombrar lo que en el trading real a menudo se siente como caos o como “no sé por qué acabo de hacer eso”.</p>
+          </article>
+
+          <article class="trust-card">
+            <h3>Base para próximos pasos</h3>
+            <p>El resultado puede ser un punto de partida para trabajar estrategia, disciplina, riesgo o fallos de comportamiento que se repiten.</p>
+          </article>
+
+          <article class="trust-card">
+            <h3>Enfoque realista</h3>
+            <p>El test no promete rentabilidad ni sustituye un sistema. Señala cómo sueles entrar tanto en errores como en decisiones fuertes.</p>
+          </article>
+
+          <article class="trust-card">
+            <h3>Interpretación cautelosa</h3>
+            <p>Los arquetipos sirven para estructurar patrones, no para reducirte a una palabra. Tiene más sentido leerlos junto con el contexto de tu práctica real.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
         <div class="section-head">
           <h2 class="section-title">Arquetipos</h2>
-          <p class="section-lead">Cada arquetipo muestra la lógica típica, la tensión y la forma de reaccionar ante el mercado.</p>
+          <p class="section-lead">Cada arquetipo muestra una lógica típica de decisiones, un tipo de tensión y un estilo de respuesta al mercado. Son guías breves, no cajas rígidas.</p>
         </div>
 
         <div class="archetype-grid">
           <article class="arch-card">
-            <img src="/static/media/chaos.jpg" alt="Arquetipo Chaos" loading="lazy">
+            <img src="/static/media/chaos.jpg" alt="Arquetipo Chaos" loading="lazy" width="600" height="450">
             <div class="arch-card-body">
               <h3>Chaos</h3>
-              <p>Decisiones rápidas, poca estructura interna, las consecuencias aparecen más tarde.</p>
+              <p>Las decisiones son rápidas, la estructura interna es más frágil y las consecuencias suelen aparecer después de la acción.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/reptile.jpg" alt="Arquetipo Reptile" loading="lazy">
+            <img src="/static/media/reptile.jpg" alt="Arquetipo Reptile" loading="lazy" width="600" height="450">
             <div class="arch-card-body">
               <h3>Reptile</h3>
-              <p>Impulso, defensa, reacción ante la amenaza y aumento brusco de la tensión.</p>
+              <p>Impulso, defensa, reacción rápida ante la amenaza y un pico de tensión intenso bajo presión.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/Stabilizer.jpg" alt="Arquetipo Stabilizer" loading="lazy">
+            <img src="/static/media/Stabilizer.jpg" alt="Arquetipo Stabilizer" loading="lazy" width="600" height="450">
             <div class="arch-card-body">
               <h3>Stabilizer</h3>
-              <p>Control, reglas, reducción del riesgo y búsqueda de estructura.</p>
+              <p>Control, reglas, reducción del riesgo y una fuerte necesidad de estructura clara en las decisiones.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/trendsetter.jpg" alt="Arquetipo Trendsetter" loading="lazy">
+            <img src="/static/media/trendsetter.jpg" alt="Arquetipo Trendsetter" loading="lazy" width="600" height="450">
             <div class="arch-card-body">
               <h3>Trendsetter</h3>
-              <p>Ve la dirección antes que otros y busca oportunidad antes que el resto.</p>
+              <p>Detecta la dirección antes y busca oportunidades por delante de la mayoría.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/antifragile.jpg" alt="Arquetipo Antifragile" loading="lazy">
+            <img src="/static/media/antifragile.jpg" alt="Arquetipo Antifragile" loading="lazy" width="600" height="450">
             <div class="arch-card-body">
               <h3>Antifragile</h3>
-              <p>Ante la presión no se rompe, se adapta y se fortalece.</p>
+              <p>No solo soporta la presión, sino que es capaz de adaptarse y utilizarla para construir resiliencia.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/mediator.jpg" alt="Arquetipo Mediator" loading="lazy">
+            <img src="/static/media/mediator.jpg" alt="Arquetipo Mediator" loading="lazy" width="600" height="450">
             <div class="arch-card-body">
               <h3>Mediator</h3>
-              <p>Busca equilibrio entre lógica, riesgo y tensión interna.</p>
+              <p>Busca equilibrio entre lógica, riesgo, adaptación y tensión interna.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/Emergent.jpg" alt="Arquetipo Emergent" loading="lazy">
+            <img src="/static/media/Emergent.jpg" alt="Arquetipo Emergent" loading="lazy" width="600" height="450">
             <div class="arch-card-body">
               <h3>Emergent</h3>
-              <p>Reconstruye la conducta en el proceso y forma un nuevo modelo de acción.</p>
+              <p>Va ajustando su comportamiento en el proceso y poco a poco forma un nuevo modelo de decisión.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/marginal.jpg" alt="Arquetipo Marginal" loading="lazy">
+            <img src="/static/media/marginal.jpg" alt="Arquetipo Marginal" loading="lazy" width="600" height="450">
             <div class="arch-card-body">
               <h3>Marginal</h3>
-              <p>En el borde del sistema, a menudo ve lo que otros ignoran.</p>
+              <p>Está en el borde del sistema, pero a menudo ve lo que otros prefieren ignorar.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- VÍDEO -->
     <section class="section" id="video">
-      <div class="wrap fade-in">
+      <div class="wrap">
         <div class="video-box">
           <div class="video-top">
             <div>
               <h2 class="section-title">Análisis detallado del test en YouTube</h2>
-              <p class="section-lead">Explicación de la lógica del test, los arquetipos y cómo leer tu resultado.</p>
+              <p class="section-lead">Aquí explico la lógica del test, los arquetipos y cómo leer tu resultado sin simplificarlo en exceso.</p>
             </div>
-            <a
-              class="video-link"
-              href="https://www.youtube.com/watch?v=wMNuEs_JPCE"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Abrir vídeo
+            <a class="video-link" href="https://www.youtube.com/watch?v=wMNuEs_JPCE" target="_blank" rel="noopener noreferrer">
+              Abrir vídeo en YouTube
             </a>
           </div>
 
           <div class="video-wrap">
             <iframe
               src="https://www.youtube.com/embed/wMNuEs_JPCE"
-              title="TELWHA — análisis del test de arquetipos"
+              title="TELWHA — análisis del test de arquetipos de trader"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen>
             </iframe>
@@ -320,26 +1241,28 @@
       </div>
     </section>
 
-    <!-- PANEL SOBRE EL OBJETIVO -->
     <section class="section">
-      <div class="wrap panel fade-in">
+      <div class="wrap panel">
         <div class="info-grid">
           <div class="card">
             <h3>Sobre el objetivo del test</h3>
-            <p>
-              No es solo entretenimiento. Es una herramienta para observar con más precisión tus reacciones y tu estilo de decisiones en el trading.
-            </p>
+            <p>Es una herramienta para observar con más precisión tus reacciones, no un intento de reducir un comportamiento complejo a una sola etiqueta bonita.</p>
           </div>
           <div class="card">
-            <h3>Feedback</h3>
-            <p>
-              Tu feedback ayuda a mejorar la herramienta y hacer los resultados más útiles para la comunidad.
-            </p>
+            <h3>Por qué tu feedback importa</h3>
+            <p>Tu feedback ayuda a afinar los textos, las interpretaciones y la utilidad general de la herramienta para la comunidad de traders.</p>
           </div>
         </div>
 
-        <div class="cta panel-cta">
-          <a class="btn btn-primary" href="/es/">Volver al inicio</a>
+        <div class="final-panel" style="margin-top:18px;">
+          <div>
+            <h2>¿Listo para hacer el test?</h2>
+            <p>Empieza con el test y luego, si quieres, vuelve al vídeo o a otros materiales de TELWHA para profundizar en tu resultado.</p>
+          </div>
+          <div class="cta">
+            <a class="btn btn-primary" href="https://fintest-4br0.onrender.com" target="_blank" rel="noopener noreferrer">Hacer el test</a>
+            <a class="btn btn-secondary" href="/es/trader-course/">Ver el mini‑curso</a>
+          </div>
         </div>
       </div>
     </section>
@@ -347,17 +1270,17 @@
 
   <footer class="footer">
     <div class="wrap">
-      <div class="footer-grid fade-in">
+      <div class="footer-grid">
         <div>
           <h4>TELWHA</h4>
-          <p>Psicología financiera, economía conductual y arquitectura de elección para mejores decisiones y resultados más estables.</p>
+          <p>Psicología financiera, economía del comportamiento y arquitectura de elección para decisiones más sólidas y resultados sostenibles.</p>
         </div>
-        <div style="text-align:right">
+        <div>
           <h4>Navegación</h4>
-          <div class="footer-links" style="align-items:flex-end">
+          <div class="footer-links">
             <a href="/es/">Inicio</a>
             <a href="/es/about/">Sobre mí</a>
-            <a href="/es/reviews/">Opiniones</a>
+            <a href="/es/reviews/">Testimonios</a>
           </div>
         </div>
         <div>
@@ -370,55 +1293,90 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 TELWHA. Todos los derechos reservados.</span>
-        <span>Kiev, Ucrania · 🇺🇦</span>
+        <span>Kyiv, Ucrania · 🇺🇦</span>
       </div>
     </div>
   </footer>
 
-  <script src="/static/script/global.js"></script>
   <script>
-    const menuToggle = document.querySelector(".menu-toggle");
-    const siteMenu = document.querySelector("#site-menu");
-    const dropdown = document.querySelector(".menu-dropdown");
-    const dropBtn = document.querySelector(".menu-dropbtn");
-
-    if (menuToggle && siteMenu) {
-      menuToggle.addEventListener("click", () => {
-        const isOpen = siteMenu.classList.toggle("is-open");
-        menuToggle.classList.toggle("is-open", isOpen);
-        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        menuToggle.setAttribute(
-          "aria-label",
-          isOpen ? "Cerrar menú" : "Abrir menú"
-        );
-      });
-
-      document.addEventListener("click", (e) => {
-        if (!e.target.closest(".nav") && siteMenu.classList.contains("is-open")) {
-          siteMenu.classList.remove("is-open");
-          menuToggle.classList.remove("is-open");
-          menuToggle.setAttribute("aria-expanded", "false");
-          menuToggle.setAttribute("aria-label", "Abrir menú");
-        }
-      });
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && siteMenu.classList.contains("is-open")) {
-          siteMenu.classList.remove("is-open");
-          menuToggle.classList.remove("is-open");
-          menuToggle.setAttribute("aria-expanded", "false");
-          menuToggle.setAttribute("aria-label", "Abrir menú");
-          menuToggle.focus();
-        }
-      });
+    function updateProgressBar() {
+      const progress = document.getElementById("progress");
+      if (!progress) return;
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressValue = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = progressValue + "%";
     }
 
-    if (dropBtn && dropdown) {
-      dropBtn.addEventListener("click", () => {
-        const open = dropdown.classList.toggle("is-open");
-        dropBtn.setAttribute("aria-expanded", open ? "true" : "false");
-      });
+    function syncThemeButtonUI() {
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (!themeBtn) return;
+      const current = document.documentElement.getAttribute("data-theme") || "light";
+      themeBtn.textContent = current === "dark" ? "🌙" : "☀️";
+      themeBtn.setAttribute(
+        "aria-label",
+        current === "dark" ? "Activar tema claro" : "Activar tema oscuro"
+      );
     }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      updateProgressBar();
+      window.addEventListener("scroll", updateProgressBar, { passive: true });
+
+      const root = document.documentElement;
+      let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      root.setAttribute("data-theme", currentTheme);
+      syncThemeButtonUI();
+
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (themeBtn) {
+        themeBtn.addEventListener("click", () => {
+          currentTheme = currentTheme === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", currentTheme);
+          syncThemeButtonUI();
+        });
+      }
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const siteMenu = document.querySelector("#site-menu");
+
+      if (menuToggle && siteMenu) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = siteMenu.classList.toggle("is-open");
+          menuToggle.classList.toggle("is-open", isOpen);
+          menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!e.target.closest(".nav") && siteMenu.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle.classList.remove("is-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Abrir menú");
+          }
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && siteMenu.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle.classList.remove("is-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Abrir menú");
+            menuToggle.focus();
+          }
+        });
+      }
+
+      document.querySelectorAll(".menu-dropbtn").forEach((button) => {
+        button.addEventListener("click", () => {
+          if (window.innerWidth > 920) return;
+          const parent = button.parentElement;
+          const isOpen = parent.classList.toggle("is-open");
+          button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+      });
+    });
   </script>
 </body>
 </html>

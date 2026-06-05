@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TELWHA | Trader Archetype Test</title>
-  <meta name="description" content="TELWHA: What trader archetype are you?">
-
+  <meta name="description" content="A free TELWHA test to see your trader archetype, behavioural patterns, triggers, and decision-making style under market pressure.">
   <link rel="canonical" href="https://t-e-l-w-h-a.com/en/archetype-test/">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="TELWHA | Trader Archetype Test">
-  <meta property="og:description" content="TELWHA: What trader archetype are you?">
+  <meta property="og:description" content="Short trader archetype test by TELWHA: patterns, triggers, and decision style under pressure.">
   <meta property="og:url" content="https://t-e-l-w-h-a.com/en/archetype-test/">
   <meta property="og:site_name" content="TELWHA">
 
@@ -23,7 +21,6 @@
     gtag('config', 'G-FVHKD6TZJP');
   </script>
 
-  <!-- JSON-LD: Person (Anna) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -32,7 +29,7 @@
     "url": "https://t-e-l-w-h-a.com",
     "image": "https://t-e-l-w-h-a.com/static/media/main_photo.jpg",
     "jobTitle": "Financial Psychologist & Behavioral Analyst",
-    "description": "Financial psychologist and behavioral analyst combining trading, behavioral finance and data in TELWHA.",
+    "description": "Financial psychologist and behavioural analyst. I combine work with the nervous system, markets and data in TELWHA.",
     "sameAs": [
       "https://www.youtube.com/@TelwhaUA",
       "https://www.youtube.com/@Telwha",
@@ -41,14 +38,13 @@
   }
   </script>
 
-  <!-- JSON-LD: Organization (TELWHA) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "TELWHA",
     "url": "https://t-e-l-w-h-a.com",
-    "description": "TELWHA: financial psychology, behavioral economics and FinLab for traders, investors and businesses.",
+    "description": "TELWHA: financial psychology, behavioural economics and FinLab for traders, investors and businesses.",
     "logo": "https://t-e-l-w-h-a.com/static/media/telwha-favicon.png",
     "sameAs": [
       "https://www.youtube.com/@TelwhaUA",
@@ -58,21 +54,918 @@
   }
   </script>
 
-  <!-- JSON-LD: Archetype Test WebPage (EN) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Trader Archetype Test — TELWHA",
-    "description": "Free TELWHA test to understand your trader archetype, cognitive biases and decision‑making style in trading.",
+    "description": "A free TELWHA test to see your trader archetype, behavioural patterns, triggers, and decision style under pressure.",
     "url": "https://t-e-l-w-h-a.com/en/archetype-test/",
     "inLanguage": "en"
   }
   </script>
 
   <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
-  <link rel="stylesheet" href="/static/css/base.css">
-  <link rel="stylesheet" href="/static/css/layout-archetype.css">
+
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root,
+    [data-theme="light"] {
+      --font-display: "Boska", Georgia, serif;
+      --font-body: "Satoshi", "Inter", sans-serif;
+
+      --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+      --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
+      --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+      --text-2xl: clamp(2.2rem, 1.5rem + 2vw, 4rem);
+
+      --color-bg: #f5f3ef;
+      --color-surface: #fcfbf8;
+      --color-surface-2: #f2efe9;
+      --color-surface-3: #ebe7df;
+      --color-border: rgba(40, 37, 29, 0.10);
+      --color-divider: rgba(40, 37, 29, 0.08);
+
+      --color-text: #22201a;
+      --color-text-muted: #65625b;
+      --color-text-faint: #8b877f;
+      --color-text-inverse: #f9f8f5;
+
+      --color-primary: #0f5d5f;
+      --color-primary-hover: #0b4b4d;
+      --color-primary-soft: rgba(15, 93, 95, 0.08);
+
+      --color-accent: #9a6a35;
+      --color-accent-soft: rgba(154, 106, 53, 0.08);
+
+      --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
+      --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
+      --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
+
+      --content-default: 1180px;
+      --radius-md: 22px;
+      --radius-lg: 28px;
+      --radius-xl: 34px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1d1b18;
+      --color-surface-2: #24211d;
+      --color-surface-3: #2a2622;
+      --color-border: rgba(255, 255, 255, 0.10);
+      --color-divider: rgba(255, 255, 255, 0.08);
+
+      --color-text: #ece6dd;
+      --color-text-muted: #b7afa2;
+      --color-text-faint: #91897c;
+      --color-text-inverse: #171614;
+
+      --color-primary: #6ca7a7;
+      --color-primary-hover: #84baba;
+      --color-primary-soft: rgba(108, 167, 167, 0.10);
+
+      --color-accent: #c79c68;
+      --color-accent-soft: rgba(199, 156, 104, 0.09);
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
+      --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg, iframe { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button {
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .wrap {
+      width: min(100% - 28px, var(--content-default));
+      margin-inline: auto;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 120;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      color: var(--color-primary);
+      flex: 0 0 auto;
+    }
+
+    .sub {
+      color: var(--color-text-faint);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      max-width: 260px;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      transition: var(--transition);
+    }
+
+    .menu-toggle-lines {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-toggle-lines span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--color-text);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      min-width: 0;
+      flex-wrap: nowrap;
+    }
+
+    .menu a,
+    .menu .menu-dropbtn,
+    .theme-toggle,
+    .lang-link {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      white-space: nowrap;
+      line-height: 1.1;
+      flex-shrink: 0;
+    }
+
+    .menu a:hover,
+    .menu .menu-dropbtn:hover,
+    .theme-toggle:hover,
+    .lang-link:hover {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+    }
+
+    .menu a.is-active {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+    }
+
+    .menu-group {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .menu-dropdown {
+      position: relative;
+    }
+
+    .menu-dropbtn {
+      gap: 6px;
+    }
+
+    .menu-dropcontent {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      min-width: 220px;
+      display: grid;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: var(--transition);
+    }
+
+    .menu-dropdown:hover .menu-dropcontent,
+    .menu-dropdown:focus-within .menu-dropcontent,
+    .menu-dropdown.is-open .menu-dropcontent {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .menu-dropcontent a {
+      justify-content: flex-start;
+      padding: 12px 14px;
+      border-radius: 12px;
+      white-space: normal;
+      line-height: 1.35;
+    }
+
+    .menu-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid var(--color-divider);
+      flex-shrink: 0;
+    }
+
+    .lang-list {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-link.is-active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      width: 44px;
+      padding-inline: 0;
+      font-size: 1rem;
+    }
+
+    main {
+      padding: 34px 0 90px;
+    }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 48px);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+      margin-bottom: 18px;
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(15, 93, 95, 0.06), transparent 24%),
+        radial-gradient(circle at 85% 18%, rgba(154, 106, 53, 0.05), transparent 22%);
+    }
+
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--color-primary);
+    }
+
+    .hero-copy h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 0.97;
+      letter-spacing: -0.03em;
+      max-width: 12ch;
+      margin-bottom: 14px;
+    }
+
+    .lead {
+      max-width: 58ch;
+      color: var(--color-text-muted);
+      font-size: var(--text-lg);
+      margin-bottom: 18px;
+    }
+
+    .hero-note-text {
+      color: var(--color-text);
+      max-width: 62ch;
+      font-size: 0.98rem;
+      margin-bottom: 18px;
+    }
+
+    .eyeline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .chip {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--color-surface);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-surface-2);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .hero-note,
+    .card,
+    .arch-card,
+    .video-box,
+    .panel,
+    .trust-card,
+    .final-panel {
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-note {
+      padding: 18px 20px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-primary-soft) 50%, var(--color-surface)));
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-faint);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--color-primary);
+    }
+
+    .hero-note strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .hero-note p {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .section {
+      margin-bottom: 18px;
+    }
+
+    .section-head {
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .section-lead {
+      color: var(--color-text-muted);
+      max-width: 68ch;
+      font-size: 0.96rem;
+    }
+
+    .info-grid,
+    .trust-grid,
+    .archetype-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .info-grid,
+    .trust-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .archetype-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card,
+    .trust-card {
+      padding: 22px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    }
+
+    .card h2,
+    .card h3,
+    .trust-card h3 {
+      font-size: 1.04rem;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .card p,
+    .trust-card p {
+      color: var(--color-text-muted);
+      font-size: 0.94rem;
+    }
+
+    .card ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .card li {
+      color: var(--color-text-muted);
+      position: relative;
+      padding-left: 18px;
+      font-size: 0.94rem;
+    }
+
+    .card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.62rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--color-primary);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 12%, transparent);
+    }
+
+    .arch-card {
+      overflow: hidden;
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+
+    .arch-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .arch-card img {
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      width: 100%;
+      background: var(--color-surface-2);
+    }
+
+    .arch-card-body {
+      padding: 16px 16px 18px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .arch-card-body h3 {
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    .arch-card-body p {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .video-box,
+    .panel,
+    .final-panel {
+      padding: 24px;
+      border-radius: var(--radius-lg);
+    }
+
+    .video-top {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .video-link {
+      color: var(--color-primary);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 22px;
+      background: #000;
+    }
+
+    .video-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    }
+
+    .panel-cta {
+      margin-top: 18px;
+      justify-content: flex-start;
+    }
+
+    .trust-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .final-panel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-accent-soft) 52%, var(--color-surface)));
+    }
+
+    .final-panel h2 {
+      font-size: var(--text-lg);
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .final-panel p {
+      color: var(--color-text-muted);
+      max-width: 58ch;
+      font-size: 0.92rem;
+    }
+
+    .footer {
+      padding: 36px 0 26px;
+      border-top: 1px solid var(--color-divider);
+      background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+      margin-top: 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer h4 {
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-faint);
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .footer a:hover {
+      color: var(--color-text);
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 22px;
+      margin-top: 22px;
+      border-top: 1px solid var(--color-divider);
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+    }
+
+    @media (max-width: 1180px) {
+      .archetype-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-inner,
+      .info-grid,
+      .trust-grid,
+      .final-panel,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 14px;
+        right: 14px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid var(--color-border);
+        border-radius: 22px;
+        background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .menu.is-open {
+        display: flex;
+      }
+
+      .menu-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .menu a,
+      .menu .menu-dropbtn,
+      .theme-toggle,
+      .lang-link {
+        justify-content: flex-start;
+        border-radius: 14px;
+        font-size: 0.95rem;
+        padding: 10px 12px;
+      }
+
+      .menu-dropdown {
+        width: 100%;
+      }
+
+      .menu-dropcontent {
+        position: static;
+        min-width: 0;
+        margin-top: 8px;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+        display: none;
+        box-shadow: none;
+        border-radius: 16px;
+        background: var(--color-surface-2);
+      }
+
+      .menu-dropdown.is-open .menu-dropcontent {
+        display: grid;
+      }
+
+      .menu-tools {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+        padding-top: 6px;
+        border-top: 1px solid var(--color-divider);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(100% - 24px, var(--content-default));
+      }
+
+      .hero-shell,
+      .card,
+      .trust-card,
+      .arch-card,
+      .video-box,
+      .panel,
+      .final-panel,
+      .hero-note {
+        border-radius: 22px;
+      }
+
+      .hero-copy h1 {
+        max-width: 100%;
+      }
+
+      .archetype-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .video-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="progress" id="progress"></div>
@@ -80,10 +973,15 @@
   <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
-        <a class="brand-row" href="/en/">
+        <a class="brand-row" href="/en/" aria-label="TELWHA — home">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
           <strong>TELWHA</strong>
         </a>
-        <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+        <span class="sub">Financial Psychology · Behavioral Strategy</span>
       </div>
 
       <button
@@ -94,16 +992,14 @@
         aria-label="Open menu"
       >
         <span class="menu-toggle-lines" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </span>
       </button>
 
-      <nav class="menu" id="site-menu">
+      <nav class="menu" id="site-menu" aria-label="Main navigation">
         <div class="menu-group">
           <a href="/en/">Home</a>
-          <a href="/finlab/">FinLab</a>
+          <a href="/en/finlab/">FinLab</a>
           <a href="/en/about/">About</a>
         </div>
 
@@ -111,7 +1007,7 @@
           <button type="button" class="menu-dropbtn" aria-expanded="false">For traders ▾</button>
           <div class="menu-dropcontent">
             <a href="/en/trader-course/">Mini‑course</a>
-            <a href="/en/archetype-test/">Archetype test</a>
+            <a href="/en/archetype-test/" class="is-active">Archetype test</a>
           </div>
         </div>
 
@@ -123,46 +1019,41 @@
         </div>
 
         <div class="menu-group menu-tools">
-          <details class="lang-switcher lang-switcher--inside">
-            <summary>🇬🇧</summary>
-            <div class="lang-list">
-              <a href="/archetype-test/" aria-label="Українська" lang="uk">🇺🇦</a>
-              <a href="/es/archetype-test/" aria-label="Español" lang="es">🇪🇸</a>
-            </div>
-          </details>
+          <div class="lang-list" aria-label="Site languages">
+            <a class="lang-link" href="/archetype-test/" lang="uk" aria-label="Українська">UA</a>
+            <a class="lang-link is-active" href="/en/archetype-test/" lang="en" aria-label="English">EN</a>
+            <a class="lang-link" href="/es/archetype-test/" lang="es" aria-label="Español">ES</a>
+          </div>
 
-          <button class="theme-toggle" type="button" aria-label="Toggle theme">🌓</button>
+          <button class="theme-toggle" type="button" aria-label="Toggle theme">☀️</button>
         </div>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero">
-      <div class="wrap hero-shell fade-in">
+      <div class="wrap hero-shell">
         <div class="hero-inner">
           <div class="hero-copy">
-            <div class="eyebrow">Trader archetypes</div>
-            <h1>What trader archetype are you?</h1>
+            <div class="eyebrow">Trader archetype test</div>
+            <h1>See what kind of trading decisions you tend to make</h1>
             <p class="lead">
-              A short test that helps you see your decision style, typical triggers and weak points in behaviour under market pressure.
+              This is a short test for traders that helps you see your typical decision style, reactions under market pressure, and behavioural patterns that may impact your strategy.
+            </p>
+            <p class="hero-note-text">
+              It does not diagnose you or replace a trading system. The goal is to give you a language for self‑observation: how you respond to risk, uncertainty, impulse and control.
             </p>
 
             <div class="eyeline">
               <span class="chip">21 questions</span>
               <span class="chip">10–15 minutes</span>
               <span class="chip">Free</span>
-              <span class="chip">Beta</span>
+              <span class="chip">Online</span>
             </div>
 
             <div class="cta">
-              <a
-                class="btn btn-primary"
-                href="https://fintest-4br0.onrender.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a class="btn btn-primary" href="https://fintest-4br0.onrender.com" target="_blank" rel="noopener noreferrer">
                 Take the test
               </a>
               <a class="btn btn-secondary" href="#video">
@@ -178,131 +1069,163 @@
                 <span>trader profile</span>
               </div>
               <strong>What you get</strong>
-              <p>
-                An archetype, hints for your strategy, a map of risk reactions and clearer understanding of your trading behaviour.
-              </p>
+              <p>You’ll see a trader archetype, a brief look at strengths and vulnerabilities, a map of typical reactions, and a starting point for working with your strategy and behaviour.</p>
+            </div>
+
+            <div class="hero-note">
+              <div class="pill">
+                <span class="dot"></span>
+                <span>careful framing</span>
+              </div>
+              <strong>How to read it</strong>
+              <p>Treat the result as a behavioural profile, not a label. It highlights tendencies, not a final truth about you as a trader.</p>
             </div>
           </aside>
         </div>
       </div>
     </section>
 
-    <!-- FOR WHOM / WHAT'S INSIDE -->
     <section class="section" id="test">
-      <div class="wrap info-grid fade-in">
+      <div class="wrap info-grid">
         <article class="card">
           <h2 class="section-title">Who this test is for</h2>
           <ul>
             <li>Traders who want to understand their decisions under pressure.</li>
-            <li>Those who see repeating mistakes or unstable results.</li>
-            <li>People who want to understand their risk profile better.</li>
+            <li>Those who notice repeated mistakes, blow‑ups or inconsistency in execution.</li>
+            <li>People who want a clearer view of their risk profile and internal logic of reactions.</li>
           </ul>
         </article>
 
         <article class="card">
-          <h2 class="section-title">What is inside</h2>
+          <h2 class="section-title">What the test includes</h2>
           <ul>
-            <li>Archetypes based on financial behaviour and neurophysiology.</li>
-            <li>Questions framed as real market situations.</li>
-            <li>No personal data, only a technical ID.</li>
-            <li>A result for self‑observation and more precise work with your strategy.</li>
+            <li>Questions based on typical market and behavioural situations.</li>
+            <li>Focus on decision style, reactions to risk, impulse, control and uncertainty.</li>
+            <li>A result meant for self‑observation, not for boxing you into a type.</li>
+            <li>No need to provide unnecessary personal data to complete it.</li>
           </ul>
         </article>
       </div>
     </section>
 
-    <!-- ARCHETYPES -->
     <section class="section">
-      <div class="wrap fade-in">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title">What this test can help with</h2>
+          <p class="section-lead">
+            The most useful outcome is not “a nice archetype word”, but a clearer understanding of where you flip into impulse, over‑control, defence or, on the contrary, into a more mature decision style.
+          </p>
+        </div>
+
+        <div class="trust-grid">
+          <article class="trust-card">
+            <h3>A language for self‑observation</h3>
+            <p>The test helps you name what in live trading often feels like “chaos” or “I don’t understand why I did this at all”.</p>
+          </article>
+
+          <article class="trust-card">
+            <h3>A base for next steps</h3>
+            <p>The result can be a starting point for work on strategy, discipline, risk or recurring behavioural breakdowns.</p>
+          </article>
+
+          <article class="trust-card">
+            <h3>Realistic focus</h3>
+            <p>The test doesn’t promise profitability and doesn’t replace a system. It highlights how you tend to move into both mistakes and strong decisions.</p>
+          </article>
+
+          <article class="trust-card">
+            <h3>Cautious interpretation</h3>
+            <p>Archetypes are a way to structure patterns, not to reduce you to one word. The best way to use them is together with the context of your real trading.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
         <div class="section-head">
           <h2 class="section-title">Archetypes</h2>
-          <p class="section-lead">Each archetype shows typical logic, tension and ways of reacting to the market.</p>
+          <p class="section-lead">Each archetype shows a typical logic of decisions, the type of tension and style of response to the market. These are short guides, not rigid boxes.</p>
         </div>
 
         <div class="archetype-grid">
           <article class="arch-card">
-            <img src="/static/media/chaos.jpg" alt="Chaos archetype" loading="lazy">
+            <img src="/static/media/chaos.jpg" alt="Chaos archetype" loading="lazy" width="600" height="450">
             <div class="arch-card-body">
               <h3>Chaos</h3>
-              <p>Decisions are fast, internal structure is weak, consequences show up later.</p>
+              <p>Decisions are fast, internal structure is weaker, and consequences often catch up after the action.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/reptile.jpg" alt="Reptile archetype" loading="lazy">
+            <img src="/static/media/reptile.jpg" alt="Reptile archetype" loading="lazy" width="600" height="450">
             <div class="arch-card-body">
               <h3>Reptile</h3>
-              <p>Impulse, protection, reaction to threat and sharp rise in tension.</p>
+              <p>Impulse, defence, quick reaction to threat and a sharp spike in tension under pressure.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/Stabilizer.jpg" alt="Stabilizer archetype" loading="lazy">
+            <img src="/static/media/Stabilizer.jpg" alt="Stabilizer archetype" loading="lazy" width="600" height="450">
             <div class="arch-card-body">
               <h3>Stabilizer</h3>
-              <p>Control, rules, risk reduction and a drive toward structure.</p>
+              <p>Control, rules, risk reduction and a strong need for clear structure in decisions.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/trendsetter.jpg" alt="Trendsetter archetype" loading="lazy">
+            <img src="/static/media/trendsetter.jpg" alt="Trendsetter archetype" loading="lazy" width="600" height="450">
             <div class="arch-card-body">
               <h3>Trendsetter</h3>
-              <p>Spots direction faster and looks for opportunity earlier than others.</p>
+              <p>Spots direction earlier and looks for opportunities ahead of the crowd.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/antifragile.jpg" alt="Antifragile archetype" loading="lazy">
+            <img src="/static/media/antifragile.jpg" alt="Antifragile archetype" loading="lazy" width="600" height="450">
             <div class="arch-card-body">
               <h3>Antifragile</h3>
-              <p>Under pressure does not break but adapts and becomes stronger.</p>
+              <p>Doesn’t just survive pressure, but is able to adapt and use it to build resilience.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/mediator.jpg" alt="Mediator archetype" loading="lazy">
+            <img src="/static/media/mediator.jpg" alt="Mediator archetype" loading="lazy" width="600" height="450">
             <div class="arch-card-body">
               <h3>Mediator</h3>
-              <p>Looks for balance between logic, risk and inner tension.</p>
+              <p>Looks for balance between logic, risk, adaptation and internal tension.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/Emergent.jpg" alt="Emergent archetype" loading="lazy">
+            <img src="/static/media/Emergent.jpg" alt="Emergent archetype" loading="lazy" width="600" height="450">
             <div class="arch-card-body">
               <h3>Emergent</h3>
-              <p>Rebuilds behaviour along the way and forms a new model of action.</p>
+              <p>Rebuilds behaviour in the process and gradually forms a new decision model.</p>
             </div>
           </article>
 
           <article class="arch-card">
-            <img src="/static/media/marginal.jpg" alt="Marginal archetype" loading="lazy">
+            <img src="/static/media/marginal.jpg" alt="Marginal archetype" loading="lazy" width="600" height="450">
             <div class="arch-card-body">
               <h3>Marginal</h3>
-              <p>Stands at the edge of the system but often notices what others ignore.</p>
+              <p>Stands at the edge of the system, but often notices what others prefer to ignore.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- VIDEO -->
     <section class="section" id="video">
-      <div class="wrap fade-in">
+      <div class="wrap">
         <div class="video-box">
           <div class="video-top">
             <div>
-              <h2 class="section-title">Detailed test breakdown on YouTube</h2>
-              <p class="section-lead">Explanation of the test logic, archetypes and how to read your result.</p>
+              <h2 class="section-title">Deep‑dive video breakdown</h2>
+              <p class="section-lead">Here I explain the logic behind the test, the archetypes and how to read your result without over‑simplifying it.</p>
             </div>
-            <a
-              class="video-link"
-              href="https://www.youtube.com/watch?v=wMNuEs_JPCE"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Open video
+            <a class="video-link" href="https://www.youtube.com/watch?v=wMNuEs_JPCE" target="_blank" rel="noopener noreferrer">
+              Open video on YouTube
             </a>
           </div>
 
@@ -318,26 +1241,28 @@
       </div>
     </section>
 
-    <!-- ABOUT THE TEST -->
     <section class="section">
-      <div class="wrap panel fade-in">
+      <div class="wrap panel">
         <div class="info-grid">
           <div class="card">
-            <h3>About the test</h3>
-            <p>
-              This is not just entertainment, but a tool for more precise observation of your reactions and decision style in trading.
-            </p>
+            <h3>About the purpose</h3>
+            <p>This tool is built to support more precise self‑observation, not to shrink complex behaviour into one neat label.</p>
           </div>
           <div class="card">
-            <h3>Feedback</h3>
-            <p>
-              Your feedback helps improve the tool and make the results more useful for the community.
-            </p>
+            <h3>Why feedback matters</h3>
+            <p>Your feedback helps refine wording, interpretation and overall usefulness of the instrument for the trading community.</p>
           </div>
         </div>
 
-        <div class="cta panel-cta">
-          <a class="btn btn-primary" href="/en/">Back to home</a>
+        <div class="final-panel" style="margin-top:18px;">
+          <div>
+            <h2>Ready to take the test?</h2>
+            <p>Start with the test, and then, if you wish, come back to the video or other TELWHA materials to unpack your result deeper.</p>
+          </div>
+          <div class="cta">
+            <a class="btn btn-primary" href="https://fintest-4br0.onrender.com" target="_blank" rel="noopener noreferrer">Take the test</a>
+            <a class="btn btn-secondary" href="/en/trader-course/">See the mini‑course</a>
+          </div>
         </div>
       </div>
     </section>
@@ -345,14 +1270,14 @@
 
   <footer class="footer">
     <div class="wrap">
-      <div class="footer-grid fade-in">
+      <div class="footer-grid">
         <div>
           <h4>TELWHA</h4>
-          <p>Financial psychology, behavioral economics and choice architecture for better decisions and more stable results.</p>
+          <p>Financial psychology, behavioural economics and choice architecture for more grounded decisions and sustainable results.</p>
         </div>
-        <div style="text-align:right">
+        <div>
           <h4>Navigation</h4>
-          <div class="footer-links" style="align-items:flex-end">
+          <div class="footer-links">
             <a href="/en/">Home</a>
             <a href="/en/about/">About</a>
             <a href="/en/reviews/">Testimonials</a>
@@ -373,50 +1298,85 @@
     </div>
   </footer>
 
-  <script src="/static/script/global.js"></script>
   <script>
-    const menuToggle = document.querySelector(".menu-toggle");
-    const siteMenu = document.querySelector("#site-menu");
-    const dropdown = document.querySelector(".menu-dropdown");
-    const dropBtn = document.querySelector(".menu-dropbtn");
-
-    if (menuToggle && siteMenu) {
-      menuToggle.addEventListener("click", () => {
-        const isOpen = siteMenu.classList.toggle("is-open");
-        menuToggle.classList.toggle("is-open", isOpen);
-        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        menuToggle.setAttribute(
-          "aria-label",
-          isOpen ? "Close menu" : "Open menu"
-        );
-      });
-
-      document.addEventListener("click", (e) => {
-        if (!e.target.closest(".nav") && siteMenu.classList.contains("is-open")) {
-          siteMenu.classList.remove("is-open");
-          menuToggle.classList.remove("is-open");
-          menuToggle.setAttribute("aria-expanded", "false");
-          menuToggle.setAttribute("aria-label", "Open menu");
-        }
-      });
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && siteMenu.classList.contains("is-open")) {
-          siteMenu.classList.remove("is-open");
-          menuToggle.classList.remove("is-open");
-          menuToggle.setAttribute("aria-expanded", "false");
-          menuToggle.setAttribute("aria-label", "Open menu");
-          menuToggle.focus();
-        }
-      });
+    function updateProgressBar() {
+      const progress = document.getElementById("progress");
+      if (!progress) return;
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressValue = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = progressValue + "%";
     }
 
-    if (dropBtn && dropdown) {
-      dropBtn.addEventListener("click", () => {
-        const open = dropdown.classList.toggle("is-open");
-        dropBtn.setAttribute("aria-expanded", open ? "true" : "false");
-      });
+    function syncThemeButtonUI() {
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (!themeBtn) return;
+      const current = document.documentElement.getAttribute("data-theme") || "light";
+      themeBtn.textContent = current === "dark" ? "🌙" : "☀️";
+      themeBtn.setAttribute(
+        "aria-label",
+        current === "dark" ? "Switch to light theme" : "Switch to dark theme"
+      );
     }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      updateProgressBar();
+      window.addEventListener("scroll", updateProgressBar, { passive: true });
+
+      const root = document.documentElement;
+      let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      root.setAttribute("data-theme", currentTheme);
+      syncThemeButtonUI();
+
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (themeBtn) {
+        themeBtn.addEventListener("click", () => {
+          currentTheme = currentTheme === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", currentTheme);
+          syncThemeButtonUI();
+        });
+      }
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const siteMenu = document.querySelector("#site-menu");
+
+      if (menuToggle && siteMenu) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = siteMenu.classList.toggle("is-open");
+          menuToggle.classList.toggle("is-open", isOpen);
+          menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!e.target.closest(".nav") && siteMenu.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle.classList.remove("is-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open menu");
+          }
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && siteMenu.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle.classList.remove("is-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open menu");
+            menuToggle.focus();
+          }
+        });
+      }
+
+      document.querySelectorAll(".menu-dropbtn").forEach((button) => {
+        button.addEventListener("click", () => {
+          if (window.innerWidth > 920) return;
+          const parent = button.parentElement;
+          const isOpen = parent.classList.toggle("is-open");
+          button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+      });
+    });
   </script>
 </body>
 </html>

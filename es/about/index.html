@@ -1,19 +1,31 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TELWHA — Sobre mí</title>
-  <meta name="description" content="TELWHA: Conocimiento del sistema nervioso, instrumentos financieros e investigación actual.">
 
-  <link rel="canonical" href="https://t-e-l-w-h-a.com/es/about/">
+
+  <title>TELWHA | Sobre mí</title>
+  <meta name="description" content="Anna Signaevska: psicología financiera, análisis conductual, el marco TELWHA y trabajo con decisiones sobre dinero, riesgo, trading y estrés financiero.">
+  <link rel="canonical" href="https://t-e-l-w-h-a.com/about/">
+
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="TELWHA — Sobre mí">
-  <meta property="og:description" content="TELWHA: Conocimiento del sistema nervioso, instrumentos financieros e investigación actual.">
-  <meta property="og:url" content="https://t-e-l-w-h-a.com/es/about/">
+  <meta property="og:title" content="TELWHA | Sobre mí">
+  <meta property="og:description" content="Psicología financiera, análisis conductual y decisiones sostenibles sobre dinero para personas, traders y equipos fintech.">
+  <meta property="og:url" content="https://t-e-l-w-h-a.com/about/">
   <meta property="og:site_name" content="TELWHA">
+
+
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
+
+
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
+
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
   <script>
@@ -23,30 +35,25 @@
     gtag('config', 'G-FVHKD6TZJP');
   </script>
 
-  <!-- JSON-LD: Person (Anna) -->
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Anna Signaevska",
-    "url": "https://t-e-l-w-h-a.com",
+    "url": "https://t-e-l-w-h-a.com/about/",
     "image": "https://t-e-l-w-h-a.com/static/media/image.jpeg",
     "jobTitle": "Financial Psychologist & Behavioral Analyst",
-    "description": "Psicóloga financiera y analista de comportamiento que combina neuroeconomía, trading y datos en TELWHA.",
+    "description": "Psicóloga financiera y analista del comportamiento que combina neuroeconomía, trading, instrumentos financieros y datos en TELWHA.",
     "sameAs": [
       "https://www.youtube.com/@TelwhaUA",
       "https://www.youtube.com/@Telwha",
       "https://www.linkedin.com/in/anna-signaevskaya"
-    ],
-    "alumniOf": [
-      "Licenciatura en Psicología",
-      "Máster en Economía Conductual",
-      "Corporate Finance Institute"
     ]
   }
   </script>
 
-  <!-- JSON-LD: Organization (TELWHA) -->
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -63,21 +70,1128 @@
   }
   </script>
 
-  <!-- JSON-LD: AboutPage (ES) -->
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    "name": "TELWHA — Sobre mí",
-    "description": "Página sobre Anna, psicóloga financiera y analista conductual, y el enfoque TELWHA para decisiones financieras.",
-    "url": "https://t-e-l-w-h-a.com/es/about/",
+    "name": "TELWHA | Sobre mí",
+    "description": "Página sobre Anna Signaevska, psicóloga financiera y analista del comportamiento, y el enfoque TELWHA hacia las decisiones sobre dinero.",
+    "url": "https://t-e-l-w-h-a.com/about/",
     "inLanguage": "es"
   }
   </script>
 
-  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
-  <link rel="stylesheet" href="/static/css/base.css">
-  <link rel="stylesheet" href="/static/css/layout-about.css">
+
+  <style>
+    :root,
+    [data-theme="light"] {
+      --font-display: "Boska", Georgia, serif;
+      --font-body: "Satoshi", "Inter", sans-serif;
+
+      --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+      --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
+      --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+      --text-2xl: clamp(2.2rem, 1.5rem + 2vw, 4.2rem);
+
+      --color-bg: #f5f3ef;
+      --color-surface: #fcfbf8;
+      --color-surface-2: #f2efe9;
+      --color-border: rgba(40, 37, 29, 0.10);
+      --color-divider: rgba(40, 37, 29, 0.08);
+
+      --color-text: #22201a;
+      --color-text-muted: #65625b;
+      --color-text-faint: #8b877f;
+      --color-text-inverse: #f9f8f5;
+
+      --color-primary: #0f5d5f;
+      --color-primary-hover: #0b4b4d;
+      --color-primary-soft: rgba(15, 93, 95, 0.08);
+
+      --color-accent: #9a6a35;
+      --color-accent-soft: rgba(154, 106, 53, 0.08);
+
+      --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
+      --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
+      --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
+
+      --content-default: 1160px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1d1b18;
+      --color-surface-2: #24211d;
+      --color-border: rgba(255, 255, 255, 0.10);
+      --color-divider: rgba(255, 255, 255, 0.08);
+
+      --color-text: #ece6dd;
+      --color-text-muted: #b7afa2;
+      --color-text-faint: #91897c;
+      --color-text-inverse: #171614;
+
+      --color-primary: #6ca7a7;
+      --color-primary-hover: #84baba;
+      --color-primary-soft: rgba(108, 167, 167, 0.10);
+
+      --color-accent: #c79c68;
+      --color-accent-soft: rgba(199, 156, 104, 0.09);
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
+      --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { border: 0; background: none; cursor: pointer; color: inherit; font: inherit; }
+    ul { list-style: none; }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .wrap {
+      width: min(100% - 28px, var(--content-default));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: clamp(56px, 8vw, 104px) 0;
+    }
+
+    .section-tight {
+      padding-top: 32px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--color-primary);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    .section-sub {
+      color: var(--color-text-muted);
+      max-width: 68ch;
+      margin-bottom: 24px;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 120;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      color: var(--color-primary);
+      flex: 0 0 auto;
+    }
+
+    .brand-sub {
+      color: var(--color-text-faint);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      max-width: 240px;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      transition: var(--transition);
+    }
+
+    .menu-toggle:hover {
+      background: var(--color-surface-2);
+    }
+
+    .menu-toggle-lines {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-toggle-lines span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--color-text);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      min-width: 0;
+      flex-wrap: nowrap;
+    }
+
+    .menu a,
+    .menu .dropbtn,
+    .theme-toggle,
+    .lang-link {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      white-space: nowrap;
+      line-height: 1.1;
+      flex-shrink: 0;
+    }
+
+    .menu a:hover,
+    .menu .dropbtn:hover,
+    .theme-toggle:hover,
+    .lang-link:hover {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+    }
+
+    .menu a.is-active {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+    }
+
+    .menu a.is-highlight,
+    .menu .dropbtn.is-highlight {
+      color: var(--color-text-inverse);
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, var(--color-accent)));
+      border: 1px solid transparent;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .menu a.is-highlight:hover,
+    .menu .dropbtn.is-highlight:hover {
+      background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+      color: var(--color-text-inverse);
+    }
+
+    [data-theme="dark"] .menu a.is-highlight,
+    [data-theme="dark"] .menu .dropbtn.is-highlight {
+      color: #141311;
+    }
+
+    .dropdown {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .dropbtn {
+      gap: 6px;
+    }
+
+    .dropbtn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform var(--transition);
+      flex: 0 0 auto;
+    }
+
+    .dropdown:hover .dropbtn svg,
+    .dropdown:focus-within .dropbtn svg,
+    .dropdown.is-open .dropbtn svg {
+      transform: rotate(180deg);
+    }
+
+    .dropcontent {
+      position: absolute;
+      top: calc(100% + 2px);
+      left: 0;
+      z-index: 300;
+      min-width: 240px;
+      display: grid;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    }
+
+    .dropdown:hover .dropcontent,
+    .dropdown:focus-within .dropcontent,
+    .dropdown.is-open .dropcontent {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .dropcontent a {
+      justify-content: flex-start;
+      border-radius: 12px;
+      padding: 12px 14px;
+      white-space: normal;
+      line-height: 1.35;
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid var(--color-divider);
+      flex-shrink: 0;
+    }
+
+    .lang-list {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-link.is-active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+    }
+
+    .theme-toggle svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .hero {
+      padding: clamp(36px, 6vw, 68px) 0 28px;
+    }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 46px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 14% 18%, rgba(15, 93, 95, 0.06), transparent 22%),
+        radial-gradient(circle at 86% 16%, rgba(154, 106, 53, 0.05), transparent 20%);
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 30px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 0.97;
+      letter-spacing: -0.03em;
+      max-width: 12ch;
+    }
+
+    .hero-lead {
+      max-width: 62ch;
+      color: var(--color-text-muted);
+      font-size: var(--text-lg);
+    }
+
+    .hero-goal {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--color-text);
+      font-size: 0.98rem;
+      font-weight: 500;
+      flex-wrap: wrap;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--color-primary);
+      flex: 0 0 auto;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-surface-2);
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-meta span::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--color-primary);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero-photo-card,
+    .metric-card,
+    .card,
+    .pricing-card,
+    .state-item,
+    .faq-item,
+    .trust-card,
+    .cta-band {
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-photo-card {
+      overflow: hidden;
+      border-radius: 26px;
+      background: var(--color-surface);
+    }
+
+    .hero-photo img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    .hero-qual {
+      display: grid;
+      gap: 10px;
+      padding: 20px 22px;
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .hero-qual span {
+      position: relative;
+      padding-left: 18px;
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .hero-qual span::before {
+      content: "";
+      position: absolute;
+      top: 0.7em;
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--color-accent);
+    }
+
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .trust-card {
+      padding: 18px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    }
+
+    .trust-card strong {
+      display: block;
+      font-size: var(--text-lg);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .trust-card span {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+    }
+
+    .card {
+      padding: clamp(24px, 4vw, 34px);
+      border-radius: 28px;
+    }
+
+    .copy-stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .copy-stack p {
+      max-width: 72ch;
+    }
+
+    .about-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .about-list li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--color-text-muted);
+    }
+
+    .about-list li::before {
+      content: "";
+      position: absolute;
+      top: 0.7em;
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--color-primary);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .states-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .state-item {
+      padding: 22px;
+      border-radius: 24px;
+      transition: var(--transition);
+    }
+
+    .state-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .state-icon {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .state-label {
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .state-text {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .pricing-card {
+      display: grid;
+      gap: 14px;
+      padding: 24px;
+      border-radius: 24px;
+      transition: var(--transition);
+      min-height: 100%;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pricing-label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      width: fit-content;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .pricing-title {
+      font-size: var(--text-lg);
+      line-height: 1.15;
+    }
+
+    .pricing-title-link:hover {
+      color: var(--color-primary);
+    }
+
+    .pricing-price {
+      font-size: 1.55rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .pricing-note,
+    .pricing-meta {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .pricing-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .pricing-list li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .pricing-list li::before {
+      content: "";
+      position: absolute;
+      top: 0.7em;
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--color-accent);
+    }
+
+    .pricing-actions {
+      margin-top: auto;
+      padding-top: 4px;
+    }
+
+    .pricing-btn {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .pricing-btn-primary {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+    }
+
+    .pricing-btn-primary:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .telwha-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 18px;
+    }
+
+    .telwha-tab {
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .telwha-tab:hover,
+    .telwha-tab.active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border-color: rgba(15, 93, 95, 0.26);
+    }
+
+    .telwha-panel {
+      display: none;
+      padding: 22px 24px;
+      border: 1px solid var(--color-border);
+      border-radius: 22px;
+      background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+    }
+
+    .telwha-panel.active {
+      display: block;
+    }
+
+    .telwha-panel h3 {
+      font-size: var(--text-lg);
+      margin-bottom: 6px;
+      line-height: 1.15;
+    }
+
+    .telwha-panel h4 {
+      font-size: 0.96rem;
+      color: var(--color-text);
+      margin-bottom: 10px;
+    }
+
+    .telwha-panel p {
+      color: var(--color-text-muted);
+      max-width: 64ch;
+    }
+
+    .faq-stack {
+      display: grid;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .faq-item {
+      padding: 20px 22px;
+      border-radius: 22px;
+    }
+
+    .faq-q {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+
+    .faq-a {
+      color: var(--color-text-muted);
+    }
+
+    .cta-band {
+      padding: 24px;
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-primary-soft) 55%, var(--color-surface)));
+    }
+
+    .cta-band-copy h3 {
+      font-size: var(--text-lg);
+      margin-bottom: 6px;
+      line-height: 1.15;
+    }
+
+    .cta-band-copy p {
+      color: var(--color-text-muted);
+      max-width: 56ch;
+      font-size: 0.92rem;
+    }
+
+    .footer {
+      padding: 36px 0 26px;
+      border-top: 1px solid var(--color-divider);
+      background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+      margin-top: 18px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer h4 {
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-faint);
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .footer a:hover {
+      color: var(--color-text);
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      justify-items: end;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 22px;
+      margin-top: 22px;
+      border-top: 1px solid var(--color-divider);
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 500ms ease, transform 500ms ease;
+    }
+
+    .fade-in.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1180px) {
+      .trust-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .states-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .grid-2,
+      .footer-grid,
+      .cta-band {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 14px;
+        right: 14px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid var(--color-border);
+        border-radius: 22px;
+        background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .menu.is-open {
+        display: flex;
+      }
+
+      .menu a,
+      .menu .dropbtn,
+      .theme-toggle,
+      .lang-link {
+        justify-content: flex-start;
+        border-radius: 14px;
+        font-size: 0.95rem;
+        padding: 10px 12px;
+      }
+
+      .dropdown {
+        width: 100%;
+      }
+
+      .dropcontent {
+        position: static;
+        min-width: 0;
+        margin-top: 8px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+        display: none;
+        box-shadow: none;
+        border-radius: 16px;
+        background: var(--color-surface-2);
+      }
+
+      .dropdown.is-open .dropcontent {
+        display: grid;
+      }
+
+      .menu-tools {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+        padding-top: 6px;
+        border-top: 1px solid var(--color-divider);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(100% - 24px, var(--content-default));
+      }
+
+      .hero-shell,
+      .card,
+      .pricing-card,
+      .state-item,
+      .faq-item,
+      .cta-band,
+      .hero-photo-card {
+        border-radius: 22px;
+      }
+
+      .hero-title {
+        max-width: 100%;
+      }
+
+      .hero-cta,
+      .hero-meta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-cta .btn,
+      .cta-band .btn {
+        width: 100%;
+      }
+
+      .trust-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-links {
+        justify-items: start;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .brand-sub {
+        max-width: 170px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .fade-in {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="progress" id="progress"></div>
@@ -85,10 +1199,15 @@
   <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
-        <a class="brand-row" href="/es/">
+        <a class="brand-row" href="/" aria-label="TELWHA — ir a la página principal">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
           <strong>TELWHA</strong>
         </a>
-        <span class="sub">PSICOLOGÍA FINANCIERA · ESTRATEGIA CONDUCTUAL</span>
+        <span class="brand-sub">Behavioral Finance · Psychology</span>
       </div>
 
       <button
@@ -99,180 +1218,176 @@
         aria-label="Abrir menú"
       >
         <span class="menu-toggle-lines" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </span>
       </button>
 
-      <nav class="menu" id="site-menu">
-        <div class="menu-group">
-          <a href="/es/">Inicio</a>
-          <a href="/finlab/index.html">FinLab</a>
-          <a href="/es/about/">Sobre mí</a>
-        </div>
+      <nav class="menu" id="site-menu" aria-label="Navegación principal">
+        <a href="/">Inicio</a>
+        <a href="/about/" class="is-active">Sobre mí</a>
+        <a href="/cases/">Casos</a>
+        <a href="/articles/">Artículos</a>
+        <a href="/finlab/">FinLab</a>
 
-        <div class="menu-group menu-dropdown">
-          <button type="button" class="menu-dropbtn">Para traders ▾</button>
-          <div class="menu-dropcontent">
-            <a href="/es/trader-course/">Mini‑curso</a>
-            <a href="/es/archetype-test/">Test de arquetipos</a>
+        <div class="dropdown">
+          <button type="button" class="dropbtn is-highlight" aria-expanded="false">
+            Ponerte a prueba
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/finlab/money-test-api/money-test.html">Test de comportamiento financiero</a>
+            <a href="/habit-test.html">¿A dónde te llevan tus hábitos?</a>
+            <a href="/fact-or-fiction-cases.html">¿Hecho o ficción?</a>
           </div>
         </div>
 
-        <div class="menu-group">
-          <a href="/es/articles/">Artículos</a>
-          <a href="/es/reviews/">Testimonios</a>
-          <a href="/es/cases/">Casos</a>
-          <a href="/es/contact/">Contacto</a>
+        <div class="dropdown">
+          <button type="button" class="dropbtn" aria-expanded="false">
+            Para traders
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/trader-course/">Mini-curso</a>
+            <a href="/archetype-test/">Arquetipo de trader</a>
+          </div>
         </div>
 
-        <div class="menu-group menu-tools">
-          <details class="lang-switcher lang-switcher--inside">
-            <summary>🇪🇸</summary>
-            <div class="lang-list">
-              <a href="/about/" aria-label="Українська" lang="uk">🇺🇦</a>
-              <a href="/en/about/" aria-label="English" lang="en">🇬🇧</a>
-            </div>
-          </details>
+        <a href="/reviews/">Reseñas</a>
+        <a href="/contact/">Contactos</a>
 
-          <button class="theme-toggle" type="button" aria-label="Cambiar tema">🌓</button>
+        <div class="menu-tools">
+          <div class="lang-list" aria-label="Idiomas del sitio">
+            <a class="lang-link" href="/about/" lang="uk" aria-label="Ucraniano">UA</a>
+            <a class="lang-link" href="/en/about/" lang="en" aria-label="Inglés">EN</a>
+            <a class="lang-link is-active" href="/es/about/" lang="es" aria-label="Español">ES</a>
+          </div>
+
+          <button class="theme-toggle" type="button" aria-label="Cambiar tema">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M12 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4.93 4.93L6.34 6.34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M17.66 17.66L19.07 19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M3 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M19 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4.93 19.07L6.34 17.66" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M17.66 6.34L19.07 4.93" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </button>
         </div>
       </nav>
     </div>
   </header>
 
-  <main>
-    <!-- HERO -->
+  <main id="main">
     <section class="hero">
-      <div class="wrap hero-shell fade-in">
-        <div class="hero-bg"></div>
-        <div class="hero-grid">
-          <div>
-            <div class="eyebrow">TELWHA / Sobre mí</div>
-            <h1>Conocimiento del sistema nervioso, instrumentos financieros e investigación actual</h1>
-            <div class="hero-goal">
-              <span class="dot"></span>
-              <span>Mi trabajo es ayudarte a ver más allá de lo que tus sesgos te permiten notar.</span>
+      <div class="wrap">
+        <div class="hero-shell fade-in">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <div class="eyebrow">TELWHA / About</div>
+
+              <h1 class="hero-title">Psicología financiera, análisis conductual y decisiones sostenibles sobre dinero</h1>
+
+              <p class="hero-lead">
+                Combino psicología, economía conductual, conocimiento de instrumentos financieros, experiencia en trading y un enfoque analítico
+                para ayudar a personas, traders y equipos a ver sus decisiones con más claridad y actuar de forma más estable.
+              </p>
+
+              <div class="hero-goal">
+                <span class="dot"></span>
+                <span>Mi trabajo es ayudarte a ver más allá de lo que permiten tus sesgos, el estrés y los patrones caóticos.</span>
+              </div>
+
+              <div class="hero-cta">
+                <a class="btn btn-primary" href="/contact/">Reservar consulta</a>
+                <a class="btn btn-secondary" href="/cases/">Ver casos</a>
+              </div>
+
+              <div class="hero-meta">
+                <span>Kyiv · online y presencial</span>
+              </div>
             </div>
+
+            <aside class="hero-side" aria-label="Retrato y cualificaciones">
+              <div class="hero-photo-card">
+                <div class="hero-photo">
+                  <img src="/static/media/image.jpeg" alt="Anna Signaevska, TELWHA">
+                </div>
+                <div class="hero-qual">
+                  <span>Licenciatura en Psicología</span>
+                  <span>Máster en Economía Conductual</span>
+                  <span>FPWM™ · CMSA® · Data Science Analyst (CFI)</span>
+                  <span>Certificaciones internacionales en finanzas, psicología y trabajo con datos</span>
+                </div>
+              </div>
+            </aside>
           </div>
 
-          <div class="hero-photo-box">
-            <div class="hero-photo">
-              <img src="/static/media/image.jpeg" alt="Anna, psicóloga financiera y analista conductual en TELWHA">
+          <div class="trust-strip">
+            <div class="trust-card">
+              <strong>Psicología + finanzas</strong>
+              <span>No solo sobre emociones, sino también sobre decisiones, riesgo y estructura de acción.</span>
             </div>
-            <div class="hero-qual">
-              <span>Licenciatura en Psicología</span>
-              <span>Máster en Economía Conductual</span>
-              <span>FPWM™ · CMSA® · Data Science Analyst (CFI)</span>
-              <span>100+ certificaciones internacionales en finanzas, psicología y trabajo con datos</span>
+            <div class="trust-card">
+              <strong>Experiencia en trading</strong>
+              <span>Trabajo con patrones de conducta allí donde el coste del error se siente de verdad.</span>
+            </div>
+            <div class="trust-card">
+              <strong>Enfoque analítico</strong>
+              <span>Diarios, datos, escenarios, insights conductuales y lógica aplicada.</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- QUIÉN SOY -->
-    <section class="section fade-in">
+    <section class="section section-tight fade-in">
       <div class="wrap card">
-        <h2 class="section-title">Quién soy</h2>
-        <p>
-          Psicóloga financiera y analista de comportamiento. Combino trabajo con el sistema nervioso y los sesgos cognitivos
-          con experiencia en trading, inversiones y análisis de datos.
-        </p>
-        <p>
-          Me importa no solo cómo distribuyes el dinero, sino también en qué contexto ocurre: guerra, mercado laboral,
-          intentos previos, estado del cuerpo, relaciones y el entorno en el que vives.
-        </p>
+        <div class="eyebrow">Quién soy</div>
+        <h2 class="section-title">No solo sobre dinero, sino sobre la mecánica de las decisiones</h2>
+        <div class="copy-stack">
+          <p>
+            Soy psicóloga financiera y analista del comportamiento. Combino el trabajo con el sistema nervioso y los sesgos cognitivos
+            con experiencia en trading, inversión, instrumentos financieros y análisis de datos.
+          </p>
+          <p>
+            Para mí no importa solo cómo una persona distribuye el dinero, sino también en qué contexto ocurre:
+            estrés financiero, guerra, inestabilidad, estado del cuerpo, relaciones, pérdidas previas, entorno y hábitos diarios.
+          </p>
+          <p>
+            Por eso no miro solo “qué hacer”, sino también si tu sistema puede sostener esa decisión en la vida real.
+          </p>
+        </div>
 
-        <h3 class="section-sub helper-title">Cómo puedo ayudarte</h3>
         <ul class="about-list">
-          <li>Detectar dónde tus patrones de pensamiento y emoción “rompen” la estrategia y te llevan a los mismos resultados financieros.</li>
-          <li>Traducir tus números, diarios e historial de decisiones en un mapa claro de riesgos, errores y puntos de crecimiento.</li>
-          <li>Construir un sistema de acciones y herramientas que tu sistema nervioso pueda sostener a largo plazo, no solo “a fuerza de voluntad”.</li>
+          <li>Detecto dónde exactamente los patrones de pensamiento y emoción rompen la estrategia y repiten los mismos resultados financieros.</li>
+          <li>Traduce tus cifras, diarios e historial de decisiones en un mapa claro de riesgo, errores y puntos de crecimiento.</li>
+          <li>Ayudo a construir un sistema de acciones y herramientas que tu sistema nervioso pueda sostener a largo plazo, y no solo “a base de fuerza de voluntad”.</li>
         </ul>
       </div>
     </section>
 
-    <!-- SERVICIOS Y PRECIOS -->
     <section class="section fade-in">
       <div class="wrap card">
-        <h2 class="section-title">Servicios y precios</h2>
+        <div class="eyebrow">Para quién</div>
+        <h2 class="section-title">Para quién está creado TELWHA</h2>
+        <p class="section-sub">
+          Para quienes necesitan no consejos abstractos, sino un sistema claro de decisiones en finanzas, riesgo y conducta.
+        </p>
 
-        <div class="pricing-grid">
-          <article class="pricing-card">
-            <div class="pricing-label">Para traders</div>
-            <h3 class="pricing-title">
-              <a class="pricing-title-link" href="/es/trader-course/">Mini‑curso para traders</a>
-            </h3>
-            <div class="pricing-price">48 $</div>
-            <p class="pricing-note">
-              Formato online breve para quienes quieren entender mejor sus errores de comportamiento,
-              reacciones al riesgo y construir un sistema de acciones más estable en el trading.
-            </p>
-            <ul class="pricing-list">
-              <li>3 videolecciones</li>
-              <li>Acompañamiento durante el curso</li>
-              <li>Acceso online</li>
-            </ul>
-            <div class="pricing-actions">
-              <a class="pricing-btn pricing-btn-primary" href="/es/trader-course/">Ver el programa</a>
-            </div>
-          </article>
-
-          <article class="pricing-card">
-            <div class="pricing-label">Trabajo individual</div>
-            <h3 class="pricing-title">Consulta individual</h3>
-            <div class="pricing-price">80 $</div>
-            <p class="pricing-note">
-              Sesión única para temas de estrés financiero, comportamiento en el trading, decisiones de inversión, deudas,
-              caos en los gastos o patrones de dinero que se repiten. Después de la consulta tienes una semana de soporte
-              por chat y los materiales necesarios.
-            </p>
-            <ul class="pricing-list">
-              <li>Online</li>
-              <li>Presencial en Kiev</li>
-              <li>Duración: 60 min</li>
-            </ul>
-            <div class="pricing-meta">Las consultas suelen reservarse con 1–2 semanas de antelación.</div>
-            <div class="pricing-actions">
-              <a class="pricing-btn pricing-btn-primary" href="/es/contact/">Reservar una sesión</a>
-            </div>
-          </article>
-
-          <article class="pricing-card">
-            <div class="pricing-label">Para empresas / fintech</div>
-            <h3 class="pricing-title">Colaboración por proyecto</h3>
-            <div class="pricing-price">desde 1 000 $</div>
-            <p class="pricing-note">
-              Formato para equipos, fondos, firmas prop, productos fintech y otros proyectos que necesitan
-              insights conductuales, investigación, analítica y trabajo con recorridos de decisión del cliente.
-            </p>
-            <ul class="pricing-list">
-              <li>Online o presencial en Kiev</li>
-              <li>Investigación, analítica y escenarios conductuales</li>
-              <li>Trabajo con riesgo, decisiones, producto y comportamiento de clientes</li>
-            </ul>
-            <div class="pricing-actions">
-              <a class="pricing-btn pricing-btn-primary" href="/es/contact/">Hablar sobre el proyecto</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PARA QUIÉN ES TELWHA -->
-    <section class="section fade-in">
-      <div class="wrap card">
-        <h2 class="section-title">Para quién es TELWHA</h2>
         <div class="states-grid">
           <div class="state-item">
-            <div class="state-icon">🧷</div>
+            <div class="state-icon">📉</div>
             <p class="state-label">Traders</p>
             <p class="state-text">
-              Cuando aparecen pérdidas fuertes después de beneficios, revenge‑trading, miedo a entrar o salir, overtrading y agotamiento.
-              Se suma la presión de la responsabilidad por el capital, el miedo a perder autoridad ante ti mismo
-              y la sensación de que no hay un sistema estable detrás de los resultados.
+              Cuando después del beneficio vienen los blowups, el revenge trading, el miedo a entrar o salir, el overtrading y el burnout,
+              y el sistema de acción no se mantiene bajo presión.
             </p>
           </div>
 
@@ -280,9 +1395,8 @@
             <div class="state-icon">📊</div>
             <p class="state-label">Inversores y fundadores</p>
             <p class="state-text">
-              Manejas sumas importantes, pero sin una base interna sólida: parte de las decisiones son intuitivas,
-              parte se apoyan en fragmentos de información. Quieres resultados más sistemáticos en lugar de la montaña rusa
-              entre “muy bien” y “muy inquieto”.
+              Cuando por tus manos pasan sumas importantes, pero parte de las decisiones viene de la intuición y parte de fragmentos de conocimiento,
+              y falta una base estable.
             </p>
           </div>
 
@@ -290,24 +1404,22 @@
             <div class="state-icon">🧭</div>
             <p class="state-label">Personas sin experiencia financiera</p>
             <p class="state-text">
-              Quieres ver con claridad qué hacer con deudas, gastos y primeros pasos de inversión sin sobredosis de información
-              ni culpa constante por decisiones pasadas.
+              Cuando quieres aclarar deudas, gastos, tensión en torno al dinero y tus primeros pasos de inversión sin vergüenza ni sobrecarga.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TELWHA -->
     <section id="telwha" class="section fade-in">
       <div class="wrap card">
+        <div class="eyebrow">Framework</div>
         <h2 class="section-title">Qué es TELWHA</h2>
         <p class="section-sub">
-          TELWHA son seis capas desde las que miro la vida, las decisiones y los procesos: desde el sistema nervioso y los sesgos
-          hasta las herramientas, los datos, el dinero y el contexto de tu día.
+          TELWHA es mi marco de trabajo: seis capas a través de las cuales observo las decisiones, el dinero, el comportamiento y el contexto real de la vida.
         </p>
 
-        <div class="telwha-tabs" role="tablist">
+        <div class="telwha-tabs" role="tablist" aria-label="TELWHA framework">
           <button class="telwha-tab active" data-tab="T" type="button">T · Tech</button>
           <button class="telwha-tab" data-tab="E" type="button">E · Emotions</button>
           <button class="telwha-tab" data-tab="L" type="button">L · Layers</button>
@@ -318,115 +1430,191 @@
 
         <div class="telwha-panel active" data-panel="T">
           <h3>T — Technological Integration</h3>
-          <h4>Tecnología y herramientas</h4>
-          <p>Incorporamos instrumentos financieros, servicios, IA y dashboards. Las decisiones viven en sistemas y procesos, no solo en tu cabeza.</p>
+          <h4>Tecnologías y herramientas</h4>
+          <p>Los instrumentos financieros, los servicios, la IA, los diarios y los dashboards ayudan a pasar las decisiones de la mente a un sistema real que se puede seguir y mejorar.</p>
         </div>
 
         <div class="telwha-panel" data-panel="E">
           <h3>E — Emotional Intelligence</h3>
           <h4>Emociones y sistema nervioso</h4>
-          <p>Miramos cómo el estrés, el cansancio, la experiencia traumática y las expectativas influyen en el riesgo, el dinero y las decisiones diarias, y diseñamos protección frente a los colapsos.</p>
+          <p>Vemos cómo el estrés, el cansancio, la experiencia traumática y las expectativas influyen en el riesgo, el dinero y las acciones diarias, y construimos protección frente a recaídas repetidas.</p>
         </div>
 
         <div class="telwha-panel" data-panel="L">
           <h3>L — Layered Architecture</h3>
           <h4>Capas del sistema</h4>
-          <p>Capital, cash‑flow, hábitos, relaciones y procesos de trabajo se dividen en capas para no tener un único cajón de “todo sobre finanzas y vida”.</p>
+          <p>El capital, el flujo de caja, los hábitos, las relaciones, el comportamiento y los procesos de trabajo se descomponen en capas para no reducirlo todo a un único y caótico “tengo problemas con las finanzas”.</p>
         </div>
 
         <div class="telwha-panel" data-panel="W">
           <h3>W — Way &amp; Strategy</h3>
           <h4>Camino y estrategia</h4>
-          <p>La estrategia sirve para encontrar el camino más corto y realista hacia el cambio, no para hacer tu vida más dura con reglas aún más rígidas.</p>
+          <p>La estrategia no es para imponer un control más rígido, sino para construir una ruta de cambios asumible que realmente funcione bajo carga, y no solo sobre el papel.</p>
         </div>
 
         <div class="telwha-panel" data-panel="H">
           <h3>H — Holistic Approach</h3>
-          <h4>Visión holística</h4>
-          <p>No separamos dinero y decisiones del cuerpo, las relaciones, el trabajo y el entorno. Ningún paso “correcto” en finanzas debería romper otras áreas de tu vida.</p>
+          <h4>Integralidad</h4>
+          <p>El dinero y las decisiones no existen por separado del cuerpo, las relaciones, el trabajo, el cansancio y el entorno. Un sistema sostenible tiene en cuenta todo el contexto, no solo la “lógica correcta”.</p>
         </div>
 
         <div class="telwha-panel" data-panel="A">
           <h3>A — Analytical Insights</h3>
           <h4>Analítica e investigación</h4>
-          <p>Nos apoyamos en datos, diarios y patrones de decisión, no solo en “me parece”. Tus procesos pasan del ruido a un sistema.</p>
+          <p>Nos apoyamos en datos, diarios, patrones y comportamiento real, y no solo en impresiones subjetivas. Esto convierte el proceso de ruido en sistema.</p>
         </div>
       </div>
     </section>
 
-    <!-- CÓMO TRABAJO -->
     <section class="section fade-in">
       <div class="wrap card">
-        <h2 class="section-title">Cómo trabajo</h2>
-        <ul class="about-list">
-          <li>No vendo “esquemas listos” ni botones mágicos: construimos tu sistema, no la plantilla de otra persona.</li>
-          <li>No separo dinero y decisiones del cuerpo y el sistema nervioso: los pasos tienen que ser sostenibles, no solo “lógicamente correctos”.</li>
-          <li>No prometo saltos rápidos: trabajamos en cambios estables que se mantienen sin fuerza de voluntad constante.</li>
-        </ul>
+        <div class="eyebrow">Formatos de trabajo</div>
+        <h2 class="section-title">Servicios y precios</h2>
+        <p class="section-sub">
+          Diferentes formatos para distintas solicitudes: desde trabajo individual hasta necesidades de producto o investigación para un equipo.
+        </p>
+
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <div class="pricing-label">Para traders</div>
+            <h3 class="pricing-title">
+              <a class="pricing-title-link" href="/trader-course/">Mini-curso para traders</a>
+            </h3>
+            <div class="pricing-price">2 100 UAH</div>
+            <p class="pricing-note">
+              Un formato breve online para quienes quieren comprender mejor sus errores conductuales,
+              sus reacciones al riesgo y construir un sistema de acción más sostenible en el trading.
+            </p>
+            <ul class="pricing-list">
+              <li>3 vídeos incluidos</li>
+              <li>Acompañamiento durante el proceso</li>
+              <li>Acceso online</li>
+            </ul>
+            <div class="pricing-actions">
+              <a class="pricing-btn pricing-btn-primary" href="/trader-course/">Ver programa</a>
+            </div>
+          </article>
+
+          <article class="pricing-card">
+            <div class="pricing-label">Trabajo personal</div>
+            <h3 class="pricing-title">Consulta individual</h3>
+            <div class="pricing-price">3 000 UAH</div>
+            <p class="pricing-note">
+              Sesión personal única para solicitudes relacionadas con estrés financiero, trading,
+              decisiones de inversión, deudas, caos en los gastos o patrones conductuales repetitivos.
+            </p>
+            <ul class="pricing-list">
+              <li>Online o presencial en Kyiv</li>
+              <li>Duración: 60 min</li>
+              <li>Una semana de acompañamiento tras la sesión</li>
+            </ul>
+            <div class="pricing-meta">Normalmente la consulta se reserva con 1–2 semanas de antelación.</div>
+            <div class="pricing-actions">
+              <a class="pricing-btn pricing-btn-primary" href="/contact/">Reservar</a>
+            </div>
+          </article>
+
+          <article class="pricing-card">
+            <div class="pricing-label">Para empresas / fintech</div>
+            <h3 class="pricing-title">Colaboración por proyecto</h3>
+            <div class="pricing-price">desde 38 000 UAH</div>
+            <p class="pricing-note">
+              Formato para equipos, fondos, prop firms, productos fintech y otros proyectos donde se necesitan
+              insights conductuales, investigación, analítica y trabajo con escenarios de clientes.
+            </p>
+            <ul class="pricing-list">
+              <li>Online o presencial en Kyiv</li>
+              <li>Investigación, analítica y escenarios conductuales</li>
+              <li>Trabajo con riesgo, decisiones, producto y comportamiento del cliente</li>
+            </ul>
+            <div class="pricing-actions">
+              <a class="pricing-btn pricing-btn-primary" href="/contact/">Hablar del proyecto</a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- PREGUNTAS FRECUENTES -->
-    <section id="faq" class="section fade-in">
-      <div class="wrap card">
-        <h2 class="section-title">Preguntas antes de escribirme</h2>
-
-        <div class="faq-item">
-          <div class="faq-q"><span class="icon">❓</span> No soy trader ni inversor. ¿Esto tiene algo que ver conmigo?</div>
-          <div class="faq-a">
-            Sí. Si tienes ingresos, estás cansada de llevar sola el tema del dinero y vas posponiendo decisiones “para más adelante”,
-            entras en mi audiencia aunque nunca hayas abierto un gráfico.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q"><span class="icon">⚠️</span> ¿Y si tengo “caos en todo” y me da vergüenza mostrarlo?</div>
-          <div class="faq-a">
-            El caos y la vergüenza son datos sobre el sistema, no un defecto tuyo. Necesito ver el cuadro completo para
-            trazar una ruta que funcione, no para juzgarte como persona.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q"><span class="icon">🧩</span> ¿Qué puedo esperar después de la primera sesión?</div>
-          <div class="faq-a">
-            No sales con una “iluminación” momentánea, sino con un mapa: dónde estás ahora, qué duele más y qué 1–3 pasos
-            tienen sentido en tu contexto durante las próximas semanas. Además, una semana de soporte por chat
-            para no quedarte sola con las preguntas en los primeros pasos.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q"><span class="icon">📜</span> ¿Esto va de en qué activo invertir exactamente?</div>
-          <div class="faq-a">
-            En parte. Puedo explicar clases de activos, instrumentos básicos y estrategias típicas, y ayudarte a ver una idea
-            a través del riesgo, los objetivos y tus límites. Pero no construyo carteras personalizadas ni doy
-            recomendaciones formales sobre activos concretos.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PERSONAL -->
     <section class="section fade-in">
       <div class="wrap grid-2">
-        <div class="card">
-          <h2 class="section-title">Mi estilo</h2>
+        <article class="card">
+          <div class="eyebrow">Enfoque</div>
+          <h2 class="section-title">Cómo trabajo</h2>
           <ul class="about-list">
-            <li>INTJ: para mí la estructura, la lógica y la causa‑efecto importan más que las “historias bonitas”.</li>
-            <li>Señalo directamente los patrones que te desgastan y busco cambiar el sistema, no solo calmarte en el momento.</li>
-            <li>Primero miro el contexto y las consecuencias de tus acciones, luego buscamos los pasos mínimos que llevan a otros resultados.</li>
-            <li>La estrategia para mí es encontrar el camino más corto y efectivo hacia el cambio que tu sistema nervioso pueda sostener en la vida real.</li>
+            <li>No vendo “esquemas hechos” ni botones mágicos: construimos tu sistema, no copiamos la plantilla de otra persona.</li>
+            <li>No separo el dinero y las decisiones del cuerpo y del sistema nervioso: los pasos deben ser asumibles, no solo lógicamente correctos.</li>
+            <li>No prometo saltos rápidos: trabajamos para cambios sostenibles que se mantienen sin depender de una fuerza de voluntad constante.</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="card">
-          <h2 class="section-title">Un poco personal</h2>
+        <article class="card">
+          <div class="eyebrow">Estilo</div>
+          <h2 class="section-title">Mi estilo de trabajo</h2>
           <ul class="about-list">
-            <li>Viví 5 años en la República Dominicana y 1,5 años en Asia: veo el riesgo, el dinero y la “vida normal” desde varios ángulos culturales.</li>
-            <li>El tiro con arco y la escalada para mí son lo mismo que el mercado: foco, cuerpo, precisión y respeto a los propios límites.</li>
-            <li>Soy una persona introvertida que prefiere la profundidad al small talk, y eso se refleja en el trabajo: menos ruido, más contenido y respeto por tus recursos.</li>
+            <li>INTJ: la estructura, la lógica y las relaciones de causa y efecto son más importantes que las “historias bonitas”.</li>
+            <li>Nombró directamente los patrones que agotan y busco una forma de cambiar el sistema, no solo de calmar el momento.</li>
+            <li>Primero miro el contexto y las consecuencias de las acciones, y luego buscamos los pasos más pequeños que llevan a otros resultados.</li>
+            <li>Para mí, la estrategia es la búsqueda del camino más corto y asumible hacia el cambio que el sistema nervioso pueda sostener en la vida real.</li>
           </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="faq" class="section fade-in">
+      <div class="wrap card">
+        <div class="eyebrow">FAQ</div>
+        <h2 class="section-title">Preguntas y respuestas antes de escribirme</h2>
+
+        <div class="faq-stack">
+          <div class="faq-item">
+            <div class="faq-q"><span>❓</span><span>No soy trader ni inversor. ¿Esto realmente es para mí?</span></div>
+            <div class="faq-a">
+              Sí. Si tienes ingresos, estás cansada o cansado de cargar sola con el tema del dinero y de posponer decisiones “para más adelante”,
+              formas parte de mi audiencia aunque nunca hayas abierto un gráfico.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q"><span>⚠️</span><span>¿Y si tengo “caos en todas partes” y me da vergüenza mostrarlo?</span></div>
+            <div class="faq-a">
+              El caos y la vergüenza son datos sobre el sistema, no un defecto tuyo. Para mí es importante ver el cuadro completo para construir
+              a partir de ahí una ruta de trabajo, no evaluarte como persona.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q"><span>🧩</span><span>¿Qué esperar después de la primera sesión?</span></div>
+            <div class="faq-a">
+              No sales solo con ideas, sino con un mapa: dónde estás ahora, qué duele más y qué 1–3 pasos
+              tienen sentido en tu contexto durante las próximas semanas.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q"><span>📜</span><span>¿Se trata de en qué invertir exactamente?</span></div>
+            <div class="faq-a">
+              En parte. Puedo explicar la lógica de las clases de activos, los instrumentos y las estrategias básicas, y ayudarte
+              a mirar una idea a través del prisma del riesgo, los objetivos y tus límites. Pero no construyo carteras personales
+              ni doy recomendaciones formalizadas sobre activos concretos.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="wrap">
+        <div class="cta-band">
+          <div class="cta-band-copy">
+            <h3>Si sientes que hay demasiado caos en tus decisiones financieras</h3>
+            <p>
+              Empieza con una consulta o revisa los casos para entender cómo se ve este trabajo en la práctica.
+            </p>
+          </div>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="/contact/">Escribirme</a>
+            <a class="btn btn-secondary" href="/cases/">Ir a los casos</a>
+          </div>
         </div>
       </div>
     </section>
@@ -437,41 +1625,145 @@
       <div class="footer-grid fade-in">
         <div>
           <h4>TELWHA</h4>
-          <p>Psicología financiera, economía conductual y analítica para decisiones y capital más estables.</p>
+          <p>Psicología financiera, economía conductual y analítica para decisiones sostenibles y capital.</p>
         </div>
         <div style="text-align:right">
           <h4>Navegación</h4>
-          <div class="footer-links" style="align-items:flex-end">
-            <a href="/es/">Inicio</a>
-            <a href="/es/reviews/">Testimonios</a>
-            <a href="/es/contact/">Contacto</a>
+          <div class="footer-links">
+            <a href="/">Inicio</a>
+            <a href="/finlab/">FinLab</a>
+            <a href="/reviews/">Reseñas</a>
+            <a href="/contact/">Contactos</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
         <span>© 2026 TELWHA. Todos los derechos reservados.</span>
-        <span>Kiev, Ucrania · 🇺🇦</span>
+        <span>Kyiv, Ucrania</span>
       </div>
     </div>
   </footer>
 
-  <script src="/static/script/global.js"></script>
-  <script src="/static/script/about.js"></script>
   <script>
+    const progress = document.getElementById("progress");
     const menuToggle = document.querySelector(".menu-toggle");
-    const siteMenu = document.querySelector("#site-menu");
+    const siteMenu = document.getElementById("site-menu");
+    const themeToggle = document.querySelector(".theme-toggle");
+    const root = document.documentElement;
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+    function updateProgressBar() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressValue = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      if (progress) progress.style.width = progressValue + "%";
+    }
+
+    function closeAllDropdowns(except = null) {
+      dropdowns.forEach((dropdown) => {
+        if (dropdown === except) return;
+        dropdown.classList.remove("is-open");
+        const btn = dropdown.querySelector(".dropbtn");
+        btn?.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    updateProgressBar();
+    window.addEventListener("scroll", updateProgressBar, { passive: true });
 
     if (menuToggle && siteMenu) {
       menuToggle.addEventListener("click", () => {
         const isOpen = siteMenu.classList.toggle("is-open");
         menuToggle.classList.toggle("is-open", isOpen);
         menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        menuToggle.setAttribute(
-          "aria-label",
-          isOpen ? "Cerrar menú" : "Abrir menú"
-        );
+        menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+
+        if (!isOpen) {
+          closeAllDropdowns();
+        }
       });
     }
+
+    dropdowns.forEach((dropdown) => {
+      const button = dropdown.querySelector(".dropbtn");
+
+      button?.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        const isOpen = dropdown.classList.contains("is-open");
+        closeAllDropdowns(dropdown);
+
+        dropdown.classList.toggle("is-open", !isOpen);
+        button.setAttribute("aria-expanded", !isOpen ? "true" : "false");
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".dropdown")) {
+        closeAllDropdowns();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeAllDropdowns();
+
+        if (siteMenu?.classList.contains("is-open") && window.innerWidth <= 920) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Abrir menú");
+        }
+      }
+    });
+
+    document.querySelectorAll('#site-menu a[href]').forEach((link) => {
+      link.addEventListener("click", () => {
+        closeAllDropdowns();
+
+        if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Abrir menú");
+        }
+      });
+    });
+
+    let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    root.setAttribute("data-theme", currentTheme);
+
+    themeToggle?.addEventListener("click", () => {
+      currentTheme = currentTheme === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", currentTheme);
+    });
+
+    const tabs = document.querySelectorAll(".telwha-tab");
+    const panels = document.querySelectorAll(".telwha-panel");
+
+    tabs.forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = button.dataset.tab;
+
+        tabs.forEach((item) => item.classList.remove("active"));
+        panels.forEach((panel) => panel.classList.remove("active"));
+
+        button.classList.add("active");
+        document.querySelector(`.telwha-panel[data-panel="${target}"]`)?.classList.add("active");
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".fade-in").forEach((element) => {
+      observer.observe(element);
+    });
   </script>
 </body>
 </html>

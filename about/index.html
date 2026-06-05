@@ -1,19 +1,26 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" data-theme="light">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TELWHA — Про мене</title>
-  <meta name="description" content="TELWHA: Знання нервової системи, фінансових інструментів та актуальних досліджень.">
 
+  <title>TELWHA | Про мене</title>
+  <meta name="description" content="Анна Сігнаєвська: фінансова психологія, поведінковий аналіз, TELWHA framework і робота з рішеннями про гроші, ризик, трейдинг та фінансовий стрес.">
   <link rel="canonical" href="https://t-e-l-w-h-a.com/about/">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="TELWHA — Про мене">
-  <meta property="og:description" content="TELWHA: Знання нервової системи, фінансових інструментів та актуальних досліджень.">
+  <meta property="og:title" content="TELWHA | Про мене">
+  <meta property="og:description" content="Фінансова психологія, поведінковий аналіз і стійкі рішення про гроші для людей, трейдерів і фінтех-команд.">
   <meta property="og:url" content="https://t-e-l-w-h-a.com/about/">
   <meta property="og:site_name" content="TELWHA">
+
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
+
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
   <script>
@@ -28,19 +35,14 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Anna Signaevska",
-    "url": "https://t-e-l-w-h-a.com",
+    "url": "https://t-e-l-w-h-a.com/about/",
     "image": "https://t-e-l-w-h-a.com/static/media/image.jpeg",
     "jobTitle": "Financial Psychologist & Behavioral Analyst",
-    "description": "Фінансова психологиня та поведінкова аналітикиня, що поєднує нейроекономіку, трейдинг і дані в TELWHA.",
+    "description": "Фінансова психологиня та поведінкова аналітикиня, що поєднує нейроекономіку, трейдинг, фінансові інструменти та дані в TELWHA.",
     "sameAs": [
       "https://www.youtube.com/@TelwhaUA",
       "https://www.youtube.com/@Telwha",
       "https://www.linkedin.com/in/anna-signaevskaya"
-    ],
-    "alumniOf": [
-      "Бакалавр психології",
-      "Магістр поведінкової економіки",
-      "Corporate Finance Institute"
     ]
   }
   </script>
@@ -65,16 +67,1122 @@
   {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    "name": "TELWHA — Про мене",
-    "description": "Сторінка про Анну, фінансову психологиню та поведінкову аналітикиню, та підхід TELWHA до фінансових рішень.",
+    "name": "TELWHA | Про мене",
+    "description": "Сторінка про Анну Сігнаєвську, фінансову психологиню та поведінкову аналітикиню, та підхід TELWHA до рішень про гроші.",
     "url": "https://t-e-l-w-h-a.com/about/",
     "inLanguage": "uk"
   }
   </script>
 
-  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
-  <link rel="stylesheet" href="/static/css/base.css">
-  <link rel="stylesheet" href="/static/css/layout-about.css">
+  <style>
+    :root,
+    [data-theme="light"] {
+      --font-display: "Boska", Georgia, serif;
+      --font-body: "Satoshi", "Inter", sans-serif;
+
+      --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+      --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
+      --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+      --text-2xl: clamp(2.2rem, 1.5rem + 2vw, 4.2rem);
+
+      --color-bg: #f5f3ef;
+      --color-surface: #fcfbf8;
+      --color-surface-2: #f2efe9;
+      --color-border: rgba(40, 37, 29, 0.10);
+      --color-divider: rgba(40, 37, 29, 0.08);
+
+      --color-text: #22201a;
+      --color-text-muted: #65625b;
+      --color-text-faint: #8b877f;
+      --color-text-inverse: #f9f8f5;
+
+      --color-primary: #0f5d5f;
+      --color-primary-hover: #0b4b4d;
+      --color-primary-soft: rgba(15, 93, 95, 0.08);
+
+      --color-accent: #9a6a35;
+      --color-accent-soft: rgba(154, 106, 53, 0.08);
+
+      --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
+      --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
+      --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
+
+      --content-default: 1160px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1d1b18;
+      --color-surface-2: #24211d;
+      --color-border: rgba(255, 255, 255, 0.10);
+      --color-divider: rgba(255, 255, 255, 0.08);
+
+      --color-text: #ece6dd;
+      --color-text-muted: #b7afa2;
+      --color-text-faint: #91897c;
+      --color-text-inverse: #171614;
+
+      --color-primary: #6ca7a7;
+      --color-primary-hover: #84baba;
+      --color-primary-soft: rgba(108, 167, 167, 0.10);
+
+      --color-accent: #c79c68;
+      --color-accent-soft: rgba(199, 156, 104, 0.09);
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
+      --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { border: 0; background: none; cursor: pointer; color: inherit; font: inherit; }
+    ul { list-style: none; }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .wrap {
+      width: min(100% - 28px, var(--content-default));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: clamp(56px, 8vw, 104px) 0;
+    }
+
+    .section-tight {
+      padding-top: 32px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--color-primary);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    .section-sub {
+      color: var(--color-text-muted);
+      max-width: 68ch;
+      margin-bottom: 24px;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 120;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      color: var(--color-primary);
+      flex: 0 0 auto;
+    }
+
+    .brand-sub {
+      color: var(--color-text-faint);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      max-width: 240px;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      transition: var(--transition);
+    }
+
+    .menu-toggle:hover {
+      background: var(--color-surface-2);
+    }
+
+    .menu-toggle-lines {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-toggle-lines span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--color-text);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      min-width: 0;
+      flex-wrap: nowrap;
+    }
+
+    .menu a,
+    .menu .dropbtn,
+    .theme-toggle,
+    .lang-link {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      white-space: nowrap;
+      line-height: 1.1;
+      flex-shrink: 0;
+    }
+
+    .menu a:hover,
+    .menu .dropbtn:hover,
+    .theme-toggle:hover,
+    .lang-link:hover {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+    }
+
+    .menu a.is-active {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+    }
+
+    .menu a.is-highlight,
+    .menu .dropbtn.is-highlight {
+      color: var(--color-text-inverse);
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, var(--color-accent)));
+      border: 1px solid transparent;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .menu a.is-highlight:hover,
+    .menu .dropbtn.is-highlight:hover {
+      background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+      color: var(--color-text-inverse);
+    }
+
+    [data-theme="dark"] .menu a.is-highlight,
+    [data-theme="dark"] .menu .dropbtn.is-highlight {
+      color: #141311;
+    }
+
+    .dropdown {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .dropbtn {
+      gap: 6px;
+    }
+
+    .dropbtn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform var(--transition);
+      flex: 0 0 auto;
+    }
+
+    .dropdown:hover .dropbtn svg,
+    .dropdown:focus-within .dropbtn svg,
+    .dropdown.is-open .dropbtn svg {
+      transform: rotate(180deg);
+    }
+
+    .dropcontent {
+      position: absolute;
+      top: calc(100% + 2px);
+      left: 0;
+      z-index: 300;
+      min-width: 240px;
+      display: grid;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    }
+
+    .dropdown:hover .dropcontent,
+    .dropdown:focus-within .dropcontent,
+    .dropdown.is-open .dropcontent {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .dropcontent a {
+      justify-content: flex-start;
+      border-radius: 12px;
+      padding: 12px 14px;
+      white-space: normal;
+      line-height: 1.35;
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid var(--color-divider);
+      flex-shrink: 0;
+    }
+
+    .lang-list {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-link.is-active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+    }
+
+    .theme-toggle svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .hero {
+      padding: clamp(36px, 6vw, 68px) 0 28px;
+    }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 46px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 14% 18%, rgba(15, 93, 95, 0.06), transparent 22%),
+        radial-gradient(circle at 86% 16%, rgba(154, 106, 53, 0.05), transparent 20%);
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 30px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 0.97;
+      letter-spacing: -0.03em;
+      max-width: 12ch;
+    }
+
+    .hero-lead {
+      max-width: 62ch;
+      color: var(--color-text-muted);
+      font-size: var(--text-lg);
+    }
+
+    .hero-goal {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--color-text);
+      font-size: 0.98rem;
+      font-weight: 500;
+      flex-wrap: wrap;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--color-primary);
+      flex: 0 0 auto;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-surface-2);
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-meta span::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--color-primary);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero-photo-card,
+    .metric-card,
+    .card,
+    .pricing-card,
+    .state-item,
+    .faq-item,
+    .trust-card,
+    .cta-band {
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-photo-card {
+      overflow: hidden;
+      border-radius: 26px;
+      background: var(--color-surface);
+    }
+
+    .hero-photo img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    .hero-qual {
+      display: grid;
+      gap: 10px;
+      padding: 20px 22px;
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .hero-qual span {
+      position: relative;
+      padding-left: 18px;
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .hero-qual span::before {
+      content: "";
+      position: absolute;
+      top: 0.7em;
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--color-accent);
+    }
+
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .trust-card {
+      padding: 18px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    }
+
+    .trust-card strong {
+      display: block;
+      font-size: var(--text-lg);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .trust-card span {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+    }
+
+    .card {
+      padding: clamp(24px, 4vw, 34px);
+      border-radius: 28px;
+    }
+
+    .copy-stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .copy-stack p {
+      max-width: 72ch;
+    }
+
+    .about-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .about-list li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--color-text-muted);
+    }
+
+    .about-list li::before {
+      content: "";
+      position: absolute;
+      top: 0.7em;
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--color-primary);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .states-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .state-item {
+      padding: 22px;
+      border-radius: 24px;
+      transition: var(--transition);
+    }
+
+    .state-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .state-icon {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .state-label {
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .state-text {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .pricing-card {
+      display: grid;
+      gap: 14px;
+      padding: 24px;
+      border-radius: 24px;
+      transition: var(--transition);
+      min-height: 100%;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pricing-label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      width: fit-content;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .pricing-title {
+      font-size: var(--text-lg);
+      line-height: 1.15;
+    }
+
+    .pricing-title-link:hover {
+      color: var(--color-primary);
+    }
+
+    .pricing-price {
+      font-size: 1.55rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .pricing-note,
+    .pricing-meta {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .pricing-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .pricing-list li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .pricing-list li::before {
+      content: "";
+      position: absolute;
+      top: 0.7em;
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--color-accent);
+    }
+
+    .pricing-actions {
+      margin-top: auto;
+      padding-top: 4px;
+    }
+
+    .pricing-btn {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .pricing-btn-primary {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+    }
+
+    .pricing-btn-primary:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .telwha-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 18px;
+    }
+
+    .telwha-tab {
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .telwha-tab:hover,
+    .telwha-tab.active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border-color: rgba(15, 93, 95, 0.26);
+    }
+
+    .telwha-panel {
+      display: none;
+      padding: 22px 24px;
+      border: 1px solid var(--color-border);
+      border-radius: 22px;
+      background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+    }
+
+    .telwha-panel.active {
+      display: block;
+    }
+
+    .telwha-panel h3 {
+      font-size: var(--text-lg);
+      margin-bottom: 6px;
+      line-height: 1.15;
+    }
+
+    .telwha-panel h4 {
+      font-size: 0.96rem;
+      color: var(--color-text);
+      margin-bottom: 10px;
+    }
+
+    .telwha-panel p {
+      color: var(--color-text-muted);
+      max-width: 64ch;
+    }
+
+    .faq-stack {
+      display: grid;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .faq-item {
+      padding: 20px 22px;
+      border-radius: 22px;
+    }
+
+    .faq-q {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+
+    .faq-a {
+      color: var(--color-text-muted);
+    }
+
+    .cta-band {
+      padding: 24px;
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-primary-soft) 55%, var(--color-surface)));
+    }
+
+    .cta-band-copy h3 {
+      font-size: var(--text-lg);
+      margin-bottom: 6px;
+      line-height: 1.15;
+    }
+
+    .cta-band-copy p {
+      color: var(--color-text-muted);
+      max-width: 56ch;
+      font-size: 0.92rem;
+    }
+
+    .footer {
+      padding: 36px 0 26px;
+      border-top: 1px solid var(--color-divider);
+      background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+      margin-top: 18px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer h4 {
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-faint);
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .footer a:hover {
+      color: var(--color-text);
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      justify-items: end;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 22px;
+      margin-top: 22px;
+      border-top: 1px solid var(--color-divider);
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 500ms ease, transform 500ms ease;
+    }
+
+    .fade-in.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1180px) {
+      .trust-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .states-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .grid-2,
+      .footer-grid,
+      .cta-band {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 14px;
+        right: 14px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid var(--color-border);
+        border-radius: 22px;
+        background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .menu.is-open {
+        display: flex;
+      }
+
+      .menu a,
+      .menu .dropbtn,
+      .theme-toggle,
+      .lang-link {
+        justify-content: flex-start;
+        border-radius: 14px;
+        font-size: 0.95rem;
+        padding: 10px 12px;
+      }
+
+      .dropdown {
+        width: 100%;
+      }
+
+      .dropcontent {
+        position: static;
+        min-width: 0;
+        margin-top: 8px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+        display: none;
+        box-shadow: none;
+        border-radius: 16px;
+        background: var(--color-surface-2);
+      }
+
+      .dropdown.is-open .dropcontent {
+        display: grid;
+      }
+
+      .menu-tools {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+        padding-top: 6px;
+        border-top: 1px solid var(--color-divider);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(100% - 24px, var(--content-default));
+      }
+
+      .hero-shell,
+      .card,
+      .pricing-card,
+      .state-item,
+      .faq-item,
+      .cta-band,
+      .hero-photo-card {
+        border-radius: 22px;
+      }
+
+      .hero-title {
+        max-width: 100%;
+      }
+
+      .hero-cta,
+      .hero-meta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-cta .btn,
+      .cta-band .btn {
+        width: 100%;
+      }
+
+      .trust-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-links {
+        justify-items: start;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .brand-sub {
+        max-width: 170px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .fade-in {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="progress" id="progress"></div>
@@ -82,10 +1190,15 @@
   <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
-        <a class="brand-row" href="/">
+        <a class="brand-row" href="/" aria-label="TELWHA — на головну">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
           <strong>TELWHA</strong>
         </a>
-        <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+        <span class="brand-sub">Behavioral Finance · Psychology</span>
       </div>
 
       <button
@@ -96,118 +1209,277 @@
         aria-label="Відкрити меню"
       >
         <span class="menu-toggle-lines" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </span>
       </button>
 
-      <nav class="menu" id="site-menu">
-        <div class="menu-group">
-          <a href="/">Головна</a>
-          <a href="/finlab/index.html">FinLab</a>
-          <a href="/about/">Про мене</a>
-        </div>
+      <nav class="menu" id="site-menu" aria-label="Основна навігація">
+        <a href="/">Головна</a>
+        <a href="/about/" class="is-active">Про мене</a>
+        <a href="/cases/">Кейси</a>
+        <a href="/articles/">Статті</a>
+        <a href="/finlab/">FinLab</a>
 
-        <div class="menu-group menu-dropdown">
-          <button type="button" class="menu-dropbtn">Трейдерам ▾</button>
-          <div class="menu-dropcontent">
-            <a href="/trader-course/">Міні‑курс</a>
-            <a href="/archetype-test/">Тест архетипів</a>
+        <div class="dropdown">
+          <button type="button" class="dropbtn is-highlight" aria-expanded="false">
+            Перевір себе
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/finlab/money-test-api/money-test.html">Тест фінансової поведінки</a>
+            <a href="/habit-test.html">Куди ведуть ваші звички?</a>
+            <a href="/fact-or-fiction-cases.html">Факт чи фікція?</a>
           </div>
         </div>
 
-        <div class="menu-group">
-          <a href="/articles/">Статті</a>
-          <a href="/reviews/">Відгуки</a>
-          <a href="/cases/">Кейси</a>
-          <a href="/contact/">Контакти</a>
+        <div class="dropdown">
+          <button type="button" class="dropbtn" aria-expanded="false">
+            Трейдерам
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/trader-course/">Міні-курс</a>
+            <a href="/archetype-test/">Архетип трейдера</a>
+          </div>
         </div>
 
-        <div class="menu-group menu-tools">
-          <details class="lang-switcher lang-switcher--inside">
-            <summary>🇺🇦</summary>
-            <div class="lang-list">
-              <a href="/en/about/" aria-label="English">🇬🇧</a>
-              <a href="/es/about/" aria-label="Español">🇪🇸</a>
-            </div>
-          </details>
+        <a href="/reviews/">Відгуки</a>
+        <a href="/contact/">Контакти</a>
 
-          <button class="theme-toggle" type="button" aria-label="Змінити тему">🌓</button>
+        <div class="menu-tools">
+          <div class="lang-list" aria-label="Мови сайту">
+            <a class="lang-link is-active" href="/about/" lang="uk" aria-label="Українська">UA</a>
+            <a class="lang-link" href="/en/about/" lang="en" aria-label="English">EN</a>
+            <a class="lang-link" href="/es/about/" lang="es" aria-label="Español">ES</a>
+          </div>
+
+          <button class="theme-toggle" type="button" aria-label="Змінити тему">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M12 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4.93 4.93L6.34 6.34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M17.66 17.66L19.07 19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M3 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M19 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4.93 19.07L6.34 17.66" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M17.66 6.34L19.07 4.93" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </button>
         </div>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero">
-      <div class="wrap hero-shell fade-in">
-        <div class="hero-bg"></div>
-        <div class="hero-grid">
-          <div>
-            <div class="eyebrow">TELWHA / About</div>
-            <h1>Знання нервової системи, фінансових інструментів та актуальних досліджень</h1>
-            <div class="hero-goal">
-              <span class="dot"></span>
-              <span>Моя робота — допомогти вам бачити ширше, ніж дозволяють ваші упередження.</span>
+      <div class="wrap">
+        <div class="hero-shell fade-in">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <div class="eyebrow">TELWHA / About</div>
+
+              <h1 class="hero-title">Фінансова психологія, поведінковий аналіз і стійкі рішення про гроші</h1>
+
+              <p class="hero-lead">
+                Я поєдную психологію, поведінкову економіку, знання фінансових інструментів, трейдинг-досвід і аналітичний підхід,
+                щоб допомагати людям, трейдерам та командам бачити свої рішення ясніше й діяти стабільніше.
+              </p>
+
+              <div class="hero-goal">
+                <span class="dot"></span>
+                <span>Моя робота — допомогти вам бачити ширше, ніж дозволяють ваші упередження, стрес і хаотичні патерни.</span>
+              </div>
+
+              <div class="hero-cta">
+                <a class="btn btn-primary" href="/contact/">Записатися на консультацію</a>
+                <a class="btn btn-secondary" href="/cases/">Подивитися кейси</a>
+              </div>
+
+              <div class="hero-meta">
+                <span>Київ · онлайн та офлайн</span>
+              </div>
             </div>
+
+            <aside class="hero-side" aria-label="Портрет і кваліфікації">
+              <div class="hero-photo-card">
+                <div class="hero-photo">
+                  <img src="/static/media/image.jpeg" alt="Анна Сігнаєвська, TELWHA">
+                </div>
+                <div class="hero-qual">
+                  <span>Бакалавр психології</span>
+                  <span>Магістр поведінкової економіки</span>
+                  <span>FPWM™ · CMSA® · Data Science Analyst (CFI)</span>
+                  <span>Міжнародні сертифікації у фінансах, психології та роботі з даними</span>
+                </div>
+              </div>
+            </aside>
           </div>
 
-          <div class="hero-photo-box">
-            <div class="hero-photo">
-              <img src="/static/media/image.jpeg" alt="Анна, фінансовий психолог та поведінковий аналітик TELWHA">
+          <div class="trust-strip">
+            <div class="trust-card">
+              <strong>Психологія + фінанси</strong>
+              <span>Не лише про емоції, а й про рішення, ризик і структуру дій.</span>
             </div>
-            <div class="hero-qual">
-              <span>Бакалавр психології</span>
-              <span>Магістр поведінкової економіки</span>
-              <span>FPWM™ · CMSA® · Data Science Analyst (CFI)</span>
-              <span>100+ міжнародних сертифікацій у фінансах, психології та роботі з даними</span>
+            <div class="trust-card">
+              <strong>Трейдинг-досвід</strong>
+              <span>Працюю з патернами поведінки там, де ціна помилки реально відчутна.</span>
+            </div>
+            <div class="trust-card">
+              <strong>Аналітичний підхід</strong>
+              <span>Журнали, дані, сценарії, поведінкові інсайти й прикладна логіка.</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section fade-in">
+    <section class="section section-tight fade-in">
       <div class="wrap card">
-        <h2 class="section-title">Хто я</h2>
-        <p>
-          Фінансовий психолог і поведінковий аналітик. Поєдную роботу з нервовою системою та когнітивними упередженнями
-          з досвідом трейдингу, інвестицій і аналізу даних.
-        </p>
-        <p>
-          Для мене важливо не лише, як ви розподіляєте гроші, а й у якому контексті це відбувається: війна, ринок праці,
-          попередні спроби, стан тіла, стосунки й середовище, в якому ви живете.
-        </p>
+        <div class="eyebrow">Хто я</div>
+        <h2 class="section-title">Не просто про гроші, а про механіку рішень</h2>
+        <div class="copy-stack">
+          <p>
+            Я фінансовий психолог та поведінковий аналітик. Поєдную роботу з нервовою системою та когнітивними упередженнями
+            з досвідом трейдингу, інвестицій, фінансових інструментів і аналізу даних.
+          </p>
+          <p>
+            Для мене важливо не лише, як людина розподіляє гроші, а й у якому контексті це відбувається:
+            фінансовий стрес, війна, нестабільність, стан тіла, стосунки, попередні втрати, середовище та щоденні звички.
+          </p>
+          <p>
+            Саме тому я дивлюся не тільки на “що робити”, а й на те, чи витримає ваша система це рішення в реальному житті.
+          </p>
+        </div>
 
-        <h3 class="section-sub helper-title">Як я можу бути корисною</h3>
         <ul class="about-list">
-          <li>Виявити, де саме ваші патерни мислення й емоцій «ламають» стратегію та приводять до одних і тих самих фінрезультатів.</li>
-          <li>Перекласти ваші цифри, журнали й історію рішень у зрозумілу карту ризику, помилок і точок росту.</li>
-          <li>Зібрати систему дій та інструментів, яку ваша нервова система витримає в довгу, а не тільки «на силі волі».</li>
+          <li>Виявляю, де саме патерни мислення й емоцій ламають стратегію та повторюють однакові фінансові результати.</li>
+          <li>Перекладаю ваші цифри, журнали й історію рішень у зрозумілу карту ризику, помилок і точок росту.</li>
+          <li>Допомагаю зібрати систему дій та інструментів, яку нервова система може витримати в довгу, а не тільки “на силі волі”.</li>
         </ul>
       </div>
     </section>
 
     <section class="section fade-in">
       <div class="wrap card">
+        <div class="eyebrow">Для кого</div>
+        <h2 class="section-title">Для кого створений TELWHA</h2>
+        <p class="section-sub">
+          Для людей, яким потрібні не абстрактні поради, а зрозуміла система рішень у фінансах, ризику й поведінці.
+        </p>
+
+        <div class="states-grid">
+          <div class="state-item">
+            <div class="state-icon">📉</div>
+            <p class="state-label">Трейдери</p>
+            <p class="state-text">
+              Коли є зливи після профіту, revenge-trading, страх входу чи виходу, овертрейдинг і вигорання,
+              а система дій не тримається під тиском.
+            </p>
+          </div>
+
+          <div class="state-item">
+            <div class="state-icon">📊</div>
+            <p class="state-label">Інвестори та фаундери</p>
+            <p class="state-text">
+              Коли через руки проходять значні суми, але частина рішень іде з інтуїції, частина — з фрагментів знань,
+              і бракує стабільної опори.
+            </p>
+          </div>
+
+          <div class="state-item">
+            <div class="state-icon">🧭</div>
+            <p class="state-label">Люди без досвіду у фінансах</p>
+            <p class="state-text">
+              Коли хочеться розібратись із боргами, витратами, напругою навколо грошей і першими інвестиційними кроками без сорому та перевантаження.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="telwha" class="section fade-in">
+      <div class="wrap card">
+        <div class="eyebrow">Framework</div>
+        <h2 class="section-title">Що таке TELWHA</h2>
+        <p class="section-sub">
+          TELWHA — це моя робоча рамка: шість шарів, через які я дивлюся на рішення, гроші, поведінку та реальний контекст життя.
+        </p>
+
+        <div class="telwha-tabs" role="tablist" aria-label="TELWHA framework">
+          <button class="telwha-tab active" data-tab="T" type="button">T · Tech</button>
+          <button class="telwha-tab" data-tab="E" type="button">E · Emotions</button>
+          <button class="telwha-tab" data-tab="L" type="button">L · Layers</button>
+          <button class="telwha-tab" data-tab="W" type="button">W · Way</button>
+          <button class="telwha-tab" data-tab="H" type="button">H · Holistic</button>
+          <button class="telwha-tab" data-tab="A" type="button">A · Analytics</button>
+        </div>
+
+        <div class="telwha-panel active" data-panel="T">
+          <h3>T — Technological Integration</h3>
+          <h4>Технології та інструменти</h4>
+          <p>Фінансові інструменти, сервіси, AI, журнали й дашборди допомагають перенести рішення з голови в реальну систему, яку можна відстежувати й покращувати.</p>
+        </div>
+
+        <div class="telwha-panel" data-panel="E">
+          <h3>E — Emotional Intelligence</h3>
+          <h4>Емоції та нервова система</h4>
+          <p>Ми дивимось, як стрес, втома, травматичний досвід і очікування впливають на ризик, гроші та щоденні дії, і будуємо захист від повторюваних зривів.</p>
+        </div>
+
+        <div class="telwha-panel" data-panel="L">
+          <h3>L — Layered Architecture</h3>
+          <h4>Шари системи</h4>
+          <p>Капітал, кеш-флоу, звички, стосунки, поведінка й робочі процеси розкладаються на шари, щоб не зводити все до одного хаотичного “в мене проблеми з фінансами”.</p>
+        </div>
+
+        <div class="telwha-panel" data-panel="W">
+          <h3>W — Way &amp; Strategy</h3>
+          <h4>Шлях і стратегія</h4>
+          <p>Стратегія потрібна не для жорсткішого контролю, а для посильного маршруту змін, який реально працює в умовах навантаження, а не лише на папері.</p>
+        </div>
+
+        <div class="telwha-panel" data-panel="H">
+          <h3>H — Holistic Approach</h3>
+          <h4>Цілісність</h4>
+          <p>Гроші й рішення не існують окремо від тіла, стосунків, роботи, втоми та середовища. Стійка система враховує весь контекст, а не лише “правильну логіку”.</p>
+        </div>
+
+        <div class="telwha-panel" data-panel="A">
+          <h3>A — Analytical Insights</h3>
+          <h4>Аналітика та дослідження</h4>
+          <p>Ми спираємось на дані, журнали, патерни та фактичну поведінку, а не тільки на суб’єктивне враження. Це переводить процес із шуму в систему.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="wrap card">
+        <div class="eyebrow">Формати роботи</div>
         <h2 class="section-title">Послуги та вартість</h2>
+        <p class="section-sub">
+          Різні формати для різних запитів: від індивідуальної роботи до продуктового чи дослідницького запиту для команди.
+        </p>
 
         <div class="pricing-grid">
           <article class="pricing-card">
             <div class="pricing-label">Для трейдерів</div>
             <h3 class="pricing-title">
-              <a class="pricing-title-link" href="/trader-course/">Міні‑курс для трейдерів</a>
+              <a class="pricing-title-link" href="/trader-course/">Міні-курс для трейдерів</a>
             </h3>
             <div class="pricing-price">2 100 грн</div>
             <p class="pricing-note">
-              Короткий онлайн‑формат для тих, хто хоче краще зрозуміти свої поведінкові помилки,
+              Короткий онлайн-формат для тих, хто хоче краще зрозуміти свої поведінкові помилки,
               реакції на ризик і зібрати більш стійку систему дій у торгівлі.
             </p>
             <ul class="pricing-list">
               <li>3 відео всередині</li>
               <li>Підтримка в процесі проходження</li>
-              <li>Онлайн‑доступ</li>
+              <li>Онлайн-доступ</li>
             </ul>
             <div class="pricing-actions">
               <a class="pricing-btn pricing-btn-primary" href="/trader-course/">Подивитись програму</a>
@@ -221,12 +1493,11 @@
             <p class="pricing-note">
               Разова персональна сесія для запитів, пов’язаних із фінансовим стресом, трейдингом,
               інвестиційними рішеннями, боргами, хаосом у витратах або повторюваними поведінковими сценаріями.
-              Після консультації підтримка протягом тижня + надання необхідних матеріалів.
             </p>
             <ul class="pricing-list">
-              <li>Онлайн</li>
-              <li>Офлайн у Києві</li>
+              <li>Онлайн або офлайн у Києві</li>
               <li>Тривалість: 60 хв</li>
+              <li>Тиждень підтримки після зустрічі</li>
             </ul>
             <div class="pricing-meta">Зазвичай консультацію бронюють за 1–2 тижні наперед.</div>
             <div class="pricing-actions">
@@ -239,7 +1510,7 @@
             <h3 class="pricing-title">Проєктна співпраця</h3>
             <div class="pricing-price">від 38 000 грн</div>
             <p class="pricing-note">
-              Формат для команд, фондів, prop‑компаній, фінтех‑продуктів та інших проєктів, де потрібні
+              Формат для команд, фондів, prop-компаній, фінтех-продуктів та інших проєктів, де потрібні
               поведінкові інсайти, дослідження, аналітика та робота з клієнтськими сценаріями.
             </p>
             <ul class="pricing-list">
@@ -256,165 +1527,85 @@
     </section>
 
     <section class="section fade-in">
-      <div class="wrap card">
-        <h2 class="section-title">Для кого створений TELWHA</h2>
-        <div class="states-grid">
-          <div class="state-item">
-            <div class="state-icon">🧷</div>
-            <p class="state-label">Трейдери</p>
-            <p class="state-text">
-              Коли є зливи після профіту, revenge‑trading, страх входу/виходу, овертрейдинг і вигорання.
-              Додається тиск відповідальності за гроші, страх втратити авторитет у власних очах і
-              відчуття, що немає стійкої системи дій та результатів.
-            </p>
-          </div>
+      <div class="wrap grid-2">
+        <article class="card">
+          <div class="eyebrow">Підхід</div>
+          <h2 class="section-title">Як я працюю</h2>
+          <ul class="about-list">
+            <li>Не продаю “готові схеми” й чарівні кнопки — ми збираємо вашу систему, а не копіюємо чужий шаблон.</li>
+            <li>Не відриваю гроші та рішення від тіла й нервової системи — кроки мають бути посильними, а не лише логічно правильними.</li>
+            <li>Не обіцяю швидких ривків — працюємо на стійкі зміни, які тримаються без постійної сили волі.</li>
+          </ul>
+        </article>
 
-          <div class="state-item">
-            <div class="state-icon">📊</div>
-            <p class="state-label">Інвестори та фаундери</p>
-            <p class="state-text">
-              Через руки проходять відчутні суми, але немає опори: частина рішень на інтуїції, частина — на фрагментах знань.
-              Хочеться системних результатів замість гойдалок «то дуже добре, то дуже тривожно».
-            </p>
-          </div>
-
-          <div class="state-item">
-            <div class="state-icon">🧭</div>
-            <p class="state-label">Люди без досвіду у фінансах</p>
-            <p class="state-text">
-              Хочеться зрозуміло побачити, що робити з боргами, витратами й першими інвестиційними кроками без інформаційного
-              передозу та самозвинувачення за попередні рішення.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="telwha" class="section fade-in">
-      <div class="wrap card">
-        <h2 class="section-title">Що таке TELWHA</h2>
-        <p class="section-sub">
-          TELWHA — це шість шарів, через які я дивлюсь на життя, рішення й процеси: від нервової системи й упереджень
-          до інструментів, даних, грошей і контексту вашого дня.
-        </p>
-
-        <div class="telwha-tabs" role="tablist">
-          <button class="telwha-tab active" data-tab="T" type="button">T · Tech</button>
-          <button class="telwha-tab" data-tab="E" type="button">E · Emotions</button>
-          <button class="telwha-tab" data-tab="L" type="button">L · Layers</button>
-          <button class="telwha-tab" data-tab="W" type="button">W · Way</button>
-          <button class="telwha-tab" data-tab="H" type="button">H · Holistic</button>
-          <button class="telwha-tab" data-tab="A" type="button">A · Analytics</button>
-        </div>
-
-        <div class="telwha-panel active" data-panel="T">
-          <h3>T — Technological Integration</h3>
-          <h4>Технології та інструменти</h4>
-          <p>Підтягуємо фінінструменти, сервіси, AI та дашборди. Рішення живуть у системі та процесах, а не тільки у вашій голові.</p>
-        </div>
-
-        <div class="telwha-panel" data-panel="E">
-          <h3>E — Emotional Intelligence</h3>
-          <h4>Емоції та нервова система</h4>
-          <p>Дивимось, як стрес, втома, травматичний досвід і очікування впливають на ризик, гроші й щоденні рішення, і закладаємо захист від зривів.</p>
-        </div>
-
-        <div class="telwha-panel" data-panel="L">
-          <h3>L — Layered Architecture</h3>
-          <h4>Шари системи</h4>
-          <p>Капітал, кеш‑флоу, звички, стосунки й робочі процеси розкладаємо на шари, щоб не було одного кошика «усе про фінанси й життя».</p>
-        </div>
-
-        <div class="telwha-panel" data-panel="W">
-          <h3>W — Way &amp; Strategy</h3>
-          <h4>Шлях і стратегія</h4>
-          <p>Стратегія створюється для того, щоб знаходити найкоротший і водночас посильний шлях до змін, а не ускладнювати життя ще жорсткішими правилами.</p>
-        </div>
-
-        <div class="telwha-panel" data-panel="H">
-          <h3>H — Holistic Approach</h3>
-          <h4>Цілісність</h4>
-          <p>Не відриваємо гроші та рішення від тіла, стосунків, роботи й середовища. Жодне «правильне» фінансове рішення не має ламати інші сфери.</p>
-        </div>
-
-        <div class="telwha-panel" data-panel="A">
-          <h3>A — Analytical Insights</h3>
-          <h4>Аналітика та дослідження</h4>
-          <p>Спираємось на дані, журнали, патерни рішень, а не тільки на «мені здається». Виводимо ваші процеси з режиму шуму в режим системи.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section fade-in">
-      <div class="wrap card">
-        <h2 class="section-title">Як я працюю</h2>
-        <ul class="about-list">
-          <li>Не продаю «готові схеми» й чарівні кнопки — ми збираємо вашу систему, а не чужий шаблон.</li>
-          <li>Не відриваю гроші та рішення від тіла й нервової системи — кроки мають бути посильними, а не тільки «логічно правильними».</li>
-          <li>Не обіцяю швидких ривків — працюємо на стійкі зміни, які тримаються без постійної сили волі.</li>
-        </ul>
+        <article class="card">
+          <div class="eyebrow">Стиль</div>
+          <h2 class="section-title">Мій стиль роботи</h2>
+          <ul class="about-list">
+            <li>INTJ: структура, логіка й причинно-наслідкові зв’язки важливіші за “гарні історії”.</li>
+            <li>Я прямо називаю патерни, які виснажують, і шукаю спосіб змінити систему, а не лише заспокоїти в моменті.</li>
+            <li>Спершу дивлюсь на контекст і наслідки дій, а потім шукаємо найменші кроки, які ведуть до інших результатів.</li>
+            <li>Стратегія для мене — це пошук найкоротшого й посильного шляху до змін, який нервова система здатна витримати в реальному житті.</li>
+          </ul>
+        </article>
       </div>
     </section>
 
     <section id="faq" class="section fade-in">
       <div class="wrap card">
+        <div class="eyebrow">FAQ</div>
         <h2 class="section-title">Q&amp;A перед тим, як писати мені</h2>
 
-        <div class="faq-item">
-          <div class="faq-q"><span class="icon">❓</span> Я не трейдер і не інвестор. Це взагалі про мене?</div>
-          <div class="faq-a">
-            Так. Якщо у вас є дохід, ви втомилися тягнути тему грошей на собі й відкладати рішення «на потім» —
-            ви в моїй аудиторії, навіть якщо ніколи не відкривали графіки.
+        <div class="faq-stack">
+          <div class="faq-item">
+            <div class="faq-q"><span>❓</span><span>Я не трейдер і не інвестор. Це взагалі про мене?</span></div>
+            <div class="faq-a">
+              Так. Якщо у вас є дохід, ви втомилися тягнути тему грошей на собі й відкладати рішення “на потім” —
+              ви в моїй аудиторії, навіть якщо ніколи не відкривали графіки.
+            </div>
           </div>
-        </div>
 
-        <div class="faq-item">
-          <div class="faq-q"><span class="icon">⚠️</span> А якщо в мене «хаос скрізь» і соромно це показувати?</div>
-          <div class="faq-a">
-            Хаос і сором — це дані про систему, а не ваш «дефект». Мені важливо бачити повну картину, щоб
-            зібрати з неї робочий маршрут, а не оцінювати вас як людину.
+          <div class="faq-item">
+            <div class="faq-q"><span>⚠️</span><span>А якщо в мене “хаос скрізь” і соромно це показувати?</span></div>
+            <div class="faq-a">
+              Хаос і сором — це дані про систему, а не ваш дефект. Мені важливо бачити повну картину, щоб зібрати
+              з неї робочий маршрут, а не оцінювати вас як людину.
+            </div>
           </div>
-        </div>
 
-        <div class="faq-item">
-          <div class="faq-q"><span class="icon">🧩</span> Чого очікувати після першої зустрічі?</div>
-          <div class="faq-a">
-            Ви виходите не з «осяянням», а з картою: де ви зараз, що болить найбільше і які 1–3 кроки
-            мають сенс саме у вашому контексті найближчими тижнями. Плюс тиждень підтримки в чаті,
-            щоб не залишатися з питаннями наодинці під час перших кроків.
+          <div class="faq-item">
+            <div class="faq-q"><span>🧩</span><span>Чого очікувати після першої зустрічі?</span></div>
+            <div class="faq-a">
+              Ви виходите не просто з ідеями, а з картою: де ви зараз, що болить найбільше і які 1–3 кроки
+              мають сенс саме у вашому контексті найближчими тижнями.
+            </div>
           </div>
-        </div>
 
-        <div class="faq-item">
-          <div class="faq-q"><span class="icon">📜</span> Це про те, куди саме інвестувати?</div>
-          <div class="faq-a">
-            Частково. Я можу пояснити, які бувають класи активів, базові інструменти та типові стратегії, а також допомогти
-            подивитися на ідею через призму ризику, цілей і ваших меж. Але я не збираю персональні портфелі й не даю
-            формалізованих рекомендацій щодо конкретних активів.
+          <div class="faq-item">
+            <div class="faq-q"><span>📜</span><span>Це про те, куди саме інвестувати?</span></div>
+            <div class="faq-a">
+              Частково. Я можу пояснити логіку класів активів, інструментів і базових стратегій, а також допомогти
+              подивитися на ідею через призму ризику, цілей і ваших меж. Але я не збираю персональні портфелі
+              й не даю формалізованих рекомендацій щодо конкретних активів.
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <section class="section fade-in">
-      <div class="wrap grid-2">
-        <div class="card">
-          <h2 class="section-title">Мій стиль</h2>
-          <ul class="about-list">
-            <li>INTJ: структура, логіка й причинно‑наслідкові звʼязки важливіші за «гарні історії».</li>
-            <li>Я прямо називаю патерни, які вас виснажують, і шукаю спосіб змінити систему, а не лише заспокоїти в моменті.</li>
-            <li>Спершу дивлюсь на контекст і наслідки ваших дій, потім шукаємо найменші дії, які ведуть до інших результатів.</li>
-            <li>Стратегія для мене — це пошук найкоротшого й ефективного шляху до змін, який ваша нервова система здатна витримати в реальному житті.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h2 class="section-title">Трохи особистого</h2>
-          <ul class="about-list">
-            <li>5 років жила в Домінікані та 1,5 року в Азії — бачу ризик, гроші й «нормальне життя» з кількох культурних точок.</li>
-            <li>Стрільба з лука та скелелазіння для мене про те саме, що й ринок: фокус, тіло, точність і повага до своїх меж.</li>
-            <li>Я інтроверт, який любить глибину більше, ніж small talk, і саме це переноситься в роботу: менше шуму, більше змісту й поваги до ваших ресурсів.</li>
-          </ul>
+      <div class="wrap">
+        <div class="cta-band">
+          <div class="cta-band-copy">
+            <h3>Якщо відчуваєте, що у фінансових рішеннях забагато хаосу</h3>
+            <p>
+              Почніть із консультації або подивіться кейси, щоб зрозуміти, як виглядає ця робота на практиці.
+            </p>
+          </div>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="/contact/">Написати мені</a>
+            <a class="btn btn-secondary" href="/cases/">Перейти до кейсів</a>
+          </div>
         </div>
       </div>
     </section>
@@ -425,12 +1616,13 @@
       <div class="footer-grid fade-in">
         <div>
           <h4>TELWHA</h4>
-          <p>Фінансова психологія, поведінкова економіка й аналітика для стійких рішень і капіталу</p>
+          <p>Фінансова психологія, поведінкова економіка й аналітика для стійких рішень і капіталу.</p>
         </div>
         <div style="text-align:right">
           <h4>Навігація</h4>
-          <div class="footer-links" style="align-items:flex-end">
+          <div class="footer-links">
             <a href="/">Головна</a>
+            <a href="/finlab/">FinLab</a>
             <a href="/reviews/">Відгуки</a>
             <a href="/contact/">Контакти</a>
           </div>
@@ -438,28 +1630,131 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 TELWHA. Усі права захищено.</span>
-        <span>Київ, Україна · 🇺🇦</span>
+        <span>Київ, Україна</span>
       </div>
     </div>
   </footer>
 
-  <script src="/static/script/global.js"></script>
-  <script src="/static/script/about.js"></script>
   <script>
+    const progress = document.getElementById("progress");
     const menuToggle = document.querySelector(".menu-toggle");
-    const siteMenu = document.querySelector("#site-menu");
+    const siteMenu = document.getElementById("site-menu");
+    const themeToggle = document.querySelector(".theme-toggle");
+    const root = document.documentElement;
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+    function updateProgressBar() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressValue = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      if (progress) progress.style.width = progressValue + "%";
+    }
+
+    function closeAllDropdowns(except = null) {
+      dropdowns.forEach((dropdown) => {
+        if (dropdown === except) return;
+        dropdown.classList.remove("is-open");
+        const btn = dropdown.querySelector(".dropbtn");
+        btn?.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    updateProgressBar();
+    window.addEventListener("scroll", updateProgressBar, { passive: true });
 
     if (menuToggle && siteMenu) {
       menuToggle.addEventListener("click", () => {
         const isOpen = siteMenu.classList.toggle("is-open");
         menuToggle.classList.toggle("is-open", isOpen);
         menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        menuToggle.setAttribute(
-          "aria-label",
-          isOpen ? "Закрити меню" : "Відкрити меню"
-        );
+        menuToggle.setAttribute("aria-label", isOpen ? "Закрити меню" : "Відкрити меню");
+
+        if (!isOpen) {
+          closeAllDropdowns();
+        }
       });
     }
+
+    dropdowns.forEach((dropdown) => {
+      const button = dropdown.querySelector(".dropbtn");
+
+      button?.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        const isOpen = dropdown.classList.contains("is-open");
+        closeAllDropdowns(dropdown);
+
+        dropdown.classList.toggle("is-open", !isOpen);
+        button.setAttribute("aria-expanded", !isOpen ? "true" : "false");
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".dropdown")) {
+        closeAllDropdowns();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeAllDropdowns();
+
+        if (siteMenu?.classList.contains("is-open") && window.innerWidth <= 920) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Відкрити меню");
+        }
+      }
+    });
+
+    document.querySelectorAll('#site-menu a[href]').forEach((link) => {
+      link.addEventListener("click", () => {
+        closeAllDropdowns();
+
+        if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Відкрити меню");
+        }
+      });
+    });
+
+    let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    root.setAttribute("data-theme", currentTheme);
+
+    themeToggle?.addEventListener("click", () => {
+      currentTheme = currentTheme === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", currentTheme);
+    });
+
+    const tabs = document.querySelectorAll(".telwha-tab");
+    const panels = document.querySelectorAll(".telwha-panel");
+
+    tabs.forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = button.dataset.tab;
+
+        tabs.forEach((item) => item.classList.remove("active"));
+        panels.forEach((panel) => panel.classList.remove("active"));
+
+        button.classList.add("active");
+        document.querySelector(`.telwha-panel[data-panel="${target}"]`)?.classList.add("active");
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".fade-in").forEach((element) => {
+      observer.observe(element);
+    });
   </script>
 </body>
 </html>

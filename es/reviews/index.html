@@ -1,21 +1,18 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TELWHA | Opiniones</title>
-  <meta name="description" content="TELWHA: Lo que dicen los clientes.">
-
+  <meta name="description" content="Opiniones sobre consultas personales, acompañamiento a traders, soporte analítico y programas TELWHA.">
   <link rel="canonical" href="https://t-e-l-w-h-a.com/es/reviews/">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="TELWHA | Opiniones">
-  <meta property="og:description" content="TELWHA: Lo que dicen los clientes.">
+  <meta property="og:description" content="Qué dicen los clientes sobre las consultas, la psicología del trading, el soporte analítico y los programas TELWHA.">
   <meta property="og:url" content="https://t-e-l-w-h-a.com/es/reviews/">
   <meta property="og:site_name" content="TELWHA">
 
-  <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -24,7 +21,6 @@
     gtag('config', 'G-FVHKD6TZJP');
   </script>
 
-  <!-- JSON-LD: Person (Anna) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -33,7 +29,7 @@
     "url": "https://t-e-l-w-h-a.com",
     "image": "https://t-e-l-w-h-a.com/static/media/main_photo.jpg",
     "jobTitle": "Financial Psychologist & Behavioral Analyst",
-    "description": "Psicología financiera, finanzas conductuales y el framework TELWHA para decisiones estables sobre el dinero.",
+    "description": "Economía del comportamiento, psicología financiera y el marco TELWHA para decisiones estables sobre el dinero.",
     "sameAs": [
       "https://www.youtube.com/@TelwhaUA",
       "https://www.youtube.com/@Telwha",
@@ -42,14 +38,13 @@
   }
   </script>
 
-  <!-- JSON-LD: Organization (TELWHA) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "TELWHA",
     "url": "https://t-e-l-w-h-a.com",
-    "description": "TELWHA: psicología financiera, economía conductual y FinLab para traders, inversores y negocios.",
+    "description": "TELWHA: psicología financiera, economía del comportamiento y FinLab para traders, inversores y empresas.",
     "logo": "https://t-e-l-w-h-a.com/static/media/telwha-favicon.png",
     "sameAs": [
       "https://www.youtube.com/@TelwhaUA",
@@ -59,33 +54,937 @@
   }
   </script>
 
-  <!-- JSON-LD: Reviews CollectionPage (ES) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "Opiniones de clientes TELWHA",
-    "description": "Página con opiniones de clientes sobre el trabajo con Anna y TELWHA.",
+    "description": "Página con opiniones de clientes sobre consultas personales, acompañamiento para traders, soporte analítico y programas TELWHA.",
     "url": "https://t-e-l-w-h-a.com/es/reviews/",
     "inLanguage": "es"
   }
   </script>
 
-  <link rel="icon" href="/static/media/telwha-favicon.png" type="png">
-  <link rel="stylesheet" href="/static/css/base.css">
-  <link rel="stylesheet" href="/static/css/layout-reviews.css">
-</head>
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
 
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root,
+    [data-theme="light"] {
+      --font-display: "Boska", Georgia, serif;
+      --font-body: "Satoshi", "Inter", sans-serif;
+
+      --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+      --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
+      --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+      --text-2xl: clamp(2.2rem, 1.5rem + 2vw, 4rem);
+
+      --color-bg: #f5f3ef;
+      --color-surface: #fcfbf8;
+      --color-surface-2: #f2efe9;
+      --color-surface-3: #ebe7df;
+      --color-border: rgba(40, 37, 29, 0.10);
+      --color-divider: rgba(40, 37, 29, 0.08);
+
+      --color-text: #22201a;
+      --color-text-muted: #65625b;
+      --color-text-faint: #8b877f;
+      --color-text-inverse: #f9f8f5;
+
+      --color-primary: #0f5d5f;
+      --color-primary-hover: #0b4b4d;
+      --color-primary-soft: rgba(15, 93, 95, 0.08);
+
+      --color-accent: #9a6a35;
+      --color-accent-soft: rgba(154, 106, 53, 0.08);
+
+      --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
+      --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
+      --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
+
+      --content-default: 1180px;
+      --radius-md: 22px;
+      --radius-lg: 28px;
+      --radius-xl: 34px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1d1b18;
+      --color-surface-2: #24211d;
+      --color-surface-3: #2a2622;
+      --color-border: rgba(255, 255, 255, 0.10);
+      --color-divider: rgba(255, 255, 255, 0.08);
+
+      --color-text: #ece6dd;
+      --color-text-muted: #b7afa2;
+      --color-text-faint: #91897c;
+      --color-text-inverse: #171614;
+
+      --color-primary: #6ca7a7;
+      --color-primary-hover: #84baba;
+      --color-primary-soft: rgba(108, 167, 167, 0.10);
+
+      --color-accent: #c79c68;
+      --color-accent-soft: rgba(199, 156, 104, 0.09);
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
+      --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button {
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .wrap {
+      width: min(100% - 28px, var(--content-default));
+      margin-inline: auto;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 120;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      color: var(--color-primary);
+      flex: 0 0 auto;
+    }
+
+    .brand-sub {
+      color: var(--color-text-faint);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      max-width: 240px;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      transition: var(--transition);
+    }
+
+    .menu-toggle:hover {
+      background: var(--color-surface-2);
+    }
+
+    .menu-toggle-lines {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-toggle-lines span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--color-text);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      min-width: 0;
+      flex-wrap: nowrap;
+    }
+
+    .menu a,
+    .menu .dropbtn,
+    .theme-toggle,
+    .lang-link {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      white-space: nowrap;
+      line-height: 1.1;
+      flex-shrink: 0;
+    }
+
+    .menu a:hover,
+    .menu .dropbtn:hover,
+    .theme-toggle:hover,
+    .lang-link:hover {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+    }
+
+    .menu a.is-active {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+    }
+
+    .menu a.is-highlight,
+    .menu .dropbtn.is-highlight {
+      color: var(--color-text-inverse);
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, var(--color-accent)));
+      border: 1px solid transparent;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .menu a.is-highlight:hover,
+    .menu .dropbtn.is-highlight:hover {
+      background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+      color: var(--color-text-inverse);
+    }
+
+    [data-theme="dark"] .menu a.is-highlight,
+    [data-theme="dark"] .menu .dropbtn.is-highlight {
+      color: #141311;
+    }
+
+    .dropdown {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .dropbtn {
+      gap: 6px;
+    }
+
+    .dropbtn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform var(--transition);
+      flex: 0 0 auto;
+    }
+
+    .dropdown:hover .dropbtn svg,
+    .dropdown:focus-within .dropbtn svg,
+    .dropdown.is-open .dropbtn svg {
+      transform: rotate(180deg);
+    }
+
+    .dropcontent {
+      position: absolute;
+      top: calc(100% + 2px);
+      left: 0;
+      z-index: 300;
+      min-width: 240px;
+      display: grid;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    }
+
+    .dropdown:hover .dropcontent,
+    .dropdown:focus-within .dropcontent,
+    .dropdown.is-open .dropcontent {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .dropcontent a {
+      justify-content: flex-start;
+      padding: 12px 14px;
+      border-radius: 12px;
+      white-space: normal;
+      line-height: 1.35;
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid var(--color-divider);
+      flex-shrink: 0;
+    }
+
+    .lang-list {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-link.is-active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      width: 44px;
+      padding-inline: 0;
+      font-size: 1rem;
+    }
+
+    main {
+      padding: 34px 0 90px;
+    }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 48px);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+      margin-bottom: 20px;
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(15, 93, 95, 0.06), transparent 24%),
+        radial-gradient(circle at 85% 18%, rgba(154, 106, 53, 0.05), transparent 22%);
+    }
+
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.88fr);
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--color-primary);
+    }
+
+    .hero-copy h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 0.97;
+      letter-spacing: -0.03em;
+      max-width: 10ch;
+      margin-bottom: 14px;
+    }
+
+    .lead {
+      max-width: 60ch;
+      color: var(--color-text-muted);
+      font-size: var(--text-lg);
+      margin-bottom: 18px;
+    }
+
+    .hero-note {
+      color: var(--color-text);
+      max-width: 62ch;
+      margin-bottom: 18px;
+      font-size: 0.98rem;
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--color-surface);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-surface-2);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .hero-proof,
+    .review-card,
+    .info-card,
+    .final-panel,
+    .section-shell {
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-proof {
+      padding: 18px 20px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-primary-soft) 50%, var(--color-surface)));
+    }
+
+    .hero-proof strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .hero-proof span {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .trust-item {
+      padding: 16px 18px;
+      border-radius: 22px;
+      border: 1px solid var(--color-border);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      box-shadow: var(--shadow-sm);
+    }
+
+    .trust-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    .trust-item span {
+      color: var(--color-text-muted);
+      font-size: 0.88rem;
+    }
+
+    .section-shell {
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .section-lead {
+      color: var(--color-text-muted);
+      max-width: 68ch;
+      margin-bottom: 18px;
+      font-size: 0.96rem;
+    }
+
+    .service-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .service-tab {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .service-tab:hover,
+    .service-tab.active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border-color: rgba(15, 93, 95, 0.26);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .review-card {
+      padding: 22px;
+      border-radius: 24px;
+      display: grid;
+      gap: 12px;
+      min-height: 100%;
+      transition: var(--transition);
+    }
+
+    .review-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .review-card.is-hidden {
+      display: none;
+    }
+
+    .review-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    .review-name {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .review-label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .review-context {
+      color: var(--color-text-faint);
+      font-size: 0.86rem;
+      line-height: 1.45;
+    }
+
+    .review-text {
+      color: var(--color-text);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .review-text p + p {
+      margin-top: 10px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .info-card {
+      padding: 22px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    }
+
+    .info-card h3 {
+      font-size: 1.02rem;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .info-card ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .info-card li {
+      color: var(--color-text-muted);
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .info-card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.62rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--color-primary);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 12%, transparent);
+    }
+
+    .final-panel {
+      margin-top: 20px;
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-accent-soft) 52%, var(--color-surface)));
+    }
+
+    .final-panel h2 {
+      font-size: var(--text-lg);
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .final-panel p {
+      color: var(--color-text-muted);
+      max-width: 58ch;
+      font-size: 0.92rem;
+    }
+
+    .footer {
+      padding: 36px 0 26px;
+      border-top: 1px solid var(--color-divider);
+      background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+      margin-top: 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer h4 {
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-faint);
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .footer a:hover {
+      color: var(--color-text);
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      justify-items: end;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 22px;
+      margin-top: 22px;
+      border-top: 1px solid var(--color-divider);
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+    }
+
+    @media (max-width: 1024px) {
+      .hero-inner,
+      .trust-row,
+      .info-grid,
+      .final-panel,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 14px;
+        right: 14px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid var(--color-border);
+        border-radius: 22px;
+        background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .menu.is-open {
+        display: flex;
+      }
+
+      .menu a,
+      .menu .dropbtn,
+      .theme-toggle,
+      .lang-link {
+        justify-content: flex-start;
+        border-radius: 14px;
+        font-size: 0.95rem;
+        padding: 10px 12px;
+      }
+
+      .menu a.is-highlight,
+      .menu .dropbtn.is-highlight {
+        justify-content: center;
+      }
+
+      .dropdown {
+        width: 100%;
+      }
+
+      .dropcontent {
+        position: static;
+        min-width: 0;
+        margin-top: 8px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+        display: none;
+        box-shadow: none;
+        border-radius: 16px;
+        background: var(--color-surface-2);
+      }
+
+      .dropdown.is-open .dropcontent {
+        display: grid;
+      }
+
+      .menu-tools {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+        padding-top: 6px;
+        border-top: 1px solid var(--color-divider);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(100% - 24px, var(--content-default));
+      }
+
+      .hero-shell,
+      .section-shell,
+      .review-card,
+      .info-card,
+      .final-panel,
+      .hero-proof,
+      .trust-item {
+        border-radius: 22px;
+      }
+
+      .hero-copy h1 {
+        max-width: 100%;
+      }
+
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .footer-links {
+        justify-items: start;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
 <body>
   <div class="progress" id="progress"></div>
 
   <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
-        <a class="brand-row" href="/es/">
+        <a class="brand-row" href="/" aria-label="TELWHA — ir a la página principal">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
           <strong>TELWHA</strong>
         </a>
-        <span class="sub">PSICOLOGÍA FINANCIERA · ESTRATEGIA CONDUCTUAL</span>
+        <span class="brand-sub">Behavioral Finance · Psychology</span>
       </div>
 
       <button
@@ -96,199 +995,437 @@
         aria-label="Abrir menú"
       >
         <span class="menu-toggle-lines" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </span>
       </button>
 
-      <nav class="menu" id="site-menu">
-        <div class="menu-group">
-          <a href="/es/">Inicio</a>
-          <a href="/finlab/">FinLab</a>
-          <a href="/es/about/">Sobre mí</a>
-        </div>
+      <nav class="menu" id="site-menu" aria-label="Navegación principal">
+        <a href="/">Inicio</a>
+        <a href="/about/">Sobre mí</a>
+        <a href="/cases/">Casos</a>
+        <a href="/articles/">Artículos</a>
+        <a href="/finlab/">FinLab</a>
 
-        <div class="menu-group menu-dropdown">
-          <button type="button" class="menu-dropbtn">Para traders ▾</button>
-          <div class="menu-dropcontent">
-            <a href="/es/trader-course/">Mini‑curso</a>
-            <a href="/es/archetype-test/">Test de arquetipos</a>
+        <div class="dropdown">
+          <button type="button" class="dropbtn is-highlight" aria-expanded="false">
+            Ponerte a prueba
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/finlab/money-test-api/money-test.html">Test de conducta financiera</a>
+            <a href="/habit-test.html">Adónde llevan tus hábitos</a>
+            <a href="/fact-or-fiction-cases.html">¿Hecho o ficción?</a>
           </div>
         </div>
 
-        <div class="menu-group">
-          <a href="/es/articles/">Artículos</a>
-          <a href="/es/reviews/">Opiniones</a>
-          <a href="/es/cases/">Casos</a>
-          <a href="/es/contact/">Contacto</a>
+        <div class="dropdown">
+          <button type="button" class="dropbtn" aria-expanded="false">
+            Para traders
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/trader-course/">Mini curso</a>
+            <a href="/archetype-test/">Arquetipo de trader</a>
+          </div>
         </div>
 
-        <div class="menu-group menu-tools">
-          <details class="lang-switcher lang-switcher--inside">
-            <summary>🇪🇸</summary>
-            <div class="lang-list">
-              <a href="/reviews/" aria-label="Українська" lang="uk">🇺🇦</a>
-              <a href="/en/reviews/" aria-label="English" lang="en">🇬🇧</a>
-            </div>
-          </details>
+        <a href="/es/reviews/" class="is-active">Opiniones</a>
+        <a href="/contact/">Contacto</a>
 
-          <button class="theme-toggle" type="button" aria-label="Cambiar tema">
-            🌓
-          </button>
+        <div class="menu-tools">
+          <div class="lang-list" aria-label="Idiomas del sitio">
+            <a class="lang-link" href="/reviews/" lang="uk" aria-label="Ucraniano">UA</a>
+            <a class="lang-link" href="/en/reviews/" lang="en" aria-label="English">EN</a>
+            <a class="lang-link is-active" href="/es/reviews/" lang="es" aria-label="Español">ES</a>
+          </div>
+
+          <button class="theme-toggle" type="button" aria-label="Cambiar tema">☀️</button>
         </div>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero">
-      <div class="wrap hero-shell fade-in">
+      <div class="wrap hero-shell">
         <div class="hero-inner">
           <div class="hero-copy">
             <div class="eyebrow">TELWHA / Opiniones</div>
             <h1>Lo que dicen los clientes</h1>
             <p class="lead">
-              Opiniones de personas con las que he trabajado en consultas, maratones y
-              acompañamiento más largo.
+              Esta página trata sobre la experiencia de personas que vinieron con preguntas sobre conducta financiera, psicología del trading, soporte analítico, decisiones difíciles y estabilidad interna.
+            </p>
+            <p class="hero-note">
+              Estas opiniones no prometen resultados mágicos. Muestran cómo las personas describen cambios reales: más claridad, menos caos, decisiones más calmadas, mejor contacto consigo mismas y una conducta financiera más madura.
             </p>
             <div class="cta">
-              <a class="btn btn-primary" href="/es/contact/">Reservar una consulta</a>
-              <a class="btn btn-secondary" href="/es/">Volver al inicio</a>
+              <a class="btn btn-primary" href="/contact/">Reservar una consulta</a>
+              <a class="btn btn-secondary" href="/about/">Saber más sobre mí</a>
             </div>
           </div>
-          <div class="hero-side"></div>
+
+          <aside class="hero-side" aria-label="Contexto de las opiniones">
+            <div class="hero-proof">
+              <strong>No son opiniones de plantilla</strong>
+              <span>Aquí se reúnen opiniones de distintos formatos: trabajo personal, trading, programas, analítica y acompañamiento en crisis.</span>
+            </div>
+
+            <div class="hero-proof">
+              <strong>Diversidad de demandas</strong>
+              <span>Las personas llegan con temas de estrés, riesgo, pérdidas, estrategia, autoestima, decisiones sobre dinero y presión profesional.</span>
+            </div>
+
+            <div class="hero-proof">
+              <strong>Un punto de referencia antes de contactar</strong>
+              <span>Lo mejor no es leer “todas las opiniones”, sino fijarse en el formato de trabajo que se parece más a tu situación actual.</span>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
 
-    <!-- OPINIONES -->
     <section class="content">
-      <div class="wrap fade-in">
-        <h2 class="section-title">Opiniones</h2>
-
-        <div class="grid-2">
-          <article class="card fade-in">
-            <h3>Valentyna</h3>
-            <p>Sobre el maratón: Lo más importante es que quiero darte las gracias, Hanna, por tu apoyo. Este maratón fue como un perdón hacia mí misma. Y, sinceramente, después de una de tus respuestas empecé a mirarme de otra manera. Mi autoestima subió.</p>
-          </article>
-
-          <article class="card fade-in">
-            <h3>Oleksii</h3>
-            <p>Anna es la persona con la que puedo hablar tranquilamente de mis errores e incluso alegrarme de ellos, como resultó. Gracias por el apoyo y por saber crear un ambiente de confianza. Gracias a nuestras conversaciones empecé a relacionarme con los fracasos con más calma y a ver en ellos un punto de crecimiento. Recomiendo a Anna a todos los que buscan no solo profesionalidad, sino también una actitud humana y sincera.</p>
-          </article>
-
-          <article class="card fade-in">
-            <h3>Ihor</h3>
-            <p>Anna se sumerge en el proceso y se entrega por completo al trabajo. Se nota que lo hace como alguien que ama su oficio. Es profesional tanto en psicología como en trading, por eso la solución a mi problema no tardó en llegar, entre otras cosas porque me entendió a medias palabras. Recomiendo a todo el mundo tener una amiga y psicóloga como Anna. Además del trabajo eficaz sobre mis temas, me alegra haber aprendido muchas cosas nuevas e interesantes. También quiero agradecerle por resaltar la importancia de cosas aparentemente simples y obvias. Cuando el problema está en la superficie como una piedra pesada y parte de ella no se ve, para eso hacen falta profesionales. Acudan a Anna: es una psicóloga y trader fuerte. La recomiendo.</p>
-          </article>
-
-          <article class="card fade-in">
-            <h3>Serhii</h3>
-            <p>Acudí a Anna un par de veces para análisis. La recomiendo.</p>
-          </article>
-
-          <article class="card fade-in">
-            <h3>Andrii</h3>
-            <p>Me dirigí a Anna cuando surgió una situación complicada en la cooperación con un inversor. Respondió muy rápido a mi consulta y me ayudó a salir del problema, ofreciendo apoyo y consejos en los momentos más críticos. Estoy especialmente agradecido por su atención al detalle y por lo cómodo que fue comunicarnos durante todo el proceso. Recomiendo a Anna como psicóloga y trader con experiencia que realmente ayuda en cuestiones difíciles.</p>
-          </article>
-
-          <article class="card fade-in">
-            <h3>Mykola</h3>
-            <p>Creía que tenía una estrategia, pero resultó que no. Me ayudaste a verlo y replantearlo. Gracias por la colaboración y el apoyo.</p>
-          </article>
-
-          <article class="card fade-in">
-            <h3>Oleh</h3>
-            <p>Ahora me resulta más fácil aceptar el riesgo. Gracias por el apoyo.</p>
-          </article>
-
-          <article class="card fade-in">
-            <h3>Denys</h3>
-            <p>Después de una gran pérdida me sentía muy mal, sobre todo por la presión de los inversores y por el estado en el que estaba. Tuvimos que repensar la situación juntos, recomponerme y no derrumbarme. Gracias por el apoyo en ese período.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PANEL DE EXPECTATIVAS -->
-    <section class="content">
-      <div class="wrap panel fade-in">
-        <div class="grid-2">
-          <div class="card">
-            <h3>Qué puedes esperar del trabajo</h3>
-            <ul>
-              <li>Análisis del comportamiento financiero sin abstracciones innecesarias.</li>
-              <li>Apoyo en situaciones difíciles a nivel emocional y de mercado.</li>
-              <li>Enfoque en decisiones, no en motivación decorativa.</li>
-              <li>Plena confidencialidad y privacidad.</li>
-            </ul>
+      <div class="wrap">
+        <div class="trust-row">
+          <div class="trust-item">
+            <strong>Trabajo personal</strong>
+            <span>Demandas sobre conducta financiera, estrés, decisiones, control y apoyo interno.</span>
           </div>
-          <div class="card">
-            <h3>A quién le encaja</h3>
-            <ul>
-              <li>Traders.</li>
-              <li>Inversores.</li>
-              <li>Personas que quieren gestionar mejor el dinero y el riesgo.</li>
-            </ul>
+          <div class="trust-item">
+            <strong>Trading</strong>
+            <span>Acompañamiento psicológico, trabajo con errores, riesgo, estrategia y presión por el resultado.</span>
+          </div>
+          <div class="trust-item">
+            <strong>Programas y analítica</strong>
+            <span>Maratones, revisiones estructuradas, demandas analíticas y trabajo con patrones de conducta.</span>
           </div>
         </div>
 
-        <div class="cta" style="margin-top:20px;">
-          <a class="btn btn-primary" href="/es/contact/">Reservar una consulta</a>
-          <a class="btn btn-secondary" href="/es/">Volver al inicio</a>
-        </div>
+        <section class="section-shell">
+          <h2 class="section-title">Opiniones por tipo de trabajo</h2>
+          <p class="section-lead">
+            El social proof funciona mejor cuando una persona puede reconocer ahí su propia historia. Por eso aquí puedes mirar opiniones no en general, sino según el formato de trabajo que más se parezca a lo que necesitas ahora.
+          </p>
+
+          <div class="service-tabs" aria-label="Filtro de opiniones">
+            <button class="service-tab active" type="button" data-filter="all">Todas las opiniones</button>
+            <button class="service-tab" type="button" data-filter="consulting">Consultas personales</button>
+            <button class="service-tab" type="button" data-filter="trading">Para traders</button>
+            <button class="service-tab" type="button" data-filter="programs">Maratones y programas</button>
+            <button class="service-tab" type="button" data-filter="analytics">Analítica</button>
+          </div>
+
+          <div class="reviews-grid">
+            <article class="review-card" data-category="programs">
+              <div class="review-top">
+                <h3 class="review-name">Valentyna</h3>
+                <div class="review-label">Maratón / programa</div>
+              </div>
+              <div class="review-context">Formato: participación en un maratón, apoyo emocional y trabajo con la autoestima.</div>
+              <div class="review-text">
+                <p>Sobre el maratón: lo más importante, gracias, Anna, por el apoyo. Este maratón fue un perdón hacia mí misma.</p>
+                <p>Y la verdad, después de una de tus respuestas empecé a mirarme un poco distinto. Mi autoestima subió.</p>
+              </div>
+            </article>
+
+            <article class="review-card" data-category="trading">
+              <div class="review-top">
+                <h3 class="review-name">Oleksii</h3>
+                <div class="review-label">Trabajo con trader</div>
+              </div>
+              <div class="review-context">Formato: apoyo psicológico, revisión de errores y un espacio seguro para trabajar los fracasos.</div>
+              <div class="review-text">
+                <p>Anna es la persona con la que puedo hablar tranquilamente de mis errores e incluso, como resultó, alegrarme de ellos.</p>
+                <p>Gracias por el apoyo y por saber crear una atmósfera de confianza. Gracias a nuestras conversaciones empecé a relacionarme con los fallos de forma más tranquila y a ver en ellos un punto de crecimiento.</p>
+                <p>Recomiendo a Anna a todos los que buscan no solo profesionalidad, sino también una actitud humana sincera.</p>
+              </div>
+            </article>
+
+            <article class="review-card" data-category="trading">
+              <div class="review-top">
+                <h3 class="review-name">Ihor</h3>
+                <div class="review-label">Psicología del trading</div>
+              </div>
+              <div class="review-context">Formato: trabajo con un problema en trading, combinando psicología y comprensión del mercado.</div>
+              <div class="review-text">
+                <p>Anna se sumerge en el proceso y se entrega por completo al trabajo. Se nota que lo hace como alguien que ama su oficio.</p>
+                <p>Anna es profesional tanto en psicología como en trading. Por eso resolver mi problema no tardó mucho, al menos porque me entendió al vuelo.</p>
+                <p>Contactad con Anna. Es una psicóloga y trader fuerte. La recomiendo.</p>
+              </div>
+            </article>
+
+            <article class="review-card" data-category="analytics trading">
+              <div class="review-top">
+                <h3 class="review-name">Serhii</h3>
+                <div class="review-label">Analítica</div>
+              </div>
+              <div class="review-context">Formato: demanda analítica puntual.</div>
+              <div class="review-text">
+                <p>He acudido a Anna un par de veces por analítica. La recomiendo.</p>
+              </div>
+            </article>
+
+            <article class="review-card" data-category="consulting trading">
+              <div class="review-top">
+                <h3 class="review-name">Andrii</h3>
+                <div class="review-label">Consulta personal</div>
+              </div>
+              <div class="review-context">Demanda: situación complicada en la colaboración con un inversor y necesidad de apoyo y claridad en un momento pico.</div>
+              <div class="review-text">
+                <p>Acudí a Anna cuando surgió una situación difícil en la colaboración con un inversor. Respondió rápidamente a mi demanda y me ayudó a salir de ese problema, brindando el apoyo y los consejos necesarios en los momentos más tensos.</p>
+                <p>Estoy especialmente agradecido por su atención a los detalles y por lo cómodo que fue comunicarse durante todo el proceso. Recomiendo a Anna como psicóloga y trader con experiencia que de verdad ayuda en cuestiones complejas.</p>
+              </div>
+            </article>
+
+            <article class="review-card" data-category="consulting trading">
+              <div class="review-top">
+                <h3 class="review-name">Mykola</h3>
+                <div class="review-label">Trabajo con estrategia</div>
+              </div>
+              <div class="review-context">Demanda: replantear la propia lógica de trading y el realismo de la estrategia.</div>
+              <div class="review-text">
+                <p>Creía que tenía una estrategia, pero resultó que no. Me ayudaste a verlo y a repensarlo. Gracias por la colaboración y el apoyo.</p>
+              </div>
+            </article>
+
+            <article class="review-card" data-category="consulting trading">
+              <div class="review-top">
+                <h3 class="review-name">Oleh</h3>
+                <div class="review-label">Apoyo en el riesgo</div>
+              </div>
+              <div class="review-context">Demanda: una actitud más tranquila hacia el riesgo y la tensión interna en las decisiones.</div>
+              <div class="review-text">
+                <p>Me resulta más fácil aceptar el riesgo. Gracias por el apoyo.</p>
+              </div>
+            </article>
+
+            <article class="review-card" data-category="consulting trading">
+              <div class="review-top">
+                <h3 class="review-name">Denys</h3>
+                <div class="review-label">Apoyo en crisis</div>
+              </div>
+              <div class="review-context">Demanda: apoyo tras una pérdida grande, presión de inversores y necesidad de recomponerse sin romperse.</div>
+              <div class="review-text">
+                <p>Después de una pérdida grande me fue muy difícil, sobre todo por la presión de los inversores y el estado en el que me encontraba.</p>
+                <p>Tuvimos que replantear la situación juntos, recomponerme y no quebrarme. Gracias por el apoyo en ese periodo.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-shell">
+          <h2 class="section-title">Qué suelen llevarse del trabajo</h2>
+          <p class="section-lead">
+            El formato depende de la demanda, pero la mayoría de personas viene no por “motivación”, sino por claridad, apoyo interno y una forma más adulta de tomar decisiones financieras.
+          </p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>Qué se puede esperar</h3>
+              <ul>
+                <li>Análisis de la conducta financiera sin abstracciones de más.</li>
+                <li>Apoyo en situaciones emocionales, de mercado y laborales difíciles.</li>
+                <li>Foco en la solución, no en la motivación decorativa.</li>
+                <li>Confidencialidad y privacidad completas.</li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3>A quién le puede servir</h3>
+              <ul>
+                <li>A traders e inversores.</li>
+                <li>A personas que quieren gestionar mejor el dinero y el riesgo.</li>
+                <li>A quienes se ven atrapados en un patrón repetitivo y quieren verlo con más claridad.</li>
+                <li>A quienes necesitan un análisis individual y no un consejo genérico de internet.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="final-panel">
+            <div>
+              <h2>¿Quieres entender qué formato de trabajo encaja mejor contigo?</h2>
+              <p>
+                Puedes empezar con una breve consulta a través del formulario de contacto y luego ver si se trata de una consulta personal, trabajo ligado al trading, una demanda analítica u otro formato.
+              </p>
+            </div>
+            <div class="cta">
+              <a class="btn btn-primary" href="/contact/">Enviar una consulta</a>
+              <a class="btn btn-secondary" href="/cases/">Ver casos</a>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="wrap">
-      <div class="footer-grid fade-in">
+      <div class="footer-grid">
         <div>
           <h4>TELWHA</h4>
-          <p>Psicología financiera, economía conductual y arquitectura de elección para mejores decisiones y resultados más estables.</p>
+          <p>Psicología financiera, economía del comportamiento y arquitectura de elección para mejores decisiones y resultados sostenibles.</p>
         </div>
+
         <div style="text-align:right">
           <h4>Navegación</h4>
-          <div class="footer-links" style="align-items:flex-end">
-            <a href="/es/">Inicio</a>
-            <a href="/es/about/">Sobre mí</a>
-            <a href="/es/contact/">Contacto</a>
-          </div>
-        </div>
-        <div>
-          <h4>Acciones</h4>
           <div class="footer-links">
-            <a href="/es/archetype-test/">Test de arquetipos</a>
-            <a href="/es/trader-course/">Mini curso para traders</a>
+            <a href="/">Inicio</a>
+            <a href="/finlab/">FinLab</a>
+            <a href="/reviews/">Opiniones</a>
+            <a href="/contact/">Contacto</a>
           </div>
         </div>
       </div>
+
       <div class="footer-bottom">
         <span>© 2026 TELWHA. Todos los derechos reservados.</span>
-        <span>Kyiv, Ucrania · 🇺🇦</span>
+        <span>Kíev, Ucrania</span>
       </div>
     </div>
   </footer>
 
-  <script src="/static/script/global.js"></script>
   <script>
-    const menuToggle = document.querySelector(".menu-toggle");
-    const siteMenu = document.querySelector("#site-menu");
+    function updateProgressBar() {
+      const progress = document.getElementById("progress");
+      if (!progress) return;
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressValue = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = progressValue + "%";
+    }
 
-    if (menuToggle && siteMenu) {
-      menuToggle.addEventListener("click", () => {
-        const isOpen = siteMenu.classList.toggle("is-open");
-        menuToggle.classList.toggle("is-open", isOpen);
-        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        menuToggle.setAttribute(
-          "aria-label",
-          isOpen ? "Cerrar menú" : "Abrir menú"
-        );
+    function syncThemeButtonUI() {
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (!themeBtn) return;
+      const current = document.documentElement.getAttribute("data-theme") || "light";
+      themeBtn.textContent = current === "dark" ? "🌙" : "☀️";
+      themeBtn.setAttribute(
+        "aria-label",
+        current === "dark" ? "Cambiar a tema claro" : "Cambiar a tema oscuro"
+      );
+    }
+
+    function closeAllDropdowns(except = null) {
+      document.querySelectorAll(".dropdown").forEach((dropdown) => {
+        if (dropdown === except) return;
+        dropdown.classList.remove("is-open");
+        const button = dropdown.querySelector(".dropbtn");
+        if (button) button.setAttribute("aria-expanded", "false");
       });
     }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      updateProgressBar();
+      window.addEventListener("scroll", updateProgressBar, { passive: true });
+
+      const root = document.documentElement;
+      let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      root.setAttribute("data-theme", currentTheme);
+      syncThemeButtonUI();
+
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (themeBtn) {
+        themeBtn.addEventListener("click", () => {
+          currentTheme = currentTheme === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", currentTheme);
+          syncThemeButtonUI();
+        });
+      }
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const siteMenu = document.querySelector("#site-menu");
+
+      if (menuToggle && siteMenu) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = siteMenu.classList.toggle("is-open");
+          menuToggle.classList.toggle("is-open", isOpen);
+          menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+
+          if (!isOpen) closeAllDropdowns();
+        });
+      }
+
+      document.querySelectorAll(".dropbtn").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          if (window.innerWidth > 920) return;
+          event.stopPropagation();
+          const parent = button.parentElement;
+          const willOpen = !parent.classList.contains("is-open");
+          closeAllDropdowns(parent);
+          parent.classList.toggle("is-open", willOpen);
+          button.setAttribute("aria-expanded", willOpen ? "true" : "false");
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".dropdown")) {
+          closeAllDropdowns();
+        }
+
+        const nav = document.querySelector(".nav");
+        if (
+          window.innerWidth <= 920 &&
+          siteMenu &&
+          siteMenu.classList.contains("is-open") &&
+          nav &&
+          !nav.contains(event.target)
+        ) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Abrir menú");
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeAllDropdowns();
+
+          if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle?.classList.remove("is-open");
+            menuToggle?.setAttribute("aria-expanded", "false");
+            menuToggle?.setAttribute("aria-label", "Abrir menú");
+            menuToggle?.focus();
+          }
+        }
+      });
+
+      document.querySelectorAll('#site-menu a[href]').forEach((link) => {
+        link.addEventListener("click", () => {
+          closeAllDropdowns();
+
+          if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle?.classList.remove("is-open");
+            menuToggle?.setAttribute("aria-expanded", "false");
+            menuToggle?.setAttribute("aria-label", "Abrir menú");
+          }
+        });
+      });
+
+      const filterButtons = document.querySelectorAll(".service-tab");
+      const reviewCards = document.querySelectorAll(".review-card");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const filter = button.dataset.filter;
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+
+          reviewCards.forEach((card) => {
+            const categories = (card.dataset.category || "").split(" ");
+            const show = filter === "all" || categories.includes(filter);
+            card.classList.toggle("is-hidden", !show);
+          });
+        });
+      });
+    });
   </script>
 </body>
 </html>
