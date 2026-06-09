@@ -7,13 +7,13 @@
 
 
   <title>TELWHA | Artículos</title>
-  <meta name="description" content="Artículos de TELWHA sobre psicología del dinero, trading, riesgo, patrones de comportamiento e investigaciones de FinLab.">
+  <meta name="description" content="Artículos de TELWHA sobre psicología del dinero, trading, riesgo, patrones de comportamiento e investigación de FinLab.">
   <link rel="canonical" href="https://t-e-l-w-h-a.com/articles/">
 
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="TELWHA | Artículos">
-  <meta property="og:description" content="Materiales educativos, analíticos y de investigación de TELWHA sobre dinero, trading, riesgo y mecanismos de comportamiento.">
+  <meta property="og:description" content="Materiales educativos, analíticos y de investigación de TELWHA sobre dinero, trading, riesgo y mecanismos conductuales.">
   <meta property="og:url" content="https://t-e-l-w-h-a.com/articles/">
   <meta property="og:site_name" content="TELWHA">
 
@@ -47,13 +47,11 @@
   }
   </script>
 
-
   <style>
     :root,
     [data-theme="light"] {
       --font-display: "Boska", Georgia, serif;
       --font-body: "Satoshi", "Inter", sans-serif;
-
 
       --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
       --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
@@ -62,39 +60,32 @@
       --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
       --text-2xl: clamp(2.2rem, 1.5rem + 2vw, 4rem);
 
-
       --color-bg: #f5f3ef;
       --color-surface: #fcfbf8;
       --color-surface-2: #f2efe9;
       --color-border: rgba(40, 37, 29, 0.10);
       --color-divider: rgba(40, 37, 29, 0.08);
 
-
       --color-text: #22201a;
       --color-text-muted: #65625b;
       --color-text-faint: #8b877f;
       --color-text-inverse: #f9f8f5;
 
-
       --color-primary: #0f5d5f;
       --color-primary-hover: #0b4b4d;
       --color-primary-soft: rgba(15, 93, 95, 0.08);
 
-
       --color-accent: #9a6a35;
       --color-accent-soft: rgba(154, 106, 53, 0.08);
-
 
       --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
       --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
       --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
 
-
       --content-default: 1160px;
       --radius-xl: 32px;
       --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
     }
-
 
     [data-theme="dark"] {
       --color-bg: #171614;
@@ -103,27 +94,22 @@
       --color-border: rgba(255, 255, 255, 0.10);
       --color-divider: rgba(255, 255, 255, 0.08);
 
-
       --color-text: #ece6dd;
       --color-text-muted: #b7afa2;
       --color-text-faint: #91897c;
       --color-text-inverse: #171614;
 
-
       --color-primary: #6ca7a7;
       --color-primary-hover: #84baba;
       --color-primary-soft: rgba(108, 167, 167, 0.10);
 
-
       --color-accent: #c79c68;
       --color-accent-soft: rgba(199, 156, 104, 0.09);
-
 
       --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
       --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
       --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
     }
-
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -138,11 +124,9 @@
       text-rendering: optimizeLegibility;
     }
 
-
     img, svg { display: block; max-width: 100%; height: auto; }
     a { color: inherit; text-decoration: none; }
     button { border: 0; background: none; cursor: pointer; font: inherit; color: inherit; }
-
 
     :focus-visible {
       outline: 2px solid var(--color-primary);
@@ -150,12 +134,10 @@
       border-radius: 10px;
     }
 
-
     .wrap {
       width: min(100% - 28px, var(--content-default));
       margin-inline: auto;
     }
-
 
     .progress {
       position: fixed;
@@ -165,7 +147,6 @@
       height: 3px;
       background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
     }
-
 
     .topbar {
       position: sticky;
@@ -177,7 +158,6 @@
       border-bottom: 1px solid var(--color-divider);
     }
 
-
     .nav {
       display: grid;
       grid-template-columns: auto 1fr;
@@ -185,14 +165,12 @@
       gap: 18px;
     }
 
-
     .brand {
       display: flex;
       flex-direction: column;
       gap: 4px;
       min-width: 0;
     }
-
 
     .brand-row {
       display: inline-flex;
@@ -204,14 +182,12 @@
       white-space: nowrap;
     }
 
-
     .brand-mark {
       width: 26px;
       height: 26px;
       color: var(--color-primary);
       flex: 0 0 auto;
     }
-
 
     .brand-sub {
       color: var(--color-text-faint);
@@ -220,7 +196,6 @@
       text-transform: uppercase;
       max-width: 240px;
     }
-
 
     .menu-toggle {
       display: none;
@@ -234,18 +209,15 @@
       transition: var(--transition);
     }
 
-
     .menu-toggle:hover {
       background: var(--color-surface-2);
     }
-
 
     .menu-toggle-lines {
       display: inline-flex;
       flex-direction: column;
       gap: 4px;
     }
-
 
     .menu-toggle-lines span {
       width: 18px;
@@ -255,21 +227,17 @@
       transition: transform var(--transition), opacity var(--transition);
     }
 
-
     .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
       transform: translateY(6px) rotate(45deg);
     }
-
 
     .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
       opacity: 0;
     }
 
-
     .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
       transform: translateY(-6px) rotate(-45deg);
     }
-
 
     .menu {
       display: flex;
@@ -279,7 +247,6 @@
       min-width: 0;
       flex-wrap: nowrap;
     }
-
 
     .menu a,
     .menu .dropbtn,
@@ -300,7 +267,6 @@
       flex-shrink: 0;
     }
 
-
     .menu a:hover,
     .menu .dropbtn:hover,
     .theme-toggle:hover,
@@ -309,13 +275,11 @@
       background: var(--color-surface-2);
     }
 
-
     .menu a.is-active {
       color: var(--color-text);
       background: var(--color-surface-2);
       border: 1px solid var(--color-border);
     }
-
 
     .menu a.is-highlight,
     .menu .dropbtn.is-highlight {
@@ -325,30 +289,25 @@
       box-shadow: var(--shadow-sm);
     }
 
-
     .menu a.is-highlight:hover,
     .menu .dropbtn.is-highlight:hover {
       background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
       color: var(--color-text-inverse);
     }
 
-
     [data-theme="dark"] .menu a.is-highlight,
     [data-theme="dark"] .menu .dropbtn.is-highlight {
       color: #141311;
     }
-
 
     .dropdown {
       position: relative;
       flex-shrink: 0;
     }
 
-
     .dropbtn {
       gap: 6px;
     }
-
 
     .dropbtn svg {
       width: 14px;
@@ -357,13 +316,11 @@
       flex: 0 0 auto;
     }
 
-
     .dropdown:hover .dropbtn svg,
     .dropdown:focus-within .dropbtn svg,
     .dropdown.is-open .dropbtn svg {
       transform: rotate(180deg);
     }
-
 
     .dropcontent {
       position: absolute;
@@ -385,7 +342,6 @@
       transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
     }
 
-
     .dropdown:hover .dropcontent,
     .dropdown:focus-within .dropcontent,
     .dropdown.is-open .dropcontent {
@@ -395,6 +351,9 @@
       transform: translateY(0);
     }
 
+    .dropcontent[aria-hidden="true"] {
+      pointer-events: none;
+    }
 
     .dropcontent a {
       justify-content: flex-start;
@@ -403,7 +362,6 @@
       white-space: normal;
       line-height: 1.35;
     }
-
 
     .menu-tools {
       display: flex;
@@ -415,12 +373,10 @@
       flex-shrink: 0;
     }
 
-
     .lang-list {
       display: flex;
       gap: 4px;
     }
-
 
     .lang-link.is-active {
       background: var(--color-surface-2);
@@ -428,23 +384,19 @@
       border: 1px solid var(--color-border);
     }
 
-
     .theme-toggle {
       border: 1px solid var(--color-border);
       background: var(--color-surface);
     }
-
 
     .theme-toggle svg {
       width: 17px;
       height: 17px;
     }
 
-
     .page {
       padding: 34px 0 90px;
     }
-
 
     .hero-shell {
       position: relative;
@@ -457,7 +409,6 @@
       margin-bottom: 24px;
     }
 
-
     .hero-shell::before {
       content: "";
       position: absolute;
@@ -468,7 +419,6 @@
         radial-gradient(circle at 85% 18%, rgba(154, 106, 53, 0.05), transparent 22%);
     }
 
-
     .hero-grid {
       position: relative;
       display: grid;
@@ -476,7 +426,6 @@
       gap: 28px;
       align-items: stretch;
     }
-
 
     .eyebrow {
       display: inline-flex;
@@ -490,14 +439,12 @@
       font-weight: 700;
     }
 
-
     .eyebrow::before {
       content: "";
       width: 22px;
       height: 1px;
       background: var(--color-primary);
     }
-
 
     .hero-title {
       font-family: var(--font-display);
@@ -508,44 +455,27 @@
       margin-bottom: 14px;
     }
 
-
     .hero-sub {
       max-width: 62ch;
       color: var(--color-text-muted);
       font-size: var(--text-lg);
     }
 
-
-    .hero-note {
-      margin-top: 18px;
-      color: var(--color-text);
-      font-size: 0.98rem;
-      max-width: 62ch;
-    }
-
-
-    .hero-note a {
-      color: var(--color-primary);
-      font-weight: 700;
-    }
-
-
     .hero-featured,
     .section-card,
     .article-card,
-    .cta-panel {
+    .cta-panel,
+    .empty-state {
       border: 1px solid var(--color-border);
       background: color-mix(in srgb, var(--color-surface) 96%, transparent);
       box-shadow: var(--shadow-sm);
     }
-
 
     .hero-featured {
       padding: 22px;
       border-radius: 24px;
       background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-primary-soft) 55%, var(--color-surface)));
     }
-
 
     .hero-featured-label {
       display: inline-flex;
@@ -563,13 +493,11 @@
       margin-bottom: 12px;
     }
 
-
     .hero-featured h2 {
       font-size: var(--text-lg);
       line-height: 1.15;
       margin-bottom: 8px;
     }
-
 
     .hero-featured-meta {
       color: var(--color-text-faint);
@@ -577,19 +505,16 @@
       margin-bottom: 10px;
     }
 
-
     .hero-featured p {
       color: var(--color-text-muted);
       margin-bottom: 14px;
       font-size: 0.94rem;
     }
 
-
     .hero-featured a {
       color: var(--color-primary);
       font-weight: 700;
     }
-
 
     .section-card {
       padding: 24px;
@@ -597,14 +522,12 @@
       margin-bottom: 18px;
     }
 
-
     .filters {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 14px;
     }
-
 
     .filter-chip {
       min-height: 42px;
@@ -620,7 +543,6 @@
       transition: var(--transition);
     }
 
-
     .filter-chip:hover,
     .filter-chip.active {
       background: var(--color-surface-2);
@@ -628,20 +550,32 @@
       border-color: rgba(15, 93, 95, 0.26);
     }
 
+    .articles-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
 
     .articles-hint {
       color: var(--color-text-muted);
       font-size: 0.92rem;
-      margin-bottom: 18px;
+      max-width: 68ch;
     }
 
+    .articles-count {
+      color: var(--color-text-faint);
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
 
     .articles-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
     }
-
 
     .article-card {
       display: grid;
@@ -652,17 +586,14 @@
       transition: var(--transition);
     }
 
-
     .article-card:hover {
       transform: translateY(-2px);
       box-shadow: var(--shadow-md);
     }
 
-
     .article-card.is-hidden {
       display: none;
     }
-
 
     .article-tag {
       display: inline-flex;
@@ -680,24 +611,20 @@
       letter-spacing: 0.08em;
     }
 
-
     .article-title {
       font-size: var(--text-lg);
       line-height: 1.15;
     }
-
 
     .article-meta {
       color: var(--color-text-faint);
       font-size: 0.88rem;
     }
 
-
     .article-excerpt {
       color: var(--color-text-muted);
       font-size: 0.94rem;
     }
-
 
     .article-footer {
       display: flex;
@@ -708,19 +635,16 @@
       margin-top: auto;
     }
 
-
     .article-link {
       color: var(--color-primary);
       font-weight: 700;
       font-size: 0.94rem;
     }
 
-
     .article-video-flag {
       color: var(--color-text-faint);
       font-size: 0.82rem;
     }
-
 
     .article-badge {
       display: inline-flex;
@@ -737,6 +661,33 @@
       letter-spacing: 0.04em;
     }
 
+    .empty-state {
+      display: none;
+      margin-top: 18px;
+      padding: 26px;
+      border-radius: 24px;
+      text-align: left;
+    }
+
+    .empty-state.is-visible {
+      display: block;
+    }
+
+    .empty-state h3 {
+      font-size: var(--text-lg);
+      margin-bottom: 8px;
+    }
+
+    .empty-state p {
+      color: var(--color-text-muted);
+      max-width: 58ch;
+      margin-bottom: 14px;
+    }
+
+    .empty-state a {
+      color: var(--color-primary);
+      font-weight: 700;
+    }
 
     .articles-separator {
       padding: 6px 0 22px;
@@ -744,12 +695,10 @@
       font-size: 0.95rem;
     }
 
-
     .articles-separator a {
       color: var(--color-primary);
       font-weight: 700;
     }
-
 
     .cta-panel {
       margin-top: 22px;
@@ -762,13 +711,11 @@
       background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-accent-soft) 52%, var(--color-surface)));
     }
 
-
     .cta-panel h2 {
       font-size: var(--text-lg);
       line-height: 1.15;
       margin-bottom: 6px;
     }
-
 
     .cta-panel p {
       color: var(--color-text-muted);
@@ -776,13 +723,11 @@
       font-size: 0.92rem;
     }
 
-
     .cta-links {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
-
 
     .btn {
       min-height: 46px;
@@ -801,12 +746,10 @@
       box-shadow: var(--shadow-sm);
     }
 
-
     .btn:hover {
       background: var(--color-primary-hover);
       transform: translateY(-1px);
     }
-
 
     .btn-secondary {
       background: var(--color-surface);
@@ -815,11 +758,9 @@
       box-shadow: none;
     }
 
-
     .btn-secondary:hover {
       background: var(--color-surface-2);
     }
-
 
     .footer {
       padding: 36px 0 26px;
@@ -828,14 +769,12 @@
       margin-top: 28px;
     }
 
-
     .footer-grid {
       display: grid;
       grid-template-columns: 1.4fr 0.8fr;
       gap: 24px;
       align-items: start;
     }
-
 
     .footer h4 {
       font-size: var(--text-sm);
@@ -845,25 +784,21 @@
       margin-bottom: 12px;
     }
 
-
     .footer p,
     .footer a {
       color: var(--color-text-muted);
       font-size: 0.92rem;
     }
 
-
     .footer a:hover {
       color: var(--color-text);
     }
-
 
     .footer-links {
       display: grid;
       gap: 10px;
       justify-items: end;
     }
-
 
     .footer-bottom {
       display: flex;
@@ -877,13 +812,11 @@
       font-size: var(--text-xs);
     }
 
-
     @media (max-width: 1180px) {
       .articles-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
-
 
     @media (max-width: 1024px) {
       .hero-grid,
@@ -893,7 +826,6 @@
       }
     }
 
-
     @media (max-width: 920px) {
       .nav {
         grid-template-columns: auto auto;
@@ -901,11 +833,9 @@
         position: relative;
       }
 
-
       .menu-toggle {
         display: inline-flex;
       }
-
 
       .menu {
         position: absolute;
@@ -922,11 +852,9 @@
         box-shadow: var(--shadow-lg);
       }
 
-
       .menu.is-open {
         display: flex;
       }
-
 
       .menu a,
       .menu .dropbtn,
@@ -938,11 +866,9 @@
         padding: 10px 12px;
       }
 
-
       .dropdown {
         width: 100%;
       }
-
 
       .dropcontent {
         position: static;
@@ -958,11 +884,9 @@
         background: var(--color-surface-2);
       }
 
-
       .dropdown.is-open .dropcontent {
         display: grid;
       }
-
 
       .menu-tools {
         margin-left: 0;
@@ -973,58 +897,49 @@
       }
     }
 
-
     @media (max-width: 720px) {
       .wrap {
         width: min(100% - 24px, var(--content-default));
       }
 
-
       .hero-shell,
       .hero-featured,
       .section-card,
       .article-card,
-      .cta-panel {
+      .cta-panel,
+      .empty-state {
         border-radius: 22px;
       }
-
 
       .hero-title {
         max-width: 100%;
       }
 
-
       .articles-grid {
         grid-template-columns: 1fr;
       }
-
 
       .cta-links {
         width: 100%;
         flex-direction: column;
       }
 
-
       .cta-links .btn {
         width: 100%;
       }
-
 
       .footer-links {
         justify-items: start;
       }
 
-
       .footer-bottom {
         flex-direction: column;
       }
-
 
       .brand-sub {
         max-width: 170px;
       }
     }
-
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -1042,7 +957,7 @@
   <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
-        <a class="brand-row" href="/" aria-label="TELWHA — ir a la página principal">
+        <a class="brand-row" href="/" aria-label="TELWHA — volver a la página principal">
           <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
             <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
             <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
@@ -1050,7 +965,7 @@
           </svg>
           <strong>TELWHA</strong>
         </a>
-        <span class="brand-sub">Behavioral Finance · Psychology</span>
+        <span class="brand-sub">Finanzas conductuales · Psicología</span>
       </div>
 
 
@@ -1069,49 +984,63 @@
 
       <nav class="menu" id="site-menu" aria-label="Navegación principal">
         <a href="/">Inicio</a>
-        <a href="/about/">Sobre mí</a>
-        <a href="/cases/">Casos</a>
-        <a href="/articles/" class="is-active">Artículos</a>
-        <a href="/finlab/">FinLab</a>
+        <a href="/es/about/index.html">Sobre mí</a>
+        <a href="/es/cases/index.html">Casos</a>
+        <a href="/es/articles/index.html" class="is-active">Artículos</a>
+        <a href="/es/finlab/index.html">FinLab</a>
 
 
         <div class="dropdown">
-          <button type="button" class="dropbtn is-highlight" aria-expanded="false" aria-haspopup="true">
-            Ponerte a prueba
+          <button
+            type="button"
+            class="dropbtn is-highlight"
+            id="self-check-toggle"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-controls="self-check-menu"
+          >
+            Ponte a prueba
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="dropcontent">
-            <a href="/finlab/money-test-api/money-test.html">Test de comportamiento financiero</a>
-            <a href="/habit-test.html">¿A dónde te llevan tus hábitos?</a>
-            <a href="/fact-or-fiction-cases.html">¿Hecho o ficción?</a>
+          <div class="dropcontent" id="self-check-menu" aria-hidden="true" aria-labelledby="self-check-toggle">
+            <a href="/es/finlab/money-test.html">Test de comportamiento financiero</a>
+            <a href="/es/habit-test.html">¿A dónde te llevan tus hábitos?</a>
+            <a href="/es/fact-or-fiction-cases.html">¿Hecho o ficción?</a>
           </div>
         </div>
 
 
         <div class="dropdown">
-          <button type="button" class="dropbtn" aria-expanded="false" aria-haspopup="true">
+          <button
+            type="button"
+            class="dropbtn"
+            id="traders-toggle"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-controls="traders-menu"
+          >
             Para traders
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="dropcontent">
-            <a href="/trader-course/">Mini curso</a>
-            <a href="/archetype-test/">Arquetipo de trader</a>
+          <div class="dropcontent" id="traders-menu" aria-hidden="true" aria-labelledby="traders-toggle">
+            <a href="/es/trader-course/">Mini curso</a>
+            <a href="/es/archetype-test/">Arquetipo del trader</a>
           </div>
         </div>
 
 
-        <a href="/reviews/">Reseñas</a>
-        <a href="/contact/">Contactos</a>
+        <a href="/es/reviews/">Reseñas</a>
+        <a href="/es/contact/">Contactos</a>
 
 
         <div class="menu-tools">
           <div class="lang-list" aria-label="Idiomas del sitio">
-            <a class="lang-link" href="/articles/" lang="uk" aria-label="Ucraniano">UA</a>
-            <a class="lang-link" href="/en/articles/" lang="en" aria-label="Inglés">EN</a>
+            <a class="lang-link " href="/articles/" lang="uk" aria-label="Ucraniano">UA</a>
+            <a class="lang-link" href="/en/articles/" lang="en" aria-label="English">EN</a>
             <a class="lang-link is-active" href="/es/articles/" lang="es" aria-label="Español">ES</a>
           </div>
 
@@ -1133,14 +1062,13 @@
       </nav>
     </div>
   </header>
-
-
-  <main class="page">
+  
+   <main class="page">
     <div class="wrap">
       <section class="hero-shell">
         <div class="hero-grid">
           <div>
-            <div class="eyebrow">TELWHA / Artículos</div>
+            <div class="eyebrow">TELWHA / Articles</div>
             <h1 class="hero-title">Artículos y análisis</h1>
             <p class="hero-sub">
               Materiales educativos, analíticos y de investigación sobre psicología del dinero, trading, riesgo, patrones de comportamiento y FinLab.
@@ -1153,10 +1081,10 @@
             <h2>Tus acciones “irracionales” son datos valiosos</h2>
             <div class="hero-featured-meta">Psicología del dinero · 1 de junio de 2025 · 8 min de lectura</div>
             <p>
-              Cómo mirar tus acciones financieras “irracionales” como datos sobre pensamiento, emociones
-              y patrones, y no como fracasos. Un marco práctico para analizarlas.
+              Cómo ver tus acciones financieras “irracionales” como datos sobre pensamiento, emociones
+              y patrones, y no como fracasos. Un marco práctico de análisis.
             </p>
-            <a href="/articles/irrational-actions-as-data.html">Leer artículo →</a>
+            <a href="/es/articles/irrational-actions-as-data.html">Leer el artículo →</a>
           </aside>
         </div>
       </section>
@@ -1169,38 +1097,41 @@
           <button class="filter-chip" type="button" data-filter="trading">Trading</button>
           <button class="filter-chip" type="button" data-filter="couples">Parejas y dinero</button>
           <button class="filter-chip" type="button" data-filter="finlab">FinLab</button>
-          <button class="filter-chip" type="button" data-filter="experiments">Experimentos</button>
         </section>
 
 
-        <p class="articles-hint">
-          En esta sección no hay casos prácticos separados sobre Bybit, collections o transaction risk monitoring — ya se han trasladado a “Casos”.
-        </p>
+        <div class="articles-meta-row">
+          <p class="articles-hint">
+            Aquí se reúnen materiales explicativos, analíticos y de estilo research. Si necesitas análisis más aplicados de escenarios, productos y situaciones conductuales, ve a la
+            <a href="/cases/">sección de casos</a>.
+          </p>
+          <p class="articles-count" id="articlesCount" aria-live="polite">Se muestran 6 materiales</p>
+        </div>
 
 
         <section id="articles" class="articles-grid" aria-label="Lista de artículos">
-          <article class="article-card" data-tag="money">
+          <article class="article-card" data-tags="money">
             <div class="article-tag">Psicología del dinero</div>
             <h2 class="article-title">Tus acciones “irracionales” son datos valiosos</h2>
             <p class="article-meta">1 de junio de 2025 · 8 min de lectura</p>
             <p class="article-excerpt">
-              Cómo mirar tus acciones financieras “irracionales” como datos sobre pensamiento, emociones
-              y patrones, y no como fracasos. Un marco práctico para analizarlas.
+              Cómo ver tus acciones financieras “irracionales” como datos sobre pensamiento, emociones
+              y patrones, y no como fracasos. Un marco práctico de análisis.
             </p>
             <div class="article-footer">
               <a class="article-link" href="/articles/irrational-actions-as-data.html">Leer →</a>
-              <span class="article-video-flag">+ vídeo en YouTube</span>
+              <span class="article-video-flag">+ video en YouTube</span>
             </div>
           </article>
 
 
-          <article class="article-card" data-tag="trading">
+          <article class="article-card" data-tags="trading">
             <div class="article-tag">Trading</div>
-            <h2 class="article-title">Por qué, después de 5 operaciones, la mente se “desenfoca”</h2>
+            <h2 class="article-title">Por qué el cerebro “se nubla” después de 5 operaciones</h2>
             <p class="article-meta">12 de junio de 2025 · 6 min de lectura</p>
             <p class="article-excerpt">
-              Decision fatigue en el trading: cómo el número de decisiones al día se come la disciplina,
-              aumenta la impulsividad y qué hacer con ello en la práctica.
+              Fatiga de decisión en el trading: cómo la cantidad de decisiones por día erosiona la disciplina, aumenta
+              la impulsividad y qué hacer con ello en la práctica.
             </p>
             <div class="article-footer">
               <a class="article-link" href="/articles/decision-fatigue-trading.html">Leer →</a>
@@ -1209,13 +1140,13 @@
           </article>
 
 
-          <article class="article-card" data-tag="couples">
+          <article class="article-card" data-tags="couples">
             <div class="article-tag">Parejas y dinero</div>
-            <h2 class="article-title">Cuando las conversaciones sobre dinero terminan en discusión</h2>
+            <h2 class="article-title">Cuando las conversaciones financieras terminan en pelea</h2>
             <p class="article-meta">20 de junio de 2025 · 7 min de lectura</p>
             <p class="article-excerpt">
-              Por qué se repiten los mismos disparadores en las conversaciones sobre dinero en pareja
-              y cómo transformar el conflicto financiero en un proceso de decisión conjunta.
+              Por qué los mismos desencadenantes se repiten en las conversaciones sobre dinero en pareja, y cómo convertir
+              el conflicto financiero en un formato de decisión compartida.
             </p>
             <div class="article-footer">
               <a class="article-link" href="/articles/couples-money-conflicts.html">Leer →</a>
@@ -1224,75 +1155,81 @@
           </article>
 
 
-          <article class="article-card" data-tag="finlab">
+          <article class="article-card" data-tags="finlab">
             <div class="article-tag">FinLab · Investigación</div>
             <h2 class="article-title">Sesgos cognitivos en textos financieros</h2>
             <p class="article-meta">1 de marzo de 2026 · 10 min de lectura</p>
             <p class="article-excerpt">
-              Cómo se manifiestan los sesgos cognitivos en informes, noticias y redes sociales, y por qué,
-              sin género ni contexto, los modelos de IA pueden mezclar lenguaje jurídico, hype y miedo de mercado
-              en una única señal distorsionada.
+              Cómo se manifiestan los sesgos cognitivos en informes, noticias y redes sociales, y por qué
+              sin género ni contexto los modelos de IA pueden mezclar lenguaje jurídico, hype y miedo del mercado
+              en una sola señal distorsionada.
             </p>
             <div class="article-footer">
-              <a class="article-link" href="/articles/mastercase.html">Leer →</a>
+              <a class="article-link" href="/es/articles/mastercase.html">Leer →</a>
               <span class="article-video-flag"></span>
             </div>
           </article>
 
 
-          <article class="article-card" data-tag="finlab experiments">
-            <div class="article-tag">FinLab · Experimentos</div>
-            <h2 class="article-title">Sesgos de comportamiento en trading: caso SPY 200DMA</h2>
+          <article class="article-card" data-tags="finlab trading">
+            <div class="article-tag">FinLab · Experimento</div>
+            <h2 class="article-title">Sesgos conductuales en el trading: el caso SPY 200DMA</h2>
             <p class="article-meta">13 de mayo de 2026 · 9 min de lectura</p>
             <p class="article-excerpt">
-              Cómo el house money effect, el confirmation bias, la escalation of commitment y el status quo bias
-              cambian la rentabilidad, el drawdown y la lógica de ejecución de la estrategia SPY 200DMA — y qué
+              Cómo el house money effect, confirmation bias, escalation of commitment y status quo bias
+              cambian la rentabilidad, el drawdown y la lógica de ejecución de la estrategia SPY 200DMA, y qué
               significa esto para traders, riesgo y productos fintech.
             </p>
-            <div class="article-badge">Research-style material</div>
+            <div class="article-badge">Material de estilo research</div>
             <div class="article-footer">
-              <a class="article-link" href="/articles/behavioral-biases-spy-200dma.html">Leer →</a>
+              <a class="article-link" href="/es/articles/behavioral-biases-spy-200dma.html">Leer →</a>
               <span class="article-video-flag"></span>
             </div>
           </article>
 
 
-          <article class="article-card" data-tag="finlab experiments">
-            <div class="article-tag">FinLab · Experimentos</div>
-            <h2 class="article-title">Cómo los insights de gasto con IA pueden cambiar la conducta financiera</h2>
+          <article class="article-card" data-tags="finlab money">
+            <div class="article-tag">FinLab · Experimento</div>
+            <h2 class="article-title">Cómo los insights de gasto con IA pueden cambiar el comportamiento financiero</h2>
             <p class="article-meta">20 de mayo de 2026 · 9 min de lectura</p>
             <p class="article-excerpt">
-              Caso sobre cómo los AI-based spending insights en un producto financiero móvil
-              pueden cambiar la estructura de gasto, aumentar la salience y generar efecto conductual
+              Un caso sobre cómo los AI-based spending insights en un producto financiero móvil
+              pueden cambiar la estructura del gasto, aumentar la salience y generar un behavior effect
               sin una señal negativa en el engagement.
             </p>
-            <div class="article-badge">Product experiment</div>
+            <div class="article-badge">Experimento de producto</div>
             <div class="article-footer">
-              <a class="article-link" href="/articles/ai-spending-insights-case-uk.html">Leer →</a>
+              <a class="article-link" href="/es/articles/ai-spending-insights-case-uk.html">Leer →</a>
               <span class="article-video-flag"></span>
             </div>
           </article>
         </section>
+
+
+        <div class="empty-state" id="emptyState" aria-live="polite">
+          <h3>Aún no hay materiales visibles en esta categoría</h3>
+          <p>
+            Prueba otro filtro o ve a la <a href="/es/cases/">sección de casos</a> si ahora buscas análisis más aplicados y basados en escenarios.
+          </p>
+        </div>
       </section>
 
-
-      <div class="articles-separator">
-        ¿Buscas ejemplos prácticos basados en escenarios, behavioral case studies o casos FinTech? Mira
-        la <a href="/cases/">sección “Casos”</a>.
+            <div class="articles-separator">
+        ¿Buscas no una explicación, sino una aplicación práctica? Ve a la
+        <a href="/es/cases/">sección de “Casos”</a>.
       </div>
 
 
       <section class="cta-panel">
         <div>
-          <h2>¿Quieres empezar por algo más práctico?</h2>
+          <h2>¿Quieres empezar con una dirección práctica?</h2>
           <p>
-            Ve a los casos si quieres análisis aplicados, o quédate en los artículos si ahora necesitas más bien
-            explicación de un patrón, un modelo o un mecanismo.
+            Ve a los casos si quieres ver análisis aplicados, o quédate en los artículos si lo que necesitas ahora es una explicación de un patrón, modelo o mecanismo.
           </p>
         </div>
         <div class="cta-links">
-          <a class="btn" href="/cases/">Ir a los casos</a>
-          <a class="btn btn-secondary" href="/contact/">Contactar</a>
+          <a class="btn" href="/es/cases/">Ir a casos</a>
+          <a class="btn btn-secondary" href="/es/contact/">Contactar</a>
         </div>
       </section>
     </div>
@@ -1304,25 +1241,23 @@
       <div class="footer-grid">
         <div>
           <h4>TELWHA</h4>
-          <p>Psicología financiera, economía conductual y arquitectura de elección para mejores decisiones y resultados más sostenibles.</p>
+          <p>Psicología financiera, economía conductual y arquitectura de la elección para mejores decisiones y resultados sostenibles.</p>
         </div>
         <div style="text-align:right">
           <h4>Navegación</h4>
           <div class="footer-links">
-            <a href="/">Inicio</a>
-            <a href="/about/">Sobre mí</a>
-            <a href="/finlab/">FinLab</a>
+            <a href="/es/">Inicio</a>
+            <a href="/es/about/">Sobre mí</a>
+            <a href="/es/finlab/">FinLab</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
         <span>© 2026 TELWHA. Todos los derechos reservados.</span>
-        <span>Kyiv, Ucrania</span>
+        <span>Kiev, Ucrania</span>
       </div>
     </div>
   </footer>
-
-
   <script>
     const progress = document.getElementById("progress");
     const menuToggle = document.querySelector(".menu-toggle");
@@ -1331,10 +1266,10 @@
     const root = document.documentElement;
     const dropdowns = document.querySelectorAll(".dropdown");
 
-
     const filterButtons = document.querySelectorAll(".filter-chip");
     const articleCards = document.querySelectorAll(".article-card");
-
+    const articlesCount = document.getElementById("articlesCount");
+    const emptyState = document.getElementById("emptyState");
 
     function updateProgressBar() {
       const scrollTop = window.scrollY;
@@ -1343,109 +1278,107 @@
       if (progress) progress.style.width = progressValue + "%";
     }
 
+    function setDropdownState(dropdown, isOpen) {
+      const btn = dropdown.querySelector(".dropbtn");
+      const panel = dropdown.querySelector(".dropcontent");
+      dropdown.classList.toggle("is-open", isOpen);
+      btn?.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      panel?.setAttribute("aria-hidden", isOpen ? "false" : "true");
+    }
 
     function closeAllDropdowns(except = null) {
       dropdowns.forEach((dropdown) => {
         if (dropdown === except) return;
-        dropdown.classList.remove("is-open");
-        const btn = dropdown.querySelector(".dropbtn");
-        btn?.setAttribute("aria-expanded", "false");
+        setDropdownState(dropdown, false);
       });
     }
 
+    function updateFilterUI() {
+      const visibleCards = [...articleCards].filter(card => !card.classList.contains("is-hidden"));
+      const count = visibleCards.length;
+
+      if (articlesCount) {
+        articlesCount.textContent = `Показано ${count} ${count === 1 ? "матеріал" : count >= 2 && count <= 4 ? "матеріали" : "матеріалів"}`;
+      }
+
+      emptyState?.classList.toggle("is-visible", count === 0);
+    }
 
     updateProgressBar();
-    window.addEventListener("scroll", updateProgressBar, { passive: true });
+    updateFilterUI();
 
+    window.addEventListener("scroll", updateProgressBar, { passive: true });
 
     if (menuToggle && siteMenu) {
       menuToggle.addEventListener("click", () => {
         const isOpen = siteMenu.classList.toggle("is-open");
         menuToggle.classList.toggle("is-open", isOpen);
         menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+        menuToggle.setAttribute("aria-label", isOpen ? "Закрити меню" : "Відкрити меню");
 
-
-        if (!isOpen) {
-          closeAllDropdowns();
-        }
+        if (!isOpen) closeAllDropdowns();
       });
     }
-
 
     dropdowns.forEach((dropdown) => {
       const button = dropdown.querySelector(".dropbtn");
 
-
       button?.addEventListener("click", (e) => {
         e.stopPropagation();
 
-
         const isOpen = dropdown.classList.contains("is-open");
         closeAllDropdowns(dropdown);
-
-
-        dropdown.classList.toggle("is-open", !isOpen);
-        button.setAttribute("aria-expanded", !isOpen ? "true" : "false");
+        setDropdownState(dropdown, !isOpen);
       });
     });
-
 
     document.addEventListener("click", (e) => {
       if (!e.target.closest(".dropdown")) {
         closeAllDropdowns();
       }
 
-
       if (!e.target.closest(".nav") && siteMenu?.classList.contains("is-open") && window.innerWidth <= 920) {
         siteMenu.classList.remove("is-open");
         menuToggle?.classList.remove("is-open");
         menuToggle?.setAttribute("aria-expanded", "false");
-        menuToggle?.setAttribute("aria-label", "Abrir menú");
+        menuToggle?.setAttribute("aria-label", "Відкрити меню");
       }
     });
-
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         closeAllDropdowns();
 
-
         if (siteMenu?.classList.contains("is-open") && window.innerWidth <= 920) {
           siteMenu.classList.remove("is-open");
           menuToggle?.classList.remove("is-open");
           menuToggle?.setAttribute("aria-expanded", "false");
-          menuToggle?.setAttribute("aria-label", "Abrir menú");
+          menuToggle?.setAttribute("aria-label", "Відкрити меню");
           menuToggle?.focus();
         }
       }
     });
 
-
     document.querySelectorAll('#site-menu a[href]').forEach((link) => {
       link.addEventListener("click", () => {
         closeAllDropdowns();
-
 
         if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
           siteMenu.classList.remove("is-open");
           menuToggle?.classList.remove("is-open");
           menuToggle?.setAttribute("aria-expanded", "false");
-          menuToggle?.setAttribute("aria-label", "Abrir menú");
+          menuToggle?.setAttribute("aria-label", "Відкрити меню");
         }
       });
     });
 
-
     let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     root.setAttribute("data-theme", currentTheme);
-
 
     themeToggle?.addEventListener("click", () => {
       currentTheme = currentTheme === "dark" ? "light" : "dark";
       root.setAttribute("data-theme", currentTheme);
     });
-
 
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
@@ -1453,13 +1386,14 @@
         filterButtons.forEach((btn) => btn.classList.remove("active"));
         button.classList.add("active");
 
-
         articleCards.forEach((card) => {
-          const tagString = card.dataset.tag || "";
-          const tags = tagString.split(" ");
+          const tagString = card.dataset.tags || "";
+          const tags = tagString.split(" ").filter(Boolean);
           const show = filter === "all" || tags.includes(filter);
           card.classList.toggle("is-hidden", !show);
         });
+
+        updateFilterUI();
       });
     });
   </script>

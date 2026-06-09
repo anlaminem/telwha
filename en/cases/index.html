@@ -5,9 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
   <title>TELWHA | Cases</title>
-  <meta name="description" content="TELWHA cases: practical breakdowns for traders, personal finance, fintech, and behavioral product scenarios.">
+  <meta name="description" content="TELWHA Cases: practical breakdowns for traders, personal finance, fintech, and behavioral product scenarios.">
   <link rel="canonical" href="https://t-e-l-w-h-a.com/cases/">
+
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="TELWHA | Cases">
@@ -15,12 +17,15 @@
   <meta property="og:url" content="https://t-e-l-w-h-a.com/cases/">
   <meta property="og:site_name" content="TELWHA">
 
+
   <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
+
 
   <link rel="preconnect" href="https://api.fontshare.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
+
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
   <script>
@@ -29,6 +34,7 @@
     gtag('js', new Date());
     gtag('config', 'G-FVHKD6TZJP');
   </script>
+
 
   <script type="application/ld+json">
   {
@@ -41,11 +47,13 @@
   }
   </script>
 
+
   <style>
     :root,
     [data-theme="light"] {
       --font-display: "Boska", Georgia, serif;
       --font-body: "Satoshi", "Inter", sans-serif;
+
 
       --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
       --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
@@ -54,32 +62,39 @@
       --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
       --text-2xl: clamp(2.2rem, 1.5rem + 2vw, 4rem);
 
+
       --color-bg: #f5f3ef;
       --color-surface: #fcfbf8;
       --color-surface-2: #f2efe9;
       --color-border: rgba(40, 37, 29, 0.10);
       --color-divider: rgba(40, 37, 29, 0.08);
 
+
       --color-text: #22201a;
       --color-text-muted: #65625b;
       --color-text-faint: #8b877f;
       --color-text-inverse: #f9f8f5;
 
+
       --color-primary: #0f5d5f;
       --color-primary-hover: #0b4b4d;
       --color-primary-soft: rgba(15, 93, 95, 0.08);
 
+
       --color-accent: #9a6a35;
       --color-accent-soft: rgba(154, 106, 53, 0.08);
+
 
       --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
       --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
       --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
 
+
       --content-default: 1160px;
       --radius-xl: 32px;
       --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
     }
+
 
     [data-theme="dark"] {
       --color-bg: #171614;
@@ -88,22 +103,27 @@
       --color-border: rgba(255, 255, 255, 0.10);
       --color-divider: rgba(255, 255, 255, 0.08);
 
+
       --color-text: #ece6dd;
       --color-text-muted: #b7afa2;
       --color-text-faint: #91897c;
       --color-text-inverse: #171614;
 
+
       --color-primary: #6ca7a7;
       --color-primary-hover: #84baba;
       --color-primary-soft: rgba(108, 167, 167, 0.10);
 
+
       --color-accent: #c79c68;
       --color-accent-soft: rgba(199, 156, 104, 0.09);
+
 
       --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
       --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
       --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
     }
+
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -118,9 +138,11 @@
       text-rendering: optimizeLegibility;
     }
 
+
     img, svg { display: block; max-width: 100%; height: auto; }
     a { color: inherit; text-decoration: none; }
     button { border: 0; background: none; cursor: pointer; font: inherit; color: inherit; }
+
 
     :focus-visible {
       outline: 2px solid var(--color-primary);
@@ -128,10 +150,12 @@
       border-radius: 10px;
     }
 
+
     .wrap {
       width: min(100% - 28px, var(--content-default));
       margin-inline: auto;
     }
+
 
     .progress {
       position: fixed;
@@ -141,6 +165,7 @@
       height: 3px;
       background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
     }
+
 
     .topbar {
       position: sticky;
@@ -152,6 +177,7 @@
       border-bottom: 1px solid var(--color-divider);
     }
 
+
     .nav {
       display: grid;
       grid-template-columns: auto 1fr;
@@ -159,12 +185,14 @@
       gap: 18px;
     }
 
+
     .brand {
       display: flex;
       flex-direction: column;
       gap: 4px;
       min-width: 0;
     }
+
 
     .brand-row {
       display: inline-flex;
@@ -176,12 +204,14 @@
       white-space: nowrap;
     }
 
+
     .brand-mark {
       width: 26px;
       height: 26px;
       color: var(--color-primary);
       flex: 0 0 auto;
     }
+
 
     .brand-sub {
       color: var(--color-text-faint);
@@ -190,6 +220,7 @@
       text-transform: uppercase;
       max-width: 240px;
     }
+
 
     .menu-toggle {
       display: none;
@@ -203,15 +234,18 @@
       transition: var(--transition);
     }
 
+
     .menu-toggle:hover {
       background: var(--color-surface-2);
     }
+
 
     .menu-toggle-lines {
       display: inline-flex;
       flex-direction: column;
       gap: 4px;
     }
+
 
     .menu-toggle-lines span {
       width: 18px;
@@ -221,17 +255,21 @@
       transition: transform var(--transition), opacity var(--transition);
     }
 
+
     .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
       transform: translateY(6px) rotate(45deg);
     }
+
 
     .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
       opacity: 0;
     }
 
+
     .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
       transform: translateY(-6px) rotate(-45deg);
     }
+
 
     .menu {
       display: flex;
@@ -241,6 +279,7 @@
       min-width: 0;
       flex-wrap: nowrap;
     }
+
 
     .menu a,
     .menu .dropbtn,
@@ -261,6 +300,7 @@
       flex-shrink: 0;
     }
 
+
     .menu a:hover,
     .menu .dropbtn:hover,
     .theme-toggle:hover,
@@ -269,11 +309,13 @@
       background: var(--color-surface-2);
     }
 
+
     .menu a.is-active {
       color: var(--color-text);
       background: var(--color-surface-2);
       border: 1px solid var(--color-border);
     }
+
 
     .menu a.is-highlight,
     .menu .dropbtn.is-highlight {
@@ -283,25 +325,30 @@
       box-shadow: var(--shadow-sm);
     }
 
+
     .menu a.is-highlight:hover,
     .menu .dropbtn.is-highlight:hover {
       background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
       color: var(--color-text-inverse);
     }
 
+
     [data-theme="dark"] .menu a.is-highlight,
     [data-theme="dark"] .menu .dropbtn.is-highlight {
       color: #141311;
     }
+
 
     .dropdown {
       position: relative;
       flex-shrink: 0;
     }
 
+
     .dropbtn {
       gap: 6px;
     }
+
 
     .dropbtn svg {
       width: 14px;
@@ -310,11 +357,13 @@
       flex: 0 0 auto;
     }
 
+
     .dropdown:hover .dropbtn svg,
     .dropdown:focus-within .dropbtn svg,
     .dropdown.is-open .dropbtn svg {
       transform: rotate(180deg);
     }
+
 
     .dropcontent {
       position: absolute;
@@ -339,6 +388,7 @@
         visibility var(--transition);
     }
 
+
     .dropdown:hover .dropcontent,
     .dropdown:focus-within .dropcontent,
     .dropdown.is-open .dropcontent {
@@ -348,6 +398,7 @@
       transform: translateY(0);
     }
 
+
     .dropcontent a {
       justify-content: flex-start;
       border-radius: 12px;
@@ -355,6 +406,7 @@
       white-space: normal;
       line-height: 1.35;
     }
+
 
     .menu-tools {
       display: flex;
@@ -366,10 +418,12 @@
       flex-shrink: 0;
     }
 
+
     .lang-list {
       display: flex;
       gap: 4px;
     }
+
 
     .lang-link.is-active {
       background: var(--color-surface-2);
@@ -377,19 +431,23 @@
       border: 1px solid var(--color-border);
     }
 
+
     .theme-toggle {
       border: 1px solid var(--color-border);
       background: var(--color-surface);
     }
+
 
     .theme-toggle svg {
       width: 17px;
       height: 17px;
     }
 
+
     .page {
       padding: 34px 0 90px;
     }
+
 
     .hero-shell {
       position: relative;
@@ -402,6 +460,7 @@
       margin-bottom: 24px;
     }
 
+
     .hero-shell::before {
       content: "";
       position: absolute;
@@ -412,6 +471,7 @@
         radial-gradient(circle at 85% 18%, rgba(154, 106, 53, 0.05), transparent 22%);
     }
 
+
     .hero-grid {
       position: relative;
       display: grid;
@@ -419,6 +479,7 @@
       gap: 28px;
       align-items: stretch;
     }
+
 
     .eyebrow {
       display: inline-flex;
@@ -432,12 +493,14 @@
       font-weight: 700;
     }
 
+
     .eyebrow::before {
       content: "";
       width: 22px;
       height: 1px;
       background: var(--color-primary);
     }
+
 
     .hero-title {
       font-family: var(--font-display);
@@ -448,11 +511,13 @@
       margin-bottom: 14px;
     }
 
+
     .hero-sub {
       max-width: 62ch;
       color: var(--color-text-muted);
       font-size: var(--text-lg);
     }
+
 
     .hero-note {
       margin-top: 18px;
@@ -461,16 +526,19 @@
       max-width: 62ch;
     }
 
+
     .hero-note a {
       color: var(--color-primary);
       font-weight: 700;
     }
+
 
     .hero-aside {
       display: grid;
       gap: 14px;
       align-content: start;
     }
+
 
     .stat-card,
     .case-card,
@@ -482,11 +550,13 @@
       box-shadow: var(--shadow-sm);
     }
 
+
     .hero-feature-card {
       padding: 20px 22px;
       border-radius: 24px;
       background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-primary-soft) 55%, var(--color-surface)));
     }
+
 
     .hero-feature-card h2 {
       font-size: var(--text-lg);
@@ -494,16 +564,19 @@
       margin-bottom: 8px;
     }
 
+
     .hero-feature-card p {
       color: var(--color-text-muted);
       font-size: 0.92rem;
     }
+
 
     .stat-card {
       padding: 20px 22px;
       border-radius: 22px;
       background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
     }
+
 
     .stat-card strong {
       display: block;
@@ -512,16 +585,19 @@
       margin-bottom: 6px;
     }
 
+
     .stat-card span {
       color: var(--color-text-muted);
       font-size: 0.92rem;
     }
+
 
     .section-card {
       padding: 24px;
       border-radius: 28px;
       margin-bottom: 18px;
     }
+
 
     .section-head {
       display: flex;
@@ -531,6 +607,7 @@
       margin-bottom: 20px;
     }
 
+
     .section-head h2 {
       font-family: var(--font-display);
       font-size: var(--text-xl);
@@ -538,11 +615,13 @@
       letter-spacing: -0.02em;
     }
 
+
     .section-head p {
       max-width: 48ch;
       color: var(--color-text-muted);
       font-size: 0.92rem;
     }
+
 
     .case-tabs {
       display: flex;
@@ -550,6 +629,7 @@
       gap: 10px;
       margin-bottom: 12px;
     }
+
 
     .case-tab {
       min-height: 42px;
@@ -566,6 +646,7 @@
       transition: var(--transition);
     }
 
+
     .case-tab .dot {
       width: 8px;
       height: 8px;
@@ -574,6 +655,7 @@
       transition: var(--transition);
     }
 
+
     .case-tab:hover,
     .case-tab.active {
       background: var(--color-surface-2);
@@ -581,9 +663,11 @@
       border-color: rgba(15, 93, 95, 0.26);
     }
 
+
     .case-tab.active .dot {
       background: var(--color-primary);
     }
+
 
     .cases-hint {
       color: var(--color-text-muted);
@@ -591,11 +675,13 @@
       margin-bottom: 18px;
     }
 
+
     .case-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
     }
+
 
     .case-card {
       display: grid;
@@ -608,14 +694,17 @@
       cursor: pointer;
     }
 
+
     .case-card:hover {
       transform: translateY(-2px);
       box-shadow: var(--shadow-md);
     }
 
+
     .case-card.is-hidden {
       display: none;
     }
+
 
     .case-card-pill {
       display: inline-flex;
@@ -633,6 +722,7 @@
       letter-spacing: 0.08em;
     }
 
+
     .case-card small {
       color: var(--color-text-faint);
       font-size: var(--text-xs);
@@ -640,15 +730,17 @@
       letter-spacing: 0.08em;
     }
 
-    .case-card h3 {
+        .case-card h3 {
       font-size: var(--text-lg);
       line-height: 1.15;
     }
+
 
     .case-card-line {
       color: var(--color-text-muted);
       font-size: 0.92rem;
     }
+
 
     .case-card-tags {
       display: flex;
@@ -656,6 +748,7 @@
       gap: 8px;
       margin-top: auto;
     }
+
 
     .case-card-tags span {
       min-height: 30px;
@@ -670,16 +763,19 @@
       font-weight: 700;
     }
 
+
     .cases-separator {
       padding: 6px 0 22px;
       color: var(--color-text-muted);
       font-size: 0.95rem;
     }
 
+
     .cases-separator a {
       color: var(--color-primary);
       font-weight: 700;
     }
+
 
     .cta-panel {
       margin-top: 22px;
@@ -692,11 +788,13 @@
       background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-accent-soft) 52%, var(--color-surface)));
     }
 
+
     .cta-panel h2 {
       font-size: var(--text-lg);
       line-height: 1.15;
       margin-bottom: 6px;
     }
+
 
     .cta-panel p {
       color: var(--color-text-muted);
@@ -704,11 +802,13 @@
       font-size: 0.92rem;
     }
 
+
     .cta-links {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
+
 
     .btn {
       min-height: 46px;
@@ -727,10 +827,12 @@
       box-shadow: var(--shadow-sm);
     }
 
+
     .btn:hover {
       background: var(--color-primary-hover);
       transform: translateY(-1px);
     }
+
 
     .btn-secondary {
       background: var(--color-surface);
@@ -739,9 +841,11 @@
       box-shadow: none;
     }
 
+
     .btn-secondary:hover {
       background: var(--color-surface-2);
     }
+
 
     .footer {
       padding: 36px 0 26px;
@@ -750,12 +854,14 @@
       margin-top: 28px;
     }
 
+
     .footer-grid {
       display: grid;
       grid-template-columns: 1.4fr 0.8fr;
       gap: 24px;
       align-items: start;
     }
+
 
     .footer h4 {
       font-size: var(--text-sm);
@@ -765,21 +871,25 @@
       margin-bottom: 12px;
     }
 
+
     .footer p,
     .footer a {
       color: var(--color-text-muted);
       font-size: 0.92rem;
     }
 
+
     .footer a:hover {
       color: var(--color-text);
     }
+
 
     .footer-links {
       display: grid;
       gap: 10px;
       justify-items: end;
     }
+
 
     .footer-bottom {
       display: flex;
@@ -793,6 +903,7 @@
       font-size: var(--text-xs);
     }
 
+
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -805,9 +916,11 @@
       z-index: 200;
     }
 
+
     .modal-backdrop.is-open {
       display: flex;
     }
+
 
     .modal {
       width: min(760px, 100%);
@@ -820,6 +933,7 @@
       position: relative;
       padding: 30px 26px 26px;
     }
+
 
     .modal-close {
       position: sticky;
@@ -836,15 +950,18 @@
       z-index: 2;
     }
 
+
     .modal-body {
       display: grid;
       gap: 18px;
       padding-top: 8px;
     }
 
+
     .modal-body .case-card-pill {
       margin-bottom: 2px;
     }
+
 
     .modal-body h2 {
       font-family: var(--font-display);
@@ -853,6 +970,7 @@
       letter-spacing: -0.02em;
     }
 
+
     .modal-meta {
       color: var(--color-text-faint);
       font-size: 0.88rem;
@@ -860,10 +978,12 @@
       letter-spacing: 0.08em;
     }
 
+
     .modal-body p,
     .modal-body li {
       color: var(--color-text-muted);
     }
+
 
     .modal-list {
       display: grid;
@@ -871,20 +991,24 @@
       padding-left: 18px;
     }
 
+
     .modal-list li {
       list-style: disc;
     }
+
 
     .modal-section {
       display: grid;
       gap: 6px;
     }
 
+
     .modal-section h3 {
       font-size: 1rem;
       margin-bottom: 8px;
       color: var(--color-text);
     }
+
 
     .modal-article-link {
       display: inline-flex;
@@ -900,11 +1024,13 @@
       font-weight: 700;
     }
 
+
     @media (max-width: 1180px) {
       .case-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
+
 
     @media (max-width: 1024px) {
       .hero-grid,
@@ -914,6 +1040,7 @@
       }
     }
 
+
     @media (max-width: 920px) {
       .nav {
         grid-template-columns: auto auto;
@@ -921,9 +1048,11 @@
         position: relative;
       }
 
+
       .menu-toggle {
         display: inline-flex;
       }
+
 
       .menu {
         position: absolute;
@@ -940,9 +1069,11 @@
         box-shadow: var(--shadow-lg);
       }
 
+
       .menu.is-open {
         display: flex;
       }
+
 
       .menu a,
       .menu .dropbtn,
@@ -954,9 +1085,11 @@
         padding: 10px 12px;
       }
 
+
       .dropdown {
         width: 100%;
       }
+
 
       .dropcontent {
         position: static;
@@ -972,9 +1105,11 @@
         background: var(--color-surface-2);
       }
 
+
       .dropdown.is-open .dropcontent {
         display: grid;
       }
+
 
       .menu-tools {
         margin-left: 0;
@@ -985,10 +1120,12 @@
       }
     }
 
+
     @media (max-width: 720px) {
       .wrap {
         width: min(100% - 24px, var(--content-default));
       }
+
 
       .hero-shell,
       .section-card,
@@ -998,35 +1135,43 @@
         border-radius: 22px;
       }
 
+
       .hero-title {
         max-width: 100%;
       }
 
+
       .case-grid {
         grid-template-columns: 1fr;
       }
+
 
       .cta-links {
         width: 100%;
         flex-direction: column;
       }
 
+
       .cta-links .btn {
         width: 100%;
       }
+
 
       .footer-links {
         justify-items: start;
       }
 
+
       .footer-bottom {
         flex-direction: column;
       }
+
 
       .brand-sub {
         max-width: 170px;
       }
     }
+
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -1040,10 +1185,11 @@
 <body>
   <div class="progress" id="progress"></div>
 
+
   <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
-        <a class="brand-row" href="/" aria-label="TELWHA — go to homepage">
+        <a class="brand-row" href="/" aria-label="TELWHA — home">
           <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
             <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
             <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
@@ -1053,6 +1199,7 @@
         </a>
         <span class="brand-sub">Behavioral Finance · Psychology</span>
       </div>
+
 
       <button
         class="menu-toggle"
@@ -1066,49 +1213,54 @@
         </span>
       </button>
 
+
       <nav class="menu" id="site-menu" aria-label="Main navigation">
         <a href="/">Home</a>
-        <a href="/about/">About</a>
+        <a href="/about/">About Me</a>
         <a href="/cases/" class="is-active">Cases</a>
         <a href="/articles/">Articles</a>
         <a href="/finlab/">FinLab</a>
 
+
         <div class="dropdown">
           <button type="button" class="dropbtn is-highlight" aria-expanded="false" aria-haspopup="true">
-            Test yourself
+            Check Yourself
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
           <div class="dropcontent">
-            <a href="/finlab/money-test-api/money-test.html">Financial behavior test</a>
-            <a href="/habit-test.html">Where do your habits lead you?</a>
-            <a href="/fact-or-fiction-cases.html">Fact or fiction?</a>
+            <a href="/finlab/money-test-api/money-test.html">Financial Behavior Test</a>
+            <a href="/habit-test.html">Where Do Your Habits Lead?</a>
+            <a href="/fact-or-fiction-cases.html">Fact or Fiction?</a>
           </div>
         </div>
+
 
         <div class="dropdown">
           <button type="button" class="dropbtn" aria-expanded="false" aria-haspopup="true">
-            For traders
+            For Traders
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
           <div class="dropcontent">
-            <a href="/trader-course/">Mini course</a>
-            <a href="/archetype-test/">Trader archetype</a>
+            <a href="/trader-course/">Mini Course</a>
+            <a href="/archetype-test/">Trader Archetype</a>
           </div>
         </div>
 
-        <a href="/reviews/">Reviews</a>
-        <a href="/contact/">Contact</a>
 
-        <div class="menu-tools">
+        <a href="/reviews/">Reviews</a>
+        <a href="/contact/">Contacts</a>
+
+                <div class="menu-tools">
           <div class="lang-list" aria-label="Site languages">
             <a class="lang-link" href="/cases/" lang="uk" aria-label="Ukrainian">UA</a>
             <a class="lang-link is-active" href="/en/cases/" lang="en" aria-label="English">EN</a>
-            <a class="lang-link" href="/es/cases/" lang="es" aria-label="Spanish">ES</a>
+            <a class="lang-link" href="/es/cases/" lang="es" aria-label="Español">ES</a>
           </div>
+
 
           <button class="theme-toggle" type="button" aria-label="Change theme">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -1128,52 +1280,53 @@
     </div>
   </header>
 
+
   <main class="page">
     <div class="wrap">
       <section class="hero-shell">
         <div class="hero-grid">
           <div>
             <div class="eyebrow">TELWHA / Cases</div>
-            <h1 class="hero-title">Practical cases</h1>
+            <h1 class="hero-title">Practical Cases</h1>
             <p class="hero-sub">
-              Real and modeled cases about trading, personal finance, business scenarios, and fintech products —
-              with a behavioral focus and a clear logic of decision-making.
+              Real and simulated cases about trading, personal finance, business scenarios, and fintech products —
+              with a behavioral focus and clear decision logic.
             </p>
             <p class="hero-note">
-              If you are looking more for mechanism breakdowns or longreads, see the
+              If you need more explanations of mechanisms or longreads, see the
               <a href="/articles/">“Articles” section</a>.
             </p>
           </div>
 
+
           <aside class="hero-aside">
             <div class="hero-feature-card">
-              <h2>How to read these cases</h2>
+              <h2>How to Read These Cases</h2>
               <p>
                 Each case is a short story with a specific context, risk, behavioral patterns, and
                 product decisions. The goal is to show how the brain, the system, and the product think.
               </p>
             </div>
 
-            <div class="stat-card">
-              <strong>3 FinTech cases</strong>
-              <span>Trading &amp; Investing, Personal Finance, Business &amp; Product, FinTech risk &amp; behavior.</span>
-            </div>
+
+          
           </aside>
         </div>
       </section>
 
+
       <section class="section-card">
         <div class="section-head">
           <div>
-            <h2>Cases by direction</h2>
+            <h2>Cases by Direction</h2>
           </div>
           <p>
-            Choose the direction that is currently closest to your situation, tasks, or product:
-            trading, personal finance, or a business / FinTech context.
+            Choose the direction that is currently closest to your situation, tasks, or product
           </p>
         </div>
 
-        <div class="case-tabs" aria-label="Case filter by category">
+
+        <div class="case-tabs" aria-label="Filter cases by categories">
           <button class="case-tab active" type="button" data-filter="all">
             <span class="dot"></span>
             All
@@ -1192,54 +1345,61 @@
           </button>
         </div>
 
+
         <p class="cases-hint">
-          Some cases are embedded in articles or videos. Here you’ll find the ones structured as standalone scenarios.
+          Some cases are “embedded” in articles or videos.
         </p>
 
-        <section class="case-grid" id="caseGrid" aria-label="Case list">
-          <!-- Trading cases -->
-          <article class="case-card" data-id="trading1" data-category="trading" tabindex="0">
-            <div class="case-card-pill">Trading</div>
-            <small>Behavioral Diagnostics</small>
-            <h3>When a good system does not protect you from repetition</h3>
-            <p class="case-card-line">
-              Seven recurring behavioral patterns that drag down a trader’s results even when the strategy itself works.
-            </p>
-            <div class="case-card-tags">
-              <span>behavioral loops</span>
-              <span>risk discipline</span>
-              <span>decision fatigue</span>
-              <span>trading journal</span>
-            </div>
-          </article>
 
-          <article class="case-card" data-id="trading2" data-category="trading" tabindex="0">
-            <div class="case-card-pill">Trading</div>
-            <small>Capital Transition</small>
-            <h3>Analysis paralysis during the move to larger capital</h3>
-            <p class="case-card-line">
-              Why increasing position size can paralyze decision-making, and how to redesign risk so the brain does not freeze.
-            </p>
-            <div class="case-card-tags">
-              <span>analysis paralysis</span>
-              <span>position sizing</span>
-              <span>loss aversion</span>
-            </div>
-          </article>
+        <section class="case-grid" id="caseGrid" aria-label="List of cases">
+        <article class="case-card" data-id="trading1" data-category="trading" tabindex="0">
+        <div class="case-card-pill">Trading</div>
+        <small>Behavioral Diagnostics</small>
+        <h3>When a Good System Does Not Save You from Repetition</h3>
+        <p class="case-card-line">
+          A trader with strong involvement, a good system, and high external energy still kept repeating exhausting cycles.
+          This case is about how productivity can mask overload, and “drive” can be not a resource but a nervous system signal.
+        </p>
+        <div class="case-card-tags">
+          <span>trading</span>
+          <span>nervous system</span>
+          <span>overload</span>
+        </div>
+      </article>
 
-          <article class="case-card" data-id="trading3" data-category="trading" tabindex="0">
-            <div class="case-card-pill">Trading</div>
-            <small>Strategy Test · Bybit</small>
-            <h3>Short case: Bybit TPSL</h3>
-            <p class="case-card-line">
-              A strategic test using historical candles + grid search for short scenarios based on TPSL logic on Bybit listings.
-            </p>
-            <div class="case-card-tags">
-              <span>strategy test</span>
-              <span>Bybit listings</span>
-              <span>TPSL</span>
-            </div>
-          </article>
+
+      <article class="case-card" data-id="trading2" data-category="trading" tabindex="0">
+        <div class="case-card-pill">Trading</div>
+        <small>Capital Transition</small>
+        <h3>Analysis paralysis when transitioning to larger capital</h3>
+        <p class="case-card-line">
+          A sharp increase in capital under management does not always create confidence — sometimes it triggers fear, chaos, and self-sabotage.
+          This case is about why an old strategy does not always transfer to a new scale without psychological and process adaptation.
+        </p>
+        <div class="case-card-tags">
+          <span>capital scale</span>
+          <span>impostor syndrome</span>
+          <span>risk management</span>
+        </div>
+      </article>
+
+
+    <article class="case-card" data-id="trading3" data-category="trading" tabindex="0">
+      <div class="case-card-pill">Trading</div>
+      <small>Strategy Test · Bybit</small>
+      <h3>Short strategy on Bybit listings</h3>
+      <p class="case-card-line">
+        A case about a short strategy simulator for new Bybit listings: TP/SL testing, parameter grid search,
+        and entry time patterns to test the idea through data rather than through “I think so”.
+      </p>
+      <div class="case-card-tags">
+        <span>Bybit listings</span>
+        <span>grid search</span>
+        <span>TP/SL</span>
+        <span>entry timing</span>
+      </div>
+    </article>
+
 
           <!-- Personal finance cases -->
           <article class="case-card" data-id="personal1" data-category="personal" tabindex="0">
@@ -1247,7 +1407,7 @@
             <small>Money Patterns</small>
             <h3>A case about “smart” procrastination with money</h3>
             <p class="case-card-line">
-              When a person knows what they should do with their finances, but keeps postponing it for months — what a behavioral breakdown looks like.
+              When a person knows what they need to do with finances but “puts it off until later” for months — what a behavioral analysis looks like.
             </p>
             <div class="case-card-tags">
               <span>avoidance</span>
@@ -1257,12 +1417,13 @@
             </div>
           </article>
 
+
           <article class="case-card" data-id="personal2" data-category="personal" tabindex="0">
             <div class="case-card-pill">Personal</div>
             <small>Decision Framework</small>
             <h3>The “move / stay” case from a financial perspective</h3>
             <p class="case-card-line">
-              How to build a map of options, risks, and scenarios when a relocation decision is shaped by both money and psychology.
+              How to build a map of options, risks, and scenarios when a relocation decision runs into money and psychology.
             </p>
             <div class="case-card-tags">
               <span>relocation</span>
@@ -1272,11 +1433,12 @@
             </div>
           </article>
 
+
           <!-- Business / FinTech cases -->
           <article class="case-card" data-id="business1" data-category="business" tabindex="0">
             <div class="case-card-pill">Business</div>
             <small>Funnels &amp; Behavior</small>
-            <h3>A case about drop rate in a financial product</h3>
+            <h3>A case about drop-rate in a financial product</h3>
             <p class="case-card-line">
               How behavioral barriers in onboarding and forms can break conversion even when the product value is strong.
             </p>
@@ -1287,12 +1449,13 @@
             </div>
           </article>
 
+
           <article class="case-card" data-id="business2" data-category="business" tabindex="0">
             <div class="case-card-pill">Business</div>
             <small>UX &amp; Money</small>
             <h3>A case about “smart” budgeting that nobody uses</h3>
             <p class="case-card-line">
-              Why a feature looks strong in a presentation but fails with users in practice — with a focus on salience and engagement.
+              Why a feature looks strong in a presentation but does not resonate with users — with a focus on salience and engagement.
             </p>
             <div class="case-card-tags">
               <span>product UX</span>
@@ -1302,12 +1465,13 @@
             </div>
           </article>
 
+
           <article class="case-card" data-id="business3" data-category="business" tabindex="0">
             <div class="case-card-pill">FinTech</div>
             <small>Collections Behavior</small>
             <h3>A case about buckets in collections</h3>
             <p class="case-card-line">
-              How payment patterns change depending on the bucket and treatment paths used in debt collection.
+              How payment patterns change depending on bucket and treatment paths in debt collection.
             </p>
             <div class="case-card-tags">
               <span>collections</span>
@@ -1316,12 +1480,13 @@
             </div>
           </article>
 
+
           <article class="case-card" data-id="business4" data-category="business" tabindex="0">
             <div class="case-card-pill">FinTech</div>
             <small>Risk Monitoring</small>
             <h3>Explainable transaction-level risk monitoring</h3>
             <p class="case-card-line">
-              Explainable fraud monitoring, severity segmentation, investigator queue, and a transaction-level dashboard.
+              Explainable fraud monitoring, severity segmentation, investigator queue, and transaction-level dashboard.
             </p>
             <div class="case-card-tags">
               <span>fraud monitoring</span>
@@ -1332,17 +1497,19 @@
         </section>
       </section>
 
+
       <div class="cases-separator">
-        If you want a breakdown of mechanisms rather than a scenario, see the
+        If you want an analysis of mechanisms rather than a scenario, see the
         <a href="/articles/">“Articles” section</a>.
       </div>
 
+
       <section class="cta-panel">
         <div>
-          <h2>Want to discuss your own case?</h2>
+          <h2>Want to discuss your case?</h2>
           <p>
-            Write to me if you want to break down your own trading case, financial situation, or product scenario —
-            and we will turn it into a structured case.
+            Write if you want to analyze your own trading case, financial situation, or product scenario — and we
+            will turn it into a structured case.
           </p>
         </div>
         <div class="cta-links">
@@ -1353,19 +1520,20 @@
     </div>
   </main>
 
+
   <footer class="footer">
     <div class="wrap">
       <div class="footer-grid">
         <div>
           <h4>TELWHA</h4>
-          <p>Financial psychology, behavioral economics, and choice architecture for better decisions and more sustainable results.</p>
+          <p>Financial psychology, behavioral economics, and choice architecture for better decisions and sustainable results.</p>
         </div>
         <div style="text-align:right">
           <h4>Navigation</h4>
           <div class="footer-links">
-            <a href="/about/">About</a>
+            <a href="/about/">About Me</a>
             <a href="/articles/">Articles</a>
-            <a href="/contact/">Contact</a>
+            <a href="/contact/">Contacts</a>
           </div>
         </div>
       </div>
@@ -1376,9 +1544,10 @@
     </div>
   </footer>
 
+
   <div class="modal-backdrop" id="caseModalBackdrop" aria-hidden="true">
     <article class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" type="button" aria-label="Close window">×</button>
+      <button class="modal-close" type="button" aria-label="Close dialog">×</button>
       <div id="modalContent"></div>
     </article>
   </div>
@@ -1397,7 +1566,7 @@
     const modalContent = document.getElementById("modalContent");
     const modalClose = document.querySelector(".modal-close");
 
-    // progress bar
+    // прогрес-бар
     function updateProgressBar() {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -1423,7 +1592,7 @@
         const isOpen = siteMenu.classList.toggle("is-open");
         menuToggle.classList.toggle("is-open", isOpen);
         menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+        menuToggle.setAttribute("aria-label", isOpen ? "Закрити меню" : "Відкрити меню");
 
         if (!isOpen) {
           closeAllDropdowns();
@@ -1457,7 +1626,7 @@
         siteMenu.classList.remove("is-open");
         menuToggle?.classList.remove("is-open");
         menuToggle?.setAttribute("aria-expanded", "false");
-        menuToggle?.setAttribute("aria-label", "Open menu");
+        menuToggle?.setAttribute("aria-label", "Відкрити меню");
       }
     });
 
@@ -1469,7 +1638,7 @@
           siteMenu.classList.remove("is-open");
           menuToggle?.classList.remove("is-open");
           menuToggle?.setAttribute("aria-expanded", "false");
-          menuToggle?.setAttribute("aria-label", "Open menu");
+          menuToggle?.setAttribute("aria-label", "Відкрити меню");
           menuToggle?.focus();
         }
 
@@ -1487,7 +1656,7 @@
           siteMenu.classList.remove("is-open");
           menuToggle?.classList.remove("is-open");
           menuToggle?.setAttribute("aria-expanded", "false");
-          menuToggle?.setAttribute("aria-label", "Open menu");
+          menuToggle?.setAttribute("aria-label", "Відкрити меню");
         }
       });
     });
@@ -1516,43 +1685,63 @@
       });
     });
 
-    // case details data (shortened text based on your paste.txt)
+        // case details data (shortened text based on your paste.txt)
     const caseDetails = {
       trading1: {
         pill: "Trading",
         meta: "Behavioral Diagnostics",
-        title: "When a good system does not protect you from repetition",
-        intro: "A case about a trader with a working system who still keeps repeating the same behavioral patterns and losing performance.",
+        title: "When a good system does not save you from repetition",
+        intro: "A trader with strong involvement, a good system, and high external energy still kept repeating exhausting cycles. A case about how productivity can mask overload, and how “drive” can be not a resource but a signal from the nervous system.",
         sections: [
           {
-            title: "What is happening",
+            title: "Request",
             items: [
-              "A series of impulsive entries after the first two losses.",
-              "Overtrading at the end of the day after the plan has already been completed.",
-              "Holding stops too long if the previous trade closed in the red."
+              "A trader with 7+ years of experience: energetic, active, open, highly involved in the market.",
+              "Trading was both a hobby and a life meaning, but behind this background were quick fatigue, bouts of sadness, episodes of depression, and a sense of inner exhaustion."
             ]
           },
           {
-            title: "Key behavioral patterns",
+            title: "What was visible externally",
             items: [
-              "Loss chasing and revenge trading.",
-              "Decision fatigue after several hours of trading.",
-              "Self-justification: looking for reasons to keep the position open instead of closing it."
+              "Externally it looked like constant energy, drive, and engagement in work.",
+              "It created the impression that trading was giving strength and inspiration, and activity in life, hobbies, and communication only confirmed this picture."
             ]
           },
           {
-            title: "What we do",
+            title: "What was actually happening",
             items: [
-              "A trigger map for each pattern.",
-              "Limits on the number of decisions and trades per session.",
-              "Specific market exit rules when a pattern repeats."
+              "In reality, behind this dynamics there were chronic nervous tension, emotional exhaustion, and sensory overload.",
+              "The surge of energy before trading turned out to be not a resource but a nervous spike.",
+              "Part of the pressure came from problematic risk positions, and part — from internal conflicts and overinflated demands on oneself."
             ]
           },
           {
-            title: "What this case gives",
+            title: "What we did",
             items: [
-              "A behavior-diagnostics model layered on top of strategy.",
-              "A framework for building your own behavior rules."
+              "In our work we rethought the very idea of “energy”: it does not always mean a resource; sometimes it is a signal of overload.",
+              "Next came quiet hours without screens, reduced information noise, and a portfolio review.",
+              "We also added work on cognitive biases, family context, breathing and reflective practices, as well as a gentler recalibration of the attitude to risk."
+            ]
+          },
+          {
+            title: "Result",
+            items: [
+              "As a result, instead of a nervous high, a more stable, calmer energy appeared.",
+              "There was more balance between work and life.",
+              "Anxiety decreased, enjoyment of trading returned, as did a sense of control over workload and emotions."
+            ]
+          },
+          {
+            title: "Key idea",
+            items: [
+              "The paradox of this case is that even a beloved activity can be exhausting if you ignore signals from the nervous system.",
+              "Attention is also a resource, and when it is depleted, even a good system no longer saves you from repetition."
+            ]
+          },
+          {
+            title: "Note",
+            items: [
+              "Some details have been changed to preserve client confidentiality."
             ]
           }
         ]
@@ -1560,31 +1749,66 @@
       trading2: {
         pill: "Trading",
         meta: "Capital Transition",
-        title: "Analysis paralysis during the move to larger capital",
-        intro: "When moving from, say, $1k to $5k or $10k creates decision paralysis and fear of pressing the button.",
+        title: "Analysis paralysis when transitioning to larger capital",
+        intro: "A sharp increase in capital under management does not always give confidence — sometimes it triggers fear, chaos, and self-sabotage. A case about why an old strategy does not always transfer to a new scale without psychological and process adaptation.",
         sections: [
           {
-            title: "Symptoms",
+            title: "Request",
             items: [
-              "The system gets tested on demo or small lots, but never scales.",
-              "The trader spends hours looking for the “perfect” entry.",
-              "Constant doubts even with ideal setups."
+              "A trader with 2+ years of experience had good statistics and, within a few months, received under management an amount several times larger than their previous experience.",
+              "They worked independently, without experience in funds or a team structure.",
+              "They also had an earlier negative experience of losing their own money, which was reactivated in the new situation."
             ]
           },
           {
-            title: "What is behind it",
+            title: "What was visible externally",
             items: [
-              "Loss aversion and the changed psychological price of a single tick.",
-              "Over-focusing on outcomes instead of process.",
-              "A collapse into zones where “success = dangerous.”"
+              "The first days after capital growth brought euphoria and a sense of power, but this quickly turned into paralyzing responsibility, internal conflict, and questions like “maybe this is not for me” or “do I have the right to manage this amount of money?”.",
+              "Externally everything looked convincing: the portfolio was growing, new investors appeared, there was activity and an attempt to organize processes."
             ]
           },
           {
-            title: "Interventions",
+            title: "What was actually happening",
             items: [
-              "Breaking capital into psychological blocks.",
-              "Intermediate risk levels instead of one jump.",
-              "Protocols for handling a streak of losses."
+              "Inside, there were chronic stress, anxiety, impostor effect, and catastrophizing.",
+              "There was also self-doubt, information overload, no experience working with other people’s portfolios, and attempts to control everything at once."
+            ]
+          },
+          {
+            title: "What we did",
+            items: [
+              "We rebuilt processes and agreements: introduced clear rules, structured communication with investors, and outlined boundaries of responsibility.",
+              "Separately, we worked through the impostor effect and highlighted the trader’s real strengths.",
+              "We also added new habits for psychophysiological resilience and better understanding of their own zone of control."
+            ]
+          },
+          {
+            title: "Result",
+            items: [
+              "The result was calmer trades, better risk management, lower anxiety, and restored decision-making ability.",
+              "Communication with investors improved, and professional self-esteem increased.",
+              "The “large amount” stopped being perceived as a threat and began to be read as a new level of development."
+            ]
+          },
+          {
+            title: "Key idea",
+            items: [
+              "The main idea of this case is simple: suddenly large sums often trigger old cognitive scripts — fear, doubt, impostor syndrome.",
+              "This does not mean that a person “cannot handle it”; it means that the old scale no longer works without adapting strategy, processes, and the load on the nervous system."
+            ]
+          },
+          {
+            title: "Practical note",
+            items: [
+              "A strategy that works at $50,000 may not work at $500,000 without rebuilding the process.",
+              "Similarly, “for everyone” advice about APIs, routines, sports, or work style does not always fit a specific person.",
+              "For a new scale, you often need not more heroism but a more precise tuning of the system to yourself."
+            ]
+          },
+          {
+            title: "Note",
+            items: [
+              "Some details have been changed to preserve client confidentiality."
             ]
           }
         ]
@@ -1592,49 +1816,113 @@
       trading3: {
         pill: "Trading",
         meta: "Strategy Test · Bybit",
-        title: "Short case: Bybit TPSL",
-        intro: "A short case on Bybit listings: what a TPSL strategy test looks like on historical candles with parameter grid search.",
+        title: "Short strategy on Bybit listings",
+        intro: "A case about a short-strategy simulator on new Bybit listings: how to test an idea using historical candles, grid search, and time patterns rather than a very confident “I think so”.",
         sections: [
           {
-            title: "Data and method",
+            title: "Case idea",
             items: [
-              "Historical candles across selected listings.",
-              "Grid search across take-profit and stop-loss settings.",
-              "Drawdown and volatility analysis."
+              "The test object is the short post-listing window after a new contract appears on the exchange.",
+              "The task is to formalize the short hypothesis, collect data, build a simulator, and check whether there is a stable edge.",
+              "The focus is not on intuition but on a backtest approach with clear TP/SL logic."
             ]
           },
           {
-            title: "Behavioral focus",
+            title: "Data",
             items: [
-              "How a trader interprets backtest results.",
-              "Where they overestimate “ideal” parameters.",
-              "How to balance a comfort zone with real risk."
+              "The test used 10 confirmed listing events of USDT contracts.",
+              "For each case, a minute-level data window was downloaded: from 18 hours before listing to 10 hours after.",
+              "Data were taken via the Bybit V5 Market Kline API."
+            ]
+          },
+          {
+            title: "Simulator",
+            items: [
+              "Entry starts from the first candle no earlier than entry_dt.",
+              "Then take profit, stop loss, and timeout are checked sequentially.",
+              "The basic logic is intentionally simple: a single entry point, fixed risk, and linear candle iteration."
+            ]
+          },
+          {
+            title: "Grid search",
+            items: [
+              "A separate parameter grid was run for TP, SL, and exit structure.",
+              "Full exit and split scenarios were compared.",
+              "This made it possible to see which parameters make sense to transfer into a product."
+            ]
+          },
+          {
+            title: "Result",
+            items: [
+              "On a sample of 10 listings, the best-performing configuration was a simple one: TP 5%, SL 4%, full exit on the first TP.",
+              "Final result: total PnL 14.95 USD, win rate 60%, 6 TP, 4 SL, 0 timeouts.",
+              "Time analysis separately showed that the most stable entry window was 06:00 UTC, while 04:00 UTC was the weakest."
+            ]
+          },
+          {
+            title: "Practical conclusion",
+            items: [
+              "Entry time here is not a decorative parameter but a separate risk filter.",
+              "The best result came from a simple full exit on the first TP, not from a complex scenario.",
+              "The value of the case is not only in a specific setup but in the approach itself: hypothesis → exchange data → simulator → grid search → metrics."
             ]
           }
         ],
-        articleUrl: "/articles/shortcase.html",
-        articleLabel: "Detailed article"
+        articleUrl: "/en/articles/short_case.html",
+        articleLabel: "View the full case in the article"
       },
       personal1: {
         pill: "Personal",
         meta: "Money Patterns",
         title: "A case about “smart” procrastination with money",
-        intro: "A person knows what to do with their finances, but keeps postponing action while continuing to collect information and analyze.",
+        intro: "A person clearly understands what to do with finances, easily gathers information and calculates scenarios, but real actions are constantly postponed. A case about how smart procrastination hides behind “I’ll think about it a bit more”.",
         sections: [
           {
-            title: "What we see",
+            title: "Request",
             items: [
-              "There are plans, spreadsheets, and calculations — but no transactions.",
-              "A high level of anxiety around any financial change.",
-              "A tendency to wait for the “perfect moment.”"
+              "A client with high financial literacy: reads blogs, takes courses, watches analytics, and has their own calculators and spreadsheets.",
+              "There is a desire to build an emergency fund, an investment portfolio, and close several debt stories.",
+              "In fact, no completed actions over the last 12 months — everything remains in the mode of “I’ll calculate a bit more”."
             ]
           },
           {
-            title: "Behavioral mechanism",
+            title: "What is visible externally",
             items: [
-              "Avoidance as a way to lower tension.",
-              "A conflict between values and beliefs about money.",
-              "Confusion between research and action."
+              "It looks like “I’m just a perfectionist and want to do it well”: a lot of research, caution, and attention to detail.",
+              "From the outside, it seems rational — the person does not appear to be doing anything foolish with money because they check everything.",
+              "Close ones often say she is “just too smart to rush”."
+            ]
+          },
+          {
+            title: "What is actually happening",
+            items: [
+              "Financial decisions trigger anxiety and fear of making a mistake, which hides behind being analytical.",
+              "Cognitive overload: too many options, sources, and scenarios, with no sense of “enough to take a step”.",
+              "Present bias is at work: short-term comfort from “not deciding now” wins over long-term outcomes."
+            ]
+          },
+          {
+            title: "What we did",
+            items: [
+              "Separated “research” and “decision”: introduced concrete deadlines when analysis ends and action begins.",
+              "Reduced the choice set to 2–3 scenarios instead of 10+ to lower cognitive load.",
+              "Defined minimal action steps: not an “ideal portfolio” but, for example, one simple automatic payment.",
+              "Separately worked through fear of mistakes — from black-and-white thinking (“either perfect or bad”) to allowing experimentation."
+            ]
+          },
+          {
+            title: "Result",
+            items: [
+              "The first real movement appeared: an account opened, automatic payments turned on, and one old debt story closed.",
+              "Part of the energy shifted from endless analysis to small but regular actions.",
+              "Instead of the feeling “I did nothing again” there were concrete financial facts at the end of the month."
+            ]
+          },
+          {
+            title: "Key idea",
+            items: [
+              "“Smart” procrastination with money often looks like care and caution but in fact blocks any change.",
+              "In such cases we work not with a lack of knowledge but with an overloaded nervous system and fear of irreversibility."
             ]
           }
         ]
@@ -1643,38 +1931,116 @@
         pill: "Personal",
         meta: "Decision Framework",
         title: "The “move / stay” case",
-        intro: "How to structure a relocation decision when everything comes down to money, safety, and the feeling of stability.",
+        intro: "A relocation decision rarely comes down only to money. It is always a conflict between safety, relationships, sense of home, and personal resources. A case about how to structure the “move or stay” request when everything seems important at once.",
         sections: [
           {
-            title: "Decision framework",
+            title: "Request",
             items: [
-              "A/B/C scenarios with financial and non-financial variables.",
-              "Risk levels across time horizons.",
-              "Financial buffer vs psychological buffer."
+              "A couple in their 30s with stable income in their current country of residence but high anxiety due to the security context.",
+              "There is an opportunity to move to another country with higher costs but greater predictability.",
+              "Emotionally, the decision is torn between “we leave everyone and everything” and “we are irresponsible if we do not leave”."
+            ]
+          },
+          {
+            title: "What is visible externally",
+            items: [
+              "Many conversations, comparisons of cities and taxes, watching videos about life abroad.",
+              "Postponed actions: suitcases are not packed, documents are not prepared, rent is not discussed.",
+              "A feeling that the couple lives in a constant “we’ll think about it a bit more” and frozen mode."
+            ]
+          },
+          {
+            title: "Decision structure",
+            items: [
+              "We split the task into three horizons: 6–12 months, 2–3 years, 5+ years.",
+              "For each horizon we separately evaluated financial, emotional, social, and bodily (health/nervous system) components.",
+              "We formed scenarios A/B/C: stay, move fully, try an intermediate model (3–6 months of test living)."
+            ]
+          },
+          {
+            title: "Money focus",
+            items: [
+              "We translated abstract “more expensive / cheaper” into concrete figures: budget, taxes, insurance, and an adaptation reserve.",
+              "Separately we calculated the cost of a mistake: what happens if they have to return in a year.",
+              "We included the cost of “emotional debt” — exhaustion if nothing changes for another 2–3 years."
+            ]
+          },
+          {
+            title: "What we did",
+            items: [
+              "Introduced a rule: no decisions “for life”. We work only within the chosen horizon.",
+              "Chose an intermediate test scenario with a clear budget, deadlines, and criteria for “do we continue further”.",
+              "Defined which financial and life markers would mean that the experiment is considered successful or unsuccessful."
+            ]
+          },
+          {
+            title: "Result",
+            items: [
+              "The decision stopped being perceived as a “point of no return”; tension decreased.",
+              "The couple took the first step — a test move, without zeroing all ties and resources in the current country.",
+              "After 6 months they made a calmer, less polarized decision about the next horizon."
+            ]
+          },
+          {
+            title: "Key idea",
+            items: [
+              "Many “move / stay” decisions get stuck not in the numbers but in trying to decide “forever” right away.",
+              "When you break the task into horizons and scenarios, there is more movement and less guilt for any choice."
             ]
           }
         ]
       },
-      business1: {
+            business1: {
         pill: "Business",
         meta: "Funnels & Behavior",
-        title: "A case about drop rate in a financial product",
-        intro: "The onboarding looks logical, but users drop off massively before the key action.",
+        title: "A case about drop-rate in a financial product",
+        intro: "Onboarding looks logical in flowcharts, but users drop off massively before the key action. A case about how to break a financial product funnel into behavioral steps and see exactly where people press “close”.",
         sections: [
           {
-            title: "Where we lose people",
+            title: "Request",
             items: [
-              "Field by field: which exact steps trigger exit.",
-              "Which copy elements increase perceived risk instead of reducing it.",
-              "How micro-frictions work."
+              "A financial product with online registration and KYC, normal acquisition numbers, but a high drop-rate before the final step.",
+              "From the product perspective, everything looked “optimized”: minimal fields, hints, and a progress bar.",
+              "The team wanted to understand whether the issue was in UX, copy, trust, or in the sequence of steps itself."
             ]
           },
           {
-            title: "What we change",
+            title: "What we saw in the data",
             items: [
-              "Rebuilding the path from the perspective of cognitive load.",
-              "Different defaults and contextual prompts.",
-              "A new drop-rate map after the changes."
+              "We built a step-by-step map: from the first screen to operation confirmation, with conversion at each stage.",
+              "The biggest drop was not at KYC, as expected, but at the amount entry and terms confirmation step.",
+              "Some users made several attempts but stopped at exactly the same place each time."
+            ]
+          },
+          {
+            title: "Behavioral barriers",
+            items: [
+              "The wording amplified risk: the emphasis was on fines, penalties, and “responsibility”, not on user protection.",
+              "The amount field was visually placed next to fine print about fees, which increased anxiety.",
+              "There was no tangible “benefit now” — only future obligations."
+            ]
+          },
+          {
+            title: "What we changed",
+            items: [
+              "We rewrote key copy elements from a punishment focus to a transparency and customer protection focus.",
+              "We rearranged the blocks: amount + a short clear summary of “what you get”, while detailed terms went into a separate expandable block.",
+              "We added micro-feedback: check marks for each completed step, a simplified progress bar, and a short text explaining how much time the process would still take."
+            ]
+          },
+          {
+            title: "Result",
+            items: [
+              "Drop-rate at the problematic step decreased more noticeably than at other stages of the funnel.",
+              "The number of users who completed the path without repeated attempts and returns to previous screens increased.",
+              "The team received a map where each step was tied to specific behavioral barriers and hypotheses."
+            ]
+          },
+          {
+            title: "Key idea",
+            items: [
+              "In financial products, people often “drop off” not because they are too lazy to fill out a form, but because the form amplifies the feeling of risk and loss.",
+              "Onboarding must explain and calm at the same time, not only collect data."
             ]
           }
         ]
@@ -1683,22 +2049,53 @@
         pill: "Business",
         meta: "UX & Money",
         title: "A case about “smart” budgeting that nobody uses",
-        intro: "The tool looks strong in a demo, but in real life people open it once a month and then close it.",
+        intro: "The tool looks strong in a demo: dashboards, categories, forecasts. But in real life users open it once a month and close it. A case about how a good feature does not become part of financial habits.",
         sections: [
           {
-            title: "Symptoms",
+            title: "Request",
             items: [
-              "Low engagement with a high NPS.",
-              "Users do not see day-to-day value.",
-              "The feature lives in a separate section instead of inside the decision flow."
+              "A fintech product with a “smart” budgeting module: automatic categorization, analytics, and risk alerts.",
+              "NPS is high: users like the idea and the visualizations, but real engagement is very low.",
+              "The team wanted to understand why the feature “lives” only in presentations and user tests, but not in daily behavior."
             ]
           },
           {
-            title: "Behavior + Product",
+            title: "What the data showed",
             items: [
-              "How salience gets crowded out by other tasks.",
-              "Why a different feedback-loop format is needed.",
-              "What we change in UX so the tool actually starts living."
+              "Most users entered the module 1–2 times a month, often after salary payments or large transactions.",
+              "Sessions were dominated by report views, not by setting limits or adjusting budgets.",
+              "Push reminders were barely opened or were ignored after the first weeks."
+            ]
+          },
+          {
+            title: "Behavioral reasons",
+            items: [
+              "The module was separated from the place where the user actually makes decisions — payments, purchases, transfers.",
+              "Monitoring was “after the fact”: people saw that something had gone wrong, but nothing changed at the moment of spending.",
+              "The system gave a lot of information but few clear, small next steps (“what to do now”)."
+            ]
+          },
+          {
+            title: "What we changed",
+            items: [
+              "We moved part of the budgeting logic closer to the moment of action: into transaction and confirmation screens.",
+              "We replaced general warnings with specific contextual nudges: “This is already your third purchase in this category in 2 days; here is where you are now relative to your own limit.”",
+              "We created one simple behavior-change scenario: for example, reducing the limit or pausing a category in one click."
+            ]
+          },
+          {
+            title: "Result",
+            items: [
+              "The frequency of short interactions with budgeting signals increased directly in the flow, not only in a separate section.",
+              "Users adjusted budgets more often during the month rather than “after the catastrophe”.",
+              "The feature stopped being only an analytical “mirror” and began to function as a real behavioral intervention."
+            ]
+          },
+          {
+            title: "Key idea",
+            items: [
+              "“Smart” budgeting moved into a separate section loses to an environment where decisions are made literally within one second.",
+              "For people to use the tool, it must be present where the impulse arises, not only where consequences are calculated."
             ]
           }
         ]
@@ -1707,26 +2104,26 @@
         pill: "FinTech",
         meta: "Collections Behavior",
         title: "A case about buckets in collections",
-        intro: "How payer behavior changes depending on the bucket and the treatment path chosen.",
+        intro: "How payer behavior changes depending on the bucket and the selected treatment path.",
         sections: [
           {
             title: "Behavioral view of buckets",
             items: [
               "How behavior differs across 0–30, 30–60, and 60–90 days past due.",
               "How sensitivity to channels and tone of communication changes.",
-              "What payment micro-patterns reveal."
+              "What payment micro-patterns show."
             ]
           },
           {
             title: "Treatment paths",
             items: [
               "Personalized scenarios depending on bucket + risk.",
-              "How recovery changes with a different sequence of actions."
+              "How recovery changes under a different sequence of actions."
             ]
           }
         ],
-        articleUrl: "/articles/Credit.html",
-        articleLabel: "Detailed article breakdown"
+        articleUrl: "/en/articles/Credit.html",
+        articleLabel: "Detailed breakdown in the article"
       },
       business4: {
         pill: "FinTech",
@@ -1738,7 +2135,7 @@
             title: "What kind of product it is",
             items: [
               "283,726 transactions in the sample.",
-              "Severity segmentation across risk buckets.",
+              "Severity segmentation by risk buckets.",
               "Investigator queue and P1/P2 prioritization."
             ]
           },
@@ -1747,12 +2144,12 @@
             items: [
               "Combined Risk Score as a signal for the team.",
               "How to explain the reason for a flag to both a person and the business.",
-              "What a dashboard looks like when it explains instead of scaring."
+              "What a dashboard looks like when it explains rather than scares."
             ]
           }
         ],
-        articleUrl: "/articles/explainable-transaction-risk-monitoring.html",
-        articleLabel: "View full case"
+        articleUrl: "/en/articles/explainable-transaction-risk-monitoring.html",
+        articleLabel: "View the full case"
       }
     };
 

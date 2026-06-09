@@ -5,22 +5,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
   <title>TELWHA | Articles</title>
-  <meta name="description" content="TELWHA articles on the psychology of money, trading, risk, behavioral patterns, and FinLab research.">
+  <meta name="description" content="TELWHA articles on money psychology, trading, risk, behavioral patterns, and FinLab research.">
   <link rel="canonical" href="https://t-e-l-w-h-a.com/articles/">
+
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="TELWHA | Articles">
-  <meta property="og:description" content="Educational, analytical, and research materials from TELWHA about money, trading, risk, and behavioral mechanisms.">
+  <meta property="og:description" content="Educational, analytical, and research materials from TELWHA on money, trading, risk, and behavioral mechanisms.">
   <meta property="og:url" content="https://t-e-l-w-h-a.com/articles/">
   <meta property="og:site_name" content="TELWHA">
 
+
   <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
+
 
   <link rel="preconnect" href="https://api.fontshare.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
+
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
   <script>
@@ -30,12 +35,13 @@
     gtag('config', 'G-FVHKD6TZJP');
   </script>
 
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "TELWHA | Articles",
-    "description": "Educational, analytical, and research materials from TELWHA about the psychology of money, trading, risk, and FinLab.",
+    "description": "Educational, analytical, and research materials from TELWHA on money psychology, trading, risk, and FinLab.",
     "url": "https://t-e-l-w-h-a.com/articles/",
     "inLanguage": "en"
   }
@@ -345,6 +351,10 @@
       transform: translateY(0);
     }
 
+    .dropcontent[aria-hidden="true"] {
+      pointer-events: none;
+    }
+
     .dropcontent a {
       justify-content: flex-start;
       border-radius: 12px;
@@ -451,22 +461,11 @@
       font-size: var(--text-lg);
     }
 
-    .hero-note {
-      margin-top: 18px;
-      color: var(--color-text);
-      font-size: 0.98rem;
-      max-width: 62ch;
-    }
-
-    .hero-note a {
-      color: var(--color-primary);
-      font-weight: 700;
-    }
-
     .hero-featured,
     .section-card,
     .article-card,
-    .cta-panel {
+    .cta-panel,
+    .empty-state {
       border: 1px solid var(--color-border);
       background: color-mix(in srgb, var(--color-surface) 96%, transparent);
       box-shadow: var(--shadow-sm);
@@ -551,10 +550,25 @@
       border-color: rgba(15, 93, 95, 0.26);
     }
 
+    .articles-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
     .articles-hint {
       color: var(--color-text-muted);
       font-size: 0.92rem;
-      margin-bottom: 18px;
+      max-width: 68ch;
+    }
+
+    .articles-count {
+      color: var(--color-text-faint);
+      font-size: 0.9rem;
+      white-space: nowrap;
     }
 
     .articles-grid {
@@ -645,6 +659,34 @@
       font-size: 0.76rem;
       font-weight: 700;
       letter-spacing: 0.04em;
+    }
+
+    .empty-state {
+      display: none;
+      margin-top: 18px;
+      padding: 26px;
+      border-radius: 24px;
+      text-align: left;
+    }
+
+    .empty-state.is-visible {
+      display: block;
+    }
+
+    .empty-state h3 {
+      font-size: var(--text-lg);
+      margin-bottom: 8px;
+    }
+
+    .empty-state p {
+      color: var(--color-text-muted);
+      max-width: 58ch;
+      margin-bottom: 14px;
+    }
+
+    .empty-state a {
+      color: var(--color-primary);
+      font-weight: 700;
     }
 
     .articles-separator {
@@ -864,7 +906,8 @@
       .hero-featured,
       .section-card,
       .article-card,
-      .cta-panel {
+      .cta-panel,
+      .empty-state {
         border-radius: 22px;
       }
 
@@ -906,14 +949,16 @@
       }
     }
   </style>
-</head>
+
+  </head>
 <body>
   <div class="progress" id="progress"></div>
+
 
   <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
-        <a class="brand-row" href="/" aria-label="TELWHA — go to homepage">
+        <a class="brand-row" href="/" aria-label="TELWHA — back to home">
           <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
             <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
             <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
@@ -923,6 +968,7 @@
         </a>
         <span class="brand-sub">Behavioral Finance · Psychology</span>
       </div>
+
 
       <button
         class="menu-toggle"
@@ -936,49 +982,69 @@
         </span>
       </button>
 
+
       <nav class="menu" id="site-menu" aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/cases/">Cases</a>
-        <a href="/articles/" class="is-active">Articles</a>
-        <a href="/finlab/">FinLab</a>
+        <a href="/en/index.html">Home</a>
+        <a href="/en/about/index.html">About me</a>
+        <a href="/en/cases/index.html">Cases</a>
+        <a href="/en/articles/index.html" class="is-active">Articles</a>
+        <a href="/en/finlab/index.html">FinLab</a>
+
 
         <div class="dropdown">
-          <button type="button" class="dropbtn is-highlight" aria-expanded="false" aria-haspopup="true">
-            Test yourself
+          <button
+            type="button"
+            class="dropbtn is-highlight"
+            id="self-check-toggle"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-controls="self-check-menu"
+          >
+            Check yourself
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="dropcontent">
-            <a href="/finlab/money-test-api/money-test.html">Financial behavior test</a>
-            <a href="/habit-test.html">Where are your habits taking you?</a>
-            <a href="/fact-or-fiction-cases.html">Fact or fiction?</a>
+          <div class="dropcontent" id="self-check-menu" aria-hidden="true" aria-labelledby="self-check-toggle">
+            <a href="/en/finlab/money-test.html">Financial behavior test</a>
+            <a href="/en/habit-test.html">Where do your habits lead?</a>
+            <a href="/en/fact-or-fiction-cases.html">Fact or fiction?</a>
           </div>
         </div>
 
+
         <div class="dropdown">
-          <button type="button" class="dropbtn" aria-expanded="false" aria-haspopup="true">
+          <button
+            type="button"
+            class="dropbtn"
+            id="traders-toggle"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-controls="traders-menu"
+          >
             For traders
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="dropcontent">
-            <a href="/trader-course/">Mini-course</a>
-            <a href="/archetype-test/">Trader archetype</a>
+          <div class="dropcontent" id="traders-menu" aria-hidden="true" aria-labelledby="traders-toggle">
+            <a href="/en/trader-course/">Mini-course</a>
+            <a href="/en/archetype-test/">Trader archetype</a>
           </div>
         </div>
 
-        <a href="/reviews/">Reviews</a>
-        <a href="/contact/">Contact</a>
+
+        <a href="/en/reviews/">Reviews</a>
+        <a href="/en/contact/">Contacts</a>
+
 
         <div class="menu-tools">
           <div class="lang-list" aria-label="Site languages">
             <a class="lang-link" href="/articles/" lang="uk" aria-label="Ukrainian">UA</a>
             <a class="lang-link is-active" href="/en/articles/" lang="en" aria-label="English">EN</a>
-            <a class="lang-link" href="/es/articles/" lang="es" aria-label="Español">ES</a>
+            <a class="lang-link" href="/es/articles/" lang="es" aria-label="Spanish">ES</a>
           </div>
+
 
           <button class="theme-toggle" type="button" aria-label="Change theme">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -997,8 +1063,7 @@
       </nav>
     </div>
   </header>
-
-  <main class="page">
+   <main class="page">
     <div class="wrap">
       <section class="hero-shell">
         <div class="hero-grid">
@@ -1006,40 +1071,47 @@
             <div class="eyebrow">TELWHA / Articles</div>
             <h1 class="hero-title">Articles and breakdowns</h1>
             <p class="hero-sub">
-              Educational, analytical, and research materials about the psychology of money, trading, risk, behavioral patterns, and FinLab.
+              Educational, analytical, and research materials about money psychology, trading, risk, behavioral patterns, and FinLab.
             </p>
           </div>
 
+
           <aside class="hero-featured">
-            <div class="hero-featured-label">A good place to start</div>
+            <div class="hero-featured-label">Recommended to start with</div>
             <h2>Your “irrational” actions are valuable data</h2>
-            <div class="hero-featured-meta">Psychology of money · June 1, 2025 · 8 min read</div>
+            <div class="hero-featured-meta">Money Psychology · June 1, 2025 · 8 min read</div>
             <p>
               How to look at your “irrational” financial actions as data about thinking, emotions,
               and patterns rather than as failures. A practical framework for analysis.
             </p>
-            <a href="/articles/irrational-actions-as-data.html">Read article →</a>
+            <a href="/en/articles/irrational-actions-as-data.html">Read the article →</a>
           </aside>
         </div>
       </section>
 
+
       <section class="section-card">
         <section class="filters" aria-label="Filter articles by category">
           <button class="filter-chip active" type="button" data-filter="all">All</button>
-          <button class="filter-chip" type="button" data-filter="money">Psychology of money</button>
+          <button class="filter-chip" type="button" data-filter="money">Money Psychology</button>
           <button class="filter-chip" type="button" data-filter="trading">Trading</button>
           <button class="filter-chip" type="button" data-filter="couples">Couples and money</button>
           <button class="filter-chip" type="button" data-filter="finlab">FinLab</button>
-          <button class="filter-chip" type="button" data-filter="experiments">Experiments</button>
         </section>
 
-        <p class="articles-hint">
-          This section does not include separate practical cases on Bybit, collections, or transaction risk monitoring — they have already been moved to “Cases”.
-        </p>
+
+        <div class="articles-meta-row">
+          <p class="articles-hint">
+            Explanatory, analytical, and research-style materials are collected here. If you need more applied breakdowns of scenarios, products, and behavioral situations, go to the
+            <a href="/en/cases/index.html">cases section</a>.
+          </p>
+          <p class="articles-count" id="articlesCount" aria-live="polite">Showing 6 materials</p>
+        </div>
+
 
         <section id="articles" class="articles-grid" aria-label="List of articles">
-          <article class="article-card" data-tag="money">
-            <div class="article-tag">Psychology of money</div>
+          <article class="article-card" data-tags="money">
+            <div class="article-tag">Money Psychology</div>
             <h2 class="article-title">Your “irrational” actions are valuable data</h2>
             <p class="article-meta">June 1, 2025 · 8 min read</p>
             <p class="article-excerpt">
@@ -1047,121 +1119,136 @@
               and patterns rather than as failures. A practical framework for analysis.
             </p>
             <div class="article-footer">
-              <a class="article-link" href="/articles/irrational-actions-as-data.html">Read →</a>
-              <span class="article-video-flag">+ YouTube video</span>
+              <a class="article-link" href="/en/articles/irrational-actions-as-data.html">Read →</a>
+              <span class="article-video-flag">+ video on YouTube</span>
             </div>
           </article>
 
-          <article class="article-card" data-tag="trading">
+
+          <article class="article-card" data-tags="trading">
             <div class="article-tag">Trading</div>
-            <h2 class="article-title">Why your brain starts to drift after 5 trades</h2>
+            <h2 class="article-title">Why the brain “drifts” after 5 trades</h2>
             <p class="article-meta">June 12, 2025 · 6 min read</p>
             <p class="article-excerpt">
-              Decision fatigue in trading: how the number of decisions per day eats away at discipline,
-              increases impulsivity, and what to do about it in practice.
+              Decision fatigue in trading: how the number of decisions per day eats away at discipline, increases
+              impulsivity, and what to do about it in practice.
             </p>
             <div class="article-footer">
-              <a class="article-link" href="/articles/decision-fatigue-trading.html">Read →</a>
+              <a class="article-link" href="/en/articles/decision-fatigue-trading.html">Read →</a>
               <span class="article-video-flag"></span>
             </div>
           </article>
 
-          <article class="article-card" data-tag="couples">
+
+          <article class="article-card" data-tags="couples">
             <div class="article-tag">Couples and money</div>
-            <h2 class="article-title">When financial conversations end in conflict</h2>
+            <h2 class="article-title">When financial conversations end in an argument</h2>
             <p class="article-meta">June 20, 2025 · 7 min read</p>
             <p class="article-excerpt">
-              Why the same triggers keep repeating in conversations about money within a couple,
-              and how to turn financial conflict into a shared decision-making process.
+              Why the same triggers repeat in conversations about money in a couple, and how to turn
+              financial conflict into a shared decision format.
             </p>
             <div class="article-footer">
-              <a class="article-link" href="/articles/couples-money-conflicts.html">Read →</a>
+              <a class="article-link" href="/en/articles/couples-money-conflicts.html">Read →</a>
               <span class="article-video-flag"></span>
             </div>
           </article>
 
-          <article class="article-card" data-tag="finlab">
+
+          <article class="article-card" data-tags="finlab">
             <div class="article-tag">FinLab · Research</div>
             <h2 class="article-title">Cognitive biases in financial texts</h2>
             <p class="article-meta">March 1, 2026 · 10 min read</p>
             <p class="article-excerpt">
-              How cognitive biases show up in reports, news, and social media, and why
-              without genre and context AI models can blend legal language, hype, and market fear
+              How cognitive biases appear in reports, news, and social media, and why
+              without genre and context AI models can mix legal language, hype, and market fear
               into one distorted signal.
             </p>
             <div class="article-footer">
-              <a class="article-link" href="/articles/mastercase.html">Read →</a>
+              <a class="article-link" href="/en/articles/mastercase.html">Read →</a>
               <span class="article-video-flag"></span>
             </div>
           </article>
 
-          <article class="article-card" data-tag="finlab experiments">
-            <div class="article-tag">FinLab · Experiments</div>
+
+          <article class="article-card" data-tags="finlab trading">
+            <div class="article-tag">FinLab · Experiment</div>
             <h2 class="article-title">Behavioral biases in trading: the SPY 200DMA case</h2>
             <p class="article-meta">May 13, 2026 · 9 min read</p>
             <p class="article-excerpt">
               How the house money effect, confirmation bias, escalation of commitment, and status quo bias
-              change profitability, drawdown, and the execution logic of the SPY 200DMA strategy — and what that
+              change profitability, drawdown, and the execution logic of the SPY 200DMA strategy — and what this
               means for traders, risk, and fintech products.
             </p>
             <div class="article-badge">Research-style material</div>
             <div class="article-footer">
-              <a class="article-link" href="/articles/behavioral-biases-spy-200dma.html">Read →</a>
+              <a class="article-link" href="/en/articles/behavioral-biases-spy-200dma.html">Read →</a>
               <span class="article-video-flag"></span>
             </div>
           </article>
 
-          <article class="article-card" data-tag="finlab experiments">
-            <div class="article-tag">FinLab · Experiments</div>
+
+          <article class="article-card" data-tags="finlab money">
+            <div class="article-tag">FinLab · Experiment</div>
             <h2 class="article-title">How AI spending insights can change financial behavior</h2>
             <p class="article-meta">May 20, 2026 · 9 min read</p>
             <p class="article-excerpt">
               A case about how AI-based spending insights in a mobile financial product
-              can change spending structure, increase salience, and create a behavioral effect
+              can change spending structure, increase salience, and create a behavior effect
               without a negative signal in engagement.
             </p>
             <div class="article-badge">Product experiment</div>
             <div class="article-footer">
-              <a class="article-link" href="/articles/ai-spending-insights-case-uk.html">Read →</a>
+              <a class="article-link" href="/en/articles/ai-spending-insights-case-uk.html">Read →</a>
               <span class="article-video-flag"></span>
             </div>
           </article>
         </section>
+
+
+        <div class="empty-state" id="emptyState" aria-live="polite">
+          <h3>There are no visible materials in this category yet</h3>
+          <p>
+            Try another filter or go to the <a href="/en/cases/">cases section</a> if you are currently looking for more applied scenario-based breakdowns.
+          </p>
+        </div>
       </section>
 
-      <div class="articles-separator">
-        Need practical scenario-based examples, behavioral case studies, or FinTech cases? See the
-        <a href="/cases/">“Cases” section</a>.
+            <div class="articles-separator">
+        Looking not for an explanation, but for practical application? Go to the
+        <a href="/en/cases/">“Cases” section</a>.
       </div>
+
 
       <section class="cta-panel">
         <div>
           <h2>Want to start with a practical direction?</h2>
           <p>
-            Go to the cases section if you want applied breakdowns, or stay with the articles if what you need now is an explanation of a pattern, model, or mechanism.
+            Go to the cases if you want to see applied breakdowns, or stay in the articles if what you need right now is an explanation of a pattern, model, or mechanism.
           </p>
         </div>
         <div class="cta-links">
-          <a class="btn" href="/cases/">Go to cases</a>
-          <a class="btn btn-secondary" href="/contact/">Contact</a>
+          <a class="btn" href="/en/cases/">Go to cases</a>
+          <a class="btn btn-secondary" href="/en/contact/">Get in touch</a>
         </div>
       </section>
     </div>
   </main>
+
 
   <footer class="footer">
     <div class="wrap">
       <div class="footer-grid">
         <div>
           <h4>TELWHA</h4>
-          <p>Financial psychology, behavioral economics, and choice architecture for better decisions and more sustainable outcomes.</p>
+          <p>Financial psychology, behavioral economics, and choice architecture for better decisions and sustainable results.</p>
         </div>
         <div style="text-align:right">
           <h4>Navigation</h4>
           <div class="footer-links">
-            <a href="/">Home</a>
-            <a href="/about/">About</a>
-            <a href="/finlab/">FinLab</a>
+            <a href="/en/">Home</a>
+            <a href="/en/about/">About me</a>
+            <a href="/en/finlab/">FinLab</a>
           </div>
         </div>
       </div>
@@ -1182,6 +1269,8 @@
 
     const filterButtons = document.querySelectorAll(".filter-chip");
     const articleCards = document.querySelectorAll(".article-card");
+    const articlesCount = document.getElementById("articlesCount");
+    const emptyState = document.getElementById("emptyState");
 
     function updateProgressBar() {
       const scrollTop = window.scrollY;
@@ -1190,16 +1279,35 @@
       if (progress) progress.style.width = progressValue + "%";
     }
 
+    function setDropdownState(dropdown, isOpen) {
+      const btn = dropdown.querySelector(".dropbtn");
+      const panel = dropdown.querySelector(".dropcontent");
+      dropdown.classList.toggle("is-open", isOpen);
+      btn?.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      panel?.setAttribute("aria-hidden", isOpen ? "false" : "true");
+    }
+
     function closeAllDropdowns(except = null) {
       dropdowns.forEach((dropdown) => {
         if (dropdown === except) return;
-        dropdown.classList.remove("is-open");
-        const btn = dropdown.querySelector(".dropbtn");
-        btn?.setAttribute("aria-expanded", "false");
+        setDropdownState(dropdown, false);
       });
     }
 
+    function updateFilterUI() {
+      const visibleCards = [...articleCards].filter(card => !card.classList.contains("is-hidden"));
+      const count = visibleCards.length;
+
+      if (articlesCount) {
+        articlesCount.textContent = `Показано ${count} ${count === 1 ? "матеріал" : count >= 2 && count <= 4 ? "матеріали" : "матеріалів"}`;
+      }
+
+      emptyState?.classList.toggle("is-visible", count === 0);
+    }
+
     updateProgressBar();
+    updateFilterUI();
+
     window.addEventListener("scroll", updateProgressBar, { passive: true });
 
     if (menuToggle && siteMenu) {
@@ -1207,11 +1315,9 @@
         const isOpen = siteMenu.classList.toggle("is-open");
         menuToggle.classList.toggle("is-open", isOpen);
         menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+        menuToggle.setAttribute("aria-label", isOpen ? "Закрити меню" : "Відкрити меню");
 
-        if (!isOpen) {
-          closeAllDropdowns();
-        }
+        if (!isOpen) closeAllDropdowns();
       });
     }
 
@@ -1223,9 +1329,7 @@
 
         const isOpen = dropdown.classList.contains("is-open");
         closeAllDropdowns(dropdown);
-
-        dropdown.classList.toggle("is-open", !isOpen);
-        button.setAttribute("aria-expanded", !isOpen ? "true" : "false");
+        setDropdownState(dropdown, !isOpen);
       });
     });
 
@@ -1238,7 +1342,7 @@
         siteMenu.classList.remove("is-open");
         menuToggle?.classList.remove("is-open");
         menuToggle?.setAttribute("aria-expanded", "false");
-        menuToggle?.setAttribute("aria-label", "Open menu");
+        menuToggle?.setAttribute("aria-label", "Відкрити меню");
       }
     });
 
@@ -1250,7 +1354,7 @@
           siteMenu.classList.remove("is-open");
           menuToggle?.classList.remove("is-open");
           menuToggle?.setAttribute("aria-expanded", "false");
-          menuToggle?.setAttribute("aria-label", "Open menu");
+          menuToggle?.setAttribute("aria-label", "Відкрити меню");
           menuToggle?.focus();
         }
       }
@@ -1264,7 +1368,7 @@
           siteMenu.classList.remove("is-open");
           menuToggle?.classList.remove("is-open");
           menuToggle?.setAttribute("aria-expanded", "false");
-          menuToggle?.setAttribute("aria-label", "Open menu");
+          menuToggle?.setAttribute("aria-label", "Відкрити меню");
         }
       });
     });
@@ -1284,11 +1388,13 @@
         button.classList.add("active");
 
         articleCards.forEach((card) => {
-          const tagString = card.dataset.tag || "";
-          const tags = tagString.split(" ");
+          const tagString = card.dataset.tags || "";
+          const tags = tagString.split(" ").filter(Boolean);
           const show = filter === "all" || tags.includes(filter);
           card.classList.toggle("is-hidden", !show);
         });
+
+        updateFilterUI();
       });
     });
   </script>

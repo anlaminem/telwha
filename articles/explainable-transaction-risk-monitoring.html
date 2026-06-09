@@ -4,14 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TELWHA | Short‑стратегія на листингах Bybit</title>
-<meta name="description" content="Кейс про симулятор short‑стратегії на нових лістингах Bybit: тест TP/SL, grid search та часові патерни входу.">
-<link rel="canonical" href="https://t-e-l-w-h-a.com/articles/bybit-short-listings-case/">
+<title>TELWHA | Explainable Transaction Risk Monitoring for Fintech</title>
+<meta name="description" content="Портфельний кейс про explainable transaction risk monitoring для фінтеху: Python, Tableau, investigator queue, explainability і поведінковий контекст fraud monitoring.">
+<link rel="canonical" href="https://t-e-l-w-h-a.com/cases/explainable-transaction-risk-monitoring/">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="TELWHA | Short‑стратегія на листингах Bybit">
-<meta property="og:description" content="Кейс про симулятор short‑стратегії на нових лістингах Bybit: тест TP/SL, grid search та часові патерни входу.">
-<meta property="og:url" content="https://t-e-l-w-h-a.com/articles/bybit-short-listings-case/">
+<meta property="og:title" content="TELWHA | Explainable Transaction Risk Monitoring for Fintech">
+<meta property="og:description" content="Портфельний кейс про explainable transaction risk monitoring для фінтеху: Python, Tableau, investigator queue, explainability і поведінковий контекст fraud monitoring.">
+<meta property="og:url" content="https://t-e-l-w-h-a.com/cases/explainable-transaction-risk-monitoring/">
 <meta property="og:site_name" content="TELWHA">
 
 <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
@@ -53,6 +53,9 @@
     --color-accent: #9a6a35;
     --color-accent-soft: rgba(154, 106, 53, 0.08);
 
+    --color-success: #4f7a4e;
+    --color-error: #a04b46;
+
     --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
     --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
     --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
@@ -85,6 +88,9 @@
     --color-accent: #c79c68;
     --color-accent-soft: rgba(199, 156, 104, 0.09);
 
+    --color-success: #89ba82;
+    --color-error: #d9837b;
+
     --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
     --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
     --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
@@ -111,10 +117,6 @@
     color: inherit;
     font: inherit;
     cursor: pointer;
-  }
-
-  code, pre {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   }
 
   :focus-visible {
@@ -188,7 +190,7 @@
     font-size: 0.75rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    max-width: 300px;
+    max-width: 320px;
   }
 
   .menu-toggle {
@@ -386,6 +388,11 @@
     padding: 34px 0 90px;
   }
 
+  .section > .wrap,
+  .section > .wrap-wide {
+    max-width: 100%;
+  }
+
   .article-shell {
     position: relative;
     max-width: 1320px;
@@ -417,38 +424,13 @@
     position: relative;
   }
 
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
-    color: var(--color-text-faint);
-    font-size: var(--text-xs);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-weight: 700;
-  }
-
-  .eyebrow::before {
-    content: "";
-    width: 22px;
-    height: 1px;
-    background: var(--color-primary);
-  }
-
   .article-header h1 {
     font-family: var(--font-display);
     font-size: var(--text-2xl);
     line-height: 0.97;
     letter-spacing: -0.03em;
-    max-width: 12ch;
-    margin-bottom: 14px;
-  }
-
-  .article-deck {
-    max-width: 850px;
-    color: var(--color-text-muted);
-    font-size: var(--text-lg);
+    max-width: 16ch;
+    margin-bottom: 16px;
   }
 
   .article-reading {
@@ -472,41 +454,6 @@
     color: var(--color-text-muted);
   }
 
-  .metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-    margin: 24px 0 10px;
-  }
-
-  .metric-card,
-  .aside-card,
-  .article-pullquote,
-  .note-box,
-  .code-block details {
-    border: 1px solid var(--color-border);
-    box-shadow: var(--shadow-sm);
-  }
-
-  .metric-card {
-    padding: 16px;
-    border-radius: 18px;
-    background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
-  }
-
-  .metric-card small {
-    display: block;
-    color: var(--color-text-faint);
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: .05em;
-  }
-
-  .metric-card strong {
-    font-size: 1.45rem;
-    line-height: 1.1;
-  }
-
   .article-layout {
     display: grid;
     grid-template-columns: minmax(0,5fr) minmax(260px,2fr);
@@ -514,9 +461,7 @@
     align-items: start;
   }
 
-  .article-main {
-    min-width: 0;
-  }
+  .article-main { min-width: 0; }
 
   .article-aside {
     position: sticky;
@@ -524,6 +469,15 @@
     display: flex;
     flex-direction: column;
     gap: 14px;
+  }
+
+  .aside-card,
+  .insight-card,
+  .tableau-card,
+  .takeaway-box,
+  details.methodology {
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
   }
 
   .aside-card {
@@ -559,12 +513,6 @@
     color: var(--color-text);
   }
 
-  .mini-note {
-    font-size: .95rem;
-    line-height: 1.55;
-    color: var(--color-text-muted);
-  }
-
   .article-body section[id] {
     position: relative;
     margin-top: 2.2rem;
@@ -572,18 +520,9 @@
   }
 
   .article-body h2,
+  .article-body h3,
   .article-body section[id] {
     scroll-margin-top: 120px;
-  }
-
-  .article-body p {
-    margin-bottom: 1.35rem;
-  }
-
-  .article-body > p.is-focus,
-  .article-body section[id] > p.is-focus {
-    padding-left: 16px;
-    border-left: 3px solid color-mix(in srgb, var(--color-accent) 70%, transparent);
   }
 
   .article-body h2 {
@@ -591,13 +530,23 @@
     font-size: var(--text-xl);
     line-height: 1.04;
     letter-spacing: -0.02em;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
+  }
+
+  .article-body p {
+    margin-bottom: 1.2rem;
+  }
+
+  .article-body .is-focus {
+    padding-left: 16px;
+    border-left: 3px solid color-mix(in srgb, var(--color-accent) 70%, transparent);
   }
 
   .article-pullquote {
     margin: 22px 0;
     padding: 18px 20px;
     border-radius: 18px;
+    border: 1px solid var(--color-border);
     background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 14%, var(--color-surface)), color-mix(in srgb, var(--color-accent) 4%, var(--color-surface)));
     font-size: 1.05rem;
     line-height: 1.7;
@@ -615,7 +564,6 @@
 
   .mobile-jump a {
     white-space: nowrap;
-    text-decoration: none;
     padding: 8px 12px;
     border-radius: 999px;
     border: 1px solid var(--color-border);
@@ -624,84 +572,107 @@
     color: var(--color-text-muted);
   }
 
-  .code-block {
-    margin: 18px 0 22px;
+  .insight-grid {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 16px;
+    margin: 22px 0 10px;
   }
 
-  .code-block details {
+  .insight-card {
+    padding: 18px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+  }
+
+  .insight-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.02rem;
+  }
+
+  .insight-card p {
+    margin: 0;
+    font-size: .98rem;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+  }
+
+  .tableau-card {
+    margin: 24px 0 10px;
+    padding: 16px;
+    border-radius: 24px;
+    background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+
+  .tableau-frame {
+    position: relative;
     border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-surface) 94%, transparent);
+  }
+
+  .tableauPlaceholder {
+    width: 100% !important;
+  }
+
+  .case-note {
+    margin-top: 10px;
+    font-size: .95rem;
+    color: var(--color-text-muted);
+  }
+
+  .takeaway-box {
+    margin: 20px 0 10px;
+    padding: 22px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 18%, var(--color-surface)), color-mix(in srgb, var(--color-accent) 5%, var(--color-surface)));
+  }
+
+  .takeaway-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  details.methodology {
+    margin-top: 22px;
+    border-radius: 20px;
     background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
     overflow: hidden;
   }
 
-  .code-block summary {
+  details.methodology summary {
     cursor: pointer;
     list-style: none;
-    padding: 16px 18px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
+    padding: 18px 20px;
+    font-weight: 700;
   }
 
-  .code-block summary::-webkit-details-marker {
+  details.methodology summary::-webkit-details-marker {
     display: none;
   }
 
-  .code-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+  details.methodology[open] summary {
+    border-bottom: 1px solid var(--color-divider);
   }
 
-  .code-kicker {
-    font-size: .78rem;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: var(--color-text-faint);
+  .methodology-inner {
+    padding: 18px 20px 22px;
   }
 
-  .code-arrow {
-    transition: transform .22s ease;
-    opacity: .7;
+  .methodology-inner h4 {
+    margin: 18px 0 8px;
+    font-size: 1rem;
   }
 
-  .code-block details[open] .code-arrow {
-    transform: rotate(180deg);
+  .methodology-inner ul {
+    margin: 0 0 12px 18px;
   }
 
-  .code-block pre {
-    margin: 0;
-    padding: 0 18px 18px;
-    overflow: auto;
-  }
-
-  .code-block code {
-    display: block;
-    padding: 16px;
-    border-radius: 14px;
-    background: #191919;
-    color: #f5efe6;
-    font-size: .9rem;
+  .methodology-inner li {
+    margin-bottom: 8px;
     line-height: 1.6;
-    white-space: pre;
-    min-width: 680px;
-  }
-
-  .inline-list {
-    padding-left: 18px;
-  }
-
-  .inline-list li {
-    margin: 0 0 .7rem;
-  }
-
-  .note-box {
-    margin: 18px 0;
-    padding: 18px;
-    border-radius: 18px;
-    background: color-mix(in srgb, var(--color-accent) 8%, var(--color-surface));
   }
 
   .article-cta {
@@ -802,8 +773,8 @@
       display: none;
     }
 
-    .metrics-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .insight-grid {
+      grid-template-columns: 1fr;
     }
   }
 
@@ -898,11 +869,11 @@
     }
 
     .article-header,
-    .metric-card,
     .aside-card,
-    .article-pullquote,
-    .note-box,
-    .code-block details {
+    .insight-card,
+    .tableau-card,
+    .takeaway-box,
+    details.methodology {
       border-radius: 22px;
     }
 
@@ -932,16 +903,16 @@
       display: none;
     }
 
-    .metrics-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .code-block code {
-      min-width: 560px;
+    .tableau-card {
+      padding: 12px;
     }
 
     .footer-bottom {
       flex-direction: column;
+    }
+
+    .sub {
+      max-width: 240px;
     }
   }
 
@@ -962,14 +933,14 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Short‑стратегія на листингах Bybit: тест TP/SL та часу входу",
-  "description": "Кейс про симулятор short‑стратегії на нових лістингах Bybit: тест TP/SL, grid search та часові патерни входу.",
+  "headline": "Explainable Transaction Risk Monitoring for Fintech",
+  "description": "Портфельний кейс про explainable transaction risk monitoring для фінтеху: Python, Tableau, investigator queue, explainability і поведінковий контекст fraud monitoring.",
   "author": {"@type": "Person", "name": "Anna Signaevska"},
   "publisher": {"@type": "Organization", "name": "TELWHA"},
   "inLanguage": "uk",
-  "datePublished": "2026-05-12",
-  "dateModified": "2026-05-12",
-  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://t-e-l-w-h-a.com/articles/bybit-short-listings-case/"}
+  "datePublished": "2026-06-01",
+  "dateModified": "2026-06-01",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://t-e-l-w-h-a.com/cases/explainable-transaction-risk-monitoring/"}
 }
 </script>
 </head>
@@ -990,13 +961,7 @@
       <span class="sub">Financial Psychology</span>
     </div>
 
-    <button
-      class="menu-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="site-menu"
-      aria-label="Відкрити меню"
-    >
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Відкрити меню">
       <span class="menu-toggle-lines" aria-hidden="true">
         <span></span><span></span><span></span>
       </span>
@@ -1005,8 +970,8 @@
     <nav class="menu" id="site-menu" aria-label="Основна навігація">
       <a href="/">Головна</a>
       <a href="/about/">Про мене</a>
-      <a href="/cases/">Кейси</a>
-      <a href="/articles/" class="is-active">Статті</a>
+      <a href="/cases/" class="is-active">Кейси</a>
+      <a href="/articles/">Статті</a>
       <a href="/finlab/">FinLab</a>
 
       <div class="dropdown">
@@ -1041,9 +1006,9 @@
 
       <div class="menu-tools">
         <div class="lang-list" aria-label="Мови сайту">
-          <a class="lang-link is-active" href="/articles/bybit-short-listings-case/" lang="uk" aria-label="Українська">UA</a>
-          <a class="lang-link" href="/en/articles/bybit-short-listings-case/" lang="en" aria-label="English">EN</a>
-          <a class="lang-link" href="/es/articles/bybit-short-listings-case/" lang="es" aria-label="Español">ES</a>
+          <a class="lang-link is-active" href="/cases/explainable-transaction-risk-monitoring/" lang="uk" aria-label="Українська">UA</a>
+          <a class="lang-link" href="/en/cases/explainable-transaction-risk-monitoring/" lang="en" aria-label="English">EN</a>
+          <a class="lang-link" href="/es/cases/explainable-transaction-risk-monitoring/" lang="es" aria-label="Español">ES</a>
         </div>
 
         <button class="theme-toggle" type="button" aria-label="Змінити тему">☀️</button>
@@ -1057,283 +1022,206 @@
     <div class="wrap-wide">
       <article class="article-shell" itemscope itemtype="https://schema.org/Article">
         <header class="article-header fade-in">
-          <div class="eyebrow"><span>Case study</span> TELWHA</div>
-          <h1 itemprop="headline">Short‑стратегія на листингах Bybit: тест TP/SL та часу входу</h1>
-          <p class="article-deck" itemprop="description">
-            Кейс про симулятор short‑стратегії на нових лістингах Bybit: як перевірити ідею через історичні свічки, grid search і часові патерни, а не через дуже впевнене «мені здається».
-          </p>
+          <h1 itemprop="headline">Explainable Transaction Risk Monitoring for Fintech</h1>
           <div class="article-reading">
-            <span class="article-chip">10 listing events</span>
-            <span class="article-chip">Bybit V5 Market Kline API</span>
-            <span class="article-chip">Python · Backtest · Grid Search</span>
-          </div>
-
-          <div class="metrics-grid fade-in" aria-label="Ключові результати кейсу">
-            <div class="metric-card"><small>Total PnL</small><strong>14.95 USD</strong></div>
-            <div class="metric-card"><small>Win rate</small><strong>60%</strong></div>
-            <div class="metric-card"><small>Setup</small><strong>TP 5% · SL 4%</strong></div>
-            <div class="metric-card"><small>Time window</small><strong>06:00 UTC</strong></div>
+            <span class="article-chip">Python · Tableau · Fraud Analytics</span>
+            <span class="article-chip">Explainability · Risk Ops</span>
+            <span class="article-chip">Behavioral Finance · FinTech</span>
           </div>
         </header>
 
-        <div class="mobile-jump fade-in" aria-label="Швидка навігація по статті">
-          <a href="#part-1">Ідея</a>
-          <a href="#part-2">Дані</a>
-          <a href="#part-3">Симулятор</a>
-          <a href="#part-4">Grid search</a>
-          <a href="#part-5">Результат</a>
-          <a href="#part-6">Висновки</a>
+        <div class="mobile-jump fade-in" aria-label="Швидка навігація по кейсу">
+          <a href="#part-1">Проблема</a>
+          <a href="#part-2">Що зроблено</a>
+          <a href="#part-3">Дашборд</a>
+          <a href="#part-4">Що знайшли</a>
+          <a href="#part-5">Методологія</a>
         </div>
 
         <div class="article-layout">
           <div class="article-main">
             <div class="article-body" itemprop="articleBody">
+
               <section id="part-1">
-                <p class="is-focus">Новий контракт з’являється на біржі, перші хвилини все летить у різні боки, далі частина учасників згадує про ризик‑менеджмент. Це коротке «післялістингове» вікно і стало об’єктом цього кейсу.</p>
-                <p>Завдання виглядало стандартно для будь‑якого продукту з ринковою логікою: формалізувати гіпотезу, зібрати дані, побудувати симулятор, прогнати параметри і побачити, чи є стабільна перевага. Конкретно тут — short‑угоди на confirmed listing events Bybit з фіксованим ризиком та чіткою логікою TP/SL.</p>
+                <p class="is-focus">
+                  У transaction monitoring завжди є спокуса позначати якомога більше сигналів. У результаті команда review бачить великий потік алертів, але не завжди швидко розуміє, де справді сконцентрований ризик.
+                </p>
+                <p>
+                  У цьому проєкті я зібрала explainable risk-логіку поверх публічного fraud-датасету так, щоб кожен flagged case мав не лише score, а й severity, основний тригер і коротке пояснення причини ескалації.
+                </p>
               </section>
 
               <div class="article-pullquote fade-in">
-                Якщо стратегія не проходить простий backtest, вона не має шансу вижити в середовищі, де рішення приймаються на швидкості продукту, а не презентації.
+                Мета була не в тому, щоб додати ще один score, а в тому, щоб зробити ризик читабельним: де він виникає, як саме система його підсвічує і що потрапляє в review first.
               </div>
 
               <div class="article-divider"></div>
 
               <section id="part-2">
-                <p>Для тесту я використала десять confirmed listing events USDT‑контрактів. Для кожного запуску завантажувалось хвилинне вікно даних: від 18 годин до моменту лістингу до 10 годин після. Pre‑listing частина на цьому етапі збережена як контекст для майбутнього аналізу патернів, post‑listing частина використовується безпосередньо в симуляції угоди. Дані бралися через Bybit V5 Market Kline endpoint, який повертає historical candles для заданого символу, інтервалу та часових меж.</p>
-                <p>Момент лістингу задається як <code>entry_dt</code>, а рамка даних — як <code>start_dt</code> і <code>end_dt</code>. У результаті в моделі є нормальний контекст перед подією і повний обрізок після неї.</p>
+                <h2>Що я зробила</h2>
+                <p>
+                  Я використала transaction-level fraud-датасет як базу для симуляції risk monitoring workflow: майже 284 тисячі транзакцій, 473 fraud-кейси, окремий high-risk сегмент і окрема critical-ескалація.
+                </p>
+                <p>
+                  У Python я побудувала Combined Risk Score, який поєднує кілька інтерпретованих сигналів: unusual amount, off-hours activity, модельну та anomaly-компоненту. На цій основі я сформувала severity bucket, alert flag, primary risk trigger і короткі reason-for-flag пояснення для flagged transactions.
+                </p>
 
-                <div class="code-block">
-                  <details>
-                    <summary>
-                      <span class="code-label"><span class="code-kicker">Code</span> Вікно даних навколо лістингу</span>
-                      <span class="code-arrow">▾</span>
-                    </summary>
-                    <pre><code>for symbol, entry_str in allpairs:
-    entry_dt = parse_entry_dt(entry_str)
-    start_dt = entry_dt - timedelta(hours=18)
-    end_dt = entry_dt + timedelta(hours=10)
-
-    df = get_klines(symbol, start_dt, end_dt, category="linear", interval="1")</code></pre>
-                  </details>
-                </div>
-
-                <p>Функція отримання свічок приводить timestamps до мілісекунд, робить запит до API й повертає впорядкований DataFrame. Ніяких «синтетичних» даних, лише те, що лежить в історії інструмента.</p>
-
-                <div class="code-block">
-                  <details>
-                    <summary>
-                      <span class="code-label"><span class="code-kicker">Code</span> Отримання historical kline</span>
-                      <span class="code-arrow">▾</span>
-                    </summary>
-                    <pre><code>def get_klines(symbol, start_dt, end_dt, category="linear", interval="1"):
-    start_ts = int(start_dt.timestamp() * 1000)
-    end_ts = int(end_dt.timestamp() * 1000)
-
-    resp = session.get_kline(
-        category=category,
-        symbol=symbol,
-        interval=interval,
-        start=start_ts,
-        end=end_ts,
-        limit=1000
-    )
-
-    rows = resp["result"]["list"]
-    df = pd.DataFrame(
-        rows,
-        columns=["timestamp", "open", "high", "low", "close", "volume", "turnover"]
-    )
-    df["datetime"] = pd.to_datetime(df["timestamp"].astype("int64"), unit="ms", utc=True)
-    return df.sort_values("datetime").reset_index(drop=True)</code></pre>
-                  </details>
+                <div class="insight-grid fade-in">
+                  <div class="insight-card">
+                    <h3>Risk logic</h3>
+                    <p>
+                      Transaction-level підготовка, risk indicators, Combined Risk Score, severity bucket’и та explainability fields.
+                    </p>
+                  </div>
+                  <div class="insight-card">
+                    <h3>Dashboard</h3>
+                    <p>
+                      KPI, fraud rate by severity, часові патерни алертів та investigator queue в одному робочому просторі.
+                    </p>
+                  </div>
+                  <div class="insight-card">
+                    <h3>Queue</h3>
+                    <p>
+                      Черга з priority, severity, trigger і reason for flag, яка дозволяє читати кейси не як сирий список, а як структуру для review.
+                    </p>
+                  </div>
                 </div>
               </section>
 
               <div class="article-divider"></div>
 
               <section id="part-3">
-                <p class="is-focus">Далі — симулятор угоди. Вхід починається з першої свічки не раніше <code>entry_dt</code>, далі послідовно перевіряються TP, SL і тайм‑аут.</p>
-                <p>Схема навмисно мінімалістична: одна точка входу, фіксований розмір ризику, лінійний перебір свічок до спрацьовування TP/SL або завершення сценарію. Такий каркас дозволяє швидко інтерпретувати результат і не ховати логіку в шарах складності.</p>
+                <h2>Що показує дашборд</h2>
+                <p>
+                  Дашборд зібраний як одна робоча сторінка. У верхній частині видно стан потоку в цілому, далі — якість алертів за severity, нижче — часові патерни, а внизу — investigator queue.
+                </p>
 
-                <div class="code-block">
-                  <details>
-                    <summary>
-                      <span class="code-label"><span class="code-kicker">Code</span> Точка входу в short</span>
-                      <span class="code-arrow">▾</span>
-                    </summary>
-                    <pre><code>mask = df["datetime"] >= entry_dt
-if not mask.any():
-    return None
-
-entry_idx = mask.idxmax()
-entry_price = float(df.loc[entry_idx, "close"])</code></pre>
-                  </details>
+                <div class="tableau-card fade-in">
+                  <div class="tableau-frame">
+                    <div class='tableauPlaceholder' id='viz1780304197063' style='position: relative'>
+                      <noscript>
+                        <a href='https://public.tableau.com/views/shared/RZFQC34TT?:showVizHome=no' target="_blank" rel="noopener noreferrer">
+                          <img alt='Dashboard 1' src='https://public.tableau.com/static/images/RZ/RZFQC34TT/1_rss.png' style='border: none'>
+                        </a>
+                      </noscript>
+                      <object class='tableauViz' style='display:none;'>
+                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'>
+                        <param name='embed_code_version' value='3'>
+                        <param name='path' value='shared/RZFQC34TT'>
+                        <param name='toolbar' value='yes'>
+                        <param name='static_image' value='https://public.tableau.com/static/images/RZ/RZFQC34TT/1.png'>
+                        <param name='animate_transition' value='yes'>
+                        <param name='display_static_image' value='yes'>
+                        <param name='display_spinner' value='yes'>
+                        <param name='display_overlay' value='yes'>
+                        <param name='display_count' value='yes'>
+                        <param name='language' value='en-GB'>
+                      </object>
+                    </div>
+                  </div>
+                  <p class="case-note">Tableau-дашборд вбудований прямо в сторінку: від загальних KPI можна перейти до конкретних транзакцій у queue.</p>
                 </div>
 
-                <div class="code-block">
-                  <details>
-                    <summary>
-                      <span class="code-label"><span class="code-kicker">Code</span> Базова симуляція short‑угоди</span>
-                      <span class="code-arrow">▾</span>
-                    </summary>
-                    <pre><code>def simulate_short_trade(df, entry_dt, entry_amount=100.0,
-                         tp_pct=5.0, sl_pct=4.0, duration_min=600):
-    mask = df["datetime"] >= entry_dt
-    if not mask.any():
-        return None
+                <p>
+                  У верхньому блоці видно базову картину: 283,726 транзакцій, 473 fraud-кейси, fraud rate 0.17 %, 970 high-risk і 142 critical транзакції. Це дозволяє одразу побачити, що зона підвищеної уваги становить лише невелику частину всього потоку.
+                </p>
+                <p>
+                  Далі ключовим стає fraud rate by severity: саме цей блок показує, які сегменти справді концентрують fraud, а які створюють багато алертів без пропорційної користі. Нижня queue переводить це в операційний формат: severity, priority, trigger і причина флагу для кожного кейсу.
+                </p>
 
-    entry_idx = mask.idxmax()
-    entry_price = float(df.loc[entry_idx, "close"])
-    pos_qty = entry_amount / entry_price
-
-    tp_price = entry_price * (1 - tp_pct / 100.0)
-    sl_price = entry_price * (1 + sl_pct / 100.0)
-    end_idx = min(entry_idx + duration_min, len(df) - 1)
-
-    for i in range(entry_idx + 1, end_idx + 1):
-        high_i = float(df.loc[i, "high"])
-        low_i = float(df.loc[i, "low"])
-
-        if low_i <= tp_price:
-            return {"PnL": (entry_price - tp_price) * pos_qty,
-                    "closure_type": "TP"}
-        if high_i >= sl_price:
-            return {"PnL": (entry_price - sl_price) * pos_qty,
-                    "closure_type": "STOP"}
-
-    last_close = float(df.loc[end_idx, "close"])
-    return {"PnL": (entry_price - last_close) * pos_qty,
-            "closure_type": "TIMEOUT"}</code></pre>
-                  </details>
+                <div class="takeaway-box fade-in">
+                  <p>
+                    Дашборд тут працює не як декоративна візуалізація, а як короткий маршрут від сигналу до рішення: що система ескалує, чому саме і що з цим бачить людина в review.
+                  </p>
                 </div>
-
-                <p>На цю основу накладено розширену версію з кількома TP‑рівнями, частковими виходами та усередненням. Там, де продукту потрібна гнучкіша логіка керування позицією, саме ці блоки і змінюються першими.</p>
               </section>
 
               <div class="article-divider"></div>
 
               <section id="part-4">
-                <p>Наступний шар — підбір параметрів. Замість сперечатися, чи TP 5% «звучить солідніше», ніж 4%, було прогнано grid search: кілька варіантів першого і другого TP, кілька рівнів стоп‑лоса і кілька структур розподілу позиції (full exit і split‑сценарії).</p>
-                <p>Підхід стандартний для будь‑якого backtest‑модуля: визначити сітку параметрів, прогнати їх на однаковій вибірці й уже потім дивитись, що має сенс переносити в продакшн.</p>
+                <h2>Що цікавого знайшли?</h2>
 
-                <div class="code-block">
-                  <details>
-                    <summary>
-                      <span class="code-label"><span class="code-kicker">Code</span> Grid search по TP/SL та TP‑shares</span>
-                      <span class="code-arrow">▾</span>
-                    </summary>
-                    <pre><code>for tp1, tp2, stop, tp_sh in product(tp1_grid, tp2_grid,
-                                     stop_grid, tp_shares_grid):
-    tplevels = [tp1, tp2, tp3]
+                <p>
+                  На рівні всього потоку fraud rate невеликий — 0.17 % або 473 кейси. Але ризик розподілений дуже нерівномірно: high-risk сегмент охоплює лише 970 транзакцій, а critical — 142. Це означає, що основна задача системи не “перевірити все”, а правильно звузити зону ручної уваги.
+                </p>
 
-    trades_df_g, total_pnl_g, mean_pnl_g, win_rate_g = run_backtest(
-        allpairs=allpairs,
-        data_cache=data_cache,
-        entry_amount=100.0,
-        tplevels=tplevels,
-        tpshares=tp_sh,
-        stoplosspct=stop,
-        avglevels=2,
-        avgpct=5.0,
-        avgamount=50.0,
-        duration_min=600,
-    )</code></pre>
-                  </details>
-                </div>
+                <p>
+                  Найсильнішим виявився сегмент High / P2. Він невеликий за обсягом, але саме тут концентрується значна частина fraud-випадків. З точки зору review-логіки це хороший сигнал: система виділяє сегмент, який достатньо вузький для ручної обробки і водночас достатньо насичений ризиком.
+                </p>
 
-                <div class="note-box">
-                  Якщо продукту потрібен «режим експерименту», саме тут зручно підключати альтернативні сітки параметрів і порівнювати їх на нових батчах листингів.
-                </div>
+                <p>
+                  Critical / P1 поводиться інакше. Це найгучніша зона ескалації, але точність усередині неї нижча, ніж очікується від найвищого пріоритету. Частина critical-алертів завершується non-fraud outcome, тому цей сегмент виглядає не як “найкращий улов”, а як зона, де пороги ескалації можуть бути занадто жорсткими або занадто широкими.
+                </p>
+
+                <p>
+                  Аналіз тригерів теж показує різницю між сильним і слабким сигналом. Model-driven risk дає кращу концентрацію fraud, тоді як окремі прості ознаки на кшталт unusual amount чи off-hours activity можуть створювати великий обсяг алертів, але самі по собі не дають такої ж якості. У практичному сенсі це означає, що частина правил працює як джерело шуму, якщо її не комбінувати з іншими ознаками.
+                </p>
+
+                <p>
+                  Часові патерни додають ще один рівень інтерпретації. Нічні сегменти мають менший обсяг транзакцій, але вищу ймовірність підозрілої поведінки. Проте сам по собі off-hours тригер надто широкий: його корисність зростає лише тоді, коли він підсилює вже наявний ризиковий контекст, а не виступає єдиною причиною ескалації.
+                </p>
+
+                <p>
+                  У підсумку цей кейс показує не просто факт наявності fraud, а те, як система розподіляє увагу. High працює як сильний операційний сегмент, Medium може бути буферною зоною для додаткового review, а Critical у поточному вигляді виглядає кандидатом на переналаштування.
+                </p>
               </section>
 
               <div class="article-divider"></div>
 
               <section id="part-5">
-                <p class="is-focus">На вибірці з 10 лістингів найкращим став простий набір: TP levels = [5, 6, 12], TP shares = [1.0, 0.0, 0.0], stop loss = 4%. Тобто повний вихід на першому TP виявився ефективнішим за будь‑які split‑структури.</p>
-                <p>Кінцеві цифри для цієї конфігурації: сумарний результат 14.95 USD при фіксованому ризику 100 USD на угоду, середній результат 1.50 USD на трейд, win rate 60%, структура закриттів — 6 TP, 4 SL, 0 timeout. Для маленької вибірки це скромні величини, але цього достатньо, щоб відрізнити життєздатну гіпотезу від суто емоційної.</p>
+                <details class="methodology fade-in">
+                  <summary>Трохи технічних деталей</summary>
+                  <div class="methodology-inner">
+                    <h4>Тип кейсу</h4>
+                    <p>
+                      Портфельна симуляція fraud-моніторингу на публічному transaction-level датасеті з окремою risk-логікою, severity segmentation та investigator queue.
+                    </p>
 
-                <div class="code-block">
-                  <details>
-                    <summary>
-                      <span class="code-label"><span class="code-kicker">Code</span> Підсумок найкращої конфігурації</span>
-                      <span class="code-arrow">▾</span>
-                    </summary>
-                    <pre><code>print("FINAL SUMMARY")
-print("Best TP levels:", best_tplevels)
-print("Best TP shares:", best_tpshares)
-print("Best stop loss:", best_stop)
-print("Trades:", len(best_trades_df))
-print("Total PnL:", round(best_total_pnl, 2))
-print("Mean PnL:", round(best_mean_pnl, 2))
-print("Win rate:", round(best_win_rate * 100, 2), "%")</code></pre>
-                  </details>
-                </div>
+                    <h4>Python-частина</h4>
+                    <ul>
+                      <li>Очищення і підготовка транзакційних даних.</li>
+                      <li>Розрахунок risk-ознак: unusual amount, off-hours, amount-/time-based ризик, модельний та anomaly-компоненти.</li>
+                      <li>Побудова Combined Risk Score і сегментація на Low / Medium / High / Critical.</li>
+                      <li>Формування alert flag, primary risk trigger та коротких текстових пояснень для flagged transactions.</li>
+                      <li>Розрахунок базових KPI: обсяг потоку, fraud rate, кількість high-risk і critical транзакцій.</li>
+                    </ul>
 
-                <p>Окремо був прорахований час входу. Найслабше вікно на цій вибірці — 04:00 UTC; найбільш стабільно позитивне — 06:00 UTC. Для продукту це дає простий, але корисний сигнал: час — валідний кандидат на додатковий фільтр ризику, а не лише декоративний параметр.</p>
+                    <h4>Tableau-частина</h4>
+                    <ul>
+                      <li>High-level KPI для швидкого огляду потоку.</li>
+                      <li>Fraud rate by severity для оцінки якості сегментів.</li>
+                      <li>Часові патерни алертів.</li>
+                      <li>Investigator queue з priority, severity, trigger і поясненнями.</li>
+                    </ul>
 
-                <div class="code-block">
-                  <details>
-                    <summary>
-                      <span class="code-label"><span class="code-kicker">Code</span> Статистика по годинах входу</span>
-                      <span class="code-arrow">▾</span>
-                    </summary>
-                    <pre><code>hour_stats = (
-    analysis_time
-    .groupby("entry_hour")
-    .agg(
-        trades=("PnL", "count"),
-        total_pnl=("PnL", "sum"),
-        mean_pnl=("PnL", "mean"),
-        winrate=("PnL", lambda x: (x > 0).mean())
-    )
-    .sort_values("entry_hour")
-)</code></pre>
-                  </details>
-                </div>
-              </section>
-
-              <div class="article-divider"></div>
-
-              <section id="part-6">
-                <h2>Що це дає продукту</h2>
-                <p>З точки зору архітектури рішення результат можна описати так: базова short‑логіка працює з TP 5% та SL 4%, повним виходом на першому TP і часовим фільтром, який віддає перевагу 06:00 UTC і змушує ставитись обережніше до 04:00 UTC. Це прозорий набір правил, який легко перенести в продукт, змоніторити на ширшій вибірці та, за потреби, адаптувати під інший універс інструментів.</p>
-                <p>Для команд, що будують власні стратегії чи сервіси на ринку, важливий не тільки конкретний сетап, а сам підхід: чітке формулювання гіпотези, явний зв’язок із даними біржі, backtest із контрольованою сіткою параметрів і читабельні метрики на виході. У цій конструкції можна змінювати інструменти, горизонти, універс, але механіка перевірки лишиться стабільною.</p>
-
-                <ul class="inline-list">
-                  <li>База: short‑симулятор на історичних свічках Bybit із нормальним контролем TP/SL.</li>
-                  <li>Висновок: простий full exit на TP1 показав кращу поведінку, ніж split‑виходи, на тестовому наборі лістингів.</li>
-                </ul>
-
-                <div class="article-pullquote fade-in">
-                  Формальна перевірка гіпотези не гарантує ідеальну стратегію. Вона гарантує одне: ви перестаєте платити ринку за ті рішення, які можна було відфільтрувати ще на стадії ноутбука.
-                </div>
+                    <h4>Технічний стек</h4>
+                    <ul>
+                      <li>Python</li>
+                      <li>VS Code</li>
+                      <li>Tableau Public</li>
+                    </ul>
+                  </div>
+                </details>
               </section>
             </div>
           </div>
 
-          <aside class="article-aside fade-in" aria-label="Навігація по статті">
+          <aside class="article-aside fade-in" aria-label="Навігація по кейсу">
             <div class="aside-card">
               <h3>Навігація</h3>
               <nav class="toc">
-                <a href="#part-1">Ідея кейсу</a>
-                <a href="#part-2">Дані й вікно</a>
-                <a href="#part-3">Симулятор</a>
-                <a href="#part-4">Grid search</a>
-                <a href="#part-5">Результати</a>
-                <a href="#part-6">Практичний висновок</a>
+                <a href="#part-1">Проблема</a>
+                <a href="#part-2">Що зроблено</a>
+                <a href="#part-3">Дашборд</a>
+                <a href="#part-4">Що знайшли</a>
+                <a href="#part-5">Методологія</a>
               </nav>
-            </div>
-
-            <div class="aside-card">
-              <h3>Коротко</h3>
-              <p class="mini-note">Short‑стратегія на лістингах Bybit із фіксованим ризиком, повним виходом на першому TP, контролем часу входу та зрозумілою логікою перенесення в продукт.</p>
             </div>
           </aside>
         </div>
 
         <section class="article-cta fade-in">
-          <a class="btn btn-ghost" href="/articles/">← До всіх статей</a>
+          <a class="btn btn-ghost" href="/cases/">← До всіх кейсів</a>
         </section>
       </article>
     </div>
@@ -1347,18 +1235,16 @@ print("Win rate:", round(best_win_rate * 100, 2), "%")</code></pre>
         <h4>TELWHA</h4>
         <p>Фінансова психологія, поведінкова економіка та архітектура вибору для кращих рішень і стійких результатів.</p>
       </div>
-
       <div style="text-align:right">
         <h4>Навігація</h4>
         <div class="footer-links">
           <a href="/">Головна</a>
-          <a href="/finlab/">FinLab</a>
+          <a href="/cases/">Кейси</a>
           <a href="/reviews/">Відгуки</a>
           <a href="/contact/">Контакти</a>
         </div>
       </div>
     </div>
-
     <div class="footer-bottom">
       <span>© 2026 TELWHA. Усі права захищено.</span>
       <span>Київ, Україна</span>
@@ -1504,7 +1390,6 @@ print("Win rate:", round(best_win_rate * 100, 2), "%")</code></pre>
         const rect = section.getBoundingClientRect();
         if (rect.top <= 140) activeId = section.id;
       });
-
       tocLinks.forEach(link => {
         link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
       });
@@ -1512,6 +1397,28 @@ print("Win rate:", round(best_win_rate * 100, 2), "%")</code></pre>
 
     document.addEventListener('scroll', markToc, { passive: true });
     markToc();
+
+    (function() {
+      var divElement = document.getElementById('viz1780304197063');
+      if (!divElement) return;
+      var vizElement = divElement.getElementsByTagName('object')[0];
+      if (!vizElement) return;
+
+      if (divElement.offsetWidth > 900) {
+        vizElement.style.width = '100%';
+        vizElement.style.height = '827px';
+      } else if (divElement.offsetWidth > 500) {
+        vizElement.style.width = '100%';
+        vizElement.style.height = '827px';
+      } else {
+        vizElement.style.width = '100%';
+        vizElement.style.height = '880px';
+      }
+
+      var scriptElement = document.createElement('script');
+      scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+      vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    })();
   });
 </script>
 </body>

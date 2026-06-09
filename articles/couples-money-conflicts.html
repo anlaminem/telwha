@@ -1,26 +1,739 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" data-theme="light">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Коли розмови про гроші завжди закінчуються конфліктом — TELWHA</title>
-  <meta name="description" content="Матеріал готується до публікації. Скоро тут з’явиться повна стаття про фінансові конфлікти в парі.">
+  <meta name="description" content="Чому фінансові розмови в парі часто переходять у конфлікт, що про це кажуть дослідження до 2026 року і як це врахувати людям та фінтех-продуктам.">
 
   <link rel="canonical" href="https://t-e-l-w-h-a.com/articles/couples-money-conflicts.html">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Коли розмови про гроші завжди закінчуються конфліктом — TELWHA">
-  <meta property="og:description" content="Скоро тут з’явиться повна стаття про фінансові конфлікти в парі.">
+  <meta property="og:description" content="Чому фінансові розмови в парі переходять у конфлікт, як це пояснюють дослідження і що з цим робити людям та фінтех-продуктам.">
   <meta property="og:url" content="https://t-e-l-w-h-a.com/articles/couples-money-conflicts.html">
   <meta property="og:site_name" content="TELWHA">
+
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
+
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root,
+    [data-theme="light"] {
+      --font-display: "Boska", Georgia, serif;
+      --font-body: "Satoshi", "Inter", sans-serif;
+
+      --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+      --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
+      --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+      --text-2xl: clamp(2.2rem, 1.5rem + 2vw, 4rem);
+
+      --color-bg: #f5f3ef;
+      --color-surface: #fcfbf8;
+      --color-surface-2: #f2efe9;
+      --color-surface-3: #ebe7df;
+      --color-border: rgba(40, 37, 29, 0.10);
+      --color-divider: rgba(40, 37, 29, 0.08);
+
+      --color-text: #22201a;
+      --color-text-muted: #65625b;
+      --color-text-faint: #8b877f;
+      --color-text-inverse: #f9f8f5;
+
+      --color-primary: #0f5d5f;
+      --color-primary-hover: #0b4b4d;
+      --color-primary-soft: rgba(15, 93, 95, 0.08);
+
+      --color-accent: #9a6a35;
+      --color-accent-soft: rgba(154, 106, 53, 0.08);
+
+      --color-success: #4f7a4e;
+      --color-error: #a04b46;
+
+      --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
+      --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
+      --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
+
+      --content-default: 1180px;
+      --content-wide: 1320px;
+      --radius-md: 22px;
+      --radius-lg: 28px;
+      --radius-xl: 34px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1d1b18;
+      --color-surface-2: #24211d;
+      --color-surface-3: #2a2622;
+      --color-border: rgba(255, 255, 255, 0.10);
+      --color-divider: rgba(255, 255, 255, 0.08);
+
+      --color-text: #ece6dd;
+      --color-text-muted: #b7afa2;
+      --color-text-faint: #91897c;
+      --color-text-inverse: #171614;
+
+      --color-primary: #6ca7a7;
+      --color-primary-hover: #84baba;
+      --color-primary-soft: rgba(108, 167, 167, 0.10);
+
+      --color-accent: #c79c68;
+      --color-accent-soft: rgba(199, 156, 104, 0.09);
+
+      --color-success: #89ba82;
+      --color-error: #d9837b;
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
+      --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.7;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button {
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .wrap {
+      width: min(100% - 28px, var(--content-default));
+      margin-inline: auto;
+    }
+
+    .wrap-wide {
+      width: min(100% - 28px, var(--content-wide));
+      margin-inline: auto;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 120;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      color: var(--color-primary);
+      flex: 0 0 auto;
+    }
+
+    .sub {
+      color: var(--color-text-faint);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      max-width: 320px;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      transition: var(--transition);
+    }
+
+    .menu-toggle:hover { background: var(--color-surface-2); }
+
+    .menu-toggle-lines {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-toggle-lines span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--color-text);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      min-width: 0;
+      flex-wrap: nowrap;
+    }
+
+    .menu a,
+    .menu .dropbtn,
+    .theme-toggle,
+    .lang-link {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      white-space: nowrap;
+      line-height: 1.1;
+      flex-shrink: 0;
+    }
+
+    .menu a:hover,
+    .menu .dropbtn:hover,
+    .theme-toggle:hover,
+    .lang-link:hover {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+    }
+
+    .menu a.is-active {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+    }
+
+    .menu a.is-highlight,
+    .menu .dropbtn.is-highlight {
+      color: var(--color-text-inverse);
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, var(--color-accent)));
+      border: 1px solid transparent;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .menu a.is-highlight:hover,
+    .menu .dropbtn.is-highlight:hover {
+      background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+      color: var(--color-text-inverse);
+    }
+
+    [data-theme="dark"] .menu a.is-highlight,
+    [data-theme="dark"] .menu .dropbtn.is-highlight {
+      color: #141311;
+    }
+
+    .dropdown {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .dropbtn {
+      gap: 6px;
+    }
+
+    .dropbtn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform var(--transition);
+      flex: 0 0 auto;
+    }
+
+    .dropdown:hover .dropbtn svg,
+    .dropdown:focus-within .dropbtn svg,
+    .dropdown.is-open .dropbtn svg {
+      transform: rotate(180deg);
+    }
+
+    .dropcontent {
+      position: absolute;
+      top: calc(100% + 2px);
+      left: 0;
+      z-index: 300;
+      min-width: 240px;
+      display: grid;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    }
+
+    .dropdown:hover .dropcontent,
+    .dropdown:focus-within .dropcontent,
+    .dropdown.is-open .dropcontent {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .dropcontent a {
+      justify-content: flex-start;
+      padding: 12px 14px;
+      border-radius: 12px;
+      white-space: normal;
+      line-height: 1.35;
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid var(--color-divider);
+      flex-shrink: 0;
+    }
+
+    .lang-list {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-link.is-active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      width: 44px;
+      padding-inline: 0;
+      font-size: 1rem;
+    }
+
+    main {
+      padding: 34px 0 90px;
+    }
+
+    .article-shell {
+      position: relative;
+      max-width: 920px;
+      margin-inline: auto;
+    }
+
+    .article-header {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 48px);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+      margin-bottom: 18px;
+    }
+
+    .article-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 14% 18%, rgba(15, 93, 95, 0.06), transparent 24%),
+        radial-gradient(circle at 86% 16%, rgba(154, 106, 53, 0.06), transparent 22%);
+    }
+
+    .article-header > * {
+      position: relative;
+    }
+
+    .article-tag,
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      flex-wrap: wrap;
+    }
+
+    .article-tag::before,
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--color-primary);
+    }
+
+    .article-header h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 0.97;
+      letter-spacing: -0.03em;
+      max-width: 16ch;
+      margin-bottom: 16px;
+    }
+
+    .article-deck {
+      max-width: 64ch;
+      color: var(--color-text-muted);
+      font-size: var(--text-lg);
+      margin-bottom: 18px;
+    }
+
+    .article-body {
+      padding: clamp(24px, 3vw, 38px);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 97%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .article-body section + section {
+      margin-top: 32px;
+      padding-top: 2px;
+    }
+
+    .article-body h2 {
+      font-size: var(--text-xl);
+      line-height: 1.08;
+      margin-bottom: 14px;
+    }
+
+    .article-body p {
+      max-width: 70ch;
+      color: var(--color-text);
+      margin-bottom: 16px;
+    }
+
+    .article-body ul,
+    .article-body ol {
+      margin: 8px 0 16px 0;
+      padding-left: 1.2rem;
+      max-width: 70ch;
+    }
+
+    .article-body li {
+      margin-bottom: 10px;
+      color: var(--color-text);
+    }
+
+    .article-body strong {
+      font-weight: 700;
+    }
+
+    .article-note {
+      padding: 16px 18px;
+      margin: 10px 0 18px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      background: linear-gradient(180deg, var(--color-surface-2), color-mix(in srgb, var(--color-primary-soft) 35%, var(--color-surface-2)));
+      color: var(--color-text-muted);
+      max-width: 70ch;
+    }
+
+    .article-cta {
+      padding: 18px 0 0;
+    }
+
+    .cta-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+      white-space: nowrap;
+      background: var(--color-surface);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .btn:hover {
+      background: var(--color-surface-2);
+    }
+
+    .footer {
+      padding: 36px 0 26px;
+      border-top: 1px solid var(--color-divider);
+      background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+      margin-top: 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer h4 {
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-faint);
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .footer a:hover {
+      color: var(--color-text);
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      justify-items: end;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 22px;
+      margin-top: 22px;
+      border-top: 1px solid var(--color-divider);
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 14px;
+        right: 14px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid var(--color-border);
+        border-radius: 22px;
+        background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .menu.is-open {
+        display: flex;
+      }
+
+      .menu a,
+      .menu .dropbtn,
+      .theme-toggle,
+      .lang-link {
+        justify-content: flex-start;
+        border-radius: 14px;
+        font-size: 0.95rem;
+        padding: 10px 12px;
+      }
+
+      .menu a.is-highlight,
+      .menu .dropbtn.is-highlight {
+        justify-content: center;
+      }
+
+      .dropdown {
+        width: 100%;
+      }
+
+      .dropcontent {
+        position: static;
+        min-width: 0;
+        margin-top: 8px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+        display: none;
+        box-shadow: none;
+        border-radius: 16px;
+        background: var(--color-surface-2);
+      }
+
+      .dropdown.is-open .dropcontent {
+        display: grid;
+      }
+
+      .menu-tools {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+        padding-top: 6px;
+        border-top: 1px solid var(--color-divider);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-links {
+        justify-items: start;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap,
+      .wrap-wide {
+        width: min(100% - 24px, var(--content-default));
+      }
+
+      .article-header,
+      .article-body {
+        border-radius: 22px;
+      }
+
+      .article-header h1 {
+        max-width: 100%;
+      }
+
+      .cta-links {
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .sub {
+        max-width: 240px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .fade-in {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Коли розмови про гроші завжди закінчуються конфліктом",
-    "description": "Матеріал готується до публікації. Скоро тут з’явиться повна стаття про фінансові конфлікти в парі.",
+    "description": "Чому фінансові розмови в парі часто переходять у конфлікт, що про це кажуть дослідження до 2026 року і як це врахувати людям та фінтех-продуктам.",
     "author": {
       "@type": "Person",
       "name": "Anna Signaevskaya"
@@ -36,35 +749,340 @@
     }
   }
   </script>
-
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-FVHKD6TZJP');
-  </script>
-
-  <link rel="icon" href="/static/media/telwha-favicon.png" type="png">
-  <link rel="stylesheet" href="/static/css/base.css">
-  <link rel="stylesheet" href="/static/css/layout-article.css">
 </head>
 <body>
-  <main class="wrap" style="padding:80px 20px;">
-    <article class="article-shell">
-      <header class="article-header">
-        <div class="article-tag">Пари та гроші</div>
-        <h1>Коли розмови про гроші завжди закінчуються конфліктом</h1>
-        <p class="article-deck">Матеріал готується до публікації. Скоро тут з’явиться повна стаття про фінансові конфлікти в парі.</p>
-      </header>
-      <section class="article-cta">
-        <div class="cta-links">
-          <a class="btn" href="/articles/">Повернутися до статей</a>
-          <a class="btn" href="/contact/">Зв’язатися</a>
+  <div class="progress" id="progress"></div>
+
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand">
+        <a class="brand-row" href="/" aria-label="TELWHA — на головну">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+          <strong>TELWHA</strong>
+        </a>
+        <span class="sub">Financial Psychology</span>
+      </div>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        aria-label="Відкрити меню"
+      >
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <nav class="menu" id="site-menu" aria-label="Основна навігація">
+        <a href="/">Головна</a>
+        <a href="/about/">Про мене</a>
+        <a href="/cases/">Кейси</a>
+        <a href="/articles/" class="is-active">Статті</a>
+        <a href="/finlab/">FinLab</a>
+
+        <div class="dropdown">
+          <button type="button" class="dropbtn is-highlight" aria-expanded="false">
+            Перевір себе
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/finlab/money-test-api/money-test.html">Тест фінансової поведінки</a>
+            <a href="/habit-test.html">Куди ведуть ваші звички?</a>
+            <a href="/fact-or-fiction-cases.html">Факт чи фікція?</a>
+          </div>
         </div>
-      </section>
-    </article>
+
+        <div class="dropdown">
+          <button type="button" class="dropbtn" aria-expanded="false">
+            Трейдерам
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/trader-course/">Міні-курс</a>
+            <a href="/archetype-test/">Архетип трейдера</a>
+          </div>
+        </div>
+
+        <a href="/reviews/">Відгуки</a>
+        <a href="/contact/">Контакти</a>
+
+        <div class="menu-tools">
+          <div class="lang-list" aria-label="Мови сайту">
+            <a class="lang-link is-active" href="/articles/couples-money-conflicts.html" lang="uk" aria-label="Українська">UA</a>
+            <a class="lang-link" href="/en/articles/couples-money-conflicts.html" lang="en" aria-label="English">EN</a>
+            <a class="lang-link" href="/es/articles/couples-money-conflicts.html" lang="es" aria-label="Español">ES</a>
+          </div>
+
+          <button class="theme-toggle" type="button" aria-label="Змінити тему">☀️</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap-wide">
+      <article class="article-shell">
+        <header class="article-header fade-in">
+          <div class="article-tag">Пари та гроші</div>
+          <h1>Коли розмови про гроші завжди закінчуються конфліктом</h1>
+          <p class="article-deck">Фінансові конфлікти рідко бувають тільки про цифри. Частіше це суміш стресу, різних money patterns, відчуття несправедливості та відсутності спільної системи розмови — і саме тому тему грошей потрібно розбирати і як людську, і як продуктову задачу.</p>
+        </header>
+
+        <div class="article-body fade-in">
+          <section>
+            <h2>Чому фінансові розмови так легко переходять у сварку</h2>
+            <p>Коли розмови про гроші постійно закінчуються конфліктом, причина зазвичай не в арифметиці, а у стресі, різних фінансових сценаріях і відчутті, що ця тема взагалі не вирішується.</p>
+            <p>Фінансовий конфлікт рідко буває лише про одну покупку, рахунок або бюджетний рядок. Зазвичай він збирається з кількох шарів одночасно: різних уявлень про безпеку й ризик, досвіду родини походження, різного ставлення до витрат і заощадження, а також відчуття справедливості у внеску та контролі.</p>
+            <div class="article-note">Коли ці шари не названі прямо, суперечка про конкретну суму швидко перетворюється на конфлікт про повагу, вплив, довіру та безпеку.</div>
+          </section>
+
+          <section>
+            <h2>Що кажуть дослідження до 2026 року</h2>
+            <p>Сучасні дослідження показують, що конфлікти через гроші належать до найсильніших предикторів незадоволеності стосунками. Важлива деталь у новіших роботах полягає в тому, що високий фінансовий стрес не тільки підсилює напругу, а й зменшує ймовірність самої розмови про гроші.</p>
+            <p>Тобто в найкритичніший момент пари не переходять до кращої комунікації, а навпаки — частіше замовкають, відкладають тему або входять у неї вже на піку виснаження. Через це гроші починають сприйматися не як задача, яку можна розкласти, а як вічна проблема без рішення.</p>
+            <ul>
+              <li>Несумісність фінансових стилів часто важливіша за абсолютний рівень доходу.</li>
+              <li>Прозорість і спільне фінансове планування пов’язані з вищою задоволеністю стосунками.</li>
+              <li>Приховані витрати, борги та нерівний доступ до інформації підривають довіру швидше, ніж окремі бюджетні помилки.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Типові сценарії, де все ламається</h2>
+            <p>Є кілька повторюваних ситуацій, у яких фінансова розмова майже гарантовано втрачає конструктивність:</p>
+            <ul>
+              <li><strong>Розмова в момент перевантаження.</strong> Одразу після стресової події, несподіваного рахунку чи імпульсивної покупки люди заходять у діалог у режимі захисту, а не аналізу.</li>
+              <li><strong>Узагальнення замість конкретики.</strong> Формули на кшталт “ти завжди”, “ти ніколи”, “ти безвідповідальний” миттєво переводять розмову в оборону.</li>
+              <li><strong>Нерівний доступ до картини.</strong> Один партнер веде всі рахунки й зобов’язання, а інший не бачить структури повністю, тому будь-який діалог звучить як контроль зверху.</li>
+              <li><strong>Фінансова непрозорість.</strong> Приховані підписки, борги, окремі великі витрати або неозвучені фінансові рішення руйнують базову довіру.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Що допомагає людям</h2>
+            <p>Корисна зміна починається не з жорсткішого контролю, а з нового формату розмови. Якщо пара хоче зменшити конфліктність теми грошей, їй потрібна не тільки дисципліна, а й краща структура взаємодії.</p>
+            <ol>
+              <li><strong>Винести гроші з червоних зон.</strong> Не обговорювати бюджет у момент пікового стресу, пізно ввечері або всередині іншої сварки.</li>
+              <li><strong>Домовитися про регулярні короткі слоти.</strong> Наприклад, раз на два тижні на 30–40 хвилин із чітким порядком денним.</li>
+              <li><strong>Говорити мовою патернів, а не провини.</strong> Не “ти неправильно поводишся з грошима”, а “я помічаю, що ми по-різному реагуємо на ризик і невизначеність”.</li>
+              <li><strong>Створити базову карту грошей.</strong> Доходи, регулярні витрати, борги, резерв, великі цілі — це має бути видимо обом.</li>
+              <li><strong>Розвести зони автономії й спільного рішення.</strong> Має бути зрозуміло, яку суму кожен витрачає самостійно, а що потребує обговорення.</li>
+            </ol>
+          </section>
+
+          <section>
+            <h2>Що це означає для бізнесу</h2>
+            <p>Для банків, фінтеху й продуктів для household management конфлікти через гроші — це не лише психологічна тема. Це прямий фактор довіри до продукту, глибини використання, утримання користувачів і якості спільних фінансових рішень.</p>
+            <p>Якщо продукт показує лише транзакції, але не допомагає парі говорити про них, він залишає користувачів сам на сам із напругою. Тому сервісам уже недостатньо бути точними; вони мають допомагати робити фінансову картину спільною, читабельною і безпечнішою для обговорення.</p>
+            <ul>
+              <li>Прозорість має бути фічею, а не побічним ефектом: спільні дашборди, shared goals, household overview.</li>
+              <li>Продукт має зменшувати friction перед розмовою, а не лише показувати цифри після факту.</li>
+              <li>Сильні продукти для пар підтримують не тільки budgeting, а й відчуття fairness, visibility і shared control.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Як це вшити у фінтех-продукт</h2>
+            <p>Якщо дивитися на конфлікти через гроші як на продуктову задачу, то інтерфейс має допомагати не тільки рахувати, а й домовлятися. Це означає проєктувати функції не навколо одного користувача, а навколо динаміки пари або household unit.</p>
+            <ul>
+              <li><strong>Shared financial snapshot.</strong> Один екран із доходами, регулярними витратами, підписками, боргами, цілями та cash buffer.</li>
+              <li><strong>Conversation-ready summaries.</strong> Короткі щотижневі або щомісячні зведення, які не перевантажують даними, а дають опорні точки для обговорення.</li>
+              <li><strong>Spending rules and thresholds.</strong> Можливість зафіксувати особисті ліміти та спільні пороги, після яких потрібне узгодження.</li>
+              <li><strong>Money-style onboarding.</strong> Легкий onboarding, який виявляє різницю між орієнтацією на безпеку, контроль, гнучкість або зростання, і переводить це у спільні правила.</li>
+              <li><strong>Low-shame language.</strong> Менше моралізаторства в copy, більше нейтральної мови, яка не підсилює сором і уникання.</li>
+              <li><strong>Joint goals over raw tracking.</strong> Не лише історія витрат, а й сценарії “на що ми разом рухаємось” — резерв, релокація, велика покупка, закриття боргу.</li>
+            </ul>
+            <div class="article-note">Для продукту це означає перехід від моделі “ми показуємо фінансові дані” до моделі “ми допомагаємо домогосподарству побачити ризики, домовленості й наступний крок без зайвого тертя”.</div>
+          </section>
+
+          <section>
+            <h2>Практична рамка для пари</h2>
+            <p>Якщо тема грошей у вас зараз загострена, варто почати з простої структури:</p>
+            <ul>
+              <li>окремо зібрати факти: доходи, витрати, борги, резерв;</li>
+              <li>окремо назвати страхи й пріоритети кожного;</li>
+              <li>окремо погодити 2–3 правила на найближчий місяць;</li>
+              <li>не змішувати аналіз, звинувачення й довгі історичні претензії в одну розмову.</li>
+            </ul>
+            <p>Це не забирає різницю між людьми, але дозволяє перевести фінансову тему з поля повторюваного конфлікту в поле спільного управління ризиком і рішеннями.</p>
+          </section>
+        </div>
+
+        <section class="article-cta fade-in">
+          <div class="cta-links">
+            <a class="btn" href="/articles/">Повернутися до статей</a>
+            <a class="btn" href="/contact/">Зв’язатися</a>
+          </div>
+        </section>
+      </article>
+    </div>
   </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>TELWHA</h4>
+          <p>Фінансова психологія, поведінкова економіка та архітектура вибору для стійкіших фінансових рішень.</p>
+        </div>
+
+        <div style="text-align:right">
+          <h4>Навігація</h4>
+          <div class="footer-links">
+            <a href="/">Головна</a>
+            <a href="/finlab/">FinLab</a>
+            <a href="/reviews/">Відгуки</a>
+            <a href="/contact/">Контакти</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 TELWHA. Усі права захищено.</span>
+        <span>Київ, Україна · 🇺🇦</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function updateProgressBar() {
+      const progress = document.getElementById("progress");
+      if (!progress) return;
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressValue = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = progressValue + "%";
+    }
+
+    function syncThemeButtonUI() {
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (!themeBtn) return;
+      const current = document.documentElement.getAttribute("data-theme") || "light";
+      themeBtn.textContent = current === "dark" ? "🌙" : "☀️";
+      themeBtn.setAttribute(
+        "aria-label",
+        current === "dark" ? "Увімкнути світлу тему" : "Увімкнути темну тему"
+      );
+    }
+
+    function closeAllDropdowns(except = null) {
+      document.querySelectorAll(".dropdown").forEach((dropdown) => {
+        if (dropdown === except) return;
+        dropdown.classList.remove("is-open");
+        const button = dropdown.querySelector(".dropbtn");
+        if (button) button.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      updateProgressBar();
+      window.addEventListener("scroll", updateProgressBar, { passive: true });
+
+      const root = document.documentElement;
+      let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      root.setAttribute("data-theme", currentTheme);
+      syncThemeButtonUI();
+
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (themeBtn) {
+        themeBtn.addEventListener("click", () => {
+          currentTheme = currentTheme === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", currentTheme);
+          syncThemeButtonUI();
+        });
+      }
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const siteMenu = document.querySelector("#site-menu");
+
+      if (menuToggle && siteMenu) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = siteMenu.classList.toggle("is-open");
+          menuToggle.classList.toggle("is-open", isOpen);
+          menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          menuToggle.setAttribute("aria-label", isOpen ? "Закрити меню" : "Відкрити меню");
+
+          if (!isOpen) closeAllDropdowns();
+        });
+      }
+
+      document.querySelectorAll(".dropbtn").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          if (window.innerWidth > 920) return;
+          event.stopPropagation();
+          const parent = button.parentElement;
+          const willOpen = !parent.classList.contains("is-open");
+          closeAllDropdowns(parent);
+          parent.classList.toggle("is-open", willOpen);
+          button.setAttribute("aria-expanded", willOpen ? "true" : "false");
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".dropdown")) {
+          closeAllDropdowns();
+        }
+
+        const nav = document.querySelector(".nav");
+        if (
+          window.innerWidth <= 920 &&
+          siteMenu &&
+          siteMenu.classList.contains("is-open") &&
+          nav &&
+          !nav.contains(event.target)
+        ) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Відкрити меню");
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeAllDropdowns();
+
+          if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle?.classList.remove("is-open");
+            menuToggle?.setAttribute("aria-expanded", "false");
+            menuToggle?.setAttribute("aria-label", "Відкрити меню");
+            menuToggle?.focus();
+          }
+        }
+      });
+
+      document.querySelectorAll('#site-menu a[href]').forEach((link) => {
+        link.addEventListener("click", () => {
+          closeAllDropdowns();
+
+          if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle?.classList.remove("is-open");
+            menuToggle?.setAttribute("aria-expanded", "false");
+            menuToggle?.setAttribute("aria-label", "Відкрити меню");
+          }
+        });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+      }, { threshold: 0.14 });
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    });
+  </script>
 </body>
 </html>
