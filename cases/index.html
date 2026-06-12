@@ -1300,6 +1300,22 @@
             </div>
           </article>
 
+        <article class="case-card" data-id="business5" data-category="business" tabindex="0">
+        <div class="case-card-pill">FinTech</div>
+        <small>Behavioral Market Simulation</small>
+        <h3>Behavioral market simulation: four regimes, one engine</h3>
+        <p class="case-card-line">
+          Інтерактивний кейс про multi-agent market simulation з чотирма сценаріями — calm, bubble, crash і stressed.
+          Показує, чому price alone is not enough і як одна й та сама модель дає різні режими через іншу структуру стресу.
+        </p>
+        <div class="case-card-tags">
+          <span>behavioral finance</span>
+          <span>fintech</span>
+          <span>risk</span>
+          <span>interactive chart</span>
+        </div>
+      </article>
+
           <article class="case-card" data-id="business3" data-category="business" tabindex="0">
             <div class="case-card-pill">FinTech</div>
             <small>Collections Behavior</small>
@@ -1978,7 +1994,54 @@
         ],
         articleUrl: "/articles/explainable-transaction-risk-monitoring.html",
         articleLabel: "Дивитися повний кейс"
-      }
+      },
+      business5: {
+  pill: "FinTech",
+  meta: "Behavioral Market Simulation",
+  title: "Behavioral market simulation: four regimes, one engine",
+  intro: "Інтерактивний кейс про те, як один multi-agent market engine поводиться під чотирма режимами — calm, bubble, crash і stressed. Сторінка поєднує narrative, TradingView-style chart і reader-facing metrics, щоб це було корисно і трейдерам, і fintech / broker / risk командам.",
+  sections: [
+    {
+      title: "Overview",
+      items: [
+        "Кейс досліджує, як один і той самий ринковий engine дає різні режими, якщо змінити склад агентів, news shocks і stress structure.",
+        "Мета — показати, що ринок варто читати не тільки через ціну, а через комбінацію price, realized volatility і drawdown."
+      ]
+    },
+    {
+      title: "Design",
+      items: [
+        "MVP включає один актив, дискретний час, три сесії (Asia, Europe, US), чотири сценарії та rule-based agent behavior.",
+        "Візуальний шар свідомо спрощений: тільки price, volatility і drawdown без зайвого dashboard noise."
+      ]
+    },
+    {
+      title: "Findings",
+      items: [
+        "Один і той самий engine дає різні режими залежно від composition і shock structure.",
+        "Price alone is not enough: bubble і crash можуть завершуватися близько по ціні, але відрізнятися профілем стресу.",
+        "Bubble, stressed і crash відрізняються не лише напрямком, а структурою волатильності й drawdown."
+      ]
+    },
+    {
+      title: "Implications",
+      items: [
+        "Для behavioral finance: модель показує, як стрес і пам’ять ринку можна читати через режими, а не тільки через дохідність.",
+        "Для fintech / broker / risk: сценарії допомагають проектувати risk views, alerts і customer communication навколо режимів, а не лише навколо ціни.",
+        "Для product / communication: кейс працює як explainable interactive story, яку можна читати як chart first, analysis second."
+      ]
+    },
+    {
+      title: "Technical note",
+      items: [
+        "Version 1 — bounded MVP: one asset, four scenarios, simplified price formation, structured scenario outputs.",
+        "Extension path далі: richer overlaps, pattern tagging, RP/emotion layers, multi-asset contagion, calibration on real trader data."
+      ]
+    }
+  ],
+  articleUrl: "/cases/case-simula.html",
+  articleLabel: "Відкрити інтерактивний кейс"
+}
     };
 
     function openCaseModal(caseId) {
