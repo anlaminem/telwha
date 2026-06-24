@@ -1,430 +1,1567 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TELWHA | How AI Spending Insights Can Change Financial Behavior</title>
-<meta name="description" content="A behavioral A/B test for a fintech app: how AI-based spending insights & nudges affect discretionary spend share, engagement, and adoption.">
-<link rel="canonical" href="https://t-e-l-w-h-a.com/en/articles/ai-spending-insights-financial-behavior/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TELWHA | How AI spending insights can change financial behavior</title>
+  <meta name="description" content="Behavioral A/B test for a fintech app: how AI-based spending insights & nudges change discretionary spend share, engagement, and adoption.">
+  <link rel="canonical" href="https://t-e-l-w-h-a.com/en/articles/ai-spending-insights-financial-behavior/">
 
-<meta property="og:type" content="article">
-<meta property="og:title" content="TELWHA | How AI Spending Insights Can Change Financial Behavior">
-<meta property="og:description" content="A behavioral A/B test for a fintech app: how AI-based spending insights & nudges affect discretionary spend share, engagement, and adoption.">
-<meta property="og:url" content="https://t-e-l-w-h-a.com/en/articles/ai-spending-insights-financial-behavior/">
-<meta property="og:site_name" content="TELWHA">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="TELWHA | How AI spending insights can change financial behavior">
+  <meta property="og:description" content="Behavioral A/B test for a fintech app: how AI-based spending insights & nudges change discretionary spend share, engagement, and adoption.">
+  <meta property="og:url" content="https://t-e-l-w-h-a.com/en/articles/ai-spending-insights-financial-behavior/">
+  <meta property="og:site_name" content="TELWHA">
 
-<link rel="icon" href="/static/media/telwha-favicon.png" type="png">
-<link rel="stylesheet" href="/static/css/base.css">
-<link rel="stylesheet" href="/static/css/layout-article.css">
-<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=zodiak@400,700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
 
-<style>
-:root,[data-theme="light"]{
-  --font-body:'Satoshi',system-ui,sans-serif;
-  --font-display:'Zodiak',Georgia,serif;
-  --accent:#8b7355;
-  --accent-2:#c7a978;
-}
-html{scroll-behavior:smooth;}
-.progress{position:fixed;inset:0 auto auto 0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,var(--accent,#8b7355),var(--accent-2,#c7a978));box-shadow:0 1px 10px rgba(0,0,0,.12)}
-.article-shell{position:relative;max-width:1320px;margin-inline:auto}
-.article-header{position:relative;overflow:hidden}
-.article-header::after{content:"";position:absolute;right:-80px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(199,169,120,.16),rgba(199,169,120,0) 70%);pointer-events:none}
-.article-deck{max-width:850px}
-.article-reading{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.article-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:rgba(255,255,255,.5);backdrop-filter:blur(4px);font-size:.88rem;line-height:1}
-html[data-theme="dark"] .article-chip{background:rgba(255,255,255,.04)}
-.article-layout{display:grid;grid-template-columns:minmax(0,5fr) minmax(260px,2fr);gap:56px;align-items:start}
-.article-main{min-width:0}
-.article-aside{position:sticky;top:92px;display:flex;flex-direction:column;gap:14px}
-.aside-card{padding:16px 16px 14px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.45));box-shadow:0 10px 30px rgba(0,0,0,.04)}
-html[data-theme="dark"] .aside-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
-.aside-card h3{font-size:.92rem;margin:0 0 10px;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
-.toc{display:flex;flex-direction:column;gap:8px}.toc a{display:block;padding:8px 10px;border-radius:12px;text-decoration:none;opacity:.78}.toc a:hover,.toc a.is-active{background:rgba(199,169,120,.14);opacity:1}
-.article-body>p{position:relative;margin-bottom:1.35rem}
-.article-body section[id]>p:first-of-type{margin-top:0}
-.article-body>p.is-focus,.article-body section[id] > p.is-focus{padding-left:16px;border-left:3px solid rgba(199,169,120,.8)}
-.article-body h2,.article-body section[id]{scroll-margin-top:120px}
-.article-body section[id]{position:relative;margin-top:2.2rem}
-.article-pullquote{margin:22px 0;padding:18px 20px;border-radius:18px;border:1px solid rgba(120,120,120,.14);background:linear-gradient(135deg,rgba(199,169,120,.14),rgba(199,169,120,.04));font-size:1.05rem;line-height:1.7}
-.article-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(120,120,120,.25),transparent);margin:28px 0}
-.mobile-jump{display:none}
-.figure-grid{display:grid;grid-template-columns:1fr;gap:22px;margin:22px 0 10px}
-.figure-card{padding:14px;border:1px solid rgba(120,120,120,.14);border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.46));box-shadow:0 10px 30px rgba(0,0,0,.04)}
-html[data-theme="dark"] .figure-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
-.figure-card img{width:100%;border-radius:14px;border:1px solid rgba(120,120,120,.12)}
-.figure-card figcaption{max-width:none;font-size:.98rem;line-height:1.7;color:inherit;padding:12px 4px 2px}
-.data-table{width:100%;margin:18px 0;border-collapse:collapse;font-size:.98rem}
-.data-table th,.data-table td{padding:12px 14px;border:1px solid rgba(120,120,120,.14);text-align:left;vertical-align:top}
-.data-table th{background:rgba(199,169,120,.08)}
-ul.clean-list{padding-left:1.2rem;margin:1rem 0}
-ul.clean-list li{margin:.55rem 0}
-details.tech-note{margin:18px 0;padding:14px 16px;border-radius:16px;border:1px solid rgba(120,120,120,.14);background:rgba(199,169,120,.06)}
-details.tech-note summary{cursor:pointer;font-weight:600}
-.section > .wrap{max-width:1440px}
-@media (max-width:980px){.section>.wrap{max-width:100%;width:100%}.article-shell{max-width:100%;width:100%;margin-inline:0}.article-layout{display:block}.article-aside{display:none}}
-@media (max-width:720px){.article-reading{gap:8px}.article-chip{font-size:.8rem;padding:7px 10px}.aside-card{border-radius:16px}.mobile-jump{display:flex;gap:8px;overflow:auto;padding-bottom:6px;scrollbar-width:none}.mobile-jump::-webkit-scrollbar{display:none}.mobile-jump a{white-space:nowrap;text-decoration:none;padding:8px 12px;border-radius:999px;border:1px solid rgba(120,120,120,.16);background:rgba(255,255,255,.52);font-size:.85rem}html[data-theme="dark"] .mobile-jump a{background:rgba(255,255,255,.04)}}
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
 
-.cta-panel{margin:32px 0 8px;padding:22px 22px;border:1px solid rgba(120,120,120,.14);border-radius:22px;background:linear-gradient(135deg,rgba(199,169,120,.16),rgba(199,169,120,.05));display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
-.cta-copy{max-width:760px}
-.cta-copy p{max-width:none;margin:0}
-.cta-actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn-consult,.btn-secondary-link{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:600;border:1px solid transparent}
-.btn-consult{background:var(--accent);color:#fff;box-shadow:0 10px 24px rgba(139,115,85,.18)}
-.btn-consult:hover{background:#735d45}
-.btn-secondary-link{border-color:rgba(120,120,120,.2);color:inherit;background:rgba(255,255,255,.55)}
-html[data-theme="dark"] .btn-secondary-link{background:rgba(255,255,255,.04)}
-</style>
+  <style>
+    :root,
+    [data-theme="light"] {
+      --font-display: "Boska", Georgia, serif;
+      --font-body: "Satoshi", "Inter", sans-serif;
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "How AI Spending Insights Can Change Financial Behavior",
-  "description": "A behavioral A/B test for a fintech app about AI-based spending insights & nudges, discretionary share, adoption, and engagement.",
-  "author": {"@type": "Person", "name": "Anna Signaevska"},
-  "publisher": {"@type": "Organization", "name": "TELWHA"},
-  "inLanguage": "en",
-  "datePublished": "2026-05-20",
-  "dateModified": "2026-05-20",
-  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://t-e-l-w-h-a.com/en/articles/ai-spending-insights-financial-behavior/"}
-}
-</script>
+      --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+      --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
+      --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+      --text-2xl: clamp(2.2rem, 1.5rem + 2vw, 4rem);
+
+      --color-bg: #f5f3ef;
+      --color-surface: #fcfbf8;
+      --color-surface-2: #f2efe9;
+      --color-surface-3: #ebe7df;
+      --color-border: rgba(40, 37, 29, 0.10);
+      --color-divider: rgba(40, 37, 29, 0.08);
+
+      --color-text: #22201a;
+      --color-text-muted: #65625b;
+      --color-text-faint: #8b877f;
+      --color-text-inverse: #f9f8f5;
+
+      --color-primary: #0f5d5f;
+      --color-primary-hover: #0b4b4d;
+      --color-primary-soft: rgba(15, 93, 95, 0.08);
+
+      --color-accent: #9a6a35;
+      --color-accent-soft: rgba(154, 106, 53, 0.08);
+
+      --color-success: #4f7a4e;
+      --color-error: #a04b46;
+
+      --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
+      --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
+      --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
+
+      --content-default: 1180px;
+      --content-wide: 1320px;
+      --radius-md: 22px;
+      --radius-lg: 28px;
+      --radius-xl: 34px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1d1b18;
+      --color-surface-2: #24211d;
+      --color-surface-3: #2a2622;
+      --color-border: rgba(255, 255, 255, 0.10);
+      --color-divider: rgba(255, 255, 255, 0.08);
+
+      --color-text: #ece6dd;
+      --color-text-muted: #b7afa2;
+      --color-text-faint: #91897c;
+      --color-text-inverse: #171614;
+
+      --color-primary: #6ca7a7;
+      --color-primary-hover: #84baba;
+      --color-primary-soft: rgba(108, 167, 167, 0.10);
+
+      --color-accent: #c79c68;
+      --color-accent-soft: rgba(199, 156, 104, 0.09);
+
+      --color-success: #89ba82;
+      --color-error: #d9837b;
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
+      --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.7;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button {
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .wrap {
+      width: min(100% - 28px, var(--content-default));
+      margin-inline: auto;
+    }
+
+    .wrap-wide {
+      width: min(100% - 28px, var(--content-wide));
+      margin-inline: auto;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 120;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      color: var(--color-primary);
+      flex: 0 0 auto;
+    }
+
+    .sub {
+      color: var(--color-text-faint);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      max-width: 320px;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      transition: var(--transition);
+    }
+
+    .menu-toggle:hover { background: var(--color-surface-2); }
+
+    .menu-toggle-lines {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-toggle-lines span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--color-text);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      min-width: 0;
+      flex-wrap: nowrap;
+    }
+
+    .menu a,
+    .menu .dropbtn,
+    .theme-toggle,
+    .lang-link {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      white-space: nowrap;
+      line-height: 1.1;
+      flex-shrink: 0;
+    }
+
+    .menu a:hover,
+    .menu .dropbtn:hover,
+    .theme-toggle:hover,
+    .lang-link:hover {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+    }
+
+    .menu a.is-active {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+    }
+
+    .menu a.is-highlight,
+    .menu .dropbtn.is-highlight {
+      color: var(--color-text-inverse);
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, var(--color-accent)));
+      border: 1px solid transparent;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .menu a.is-highlight:hover,
+    .menu .dropbtn.is-highlight:hover {
+      background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+      color: var(--color-text-inverse);
+    }
+
+    [data-theme="dark"] .menu a.is-highlight,
+    [data-theme="dark"] .menu .dropbtn.is-highlight {
+      color: #141311;
+    }
+
+    .dropdown {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .dropbtn {
+      gap: 6px;
+    }
+
+    .dropbtn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform var(--transition);
+      flex: 0 0 auto;
+    }
+
+    .dropdown:hover .dropbtn svg,
+    .dropdown:focus-within .dropbtn svg,
+    .dropdown.is-open .dropbtn svg {
+      transform: rotate(180deg);
+    }
+
+    .dropcontent {
+      position: absolute;
+      top: calc(100% + 2px);
+      left: 0;
+      z-index: 300;
+      min-width: 240px;
+      display: grid;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    }
+
+    .dropdown:hover .dropcontent,
+    .dropdown:focus-within .dropcontent,
+    .dropdown.is-open .dropcontent {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .dropcontent a {
+      justify-content: flex-start;
+      padding: 12px 14px;
+      border-radius: 12px;
+      white-space: normal;
+      line-height: 1.35;
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid var(--color-divider);
+      flex-shrink: 0;
+    }
+
+    .lang-list {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-link.is-active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      width: 44px;
+      padding-inline: 0;
+      font-size: 1rem;
+    }
+
+    main {
+      padding: 34px 0 90px;
+    }
+
+    .article-hero {
+      margin-bottom: 22px;
+    }
+
+    .article-shell {
+      position: relative;
+    }
+
+    .article-header {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 48px);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+      margin-bottom: 18px;
+    }
+
+    .article-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 14% 18%, rgba(15, 93, 95, 0.06), transparent 24%),
+        radial-gradient(circle at 86% 16%, rgba(154, 106, 53, 0.06), transparent 22%);
+    }
+
+    .article-header > * {
+      position: relative;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      flex-wrap: wrap;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--color-primary);
+    }
+
+    .eyebrow span {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 90%, transparent);
+      color: var(--color-text-muted);
+      letter-spacing: 0.08em;
+    }
+
+    .article-header h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 0.97;
+      letter-spacing: -0.03em;
+      max-width: 15ch;
+      margin-bottom: 16px;
+    }
+
+    .article-deck {
+      max-width: 64ch;
+      color: var(--color-text-muted);
+      font-size: var(--text-lg);
+      margin-bottom: 18px;
+    }
+
+    .article-reading,
+    .mobile-jump {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .article-chip,
+    .mobile-jump a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 13px;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+      backdrop-filter: blur(4px);
+      font-size: .88rem;
+      line-height: 1.2;
+      color: var(--color-text-muted);
+    }
+
+    .mobile-jump {
+      display: none;
+      margin-bottom: 18px;
+      overflow: auto;
+      padding-bottom: 6px;
+      scrollbar-width: none;
+    }
+
+    .mobile-jump::-webkit-scrollbar { display: none; }
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(270px, 2fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .article-main { min-width: 0; }
+
+    .article-body {
+      padding: clamp(24px, 3vw, 34px);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .article-body section[id] {
+      scroll-margin-top: 120px;
+      position: relative;
+      margin-top: 2.2rem;
+    }
+
+    .article-body section[id]:first-child {
+      margin-top: 0;
+    }
+
+    .article-body h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .article-body p {
+      margin-bottom: 1.2rem;
+      max-width: none;
+      color: var(--color-text);
+    }
+
+    .article-body strong,
+    .article-body b {
+      color: var(--color-text);
+    }
+
+    .article-body code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92em;
+      background: var(--color-surface-2);
+      padding: 0.15em 0.45em;
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+    }
+
+    .article-body > p.is-focus,
+    .article-body section[id] > p.is-focus {
+      padding-left: 16px;
+      border-left: 3px solid var(--color-accent);
+    }
+
+    .article-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-divider), transparent);
+      margin: 28px 0;
+    }
+
+    .article-pullquote {
+      margin: 22px 0;
+      padding: 18px 20px;
+      border-radius: 18px;
+      border: 1px solid var(--color-border);
+      background: linear-gradient(135deg, rgba(154, 106, 53, 0.11), rgba(154, 106, 53, 0.04));
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--color-text);
+    }
+
+    .clean-list {
+      padding-left: 1.2rem;
+      margin: 1rem 0;
+    }
+
+    .clean-list li {
+      margin: .55rem 0;
+      color: var(--color-text);
+    }
+
+    .figure-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+      margin: 22px 0 10px;
+    }
+
+    .figure-card,
+    .aside-card,
+    .cta-panel,
+    details.tech-note {
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .figure-card {
+      padding: 14px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    }
+
+    .figure-card img {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--color-border);
+    }
+
+    .figure-card figcaption {
+      max-width: none;
+      font-size: .98rem;
+      line-height: 1.7;
+      color: var(--color-text-muted);
+      padding: 12px 4px 2px;
+    }
+
+    .data-table {
+      width: 100%;
+      margin: 18px 0;
+      border-collapse: collapse;
+      font-size: .98rem;
+      overflow: hidden;
+      border-radius: 18px;
+    }
+
+    .data-table th,
+    .data-table td {
+      padding: 12px 14px;
+      border: 1px solid var(--color-border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .data-table th {
+      background: var(--color-accent-soft);
+      font-weight: 700;
+    }
+
+    details.tech-note {
+      margin: 18px 0;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: color-mix(in srgb, var(--color-accent-soft) 65%, var(--color-surface));
+    }
+
+    details.tech-note summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .article-aside {
+      position: sticky;
+      top: 92px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .aside-card {
+      padding: 18px 18px 16px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    }
+
+    .aside-card h3 {
+      font-size: .82rem;
+      margin: 0 0 10px;
+      color: var(--color-text-faint);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .toc {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .toc a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--color-text-muted);
+      transition: var(--transition);
+    }
+
+    .toc a:hover,
+    .toc a.is-active {
+      background: var(--color-accent-soft);
+      color: var(--color-text);
+    }
+
+    .cta-panel {
+      margin: 32px 0 8px;
+      padding: 22px 22px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-accent-soft) 52%, var(--color-surface)));
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cta-copy { max-width: 760px; }
+    .cta-copy p { max-width: none; margin: 0; }
+
+    .cta-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn,
+    .btn-consult,
+    .btn-secondary-link,
+    .btn-ghost {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-consult {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid transparent;
+    }
+
+    .btn-consult:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary-link,
+    .btn-ghost {
+      background: var(--color-surface);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .btn-secondary-link:hover,
+    .btn-ghost:hover {
+      background: var(--color-surface-2);
+    }
+
+    .article-cta {
+      margin-top: 18px;
+    }
+
+    .footer {
+      padding: 36px 0 26px;
+      border-top: 1px solid var(--color-divider);
+      background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+      margin-top: 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer h4 {
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-faint);
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .footer a:hover {
+      color: var(--color-text);
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      justify-items: end;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 22px;
+      margin-top: 22px;
+      border-top: 1px solid var(--color-divider);
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1024px) {
+      .article-layout,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .article-aside {
+        display: none;
+      }
+
+      .wrap-wide {
+        width: min(100% - 24px, var(--content-wide));
+      }
+
+      .article-header h1 {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 14px;
+        right: 14px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid var(--color-border);
+        border-radius: 22px;
+        background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .menu.is-open {
+        display: flex;
+      }
+
+      .menu a,
+      .menu .dropbtn,
+      .theme-toggle,
+      .lang-link {
+        justify-content: flex-start;
+        border-radius: 14px;
+        font-size: 0.95rem;
+        padding: 10px 12px;
+      }
+
+      .menu a.is-highlight,
+      .menu .dropbtn.is-highlight {
+        justify-content: center;
+      }
+
+      .dropdown {
+        width: 100%;
+      }
+
+      .dropcontent {
+        position: static;
+        min-width: 0;
+        margin-top: 8px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+        display: none;
+        box-shadow: none;
+        border-radius: 16px;
+        background: var(--color-surface-2);
+      }
+
+      .dropdown.is-open .dropcontent {
+        display: grid;
+      }
+
+      .menu-tools {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+        padding-top: 6px;
+        border-top: 1px solid var(--color-divider);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap,
+      .wrap-wide {
+        width: min(100% - 24px, var(--content-default));
+      }
+
+      .article-header,
+      .article-body,
+      .figure-card,
+      .aside-card,
+      .cta-panel {
+        border-radius: 22px;
+      }
+
+      .mobile-jump {
+        display: flex;
+      }
+
+      .article-reading {
+        gap: 8px;
+      }
+
+      .article-chip,
+      .mobile-jump a {
+        font-size: .82rem;
+        padding: 8px 11px;
+      }
+
+      .cta-actions {
+        width: 100%;
+      }
+
+      .btn-consult,
+      .btn-secondary-link,
+      .btn-ghost {
+        width: 100%;
+      }
+
+      .footer-links {
+        justify-items: start;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .sub {
+        max-width: 240px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .fade-in {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How AI spending insights can change financial behavior",
+    "description": "Behavioral A/B test for a fintech app on AI-based spending insights & nudges, discretionary share, adoption, and engagement.",
+    "author": {"@type": "Person", "name": "Anna Signaevska"},
+    "publisher": {"@type": "Organization", "name": "TELWHA"},
+    "inLanguage": "en",
+    "datePublished": "2026-05-20",
+    "dateModified": "2026-05-20",
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://t-e-l-w-h-a.com/en/articles/ai-spending-insights-case-uk/"}
+  }
+  </script>
 </head>
 <body>
-<div class="progress" id="progress"></div>
+  <div class="progress" id="progress"></div>
 
-<header class="topbar">
-  <div class="wrap nav">
-    <div class="brand">
-      <a class="brand-row" href="/"><strong>TELWHA</strong></a>
-      <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
-    </div>
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand">
+        <a class="brand-row" href="/en/" aria-label="TELWHA — go to home page">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+          <strong>TELWHA</strong>
+        </a>
+        <span class="sub">Financial Psychology</span>
+      </div>
 
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
-      <span class="menu-toggle-lines" aria-hidden="true"><span></span><span></span><span></span></span>
-    </button>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        aria-label="Open menu"
+      >
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
 
-    <nav class="menu" id="site-menu">
-      <div class="menu-group">
+      <nav class="menu" id="site-menu" aria-label="Main navigation">
         <a href="/en/">Home</a>
-        <a href="/en/finlab/">FinLab</a>
         <a href="/en/about/">About</a>
-      </div>
-      <div class="menu-group"><a href="/en/articles/">Articles</a><a href="/en/reviews/">Reviews</a><a href="/en/cases/">Cases</a><a href="/en/contact/">Contact</a></div>
-      <div class="menu-group menu-tools">
-        <details class="lang-switcher lang-switcher--inside">
-          <summary>🇬🇧</summary>
-          <div class="lang-list">
-            <a href="/articles/ai-spending-insights-case-uk.html" aria-label="Ukrainian">🇺🇦</a>
-            <a href="/es/articles/ai-spending-insights-case-uk.html" aria-label="Español">🇪🇸</a>
-          </div>
-        </details>
-        <button class="theme-toggle" type="button" aria-label="Change theme" data-theme-toggle>🌓</button>
-      </div>
-    </nav>
-  </div>
-</header>
+        <a href="/en/cases/">Cases</a>
+        <a href="/en/articles/" class="is-active">Articles</a>
+        <a href="/en/finlab/">FinLab</a>
 
-<main>
-  <section class="section">
-    <div class="wrap">
-      <article class="article-shell" itemscope itemtype="https://schema.org/Article">
-        <header class="article-header fade-in">
-          <div class="eyebrow"><span>Case study</span> TELWHA</div>
-          <h1 itemprop="headline">How AI Spending Insights Can Change Financial Behavior: A Behavioral A/B Test for a Fintech App</h1>
-          <p class="article-deck" itemprop="description">A case study on how AI-Based Spending Insights & Nudges can change discretionary spend share without breaking engagement or harming essential spend.</p>
-          <div class="article-reading">
-            <span class="article-chip">10,000 synthetic users</span>
-            <span class="article-chip">3 months pre + 3 months post</span>
-            <span class="article-chip">Fintech · Behavioral analytics · Experimentation</span>
+        <div class="dropdown">
+          <button type="button" class="dropbtn is-highlight" aria-expanded="false">
+            Test yourself
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/finlab/money-test-api/money-test.html">Financial behavior test</a>
+            <a href="/habit-test.html">Where do your habits lead you?</a>
+            <a href="/fact-or-fiction-cases.html">Fact or fiction?</a>
           </div>
-        </header>
-
-        <div class="mobile-jump fade-in" aria-label="Quick navigation through the article">
-          <a href="#part-1">Problem</a>
-          <a href="#part-2">Hypothesis</a>
-          <a href="#part-3">Framework</a>
-          <a href="#part-4">Design</a>
-          <a href="#part-5">Results</a>
-          <a href="#part-6">Business</a>
-          <a href="#part-7">Applications</a>
-          <a href="#part-8">Limitations</a>
         </div>
 
-        <div class="article-layout">
-          <div class="article-main">
-            <div class="article-body" itemprop="articleBody">
+        <div class="dropdown">
+          <button type="button" class="dropbtn" aria-expanded="false">
+            For traders
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/trader-course/">Mini-course</a>
+            <a href="/archetype-test/">Trader archetype</a>
+          </div>
+        </div>
 
-              <section id="part-1">
-                <p class="is-focus">Fintech products increasingly face not a lack-of-data problem, but a behavior-change problem. Younger users want financial stability, an emergency fund, and more control over money, yet in real life they often act under the influence of impulse, social pressure, and short-term emotional triggers.</p>
-                <p>This case models an A/B experiment for a digital bank / PFM app launching an <strong>AI-Based Spending Insights & Nudges</strong> feature. The goal is to test whether a personalized spending-insights layer can reduce discretionary spend share without harming essential spend or reducing engagement with the app.</p>
-                <p>In the simulated experiment, the treatment group reduced discretionary share by 1.53 percentage points relative to control, while sessions per user did not decline and interest in the insights screen increased sharply. This makes the case not only statistically interesting, but also product-relevant for a fintech environment where any behavior-change feature must simultaneously show effect, safety, and adoption.</p>
-              </section>
+        <a href="/en/reviews/">Reviews</a>
+        <a href="/en/contact/">Contact</a>
 
-              <div class="article-pullquote fade-in">For fintech, it is not enough to simply display transactions. The product has to make spending more visible, connect it to the user’s goals, and avoid creating a new source of friction or avoidance.</div>
+        <div class="menu-tools">
+          <div class="lang-list" aria-label="Site languages">
+            <a class="lang-link" href="/articles/ai-spending-insights-case-uk.html" lang="uk" aria-label="Ukrainian">UA</a>
+            <a class="lang-link is-active" href="/en/articles/ai-spending-insights-case-uk.html" lang="en" aria-label="English">EN</a>
+            <a class="lang-link" href="/es/articles/ai-spending-insights-case-uk.html" lang="es" aria-label="Spanish">ES</a>
+          </div>
 
-              <div class="article-divider"></div>
+          <button class="theme-toggle" type="button" aria-label="Turn on dark theme">☀️</button>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-              <section id="part-2">
-                <h2>Why this is a real product problem</h2>
-                <p>For Gen Z and younger millennials, the conflict between the desire for stability and actual behavior is especially visible. The mobile interface becomes the key channel through which a bank or PFM service can influence financial habits, because day-to-day interaction with money now happens inside the app rather than at a branch.</p>
-                <p>At the same time, the financial resilience of this audience remains limited. That is why even small day-to-day spending decisions can have a disproportionate impact on their sense of control, stress level, and progress toward goals.</p>
-                <p>The social context also puts constant pressure on consumption. Spending environments are becoming increasingly instant, frictionless, and behaviorally provocative, which means a fintech product has to function not only as a ledger, but also as a behavioral interface.</p>
-              </section>
+  <main>
+    <section class="article-hero">
+      <div class="wrap-wide">
+        <article class="article-shell" itemscope itemtype="https://schema.org/Article">
+          <header class="article-header fade-in">
+            <div class="eyebrow"><span>Case study</span> TELWHA</div>
+            <h1 itemprop="headline">How AI spending insights can change financial behavior: a behavioral A/B test for a fintech app</h1>
+            <p class="article-deck" itemprop="description">
+              A case on how AI-based Spending Insights & Nudges shift the discretionary spend share without breaking engagement or harming essential spend.
+            </p>
+            <div class="article-reading">
+              <span class="article-chip">10,000 synthetic users</span>
+              <span class="article-chip">3 months pre + 3 months post</span>
+              <span class="article-chip">Fintech · Behavioral analytics · Experimentation</span>
+            </div>
+          </header>
 
-              <div class="article-divider"></div>
+          <div class="mobile-jump fade-in" aria-label="Quick article navigation">
+            <a href="#part-1">Problem</a>
+            <a href="#part-2">Hypothesis</a>
+            <a href="#part-3">Framework</a>
+            <a href="#part-4">Design</a>
+            <a href="#part-5">Results</a>
+            <a href="#part-6">Business</a>
+            <a href="#part-7">Application</a>
+            <a href="#part-8">Limitations</a>
+          </div>
 
-              <section id="part-3">
-                <h2>Product hypothesis</h2>
-                <p>At the center of the case is an AI-Based Spending Insights & Nudges feature for a mobile banking / personal finance app. It analyzes the user’s spending structure, highlights discretionary categories such as eating out, entertainment, shopping, and travel, and generates personalized insights and soft nudges that do not forbid spending, but instead show the cost of current patterns in terms of savings goals, control, and financial stability.</p>
-                <p>The simple version of the product hypothesis is this: if discretionary spend becomes more visible and gets linked to personal goals, the user may slightly adjust their spending mix. But for a real business, that is not enough. The feature is successful only if it meets three conditions at the same time: it reduces discretionary share, does not harm essential spend, and does not reduce engagement with the app.</p>
-              </section>
+          <div class="article-layout">
+            <div class="article-main">
+              <div class="article-body" itemprop="articleBody">
 
-              <div class="article-divider"></div>
+                <section id="part-1">
+                  <p class="is-focus">
+                    Fintech products increasingly face not a lack of data, but a lack of behavior change. Younger users want financial stability, an emergency fund, and more control over money, yet in real life they often act under the influence of impulse, social pressure, and short-term emotional cues.
+                  </p>
+                  <p>
+                    This case models an A/B experiment for a digital bank / PFM app that launches a <strong>AI-Based Spending Insights & Nudges</strong> feature. The objective is to test whether a personalized layer of spending insights can reduce the discretionary spend share without harming essential spend and without reducing engagement with the app.
+                  </p>
+                  <p>
+                    In the simulated experiment, the treatment group reduced its discretionary share by 1.53 percentage points relative to control, while sessions per user did not drop and interest in the insights screen increased substantially. This makes the case not just statistically interesting but product-relevant for a fintech environment where any behavior-change feature has to show effect, safety, and adoption at the same time.
+                  </p>
+                </section>
 
-              <section id="part-4">
-                <h2>Behavioral framework of the case</h2>
-                <p>The strength of this case is not just the A/B analysis, but the attempt to build a more realistic model of the user. Instead of a flat setup such as “different incomes and different segments,” the synthetic data includes latent behavioral traits designed to model financial-behavior patterns known from research.</p>
-                <ul class="clean-list">
-                  <li><strong>FOMO susceptibility</strong> amplifies discretionary behavior: higher spending shares in entertainment, eating out, shopping, and travel, as well as a higher frequency of impulsive transactions.</li>
-                  <li><strong>Status seeking</strong> models conspicuous consumption — spending that serves a social signaling function.</li>
-                  <li><strong>Financial stress</strong> models fragility, higher spending volatility, and greater sensitivity to tools that restore a sense of control.</li>
-                  <li><strong>Stability need</strong> reflects the desire for order, an emergency fund, safety, and predictability.</li>
-                  <li><strong>Goal orientation</strong> models the ability to think about money as a system of goals rather than only current desires.</li>
-                </ul>
-                <p>This framework makes it possible to look not only at the average treatment effect, but also at heterogeneity: who responds better to the feature, who is more willing to adopt it, and where a different communication approach is needed.</p>
-              </section>
+                <div class="article-pullquote fade-in">
+                  For fintech, it is not enough to simply show transactions. You have to make spending visible, connect it to the user’s goals, and avoid creating a new source of friction or avoidance.
+                </div>
 
-              <div class="article-divider"></div>
+                <div class="article-divider"></div>
 
-              <section id="part-5">
-                <h2>Experiment design</h2>
-                <p>The experiment was built as a user-level randomized controlled trial, which matches the real logic of product experimentation in mobile financial services.</p>
-                <table class="data-table">
-                  <thead>
-                    <tr><th>Element</th><th>Case design</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td>Randomization level</td><td>User</td></tr>
-                    <tr><td>Horizon</td><td>3 months pre + 3 months post</td></tr>
-                    <tr><td>Sample size</td><td>10,000 synthetic users</td></tr>
-                    <tr><td>Treatment</td><td>v2_AI_insights with access to insights and nudges</td></tr>
-                    <tr><td>Control</td><td>standard product without spending insights</td></tr>
-                    <tr><td>Primary metric</td><td>discretionary share of spend</td></tr>
-                    <tr><td>Guardrails</td><td>essential share, transactions, volatility, sessions</td></tr>
-                    <tr><td>Mechanism metrics</td><td>adoption, insights views, engagement</td></tr>
-                  </tbody>
-                </table>
-                <p>The primary metric in the case is discretionary share, meaning the share of total spend allocated to discretionary categories. This is a more product-relevant metric than absolute spend reduction because it captures a change in behavioral structure rather than simply “tightening the belt.”</p>
-                <p>Guardrails were fundamentally important. The success condition in this case is not just a positive DiD on discretionary share, but a positive DiD without harm to essentials or engagement.</p>
+                <section id="part-2">
+                  <h2>Why this is a real product problem</h2>
+                  <p>
+                    For Gen Z and younger millennials, the conflict between wanting stability and how they actually behave is especially visible. The mobile interface becomes the primary channel through which a bank or PFM service can influence financial habits, because daily interaction with money happens not in a branch but in an app.
+                  </p>
+                  <p>
+                    At the same time, the financial resilience of this audience remains limited. This means even small everyday decisions can have a disproportionately large impact on their sense of control, stress, and progress toward goals.
+                  </p>
+                  <p>
+                    The social context also actively pushes toward consumption. The spending environment is increasingly instant, frictionless, and behaviorally provocative, which means a fintech product has to work not only as a ledger, but also as a behavioral interface.
+                  </p>
+                </section>
 
-                <details class="tech-note">
-                  <summary>Technical details of data generation and analysis</summary>
-                  <p>Three main tables were created: <code>users.csv</code> for treatment assignment, segments, demographics, and latent traits; <code>transactions.csv</code> for spend by categories, amounts, and pre/post periods; and <code>sessions.csv</code> for app activity, views, and interaction with insights.</p>
-                  <p>The statistical layer used user-level pre/post aggregation, Welch’s t-test for the user-level delta, diff-in-diff regression to estimate the incremental treatment effect, and logistic regression to model adoption within the treatment group.</p>
-                </details>
-              </section>
+                <div class="article-divider"></div>
 
-              <div class="article-divider"></div>
+                <section id="part-3">
+                  <h2>Product hypothesis</h2>
+                  <p>
+                    At the center of this case is an AI-Based Spending Insights & Nudges feature for a mobile banking / personal finance app. It analyzes a user’s spending structure, identifies discretionary categories — eating out, entertainment, shopping, travel — and generates personalized insights and soft nudges that do not forbid spending but show the price of the current patterns in terms of savings goals, control, and financial resilience.
+                  </p>
+                  <p>
+                    The simple version of the product hypothesis is: if discretionary spend becomes more salient and tied to personal goals, the user can slightly adjust their spending mix. But for the business this is not enough. The feature is considered successful only when three conditions are met at once: it lowers the discretionary share, it does not harm essential spend, and it does not reduce engagement with the app.
+                  </p>
+                </section>
 
-              <section id="part-6">
-                <h2>What the experiment showed</h2>
-                <p class="is-focus"><strong>1. Primary effect: discretionary share really declined.</strong> In the control group, discretionary share barely changed: from 29.44% to 29.23%. In the treatment group, the change was more substantial: from 29.42% to 27.69%. The diff-in-diff effect was -1.53 percentage points, and the 95% confidence interval ranged from -2.03 to -1.02 p.p., supporting the interpretation of the effect as both statistically and practically meaningful for a product intervention.</p>
-                <p>This is an important result from a fintech logic perspective. The feature was not trying to “ban spending”; its role was to slightly change the spend mix. That kind of effect is realistic and useful in a product that works through salience, framing, and soft nudges rather than punishment.</p>
+                <div class="article-divider"></div>
 
-                <div class="figure-grid">
+                <section id="part-4">
+                  <h2>Behavioral framework of the case</h2>
+                  <p>
+                    The strength of this case is not just the A/B analysis, but the attempt to build a more realistic user model. Instead of a flat design like “there are different incomes and segments”, the synthetic data embeds latent behavioral traits that mirror well-known patterns of financial behavior from research.
+                  </p>
+                  <ul class="clean-list">
+                    <li>
+                      <strong>FOMO susceptibility</strong> amplifies discretionary behavior: higher shares of spending on entertainment, eating out, shopping, and travel, plus a higher frequency of impulsive transactions.
+                    </li>
+                    <li>
+                      <strong>Status seeking</strong> models conspicuous consumption — spending that serves a social signaling function.
+                    </li>
+                    <li>
+                      <strong>Financial stress</strong> models fragility, higher volatility of spending, and greater sensitivity to control tools.
+                    </li>
+                    <li>
+                      <strong>Stability need</strong> reflects the desire for order, an emergency fund, safety, and predictability.
+                    </li>
+                    <li>
+                      <strong>Goal orientation</strong> models the ability to think about finances in terms of goals and systems, not just current wants.
+                    </li>
+                  </ul>
+                  <p>
+                    This framework makes it possible to look not only at the average treatment effect but also at heterogeneity: who the feature works better for, who is more likely to adopt it, and where a different communication approach is needed.
+                  </p>
+                </section>
+
+                <div class="article-divider"></div>
+
+                <section id="part-5">
+                  <h2>Experiment design</h2>
+                  <p>
+                    The experiment is built as a user-level randomized controlled trial, which mirrors how product experimentation actually works in mobile financial services.
+                  </p>
+                  <table class="data-table">
+                    <thead>
+                      <tr><th>Element</th><th>Case design</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>Randomization level</td><td>User</td></tr>
+                      <tr><td>Time horizon</td><td>3 months pre + 3 months post</td></tr>
+                      <tr><td>Sample size</td><td>10,000 synthetic users</td></tr>
+                      <tr><td>Treatment</td><td>v2_AI_insights with access to insights and nudges</td></tr>
+                      <tr><td>Control</td><td>baseline product without spending insights</td></tr>
+                      <tr><td>Primary metric</td><td>Discretionary share of spend</td></tr>
+                      <tr><td>Guardrails</td><td>Essential share, transactions, volatility, sessions</td></tr>
+                      <tr><td>Mechanism metrics</td><td>Adoption, insights views, engagement</td></tr>
+                    </tbody>
+                  </table>
+                  <p>
+                    The primary metric in this case is the discretionary share — the share of spending on discretionary categories out of total spend. This is more product-relevant than simply tracking a drop in total spend, because it lets you evaluate changes in the structure of behavior rather than just “belt-tightening”.
+                  </p>
+                  <p>
+                    Guardrails are critical. The success condition here is not just a positive DiD on discretionary share, but a positive DiD with no harm to essentials and engagement.
+                  </p>
+
+                  <details class="tech-note">
+                    <summary>Technical notes on generation and analysis</summary>
+                    <p>
+                      Three core tables were created: <code>users.csv</code> — treatment assignment, segments, demographics, latent traits; <code>transactions.csv</code> — spend by category, amounts, pre/post periods; <code>sessions.csv</code> — app activity, views, interaction with insights.
+                    </p>
+                    <p>
+                      The statistical layer uses user-level pre/post aggregation, Welch’s t-test on user-level deltas, diff-in-diff regression for incremental treatment effect, and logistic regression for modeling adoption in the treatment group.
+                    </p>
+                  </details>
+                </section>
+
+                <div class="article-divider"></div>
+
+                <section id="part-6">
+                  <h2>What the experiment showed</h2>
+                  <p class="is-focus">
+                    <strong>1. Primary effect: discretionary share decreased.</strong> In the control group, discretionary share barely moved, from 29.44% to 29.23%. In the treatment group, the change was more pronounced: from 29.42% down to 27.69%. The diff-in-diff effect was −1.53 percentage points, with a 95% confidence interval from −2.03 to −1.02 p.p., which supports interpreting the effect as both statistically and practically meaningful for a product intervention.
+                  </p>
+                  <p>
+                    This is an important result from a fintech perspective. The feature did not try to “ban spending”; its goal was to slightly shift the spend mix. This type of effect is realistic and valuable in a product that works not via sanctions, but via salience, framing, and soft nudges.
+                  </p>
+
+                  <div class="figure-grid">
+                    <figure class="figure-card fade-in">
+                      <img src="/static/media/disc_share_pre_post_by_group.png" alt="Chart comparing discretionary share in control and treatment groups before and after feature launch" width="1496" height="958" loading="lazy">
+                      <figcaption>
+                        The chart shows that in the control group the discretionary share barely changes between pre and post, while in the treatment group it clearly declines. This visualizes the core effect of the feature: a shift in the spending structure without an aggressive cut in total spend.
+                      </figcaption>
+                    </figure>
+
+                    <figure class="figure-card fade-in">
+                      <img src="/static/media/did_disc_share_pre_post.png" alt="Diff-in-diff chart for discretionary share in control and treatment groups" width="1365" height="768" loading="lazy">
+                      <figcaption>
+                        The diff-in-diff diagram shows a nearly flat trend in the control group, while the treatment group curve drops after the feature launch. The incremental change of about −1.53 p.p. highlights the incremental effect rather than just the overall movement.
+                      </figcaption>
+                    </figure>
+                  </div>
+
+                  <p>
+                    <strong>2. Heterogeneity: the effect was not uniform.</strong> Segment analysis showed that the treatment did not work equally for everyone. The strongest effect appeared among starter users, with a reduction of about −2.01 p.p., while for mass it was about −1.58 p.p., and for affluent about −1.49 p.p.
+                  </p>
+
                   <figure class="figure-card fade-in">
-                    <img src="/static/media/disc_share_pre_post_by_group.png" alt="Chart comparing discretionary share in the control and treatment groups before and after the feature launch" width="1496" height="958" loading="lazy">
-                    <figcaption>The chart shows that in the control group the share of discretionary spending barely changes between pre and post, while in the treatment group it declines noticeably. This visualizes the main effect of the feature: a change in spending structure without sharply cutting total spend.</figcaption>
+                    <img src="/static/media/delta_disc_share_by_segment_group.png" alt="Segment chart of change in discretionary share for affluent, mass, and starter users" width="1296" height="768" loading="lazy">
+                    <figcaption>
+                      The chart shows the change in discretionary share by segment: affluent, mass, and starter. In each segment, the treatment produces a larger negative shift, with the strongest effect among starter users, supporting the idea that more financially vulnerable groups can be more responsive to nudges.
+                    </figcaption>
                   </figure>
 
+                  <p><strong>3. Guardrails: essentials and engagement did not decline.</strong> One of the most important conclusions of the case is that the primary effect was not bought at the cost of harmful side effects. Essential share did not show a dangerous decline, and transaction count remained stable across groups.</p>
+                  <p>Even more importantly, app usage did not decline. Sessions per user remained stable, while views of the insights screen actually increased where the treatment was adopted.</p>
+
                   <figure class="figure-card fade-in">
-                    <img src="/static/media/did_disc_share_pre_post.png" alt="Diff-in-diff chart for discretionary share in the control and treatment groups" width="1365" height="768" loading="lazy">
-                    <figcaption>The diff-in-diff chart shows that the control trend remains nearly flat, while in treatment the discretionary-share line drops sharply after the feature launch. The label incremental change ≈ -1.53 p.p. highlights the incremental effect itself rather than just the overall movement.</figcaption>
+                    <img src="/static/media/insights_views_per_user_pre_post.png" alt="Chart of insights screen views per user in control and treatment before and after launch" width="600" height="400" loading="lazy">
+                    <figcaption>
+                      The Insights views per user pre/post chart shows that in the control group, insight views remain close to zero, while in the treatment group they rise sharply after the feature launch. This means users did not just receive access to the feature — they started using it, and this mechanism helps explain the behavioral change.
+                    </figcaption>
                   </figure>
+
+                  <p><strong>4. Adoption and mechanism: the feature did not work on its own.</strong> Adoption analysis showed that the feature was not adopted randomly. The strongest directional predictor was <code>goal_orientation_score</code> with an odds ratio of 2.315 and a 95% CI of [1.092, 4.906]. Other coefficients were directionally consistent with expectations: <code>financial_stress_score</code> and <code>trust_in_ai_score</code> had positive signs, while <code>avoidance_tendency_score</code> had a negative sign.</p>
+                  <p>
+                    In practical terms, this means something simple: this kind of feature works best not equally for everyone, but where there is readiness for goals, a search for control, and willingness to engage with digital advice. This is an important conclusion for product strategy: behavior-change features should not only be launched, but also targeted and personalized.
+                  </p>
+                </section>
+
+                <div class="article-divider"></div>
+
+                <section id="part-7">
+                  <h2>What this means for the business</h2>
+                  <p>
+                    The statistical effect in this article is not an end in itself. The real question for a fintech business is whether the feature creates a useful shift in user behavior without creating a new source of friction.
+                  </p>
+                  <p>
+                    In the post period, the average spend per user over 3 months was 5,609.63, while the incremental reduction in discretionary share was 1.53 percentage points. This gives an estimate of about 85.65 in reallocated spend per user over 3 months. At a scale of 100,000 users, this is approximately 8.57 million per quarter or 34.26 million on an annualized basis.
+                  </p>
+                  <p>
+                    This figure should not be interpreted as direct bank revenue. Its correct interpretation is behavioral reallocation away from discretionary categories. For a bank, this may mean stronger positioning as a partner in financial wellbeing, a better foundation for future products in savings, investing, and coaching, and a potential reduction in risks associated with unstable customer behavior.
+                  </p>
+                  <p>
+                    <strong>Decision rules for rollout.</strong> A broader rollout only makes sense if discretionary share declines with statistical significance, while essential share, sessions per user, and days active do not send a negative signal. It is logical to start scaling in the segments where the signal is already strongest — in this case, starter and goal-oriented users. After that, separate tests are needed for tone of voice, frequency, and framing for FOMO-sensitive, avoidance-prone, and stress-driven profiles.
+                  </p>
+                </section>
+
+                <div class="article-divider"></div>
+
+                <section id="part-8">
+                  <h2>How this can be applied in your product</h2>
+                  <p>
+                    The value of this case is not limited to a mobile banking app for the mass retail segment. The logic of behavior-based spending insights can be adapted to different types of fintech businesses.
+                  </p>
+                  <ul class="clean-list">
+                    <li>
+                      <strong>Neobanks and mobile banks.</strong> This case can serve as a basis for launching a lightweight layer of financial prompts on the home screen, in the inbox, or through push communication.
+                    </li>
+                    <li>
+                      <strong>PFM, budgeting, and money coaching apps.</strong> The case can be adapted into a deeper level of personalization through profiles such as goal-oriented, stress-driven, avoidance-prone, and FOMO-sensitive.
+                    </li>
+                    <li>
+                      <strong>Investment apps, wealthtech, and brokerage products.</strong> The same logic transfers to impulsive investing, panic decisions, overtrading, and reactions to volatility.
+                    </li>
+                    <li>
+                      <strong>BNPL, lending, and credit products.</strong> The approach can be used as an early risk-prevention layer through alerts, budgeting prompts, adaptive communication, and preventive behavioral design.
+                    </li>
+                  </ul>
+                  <p>
+                    Based on this logic, other cases can also be built: savings nudges and emergency fund formation, overspending alerts versus avoidance behavior, and behavioral segmentation for credit or BNPL risk prevention.
+                  </p>
+                </section>
+
+                <div class="article-divider"></div>
+
+                <div class="cta-panel fade-in">
+                  <div class="cta-copy">
+                    <p><strong>15 free minutes for banks and fintech apps.</strong> If you need to understand how behavioral analytics, AI insights, or experiments of this type could be useful in your specific product, we can briefly discuss the task, the data, and the potential points of influence.</p>
+                  </div>
+                  <div class="cta-actions">
+                    <a class="btn-consult" href="/en/contact/">Book a consultation</a>
+                  </div>
                 </div>
 
-                <p><strong>2. Heterogeneity: the effect was not the same for everyone.</strong> Segment analysis showed that treatment worked asymmetrically. The strongest effect appeared among starter users, where the reduction in discretionary share was about -2.01 p.p., while for mass users it was about -1.58 p.p. and for affluent users about -1.49 p.p.</p>
+                <section id="part-9">
+                  <h2>Case limitations</h2>
+                  <p>
+                    This case is not a production experiment on real banking data. All users, transactions, and latent traits are synthetic and were created as an analytical model. Therefore, the numerical results here should be interpreted as a research demonstration of proper design logic, not as a literal forecast of what would happen in a bank.
+                  </p>
+                  <p>
+                    In addition, the latent traits in this case were modeled rather than directly measured. This means they work well for explanatory and demonstrative design, but in a product they would require proxy indicators, survey linkage, observed behavioral signals, or a separate measurement layer.
+                  </p>
+                  <p>
+                    Another limitation is the time horizon. Even if the feature lowers discretionary share on average over 3 months, this does not yet mean a long-term change in habits. A real product would need additional waves of experiments: personalization of message framing, frequency control, long-term retention analysis, and a check for whether a delayed avoidance effect emerges.
+                  </p>
+                </section>
 
-                <figure class="figure-card fade-in">
-                  <img src="/static/media/delta_disc_share_by_segment_group.png" alt="Segment chart showing the change in discretionary share for affluent, mass, and starter users" width="1296" height="768" loading="lazy">
-                  <figcaption>The chart shows the change in discretionary share across affluent, mass, and starter segments. In each segment, treatment produces a larger negative shift, and the strongest effect appears among starter users, supporting the idea that financially more vulnerable groups may be more sensitive to nudges.</figcaption>
-                </figure>
+                <div class="article-divider"></div>
 
-                <p><strong>3. Guardrails: essentials and engagement did not deteriorate.</strong> One of the most important takeaways from the case is that the primary effect was not bought at the cost of harmful side effects. Essential share did not show a dangerous decline, and transaction count remained stable across groups.</p>
-                <p>Even more importantly, app usage did not decline. Sessions per user remained stable, while views of the insights screen increased in the part of the population where treatment was actually adopted.</p>
-
-                <figure class="figure-card fade-in">
-                  <img src="/static/media/insights_views_per_user_pre_post.png" alt="Chart of insights screen views per user in control and treatment before and after launch" width="600" height="400" loading="lazy">
-                  <figcaption>The Insights views per user pre/post chart shows that in the control group insight views remain close to zero, while in the treatment group they rise sharply after launch. This means users did not simply receive access to the feature — they actually started using it, and this mechanism helps explain the behavioral change.</figcaption>
-                </figure>
-
-                <p><strong>4. Adoption and mechanism: the feature did not work “by itself.”</strong> Adoption analysis showed that the feature was not accepted randomly. The strongest directional predictor was <code>goal_orientation_score</code> with an odds ratio of 2.315 and a 95% CI [1.092, 4.906]. Other coefficients were directionally aligned with expectations: <code>financial_stress_score</code> and <code>trust_in_ai_score</code> had positive signs, while <code>avoidance_tendency_score</code> had a negative sign.</p>
-                <p>In practical terms, this means one simple thing: this type of feature works best not equally for everyone, but where there is readiness for goals, a search for control, and willingness to interact with digital guidance. That is an important conclusion for product strategy: behavior-change features should not only be launched, but also targeted and personalized.</p>
-              </section>
-
-              <div class="article-divider"></div>
-
-              <section id="part-7">
-                <h2>What this means for business</h2>
-                <p>The statistical effect in this article is not an end in itself. The real question for a fintech business is whether the feature creates a useful behavioral shift without creating a new source of friction.</p>
-                <p>In the post period, average spend per user over 3 months was 5,609.63, and the incremental reduction in discretionary share was 1.53 p.p. That gives an estimate of about 85.65 of reallocated spend per user over 3 months. At the scale of 100,000 users, that is approximately 8.57 million per quarter or 34.26 million annualized.</p>
-                <p>This figure should not be interpreted as direct bank revenue. The correct interpretation is behavioral reallocation away from discretionary categories. For a bank, this can mean stronger positioning as a financial wellbeing partner, a better foundation for future products in savings / investing / coaching, and potentially lower risks associated with unstable customer behavior.</p>
-                <p><strong>Decision rules for rollout.</strong> A broader rollout makes sense only if discretionary share declines significantly while essential share, sessions per user, and days active do not show a negative signal. It is most rational to start scaling from the segments where the signal is already strongest — in this case, starter and goal-oriented users. After that, separate tests are needed for tone of voice, frequency, and framing for FOMO-sensitive, avoidance-prone, and stress-driven profiles.</p>
-              </section>
-
-              <div class="article-divider"></div>
-
-              <section id="part-8">
-                <h2>How this can be applied in your product</h2>
-                <p>The value of this case is not limited to a mobile banking app for the mass retail segment. The logic of behavior-based spending insights can be adapted for different types of fintech businesses.</p>
-                <ul class="clean-list">
-                  <li><strong>Neobanks and mobile banks.</strong> This case can serve as a basis for launching a lightweight layer of financial guidance in the home screen, inbox, or push communication.</li>
-                  <li><strong>PFM, budgeting, and money coaching apps.</strong> The case can be adapted into a deeper level of personalization through profiles such as goal-oriented, stress-driven, avoidance-prone, and FOMO-sensitive.</li>
-                  <li><strong>Investment apps, wealthtech, and brokerage products.</strong> The same logic transfers to impulsive investing, panic decisions, overtrading, and reactions to volatility.</li>
-                  <li><strong>BNPL, lending, and credit products.</strong> The approach can be used as an early risk-prevention layer through alerts, budgeting prompts, adaptive communication, and preventive behavioral design.</li>
-                </ul>
-                <p>Based on this logic, other cases can also be built: savings nudges and emergency fund formation, overspending alerts vs avoidance behavior, and behavioral segmentation for credit or BNPL risk prevention.</p>
-              </section>
-
-              <div class="article-divider"></div>
-
-              <div class="cta-panel fade-in">
-                <div class="cta-copy">
-                  <p><strong>15 minutes free for banks and fintech apps.</strong> If you need to understand how behavioral analytics, AI insights, or experiments like this could be useful in your product, we can briefly discuss the problem, the data, and the most promising points of impact.</p>
-                </div>
-                <div class="cta-actions">
-                  <a class="btn-consult" href="/en/contact/">Book a consultation</a>
-                </div>
+                <section id="part-10">
+                  <h2>Conclusion</h2>
+                  <p class="is-focus">
+                    The main conclusion of the case is simple: AI-based spending insights can be a useful fintech feature if they are designed as a behavioral intervention rather than just another dashboard. In the simulated A/B experiment, they reduced discretionary share, did not hurt essential spend, did not reduce engagement, and worked best where users already had at least a minimal internal frame of goals and control.
+                  </p>
+                  <p>
+                    For the product, this means the next level of maturity is not simply launching nudges for everyone, but personalizing them by readiness, stress level, goal orientation, and style of digital interaction. It is precisely at the intersection of behavioral finance, product analytics, and thoughtful experimentation that real value for fintech services is created today.
+                  </p>
+                  <p>
+                    If your product has the task of reducing undesirable user behavior, improving the effectiveness of financial insights, or understanding how behavioral interventions can affect key business metrics, a study like this can be adapted to your context, your data, and your product decisions.
+                  </p>
+                </section>
               </div>
-
-              <section id="part-9">
-                <h2>Limitations of the case</h2>
-                <p>This case is not a production experiment based on real banking data. All users, transactions, and latent traits are synthetic and were created as an analytical model. That means the numerical results should be interpreted as a research demonstration of sound design logic rather than a literal prediction of what would happen in a real bank.</p>
-                <p>In addition, the latent traits in this case were modeled rather than directly measured. That means they work well for explanatory and demonstrational design, but in a real product they would require proxy features, survey linkage, observed behavioral signals, or a separate measurement layer.</p>
-                <p>Another limitation is the time horizon. Even if the feature reduces discretionary share on average over 3 months, that still does not guarantee a long-term change in habits. A real product would need further waves of experiments: message-framing personalization, frequency control, long-term retention analysis, and validation of whether a delayed avoidance effect emerges.</p>
-              </section>
-
-              <div class="article-divider"></div>
-
-              <section id="part-10">
-                <h2>Conclusion</h2>
-                <p class="is-focus">The main conclusion of the case is simple: AI-based spending insights can be a useful fintech feature when they are designed as a behavioral intervention rather than just another dashboard. In the simulated A/B experiment, they reduced discretionary share, did not harm essential spend, and did not reduce engagement, while working best where users already had at least a minimal internal frame of goals and control.</p>
-                <p>For a product team, that means the next level of maturity is not simply launching nudges for everyone, but personalizing by readiness, stress level, goal orientation, and style of digital interaction. It is exactly at the intersection of behavioral finance, product analytics, and thoughtful experimentation that real value for fintech services emerges today.</p>
-                <p>If your product needs to reduce unwanted user behavior, improve the effectiveness of financial insights, or understand how behavioral interventions can affect key business metrics, this type of research can be adapted to your context, your data, and your product decisions.</p>
-              </section>
             </div>
+
+            <aside class="article-aside fade-in" aria-label="Article navigation">
+              <div class="aside-card">
+                <h3>Navigation</h3>
+                <nav class="toc">
+                  <a href="#part-1">Problem</a>
+                  <a href="#part-2">Why this matters</a>
+                  <a href="#part-3">Product hypothesis</a>
+                  <a href="#part-4">Behavioral framework</a>
+                  <a href="#part-5">Experiment design</a>
+                  <a href="#part-6">Results</a>
+                  <a href="#part-7">Business impact</a>
+                  <a href="#part-8">Practical application</a>
+                  <a href="#part-9">Limitations</a>
+                  <a href="#part-10">Conclusion</a>
+                </nav>
+              </div>
+            </aside>
           </div>
 
-          <aside class="article-aside fade-in" aria-label="Article navigation">
-            <div class="aside-card">
-              <h3>Navigation</h3>
-              <nav class="toc">
-                <a href="#part-1">Problem</a>
-                <a href="#part-2">Why it matters</a>
-                <a href="#part-3">Product hypothesis</a>
-                <a href="#part-4">Behavioral framework</a>
-                <a href="#part-5">Experiment design</a>
-                <a href="#part-6">Results</a>
-                <a href="#part-7">Business meaning</a>
-                <a href="#part-8">Practical applications</a>
-                <a href="#part-9">Limitations</a>
-                <a href="#part-10">Conclusion</a>
-              </nav>
-            </div>
-          </aside>
+          <section class="article-cta fade-in">
+            <a class="btn-ghost" href="/en/articles/">← Back to all articles</a>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>TELWHA</h4>
+          <p>Financial psychology, behavioral economics, and choice architecture for more resilient financial decisions.</p>
         </div>
 
-        <section class="article-cta fade-in">
-          <a class="btn btn-ghost" href="/en/articles/">← Back to all articles</a>
-        </section>
-      </article>
-    </div>
-  </section>
-</main>
-
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer-grid fade-in">
-      <div>
-        <h4>TELWHA</h4>
-        <p>Financial psychology, behavioral economics, and choice architecture for more resilient financial decisions.</p>
-      </div>
-      <div style="text-align:right">
-        <h4>Navigation</h4>
-        <div class="footer-links" style="align-items:flex-end">
-          <a href="/en/about/">About</a>
-          <a href="/en/reviews/">Reviews</a>
-          <a href="/en/contact/">Contact</a>
+        <div style="text-align:right">
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="/en/">Home</a>
+            <a href="/en/finlab/">FinLab</a>
+            <a href="/en/reviews/">Reviews</a>
+            <a href="/en/contact/">Contact</a>
+          </div>
         </div>
       </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 TELWHA. All rights reserved.</span>
+        <span>Kyiv, Ukraine · 🇺🇦</span>
+      </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 TELWHA. All rights reserved.</span>
-      <span>Kyiv, Ukraine · 🇺🇦</span>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<script src="/static/script/global.js"></script>
-<script>
-  const menuToggle = document.querySelector('.menu-toggle');
-  const siteMenu = document.querySelector('#site-menu');
-  if (menuToggle && siteMenu) {
-    menuToggle.addEventListener('click', () => {
-      const isOpen = siteMenu.classList.toggle('is-open');
-      menuToggle.classList.toggle('is-open', isOpen);
-      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-    });
-  }
+  <script>
+    function updateProgressBar() {
+      const progress = document.getElementById("progress");
+      if (!progress) return;
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressValue = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = progressValue + "%";
+    }
 
-  const progress = document.getElementById('progress');
-  const updateProgress = () => {
-    const doc = document.documentElement;
-    const total = doc.scrollHeight - doc.clientHeight;
-    const scrolled = total > 0 ? (doc.scrollTop / total) * 100 : 0;
-    if (progress) progress.style.width = scrolled + '%';
-  };
-  document.addEventListener('scroll', updateProgress, { passive: true });
-  updateProgress();
+    function syncThemeButtonUI() {
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (!themeBtn) return;
+      const current = document.documentElement.getAttribute("data-theme") || "light";
+      themeBtn.textContent = current === "dark" ? "🌙" : "☀️";
+      themeBtn.setAttribute(
+        "aria-label",
+        current === "dark" ? "Turn on light theme" : "Turn on dark theme"
+      );
+    }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('is-visible');
-    });
-  }, { threshold: 0.14 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  const tocLinks = Array.from(document.querySelectorAll('.toc a'));
-  const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
-  const markToc = () => {
-    let activeId = sections[0]?.id;
-    sections.forEach(section => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= 140) activeId = section.id;
-    });
-    tocLinks.forEach(link => {
-      link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
-    });
-  };
-  document.addEventListener('scroll', markToc, { passive: true });
-  markToc();
-
-  (function(){
-    const t=document.querySelector('[data-theme-toggle]');
-    const r=document.documentElement;
-    let d=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
-    r.setAttribute('data-theme',d);
-    if(t){
-      t.addEventListener('click',()=>{
-        d=d==='dark'?'light':'dark';
-        r.setAttribute('data-theme',d);
+    function closeAllDropdowns(except = null) {
+      document.querySelectorAll(".dropdown").forEach((dropdown) => {
+        if (dropdown === except) return;
+        dropdown.classList.remove("is-open");
+        const button = dropdown.querySelector(".dropbtn");
+        if (button) button.setAttribute("aria-expanded", "false");
       });
     }
-  })();
-</script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+      updateProgressBar();
+      window.addEventListener("scroll", updateProgressBar, { passive: true });
+
+      const root = document.documentElement;
+      let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      root.setAttribute("data-theme", currentTheme);
+      syncThemeButtonUI();
+
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (themeBtn) {
+        themeBtn.addEventListener("click", () => {
+          currentTheme = currentTheme === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", currentTheme);
+          syncThemeButtonUI();
+        });
+      }
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const siteMenu = document.querySelector("#site-menu");
+
+      if (menuToggle && siteMenu) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = siteMenu.classList.toggle("is-open");
+          menuToggle.classList.toggle("is-open", isOpen);
+          menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+
+          if (!isOpen) closeAllDropdowns();
+        });
+      }
+
+      document.querySelectorAll(".dropbtn").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          if (window.innerWidth > 920) return;
+          event.stopPropagation();
+          const parent = button.parentElement;
+          const willOpen = !parent.classList.contains("is-open");
+          closeAllDropdowns(parent);
+          parent.classList.toggle("is-open", willOpen);
+          button.setAttribute("aria-expanded", willOpen ? "true" : "false");
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".dropdown")) {
+          closeAllDropdowns();
+        }
+
+        const nav = document.querySelector(".nav");
+        if (
+          window.innerWidth <= 920 &&
+          siteMenu &&
+          siteMenu.classList.contains("is-open") &&
+          nav &&
+          !nav.contains(event.target)
+        ) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Open menu");
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeAllDropdowns();
+
+          if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle?.classList.remove("is-open");
+            menuToggle?.setAttribute("aria-expanded", "false");
+            menuToggle?.setAttribute("aria-label", "Open menu");
+            menuToggle?.focus();
+          }
+        }
+      });
+
+      document.querySelectorAll('#site-menu a[href]').forEach((link) => {
+        link.addEventListener("click", () => {
+          closeAllDropdowns();
+
+          if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle?.classList.remove("is-open");
+            menuToggle?.setAttribute("aria-expanded", "false");
+            menuToggle?.setAttribute("aria-label", "Open menu");
+          }
+        });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+      }, { threshold: 0.14 });
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+      const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+      const sections = tocLinks
+        .map(link => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+
+      const markToc = () => {
+        let activeId = sections[0]?.id;
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 140) activeId = section.id;
+        });
+        tocLinks.forEach(link => {
+          link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
+        });
+      };
+
+      document.addEventListener('scroll', markToc, { passive: true });
+      markToc();
+    });
+  </script>
 </body>
 </html>

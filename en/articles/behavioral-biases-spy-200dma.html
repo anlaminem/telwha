@@ -1,88 +1,1239 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TELWHA | Behavioral Biases in Trading: SPY 200DMA Case Study</title>
-<meta name="description" content="A TELWHA case study on how the house money effect, confirmation bias, escalation of commitment, and status quo bias change the results of a SPY 200DMA strategy, and what that means for traders and fintech products.">
-<link rel="canonical" href="https://t-e-l-w-h-a.com/en/articles/behavioral-biases-spy-200dma/">
-<meta property="og:type" content="article">
-<meta property="og:title" content="TELWHA | Behavioral Biases in Trading: SPY 200DMA Case Study">
-<meta property="og:description" content="How four cognitive biases change returns, drawdown, and trading behavior in a SPY 200DMA strategy, and what fintech teams should take from it.">
-<meta property="og:url" content="https://t-e-l-w-h-a.com/en/articles/behavioral-biases-spy-200dma/">
-<meta property="og:site_name" content="TELWHA">
-<link rel="icon" href="/static/media/telwha-favicon.png" type="png">
-<link rel="stylesheet" href="/static/css/base.css">
-<link rel="stylesheet" href="/static/css/layout-article.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TELWHA | Behavioral biases in trading: SPY 200DMA case</title>
+  <meta name="description" content="TELWHA case: how house money effect, confirmation bias, escalation of commitment and status quo bias change the results of the SPY 200DMA strategy, and what this means for traders and fintech products.">
+  <link rel="canonical" href="https://t-e-l-w-h-a.com/en/articles/behavioral-biases-spy-200dma/">
 
-<style>
-html{scroll-behavior:smooth;}
-.progress{position:fixed;inset:0 auto auto 0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,var(--accent,#8b7355),var(--accent-2,#c7a978));box-shadow:0 1px 10px rgba(0,0,0,.12)}
-.article-shell{position:relative;max-width:1320px;margin-inline:auto}
-.article-header{position:relative;overflow:hidden}
-.article-header::after{content:"";position:absolute;right:-80px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(199,169,120,.16),rgba(199,169,120,0) 70%);pointer-events:none}
-.article-deck{max-width:850px}
-.article-reading{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.article-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:rgba(255,255,255,.5);backdrop-filter:blur(4px);font-size:.88rem;line-height:1}
-html[data-theme="dark"] .article-chip{background:rgba(255,255,255,.04)}
-.article-layout{display:grid;grid-template-columns:minmax(0,5fr) minmax(260px,2fr);gap:56px;align-items:start;}
-.article-main{min-width:0}
-.article-aside{position:sticky;top:92px;display:flex;flex-direction:column;gap:14px}
-.aside-card{padding:16px 16px 14px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.45));box-shadow:0 10px 30px rgba(0,0,0,.04)}
-html[data-theme="dark"] .aside-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
-.aside-card h3{font-size:.92rem;margin:0 0 10px;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
-.toc{display:flex;flex-direction:column;gap:8px}
-.toc a{display:block;padding:8px 10px;border-radius:12px;text-decoration:none;opacity:.78}
-.toc a:hover,.toc a.is-active{background:rgba(199,169,120,.14);opacity:1}
-.mini-note{font-size:.95rem;line-height:1.55;opacity:.85}
-.article-body>p{position:relative;margin-bottom:1.35rem}
-.article-body section[id]>p:first-of-type{margin-top:0}
-.article-body>p.is-focus{padding-left:16px;border-left:3px solid rgba(199,169,120,.8)}
-.article-body h2, .article-body section[id]{scroll-margin-top:120px}
-.article-body section[id]{position:relative;margin-top:2.2rem}
-.article-pullquote{margin:22px 0;padding:18px 20px;border-radius:18px;border:1px solid rgba(120,120,120,.14);background:linear-gradient(135deg,rgba(199,169,120,.14),rgba(199,169,120,.04));font-size:1.05rem;line-height:1.7}
-.article-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(120,120,120,.25),transparent);margin:28px 0}
-.mobile-jump{display:none}
-.audience-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 14px}
-.audience-tab{padding:10px 14px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:transparent;font:inherit;line-height:1.1;cursor:pointer}
-.audience-tab:hover,.audience-tab.is-active{background:rgba(199,169,120,.14);border-color:rgba(199,169,120,.35)}
-.audience-panels{margin-bottom:18px}
-.audience-panel{padding:18px 18px 2px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44))}
-html[data-theme="dark"] .audience-panel{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
-.article-figures{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:22px 0 10px}
-.figure-card{padding:14px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44))}
-.figure-card img{width:100%;height:auto;border-radius:12px;display:block}
-.figure-card figcaption{margin-top:10px;font-size:.92rem;line-height:1.55;opacity:.82}
-.metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0 8px}
-.metric-card{padding:16px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44))}
-.metric-card strong{display:block;font-size:1.25rem;margin-top:8px}
-.key-list{display:grid;gap:10px;margin:16px 0}
-.note-box{padding:16px 18px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(135deg,rgba(199,169,120,.14),rgba(199,169,120,.04));margin:18px 0}
-.code-block{margin:18px 0;padding:18px;border-radius:18px;background:#141414;color:#f3f3f3;overflow:auto;font-size:.92rem;line-height:1.55}
-.code-block code{white-space:pre-wrap}
-@media (max-width: 980px){.section > .wrap{max-width:100%;width:100%;}.article-shell{max-width:100%;width:100%;margin-inline:0;}.article-layout{display:block;}.article-aside{display:none;}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
-@media (max-width: 720px){.article-reading{gap:8px}.article-chip{font-size:.8rem;padding:7px 10px}.aside-card{border-radius:16px}.mobile-jump{display:flex;gap:8px;overflow:auto;padding-bottom:6px;scrollbar-width:none}.mobile-jump::-webkit-scrollbar{display:none}.mobile-jump a{white-space:nowrap;text-decoration:none;padding:8px 12px;border-radius:999px;border:1px solid rgba(120,120,120,.16);background:rgba(255,255,255,.52);font-size:.85rem}html[data-theme="dark"] .mobile-jump a{background:rgba(255,255,255,.04)}.article-figures,.metric-grid{grid-template-columns:1fr;}}
-.section > .wrap{max-width:1440px;}
-</style>
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="TELWHA | Behavioral biases in trading: SPY 200DMA case">
+  <meta property="og:description" content="How four cognitive biases change returns, drawdown and behavior in the SPY 200DMA strategy, and what fintech businesses should take away from it.">
+  <meta property="og:url" content="https://t-e-l-w-h-a.com/en/articles/behavioral-biases-spy-200dma/">
+  <meta property="og:site_name" content="TELWHA">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Behavioral Biases in Trading: SPY 200DMA Case Study","description":"How the house money effect, confirmation bias, escalation of commitment, and status quo bias change the results of a SPY 200DMA strategy, and what that means for traders and fintech products.","author":{"@type":"Person","name":"Anna Signaevska"},"publisher":{"@type":"Organization","name":"TELWHA"},"inLanguage":"en","datePublished":"2026-05-13","dateModified":"2026-05-13","mainEntityOfPage":{"@type":"WebPage","@id":"https://t-e-l-w-h-a.com/en/articles/behavioral-biases-spy-200dma/"}}</script>
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
+
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root,
+    [data-theme="light"] {
+      --font-display: "Boska", Georgia, serif;
+      --font-body: "Satoshi", "Inter", sans-serif;
+
+      --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+      --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
+      --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+      --text-2xl: clamp(2.2rem, 1.5rem + 2vw, 4rem);
+
+      --color-bg: #f5f3ef;
+      --color-surface: #fcfbf8;
+      --color-surface-2: #f2efe9;
+      --color-surface-3: #ebe7df;
+      --color-border: rgba(40, 37, 29, 0.10);
+      --color-divider: rgba(40, 37, 29, 0.08);
+
+      --color-text: #22201a;
+      --color-text-muted: #65625b;
+      --color-text-faint: #8b877f;
+      --color-text-inverse: #f9f8f5;
+
+      --color-primary: #0f5d5f;
+      --color-primary-hover: #0b4b4d;
+      --color-primary-soft: rgba(15, 93, 95, 0.08);
+
+      --color-accent: #9a6a35;
+      --color-accent-soft: rgba(154, 106, 53, 0.08);
+
+      --color-success: #4f7a4e;
+      --color-error: #a04b46;
+
+      --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
+      --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
+      --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
+
+      --content-default: 1180px;
+      --content-wide: 1320px;
+      --radius-md: 22px;
+      --radius-lg: 28px;
+      --radius-xl: 34px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1d1b18;
+      --color-surface-2: #24211d;
+      --color-surface-3: #2a2622;
+      --color-border: rgba(255, 255, 255, 0.10);
+      --color-divider: rgba(255, 255, 255, 0.08);
+
+      --color-text: #ece6dd;
+      --color-text-muted: #b7afa2;
+      --color-text-faint: #91897c;
+      --color-text-inverse: #171614;
+
+      --color-primary: #6ca7a7;
+      --color-primary-hover: #84baba;
+      --color-primary-soft: rgba(108, 167, 167, 0.10);
+
+      --color-accent: #c79c68;
+      --color-accent-soft: rgba(199, 156, 104, 0.09);
+
+      --color-success: #89ba82;
+      --color-error: #d9837b;
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
+      --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.7;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button {
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .wrap {
+      width: min(100% - 28px, var(--content-default));
+      margin-inline: auto;
+    }
+
+    .wrap-wide {
+      width: min(100% - 28px, var(--content-wide));
+      margin-inline: auto;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 120;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      color: var(--color-primary);
+      flex: 0 0 auto;
+    }
+
+    .sub {
+      color: var(--color-text-faint);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      max-width: 320px;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      transition: var(--transition);
+    }
+
+    .menu-toggle:hover { background: var(--color-surface-2); }
+
+    .menu-toggle-lines {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-toggle-lines span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--color-text);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      min-width: 0;
+      flex-wrap: nowrap;
+    }
+
+    .menu a,
+    .menu .dropbtn,
+    .theme-toggle,
+    .lang-link {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      white-space: nowrap;
+      line-height: 1.1;
+      flex-shrink: 0;
+    }
+
+    .menu a:hover,
+    .menu .dropbtn:hover,
+    .theme-toggle:hover,
+    .lang-link:hover {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+    }
+
+    .menu a.is-active {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+    }
+
+    .menu a.is-highlight,
+    .menu .dropbtn.is-highlight {
+      color: var(--color-text-inverse);
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, var(--color-accent)));
+      border: 1px solid transparent;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .menu a.is-highlight:hover,
+    .menu .dropbtn.is-highlight:hover {
+      background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+      color: var(--color-text-inverse);
+    }
+
+    [data-theme="dark"] .menu a.is-highlight,
+    [data-theme="dark"] .menu .dropbtn.is-highlight {
+      color: #141311;
+    }
+
+    .dropdown {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .dropbtn {
+      gap: 6px;
+    }
+
+    .dropbtn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform var(--transition);
+      flex: 0 0 auto;
+    }
+
+    .dropdown:hover .dropbtn svg,
+    .dropdown:focus-within .dropbtn svg,
+    .dropdown.is-open .dropbtn svg {
+      transform: rotate(180deg);
+    }
+
+    .dropcontent {
+      position: absolute;
+      top: calc(100% + 2px);
+      left: 0;
+      z-index: 300;
+      min-width: 240px;
+      display: grid;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    }
+
+    .dropdown:hover .dropcontent,
+    .dropdown:focus-within .dropcontent,
+    .dropdown.is-open .dropcontent {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .dropcontent a {
+      justify-content: flex-start;
+      padding: 12px 14px;
+      border-radius: 12px;
+      white-space: normal;
+      line-height: 1.35;
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid var(--color-divider);
+      flex-shrink: 0;
+    }
+
+    .lang-list {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-link.is-active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      width: 44px;
+      padding-inline: 0;
+      font-size: 1rem;
+    }
+
+    main {
+      padding: 34px 0 90px;
+    }
+
+    .article-hero {
+      margin-bottom: 22px;
+    }
+
+    .article-shell {
+      position: relative;
+    }
+
+    .article-header {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 48px);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+      margin-bottom: 18px;
+    }
+
+    .article-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 14% 18%, rgba(15, 93, 95, 0.06), transparent 24%),
+        radial-gradient(circle at 86% 16%, rgba(154, 106, 53, 0.06), transparent 22%);
+    }
+
+    .article-header > * {
+      position: relative;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      flex-wrap: wrap;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--color-primary);
+    }
+
+    .eyebrow span {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 90%, transparent);
+      color: var(--color-text-muted);
+      letter-spacing: 0.08em;
+    }
+
+    .article-header h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 0.97;
+      letter-spacing: -0.03em;
+      max-width: 14ch;
+      margin-bottom: 16px;
+    }
+
+    .article-deck {
+      max-width: 64ch;
+      color: var(--color-text-muted);
+      font-size: var(--text-lg);
+      margin-bottom: 18px;
+    }
+
+    .article-reading,
+    .mobile-jump,
+    .audience-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .article-chip,
+    .mobile-jump a,
+    .audience-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 13px;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+      backdrop-filter: blur(4px);
+      font-size: .88rem;
+      line-height: 1.2;
+      color: var(--color-text-muted);
+    }
+
+    .audience-tab {
+      cursor: pointer;
+    }
+
+    .audience-tab:hover,
+    .audience-tab.is-active {
+      background: var(--color-accent-soft);
+      border-color: color-mix(in srgb, var(--color-accent) 35%, var(--color-border));
+      color: var(--color-text);
+    }
+
+    .mobile-jump {
+      display: none;
+      margin-bottom: 18px;
+      overflow: auto;
+      padding-bottom: 6px;
+      scrollbar-width: none;
+    }
+
+    .mobile-jump::-webkit-scrollbar { display: none; }
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(270px, 2fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .article-main { min-width: 0; }
+
+    .article-body {
+      padding: clamp(24px, 3vw, 34px);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .article-body section[id] {
+      scroll-margin-top: 120px;
+      position: relative;
+      margin-top: 2.2rem;
+    }
+
+    .article-body section[id]:first-child {
+      margin-top: 0;
+    }
+
+    .article-body h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .article-body p {
+      margin-bottom: 1.2rem;
+      max-width: none;
+      color: var(--color-text);
+    }
+
+    .article-body strong,
+    .article-body b {
+      color: var(--color-text);
+    }
+
+    .article-body > p.is-focus,
+    .article-body section[id] > p.is-focus {
+      padding-left: 16px;
+      border-left: 3px solid var(--color-accent);
+    }
+
+    .article-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-divider), transparent);
+      margin: 28px 0;
+    }
+
+    .article-pullquote,
+    .note-box {
+      margin: 22px 0;
+      padding: 18px 20px;
+      border-radius: 18px;
+      border: 1px solid var(--color-border);
+      background: linear-gradient(135deg, rgba(154, 106, 53, 0.11), rgba(154, 106, 53, 0.04));
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--color-text);
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0 8px;
+    }
+
+    .metric-card,
+    .figure-card,
+    .aside-card,
+    .audience-panel {
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .metric-card {
+      padding: 16px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    }
+
+    .metric-card span {
+      display: block;
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .metric-card strong {
+      display: block;
+      font-size: 1.25rem;
+      margin-top: 8px;
+      line-height: 1.1;
+    }
+
+    .key-list {
+      display: grid;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .article-figures {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 22px 0 10px;
+    }
+
+    .figure-card {
+      padding: 14px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    }
+
+    .figure-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      display: block;
+      border: 1px solid var(--color-border);
+    }
+
+    .figure-card figcaption {
+      margin-top: 10px;
+      font-size: .92rem;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+    }
+
+    .audience-panels {
+      margin-bottom: 18px;
+    }
+
+    .audience-panel {
+      padding: 18px 18px 2px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    }
+
+    .code-block {
+      margin: 18px 0;
+      padding: 18px;
+      border-radius: 18px;
+      background: #141414;
+      color: #f3f3f3;
+      overflow: auto;
+      font-size: .92rem;
+      line-height: 1.55;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .code-block code {
+      white-space: pre-wrap;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .article-aside {
+      position: sticky;
+      top: 92px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .aside-card {
+      padding: 18px 18px 16px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    }
+
+    .aside-card h3 {
+      font-size: .82rem;
+      margin: 0 0 10px;
+      color: var(--color-text-faint);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .mini-note {
+      font-size: .95rem;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+    }
+
+    .toc {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .toc a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--color-text-muted);
+      transition: var(--transition);
+    }
+
+    .toc a:hover,
+    .toc a.is-active {
+      background: var(--color-accent-soft);
+      color: var(--color-text);
+    }
+
+    .btn,
+    .btn-ghost {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-ghost {
+      background: var(--color-surface);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .btn-ghost:hover {
+      background: var(--color-surface-2);
+    }
+
+    .article-cta {
+      margin-top: 18px;
+    }
+
+    .footer {
+      padding: 36px 0 26px;
+      border-top: 1px solid var(--color-divider);
+      background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+      margin-top: 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer h4 {
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-faint);
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .footer a:hover {
+      color: var(--color-text);
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      justify-items: end;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 22px;
+      margin-top: 22px;
+      border-top: 1px solid var(--color-divider);
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1024px) {
+      .article-layout,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .article-aside {
+        display: none;
+      }
+
+      .metric-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .wrap-wide {
+        width: min(100% - 24px, var(--content-wide));
+      }
+
+      .article-header h1 {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 14px;
+        right: 14px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid var(--color-border);
+        border-radius: 22px;
+        background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .menu.is-open {
+        display: flex;
+      }
+
+      .menu a,
+      .menu .dropbtn,
+      .theme-toggle,
+      .lang-link {
+        justify-content: flex-start;
+        border-radius: 14px;
+        font-size: 0.95rem;
+        padding: 10px 12px;
+      }
+
+      .menu a.is-highlight,
+      .menu .dropbtn.is-highlight {
+        justify-content: center;
+      }
+
+      .dropdown {
+        width: 100%;
+      }
+
+      .dropcontent {
+        position: static;
+        min-width: 0;
+        margin-top: 8px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+        display: none;
+        box-shadow: none;
+        border-radius: 16px;
+        background: var(--color-surface-2);
+      }
+
+      .dropdown.is-open .dropcontent {
+        display: grid;
+      }
+
+      .menu-tools {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+        padding-top: 6px;
+        border-top: 1px solid var(--color-divider);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap,
+      .wrap-wide {
+        width: min(100% - 24px, var(--content-default));
+      }
+
+      .article-header,
+      .article-body,
+      .metric-card,
+      .figure-card,
+      .aside-card,
+      .audience-panel,
+      .note-box,
+      .article-pullquote,
+      .code-block {
+        border-radius: 22px;
+      }
+
+      .mobile-jump {
+        display: flex;
+      }
+
+      .article-reading,
+      .audience-tabs {
+        gap: 8px;
+      }
+
+      .article-chip,
+      .mobile-jump a,
+      .audience-tab {
+        font-size: .82rem;
+        padding: 8px 11px;
+      }
+
+      .metric-grid,
+      .article-figures {
+        grid-template-columns: 1fr;
+      }
+
+      .btn-ghost {
+        width: 100%;
+      }
+
+      .footer-links {
+        justify-items: start;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .sub {
+        max-width: 240px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .fade-in {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Behavioral biases in trading: SPY 200DMA case",
+    "description": "How house money effect, confirmation bias, escalation of commitment and status quo bias change the results of the SPY 200DMA strategy, and what this means for traders and fintech products.",
+    "author": {"@type": "Person", "name": "Anna Signaevska"},
+    "publisher": {"@type": "Organization", "name": "TELWHA"},
+    "inLanguage": "en",
+    "datePublished": "2026-05-13",
+    "dateModified": "2026-05-13",
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://t-e-l-w-h-a.com/en/articles/behavioral-biases-spy-200dma/"}
+  }
+  </script>
 </head>
 <body>
-<div class="progress" id="progress"></div>
-<header class="topbar"><div class="wrap nav"><div class="brand"><a class="brand-row" href="/en/"><strong>TELWHA</strong></a><span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span></div><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu" data-open-label="Open menu" data-close-label="Close menu"><span class="menu-toggle-lines" aria-hidden="true"><span></span><span></span><span></span></span></button><nav class="menu" id="site-menu"><div class="menu-group"><a href="/en/">Home</a><a href="/en/finlab/">FinLab</a><a href="/en/about/">About</a></div><div class="menu-group menu-dropdown"><button type="button" class="menu-dropbtn">For traders ▾</button><div class="menu-dropcontent"><a href="/en/trader-course/">Mini course</a><a href="/en/archetype-test/">Archetype test</a></div></div><div class="menu-group"><a href="/en/articles/">Articles</a><a href="/en/reviews/">Reviews</a><a href="/en/cases/">Cases</a><a href="/en/contact/">Contact</a></div><div class="menu-group menu-tools"><details class="lang-switcher lang-switcher--inside"><summary>🇬🇧</summary><div class="lang-list"><a href="/articles/behavioral-biases-spy-200dma.html" aria-label="Ukrainian">🇺🇦</a><a href="/es/articles/behavioral-biases-spy-200dma.html" aria-label="Spanish">🇪🇸</a></div></details><button class="theme-toggle" type="button" aria-label="Toggle theme">🌓</button></div></nav></div></header>
-<main><section class="section"><div class="wrap"><article class="article-shell" itemscope itemtype="https://schema.org/Article"><header class="article-header fade-in"><div class="eyebrow"><span>Case study</span> TELWHA</div><h1 itemprop="headline">Behavioral Biases in Trading: SPY 200DMA Case Study</h1><p class="article-deck" itemprop="description">What happens when a rational strategy is executed not by rules, but by the human brain. Using SPY 200DMA as an example, I modeled four cognitive biases (systematic thinking errors) and looked at how they change returns, drawdown, and the entire logic of market behavior.</p><div class="article-reading"><span class="article-chip">2015–2026</span><span class="article-chip">SPY · 200DMA · Behavioral Finance</span><span class="article-chip">R · Quantmod · PerformanceAnalytics</span></div></header><div class="mobile-jump fade-in" aria-label="Quick article navigation"><a href="#part-1">Start</a><a href="#part-2">Models</a><a href="#part-3">Results</a><a href="#part-4">Meaning</a><a href="#part-5">For fintech</a><a href="#part-6">Charts & code</a></div><div class="article-layout"><div class="article-main"><div class="article-body" itemprop="articleBody">
-<section id="part-1"><p class="is-focus">Finance likes to present itself as rational. There is a strategy, an entry rule, an exit rule, and a neat backtest (a historical test of the strategy). On paper, everything looks perfect. In real life, however, there is a human being standing between the rule and the “buy” button. And humans do not execute systems perfectly. They hesitate, delay exits, add risk after a winning streak, and postpone decisions exactly when action is required.</p><p>In this case study, I took a simple baseline strategy: SPY (an exchange-traded fund tracking the S&amp;P 500 index) with a 200DMA rule (200-day moving average: if price is above it, we stay in position; if price is below it, we move to cash). Then I left the market unchanged (How do I?😅) and changed only the behavior of the person executing the system. In other words, I layered four typical cognitive biases on top of the same strategy and observed what they did to the result.</p><div class="metric-grid fade-in"><div class="metric-card"><span>Baseline CAGR</span><strong>11.0%</strong></div><div class="metric-card"><span>Baseline MaxDD</span><strong>19.8%</strong></div><div class="metric-card"><span>Baseline trades</span><strong>31</strong></div><div class="metric-card"><span>Test period</span><strong>11 years</strong></div></div><p>The result was stronger than I expected. Two biases barely damaged the system. Two made it worse. One delivered a very strong positive effect. And the combination of all four created a strange but logical outcome: the strategy almost turned into buy and hold and made only one trade during the entire period.</p></section>
-<div class="article-pullquote fade-in">The key point is not that people “make mistakes.” The real point is that different kinds of mistakes produce different financial consequences. Some cost only a few tenths of a percent per year. Others can completely reshape the risk-return profile.</div><div class="article-divider"></div>
-<section id="part-2"><h2>Which models I tested</h2><p>I do not like talking vaguely about “emotions in the market,” so I translated each bias into a clear rule that can actually be programmed. Each psychological phenomenon became a separate behavioral model.</p><div class="key-list"><p><strong>1. House money effect</strong> (acting as if recent profits are “free money”): after a streak of winning days, the trader increases position size. In the model, after 3 winning days in a row, the position increases by 1.5x.</p><p><strong>2. Confirmation bias</strong> (looking for one more signal before accepting that you are wrong): the trader ignores the first exit signal because they want extra confirmation that it is really time to leave. In the model, the first sell signal is skipped.</p><p><strong>3. Escalation of commitment</strong> (staying attached to a losing position because admitting the mistake is psychologically costly): the exit is delayed if drawdown is deeper than -8%.</p><p><strong>4. Status quo bias</strong> (preferring inaction because change feels uncomfortable): the signal is accepted only after 3 days of confirmation.</p><p><strong>5. Combined</strong>: all four biases are active at the same time, which is often what happens in real life.</p></div><p>What matters here is that I am not trying to prove biases are “always bad.” I am showing that they change the execution of the system. After that, the market decides whether that change helps or hurts you.</p></section>
-<div class="article-divider"></div>
-<section id="part-3"><h2>What the results showed</h2><p class="is-focus">The strangest finding was this: the highest return did not come from the rational baseline model, but from the combined model, where all biases were working together. And that is exactly where interpretation becomes dangerous. If you look only at CAGR (compound annual growth rate, or average annual return), you can reach the wrong conclusion.</p><p>These were the actual outputs of the model:</p><div class="note-box"><p><strong>Combined</strong>: CAGR 28.6%, Sharpe ratio (return relative to risk quality) 1.53, MaxDD (maximum drawdown) 33.7%, 1 trade, Terminal Wealth (ending capital if you start with 1) 14.2.</p><p><strong>House money</strong>: CAGR 20.5%, Sharpe 1.64, MaxDD 17.9%, 31 trades, Terminal Wealth 7.14.</p><p><strong>Escalation</strong>: CAGR 11.5%, Sharpe 0.96, MaxDD 19.8%, 30 trades, Terminal Wealth 3.14.</p><p><strong>Baseline</strong>: CAGR 11.0%, Sharpe 0.93, MaxDD 19.8%, 31 trades, Terminal Wealth 3.01.</p><p><strong>Status quo</strong>: CAGR 10.7%, Sharpe 0.87, MaxDD 21.1%, 14 trades, Terminal Wealth 2.93.</p><p><strong>Confirmation</strong>: CAGR 10.3%, Sharpe 0.85, MaxDD 23.3%, 25 trades, Terminal Wealth 2.81.</p></div><p>At first glance, combined looks like the winner. But if the model made only 1 trade in 11 years, that is no longer a “better trading system.” It is almost a different behavioral logic. It entered the market and barely ever left. In other words, the combination of biases created a behavioral lock-in (a state where the trader becomes psychologically unable to exit).</p><p>This leads to the main conclusion: behavioral models cannot be judged by return alone. You have to look at the mechanism and the context. Why exactly did the model make money? Because it executed better? Or because it effectively disabled exit discipline?</p></section>
-<div class="article-divider"></div>
-<section id="part-4"><h2>What this means for an ordinary trader or investor</h2><p><strong>House money effect</strong> worked well in this case. That means when the market is already rising and a trader increases size after a streak of wins, they can outperform the baseline system. But this is not a universal hack. It works while the asset has a strong upward trend. In a sideways market or during a prolonged decline, the same behavior would destroy capital.</p><p><strong>Confirmation bias</strong> turned out to be pure damage. When a person delays an exit and wants one more confirmation, they do not become smarter. They simply exit later and at a worse price. In the numbers, it may not look dramatic. Over a long period, however, even minus 0.7 percentage points per year creates a large difference in ending wealth.</p><p><strong>Status quo bias</strong> also hurts, though more softly. When you delay action simply because action feels psychologically uncomfortable, the market does not wait. If a strategy has a rule, its value lies precisely in firing on time.</p><p><strong>Combined</strong> is the most dangerous story here. It does not show a “superpower of bias.” It shows how several small behavioral shifts, acting together, can completely transform the system. This is exactly how people sometimes sit in a position for years and call it “long-term conviction,” when in reality they have already lost the ability to exit.</p></section>
-<div class="article-divider"></div>
-<section id="part-5"><h2>What fintech businesses should take from this</h2><div class="audience-tabs" role="tablist" aria-label="Use scenarios"><button class="audience-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="audience-fintech" id="tab-fintech" data-target="audience-fintech">Fintech / product</button><button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-traders" id="tab-traders" data-target="audience-traders">Traders / investors</button><button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-risk" id="tab-risk" data-target="audience-risk">Risk / compliance</button></div><div class="audience-panels"><section class="audience-panel is-active" id="audience-fintech" role="tabpanel" aria-labelledby="tab-fintech"><p>The interface is not neutral. If your app nudges users to add risk after wins, makes selling harder than buying, hides negative metrics, or fails to remind them to review a position, you are not just improving engagement. You are programming behavioral deviation. Sometimes that will lift returns in a bull market, but it can also increase the risk of a sharp and painful collapse.</p></section><section class="audience-panel" id="audience-traders" role="tabpanel" aria-labelledby="tab-traders" hidden><p>For traders, the lesson is simple: the most dangerous mistakes do not look like mistakes. They look like “I’ll wait a bit longer,” “I’ve already been through too much with this position,” “the market will confirm it,” or “after three winning trades I can add more risk.” In other words, they feel logical in the moment. That is exactly why you need either automatic execution rules or at least hard limits defined in advance.</p></section><section class="audience-panel" id="audience-risk" role="tabpanel" aria-labelledby="tab-risk" hidden><p>For risk and compliance teams, this is a direct argument that bias-as-a-feature is a dangerous product idea. If the product systematically pushes clients toward choices that increase drawdown, concentration, or exit delay, this is no longer just a UX question. It becomes a question of business responsibility for the choice architecture it creates.</p></section></div><p>A separate opportunity for fintech is behavioral analytics. Not just showing a user profit and risk, but showing them their pattern of mistakes: you delay exits, you add risk after a streak of gains, you freeze in drawdown, you avoid portfolio changes. At that point, the dashboard stops being just a dashboard and becomes a behavioral mirror.</p></section>
-<div class="article-divider"></div>
-<section id="part-6"><h2>Charts and code</h2><div class="article-figures fade-in" aria-label="Case study charts"><figure class="figure-card"><img src="/static/media/p_small_multiples.png" alt="Comparison of the baseline strategy with separate behavioral biases" loading="lazy"><figcaption>Chart 1. Baseline versus each separate bias. This is where it becomes visually clear that house money pulls ahead, while confirmation and status quo lag behind.</figcaption></figure><figure class="figure-card"><img src="/static/media/p_combined.png" alt="Comparison of the baseline and combined model" loading="lazy"><figcaption>Chart 2. Baseline versus combined. Combined looks impressive on the surface, but behind that curve there is only one trade and a very different risk profile.</figcaption></figure><figure class="figure-card"><img src="/static/media/p_behavior_cost.png" alt="Behavior cost of different biases relative to the baseline" loading="lazy"><figcaption>Chart 3. Behavior cost. Negative values mean the biased model beat the baseline. Positive values mean behavior destroyed part of the return.</figcaption></figure><figure class="figure-card"><img src="/static/media/p_drawdown.png" alt="Comparison of drawdowns for baseline, escalation, and combined" loading="lazy"><figcaption>Chart 4. Drawdown comparison. A supporting chart that shows the price of a beautiful equity curve: combined has the deepest drawdown.</figcaption></figure></div><div class="code-block"><code>baseline <- SPY %>%
+  <div class="progress" id="progress"></div>
+
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand">
+        <a class="brand-row" href="/en/" aria-label="TELWHA — go to homepage">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+          <strong>TELWHA</strong>
+        </a>
+        <span class="sub">Financial Psychology</span>
+      </div>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        aria-label="Open menu"
+      >
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <nav class="menu" id="site-menu" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/about/">About me</a>
+        <a href="/en/cases/">Cases</a>
+        <a href="/en/articles/" class="is-active">Articles</a>
+        <a href="/en/finlab/">FinLab</a>
+
+        <div class="dropdown">
+          <button type="button" class="dropbtn is-highlight" aria-expanded="false">
+            Test yourself
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/finlab/money-test-api/money-test.html">Financial behavior test</a>
+            <a href="/habit-test.html">Where do your habits lead you?</a>
+            <a href="/fact-or-fiction-cases.html">Fact or fiction?</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button type="button" class="dropbtn" aria-expanded="false">
+            For traders
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/trader-course/">Mini-course</a>
+            <a href="/archetype-test/">Trader archetype</a>
+          </div>
+        </div>
+
+        <a href="/en/reviews/">Reviews</a>
+        <a href="/en/contact/">Contact</a>
+
+        <div class="menu-tools">
+          <div class="lang-list" aria-label="Site languages">
+            <a class="lang-link" href="/articles/behavioral-biases-spy-200dma.html" lang="uk" aria-label="Ukrainian">UA</a>
+            <a class="lang-link is-active" href="/en/articles/behavioral-biases-spy-200dma.html" lang="en" aria-label="English">EN</a>
+            <a class="lang-link" href="/es/articles/behavioral-biases-spy-200dma.html" lang="es" aria-label="Español">ES</a>
+          </div>
+
+          <button class="theme-toggle" type="button" aria-label="Toggle theme">☀️</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="article-hero">
+      <div class="wrap-wide">
+        <article class="article-shell" itemscope itemtype="https://schema.org/Article">
+          <header class="article-header fade-in">
+            <div class="eyebrow"><span>Case study</span> TELWHA</div>
+            <h1 itemprop="headline">Behavioral biases in trading: SPY 200DMA case</h1>
+            <p class="article-deck" itemprop="description">
+              What happens when a rational strategy stops being executed by rules and starts being executed by a human brain. Using SPY 200DMA as an example, I modeled four cognitive biases and looked at how they change returns, drawdown and the very logic of market behavior.
+            </p>
+            <div class="article-reading">
+              <span class="article-chip">2015–2026</span>
+              <span class="article-chip">SPY · 200DMA · Behavioral Finance</span>
+              <span class="article-chip">R · Quantmod · PerformanceAnalytics</span>
+            </div>
+          </header>
+
+          <div class="mobile-jump fade-in" aria-label="Quick navigation through the article">
+            <a href="#part-1">Start</a>
+            <a href="#part-2">Models</a>
+            <a href="#part-3">Results</a>
+            <a href="#part-4">What it means</a>
+            <a href="#part-5">For fintech</a>
+            <a href="#part-6">Charts and code</a>
+          </div>
+
+          <div class="article-layout">
+            <div class="article-main">
+              <div class="article-body" itemprop="articleBody">
+                <section id="part-1">
+                  <p class="is-focus">In finance, people love to pretend that everything is rational. There is a strategy, an entry rule, an exit rule, a nice backtest. On paper, everything is “perfect”. But in real life, between the rule and the “buy” button, there is a human being. And a human being does not execute a system perfectly. They hesitate, delay the exit, add risk after a winning streak, and postpone decisions when they should act.</p>
+
+                  <p>In this case, I took a simple baseline strategy: SPY (the exchange-traded fund tracking the S&amp;P 500 index) with a 200DMA rule (200-day moving average: if the price is above it, we are in the position; if it is below, we go to cash). I did not change the market. I changed only the behavior of the person executing the strategy. So on top of the same strategy, I layered four typical cognitive biases and looked at what they did to the result.</p>
+
+                  <div class="metric-grid fade-in">
+                    <div class="metric-card"><span>Baseline CAGR</span><strong>11.0%</strong></div>
+                    <div class="metric-card"><span>Baseline MaxDD</span><strong>19.8%</strong></div>
+                    <div class="metric-card"><span>Baseline trades</span><strong>31</strong></div>
+                    <div class="metric-card"><span>Test period</span><strong>11 years</strong></div>
+                  </div>
+
+                  <p>The outcome was stronger than I expected. Two biases barely damaged the system. Two others made it worse. One produced a very strong positive effect. And the combination of all four created a strange but logical result: the strategy almost turned into buy and hold and made only one trade over the whole period.</p>
+                </section>
+
+                <div class="article-pullquote fade-in">
+                  The most important thing here is not that a person “makes mistakes” — that is normal. The important thing is that different types of mistakes create different financial consequences. Some cost a few tenths of a percent per year. Others can completely change the risk and return profile.
+                </div>
+
+                <div class="article-divider"></div>
+
+                <section id="part-2">
+                  <h2>Which models I tested</h2>
+
+                  <p>I do not like talking in vague terms about “emotions in the market”, so I translated each bias into a clear rule that can be programmed. In other words, each psychological phenomenon became a separate behavior model.</p>
+
+                  <div class="key-list">
+                    <p><strong>1. House money effect</strong>: after a streak of winning days, the trader increases position size. In the model, after 3 winning days in a row, the position is increased by 1.5 times.</p>
+                    <p><strong>2. Confirmation bias</strong>: the trader ignores the first exit signal because they want confirmation that exiting is really necessary. In the model, the first “sell” signal is skipped.</p>
+                    <p><strong>3. Escalation of commitment</strong>: when a position is already in the red, it is psychologically hard to admit the mistake, so the person sits through the loss. In the model, the exit is delayed if drawdown is greater than -8%.</p>
+                    <p><strong>4. Status quo bias</strong>: changes are delayed simply because doing nothing feels psychologically easier. In the model, the signal is triggered only after 3 days of confirmation.</p>
+                    <p><strong>5. Combined</strong>: all four biases work at the same time, as often happens in real life.</p>
+                  </div>
+
+                  <p>What matters here is this: I am not trying to prove that biases are “always bad”. I am showing that they change the execution of the system. And then the market decides whether that change works in your favor or against you.</p>
+                </section>
+
+                <div class="article-divider"></div>
+
+                <section id="part-3">
+                  <h2>What the results showed</h2>
+
+                  <p class="is-focus">The strangest observation is this: the highest return did not come from the rational baseline model, but from the combined model, where all biases worked together. But that is exactly the interpretation trap. If you look only at CAGR, you can draw the wrong conclusion.</p>
+
+                  <p>Here are the actual results that came out of the model:</p>
+
+                  <div class="note-box">
+                    <p><strong>Combined</strong>: CAGR 28.6%, Sharpe ratio (quality of return relative to risk) 1.53, MaxDD (maximum drawdown) 33.7%, 1 trade, Terminal Wealth (ending capital if starting from 1) 14.2.</p>
+                    <p><strong>House money</strong>: CAGR 20.5%, Sharpe 1.64, MaxDD 17.9%, 31 trades, Terminal Wealth 7.14.</p>
+                    <p><strong>Escalation</strong>: CAGR 11.5%, Sharpe 0.96, MaxDD 19.8%, 30 trades, Terminal Wealth 3.14.</p>
+                    <p><strong>Baseline</strong>: CAGR 11.0%, Sharpe 0.93, MaxDD 19.8%, 31 trades, Terminal Wealth 3.01.</p>
+                    <p><strong>Status quo</strong>: CAGR 10.7%, Sharpe 0.87, MaxDD 21.1%, 14 trades, Terminal Wealth 2.93.</p>
+                    <p><strong>Confirmation</strong>: CAGR 10.3%, Sharpe 0.85, MaxDD 23.3%, 25 trades, Terminal Wealth 2.81.</p>
+                  </div>
+
+                  <p>At first glance, combined looks like the winner. But the model made only 1 trade in 11 years, and this is not a “better trading system”. It is almost a different behavior logic. It simply entered the market and barely exited. In other words, the combination of biases here created a behavioral lock-in.</p>
+
+                  <p>So the main conclusion is this: you cannot evaluate behavioral models only by profitability. You need to look at the mechanism, and even better, the context. Why exactly did the model make money? Because of better execution? Or because it effectively switched off exit discipline?</p>
+                </section>
+
+                <div class="article-divider"></div>
+
+                <section id="part-4">
+                  <h2>What this means for an ordinary trader or investor</h2>
+
+                  <p><strong>House money effect</strong> worked well in this case. This means that when the market is already rising and a person increases their position after a streak of wins, they can earn more than the baseline system. But this is not a “life hack for all markets”. It works while the asset has a strong upward trend. In a flat market or a prolonged decline, the same behavior will destroy capital.</p>
+
+                  <p><strong>Confirmation bias</strong> turned out to be pure damage. When a person delays the exit and wants one more confirmation, they do not become smarter — they simply exit later and at a worse price. In the numbers, it may not look dramatic, but over a long period even minus 0.7 percentage points per year makes a big difference in terminal wealth.</p>
+
+                  <p><strong>Status quo bias</strong> also hurts, though more mildly. When you delay a decision simply because acting is psychologically uncomfortable, the market does not wait. And if a strategy has a rule, its value lies precisely in the fact that it must work on time.</p>
+
+                  <p><strong>Combined</strong> is the most dangerous story. It does not show the “superpower of biases”, but rather how several weak behavioral shifts together can completely change your system. This is exactly how people sometimes sit in a position for years and call it “long-term vision”, when in reality they lost the ability to exit long ago.</p>
+                </section>
+
+                <div class="article-divider"></div>
+
+                <section id="part-5">
+                  <h2>What fintech business can take from this</h2>
+
+                  <div class="audience-tabs" role="tablist" aria-label="Application scenarios">
+                    <button class="audience-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="audience-fintech" id="tab-fintech" data-target="audience-fintech">Fintech / products</button>
+                    <button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-traders" id="tab-traders" data-target="audience-traders">Traders / investors</button>
+                    <button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-risk" id="tab-risk" data-target="audience-risk">Risk / compliance</button>
+                  </div>
+
+                  <div class="audience-panels">
+                    <section class="audience-panel is-active" id="audience-fintech" role="tabpanel" aria-labelledby="tab-fintech">
+                      <p>The interface is not neutral. If your app nudges the user to increase risk after wins, makes selling harder than buying, hides negative metrics, or does not remind them to review a position, then you are not simply “improving engagement”. You are programming behavioral deviation. Sometimes it will lift profitability in a bull market, but together with that it will increase the risk of a very sharp and painful collapse.</p>
+                    </section>
+
+                    <section class="audience-panel" id="audience-traders" role="tabpanel" aria-labelledby="tab-traders" hidden>
+                      <p>For a trader, the most dangerous mistakes do not look like mistakes. They look like “I’ll wait a little longer”, “I’ve already been through so much with this position”, “the market will confirm it”, “after three positive trades I can add risk”. In other words, they feel very logical in the moment. That is why you need either automatic execution rules or at least strict limits defined in advance.</p>
+                    </section>
+
+                    <section class="audience-panel" id="audience-risk" role="tabpanel" aria-labelledby="tab-risk" hidden>
+                      <p>For risk and compliance teams, this is a direct argument that bias-as-a-feature is a risky idea. If a product systematically pushes a client toward decisions that increase drawdown, position concentration or delay exit, then it is no longer just a UX issue. It becomes a question of the company’s responsibility for the choice architecture it creates.</p>
+                    </section>
+                  </div>
+
+                  <p>A separate opportunity for fintech is behavioral analytics: not just showing the user profit and risk, but showing them their error style — you delay exits, you increase risk after a streak of wins, you freeze in drawdown, you avoid changing the portfolio. That is no longer just a dashboard, but a behavioral mirror.</p>
+                </section>
+
+                <div class="article-divider"></div>
+
+                <section id="part-6">
+                  <h2>Charts and code</h2>
+
+                  <div class="article-figures fade-in" aria-label="Case charts">
+                    <figure class="figure-card">
+                      <img src="/static/media/p_small_multiples.png" alt="Comparison of the baseline strategy with individual behavioral biases" loading="lazy">
+                      <figcaption>Figure 1. Baseline versus each separate bias. This is where you can clearly see house money pulling ahead, while confirmation and status quo lag behind.</figcaption>
+                    </figure>
+                    <figure class="figure-card">
+                      <img src="/static/media/p_combined.png" alt="Comparison of the baseline and combined model" loading="lazy">
+                      <figcaption>Figure 2. Baseline versus combined. The high profitability of combined looks beautiful, but behind it there is only one trade and a very different risk profile.</figcaption>
+                    </figure>
+                    <figure class="figure-card">
+                      <img src="/static/media/p_behavior_cost.png" alt="Behavioral cost of different biases relative to baseline" loading="lazy">
+                      <figcaption>Figure 3. Behavior cost. Negative values here mean the model beat the baseline, while positive ones mean behavior destroyed part of the profitability.</figcaption>
+                    </figure>
+                    <figure class="figure-card">
+                      <img src="/static/media/p_drawdown.png" alt="Comparison of drawdowns for baseline, escalation and combined" loading="lazy">
+                      <figcaption>Figure 4. Drawdown comparison. An additional chart showing the cost of a beautiful equity curve: combined has the deepest drawdown.</figcaption>
+                    </figure>
+                  </div>
+
+                  <div class="code-block"><code>baseline <- SPY %>%
   fortify.zoo() %>%
   as_tibble() %>%
   transmute(
@@ -96,74 +1247,234 @@ html[data-theme="dark"] .audience-panel{background:linear-gradient(180deg,rgba(2
     signal = lag(raw_signal, 1, default = 0L),
     position = signal,
     strategy_ret = position * ret
-  )</code></div><p class="is-focus">The point of this case is not that “people are irrational.” That would be too banal. The point is that irrationality can be described as a mechanism, tested as a model, and translated into concrete product, investment, and risk decisions. That is where the real value of behavioral finance begins.</p></section>
-</div></div><aside class="article-aside fade-in" aria-label="Article navigation"><div class="aside-card"><h3>Navigation</h3><nav class="toc"><a href="#part-1">Start</a><a href="#part-2">Bias models</a><a href="#part-3">Results</a><a href="#part-4">For traders</a><a href="#part-5">For fintech</a><a href="#part-6">Charts and code</a></nav></div><div class="aside-card"><h3>In brief</h3><p class="mini-note">The highest CAGR came from the combined model, but at the cost of behavioral lock-in and a 33.7% drawdown. The best standalone model was house money. The most harmful to baseline discipline was confirmation bias.</p></div></aside></div><section class="article-cta fade-in"><a class="btn btn-ghost" href="/en/articles/">← Back to all articles</a></section></article></div></section></main>
-<footer class="footer"><div class="wrap"><div class="footer-grid fade-in"><div><h4>TELWHA</h4><p>Financial psychology, behavioral economics, and choice architecture for more resilient financial decisions.</p></div><div style="text-align:right"><h4>Navigation</h4><div class="footer-links" style="align-items:flex-end"><a href="/en/about/">About</a><a href="/en/reviews/">Reviews</a><a href="/en/contact/">Contact</a></div></div></div><div class="footer-bottom"><span>© 2026 TELWHA. All rights reserved.</span><span>Kyiv, Ukraine · 🇺🇦</span></div></div></footer>
+  )</code></div>
 
-<script src="/static/script/global.js"></script>
-<script>
-  const menuToggle = document.querySelector('.menu-toggle');
-  const siteMenu = document.querySelector('#site-menu');
-  if (menuToggle && siteMenu) {
-    menuToggle.addEventListener('click', () => {
-      const isOpen = siteMenu.classList.toggle('is-open');
-      menuToggle.classList.toggle('is-open', isOpen);
-      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      menuToggle.setAttribute('aria-label', isOpen ? menuToggle.dataset.closeLabel : menuToggle.dataset.openLabel);
-    });
-  }
+                  <p class="is-focus">The point of this case is not that “people are irrational”. That is too banal. The point is that irrationality can be described as a mechanism, tested as a model and translated into concrete product, investment and risk decisions. And that is exactly where the real value of behavioral finance begins.</p>
+                </section>
+              </div>
+            </div>
 
-  const progress = document.getElementById('progress');
-  const updateProgress = () => {
-    const doc = document.documentElement;
-    const total = doc.scrollHeight - doc.clientHeight;
-    const scrolled = total > 0 ? (doc.scrollTop / total) * 100 : 0;
-    if (progress) progress.style.width = scrolled + '%';
-  };
-  document.addEventListener('scroll', updateProgress, { passive: true });
-  updateProgress();
+            <aside class="article-aside fade-in" aria-label="Article navigation">
+              <div class="aside-card">
+                <h3>Navigation</h3>
+                <nav class="toc">
+                  <a href="#part-1">Start</a>
+                  <a href="#part-2">Bias models</a>
+                  <a href="#part-3">Results</a>
+                  <a href="#part-4">For the trader</a>
+                  <a href="#part-5">For fintech</a>
+                  <a href="#part-6">Charts and code</a>
+                </nav>
+              </div>
+              <div class="aside-card">
+                <h3>In brief</h3>
+                <p class="mini-note">The highest CAGR came from the combined model, but at the cost of behavioral lock-in and a 33.7% drawdown. The best standalone model was house money. The worst for baseline discipline was confirmation bias.</p>
+              </div>
+            </aside>
+          </div>
 
-  const audienceTabs = Array.from(document.querySelectorAll('.audience-tab'));
-  const audiencePanels = Array.from(document.querySelectorAll('.audience-panel'));
-  if (audienceTabs.length) {
-    audienceTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const target = tab.dataset.target;
-        audienceTabs.forEach(btn => {
-          const active = btn === tab;
-          btn.classList.toggle('is-active', active);
-          btn.setAttribute('aria-selected', active ? 'true' : 'false');
+          <section class="article-cta fade-in">
+            <a class="btn-ghost" href="/en/articles/">← Back to all articles</a>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>TELWHA</h4>
+          <p>Financial psychology, behavioral economics and choice architecture for more resilient financial decisions.</p>
+        </div>
+
+        <div style="text-align:right">
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="/en/">Home</a>
+            <a href="/en/finlab/">FinLab</a>
+            <a href="/en/reviews/">Reviews</a>
+            <a href="/en/contact/">Contact</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 TELWHA. All rights reserved.</span>
+        <span>Kyiv, Ukraine · 🇺🇦</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function updateProgressBar() {
+      const progress = document.getElementById("progress");
+      if (!progress) return;
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressValue = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = progressValue + "%";
+    }
+
+    function syncThemeButtonUI() {
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (!themeBtn) return;
+      const current = document.documentElement.getAttribute("data-theme") || "light";
+      themeBtn.textContent = current === "dark" ? "🌙" : "☀️";
+      themeBtn.setAttribute(
+        "aria-label",
+        current === "dark" ? "Enable light theme" : "Enable dark theme"
+      );
+    }
+
+    function closeAllDropdowns(except = null) {
+      document.querySelectorAll(".dropdown").forEach((dropdown) => {
+        if (dropdown === except) return;
+        dropdown.classList.remove("is-open");
+        const button = dropdown.querySelector(".dropbtn");
+        if (button) button.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      updateProgressBar();
+      window.addEventListener("scroll", updateProgressBar, { passive: true });
+
+      const root = document.documentElement;
+      let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      root.setAttribute("data-theme", currentTheme);
+      syncThemeButtonUI();
+
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (themeBtn) {
+        themeBtn.addEventListener("click", () => {
+          currentTheme = currentTheme === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", currentTheme);
+          syncThemeButtonUI();
         });
-        audiencePanels.forEach(panel => {
-          const active = panel.id === target;
-          panel.classList.toggle('is-active', active);
-          panel.hidden = !active;
+      }
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const siteMenu = document.querySelector("#site-menu");
+
+      if (menuToggle && siteMenu) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = siteMenu.classList.toggle("is-open");
+          menuToggle.classList.toggle("is-open", isOpen);
+          menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+
+          if (!isOpen) closeAllDropdowns();
+        });
+      }
+
+      document.querySelectorAll(".dropbtn").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          if (window.innerWidth > 920) return;
+          event.stopPropagation();
+          const parent = button.parentElement;
+          const willOpen = !parent.classList.contains("is-open");
+          closeAllDropdowns(parent);
+          parent.classList.toggle("is-open", willOpen);
+          button.setAttribute("aria-expanded", willOpen ? "true" : "false");
         });
       });
-    });
-  }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('is-visible');
-    });
-  }, { threshold: 0.14 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".dropdown")) {
+          closeAllDropdowns();
+        }
 
-  const tocLinks = Array.from(document.querySelectorAll('.toc a'));
-  const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
-  const markToc = () => {
-    let activeId = sections[0]?.id;
-    sections.forEach(section => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= 140) activeId = section.id;
-    });
-    tocLinks.forEach(link => {
-      link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
-    });
-  };
-  document.addEventListener('scroll', markToc, { passive: true });
-  markToc();
-</script>
+        const nav = document.querySelector(".nav");
+        if (
+          window.innerWidth <= 920 &&
+          siteMenu &&
+          siteMenu.classList.contains("is-open") &&
+          nav &&
+          !nav.contains(event.target)
+        ) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Open menu");
+        }
+      });
 
-</body></html>
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeAllDropdowns();
+
+          if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle?.classList.remove("is-open");
+            menuToggle?.setAttribute("aria-expanded", "false");
+            menuToggle?.setAttribute("aria-label", "Open menu");
+            menuToggle?.focus();
+          }
+        }
+      });
+
+      document.querySelectorAll('#site-menu a[href]').forEach((link) => {
+        link.addEventListener("click", () => {
+          closeAllDropdowns();
+
+          if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle?.classList.remove("is-open");
+            menuToggle?.setAttribute("aria-expanded", "false");
+            menuToggle?.setAttribute("aria-label", "Open menu");
+          }
+        });
+      });
+
+      const audienceTabs = Array.from(document.querySelectorAll('.audience-tab'));
+      const audiencePanels = Array.from(document.querySelectorAll('.audience-panel'));
+      if (audienceTabs.length) {
+        audienceTabs.forEach(tab => {
+          tab.addEventListener('click', () => {
+            const target = tab.dataset.target;
+            audienceTabs.forEach(btn => {
+              const active = btn === tab;
+              btn.classList.toggle('is-active', active);
+              btn.setAttribute('aria-selected', active ? 'true' : 'false');
+            });
+            audiencePanels.forEach(panel => {
+              const active = panel.id === target;
+              panel.classList.toggle('is-active', active);
+              panel.hidden = !active;
+            });
+          });
+        });
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+      }, { threshold: 0.14 });
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+      const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+      const sections = tocLinks
+        .map(link => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+
+      const markToc = () => {
+        let activeId = sections[0]?.id;
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 140) activeId = section.id;
+        });
+        tocLinks.forEach(link => {
+          link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
+        });
+      };
+
+      document.addEventListener('scroll', markToc, { passive: true });
+      markToc();
+    });
+  </script>
+</body>
+</html>

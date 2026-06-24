@@ -1,150 +1,914 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TELWHA | Sesgos cognitivos en textos financieros</title>
-<meta name="description" content="Cómo aparecen los sesgos cognitivos en informes, noticias y redes sociales, y por qué la IA puede interpretarlos mal sin género ni contexto.">
+<meta name="description" content="Cómo aparecen los sesgos cognitivos en informes, noticias y redes sociales, y por qué la IA puede equivocarse sin género y contexto.">
 <link rel="canonical" href="https://t-e-l-w-h-a.com/es/articles/cognitive-biases-financial-texts/">
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="TELWHA | Sesgos cognitivos en textos financieros">
-<meta property="og:description" content="Cómo aparecen los sesgos cognitivos en informes, noticias y redes sociales, y por qué la IA puede interpretarlos mal sin género ni contexto.">
+<meta property="og:description" content="Cómo aparecen los sesgos cognitivos en informes, noticias y redes sociales, y por qué la IA puede equivocarse sin género y contexto.">
 <meta property="og:url" content="https://t-e-l-w-h-a.com/es/articles/cognitive-biases-financial-texts/">
 <meta property="og:site_name" content="TELWHA">
 
-<link rel="icon" href="/static/media/telwha-favicon.png" type="png">
-<link rel="stylesheet" href="/static/css/base.css">
-<link rel="stylesheet" href="/static/css/layout-article.css">
+<link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
+
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
 
 <style>
-html{scroll-behavior:smooth;}
-.progress{position:fixed;inset:0 auto auto 0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,var(--accent,#8b7355),var(--accent-2,#c7a978));box-shadow:0 1px 10px rgba(0,0,0,.12)}
-.article-shell{position:relative;max-width:1320px;margin-inline:auto}
-.article-header{position:relative;overflow:hidden}
-.article-header::after{content:"";position:absolute;right:-80px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(199,169,120,.16),rgba(199,169,120,0) 70%);pointer-events:none}
-.article-deck{max-width:850px}
-.article-reading{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.article-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:rgba(255,255,255,.5);backdrop-filter:blur(4px);font-size:.88rem;line-height:1}
-html[data-theme="dark"] .article-chip{background:rgba(255,255,255,.04)}
-.article-layout{
-  display:grid;
-  grid-template-columns:minmax(0,5fr) minmax(260px,2fr);
-  gap:56px;
-  align-items:start;
-}
-.article-main{min-width:0}
-.article-aside{position:sticky;top:92px;display:flex;flex-direction:column;gap:14px}
-.aside-card{padding:16px 16px 14px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.45));box-shadow:0 10px 30px rgba(0,0,0,.04)}
-html[data-theme="dark"] .aside-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
-.aside-card h3{font-size:.92rem;margin:0 0 10px;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
-.toc{display:flex;flex-direction:column;gap:8px}
-.toc a{display:block;padding:8px 10px;border-radius:12px;text-decoration:none;opacity:.78}
-.toc a:hover,.toc a.is-active{background:rgba(199,169,120,.14);opacity:1}
-.mini-note{font-size:.95rem;line-height:1.55;opacity:.85}
-.article-body>p{position:relative;margin-bottom:1.35rem}
-.article-body section[id]>p:first-of-type{margin-top:0}
-.article-body>p.is-focus{padding-left:16px;border-left:3px solid rgba(199,169,120,.8)}
-.article-body h2, .article-body section[id]{scroll-margin-top:120px}
-.article-body section[id]{position:relative;margin-top:2.2rem}
-.article-pullquote{margin:22px 0;padding:18px 20px;border-radius:18px;border:1px solid rgba(120,120,120,.14);background:linear-gradient(135deg,rgba(199,169,120,.14),rgba(199,169,120,.04));font-size:1.05rem;line-height:1.7}
-.article-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(120,120,120,.25),transparent);margin:28px 0}
-.mobile-jump{display:none}
-.audience-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 14px}
-.audience-tab{padding:10px 14px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:transparent;font:inherit;line-height:1.1;cursor:pointer}
-.audience-tab:hover,.audience-tab.is-active{background:rgba(199,169,120,.14);border-color:rgba(199,169,120,.35)}
-.audience-panels{margin-bottom:18px}
-.audience-panel{padding:18px 18px 2px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44))}
-html[data-theme="dark"] .audience-panel{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
-.article-figures{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:22px 0 10px}
-.figure-slot{min-height:140px;padding:18px;border:1px dashed rgba(120,120,120,.26);border-radius:18px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;background:rgba(199,169,120,.06);font-weight:600}
-.figure-slot span{display:block;margin-top:6px;font-size:.88rem;font-weight:400;opacity:.75}
+  :root,
+  [data-theme="light"] {
+    --font-display: "Boska", Georgia, serif;
+    --font-body: "Satoshi", "Inter", sans-serif;
 
-@media (max-width: 980px){
-  .section > .wrap{
-    max-width:100%;
-    width:100%;
-  }
-  .article-shell{
-    max-width:100%;
-    width:100%;
-    margin-inline:0;
-  }
-  .article-layout{
-    display:block;
-  }
-  .article-aside{
-    display:none;
-  }
-}
+    --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
+    --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+    --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+    --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+    --text-2xl: clamp(2.2rem, 1.5rem + 2vw, 4rem);
 
-@media (max-width: 720px){
-  .article-reading{gap:8px}
-  .article-chip{font-size:.8rem;padding:7px 10px}
-  .aside-card{border-radius:16px}
-  .mobile-jump{
-    display:flex;
-    gap:8px;
-    overflow:auto;
-    padding-bottom:6px;
-    scrollbar-width:none;
+    --color-bg: #f5f3ef;
+    --color-surface: #fcfbf8;
+    --color-surface-2: #f2efe9;
+    --color-surface-3: #ebe7df;
+    --color-border: rgba(40, 37, 29, 0.10);
+    --color-divider: rgba(40, 37, 29, 0.08);
+
+    --color-text: #22201a;
+    --color-text-muted: #65625b;
+    --color-text-faint: #8b877f;
+    --color-text-inverse: #f9f8f5;
+
+    --color-primary: #0f5d5f;
+    --color-primary-hover: #0b4b4d;
+    --color-primary-soft: rgba(15, 93, 95, 0.08);
+
+    --color-accent: #9a6a35;
+    --color-accent-soft: rgba(154, 106, 53, 0.08);
+
+    --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
+    --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
+    --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
+
+    --content-default: 1180px;
+    --content-wide: 1320px;
+    --radius-md: 22px;
+    --radius-lg: 28px;
+    --radius-xl: 34px;
+    --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .mobile-jump::-webkit-scrollbar{display:none}
-  .mobile-jump a{
-    white-space:nowrap;
-    text-decoration:none;
-    padding:8px 12px;
-    border-radius:999px;
-    border:1px solid rgba(120,120,120,.16);
-    background:rgba(255,255,255,.52);
-    font-size:.85rem;
+
+  [data-theme="dark"] {
+    --color-bg: #171614;
+    --color-surface: #1d1b18;
+    --color-surface-2: #24211d;
+    --color-surface-3: #2a2622;
+    --color-border: rgba(255, 255, 255, 0.10);
+    --color-divider: rgba(255, 255, 255, 0.08);
+
+    --color-text: #ece6dd;
+    --color-text-muted: #b7afa2;
+    --color-text-faint: #91897c;
+    --color-text-inverse: #171614;
+
+    --color-primary: #6ca7a7;
+    --color-primary-hover: #84baba;
+    --color-primary-soft: rgba(108, 167, 167, 0.10);
+
+    --color-accent: #c79c68;
+    --color-accent-soft: rgba(199, 156, 104, 0.09);
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+    --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
+    --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
   }
-  html[data-theme="dark"] .mobile-jump a{background:rgba(255,255,255,.04)}
-}
 
-.section > .wrap{
-  max-width:1440px;
-}
-.article-figures {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-  margin-top: 24px;
-}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    min-height: 100vh;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.7;
+    color: var(--color-text);
+    background: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
 
-.figure-slot {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 220px;
-  padding: 14px;
-  border: 1px dashed rgba(255, 255, 255, 0.14);
-  border-radius: 28px;
-  background: rgba(255, 255, 255, 0.02);
-  text-decoration: none;
-  color: inherit;
-  overflow: hidden;
-}
+  img, svg { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  button {
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+  }
 
-.figure-slot img {
-  width: 100%;
-  height: 150px;
-  object-fit: contain;
-  object-position: center;
-  display: block;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.04);
-}
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 10px;
+  }
 
-.figure-slot span {
-  display: block;
-  margin-top: 12px;
-  text-align: center;
-  font-size: 15px;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.88);
-}
+  .wrap {
+    width: min(100% - 28px, var(--content-default));
+    margin-inline: auto;
+  }
+
+  .wrap-wide {
+    width: min(100% - 28px, var(--content-wide));
+    margin-inline: auto;
+  }
+
+  .progress {
+    position: fixed;
+    inset: 0 auto auto 0;
+    z-index: 120;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 12px 0;
+    backdrop-filter: blur(18px);
+    background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .nav {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .brand-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .brand-mark {
+    width: 26px;
+    height: 26px;
+    color: var(--color-primary);
+    flex: 0 0 auto;
+  }
+
+  .sub {
+    color: var(--color-text-faint);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    max-width: 300px;
+  }
+
+  .menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    transition: var(--transition);
+  }
+
+  .menu-toggle:hover {
+    background: var(--color-surface-2);
+  }
+
+  .menu-toggle-lines {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .menu-toggle-lines span {
+    width: 18px;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--color-text);
+    transition: transform var(--transition), opacity var(--transition);
+  }
+
+  .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    min-width: 0;
+    flex-wrap: nowrap;
+  }
+
+  .menu a,
+  .menu .dropbtn,
+  .theme-toggle,
+  .lang-link {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 10px;
+    border-radius: 999px;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+    white-space: nowrap;
+    line-height: 1.1;
+    flex-shrink: 0;
+  }
+
+  .menu a:hover,
+  .menu .dropbtn:hover,
+  .theme-toggle:hover,
+  .lang-link:hover {
+    color: var(--color-text);
+    background: var(--color-surface-2);
+  }
+
+  .menu a.is-active {
+    color: var(--color-text);
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+  }
+
+  .menu a.is-highlight,
+  .menu .dropbtn.is-highlight {
+    color: var(--color-text-inverse);
+    background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, var(--color-accent)));
+    border: 1px solid transparent;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .menu a.is-highlight:hover,
+  .menu .dropbtn.is-highlight:hover {
+    background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+    color: var(--color-text-inverse);
+  }
+
+  [data-theme="dark"] .menu a.is-highlight,
+  [data-theme="dark"] .menu .dropbtn.is-highlight {
+    color: #141311;
+  }
+
+  .dropdown {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .dropbtn {
+    gap: 6px;
+  }
+
+  .dropbtn svg {
+    width: 14px;
+    height: 14px;
+    transition: transform var(--transition);
+    flex: 0 0 auto;
+  }
+
+  .dropdown:hover .dropbtn svg,
+  .dropdown:focus-within .dropbtn svg,
+  .dropdown.is-open .dropbtn svg {
+    transform: rotate(180deg);
+  }
+
+  .dropcontent {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    z-index: 300;
+    min-width: 240px;
+    display: grid;
+    gap: 6px;
+    padding: 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+  }
+
+  .dropdown:hover .dropcontent,
+  .dropdown:focus-within .dropcontent,
+  .dropdown.is-open .dropcontent {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .dropcontent a {
+    justify-content: flex-start;
+    padding: 12px 14px;
+    border-radius: 12px;
+    white-space: normal;
+    line-height: 1.35;
+  }
+
+  .menu-tools {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 8px;
+    padding-left: 8px;
+    border-left: 1px solid var(--color-divider);
+    flex-shrink: 0;
+  }
+
+  .lang-list {
+    display: flex;
+    gap: 4px;
+  }
+
+  .lang-link.is-active {
+    background: var(--color-surface-2);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+
+  .theme-toggle {
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    width: 44px;
+    padding-inline: 0;
+    font-size: 1rem;
+  }
+
+  main {
+    padding: 34px 0 90px;
+  }
+
+  .article-shell {
+    position: relative;
+    max-width: 1320px;
+    margin-inline: auto;
+  }
+
+  .article-header {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(26px, 4vw, 48px);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-border);
+    margin-bottom: 22px;
+  }
+
+  .article-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 14% 18%, rgba(15, 93, 95, 0.06), transparent 24%),
+      radial-gradient(circle at 86% 16%, rgba(154, 106, 53, 0.06), transparent 22%);
+  }
+
+  .article-header > * {
+    position: relative;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    color: var(--color-text-faint);
+    font-size: var(--text-xs);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 1px;
+    background: var(--color-primary);
+  }
+
+  .article-header h1 {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    line-height: 0.97;
+    letter-spacing: -0.03em;
+    max-width: 12ch;
+    margin-bottom: 14px;
+  }
+
+  .article-deck {
+    max-width: 850px;
+    color: var(--color-text-muted);
+    font-size: var(--text-lg);
+  }
+
+  .article-reading {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .article-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+    backdrop-filter: blur(4px);
+    font-size: .88rem;
+    line-height: 1;
+    color: var(--color-text-muted);
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: minmax(0,5fr) minmax(260px,2fr);
+    gap: 32px;
+    align-items: start;
+  }
+
+  .article-main { min-width: 0; }
+
+  .article-aside {
+    position: sticky;
+    top: 92px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .aside-card,
+  .audience-panel,
+  .article-pullquote,
+  .figure-slot {
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .aside-card {
+    padding: 18px 18px 16px;
+    border-radius: 24px;
+    background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+  }
+
+  .aside-card h3 {
+    font-size: .92rem;
+    margin: 0 0 10px;
+    color: var(--color-text-faint);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+
+  .toc {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .toc a {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 12px;
+    color: var(--color-text-muted);
+  }
+
+  .toc a:hover,
+  .toc a.is-active {
+    background: var(--color-primary-soft);
+    color: var(--color-text);
+  }
+
+  .article-body section[id] {
+    position: relative;
+    margin-top: 2.2rem;
+    scroll-margin-top: 120px;
+  }
+
+  .article-body h2,
+  .article-body section[id] {
+    scroll-margin-top: 120px;
+  }
+
+  .article-body p {
+    margin-bottom: 1.35rem;
+  }
+
+  .article-body > p.is-focus,
+  .article-body section p.is-focus {
+    padding-left: 16px;
+    border-left: 3px solid color-mix(in srgb, var(--color-accent) 70%, transparent);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .article-pullquote {
+    margin: 22px 0;
+    padding: 18px 20px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 14%, var(--color-surface)), color-mix(in srgb, var(--color-accent) 4%, var(--color-surface)));
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .article-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-divider), transparent);
+    margin: 28px 0;
+  }
+
+  .mobile-jump {
+    display: none;
+  }
+
+  .mobile-jump a {
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+    font-size: .85rem;
+    color: var(--color-text-muted);
+  }
+
+  .audience-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 18px 0 14px;
+  }
+
+  .audience-tab {
+    padding: 10px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: transparent;
+    font: inherit;
+    line-height: 1.1;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    transition: var(--transition);
+  }
+
+  .audience-tab:hover,
+  .audience-tab.is-active {
+    background: var(--color-primary-soft);
+    border-color: color-mix(in srgb, var(--color-primary) 30%, var(--color-border));
+    color: var(--color-text);
+  }
+
+  .audience-panels {
+    margin-bottom: 18px;
+  }
+
+  .audience-panel {
+    padding: 18px 18px 2px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+  }
+
+  .article-figures {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+  }
+
+  .figure-slot {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 220px;
+    padding: 14px;
+    border-radius: 28px;
+    background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    overflow: hidden;
+    transition: var(--transition);
+  }
+
+  .figure-slot:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .figure-slot img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    border-radius: 16px;
+    background: color-mix(in srgb, var(--color-surface-2) 92%, transparent);
+    border: 1px solid var(--color-border);
+  }
+
+  .figure-slot span {
+    display: block;
+    margin-top: 12px;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--color-text-muted);
+  }
+
+  .article-cta {
+    margin-top: 26px;
+  }
+
+  .btn {
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 18px;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    transition: var(--transition);
+    white-space: nowrap;
+  }
+
+  .btn-ghost {
+    background: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+
+  .btn-ghost:hover {
+    background: var(--color-surface-2);
+  }
+
+  .footer {
+    padding: 36px 0 26px;
+    border-top: 1px solid var(--color-divider);
+    background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+    margin-top: 28px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .footer h4 {
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-faint);
+    margin-bottom: 12px;
+  }
+
+  .footer p,
+  .footer a {
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+  }
+
+  .footer a:hover {
+    color: var(--color-text);
+  }
+
+  .footer-links {
+    display: grid;
+    gap: 10px;
+    justify-items: end;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-top: 22px;
+    margin-top: 22px;
+    border-top: 1px solid var(--color-divider);
+    color: var(--color-text-faint);
+    font-size: var(--text-xs);
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 980px) {
+    .article-layout {
+      display: block;
+    }
+
+    .article-aside {
+      display: none;
+    }
+  }
+
+  @media (max-width: 920px) {
+    .nav {
+      grid-template-columns: auto auto;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .menu-toggle {
+      display: inline-flex;
+    }
+
+    .menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 14px;
+      right: 14px;
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 14px;
+      border: 1px solid var(--color-border);
+      border-radius: 22px;
+      background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .menu.is-open {
+      display: flex;
+    }
+
+    .menu a,
+    .menu .dropbtn,
+    .theme-toggle,
+    .lang-link {
+      justify-content: flex-start;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      padding: 10px 12px;
+    }
+
+    .menu a.is-highlight,
+    .menu .dropbtn.is-highlight {
+      justify-content: center;
+    }
+
+    .dropdown {
+      width: 100%;
+    }
+
+    .dropcontent {
+      position: static;
+      min-width: 0;
+      margin-top: 8px;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: none;
+      display: none;
+      box-shadow: none;
+      border-radius: 16px;
+      background: var(--color-surface-2);
+    }
+
+    .dropdown.is-open .dropcontent {
+      display: grid;
+    }
+
+    .menu-tools {
+      margin-left: 0;
+      padding-left: 0;
+      border-left: 0;
+      padding-top: 6px;
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-links {
+      justify-items: start;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .wrap,
+    .wrap-wide {
+      width: min(100% - 24px, var(--content-default));
+    }
+
+    .article-header,
+    .aside-card,
+    .audience-panel,
+    .article-pullquote,
+    .figure-slot {
+      border-radius: 22px;
+    }
+
+    .article-header h1 {
+      max-width: 100%;
+    }
+
+    .article-reading {
+      gap: 8px;
+    }
+
+    .article-chip {
+      font-size: .8rem;
+      padding: 7px 10px;
+    }
+
+    .mobile-jump {
+      display: flex;
+      gap: 8px;
+      overflow: auto;
+      padding-bottom: 6px;
+      scrollbar-width: none;
+      margin: 0 0 18px;
+    }
+
+    .mobile-jump::-webkit-scrollbar {
+      display: none;
+    }
+
+    .article-figures {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+    .fade-in {
+      opacity: 1;
+      transform: none;
+    }
+  }
 </style>
 
 <script type="application/ld+json">
@@ -152,13 +916,13 @@ html[data-theme="dark"] .audience-panel{background:linear-gradient(180deg,rgba(2
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Sesgos cognitivos en textos financieros",
-  "description": "Cómo aparecen los sesgos cognitivos en informes, noticias y redes sociales, y por qué la IA puede interpretarlos mal sin género ni contexto.",
+  "description": "Cómo aparecen los sesgos cognitivos en informes, noticias y redes sociales, y por qué la IA puede equivocarse sin género y contexto.",
   "author": {"@type": "Person", "name": "Anna Signaevska"},
   "publisher": {"@type": "Organization", "name": "TELWHA"},
   "inLanguage": "es",
   "datePublished": "2026-03-01",
   "dateModified": "2026-03-01",
-  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://t-e-l-w-h-a.com/es/articles/cognitive-biases-financial-texts/"}
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://t-e-l-w-h-a.com/es/articles/mastercase.html"}
 }
 </script>
 </head>
@@ -168,10 +932,15 @@ html[data-theme="dark"] .audience-panel{background:linear-gradient(180deg,rgba(2
 <header class="topbar">
   <div class="wrap nav">
     <div class="brand">
-      <a class="brand-row" href="/es/">
+      <a class="brand-row" href="/es/" aria-label="TELWHA — ir a la página principal">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
         <strong>TELWHA</strong>
       </a>
-      <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+      <span class="sub">Psicología financiera</span>
     </div>
 
     <button
@@ -188,38 +957,51 @@ html[data-theme="dark"] .audience-panel{background:linear-gradient(180deg,rgba(2
       </span>
     </button>
 
-    <nav class="menu" id="site-menu">
-      <div class="menu-group">
-        <a href="/es/">Inicio</a>
-        <a href="/es/finlab/">FinLab</a>
-        <a href="/es/about/">Sobre mí</a>
-      </div>
+    <nav class="menu" id="site-menu" aria-label="Navegación principal">
+      <a href="/es/">Inicio</a>
+      <a href="/es/about/">Sobre mí</a>
+      <a href="/es/cases/">Casos</a>
+      <a href="/es/articles/" class="is-active">Artículos</a>
+      <a href="/es/finlab/">FinLab</a>
 
-      <div class="menu-group menu-dropdown">
-        <button type="button" class="menu-dropbtn">Para traders ▾</button>
-        <div class="menu-dropcontent">
-          <a href="/es/trader-course/">Mini curso</a>
-          <a href="/es/archetype-test/">Test de arquetipos</a>
+      <div class="dropdown">
+        <button type="button" class="dropbtn is-highlight" aria-expanded="false">
+          Pon a prueba tu perfil
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="dropcontent">
+          <a href="/finlab/money-test-api/money-test.html">Test de conducta financiera</a>
+          <a href="/habit-test.html">¿A dónde te llevan tus hábitos?</a>
+          <a href="/fact-or-fiction-cases.html">¿Hecho o ficción?</a>
         </div>
       </div>
 
-      <div class="menu-group">
-        <a href="/es/articles/">Artículos</a>
-        <a href="/es/reviews/">Reseñas</a>
-        <a href="/es/cases/">Casos</a>
-        <a href="/es/contact/">Contacto</a>
+      <div class="dropdown">
+        <button type="button" class="dropbtn" aria-expanded="false">
+          Para traders
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="dropcontent">
+          <a href="/trader-course/">Mini curso</a>
+          <a href="/archetype-test/">Arquetipo de trader</a>
+        </div>
       </div>
 
-      <div class="menu-group menu-tools">
-        <details class="lang-switcher lang-switcher--inside">
-          <summary>🇪🇸</summary>
-          <div class="lang-list">
-            <a href="/articles/mastercase.html" aria-label="Ukrainian">🇺🇦</a>
-            <a href="/en/articles/mastercase.html" aria-label="English">🇬🇧</a>
-          </div>
-        </details>
+      <a href="/es/reviews/">Opiniones</a>
+      <a href="/es/contact/">Contacto</a>
 
-        <button class="theme-toggle" type="button" aria-label="Cambiar tema">🌓</button>
+      <div class="menu-tools">
+        <div class="lang-list" aria-label="Idiomas del sitio">
+          <a class="lang-link" href="/articles/mastercase.html" lang="uk" aria-label="Українська">UA</a>
+          <a class="lang-link" href="/en/articles/mastercase.html" lang="en" aria-label="English">EN</a>
+          <a class="lang-link is-active" href="/es/articles/mastercase.html" lang="es" aria-label="Español">ES</a>
+        </div>
+
+        <button class="theme-toggle" type="button" aria-label="Cambiar tema">☀️</button>
       </div>
     </nav>
   </div>
@@ -227,125 +1009,118 @@ html[data-theme="dark"] .audience-panel{background:linear-gradient(180deg,rgba(2
 
 <main>
   <section class="section">
-    <div class="wrap">
+    <div class="wrap-wide">
       <article class="article-shell" itemscope itemtype="https://schema.org/Article">
         <header class="article-header fade-in">
           <div class="eyebrow"><span>Research</span> TELWHA</div>
           <h1 itemprop="headline">Sesgos cognitivos en textos financieros</h1>
           <p class="article-deck" itemprop="description">
-            Cómo aparecen los sesgos cognitivos en informes, noticias y redes sociales, y por qué la IA puede interpretarlos mal sin género ni contexto.
+            Cómo aparecen los sesgos cognitivos en informes, noticias y redes sociales, y por qué la IA puede equivocarse sin género y contexto.
           </p>
           <div class="article-reading">
             <span class="article-chip">2020–2025</span>
-            <span class="article-chip">SEC EDGAR · News · Twitter · Reddit</span>
-            <span class="article-chip">NLP · Behavioral Finance</span>
+            <span class="article-chip">SEC EDGAR · Noticias · Twitter · Reddit</span>
+            <span class="article-chip">NLP · Finanzas conductuales</span>
           </div>
         </header>
 
-        <div class="mobile-jump fade-in" aria-label="Navegación rápida del artículo">
+        <div class="mobile-jump fade-in" aria-label="Navegación rápida por el artículo">
           <a href="#part-1">Inicio</a>
           <a href="#part-2">Marcadores</a>
           <a href="#part-3">Densidad</a>
           <a href="#part-4">Hallazgos</a>
           <a href="#part-5">IA</a>
-          <a href="#part-6">Aplicación</a>
+          <a href="#part-6">Cómo usarlo</a>
         </div>
 
         <div class="article-layout">
           <div class="article-main">
             <div class="article-body" itemprop="articleBody">
               <section id="part-1">
-                <p class="is-focus">El mundo financiero disfruta presentándose como racional. En un gráfico hay matemáticas. En un informe, formulaciones contenidas. En las noticias, análisis “neutral”. Y luego aparece Reddit con “unbelievable opportunity”, “everyone is buying”, y el mercado olvida lo que significan la prudencia y la racionalidad. En este proyecto no observé los precios, sino las palabras. Observé cómo los trucos cognitivos del cerebro viven dentro de los textos: informes, noticias y redes sociales.</p>
-
-                <p>Reuní tres capas de realidad financiera entre 2020 y 2025: informes de empresas públicas de EE. UU. (10‑K y 10‑Q de SEC EDGAR), noticias financieras y grandes conjuntos de publicaciones de Twitter y Reddit dedicadas al mercado. Los informes son el escenario oficial, donde cada palabra pasa por abogados y compliance. Las noticias funcionan como dramaturgos: convierten los mismos números en “record-breaking performance” o en “worst decline since 2008”. Las redes sociales se parecen más a un bar, donde todos hablan alto, con emoción y, a menudo, con mucha más confianza de la que justifican los hechos. Los tres describen el mismo mercado, pero en el lenguaje de distintos sesgos cognitivos.</p>
+                <p class="is-focus">El mundo financiero adora fingir que es racional. En el gráfico, hay matemáticas. En el informe, fórmulas contenidas. En las noticias, análisis “neutral”. Y luego en Reddit aparecen “unbelievable opportunity”, “everyone is buying”, y el mercado se olvida de qué eran la prudencia y la racionalidad. En este proyecto no miré los precios, sino las palabras. Cómo los trucos cognitivos del cerebro viven dentro de los textos: informes, noticias y redes sociales.</p>
+                <p>Reuní tres capas de realidad financiera de 2020 a 2025: informes de empresas cotizadas de EE. UU. (10‑K y 10‑Q del SEC EDGAR), noticias financieras y grandes volúmenes de posts en Twitter y Reddit dedicados al mercado. Los informes son el escenario oficial, donde cada palabra pasa por abogados y compliance. Las noticias son los dramaturgos que con los mismos números construyen “record‑breaking performance” o “worst decline since 2008”. Las redes sociales son el bar donde todos hablan alto, emocionalmente y muchas veces con más confianza de la que está justificada. Los tres describen el mismo mercado, pero en el lenguaje de sesgos cognitivos distintos.</p>
               </section>
 
               <div class="article-pullquote fade-in">
-                Aquí lo importante no son solo las palabras, sino la diferencia entre géneros: el lenguaje de compliance, el encuadre mediático y la retórica de la multitud pueden describir el mismo mercado, pero generan señales conductuales distintas.
+                Lo importante aquí no son solo las palabras, sino la diferencia de géneros: compliance, encuadre mediático y retórica de la multitud pueden describir el mismo mercado y, sin embargo, crear señales de conducta distintas.
               </div>
 
               <div class="article-divider"></div>
 
               <section id="part-2">
-                <p>Para que estos sesgos pudieran medirse y no solo percibirse de forma intuitiva, seleccioné diez fenómenos clave de las finanzas conductuales y los traduje en patrones léxicos concretos. Por ejemplo, la sobreconfianza en redes sociales suele aparecer mediante marcadores como “I’m 100% sure”, “guaranteed profit”, “can’t lose”, “no way this goes down” y “this is a sure thing”. El comportamiento gregario emerge en textos con frases como “everyone is buying”, “we all know”, “join us”, “don’t miss out” y “the whole market is in”, donde el “nosotros” de pronto parece saber más que cualquier individuo. El framing en las noticias vive en formulaciones como “only minor correction” en lugar de “double-digit drop”, “growth opportunity” en vez de “high risk”, o en el énfasis sobre “stability” y “resilience” incluso cuando el tema real es una caída.</p>
-
-                <p>La lista también incluyó anclaje: construcciones como “from 52‑week high”, “compared to the peak” y “since all-time high”, que fijan la percepción a un punto de referencia como si fuera la norma. Para la aversión a la pérdida, importan expresiones como “protect your capital”, “avoid drawdown”, “not willing to lose a single dollar” y “can’t afford any loss”. La sobrecarga informativa aparece en textos que subrayan “too much data”, “endless news flow”, “overwhelmed with information” y “no time to process all reports”, lo que conecta directamente con la manera en que el cerebro empieza a ahorrar en profundidad de análisis. Una categoría aparte es la confianza excesiva en algoritmos, expresada mediante frases como “the bot knows better”, “the model is always right”, “just follow the algo” y “AI already figured it out”.</p>
+                <p>Para que estos sesgos fueran algo que se pueda medir y no solo intuir, seleccioné diez fenómenos clave de las finanzas conductuales y los traduje al lenguaje de patrones léxicos concretos. Por ejemplo, la sobreconfianza en redes sociales suele sonar a marcadores como “I’m 100% sure”, “guaranteed profit”, “can’t lose”, “no way this goes down”, “this is a sure thing”. El comportamiento de manada aparece en textos con “everyone is buying”, “we all know”, “join us”, “don’t miss out”, “the whole market is in”, donde ese “nosotros” de repente sabe más que cualquiera por separado. El encuadre en las noticias vive en expresiones como “only minor correction” en lugar de “double-digit drop”, “growth opportunity” en vez de “high risk”, o en el énfasis en “stability” y “resilience” incluso cuando el contenido real es de recortes.</p>
+                <p>La lista también incluía anclas: construcciones como “from 52-week high”, “compared to the peak”, “since all-time high”, que fijan una referencia como norma. Para la aversión a la pérdida, eran importantes frases como “protect your capital”, “avoid drawdown”, “not willing to lose a single dollar”, “can’t afford any loss”. La sobrecarga informativa aparece en textos que subrayan “too much data”, “endless news flow”, “overwhelmed with information”, “no time to process all reports”, lo que se relaciona directamente con cómo el cerebro empieza a ahorrar en profundidad de análisis. Una categoría aparte era la confianza excesiva en los algoritmos, que suena como “the bot knows better”, “the model is always right”, “just follow the algo”, “AI already figured it out”.</p>
               </section>
 
               <div class="article-divider"></div>
 
               <section id="part-3">
-                <p class="is-focus">El siguiente paso fue ponerle una regla a todo esto. Contar palabras sueltas no sirve de mucho si no distinguimos entre un sesgo que aparece raramente pero golpea con máxima intensidad y otro que está presente en todas partes como ruido de fondo. Para cada sesgo en cada canal, primero observé en qué proporción de textos aparecían los marcadores característicos, y luego qué tan densamente estaban presentes allí donde ya existían. Un informe con una sola mención de “risk” es una cosa; decenas de posts en Reddit con “we all know this will go to the moon” y “just buy, don’t overthink” son otra completamente distinta, aunque el conteo bruto de marcadores parezca similar.</p>
+                <p class="is-focus">Después hacía falta poner una regla. Contar palabras sueltas no dice gran cosa si no distingues dónde el sesgo aparece pocas veces, pero con máxima intensidad, y dónde está presente en todas partes como un ruido ligero de fondo. Para cada sesgo en cada canal miraba primero qué proporción de textos contenía marcadores característicos, y luego qué tan densos eran allí donde ya aparecían. Un informe con una única mención de “risk” es una cosa; decenas de posts en Reddit llenos de “we all know this will go to the moon” y “just buy, don’t overthink” son algo muy distinto, incluso si el simple recuento de marcadores da cifras parecidas.</p>
               </section>
 
               <div class="article-divider"></div>
 
               <section id="part-4">
-                <p>Tras aplicar NLP al corpus completo y revisar manualmente parte del material, surgieron varios patrones interesantes. Los informes resultaron estar “llenos” de marcadores de sesgo desde un punto de vista estadístico: los contenían casi siempre. Pero cuando se observa la densidad, la capa es fina. Muy fina. Hay mucho “risk”, “uncertainty”, “volatility” y “potential”, pero dentro de construcciones como “we are subject to market risk” o “there is potential impact of volatility”. Ese es el lenguaje de la protección, no del pánico. Así apareció un efecto que empecé a llamar la “anomalía de los informes”: casi todos los textos están marcados por indicadores, pero la verdadera intensidad emocional es baja.</p>
-
-                <p>En redes sociales, el panorama es distinto. Allí son raras las fórmulas complejas, pero mucho más frecuentes los juicios categóricos. Cuando el análisis detecta grupos de textos donde aparecen juntos “guaranteed”, “you can’t lose here”, “everyone is all-in”, “if you miss this, you’ll regret forever” y “the bot already backtested this strategy”, la densidad de sobreconfianza, comportamiento gregario y confianza algorítmica se dispara. No se trata de ruido de fondo, sino de estallidos: en días normales el feed puede parecer relativamente tranquilo, pero en momentos de hype o miedo el lenguaje cambia con brusquedad, y ese cambio en sí mismo se convierte en señal conductual.</p>
-
-                <p>En las noticias, el lenguaje está más controlado, pero tampoco es neutral. Aquí el framing hace gran parte del trabajo: “only temporary setback” en lugar de “caída significativa”, “investors take profits” cuando en realidad se producen salidas masivas, “strong fundamentals despite short-term volatility” incluso cuando la tabla resulta bastante menos impresionante. En la tesis destacaban varios subtipos de framing: framing orientado a objetivos (“on track to achieve long-term targets”), framing de evitación (“measures to avoid further losses”), framing positivo (“solid growth”, “resilient performance”) y framing de marketing (“exclusive opportunity”, “unique market position”). En conjunto, esto crea un entorno informativo estable en el que los hechos nunca llegan solos: llegan ya vestidos con el estado de ánimo deseado.</p>
+                <p>Tras pasar todo el corpus por NLP y revisar manualmente una parte de los fragmentos, salieron varios guiones interesantes. Los informes resultaron “llenos” de sesgos según las estadísticas — casi siempre contienen marcadores. Pero cuando miras la densidad, la capa es fina. Muy fina. Hay muchos “risk”, “uncertainty”, “volatility”, “potential”, pero en construcciones como “we are subject to market risk”, “there is potential impact of volatility”. Es un lenguaje de protección, no de pánico. De ahí salió el efecto que internamente llamé “anomalía de los informes”: casi todos los textos están marcados, pero la intensidad emocional es baja.</p>
+                <p>En redes sociales el cuadro es distinto. Allí rara vez aparecen fórmulas complejas, pero son mucho más frecuentes los juicios categóricos. Cuando el análisis detecta clusters de textos donde viven juntos “guaranteed”, “you can’t lose here”, “everyone is all-in”, “if you miss this, you’ll regret forever”, “the bot already backtested this strategy”, la densidad de marcadores de sobreconfianza, comportamiento de manada y confianza en algoritmos se dispara. No es ruido de fondo, sino destellos: en días normales el feed puede ser relativamente tranquilo; en momentos de hype o miedo, el lenguaje cambia bruscamente, y ese cambio se convierte en señal conductual.</p>
+                <p>El lenguaje de las noticias está más controlado, pero tampoco es neutro. Es donde el encuadre hace gran parte del trabajo: “only temporary setback” en vez de “significant decline”, “investors take profits” donde en realidad hay salidas masivas de posiciones, “strong fundamentals despite short-term volatility” incluso en situaciones en las que las cifras de la tabla se ven mucho más discretas. El estudio destacó subtipos de encuadre: cuando el foco se pone en el logro de objetivos (“on track to achieve long-term targets”), en evitar lo negativo (“measures to avoid further losses”), en enfatizar lo positivo (“solid growth”, “resilient performance”) o en una presentación de estilo marketing (“exclusive opportunity”, “unique market position”). En conjunto, esto crea un fondo informativo estable donde el hecho nunca llega solo: viene ya vestido con el estado de ánimo deseado.</p>
               </section>
 
               <div class="article-divider"></div>
 
               <section id="part-5">
-                <p>Cuando estas tres capas se combinan, se vuelve evidente lo fácil que es engañar a un modelo simple. Ve “risk” y “uncertainty” en un informe y los cuenta como sesgo o miedo. Ve unas cuantas frases tipo meme en un hilo y quizá solo las suma al resto. Sin contexto, un informe puede parecer tan “emocional” como una ola de FOMO, aunque en un caso estemos leyendo armadura legal, y en el otro, convicción colectiva de que “aquí es imposible equivocarse”.</p>
-
-                <p>Una pregunta para ti: ¿también usas modelos de IA para “leer el mercado” más rápido, revisar informes, extraer señales de noticias y resumir redes sociales? Es normal; al fin y al cabo estamos en 2026. Pero hay una trampa. Un algoritmo que no distingue género, no reconoce ironía y no ve patrones conductuales del lenguaje se convierte en un participante más del comportamiento gregario, solo que sin el hábito de dudar. Detecta una palabra y enseguida concluye algo sobre el “sentimiento del mercado”, sin preguntarse si realmente se trata de una señal de que “todos corren”, o simplemente de otro párrafo en la sección Risk Factors de un 10‑K.</p>
-
-                <p>Estos modelos extraen textos, construyen índices de “miedo”, “codicia” y “optimismo”, resaltan cosas en rojo y verde y sugieren dónde hacer clic. Si su visión del lenguaje es plana, repiten los mismos errores cognitivos que comete una persona, solo que más rápido. El algoritmo no se cansa ni se pone nervioso, pero tampoco se pregunta si esto es realmente un cambio de sentimiento o simplemente el estilo del documento. Justamente ahí hace falta una capa adicional: una que distinga género, contexto y patrones conductuales, en lugar de limitarse a contar palabras.</p>
+                <p>Al colocar estas tres capas una al lado de la otra, se ve con claridad lo fácil que es engañar a un modelo simple. Ve “risk” y “uncertainty” en un informe y lo cuenta como sesgo o miedo. Ve unas cuantas frases‑meme en un hilo y puede mezclarlas con todo lo demás. Sin contexto, un informe puede parecer tan “emocional” como una ola de FOMO. Aunque en un caso estamos leyendo una armadura legal, y en el otro, una certeza colectiva de que “aquí es imposible equivocarse”. Pregunta para ti. ¿También usas modelos de IA para “leer el mercado” más rápido — escanear informes, sacar insights de noticias y redes sociales? Es normal, estamos en 2026. Pero hay un matiz. Un algoritmo que no distingue género, no escucha ironía y no ve patrones cognitivos en el lenguaje se convierte en un participante más del comportamiento de manada. Solo que sin el hábito de dudar. Atrapa una palabra suelta y enseguida concluye algo sobre el “sentimiento del mercado”, sin preguntarse: ¿es una señal de que “todos corremos”, o simplemente un párrafo más en la sección de Risk Factors de un 10‑K?</p>
+                <p>Estos modelos extraen textos, construyen índices de “miedo”, “codicia”, “optimismo”, colorean en rojo y verde y sugieren dónde hacer clic. Si su visión del lenguaje es plana, repiten los mismos errores cognitivos que comete una persona, solo que más rápido. El algoritmo no se cansa ni se pone nervioso, pero tampoco se pregunta “¿esto es realmente un cambio de ánimo o solo el estilo del documento?”. Ahí es donde hace falta una capa adicional: algo que distinga género, contexto y patrones de conducta, y no solo cuente palabras.</p>
               </section>
 
               <div class="article-divider"></div>
 
               <section id="part-6">
-                <h2>¿Cómo puede aplicarse?</h2>
+                <h2>¿Cómo puedes usarlo tú?</h2>
 
                 <div class="audience-tabs" role="tablist" aria-label="Escenarios de uso">
-                  <button class="audience-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="audience-fintech" id="tab-fintech" data-target="audience-fintech">FinTech / Bancos</button>
-                  <button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-investors" id="tab-investors" data-target="audience-investors">Analistas / Inversores</button>
+                  <button class="audience-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="audience-fintech" id="tab-fintech" data-target="audience-fintech">FinTech / bancos</button>
+                  <button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-investors" id="tab-investors" data-target="audience-investors">Analistas / inversores</button>
                   <button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-users" id="tab-users" data-target="audience-users">Usuarios de apps</button>
                 </div>
 
                 <div class="audience-panels">
                   <section class="audience-panel is-active" id="audience-fintech" role="tabpanel" aria-labelledby="tab-fintech">
-                    <p>Para los equipos FinTech y los bancos, esto es una cuestión de arquitectura de sistemas. Los modelos deben aprender a distinguir el lenguaje de compliance en los informes del lenguaje de picos conductuales en redes sociales y noticias. Los indicadores basados en diccionarios son más útiles allí donde el lenguaje está “vivo”: en los textos periodísticos y en la conversación pública, como detectores tempranos de oleadas gregarias y sobreconfianza. En el caso de los informes, es mejor combinarlos con modelos contextuales como FinBERT o con LLM especialmente entrenados, además de una revisión cualitativa obligatoria. Eso permite construir perfiles separados de comportamiento gregario, framing y confianza algorítmica según el canal, sin penalizar a una empresa solo por cumplir honestamente con requisitos regulatorios.</p>
+                    <p>Para equipos FinTech y bancos, esto va de arquitectura de sistemas. Es clave enseñar a los modelos a distinguir el lenguaje de compliance en informes del lenguaje de estallidos conductuales en redes y noticias. Los indicadores léxicos tienen más sentido allí donde el lenguaje está “vivo” — en textos de actualidad y debates — como detectores tempranos de olas de comportamiento de manada y sobreconfianza. En informes, conviene combinarlos con modelos contextuales como FinBERT o LLM entrenados específicamente, más una revisión cualitativa obligatoria. Así, además de las métricas textuales estándar, se pueden construir perfiles separados de manada, encuadre y confianza en algoritmos en distintos canales, sin penalizar a una empresa solo por cumplir honestamente las exigencias del regulador.</p>
                   </section>
 
                   <section class="audience-panel" id="audience-investors" role="tabpanel" aria-labelledby="tab-investors" hidden>
-                    <p>Para analistas financieros e inversores, este trabajo recuerda que los números siempre llegan acompañados de lenguaje, y que el lenguaje tiene sus propias distorsiones estables. Los informes no deberían tratarse como “señal pura” simplemente porque usan fórmulas estándar sobre incertidumbre y riesgo; esas fórmulas a menudo hablan más de autoprotección legal. Las noticias conviene leerlas con una pregunta: “¿En qué marco están colocando estos números ahora mismo?”. Y las redes sociales deberían verse como un mapa de lugares donde la retórica ha pasado al modo de “todos están seguros de que es imposible equivocarse”, lo cual ya es, por sí mismo, una señal de cautela.</p>
+                    <p>Para analistas financieros e inversores, este trabajo recuerda que los números siempre vienen acompañados de lenguaje, y que el lenguaje trae sus propias distorsiones estables. No tiene sentido tratar los informes como “señal limpia” cuando usan fórmulas estándar sobre incertidumbre y riesgo: muchas veces hablan más de autoprotección legal que del estado real del negocio. Las noticias es mejor leerlas preguntando “¿en qué marco están colocando ahora estos números?”. Y las redes sociales conviene mirarlas como un mapa de lugares donde la retórica ha pasado a “todo el mundo está seguro de que es imposible equivocarse”, lo cual ya es una señal de prudencia.</p>
                   </section>
 
                   <section class="audience-panel" id="audience-users" role="tabpanel" aria-labelledby="tab-users" hidden>
-                    <p>Para quienes usan aplicaciones financieras e invierten de vez en cuando, esto aporta un filtro más a la higiene financiera: cómo exactamente te están hablando. Un informe que repite muchas veces “uncertainty” no significa automáticamente que todo vaya a hundirse mañana. Un titular sobre un “historic rally” puede describir un movimiento que en el gráfico parece volatilidad normal. Un hilo lleno de voces seguras que prometen dinero fácil puede ser menos una revelación de inteligencia colectiva y más una combinación de manual entre Overconfidence, Herd Behavior y AI Overtrust en un mismo grupo de frases.</p>
+                    <p>Para personas que usan apps financieras e invierten de vez en cuando, esto es una oportunidad de añadir otro filtro a su higiene financiera interna: cómo te hablan. Un informe que repite muchas veces “uncertainty” no significa automáticamente que todo vaya a hundirse mañana. Una noticia con “historic rally” puede describir un movimiento que en el gráfico parece volatilidad habitual. Un hilo lleno de voces muy seguras sobre beneficios fáciles puede no ser una revelación del “inteligencia colectiva”, sino un ejemplo de manual de Overconfidence, Herd Behavior y AI Overtrust en un mismo conjunto de frases.</p>
                   </section>
                 </div>
 
-                <div class="article-figures fade-in" aria-label="Фігури дослідження">
-                <a class="figure-slot" href="/static/media/figure_1.png" target="_blank">
-                  <img src="/static/media/figure_1.png" alt="Фігура 1">
-                  <span>Figure 1</span>
-                </a>
+                <div class="article-figures fade-in" aria-label="Figuras de la investigación">
+                  <a class="figure-slot" href="/static/media/figure_1.png" target="_blank" rel="noopener noreferrer">
+                    <img src="/static/media/figure_1.png" alt="Figura 1">
+                    <span>Figura 1</span>
+                  </a>
 
-                <a class="figure-slot" href="/static/media/figure_2.png" target="_blank">
-                  <img src="/static/media/figure_2.png" alt="Фігура 2">
-                  <span>Figure 2</span>
-                </a>
+                  <a class="figure-slot" href="/static/media/figure_2.png" target="_blank" rel="noopener noreferrer">
+                    <img src="/static/media/figure_2.png" alt="Figura 2">
+                    <span>Figura 2</span>
+                  </a>
 
-                <a class="figure-slot" href="/static/media/figure_3.png" target="_blank">
-                  <img src="/static/media/figure_3.png" alt="Фігура 3">
-                  <span>Figure 3</span>
-                </a>
+                  <a class="figure-slot" href="/static/media/figure_3.png" target="_blank" rel="noopener noreferrer">
+                    <img src="/static/media/figure_3.png" alt="Figura 3">
+                    <span>Figura 3</span>
+                  </a>
 
-                <a class="figure-slot" href="/static/media/figure_4.png" target="_blank">
-                  <img src="/static/media/figure_4.png" alt="Фігура 4">
-                  <span>Figure 4</span>
-                </a>
-              </div>
+                  <a class="figure-slot" href="/static/media/figure_4.png" target="_blank" rel="noopener noreferrer">
+                    <img src="/static/media/figure_4.png" alt="Figura 4">
+                    <span>Figura 4</span>
+                  </a>
+                </div>
 
-                <p class="is-focus">En el fondo, este caso trata sobre el lenguaje. Y sobre la mente. Y sobre cómo ambos interactúan con el dinero. Trata de los patrones cognitivos incrustados en los textos, patrones que mueven los mercados no menos que los datos macro. Y trata también de que, en 2026, la ventaja no pertenece a quien tiene más información, sino a quien comprende mejor a través de qué lentes esa información llega tanto a la persona como a sus modelos.</p>
+                <p class="is-focus">En el fondo, este caso va de lenguaje. Y del cerebro. Y de cómo interactúan con el dinero. De cómo los patrones cognitivos están incrustados en los textos y mueven los mercados tanto como los datos macro. Y de que en 2026 no gana quien tiene más información, sino quien ve mejor a través de qué lentes llega esa información a él — y a sus modelos.</p>
               </section>
             </div>
           </div>
@@ -356,10 +1131,10 @@ html[data-theme="dark"] .audience-panel{background:linear-gradient(180deg,rgba(2
               <nav class="toc">
                 <a href="#part-1">Inicio</a>
                 <a href="#part-2">Patrones léxicos</a>
-                <a href="#part-3">Densidad de señal</a>
+                <a href="#part-3">Densidad de la señal</a>
                 <a href="#part-4">Lo que mostró el corpus</a>
                 <a href="#part-5">IA y errores de lectura</a>
-                <a href="#part-6">Aplicación práctica</a>
+                <a href="#part-6">Uso práctico</a>
               </nav>
             </div>
           </aside>
@@ -375,91 +1150,194 @@ html[data-theme="dark"] .audience-panel{background:linear-gradient(180deg,rgba(2
 
 <footer class="footer">
   <div class="wrap">
-    <div class="footer-grid fade-in">
+    <div class="footer-grid">
       <div>
         <h4>TELWHA</h4>
-        <p>Psicología financiera, economía conductual y arquitectura de elección para decisiones financieras más sostenibles.</p>
+        <p>Psicología financiera, economía conductual y arquitectura de elección para mejores decisiones y resultados más resilientes.</p>
       </div>
       <div style="text-align:right">
         <h4>Navegación</h4>
-        <div class="footer-links" style="align-items:flex-end">
-          <a href="/es/about/">Sobre mí</a>
-          <a href="/es/reviews/">Reseñas</a>
+        <div class="footer-links">
+          <a href="/es/">Inicio</a>
+          <a href="/es/articles/">Artículos</a>
+          <a href="/es/reviews/">Opiniones</a>
           <a href="/es/contact/">Contacto</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 TELWHA. Todos los derechos reservados.</span>
-      <span>Kyiv, Ucrania · 🇺🇦</span>
+      <span>Kyiv, Ucrania</span>
     </div>
   </div>
 </footer>
 
-<script src="/static/script/global.js"></script>
 <script>
-  const menuToggle = document.querySelector('.menu-toggle');
-  const siteMenu = document.querySelector('#site-menu');
-  if (menuToggle && siteMenu) {
-    menuToggle.addEventListener('click', () => {
-      const isOpen = siteMenu.classList.toggle('is-open');
-      menuToggle.classList.toggle('is-open', isOpen);
-      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      menuToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+  function updateProgressBar() {
+    const progress = document.getElementById("progress");
+    if (!progress) return;
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progressValue = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progress.style.width = progressValue + "%";
+  }
+
+  function syncThemeButtonUI() {
+    const themeBtn = document.querySelector(".theme-toggle");
+    if (!themeBtn) return;
+    const current = document.documentElement.getAttribute("data-theme") || "light";
+    themeBtn.textContent = current === "dark" ? "🌙" : "☀️";
+    themeBtn.setAttribute(
+      "aria-label",
+      current === "dark" ? "Cambiar a tema claro" : "Cambiar a tema oscuro"
+    );
+  }
+
+  function closeAllDropdowns(except = null) {
+    document.querySelectorAll(".dropdown").forEach((dropdown) => {
+      if (dropdown === except) return;
+      dropdown.classList.remove("is-open");
+      const button = dropdown.querySelector(".dropbtn");
+      if (button) button.setAttribute("aria-expanded", "false");
     });
   }
 
-  const progress = document.getElementById('progress');
-  const updateProgress = () => {
-    const doc = document.documentElement;
-    const total = doc.scrollHeight - doc.clientHeight;
-    const scrolled = total > 0 ? (doc.scrollTop / total) * 100 : 0;
-    if (progress) progress.style.width = scrolled + '%';
-  };
-  document.addEventListener('scroll', updateProgress, { passive: true });
-  updateProgress();
+  document.addEventListener("DOMContentLoaded", () => {
+    updateProgressBar();
+    window.addEventListener("scroll", updateProgressBar, { passive: true });
 
-  const audienceTabs = Array.from(document.querySelectorAll('.audience-tab'));
-  const audiencePanels = Array.from(document.querySelectorAll('.audience-panel'));
-  if (audienceTabs.length) {
-    audienceTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const target = tab.dataset.target;
-        audienceTabs.forEach(btn => {
-          const active = btn === tab;
-          btn.classList.toggle('is-active', active);
-          btn.setAttribute('aria-selected', active ? 'true' : 'false');
-        });
-        audiencePanels.forEach(panel => {
-          const active = panel.id === target;
-          panel.classList.toggle('is-active', active);
-          panel.hidden = !active;
-        });
+    const root = document.documentElement;
+    let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    root.setAttribute("data-theme", currentTheme);
+    syncThemeButtonUI();
+
+    const themeBtn = document.querySelector(".theme-toggle");
+    if (themeBtn) {
+      themeBtn.addEventListener("click", () => {
+        currentTheme = currentTheme === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", currentTheme);
+        syncThemeButtonUI();
+      });
+    }
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const siteMenu = document.querySelector("#site-menu");
+
+    if (menuToggle && siteMenu) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = siteMenu.classList.toggle("is-open");
+        menuToggle.classList.toggle("is-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+
+        if (!isOpen) closeAllDropdowns();
+      });
+    }
+
+    document.querySelectorAll(".dropbtn").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        if (window.innerWidth > 920) return;
+        event.stopPropagation();
+        const parent = button.parentElement;
+        const willOpen = !parent.classList.contains("is-open");
+        closeAllDropdowns(parent);
+        parent.classList.toggle("is-open", willOpen);
+        button.setAttribute("aria-expanded", willOpen ? "true" : "false");
       });
     });
-  }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('is-visible');
-    });
-  }, { threshold: 0.14 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".dropdown")) {
+        closeAllDropdowns();
+      }
 
-  const tocLinks = Array.from(document.querySelectorAll('.toc a'));
-  const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
-  const markToc = () => {
-    let activeId = sections[0]?.id;
-    sections.forEach(section => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= 140) activeId = section.id;
+      const nav = document.querySelector(".nav");
+      if (
+        window.innerWidth <= 920 &&
+        siteMenu &&
+        siteMenu.classList.contains("is-open") &&
+        nav &&
+        !nav.contains(event.target)
+      ) {
+        siteMenu.classList.remove("is-open");
+        menuToggle?.classList.remove("is-open");
+        menuToggle?.setAttribute("aria-expanded", "false");
+        menuToggle?.setAttribute("aria-label", "Abrir menú");
+      }
     });
-    tocLinks.forEach(link => {
-      link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeAllDropdowns();
+
+        if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Abrir menú");
+          menuToggle?.focus();
+        }
+      }
     });
-  };
-  document.addEventListener('scroll', markToc, { passive: true });
-  markToc();
+
+    document.querySelectorAll('#site-menu a[href]').forEach((link) => {
+      link.addEventListener("click", () => {
+        closeAllDropdowns();
+
+        if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Abrir menú");
+        }
+      });
+    });
+
+    const audienceTabs = Array.from(document.querySelectorAll('.audience-tab'));
+    const audiencePanels = Array.from(document.querySelectorAll('.audience-panel'));
+    if (audienceTabs.length) {
+      audienceTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const target = tab.dataset.target;
+          audienceTabs.forEach(btn => {
+            const active = btn === tab;
+            btn.classList.toggle('is-active', active);
+            btn.setAttribute('aria-selected', active ? 'true' : 'false');
+          });
+          audiencePanels.forEach(panel => {
+            const active = panel.id === target;
+            panel.classList.toggle('is-active', active);
+            panel.hidden = !active;
+          });
+        });
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('is-visible');
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+    const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+
+    const markToc = () => {
+      let activeId = sections[0]?.id;
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 140) activeId = section.id;
+      });
+      tocLinks.forEach(link => {
+        link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
+      });
+    };
+
+    document.addEventListener('scroll', markToc, { passive: true });
+    markToc();
+  });
 </script>
 </body>
 </html>

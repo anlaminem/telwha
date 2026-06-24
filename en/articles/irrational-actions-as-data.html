@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
-  <title>Your “irrational” actions are valuable data — TELWHA</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="How to look at your “irrational” financial actions as data about thinking, emotions and patterns instead of failures. A practical framework for analysis.">
+  <title>Your “Irrational” Actions Are Valuable Data — TELWHA</title>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How to look at your ‘irrational’ financial actions as data about thinking, emotions, and patterns rather than as failures. A practical framework for analysis.">
   <link rel="canonical" href="https://t-e-l-w-h-a.com/en/articles/irrational-actions-as-data.html">
 
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Your “irrational” actions are valuable data — TELWHA">
-  <meta property="og:description" content="Any money action is a signal about your inner model of the world. How to use these signals as data and change decision patterns.">
+  <meta property="og:title" content="Your “Irrational” Actions Are Valuable Data — TELWHA">
+  <meta property="og:description" content="Any action with money is a signal about your internal model of the world. How to use these signals as data and change decision patterns.">
   <meta property="og:url" content="https://t-e-l-w-h-a.com/en/articles/irrational-actions-as-data.html">
   <meta property="og:site_name" content="TELWHA">
 
@@ -19,11 +19,11 @@
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Your “irrational” actions are valuable data",
-    "description": "How to look at your “irrational” financial actions as data about thinking, emotions and patterns instead of failures.",
+    "headline": "Your “Irrational” Actions Are Valuable Data",
+    "description": "How to look at your ‘irrational’ financial actions as data about thinking, emotions, and patterns rather than as failures.",
     "author": {
       "@type": "Person",
-      "name": "Anna Signaevskaya"
+      "name": "Anna Signaevska"
     },
     "publisher": {
       "@type": "Organization",
@@ -39,28 +39,723 @@
   }
   </script>
 
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-FVHKD6TZJP');
-  </script>
-
   <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
-  <link rel="stylesheet" href="/static/css/base.css">
-  <link rel="stylesheet" href="/static/css/layout-article.css">
+
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root,
+    [data-theme="light"] {
+      --font-display: "Boska", Georgia, serif;
+      --font-body: "Satoshi", "Inter", sans-serif;
+
+      --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+      --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
+      --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+      --text-2xl: clamp(2.2rem, 1.5rem + 2vw, 4rem);
+
+      --color-bg: #f5f3ef;
+      --color-surface: #fcfbf8;
+      --color-surface-2: #f2efe9;
+      --color-surface-3: #ebe7df;
+      --color-border: rgba(40, 37, 29, 0.10);
+      --color-divider: rgba(40, 37, 29, 0.08);
+
+      --color-text: #22201a;
+      --color-text-muted: #65625b;
+      --color-text-faint: #8b877f;
+      --color-text-inverse: #f9f8f5;
+
+      --color-primary: #0f5d5f;
+      --color-primary-hover: #0b4b4d;
+      --color-primary-soft: rgba(15, 93, 95, 0.08);
+
+      --color-accent: #9a6a35;
+      --color-accent-soft: rgba(154, 106, 53, 0.08);
+
+      --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
+      --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
+      --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
+
+      --content-default: 1180px;
+      --content-reading: 860px;
+      --radius-md: 22px;
+      --radius-lg: 28px;
+      --radius-xl: 34px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1d1b18;
+      --color-surface-2: #24211d;
+      --color-surface-3: #2a2622;
+      --color-border: rgba(255, 255, 255, 0.10);
+      --color-divider: rgba(255, 255, 255, 0.08);
+
+      --color-text: #ece6dd;
+      --color-text-muted: #b7afa2;
+      --color-text-faint: #91897c;
+      --color-text-inverse: #171614;
+
+      --color-primary: #6ca7a7;
+      --color-primary-hover: #84baba;
+      --color-primary-soft: rgba(108, 167, 167, 0.10);
+
+      --color-accent: #c79c68;
+      --color-accent-soft: rgba(199, 156, 104, 0.09);
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
+      --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.7;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg, iframe { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button {
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .wrap {
+      width: min(100% - 28px, var(--content-default));
+      margin-inline: auto;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 120;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      color: var(--color-primary);
+      flex: 0 0 auto;
+    }
+
+    .sub {
+      color: var(--color-text-faint);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      max-width: 260px;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      transition: var(--transition);
+    }
+
+    .menu-toggle:hover {
+      background: var(--color-surface-2);
+    }
+
+    .menu-toggle-lines {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-toggle-lines span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--color-text);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      min-width: 0;
+      flex-wrap: nowrap;
+    }
+
+    .menu a,
+    .menu .dropbtn,
+    .theme-toggle,
+    .lang-link {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      white-space: nowrap;
+      line-height: 1.1;
+      flex-shrink: 0;
+    }
+
+    .menu a:hover,
+    .menu .dropbtn:hover,
+    .theme-toggle:hover,
+    .lang-link:hover {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+    }
+
+    .menu a.is-active {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+    }
+
+    .menu a.is-highlight,
+    .menu .dropbtn.is-highlight {
+      color: var(--color-text-inverse);
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, var(--color-accent)));
+      border: 1px solid transparent;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .menu a.is-highlight:hover,
+    .menu .dropbtn.is-highlight:hover {
+      background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+      color: var(--color-text-inverse);
+    }
+
+    [data-theme="dark"] .menu a.is-highlight,
+    [data-theme="dark"] .menu .dropbtn.is-highlight {
+      color: #141311;
+    }
+
+    .dropdown {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .dropbtn {
+      gap: 6px;
+    }
+
+    .dropbtn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform var(--transition);
+      flex: 0 0 auto;
+    }
+
+    .dropdown:hover .dropbtn svg,
+    .dropdown:focus-within .dropbtn svg,
+    .dropdown.is-open .dropbtn svg {
+      transform: rotate(180deg);
+    }
+
+    .dropcontent {
+      position: absolute;
+      top: calc(100% + 2px);
+      left: 0;
+      z-index: 300;
+      min-width: 240px;
+      display: grid;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    }
+
+    .dropdown:hover .dropcontent,
+    .dropdown:focus-within .dropcontent,
+    .dropdown.is-open .dropcontent {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .dropcontent a {
+      justify-content: flex-start;
+      padding: 12px 14px;
+      border-radius: 12px;
+      white-space: normal;
+      line-height: 1.35;
+    }
+
+    .menu-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid var(--color-divider);
+      flex-shrink: 0;
+    }
+
+    .lang-list {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-link.is-active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      width: 44px;
+      padding-inline: 0;
+      font-size: 1rem;
+    }
+
+    main {
+      padding: 34px 0 90px;
+    }
+
+    .article-shell {
+      width: min(100%, var(--content-reading));
+      margin-inline: auto;
+    }
+
+    .article-header {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(28px, 4vw, 48px);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+      margin-bottom: 18px;
+    }
+
+    .article-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 14% 18%, rgba(15, 93, 95, 0.06), transparent 24%),
+        radial-gradient(circle at 86% 16%, rgba(154, 106, 53, 0.05), transparent 22%);
+    }
+
+    .article-header > * {
+      position: relative;
+    }
+
+    .article-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .article-tag::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--color-primary);
+    }
+
+    .article-header h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      max-width: 13ch;
+      margin-bottom: 12px;
+    }
+
+    .article-meta {
+      color: var(--color-text-faint);
+      font-size: 0.92rem;
+      margin-bottom: 14px;
+    }
+
+    .article-deck {
+      color: var(--color-text-muted);
+      font-size: var(--text-lg);
+      max-width: 58ch;
+    }
+
+    .article-video {
+      margin: 0 0 22px;
+      padding: 14px;
+      border-radius: 26px;
+      border: 1px solid var(--color-border);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      box-shadow: var(--shadow-md);
+    }
+
+    .article-video iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 18px;
+    }
+
+    .article-body {
+      padding: clamp(22px, 3vw, 36px);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .article-body p,
+    .article-body li {
+      color: var(--color-text);
+    }
+
+    .article-body p {
+      margin-bottom: 1.2rem;
+    }
+
+    .article-body ul,
+    .article-body ol {
+      margin: 0 0 1.2rem 1.25rem;
+    }
+
+    .article-body li {
+      margin-bottom: 0.6rem;
+    }
+
+    .article-body h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      margin: 2rem 0 0.85rem;
+    }
+
+    .article-callout {
+      margin: 1.4rem 0 1.6rem;
+      padding: 18px 20px;
+      border-radius: 20px;
+      border: 1px solid var(--color-border);
+      background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 14%, var(--color-surface)), color-mix(in srgb, var(--color-accent) 4%, var(--color-surface)));
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+
+    .article-cta {
+      margin-top: 22px;
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-primary-soft) 40%, var(--color-surface)));
+      box-shadow: var(--shadow-sm);
+    }
+
+    .article-cta h3 {
+      font-size: var(--text-lg);
+      margin-bottom: 12px;
+    }
+
+    .cta-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+      white-space: nowrap;
+      background: var(--color-surface);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .btn:hover {
+      background: var(--color-surface-2);
+    }
+
+    .footer {
+      padding: 36px 0 26px;
+      border-top: 1px solid var(--color-divider);
+      background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+      margin-top: 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr 0.9fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer h4 {
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-faint);
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .footer a:hover {
+      color: var(--color-text);
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 22px;
+      margin-top: 22px;
+      border-top: 1px solid var(--color-divider);
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 14px;
+        right: 14px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid var(--color-border);
+        border-radius: 22px;
+        background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .menu.is-open {
+        display: flex;
+      }
+
+      .menu a,
+      .menu .dropbtn,
+      .theme-toggle,
+      .lang-link {
+        justify-content: flex-start;
+        border-radius: 14px;
+        font-size: 0.95rem;
+        padding: 10px 12px;
+      }
+
+      .menu a.is-highlight,
+      .menu .dropbtn.is-highlight {
+        justify-content: center;
+      }
+
+      .dropdown {
+        width: 100%;
+      }
+
+      .dropcontent {
+        position: static;
+        min-width: 0;
+        margin-top: 8px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+        display: none;
+        box-shadow: none;
+        border-radius: 16px;
+        background: var(--color-surface-2);
+      }
+
+      .dropdown.is-open .dropcontent {
+        display: grid;
+      }
+
+      .menu-tools {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+        padding-top: 6px;
+        border-top: 1px solid var(--color-divider);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(100% - 24px, var(--content-default));
+      }
+
+      .article-header,
+      .article-body,
+      .article-video,
+      .article-cta {
+        border-radius: 22px;
+      }
+
+      .article-header h1 {
+        max-width: 100%;
+      }
+
+      .cta-links {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="progress" id="progress"></div>
 
   <header class="topbar">
     <div class="wrap nav">
       <div class="brand">
-        <a class="brand-row" href="/en/">
+        <a class="brand-row" href="/en/" aria-label="TELWHA — go to homepage">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
           <strong>TELWHA</strong>
         </a>
-        <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+        <span class="sub">Financial Psychology · Behavioral Strategy</span>
       </div>
 
       <button
@@ -71,42 +766,55 @@
         aria-label="Open menu"
       >
         <span class="menu-toggle-lines" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </span>
       </button>
 
-      <nav class="menu" id="site-menu">
-        <div class="menu-group">
-          <a href="/en/">Home</a>
-          <a href="/finlab/">FinLab</a>
-          <a href="/en/about/">About</a>
-        </div>
+      <nav class="menu" id="site-menu" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/about/">About</a>
+        <a href="/en/cases/">Cases</a>
+        <a href="/en/articles/" class="is-active">Articles</a>
+        <a href="/en/finlab/">FinLab</a>
 
-        <div class="menu-group menu-dropdown">
-          <button type="button" class="menu-dropbtn" aria-expanded="false">For traders ▾</button>
-          <div class="menu-dropcontent">
-            <a href="/en/trader-course/">Mini‑course</a>
-            <a href="/en/archetype-test/">Archetype test</a>
+        <div class="dropdown">
+          <button type="button" class="dropbtn is-highlight" aria-expanded="false">
+            Test yourself
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/finlab/money-test-api/money-test.html">Financial behavior test</a>
+            <a href="/habit-test.html">Where do your habits lead?</a>
+            <a href="/fact-or-fiction-cases.html">Fact or fiction?</a>
           </div>
         </div>
 
-        <div class="menu-group">
-          <a href="/en/articles/">Articles</a>
-          <a href="/en/contact/">Contact</a>
+        <div class="dropdown">
+          <button type="button" class="dropbtn" aria-expanded="false">
+            For traders
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/trader-course/">Mini-course</a>
+            <a href="/archetype-test/">Trader archetype</a>
+          </div>
         </div>
 
-        <div class="menu-group menu-tools">
-          <details class="lang-switcher lang-switcher--inside">
-            <summary>🇬🇧</summary>
-            <div class="lang-list">
-              <a href="/articles/irrational-actions-as-data.html" aria-label="Українська" lang="uk">🇺🇦</a>
-              <a href="/es/articles/irrational-actions-as-data.html" aria-label="Español" lang="es">🇪🇸</a>
-            </div>
-          </details>
+        <a href="/en/reviews/">Reviews</a>
+        <a href="/en/contact/">Contact</a>
 
-          <button class="theme-toggle" type="button" aria-label="Toggle theme">🌓</button>
+        <div class="menu-tools">
+          <div class="lang-list" aria-label="Site languages">
+            <a class="lang-link" href="/articles/irrational-actions-as-data.html" lang="uk" aria-label="Українська">UA</a>
+            <a class="lang-link is-active" href="/en/articles/irrational-actions-as-data.html" lang="en" aria-label="English">EN</a>
+            <a class="lang-link" href="/es/articles/irrational-actions-as-data.html" lang="es" aria-label="Español">ES</a>
+          </div>
+
+          <button class="theme-toggle" type="button" aria-label="Change theme">☀️</button>
         </div>
       </nav>
     </div>
@@ -117,20 +825,16 @@
       <article class="article-shell" itemscope itemtype="https://schema.org/Article">
         <header class="article-header">
           <div class="article-tag" itemprop="articleSection">
-            Money psychology
+            Money Psychology
           </div>
-
-          <h1 itemprop="headline">Your “irrational” actions are valuable data</h1>
-
+          <h1 itemprop="headline">Your “Irrational” Actions Are Valuable Data</h1>
           <p class="article-meta">
-            <time itemprop="datePublished" datetime="2025-06-01">1 June 2025</time>
-            · <span itemprop="author">Anna Signaevskaya</span>
-            · 8 min read
+            <time itemprop="datePublished" datetime="2025-06-01">June 1, 2025</time>
+            · <span itemprop="author">Anna Signaevska</span> · 8 min read
           </p>
-
           <p class="article-deck">
-            How to look at your “irrational” financial actions as data about thinking, emotions and patterns
-            instead of failures. A practical framework for analysis.
+            How to look at your “irrational” financial actions as data about thinking, emotions,
+            and patterns rather than as failures. A practical framework for analysis.
           </p>
         </header>
 
@@ -138,77 +842,76 @@
           <iframe
             src="https://www.youtube.com/embed/2irNHruIvLM"
             title="Your irrational actions are valuable data"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
         </div>
 
         <div class="article-body" itemprop="articleBody">
-          <p><strong>Any “strange” action with money is not a verdict, but data.</strong> It is a signal of how your brain currently sees the world, risk and your place inside that environment.</p>
+          <p><strong>Any “strange” action with money is data.</strong> It is a signal about how the brain currently sees the world, risk, and itself within that environment.</p>
 
           <div class="article-callout">
-            Do not try to “fix yourself with willpower”. Adjust the decision environment as if you were working with data, not with the idea of being a “good” or “bad” person.
+            Don’t try to “fix yourself” through character. Adjust your decision environment as if you were working with data, not with “goodness” or “badness.”
           </div>
 
-          <h2>1. What we usually call “irrational”</h2>
+          <h2>1. What exactly counts as “irrational”</h2>
           <p>
-            “Irrationality” usually means actions that go against a plan, basic logic or your own stated goals:
-            impulsive purchases, overtrading, ignoring risk, or endlessly postponing decisions.
+            By “irrationality” people usually mean actions that go against a plan, basic logic, or one’s own stated goals: impulsive purchases, overtrading, ignoring risk, or delaying decisions.
           </p>
           <p>
-            If you see this as a character failure, all you get is shame and self‑sabotage.
-            If you see it as data, you get a chance to notice the pattern and change the decision environment.
+            If you look at this as a character failure, the most you get is shame and self-sabotage.
+            But if you look at it as data, you gain the chance to see the pattern and change the decision environment.
           </p>
 
-          <h2>2. Why this is data, not “being a bad person”</h2>
+          <h2>2. Why this is data, not a “bad person”</h2>
           <p>
-            Every action is the result of a combination of emotions, heuristics (quick rules) and context.
+            Every action is the result of a combination of emotions, heuristics (fast rules), and context.
             The brain needs to simplify the world and make it predictable, so it:
           </p>
           <ul>
-            <li>uses labels, first impressions and stereotypes;</li>
-            <li>searches for confirmation of old beliefs (confirmation bias);</li>
-            <li>avoids information that disrupts its picture of the world.</li>
+            <li>uses labels and shortcuts (first impression effect, stereotypes);</li>
+            <li>looks for confirmation of old beliefs (confirmation bias);</li>
+            <li>avoids information that “breaks” its picture of the world.</li>
           </ul>
           <p>
-            When you buy an asset “because everyone is buying” or ignore losses, this is not about being “stupid”.
-            It shows which model of the world and safety is dominating right now.
+            When you buy an asset “because everyone is buying” or ignore losses, it does not speak to your “stupidity.”
+            It shows which model of the world and safety is currently dominant.
           </p>
 
-          <h2>3. Turning an action into a data set</h2>
-          <p>A practical framework for unpacking one situation:</p>
+          <h2>3. How to turn an action into a dataset</h2>
+          <p>Here is a practical framework for analyzing a single situation:</p>
           <ol>
-            <li><strong>Fact.</strong> What exactly did you do with money? One concrete action, no interpretation.</li>
-            <li><strong>State.</strong> What emotions and body sensations were there before, during and after the action?</li>
-            <li><strong>Thought.</strong> Which sentence in your head justified the decision, such as “I’ll make it back later” or “everyone does it”?</li>
-            <li><strong>Context.</strong> What were the conditions — time, environment, fatigue level, information noise?</li>
-            <li><strong>Payoff.</strong> What did this action actually give you: lower tension, a sense of control, excitement?</li>
+            <li><strong>Fact.</strong> What exactly did you do with money? A specific action, with no interpretation.</li>
+            <li><strong>State.</strong> What emotions and bodily sensations were present before, during, and after the action?</li>
+            <li><strong>Thought.</strong> What phrase in your head justified the decision (“I’ll catch up later,” “everyone does it”)?</li>
+            <li><strong>Context.</strong> What were the conditions — time, environment, fatigue level, informational noise?</li>
+            <li><strong>Payoff.</strong> What did this action actually give you: reduced tension, a sense of control, excitement?</li>
           </ol>
           <p>
-            One such analysis will not change much. But 10–20 of them give you a map of repeating patterns —
-            exactly what financial psychology and behavioral analytics work with.
+            One such analysis changes little. But 10–20 analyses already give you a map of recurring patterns —
+            and that is exactly what financial psychology and behavioral analytics work with.
           </p>
 
-          <h2>4. Changing the pattern instead of breaking yourself</h2>
-          <p>The focus is not on willpower, but on changing the decision system:</p>
+          <h2>4. How to change the pattern instead of “breaking yourself”</h2>
+          <p>The focus is not on willpower (I don’t believe in it), but on changing the decision system:</p>
           <ul>
-            <li>move critical money decisions out of emotional states through a time delay or a “stop button”;</li>
-            <li>pre‑define limits: amounts, frequency of trades or purchases, and stopping triggers;</li>
-            <li>structure information: know clearly what you need and what is definitely not for you;</li>
-            <li>return regularly to your “action log” as a data set, not as a list of sins.</li>
+            <li>move critical money decisions out of emotional states (time delay, a “stop button”);</li>
+            <li>define limits in advance: amounts, frequency of trades/purchases, triggers for stopping;</li>
+            <li>structure information: know clearly what you need and what definitely does not fit you;</li>
+            <li>return regularly to your “action journal” as a dataset, not as a list of guilt points.</li>
           </ul>
           <p>
             This is how you move from chaotic reactions to systematic work with your own biases —
-            without self‑punishment, but with numbers, patterns and decisions.
+            without self-punishment, but with numbers, patterns, and decisions.
           </p>
         </div>
 
         <section class="article-cta">
-          <h3>What’s next</h3>
+          <h3>What next</h3>
           <div class="cta-links">
-            <a class="btn" href="/en/archetype-test/">Take the trader archetype test</a>
-            <a class="btn" href="/finlab/">See the FinLab format</a>
-            <a class="btn" href="/en/contact/">Book a consultation</a>
+            <a class="btn" href="/archetype-test/">Take the trader archetype test</a>
+            <a class="btn" href="/finlab/">Explore the FinLab format</a>
+            <a class="btn" href="/contact/">Book a consultation</a>
           </div>
         </section>
       </article>
@@ -220,76 +923,157 @@
       <div class="footer-grid">
         <div>
           <h4>TELWHA</h4>
-          <p>Financial psychology, behavioral economics and choice architecture for better decisions and more stable results.</p>
+          <p>Financial psychology, behavioral economics, and choice architecture for better decisions and more resilient outcomes.</p>
         </div>
+
         <div>
           <h4>Navigation</h4>
           <div class="footer-links">
             <a href="/en/">Home</a>
-            <a href="/en/trader-course/">Mini‑course</a>
             <a href="/en/articles/">Articles</a>
+            <a href="/en/finlab/">FinLab</a>
+            <a href="/en/contact/">Contact</a>
           </div>
         </div>
+
         <div>
-          <h4>Contacts</h4>
+          <h4>Contact</h4>
           <div class="footer-links">
             <a href="mailto:annasignaevskaya@gmail.com">annasignaevskaya@gmail.com</a>
             <a href="https://t.me/AnnaFinPsy" target="_blank" rel="noopener noreferrer">Telegram</a>
-            <a href="/en/contact/">Contact form</a>
+            <a href="/en/contact/">Inquiry form</a>
           </div>
         </div>
       </div>
+
       <div class="footer-bottom">
         <span>© 2026 TELWHA. All rights reserved.</span>
-        <span>Kyiv, Ukraine · 🇺🇦</span>
+        <span>Kyiv, Ukraine</span>
       </div>
     </div>
   </footer>
 
-  <script src="/static/script/global.js"></script>
   <script>
-    const menuToggle = document.querySelector(".menu-toggle");
-    const siteMenu = document.querySelector("#site-menu");
-    const dropdown = document.querySelector(".menu-dropdown");
-    const dropBtn = document.querySelector(".menu-dropbtn");
+    function updateProgressBar() {
+      const progress = document.getElementById("progress");
+      if (!progress) return;
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressValue = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = progressValue + "%";
+    }
 
-    if (menuToggle && siteMenu) {
-      menuToggle.addEventListener("click", () => {
-        const isOpen = siteMenu.classList.toggle("is-open");
-        menuToggle.classList.toggle("is-open", isOpen);
-        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        menuToggle.setAttribute(
-          "aria-label",
-          isOpen ? "Close menu" : "Open menu"
-        );
-      });
+    function syncThemeButtonUI() {
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (!themeBtn) return;
+      const current = document.documentElement.getAttribute("data-theme") || "light";
+      themeBtn.textContent = current === "dark" ? "🌙" : "☀️";
+      themeBtn.setAttribute(
+        "aria-label",
+        current === "dark" ? "Switch to light theme" : "Switch to dark theme"
+      );
+    }
 
-      document.addEventListener("click", (e) => {
-        if (!e.target.closest(".nav") && siteMenu.classList.contains("is-open")) {
-          siteMenu.classList.remove("is-open");
-          menuToggle.classList.remove("is-open");
-          menuToggle.setAttribute("aria-expanded", "false");
-          menuToggle.setAttribute("aria-label", "Open menu");
-        }
-      });
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && siteMenu.classList.contains("is-open")) {
-          siteMenu.classList.remove("is-open");
-          menuToggle.classList.remove("is-open");
-          menuToggle.setAttribute("aria-expanded", "false");
-          menuToggle.setAttribute("aria-label", "Open menu");
-          menuToggle.focus();
-        }
+    function closeAllDropdowns(except = null) {
+      document.querySelectorAll(".dropdown").forEach((dropdown) => {
+        if (dropdown === except) return;
+        dropdown.classList.remove("is-open");
+        const button = dropdown.querySelector(".dropbtn");
+        if (button) button.setAttribute("aria-expanded", "false");
       });
     }
 
-    if (dropBtn && dropdown) {
-      dropBtn.addEventListener("click", () => {
-        const open = dropdown.classList.toggle("is-open");
-        dropBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    document.addEventListener("DOMContentLoaded", () => {
+      updateProgressBar();
+      window.addEventListener("scroll", updateProgressBar, { passive: true });
+
+      const root = document.documentElement;
+      let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      root.setAttribute("data-theme", currentTheme);
+      syncThemeButtonUI();
+
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (themeBtn) {
+        themeBtn.addEventListener("click", () => {
+          currentTheme = currentTheme === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", currentTheme);
+          syncThemeButtonUI();
+        });
+      }
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const siteMenu = document.querySelector("#site-menu");
+
+      if (menuToggle && siteMenu) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = siteMenu.classList.toggle("is-open");
+          menuToggle.classList.toggle("is-open", isOpen);
+          menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+
+          if (!isOpen) closeAllDropdowns();
+        });
+      }
+
+      document.querySelectorAll(".dropbtn").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          if (window.innerWidth > 920) return;
+          event.stopPropagation();
+          const parent = button.parentElement;
+          const willOpen = !parent.classList.contains("is-open");
+          closeAllDropdowns(parent);
+          parent.classList.toggle("is-open", willOpen);
+          button.setAttribute("aria-expanded", willOpen ? "true" : "false");
+        });
       });
-    }
+
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".dropdown")) {
+          closeAllDropdowns();
+        }
+
+        const nav = document.querySelector(".nav");
+        if (
+          window.innerWidth <= 920 &&
+          siteMenu &&
+          siteMenu.classList.contains("is-open") &&
+          nav &&
+          !nav.contains(event.target)
+        ) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Open menu");
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeAllDropdowns();
+
+          if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle?.classList.remove("is-open");
+            menuToggle?.setAttribute("aria-expanded", "false");
+            menuToggle?.setAttribute("aria-label", "Open menu");
+            menuToggle?.focus();
+          }
+        }
+      });
+
+      document.querySelectorAll('#site-menu a[href]').forEach((link) => {
+        link.addEventListener("click", () => {
+          closeAllDropdowns();
+
+          if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle?.classList.remove("is-open");
+            menuToggle?.setAttribute("aria-expanded", "false");
+            menuToggle?.setAttribute("aria-label", "Open menu");
+          }
+        });
+      });
+    });
   </script>
 </body>
 </html>

@@ -1,26 +1,739 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>When money talks always end in conflict — TELWHA</title>
-  <meta name="description" content="This article is being prepared for publication. The full piece on money conflicts in relationships will appear here soon.">
+  <title>When conversations about money always end in conflict — TELWHA</title>
+  <meta name="description" content="Why financial conversations in couples often turn into conflict, what research through 2026 says about it, and how people and fintech products can respond.">
 
   <link rel="canonical" href="https://t-e-l-w-h-a.com/en/articles/couples-money-conflicts.html">
 
   <meta property="og:type" content="article">
-  <meta property="og:title" content="When money talks always end in conflict — TELWHA">
-  <meta property="og:description" content="The full piece on money conflicts in relationships will appear here soon.">
+  <meta property="og:title" content="When conversations about money always end in conflict — TELWHA">
+  <meta property="og:description" content="Why money conversations in couples turn into conflict, how research explains it, and what people and fintech products can do about it.">
   <meta property="og:url" content="https://t-e-l-w-h-a.com/en/articles/couples-money-conflicts.html">
   <meta property="og:site_name" content="TELWHA">
+
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
+
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root,
+    [data-theme="light"] {
+      --font-display: "Boska", Georgia, serif;
+      --font-body: "Satoshi", "Inter", sans-serif;
+
+      --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+      --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
+      --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+      --text-2xl: clamp(2.2rem, 1.5rem + 2vw, 4rem);
+
+      --color-bg: #f5f3ef;
+      --color-surface: #fcfbf8;
+      --color-surface-2: #f2efe9;
+      --color-surface-3: #ebe7df;
+      --color-border: rgba(40, 37, 29, 0.10);
+      --color-divider: rgba(40, 37, 29, 0.08);
+
+      --color-text: #22201a;
+      --color-text-muted: #65625b;
+      --color-text-faint: #8b877f;
+      --color-text-inverse: #f9f8f5;
+
+      --color-primary: #0f5d5f;
+      --color-primary-hover: #0b4b4d;
+      --color-primary-soft: rgba(15, 93, 95, 0.08);
+
+      --color-accent: #9a6a35;
+      --color-accent-soft: rgba(154, 106, 53, 0.08);
+
+      --color-success: #4f7a4e;
+      --color-error: #a04b46;
+
+      --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
+      --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
+      --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
+
+      --content-default: 1180px;
+      --content-wide: 1320px;
+      --radius-md: 22px;
+      --radius-lg: 28px;
+      --radius-xl: 34px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1d1b18;
+      --color-surface-2: #24211d;
+      --color-surface-3: #2a2622;
+      --color-border: rgba(255, 255, 255, 0.10);
+      --color-divider: rgba(255, 255, 255, 0.08);
+
+      --color-text: #ece6dd;
+      --color-text-muted: #b7afa2;
+      --color-text-faint: #91897c;
+      --color-text-inverse: #171614;
+
+      --color-primary: #6ca7a7;
+      --color-primary-hover: #84baba;
+      --color-primary-soft: rgba(108, 167, 167, 0.10);
+
+      --color-accent: #c79c68;
+      --color-accent-soft: rgba(199, 156, 104, 0.09);
+
+      --color-success: #89ba82;
+      --color-error: #d9837b;
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
+      --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.7;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button {
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .wrap {
+      width: min(100% - 28px, var(--content-default));
+      margin-inline: auto;
+    }
+
+    .wrap-wide {
+      width: min(100% - 28px, var(--content-wide));
+      margin-inline: auto;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 120;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      color: var(--color-primary);
+      flex: 0 0 auto;
+    }
+
+    .sub {
+      color: var(--color-text-faint);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      max-width: 320px;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      transition: var(--transition);
+    }
+
+    .menu-toggle:hover { background: var(--color-surface-2); }
+
+    .menu-toggle-lines {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-toggle-lines span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--color-text);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      min-width: 0;
+      flex-wrap: nowrap;
+    }
+
+    .menu a,
+    .menu .dropbtn,
+    .theme-toggle,
+    .lang-link {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      white-space: nowrap;
+      line-height: 1.1;
+      flex-shrink: 0;
+    }
+
+    .menu a:hover,
+    .menu .dropbtn:hover,
+    .theme-toggle:hover,
+    .lang-link:hover {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+    }
+
+    .menu a.is-active {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+    }
+
+    .menu a.is-highlight,
+    .menu .dropbtn.is-highlight {
+      color: var(--color-text-inverse);
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, var(--color-accent)));
+      border: 1px solid transparent;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .menu a.is-highlight:hover,
+    .menu .dropbtn.is-highlight:hover {
+      background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+      color: var(--color-text-inverse);
+    }
+
+    [data-theme="dark"] .menu a.is-highlight,
+    [data-theme="dark"] .menu .dropbtn.is-highlight {
+      color: #141311;
+    }
+
+    .dropdown {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .dropbtn {
+      gap: 6px;
+    }
+
+    .dropbtn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform var(--transition);
+      flex: 0 0 auto;
+    }
+
+    .dropdown:hover .dropbtn svg,
+    .dropdown:focus-within .dropbtn svg,
+    .dropdown.is-open .dropbtn svg {
+      transform: rotate(180deg);
+    }
+
+    .dropcontent {
+      position: absolute;
+      top: calc(100% + 2px);
+      left: 0;
+      z-index: 300;
+      min-width: 240px;
+      display: grid;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    }
+
+    .dropdown:hover .dropcontent,
+    .dropdown:focus-within .dropcontent,
+    .dropdown.is-open .dropcontent {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .dropcontent a {
+      justify-content: flex-start;
+      padding: 12px 14px;
+      border-radius: 12px;
+      white-space: normal;
+      line-height: 1.35;
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid var(--color-divider);
+      flex-shrink: 0;
+    }
+
+    .lang-list {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-link.is-active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      width: 44px;
+      padding-inline: 0;
+      font-size: 1rem;
+    }
+
+    main {
+      padding: 34px 0 90px;
+    }
+
+    .article-shell {
+      position: relative;
+      max-width: 920px;
+      margin-inline: auto;
+    }
+
+    .article-header {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 48px);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+      margin-bottom: 18px;
+    }
+
+    .article-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 14% 18%, rgba(15, 93, 95, 0.06), transparent 24%),
+        radial-gradient(circle at 86% 16%, rgba(154, 106, 53, 0.06), transparent 22%);
+    }
+
+    .article-header > * {
+      position: relative;
+    }
+
+    .article-tag,
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      flex-wrap: wrap;
+    }
+
+    .article-tag::before,
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--color-primary);
+    }
+
+    .article-header h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 0.97;
+      letter-spacing: -0.03em;
+      max-width: 16ch;
+      margin-bottom: 16px;
+    }
+
+    .article-deck {
+      max-width: 64ch;
+      color: var(--color-text-muted);
+      font-size: var(--text-lg);
+      margin-bottom: 18px;
+    }
+
+    .article-body {
+      padding: clamp(24px, 3vw, 38px);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 97%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .article-body section + section {
+      margin-top: 32px;
+      padding-top: 2px;
+    }
+
+    .article-body h2 {
+      font-size: var(--text-xl);
+      line-height: 1.08;
+      margin-bottom: 14px;
+    }
+
+    .article-body p {
+      max-width: 70ch;
+      color: var(--color-text);
+      margin-bottom: 16px;
+    }
+
+    .article-body ul,
+    .article-body ol {
+      margin: 8px 0 16px 0;
+      padding-left: 1.2rem;
+      max-width: 70ch;
+    }
+
+    .article-body li {
+      margin-bottom: 10px;
+      color: var(--color-text);
+    }
+
+    .article-body strong {
+      font-weight: 700;
+    }
+
+    .article-note {
+      padding: 16px 18px;
+      margin: 10px 0 18px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      background: linear-gradient(180deg, var(--color-surface-2), color-mix(in srgb, var(--color-primary-soft) 35%, var(--color-surface-2)));
+      color: var(--color-text-muted);
+      max-width: 70ch;
+    }
+
+    .article-cta {
+      padding: 18px 0 0;
+    }
+
+    .cta-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+      white-space: nowrap;
+      background: var(--color-surface);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .btn:hover {
+      background: var(--color-surface-2);
+    }
+
+    .footer {
+      padding: 36px 0 26px;
+      border-top: 1px solid var(--color-divider);
+      background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+      margin-top: 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer h4 {
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-faint);
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .footer a:hover {
+      color: var(--color-text);
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      justify-items: end;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 22px;
+      margin-top: 22px;
+      border-top: 1px solid var(--color-divider);
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 14px;
+        right: 14px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid var(--color-border);
+        border-radius: 22px;
+        background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .menu.is-open {
+        display: flex;
+      }
+
+      .menu a,
+      .menu .dropbtn,
+      .theme-toggle,
+      .lang-link {
+        justify-content: flex-start;
+        border-radius: 14px;
+        font-size: 0.95rem;
+        padding: 10px 12px;
+      }
+
+      .menu a.is-highlight,
+      .menu .dropbtn.is-highlight {
+        justify-content: center;
+      }
+
+      .dropdown {
+        width: 100%;
+      }
+
+      .dropcontent {
+        position: static;
+        min-width: 0;
+        margin-top: 8px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+        display: none;
+        box-shadow: none;
+        border-radius: 16px;
+        background: var(--color-surface-2);
+      }
+
+      .dropdown.is-open .dropcontent {
+        display: grid;
+      }
+
+      .menu-tools {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+        padding-top: 6px;
+        border-top: 1px solid var(--color-divider);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-links {
+        justify-items: start;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap,
+      .wrap-wide {
+        width: min(100% - 24px, var(--content-default));
+      }
+
+      .article-header,
+      .article-body {
+        border-radius: 22px;
+      }
+
+      .article-header h1 {
+        max-width: 100%;
+      }
+
+      .cta-links {
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .sub {
+        max-width: 240px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .fade-in {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "When money talks always end in conflict",
-    "description": "This article is being prepared for publication. The full piece on money conflicts in relationships will appear here soon.",
+    "headline": "When conversations about money always end in conflict",
+    "description": "Why financial conversations in couples often turn into conflict, what research through 2026 says about it, and how people and fintech products can respond.",
     "author": {
       "@type": "Person",
       "name": "Anna Signaevskaya"
@@ -36,35 +749,340 @@
     }
   }
   </script>
-
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-FVHKD6TZJP');
-  </script>
-
-  <link rel="icon" href="/static/media/telwha-favicon.png" type="png">
-  <link rel="stylesheet" href="/static/css/base.css">
-  <link rel="stylesheet" href="/static/css/layout-article.css">
 </head>
 <body>
-  <main class="wrap" style="padding:80px 20px;">
-    <article class="article-shell">
-      <header class="article-header">
-        <div class="article-tag">Couples &amp; money</div>
-        <h1>When money talks always end in conflict</h1>
-        <p class="article-deck">This article is being prepared for publication. The full piece on money conflicts in relationships will appear here soon.</p>
-      </header>
-      <section class="article-cta">
-        <div class="cta-links">
-          <a class="btn" href="/en/articles/">Back to articles</a>
-          <a class="btn" href="/en/contact/">Get in touch</a>
+  <div class="progress" id="progress"></div>
+
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand">
+        <a class="brand-row" href="/en/" aria-label="TELWHA — go to homepage">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+          <strong>TELWHA</strong>
+        </a>
+        <span class="sub">Financial Psychology</span>
+      </div>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        aria-label="Open menu"
+      >
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <nav class="menu" id="site-menu" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/about/">About me</a>
+        <a href="/en/cases/">Cases</a>
+        <a href="/en/articles/" class="is-active">Articles</a>
+        <a href="/en/finlab/">FinLab</a>
+
+        <div class="dropdown">
+          <button type="button" class="dropbtn is-highlight" aria-expanded="false">
+            Test yourself
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/finlab/money-test-api/money-test.html">Financial behavior test</a>
+            <a href="/habit-test.html">Where do your habits lead you?</a>
+            <a href="/fact-or-fiction-cases.html">Fact or fiction?</a>
+          </div>
         </div>
-      </section>
-    </article>
+
+        <div class="dropdown">
+          <button type="button" class="dropbtn" aria-expanded="false">
+            For traders
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/trader-course/">Mini-course</a>
+            <a href="/archetype-test/">Trader archetype</a>
+          </div>
+        </div>
+
+        <a href="/en/reviews/">Reviews</a>
+        <a href="/en/contact/">Contact</a>
+
+        <div class="menu-tools">
+          <div class="lang-list" aria-label="Site languages">
+            <a class="lang-link" href="/articles/couples-money-conflicts.html" lang="uk" aria-label="Ukrainian">UA</a>
+            <a class="lang-link is-active" href="/en/articles/couples-money-conflicts.html" lang="en" aria-label="English">EN</a>
+            <a class="lang-link" href="/es/articles/couples-money-conflicts.html" lang="es" aria-label="Español">ES</a>
+          </div>
+
+          <button class="theme-toggle" type="button" aria-label="Toggle theme">☀️</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap-wide">
+      <article class="article-shell">
+        <header class="article-header fade-in">
+          <div class="article-tag">Couples and money</div>
+          <h1>When conversations about money always end in conflict</h1>
+          <p class="article-deck">Financial conflicts are rarely only about numbers. More often, they are a mix of stress, different money patterns, a sense of unfairness, and the absence of a shared system for talking — and that is exactly why money needs to be understood both as a human issue and as a product challenge.</p>
+        </header>
+
+        <div class="article-body fade-in">
+          <section>
+            <h2>Why financial conversations so easily turn into arguments</h2>
+            <p>When conversations about money constantly end in conflict, the reason is usually not arithmetic but stress, different financial scripts, and the feeling that this topic is impossible to resolve at all.</p>
+            <p>Financial conflict is rarely only about one purchase, one bill, or one line in the budget. Usually, it is built from several layers at once: different ideas about safety and risk, family-of-origin experience, different attitudes toward spending and saving, and also a sense of fairness in contribution and control.</p>
+            <div class="article-note">When these layers are not named directly, an argument about a specific amount quickly turns into a conflict about respect, influence, trust, and safety.</div>
+          </section>
+
+          <section>
+            <h2>What research through 2026 says</h2>
+            <p>Recent research shows that money conflicts are among the strongest predictors of relationship dissatisfaction. An important detail in newer studies is that high financial stress not only increases tension but also reduces the likelihood of having the money conversation in the first place.</p>
+            <p>In other words, at the most critical moment couples do not move toward better communication; on the contrary, they are more likely to go silent, postpone the topic, or enter it only when they are already exhausted. Because of this, money starts to feel not like a problem that can be broken down, but like a permanent issue with no solution.</p>
+            <ul>
+              <li>Incompatibility of financial styles is often more important than the absolute income level.</li>
+              <li>Transparency and joint financial planning are associated with higher relationship satisfaction.</li>
+              <li>Hidden spending, debt, and unequal access to information undermine trust faster than isolated budgeting mistakes.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Typical scenarios where everything breaks down</h2>
+            <p>There are several recurring situations in which a financial conversation is almost guaranteed to lose its constructive quality:</p>
+            <ul>
+              <li><strong>Talking in a moment of overload.</strong> Right after a stressful event, an unexpected bill, or an impulsive purchase, people enter the conversation in defense mode rather than analysis mode.</li>
+              <li><strong>Generalizations instead of specifics.</strong> Phrases like “you always”, “you never”, “you are irresponsible” instantly push the conversation into defensiveness.</li>
+              <li><strong>Unequal access to the full picture.</strong> One partner manages all accounts and obligations while the other cannot fully see the structure, so any conversation sounds like top-down control.</li>
+              <li><strong>Financial opacity.</strong> Hidden subscriptions, debt, separate large expenses, or unspoken financial decisions destroy basic trust.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>What helps people</h2>
+            <p>Useful change does not begin with harsher control but with a new conversation format. If a couple wants to reduce conflict around money, they need not only discipline but also a better structure of interaction.</p>
+            <ol>
+              <li><strong>Move money out of red-zone moments.</strong> Do not discuss the budget at peak stress, late at night, or in the middle of another argument.</li>
+              <li><strong>Agree on regular short slots.</strong> For example, once every two weeks for 30–40 minutes with a clear agenda.</li>
+              <li><strong>Speak in the language of patterns, not blame.</strong> Not “you handle money the wrong way”, but “I notice that we respond differently to risk and uncertainty”.</li>
+              <li><strong>Create a basic money map.</strong> Income, regular expenses, debt, reserve, big goals — all of this should be visible to both people.</li>
+              <li><strong>Separate zones of autonomy and joint decision-making.</strong> It should be clear what amount each person can spend independently and what requires discussion.</li>
+            </ol>
+          </section>
+
+          <section>
+            <h2>What this means for business</h2>
+            <p>For banks, fintech, and household management products, money conflicts are not only a psychological topic. They are a direct factor in product trust, depth of use, user retention, and the quality of joint financial decisions.</p>
+            <p>If a product only shows transactions but does not help a couple talk about them, it leaves users alone with the tension. That is why services can no longer be merely accurate; they must help make the financial picture shared, readable, and safer to discuss.</p>
+            <ul>
+              <li>Transparency must be a feature, not a side effect: shared dashboards, shared goals, household overview.</li>
+              <li>The product should reduce friction before the conversation, not only show numbers after the fact.</li>
+              <li>Strong products for couples support not only budgeting but also a sense of fairness, visibility, and shared control.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>How to build this into a fintech product</h2>
+            <p>If we treat money conflicts as a product problem, then the interface should help users not only calculate, but also agree. That means designing features not around one individual user but around the dynamics of a couple or a household unit.</p>
+            <ul>
+              <li><strong>Shared financial snapshot.</strong> One screen with income, recurring expenses, subscriptions, debt, goals, and cash buffer.</li>
+              <li><strong>Conversation-ready summaries.</strong> Short weekly or monthly summaries that do not overload users with data but give anchor points for discussion.</li>
+              <li><strong>Spending rules and thresholds.</strong> The ability to define personal limits and shared thresholds after which coordination is required.</li>
+              <li><strong>Money-style onboarding.</strong> A light onboarding flow that reveals the difference between orientation toward safety, control, flexibility, or growth, and translates it into shared rules.</li>
+              <li><strong>Low-shame language.</strong> Less moralizing in copy, more neutral language that does not intensify shame or avoidance.</li>
+              <li><strong>Joint goals over raw tracking.</strong> Not only spending history, but also scenarios of “what we are moving toward together” — reserve, relocation, a major purchase, debt payoff.</li>
+            </ul>
+            <div class="article-note">For the product, this means moving from the model “we show financial data” to the model “we help the household see risks, agreements, and the next step without unnecessary friction”.</div>
+          </section>
+
+          <section>
+            <h2>A practical framework for a couple</h2>
+            <p>If the topic of money is tense for you right now, it helps to start with a simple structure:</p>
+            <ul>
+              <li>separately gather the facts: income, expenses, debt, reserve;</li>
+              <li>separately name each person’s fears and priorities;</li>
+              <li>separately agree on 2–3 rules for the next month;</li>
+              <li>do not mix analysis, accusations, and long historical grievances into one conversation.</li>
+            </ul>
+            <p>This does not eliminate differences between people, but it helps move money out of the field of repeated conflict and into the field of shared risk management and decision-making.</p>
+          </section>
+        </div>
+
+        <section class="article-cta fade-in">
+          <div class="cta-links">
+            <a class="btn" href="/en/articles/">Back to articles</a>
+            <a class="btn" href="/en/contact/">Contact</a>
+          </div>
+        </section>
+      </article>
+    </div>
   </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>TELWHA</h4>
+          <p>Financial psychology, behavioral economics, and choice architecture for more resilient financial decisions.</p>
+        </div>
+
+        <div style="text-align:right">
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="/en/">Home</a>
+            <a href="/en/finlab/">FinLab</a>
+            <a href="/en/reviews/">Reviews</a>
+            <a href="/en/contact/">Contact</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 TELWHA. All rights reserved.</span>
+        <span>Kyiv, Ukraine · 🇺🇦</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function updateProgressBar() {
+      const progress = document.getElementById("progress");
+      if (!progress) return;
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressValue = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = progressValue + "%";
+    }
+
+    function syncThemeButtonUI() {
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (!themeBtn) return;
+      const current = document.documentElement.getAttribute("data-theme") || "light";
+      themeBtn.textContent = current === "dark" ? "🌙" : "☀️";
+      themeBtn.setAttribute(
+        "aria-label",
+        current === "dark" ? "Turn on light theme" : "Turn on dark theme"
+      );
+    }
+
+    function closeAllDropdowns(except = null) {
+      document.querySelectorAll(".dropdown").forEach((dropdown) => {
+        if (dropdown === except) return;
+        dropdown.classList.remove("is-open");
+        const button = dropdown.querySelector(".dropbtn");
+        if (button) button.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      updateProgressBar();
+      window.addEventListener("scroll", updateProgressBar, { passive: true });
+
+      const root = document.documentElement;
+      let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      root.setAttribute("data-theme", currentTheme);
+      syncThemeButtonUI();
+
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (themeBtn) {
+        themeBtn.addEventListener("click", () => {
+          currentTheme = currentTheme === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", currentTheme);
+          syncThemeButtonUI();
+        });
+      }
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const siteMenu = document.querySelector("#site-menu");
+
+      if (menuToggle && siteMenu) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = siteMenu.classList.toggle("is-open");
+          menuToggle.classList.toggle("is-open", isOpen);
+          menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+
+          if (!isOpen) closeAllDropdowns();
+        });
+      }
+
+      document.querySelectorAll(".dropbtn").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          if (window.innerWidth > 920) return;
+          event.stopPropagation();
+          const parent = button.parentElement;
+          const willOpen = !parent.classList.contains("is-open");
+          closeAllDropdowns(parent);
+          parent.classList.toggle("is-open", willOpen);
+          button.setAttribute("aria-expanded", willOpen ? "true" : "false");
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".dropdown")) {
+          closeAllDropdowns();
+        }
+
+        const nav = document.querySelector(".nav");
+        if (
+          window.innerWidth <= 920 &&
+          siteMenu &&
+          siteMenu.classList.contains("is-open") &&
+          nav &&
+          !nav.contains(event.target)
+        ) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Open menu");
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeAllDropdowns();
+
+          if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle?.classList.remove("is-open");
+            menuToggle?.setAttribute("aria-expanded", "false");
+            menuToggle?.setAttribute("aria-label", "Open menu");
+            menuToggle?.focus();
+          }
+        }
+      });
+
+      document.querySelectorAll('#site-menu a[href]').forEach((link) => {
+        link.addEventListener("click", () => {
+          closeAllDropdowns();
+
+          if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle?.classList.remove("is-open");
+            menuToggle?.setAttribute("aria-expanded", "false");
+            menuToggle?.setAttribute("aria-label", "Open menu");
+          }
+        });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+      }, { threshold: 0.14 });
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    });
+  </script>
 </body>
 </html>

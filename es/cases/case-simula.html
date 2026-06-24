@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TELWHA | Simulación de mercado conductual</title>
+  <meta name="description" content="Caso TELWHA sobre simulación de mercado conductual: un motor, cuatro escenarios y tres capas visuales sencillas: precio, volatilidad y drawdown." />
+  <link rel="canonical" href="https://t-e-l-w-h-a.com/es/cases/case-simula.html" />
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="TELWHA | Simulación de mercado conductual" />
+  <meta property="og:description" content="Un motor, cuatro escenarios. Un caso sobre por qué el gráfico de precio por sí solo no explica todo el régimen de mercado." />
+  <meta property="og:url" content="https://t-e-l-w-h-a.com/es/cases/case-simula.html" />
+  <meta property="og:site_name" content="TELWHA" />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHKD6TZJP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FVHKD6TZJP');
+  </script>
+  <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+  <style>
+    :root,[data-theme="light"]{
+      --font-display:"Boska",Georgia,serif;
+      --font-body:"Satoshi","Inter",sans-serif;
+      --text-xs:clamp(.75rem,.7rem + .2vw,.875rem);
+      --text-sm:clamp(.82rem,.78rem + .15vw,.94rem);
+      --text-base:clamp(1rem,.96rem + .2vw,1.125rem);
+      --text-lg:clamp(1.125rem,1rem + .6vw,1.375rem);
+      --text-xl:clamp(1.5rem,1.2rem + 1vw,2.2rem);
+      --text-2xl:clamp(2.2rem,1.5rem + 2vw,4rem);
+      --color-bg:#f5f3ef;
+      --color-surface:#fcfbf8;
+      --color-surface-2:#f2efe9;
+      --color-border:rgba(40,37,29,.10);
+      --color-divider:rgba(40,37,29,.08);
+      --color-text:#22201a;
+      --color-text-muted:#65625b;
+      --color-text-faint:#8b877f;
+      --color-text-inverse:#f9f8f5;
+      --color-primary:#0f5d5f;
+      --color-primary-hover:#0b4b4d;
+      --color-primary-soft:rgba(15,93,95,.08);
+      --color-accent:#9a6a35;
+      --color-accent-soft:rgba(154,106,53,.08);
+      --shadow-sm:0 1px 2px rgba(34,32,26,.05);
+      --shadow-md:0 10px 30px rgba(34,32,26,.07);
+      --shadow-lg:0 24px 70px rgba(34,32,26,.08);
+      --content-default:1160px;
+      --radius-xl:32px;
+      --radius-lg:24px;
+      --radius-md:18px;
+      --transition:180ms cubic-bezier(.16,1,.3,1)
+    }
+    [data-theme="dark"]{
+      --color-bg:#171614;
+      --color-surface:#1d1b18;
+      --color-surface-2:#24211d;
+      --color-border:rgba(255,255,255,.10);
+      --color-divider:rgba(255,255,255,.08);
+      --color-text:#ece6dd;
+      --color-text-muted:#b7afa2;
+      --color-text-faint:#91897c;
+      --color-text-inverse:#171614;
+      --color-primary:#6ca7a7;
+      --color-primary-hover:#84baba;
+      --color-primary-soft:rgba(108,167,167,.10);
+      --color-accent:#c79c68;
+      --color-accent-soft:rgba(199,156,104,.09);
+      --shadow-sm:0 1px 2px rgba(0,0,0,.2);
+      --shadow-md:0 10px 30px rgba(0,0,0,.22);
+      --shadow-lg:0 24px 70px rgba(0,0,0,.26)
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      min-height:100vh;
+      font-family:var(--font-body);
+      font-size:var(--text-base);
+      line-height:1.6;
+      color:var(--color-text);
+      background:var(--color-bg);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility
+    }
+    img,svg{display:block;max-width:100%;height:auto}
+    a{text-decoration:none;color:inherit}
+    button{border:0;background:none;cursor:pointer;font:inherit;color:inherit}
+    input,select{font:inherit;color:inherit}
+    :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:10px}
+    .wrap{width:min(100% - 28px,var(--content-default));margin-inline:auto}
+    .progress{position:fixed;inset:0 auto auto 0;z-index:120;width:0%;height:3px;background:linear-gradient(90deg,var(--color-primary),var(--color-accent))}
+    .topbar{
+      position:sticky;top:0;z-index:100;
+      padding:12px 0;
+      backdrop-filter:blur(18px);
+      background:color-mix(in srgb,var(--color-bg) 84%,transparent);
+      border-bottom:1px solid var(--color-divider)
+    }
+    .nav{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:18px}
+    .brand{display:flex;flex-direction:column;gap:4px;min-width:0}
+    .brand-row{display:inline-flex;align-items:center;gap:10px;font-size:1rem;font-weight:700;letter-spacing:.04em;white-space:nowrap}
+    .brand-mark{width:26px;height:26px;color:var(--color-primary);flex:0 0 auto}
+    .brand-sub{color:var(--color-text-faint);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;max-width:240px}
+    .menu-toggle{
+      display:none;align-items:center;justify-content:center;
+      width:44px;height:44px;
+      border-radius:14px;
+      border:1px solid var(--color-border);
+      background:var(--color-surface);
+      transition:var(--transition)
+    }
+    .menu-toggle:hover{background:var(--color-surface-2)}
+    .menu-toggle-lines{display:inline-flex;flex-direction:column;gap:4px}
+    .menu-toggle-lines span{width:18px;height:2px;border-radius:999px;background:var(--color-text);transition:transform var(--transition),opacity var(--transition)}
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(2){opacity:0}
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    .menu{
+      display:flex;align-items:center;justify-content:flex-end;
+      gap:4px;min-width:0;flex-wrap:nowrap
+    }
+    .menu a,.menu .dropbtn,.theme-toggle,.lang-link{
+      min-height:40px;
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:7px 10px;
+      border-radius:999px;
+      color:var(--color-text-muted);
+      font-size:.9rem;font-weight:500;
+      transition:var(--transition);
+      white-space:nowrap;line-height:1.1;flex-shrink:0
+    }
+    .menu a:hover,.menu .dropbtn:hover,.theme-toggle:hover,.lang-link:hover{
+      color:var(--color-text);
+      background:var(--color-surface-2)
+    }
+    .menu a.is-active{
+      color:var(--color-text);
+      background:var(--color-surface-2);
+      border:1px solid var(--color-border)
+    }
+    .menu a.is-highlight,.menu .dropbtn.is-highlight{
+      color:var(--color-text-inverse);
+      background:linear-gradient(135deg,var(--color-primary),color-mix(in srgb,var(--color-primary) 70%,var(--color-accent)));
+      border:1px solid transparent;
+      box-shadow:var(--shadow-sm)
+    }
+    .menu a.is-highlight:hover,.menu .dropbtn.is-highlight:hover{
+      background:linear-gradient(135deg,var(--color-primary-hover),var(--color-primary));
+      color:var(--color-text-inverse)
+    }
+    [data-theme="dark"] .menu a.is-highlight,[data-theme="dark"] .menu .dropbtn.is-highlight{color:#141311}
+    .dropdown{position:relative;flex-shrink:0}
+    .dropbtn{gap:6px}
+    .dropbtn svg{width:14px;height:14px;transition:transform var(--transition);flex:0 0 auto}
+    .dropdown:hover .dropbtn svg,
+    .dropdown:focus-within .dropbtn svg,
+    .dropdown.is-open .dropbtn svg{transform:rotate(180deg)}
+    .dropcontent{
+      position:absolute;top:calc(100% + 2px);left:0;z-index:300;
+      min-width:240px;
+      display:grid;gap:6px;
+      padding:10px;
+      border:1px solid var(--color-border);
+      border-radius:18px;
+      background:var(--color-surface);
+      box-shadow:var(--shadow-md);
+      opacity:0;visibility:hidden;pointer-events:none;
+      transform:translateY(6px);
+      transition:opacity var(--transition),transform var(--transition),visibility var(--transition)
+    }
+    .dropdown:hover .dropcontent,
+    .dropdown:focus-within .dropcontent,
+    .dropdown.is-open .dropcontent{
+      opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)
+    }
+    .dropcontent a{
+      justify-content:flex-start;
+      border-radius:12px;
+      padding:12px 14px;
+      white-space:normal;line-height:1.35
+    }
+    .menu-tools{
+      display:flex;align-items:center;gap:6px;
+      margin-left:8px;padding-left:8px;
+      border-left:1px solid var(--color-divider);
+      flex-shrink:0
+    }
+    .lang-list{display:flex;gap:4px}
+    .lang-link.is-active{
+      background:var(--color-surface-2);
+      color:var(--color-text);
+      border:1px solid var(--color-border)
+    }
+    .theme-toggle{
+      border:1px solid var(--color-border);
+      background:var(--color-surface)
+    }
+    .theme-toggle svg{width:17px;height:17px}
+    .page{padding:34px 0 90px}
+    .hero-shell,.section-card,.chart-card,.footer{
+      border:1px solid var(--color-border);
+      background:color-mix(in srgb,var(--color-surface) 96%,transparent);
+      box-shadow:var(--shadow-sm)
+    }
+    .hero-shell{
+      position:relative;overflow:hidden;
+      padding:clamp(26px,4vw,46px);
+      border-radius:var(--radius-xl);
+      background:linear-gradient(180deg,var(--color-surface),var(--color-surface-2));
+      box-shadow:var(--shadow-lg);
+      margin-bottom:24px
+    }
+    .hero-shell::before{
+      content:"";position:absolute;inset:0;pointer-events:none;
+      background:
+        radial-gradient(circle at 15% 20%,rgba(15,93,95,.06),transparent 24%),
+        radial-gradient(circle at 85% 18%,rgba(154,106,53,.05),transparent 22%)
+    }
+    .hero-grid{
+      position:relative;
+      display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);
+      gap:28px;align-items:start
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:10px;
+      margin-bottom:14px;
+      color:var(--color-text-faint);
+      font-size:var(--text-xs);
+      letter-spacing:.1em;text-transform:uppercase;
+      font-weight:700
+    }
+    .eyebrow::before{
+      content:"";width:22px;height:1px;
+      background:var(--color-primary)
+    }
+    .hero-title{
+      font-family:var(--font-display);
+      font-size:var(--text-2xl);
+      line-height:.97;
+      letter-spacing:-.03em;
+      max-width:11ch;
+      margin-bottom:14px
+    }
+    .hero-sub{
+      max-width:62ch;
+      color:var(--color-text-muted);
+      font-size:var(--text-lg)
+    }
+    .hero-note{
+      margin-top:18px;
+      color:var(--color-text);
+      font-size:.98rem;
+      max-width:62ch
+    }
+    .hero-side{
+      display:grid;gap:14px
+    }
+    .stat-card{
+      padding:20px 22px;
+      border-radius:22px;
+      border:1px solid var(--color-border);
+      background:linear-gradient(180deg,var(--color-surface),var(--color-surface-2));
+      box-shadow:var(--shadow-sm)
+    }
+    .stat-card strong{
+      display:block;
+      font-size:var(--text-lg);
+      line-height:1.1;
+      margin-bottom:6px
+    }
+    .stat-card span{
+      color:var(--color-text-muted);
+      font-size:.92rem
+    }
+    .layout{
+      display:grid;
+      grid-template-columns:minmax(0,1fr);
+      gap:18px;
+      margin-bottom:18px
+    }
+    .chart-card,.section-card{
+      padding:24px;
+      border-radius:28px
+    }
+    .section-head{
+      display:flex;align-items:end;justify-content:space-between;
+      gap:16px;margin-bottom:18px
+    }
+    .section-head h2{
+      font-family:var(--font-display);
+      font-size:var(--text-xl);
+      line-height:1.05;
+      letter-spacing:-.02em
+    }
+    .section-head p{
+      max-width:48ch;
+      color:var(--color-text-muted);
+      font-size:.92rem
+    }
+    .pill-row{
+      display:flex;flex-wrap:wrap;gap:8px;
+      margin-bottom:14px
+    }
+    .pill{
+      display:inline-flex;align-items:center;
+      min-height:32px;padding:0 12px;
+      border-radius:999px;
+      font-size:var(--text-xs);
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      border:1px solid var(--color-border);
+      background:var(--color-surface-2);
+      color:var(--color-text-muted)
+    }
+    .chart-head{
+      display:flex;align-items:end;justify-content:space-between;
+      gap:12px;margin-bottom:12px
+    }
+    .chart-head h2{
+      margin:0 0 4px;
+      font-size:var(--text-lg);
+      line-height:1.1
+    }
+    .small-label{
+      color:var(--color-text-faint);
+      font-size:var(--text-xs);
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      font-weight:700
+    }
+    #chart-price,#chart-vol,#chart-dd{
+      width:100%;
+      height:420px;
+      border-radius:18px;
+      overflow:hidden
+    }
+    .copy-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px 22px
+    }
+    .copy-grid.three{
+      grid-template-columns:repeat(3,minmax(0,1fr))
+    }
+    .copy-block h3{
+      font-size:1rem;
+      margin-bottom:8px;
+      line-height:1.2
+    }
+    .copy-block p,.copy-block li{
+      color:var(--color-text-muted);
+      font-size:.97rem
+    }
+    .copy-block ul{
+      display:grid;
+      gap:8px;
+      padding-left:18px
+    }
+    .scenario-legend{
+      display:flex;flex-wrap:wrap;
+      gap:10px 14px;
+      color:var(--color-text-muted);
+      font-size:.88rem
+    }
+    .scenario-legend span{
+      display:inline-flex;align-items:center;gap:8px
+    }
+    .swatch{
+      width:12px;height:12px;border-radius:999px;
+      flex:0 0 auto;
+      border:1px solid color-mix(in srgb,var(--color-text) 12%,transparent)
+    }
+    .swatch-bubble{background:#d08a32}
+    .swatch-calm{background:#2f8f89}
+    .swatch-crash{background:#a64c4c}
+    .swatch-stressed{background:#6f7f8e}
+    .footer{
+      padding:36px 0 26px;
+      border-top:1px solid var(--color-divider);
+      background:color-mix(in srgb,var(--color-surface) 86%,transparent);
+      margin-top:28px;
+      border-left:0;border-right:0;border-bottom:0;
+      border-radius:0;box-shadow:none
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.4fr .8fr;
+      gap:24px;align-items:start
+    }
+    .footer h4{
+      font-size:var(--text-sm);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--color-text-faint);
+      margin-bottom:12px
+    }
+    .footer p,.footer a{
+      color:var(--color-text-muted);
+      font-size:.92rem
+    }
+    .footer a:hover{color:var(--color-text)}
+    .footer-links{
+      display:grid;gap:10px;justify-items:end
+    }
+    .footer-bottom{
+      display:flex;justify-content:space-between;
+      gap:16px;flex-wrap:wrap;
+      padding-top:22px;margin-top:22px;
+      border-top:1px solid var(--color-divider);
+      color:var(--color-text-faint);
+      font-size:var(--text-xs)
+    }
+    @media (max-width:1024px){
+      .hero-grid,.footer-grid,.copy-grid,.copy-grid.three{grid-template-columns:1fr}
+    }
+    @media (max-width:920px){
+      .nav{grid-template-columns:auto auto;justify-content:space-between;position:relative}
+      .menu-toggle{display:inline-flex}
+      .menu{
+        position:absolute;top:calc(100% + 10px);left:14px;right:14px;
+        display:none;flex-direction:column;align-items:stretch;
+        padding:14px;
+        border:1px solid var(--color-border);
+        border-radius:22px;
+        background:color-mix(in srgb,var(--color-surface) 96%,transparent);
+        box-shadow:var(--shadow-lg)
+      }
+      .menu.is-open{display:flex}
+      .menu a,.menu .dropbtn,.theme-toggle,.lang-link{
+        justify-content:flex-start;
+        border-radius:14px;
+        font-size:.95rem;
+        padding:10px 12px
+      }
+      .dropdown{width:100%}
+      .dropcontent{
+        position:static;min-width:0;margin-top:8px;
+        opacity:1;visibility:visible;pointer-events:auto;
+        transform:none;display:none;
+        box-shadow:none;
+        border-radius:16px;
+        background:var(--color-surface-2)
+      }
+      .dropdown.is-open .dropcontent{display:grid}
+      .menu-tools{
+        margin-left:0;padding-left:0;border-left:0;
+        padding-top:6px;border-top:1px solid var(--color-divider)
+      }
+    }
+    @media (max-width:720px){
+      .wrap{width:min(100% - 24px,var(--content-default))}
+      .hero-shell,.chart-card,.section-card{border-radius:22px}
+      .hero-title{max-width:100%}
+      .footer-links{justify-items:start}
+      .footer-bottom{flex-direction:column}
+      .brand-sub{max-width:170px}
+      #chart-price,#chart-vol,#chart-dd{height:360px}
+    }
+    @media (max-width:560px){
+      .copy-grid{grid-template-columns:1fr}
+      #chart-price,#chart-vol,#chart-dd{height:320px}
+    }
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{
+        animation-duration:.01ms !important;
+        transition-duration:.01ms !important
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand">
+        <a class="brand-row" href="/es/" aria-label="TELWHA — ir a la página principal">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+          <strong>TELWHA</strong>
+        </a>
+        <span class="brand-sub">Psicología</span>
+      </div>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú">
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+      <nav class="menu" id="site-menu" aria-label="Navegación principal">
+        <a href="/es/">Inicio</a>
+        <a href="/es/about/">Sobre mí</a>
+        <a href="/es/cases/" class="is-active">Casos</a>
+        <a href="/es/articles/">Artículos</a>
+        <a href="/es/finlab/">FinLab</a>
+        <div class="dropdown">
+          <button type="button" class="dropbtn is-highlight" aria-expanded="false" aria-haspopup="true">
+            Pon a prueba tu perfil
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/finlab/money-test-api/money-test.html">Test de conducta financiera</a>
+            <a href="/habit-test.html">¿A dónde te llevan tus hábitos?</a>
+            <a href="/fact-or-fiction-cases.html">¿Hecho o ficción?</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button type="button" class="dropbtn" aria-expanded="false" aria-haspopup="true">
+            Para traders
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/trader-course/">Mini curso</a>
+            <a href="/archetype-test/">Arquetipo de trader</a>
+          </div>
+        </div>
+        <a href="/es/reviews/">Opiniones</a>
+        <a href="/es/contact/">Contacto</a>
+        <div class="menu-tools">
+          <div class="lang-list" aria-label="Idiomas del sitio">
+            <a class="lang-link" href="/cases/case-simula.html" lang="uk" aria-label="Українська">UA</a>
+            <a class="lang-link" href="/en/cases/case-simula.html" lang="en" aria-label="English">EN</a>
+            <a class="lang-link is-active" href="/es/cases/case-simula.html" lang="es" aria-label="Español">ES</a>
+          </div>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar tema">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="wrap">
+
+      <section class="hero-shell">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">Case · FinTech · Finanzas conductuales</span>
+            <h1 class="hero-title">Simulación de mercado conductual</h1>
+            <p class="hero-sub">
+              Un motor, cuatro escenarios. Probé cómo se comporta el mismo mercado
+              en los regímenes calm, bubble, crash y stressed.
+            </p>
+            <p class="hero-note">
+              La idea es mirar algo más que el precio. Volatilidad y drawdown hay que leerlos junto con él,
+              porque muestran dónde el mercado simplemente se mueve y dónde empieza a presionar
+              a la persona, al producto y a la capa de riesgo.
+            </p>
+          </div>
+          <div class="hero-side">
+            <div class="stat-card">
+              <strong>Qué construí</strong>
+              <span>Un simulador legible con 4 regímenes y 3 capas visuales principales.</span>
+            </div>
+            <div class="stat-card">
+              <strong>Por qué importa</strong>
+              <span>El mismo sistema puede parecer tranquilo, recalentado o doloroso según cómo se estructura el estrés.</span>
+            </div>
+            <div class="stat-card">
+              <strong>Qué vi</strong>
+              <span>Un precio final similar no significa que el régimen interno haya sido el mismo.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <div class="copy-grid">
+          <div class="copy-block">
+            <h3>Qué es</h3>
+            <p>
+              Es una simulación de mercado para un activo en cuatro escenarios.
+              En cada uno observo tres capas sencillas: precio, volatilidad realizada y drawdown desde el máximo.
+            </p>
+          </div>
+          <div class="copy-block">
+            <h3>Para quién</h3>
+            <p>
+              Para un trader, es una forma de ver la diferencia entre movimiento de precio y estrés.
+              Para equipos de IA, fintech y producto, es un ejemplo de cómo explicar un régimen de mercado de forma clara y no solo técnica.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <div class="section-head">
+          <h2>Escenarios</h2>
+        </div>
+        <div class="copy-grid">
+          <div class="copy-block">
+            <h3>Calm</h3>
+            <p>Un fondo tranquilo: rango estrecho, baja volatilidad y el drawdown más pequeño.</p>
+          </div>
+          <div class="copy-block">
+            <h3>Bubble</h3>
+            <p>Aceleración suave al alza: el gráfico aún se ve atractivo, pero la fragilidad ya empieza a acumularse.</p>
+          </div>
+          <div class="copy-block">
+            <h3>Crash</h3>
+            <p>Un golpe corto y brusco: la volatilidad salta con más fuerza y el estrés llega rápido.</p>
+          </div>
+          <div class="copy-block">
+            <h3>Stressed</h3>
+            <p>No es una catástrofe instantánea, sino un régimen largo e incómodo donde el drawdown duele durante más tiempo.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <div class="section-head">
+          <h2>Visión general de los escenarios</h2>
+          <p>
+            El mismo motor genera regímenes distintos cuando cambian la mezcla de agentes y la estructura de shocks.
+            Abajo, los cuatro escenarios se muestran en paralelo en tres capas: precio, volatilidad y drawdown.
+          </p>
+        </div>
+        <div class="scenario-legend" aria-label="Leyenda">
+          <span><i class="swatch swatch-bubble"></i>Bubble</span>
+          <span><i class="swatch swatch-calm"></i>Calm</span>
+          <span><i class="swatch swatch-crash"></i>Crash</span>
+          <span><i class="swatch swatch-stressed"></i>Stressed</span>
+        </div>
+      </section>
+
+      <section class="chart-card">
+        <div class="chart-head">
+          <div>
+            <h2>Precio</h2>
+            <p class="small-label">Un activo, cuatro trayectorias</p>
+          </div>
+        </div>
+        <div id="chart-price"></div>
+      </section>
+
+      <section class="chart-card">
+        <div class="chart-head">
+          <div>
+            <h2>Volatilidad</h2>
+            <p class="small-label">Volatilidad realizada por escenario</p>
+          </div>
+        </div>
+        <div id="chart-vol"></div>
+      </section>
+
+      <section class="chart-card">
+        <div class="chart-head">
+          <div>
+            <h2>Drawdown</h2>
+            <p class="small-label">Distancia al máximo anterior, %</p>
+          </div>
+        </div>
+        <div id="chart-dd"></div>
+      </section>
+
+      <section class="section-card">
+        <div class="section-head">
+          <h2>Cómo leerlo</h2>
+          <p>
+            Los mismos datos se muestran en tres capas.
+            Ayudan a distinguir entre “el mercado simplemente se mueve” y “el mercado está psicológicamente bajo presión”.
+          </p>
+        </div>
+        <div class="copy-grid">
+          <div class="copy-block">
+            <h3>Precio</h3>
+            <p>
+              La capa superior es la trayectoria del precio.
+              Lo importante es que varios escenarios terminan cerca entre sí, pero por dentro se veían completamente distintos.
+            </p>
+          </div>
+          <div class="copy-block">
+            <h3>Volatilidad</h3>
+            <p>
+              La capa intermedia muestra dónde crece realmente la tensión.
+              Bubble y crash generan volatilidad alta, pero con perfiles distintos: calentamiento gradual frente a golpe corto.
+            </p>
+          </div>
+          <div class="copy-block">
+            <h3>Drawdown</h3>
+            <p>
+              La capa inferior es el drawdown desde el máximo anterior.
+              Aquí se ve que el régimen stressed duele más tiempo, incluso si la caída no es tan brusca como en crash.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <div class="section-head">
+          <h2>Hallazgos</h2>
+        </div>
+        <div class="copy-grid">
+          <div class="copy-block">
+            <h3>1</h3>
+            <p>
+              El mismo motor puede producir regímenes muy distintos.
+              La fórmula es la misma, pero el comportamiento de mercado cambia cuando cambian la mezcla de agentes y la estructura del shock.
+            </p>
+          </div>
+          <div class="copy-block">
+            <h3>2</h3>
+            <p>
+              El precio por sí solo no basta.
+              Dos escenarios pueden terminar en niveles de precio parecidos y aun así verse completamente distintos en volatilidad y drawdown.
+            </p>
+          </div>
+          <div class="copy-block">
+            <h3>3</h3>
+            <p>
+              Bubble, crash y stressed se diferencian por mucho más que la dirección.
+              Se diferencian por cómo se acumula y se manifiesta el estrés dentro de la trayectoria.
+            </p>
+          </div>
+          <div class="copy-block">
+            <h3>4</h3>
+            <p>
+              El régimen más duro no siempre es el de la caída más espectacular.
+              Un drawdown largo y viscoso puede ejercer más presión psicológica que un shock corto.
+            </p>
+          </div>
+          <div class="copy-block">
+            <h3>5</h3>
+            <p>
+              Calm es un régimen en el que el malestar es limitado y el sistema vuelve al equilibrio más rápido,
+              por eso en él el mismo movimiento de precio se digiere mucho más fácilmente.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <div class="section-head">
+          <h2>Implicaciones</h2>
+        </div>
+        <div class="copy-grid three">
+          <div class="copy-block">
+            <h3>Finanzas conductuales</h3>
+            <p>
+              El mercado hay que leerlo como un régimen, no solo como una serie de retornos.
+              El estrés, la memoria del máximo y la duración del dolor se ven mejor a través de volatilidad y drawdown que solo en el gráfico de precio.
+            </p>
+          </div>
+          <div class="copy-block">
+            <h3>FinTech / Broker / Riesgo</h3>
+            <p>
+              Es importante ver algo más que el precio actual.
+              Un régimen stressed puede ser más peligroso para la retención que un crash corto,
+              porque agota durante más tiempo y empuja hacia decisiones peores.
+            </p>
+          </div>
+          <div class="copy-block">
+            <h3>Comunicación / Producto</h3>
+            <p>
+              Es más fácil explicar no solo la dirección del mercado, sino también el tipo de tensión interna.
+              Un conjunto sencillo de precio, volatilidad y drawdown ya ofrece una historia clara que puede mostrarse en la interfaz o en la comunicación con el usuario.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <div class="section-head">
+          <h2>Nota técnica</h2>
+          <p>Breve sobre los límites del MVP, sin peso técnico innecesario.</p>
+        </div>
+        <div class="copy-grid">
+          <div class="copy-block">
+            <h3>Qué incluye</h3>
+            <ul>
+              <li>MVP acotado: un activo, cuatro escenarios, formación de precio sencilla.</li>
+              <li>Series para precio, volatilidad realizada y drawdown.</li>
+              <li>Una página de caso legible con tres gráficos comparativos estáticos.</li>
+            </ul>
+          </div>
+          <div class="copy-block">
+            <h3>Qué queda fuera y qué sigue</h3>
+            <ul>
+              <li>Sin microestructura completa del libro de órdenes, contagio multi-activo ni lógica compleja de ejecución.</li>
+              <li>El siguiente paso: vistas de agentes más ricas, etiquetado de patrones, calibración y conexión con datos reales de mercado.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>TELWHA</h4>
+          <p>
+            Finanzas conductuales, psicología y casos prácticos para traders,
+            equipos fintech y productos que trabajan con conducta financiera.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="/es/cases/">Todos los casos</a>
+          <a href="/es/articles/">Artículos</a>
+          <a href="/es/finlab/">FinLab</a>
+          <a href="/es/contact/">Contacto</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© TELWHA</span>
+        <span>Finanzas conductuales · Psicología · Product Thinking</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (async function () {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const siteMenu = document.getElementById('site-menu');
+      const progress = document.getElementById('progress');
+      const themeToggle = document.querySelector('[data-theme-toggle]');
+      const dropdownButtons = document.querySelectorAll('.dropbtn');
+      const root = document.documentElement;
+
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      let currentTheme = prefersDark ? 'dark' : 'light';
+      root.setAttribute('data-theme', currentTheme);
+
+      function updateThemeIcon() {
+        if (!themeToggle) return;
+        themeToggle.innerHTML = currentTheme === 'dark'
+          ? '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>'
+          : '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      }
+      updateThemeIcon();
+
+      themeToggle?.addEventListener('click', () => {
+        currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', currentTheme);
+        updateThemeIcon();
+        if (window.seriesData) {
+          plotAll();
+        }
+      });
+
+      menuToggle?.addEventListener('click', () => {
+        const isOpen = siteMenu.classList.toggle('is-open');
+        menuToggle.classList.toggle('is-open', isOpen);
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      dropdownButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const parent = btn.closest('.dropdown');
+          const isOpen = parent.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', String(isOpen));
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.dropdown')) {
+          document.querySelectorAll('.dropdown').forEach((drop) => {
+            drop.classList.remove('is-open');
+            const btn = drop.querySelector('.dropbtn');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+          });
+        }
+      });
+
+      window.addEventListener('scroll', () => {
+        const doc = document.documentElement;
+        const total = doc.scrollHeight - doc.clientHeight;
+        const scrolled = total > 0 ? (doc.scrollTop / total) * 100 : 0;
+        progress.style.width = scrolled + '%';
+      });
+
+      async function loadSeries() {
+        const res = await fetch('./scenario_series.json');
+        if (!res.ok) throw new Error('Cannot load scenario_series.json');
+        return res.json();
+      }
+
+      function baseLayout(yTitle) {
+        const bg = getComputedStyle(root).getPropertyValue('--color-surface').trim();
+        const text = getComputedStyle(root).getPropertyValue('--color-text').trim();
+        const muted = getComputedStyle(root).getPropertyValue('--color-text-muted').trim();
+        const divider = getComputedStyle(root).getPropertyValue('--color-divider').trim();
+        return {
+          paper_bgcolor:bg,
+          plot_bgcolor:bg,
+          margin:{l:54,r:18,t:12,b:42},
+          font:{family:'Satoshi, Inter, sans-serif', color:text, size:12},
+          showlegend:true,
+          legend:{orientation:'h', yanchor:'bottom', y:1.02, xanchor:'left', x:0},
+          xaxis:{
+            title:'Time step',
+            showgrid:true,gridcolor:divider,zeroline:false,color:muted
+          },
+          yaxis:{
+            title:yTitle,
+            showgrid:true,gridcolor:divider,zeroline:false,color:muted
+          }
+        };
+      }
+
+      function plotAll() {
+        const s = window.seriesData;
+        if (!s) return;
+
+        const bubbleColor = '#d08a32';
+        const calmColor = '#2f8f89';
+        const crashColor = '#a64c4c';
+        const stressedColor = '#6f7f8e';
+
+        const priceTraces = [
+          {name:'Bubble',   x:s.bubble.timestep,   y:s.bubble.price,   type:'scatter', mode:'lines', line:{color:bubbleColor,width:2.2}},
+          {name:'Calm',     x:s.calm.timestep,     y:s.calm.price,     type:'scatter', mode:'lines', line:{color:calmColor,width:2.2}},
+          {name:'Crash',    x:s.crash.timestep,    y:s.crash.price,    type:'scatter', mode:'lines', line:{color:crashColor,width:2.2}},
+          {name:'Stressed', x:s.stressed.timestep, y:s.stressed.price, type:'scatter', mode:'lines', line:{color:stressedColor,width:2.2}}
+        ];
+        Plotly.react('chart-price', priceTraces, baseLayout('Price'), {responsive:true, displayModeBar:false});
+
+        const volTraces = [
+          {name:'Bubble',   x:s.bubble.timestep,   y:s.bubble.realizedvolatility,   type:'scatter', mode:'lines', line:{color:bubbleColor,width:2.1}},
+          {name:'Calm',     x:s.calm.timestep,     y:s.calm.realizedvolatility,     type:'scatter', mode:'lines', line:{color:calmColor,width:2.1}},
+          {name:'Crash',    x:s.crash.timestep,    y:s.crash.realizedvolatility,    type:'scatter', mode:'lines', line:{color:crashColor,width:2.1}},
+          {name:'Stressed', x:s.stressed.timestep, y:s.stressed.realizedvolatility, type:'scatter', mode:'lines', line:{color:stressedColor,width:2.1}}
+        ];
+        Plotly.react('chart-vol', volTraces, baseLayout('Volatility'), {responsive:true, displayModeBar:false});
+
+        const ddTraces = [
+          {name:'Bubble',   x:s.bubble.timestep,   y:s.bubble.drawdown.map(v => v * 100),   type:'scatter', mode:'lines', line:{color:bubbleColor,width:2}, fill:'tozeroy', fillcolor:bubbleColor + '22'},
+          {name:'Calm',     x:s.calm.timestep,     y:s.calm.drawdown.map(v => v * 100),     type:'scatter', mode:'lines', line:{color:calmColor,width:2}, fill:'tozeroy', fillcolor:calmColor + '22'},
+          {name:'Crash',    x:s.crash.timestep,    y:s.crash.drawdown.map(v => v * 100),    type:'scatter', mode:'lines', line:{color:crashColor,width:2}, fill:'tozeroy', fillcolor:crashColor + '22'},
+          {name:'Stressed', x:s.stressed.timestep, y:s.stressed.drawdown.map(v => v * 100), type:'scatter', mode:'lines', line:{color:stressedColor,width:2}, fill:'tozeroy', fillcolor:stressedColor + '22'}
+        ];
+        Plotly.react('chart-dd', ddTraces, baseLayout('Drawdown, %'), {responsive:true, displayModeBar:false});
+      }
+
+      window.seriesData = await loadSeries();
+      plotAll();
+      window.addEventListener('resize', plotAll);
+
+    })().catch((err) => {
+      console.error(err);
+    });
+  </script>
+</body>
+</html>

@@ -1,76 +1,932 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TELWHA | Explainable Transaction Risk Monitoring for Fintech</title>
-<meta name="description" content="A portfolio case on explainable transaction risk monitoring for fintech: Python, Tableau, investigator queue, explainability, and fraud monitoring workflow.">
+<meta name="description" content="Portfolio case on explainable transaction risk monitoring for fintech: Python, Tableau, investigator queue, explainability, and behavioral context of fraud monitoring.">
 <link rel="canonical" href="https://t-e-l-w-h-a.com/en/cases/explainable-transaction-risk-monitoring/">
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="TELWHA | Explainable Transaction Risk Monitoring for Fintech">
-<meta property="og:description" content="A portfolio case on explainable transaction risk monitoring for fintech: Python, Tableau, investigator queue, explainability, and fraud monitoring workflow.">
+<meta property="og:description" content="Portfolio case on explainable transaction risk monitoring for fintech: Python, Tableau, investigator queue, explainability, and behavioral context of fraud monitoring.">
 <meta property="og:url" content="https://t-e-l-w-h-a.com/en/cases/explainable-transaction-risk-monitoring/">
 <meta property="og:site_name" content="TELWHA">
 
-<link rel="icon" href="/static/media/telwha-favicon.png" type="png">
-<link rel="stylesheet" href="/static/css/base.css">
-<link rel="stylesheet" href="/static/css/layout-article.css">
+<link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
+
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
 
 <style>
-html{scroll-behavior:smooth;}
-.progress{position:fixed;inset:0 auto auto 0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,var(--accent,#8b7355),var(--accent-2,#c7a978));box-shadow:0 1px 10px rgba(0,0,0,.12)}
-.article-shell{position:relative;max-width:1320px;margin-inline:auto}
-.article-header{position:relative;overflow:hidden}
-.article-header::after{content:"";position:absolute;right:-80px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(199,169,120,.16),rgba(199,169,120,0) 70%);pointer-events:none}
-.article-deck{max-width:920px}
-.article-reading{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.article-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:rgba(255,255,255,.5);backdrop-filter:blur(4px);font-size:.88rem;line-height:1}
-html[data-theme="dark"] .article-chip{background:rgba(255,255,255,.04)}
-.article-layout{display:grid;grid-template-columns:minmax(0,5fr) minmax(260px,2fr);gap:56px;align-items:start}
-.article-main{min-width:0}
-.article-aside{position:sticky;top:92px;display:flex;flex-direction:column;gap:14px}
-.aside-card{padding:16px 16px 14px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.45));box-shadow:0 10px 30px rgba(0,0,0,.04)}
-html[data-theme="dark"] .aside-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
-.aside-card h3{font-size:.92rem;margin:0 0 10px;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
-.toc{display:flex;flex-direction:column;gap:8px}
-.toc a{display:block;padding:8px 10px;border-radius:12px;text-decoration:none;opacity:.78}
-.toc a:hover,.toc a.is-active{background:rgba(199,169,120,.14);opacity:1}
-.article-body>p{position:relative;margin-bottom:1.35rem}
-.article-body section[id]>p:first-of-type{margin-top:0}
-.article-body .is-focus{padding-left:16px;border-left:3px solid rgba(199,169,120,.8)}
-.article-body h2,.article-body h3,.article-body section[id]{scroll-margin-top:120px}
-.article-body section[id]{position:relative;margin-top:2.2rem}
-.article-pullquote{margin:22px 0;padding:18px 20px;border-radius:18px;border:1px solid rgba(120,120,120,.14);background:linear-gradient(135deg,rgba(199,169,120,.14),rgba(199,169,120,.04));font-size:1.05rem;line-height:1.7}
-.article-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(120,120,120,.25),transparent);margin:28px 0}
-.mobile-jump{display:none}
-.insight-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:22px 0 10px}
-.insight-card{padding:18px;border:1px solid rgba(120,120,120,.14);border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44))}
-html[data-theme="dark"] .insight-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
-.insight-card h3{margin:0 0 10px;font-size:1.02rem}
-.insight-card p{margin:0;font-size:.98rem;line-height:1.65}
-.tableau-card{margin:24px 0 10px;padding:16px;border:1px solid rgba(120,120,120,.14);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.74),rgba(255,255,255,.5));box-shadow:0 14px 40px rgba(0,0,0,.06);overflow:hidden}
-html[data-theme="dark"] .tableau-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
-.tableau-frame{position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(120,120,120,.12);background:rgba(255,255,255,.5)}
-html[data-theme="dark"] .tableau-frame{background:rgba(255,255,255,.03)}
-.tableauPlaceholder{width:100% !important}
-.case-note{margin-top:10px;font-size:.95rem;opacity:.74}
-.takeaway-box{margin:20px 0 10px;padding:22px;border-radius:22px;border:1px solid rgba(120,120,120,.14);background:linear-gradient(135deg,rgba(199,169,120,.18),rgba(199,169,120,.05))}
-.takeaway-box p:last-child{margin-bottom:0}
-details.methodology{margin-top:22px;border:1px solid rgba(120,120,120,.14);border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.46));overflow:hidden}
-html[data-theme="dark"] details.methodology{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
-details.methodology summary{cursor:pointer;list-style:none;padding:18px 20px;font-weight:700}
-details.methodology summary::-webkit-details-marker{display:none}
-details.methodology[open] summary{border-bottom:1px solid rgba(120,120,120,.12)}
-.methodology-inner{padding:18px 20px 22px}
-.methodology-inner h4{margin:18px 0 8px;font-size:1rem}
-.methodology-inner ul{margin:0 0 12px 18px}
-.methodology-inner li{margin-bottom:8px;line-height:1.6}
-.article-cta{margin-top:26px}
-@media (max-width: 980px){.section>.wrap{max-width:100%;width:100%}.article-shell{max-width:100%;width:100%;margin-inline:0}.article-layout{display:block}.article-aside{display:none}.insight-grid{grid-template-columns:1fr}}
-@media (max-width: 720px){.article-reading{gap:8px}.article-chip{font-size:.8rem;padding:7px 10px}.aside-card{border-radius:16px}.mobile-jump{display:flex;gap:8px;overflow:auto;padding-bottom:6px;scrollbar-width:none}.mobile-jump::-webkit-scrollbar{display:none}.mobile-jump a{white-space:nowrap;text-decoration:none;padding:8px 12px;border-radius:999px;border:1px solid rgba(120,120,120,.16);background:rgba(255,255,255,.52);font-size:.85rem}html[data-theme="dark"] .mobile-jump a{background:rgba(255,255,255,.04)}.tableau-card{padding:12px}}
-.section>.wrap{max-width:1440px}
+  :root,
+  [data-theme="light"] {
+    --font-display: "Boska", Georgia, serif;
+    --font-body: "Satoshi", "Inter", sans-serif;
+
+    --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
+    --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+    --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+    --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+    --text-2xl: clamp(2.2rem, 1.5rem + 2vw, 4rem);
+
+    --color-bg: #f5f3ef;
+    --color-surface: #fcfbf8;
+    --color-surface-2: #f2efe9;
+    --color-surface-3: #ebe7df;
+    --color-border: rgba(40, 37, 29, 0.10);
+    --color-divider: rgba(40, 37, 29, 0.08);
+
+    --color-text: #22201a;
+    --color-text-muted: #65625b;
+    --color-text-faint: #8b877f;
+    --color-text-inverse: #f9f8f5;
+
+    --color-primary: #0f5d5f;
+    --color-primary-hover: #0b4b4d;
+    --color-primary-soft: rgba(15, 93, 95, 0.08);
+
+    --color-accent: #9a6a35;
+    --color-accent-soft: rgba(154, 106, 53, 0.08);
+
+    --color-success: #4f7a4e;
+    --color-error: #a04b46;
+
+    --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
+    --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
+    --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
+
+    --content-default: 1180px;
+    --content-wide: 1320px;
+    --radius-md: 22px;
+    --radius-lg: 28px;
+    --radius-xl: 34px;
+    --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  [data-theme="dark"] {
+    --color-bg: #171614;
+    --color-surface: #1d1b18;
+    --color-surface-2: #24211d;
+    --color-surface-3: #2a2622;
+    --color-border: rgba(255, 255, 255, 0.10);
+    --color-divider: rgba(255, 255, 255, 0.08);
+
+    --color-text: #ece6dd;
+    --color-text-muted: #b7afa2;
+    --color-text-faint: #91897c;
+    --color-text-inverse: #171614;
+
+    --color-primary: #6ca7a7;
+    --color-primary-hover: #84baba;
+    --color-primary-soft: rgba(108, 167, 167, 0.10);
+
+    --color-accent: #c79c68;
+    --color-accent-soft: rgba(199, 156, 104, 0.09);
+
+    --color-success: #89ba82;
+    --color-error: #d9837b;
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+    --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
+    --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    min-height: 100vh;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.7;
+    color: var(--color-text);
+    background: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  img, svg { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  button {
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 10px;
+  }
+
+  .wrap {
+    width: min(100% - 28px, var(--content-default));
+    margin-inline: auto;
+  }
+
+  .wrap-wide {
+    width: min(100% - 28px, var(--content-wide));
+    margin-inline: auto;
+  }
+
+  .progress {
+    position: fixed;
+    inset: 0 auto auto 0;
+    z-index: 120;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 12px 0;
+    backdrop-filter: blur(18px);
+    background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .nav {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .brand-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .brand-mark {
+    width: 26px;
+    height: 26px;
+    color: var(--color-primary);
+    flex: 0 0 auto;
+  }
+
+  .sub {
+    color: var(--color-text-faint);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    max-width: 320px;
+  }
+
+  .menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    transition: var(--transition);
+  }
+
+  .menu-toggle:hover {
+    background: var(--color-surface-2);
+  }
+
+  .menu-toggle-lines {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .menu-toggle-lines span {
+    width: 18px;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--color-text);
+    transition: transform var(--transition), opacity var(--transition);
+  }
+
+  .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    min-width: 0;
+    flex-wrap: nowrap;
+  }
+
+  .menu a,
+  .menu .dropbtn,
+  .theme-toggle,
+  .lang-link {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 10px;
+    border-radius: 999px;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+    white-space: nowrap;
+    line-height: 1.1;
+    flex-shrink: 0;
+  }
+
+  .menu a:hover,
+  .menu .dropbtn:hover,
+  .theme-toggle:hover,
+  .lang-link:hover {
+    color: var(--color-text);
+    background: var(--color-surface-2);
+  }
+
+  .menu a.is-active {
+    color: var(--color-text);
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+  }
+
+  .menu a.is-highlight,
+  .menu .dropbtn.is-highlight {
+    color: var(--color-text-inverse);
+    background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, var(--color-accent)));
+    border: 1px solid transparent;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .menu a.is-highlight:hover,
+  .menu .dropbtn.is-highlight:hover {
+    background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+    color: var(--color-text-inverse);
+  }
+
+  [data-theme="dark"] .menu a.is-highlight,
+  [data-theme="dark"] .menu .dropbtn.is-highlight {
+    color: #141311;
+  }
+
+  .dropdown {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .dropbtn {
+    gap: 6px;
+  }
+
+  .dropbtn svg {
+    width: 14px;
+    height: 14px;
+    transition: transform var(--transition);
+    flex: 0 0 auto;
+  }
+
+  .dropdown:hover .dropbtn svg,
+  .dropdown:focus-within .dropbtn svg,
+  .dropdown.is-open .dropbtn svg {
+    transform: rotate(180deg);
+  }
+
+  .dropcontent {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    z-index: 300;
+    min-width: 240px;
+    display: grid;
+    gap: 6px;
+    padding: 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+  }
+
+  .dropdown:hover .dropcontent,
+  .dropdown:focus-within .dropcontent,
+  .dropdown.is-open .dropcontent {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .dropcontent a {
+    justify-content: flex-start;
+    padding: 12px 14px;
+    border-radius: 12px;
+    white-space: normal;
+    line-height: 1.35;
+  }
+
+  .menu-tools {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 8px;
+    padding-left: 8px;
+    border-left: 1px solid var(--color-divider);
+    flex-shrink: 0;
+  }
+
+  .lang-list {
+    display: flex;
+    gap: 4px;
+  }
+
+  .lang-link.is-active {
+    background: var(--color-surface-2);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+
+  .theme-toggle {
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    width: 44px;
+    padding-inline: 0;
+    font-size: 1rem;
+  }
+
+  main {
+    padding: 34px 0 90px;
+  }
+
+  .section > .wrap,
+  .section > .wrap-wide {
+    max-width: 100%;
+  }
+
+  .article-shell {
+    position: relative;
+    max-width: 1320px;
+    margin-inline: auto;
+  }
+
+  .article-header {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(26px, 4vw, 48px);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-border);
+    margin-bottom: 22px;
+  }
+
+  .article-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 14% 18%, rgba(15, 93, 95, 0.06), transparent 24%),
+      radial-gradient(circle at 86% 16%, rgba(154, 106, 53, 0.06), transparent 22%);
+  }
+
+  .article-header > * {
+    position: relative;
+  }
+
+  .article-header h1 {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    line-height: 0.97;
+    letter-spacing: -0.03em;
+    max-width: 16ch;
+    margin-bottom: 16px;
+  }
+
+  .article-reading {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .article-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+    backdrop-filter: blur(4px);
+    font-size: .88rem;
+    line-height: 1;
+    color: var(--color-text-muted);
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: minmax(0,5fr) minmax(260px,2fr);
+    gap: 32px;
+    align-items: start;
+  }
+
+  .article-main { min-width: 0; }
+
+  .article-aside {
+    position: sticky;
+    top: 92px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .aside-card,
+  .insight-card,
+  .tableau-card,
+  .takeaway-box,
+  details.methodology {
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .aside-card {
+    padding: 18px 18px 16px;
+    border-radius: 24px;
+    background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+  }
+
+  .aside-card h3 {
+    font-size: .92rem;
+    margin: 0 0 10px;
+    color: var(--color-text-faint);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+
+  .toc {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .toc a {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 12px;
+    color: var(--color-text-muted);
+  }
+
+  .toc a:hover,
+  .toc a.is-active {
+    background: var(--color-primary-soft);
+    color: var(--color-text);
+  }
+
+  .article-body section[id] {
+    position: relative;
+    margin-top: 2.2rem;
+    scroll-margin-top: 120px;
+  }
+
+  .article-body h2,
+  .article-body h3,
+  .article-body section[id] {
+    scroll-margin-top: 120px;
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+
+  .article-body p {
+    margin-bottom: 1.2rem;
+  }
+
+  .article-body .is-focus {
+    padding-left: 16px;
+    border-left: 3px solid color-mix(in srgb, var(--color-accent) 70%, transparent);
+  }
+
+  .article-pullquote {
+    margin: 22px 0;
+    padding: 18px 20px;
+    border-radius: 18px;
+    border: 1px solid var(--color-border);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 14%, var(--color-surface)), color-mix(in srgb, var(--color-accent) 4%, var(--color-surface)));
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .article-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-divider), transparent);
+    margin: 28px 0;
+  }
+
+  .mobile-jump {
+    display: none;
+  }
+
+  .mobile-jump a {
+    white-space: nowrap;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+    font-size: .85rem;
+    color: var(--color-text-muted);
+  }
+
+  .insight-grid {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 16px;
+    margin: 22px 0 10px;
+  }
+
+  .insight-card {
+    padding: 18px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+  }
+
+  .insight-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.02rem;
+  }
+
+  .insight-card p {
+    margin: 0;
+    font-size: .98rem;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+  }
+
+  .tableau-card {
+    margin: 24px 0 10px;
+    padding: 16px;
+    border-radius: 24px;
+    background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+
+  .tableau-frame {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-surface) 94%, transparent);
+  }
+
+  .tableauPlaceholder {
+    width: 100% !important;
+  }
+
+  .case-note {
+    margin-top: 10px;
+    font-size: .95rem;
+    color: var(--color-text-muted);
+  }
+
+  .takeaway-box {
+    margin: 20px 0 10px;
+    padding: 22px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 18%, var(--color-surface)), color-mix(in srgb, var(--color-accent) 5%, var(--color-surface)));
+  }
+
+  .takeaway-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  details.methodology {
+    margin-top: 22px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    overflow: hidden;
+  }
+
+  details.methodology summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 18px 20px;
+    font-weight: 700;
+  }
+
+  details.methodology summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details.methodology[open] summary {
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .methodology-inner {
+    padding: 18px 20px 22px;
+  }
+
+  .methodology-inner h4 {
+    margin: 18px 0 8px;
+    font-size: 1rem;
+  }
+
+  .methodology-inner ul {
+    margin: 0 0 12px 18px;
+  }
+
+  .methodology-inner li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+
+  .article-cta {
+    margin-top: 26px;
+  }
+
+  .btn {
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 18px;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    transition: var(--transition);
+    white-space: nowrap;
+  }
+
+  .btn-ghost {
+    background: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+
+  .btn-ghost:hover {
+    background: var(--color-surface-2);
+  }
+
+  .footer {
+    padding: 36px 0 26px;
+    border-top: 1px solid var(--color-divider);
+    background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+    margin-top: 28px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .footer h4 {
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-faint);
+    margin-bottom: 12px;
+  }
+
+  .footer p,
+  .footer a {
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+  }
+
+  .footer a:hover {
+    color: var(--color-text);
+  }
+
+  .footer-links {
+    display: grid;
+    gap: 10px;
+    justify-items: end;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-top: 22px;
+    margin-top: 22px;
+    border-top: 1px solid var(--color-divider);
+    color: var(--color-text-faint);
+    font-size: var(--text-xs);
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 980px) {
+    .article-layout {
+      display: block;
+    }
+
+    .article-aside {
+      display: none;
+    }
+
+    .insight-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 920px) {
+    .nav {
+      grid-template-columns: auto auto;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .menu-toggle {
+      display: inline-flex;
+    }
+
+    .menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 14px;
+      right: 14px;
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 14px;
+      border: 1px solid var(--color-border);
+      border-radius: 22px;
+      background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .menu.is-open {
+      display: flex;
+    }
+
+    .menu a,
+    .menu .dropbtn,
+    .theme-toggle,
+    .lang-link {
+      justify-content: flex-start;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      padding: 10px 12px;
+    }
+
+    .menu a.is-highlight,
+    .menu .dropbtn.is-highlight {
+      justify-content: center;
+    }
+
+    .dropdown {
+      width: 100%;
+    }
+
+    .dropcontent {
+      position: static;
+      min-width: 0;
+      margin-top: 8px;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: none;
+      display: none;
+      box-shadow: none;
+      border-radius: 16px;
+      background: var(--color-surface-2);
+    }
+
+    .dropdown.is-open .dropcontent {
+      display: grid;
+    }
+
+    .menu-tools {
+      margin-left: 0;
+      padding-left: 0;
+      border-left: 0;
+      padding-top: 6px;
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-links {
+      justify-items: start;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .wrap,
+    .wrap-wide {
+      width: min(100% - 24px, var(--content-default));
+    }
+
+    .article-header,
+    .aside-card,
+    .insight-card,
+    .tableau-card,
+    .takeaway-box,
+    details.methodology {
+      border-radius: 22px;
+    }
+
+    .article-header h1 {
+      max-width: 100%;
+    }
+
+    .article-reading {
+      gap: 8px;
+    }
+
+    .article-chip {
+      font-size: .8rem;
+      padding: 7px 10px;
+    }
+
+    .mobile-jump {
+      display: flex;
+      gap: 8px;
+      overflow: auto;
+      padding-bottom: 6px;
+      scrollbar-width: none;
+      margin: 0 0 18px;
+    }
+
+    .mobile-jump::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tableau-card {
+      padding: 12px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+    }
+
+    .sub {
+      max-width: 240px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+    .fade-in {
+      opacity: 1;
+      transform: none;
+    }
+  }
 </style>
 
 <script type="application/ld+json">
@@ -78,13 +934,13 @@ details.methodology[open] summary{border-bottom:1px solid rgba(120,120,120,.12)}
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Explainable Transaction Risk Monitoring for Fintech",
-  "description": "A portfolio case on explainable transaction risk monitoring for fintech: Python, Tableau, investigator queue, explainability, and fraud monitoring workflow.",
+  "description": "Portfolio case on explainable transaction risk monitoring for fintech: Python, Tableau, investigator queue, explainability, and behavioral context of fraud monitoring.",
   "author": {"@type": "Person", "name": "Anna Signaevska"},
   "publisher": {"@type": "Organization", "name": "TELWHA"},
   "inLanguage": "en",
   "datePublished": "2026-06-01",
   "dateModified": "2026-06-01",
-  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://t-e-l-w-h-a.com/en/cases/explainable-transaction-risk-monitoring/"}
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://t-e-l-w-h-a.com/en/articles/explainable-transaction-risk-monitoring/"}
 }
 </script>
 </head>
@@ -94,52 +950,68 @@ details.methodology[open] summary{border-bottom:1px solid rgba(120,120,120,.12)}
 <header class="topbar">
   <div class="wrap nav">
     <div class="brand">
-      <a class="brand-row" href="/en/">
+      <a class="brand-row" href="/en/" aria-label="TELWHA — go to homepage">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
         <strong>TELWHA</strong>
       </a>
-      <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+      <span class="sub">Financial Psychology</span>
     </div>
 
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
       <span class="menu-toggle-lines" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </span>
     </button>
 
-    <nav class="menu" id="site-menu">
-      <div class="menu-group">
-        <a href="/en/">Home</a>
-        <a href="/en/finlab/">FinLab</a>
-        <a href="/en/about/">About</a>
-      </div>
+    <nav class="menu" id="site-menu" aria-label="Main navigation">
+      <a href="/en/">Home</a>
+      <a href="/en/about/">About</a>
+      <a href="/en/cases/" class="is-active">Cases</a>
+      <a href="/en/articles/">Articles</a>
+      <a href="/en/finlab/">FinLab</a>
 
-      <div class="menu-group menu-dropdown">
-        <button type="button" class="menu-dropbtn">For Traders ▾</button>
-        <div class="menu-dropcontent">
-          <a href="/en/trader-course/">Mini Course</a>
-          <a href="/en/archetype-test/">Archetype Test</a>
+      <div class="dropdown">
+        <button type="button" class="dropbtn is-highlight" aria-expanded="false">
+          Test yourself
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="dropcontent">
+          <a href="/finlab/money-test-api/money-test.html">Financial behavior test</a>
+          <a href="/habit-test.html">Where do your habits lead?</a>
+          <a href="/fact-or-fiction-cases.html">Fact or fiction?</a>
         </div>
       </div>
 
-      <div class="menu-group">
-        <a href="/en/articles/">Articles</a>
-        <a href="/en/reviews/">Reviews</a>
-        <a href="/en/cases/">Cases</a>
-        <a href="/en/contact/">Contact</a>
+      <div class="dropdown">
+        <button type="button" class="dropbtn" aria-expanded="false">
+          For traders
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="dropcontent">
+          <a href="/trader-course/">Mini-course</a>
+          <a href="/archetype-test/">Trader archetype</a>
+        </div>
       </div>
 
-      <div class="menu-group menu-tools">
-        <details class="lang-switcher lang-switcher--inside">
-          <summary>🇬🇧</summary>
-          <div class="lang-list">
-            <a href="/articles/explainable-transaction-risk-monitoring.html.html" aria-label="Ukrainian">🇺🇦</a>
-            <a href="/es/articles/explainable-transaction-risk-monitoring.html" aria-label="Español">🇪🇸</a>
-          </div>
-        </details>
+      <a href="/en/reviews/">Reviews</a>
+      <a href="/en/contact/">Contact</a>
 
-        <button class="theme-toggle" type="button" aria-label="Toggle theme">🌓</button>
+      <div class="menu-tools">
+        <div class="lang-list" aria-label="Site languages">
+          <a class="lang-link" href="/articles/explainable-transaction-risk-monitoring.html" lang="uk" aria-label="Українська">UA</a>
+          <a class="lang-link is-active" href="/en/articles/explainable-transaction-risk-monitoring.html" lang="en" aria-label="English">EN</a>
+          <a class="lang-link" href="/es/articles/explainable-transaction-risk-monitoring.html" lang="es" aria-label="Español">ES</a>
+        </div>
+
+        <button class="theme-toggle" type="button" aria-label="Change theme">☀️</button>
       </div>
     </nav>
   </div>
@@ -147,7 +1019,7 @@ details.methodology[open] summary{border-bottom:1px solid rgba(120,120,120,.12)}
 
 <main>
   <section class="section">
-    <div class="wrap">
+    <div class="wrap-wide">
       <article class="article-shell" itemscope itemtype="https://schema.org/Article">
         <header class="article-header fade-in">
           <h1 itemprop="headline">Explainable Transaction Risk Monitoring for Fintech</h1>
@@ -160,9 +1032,9 @@ details.methodology[open] summary{border-bottom:1px solid rgba(120,120,120,.12)}
 
         <div class="mobile-jump fade-in" aria-label="Quick case navigation">
           <a href="#part-1">Problem</a>
-          <a href="#part-2">What I built</a>
+          <a href="#part-2">What was done</a>
           <a href="#part-3">Dashboard</a>
-          <a href="#part-4">Key findings</a>
+          <a href="#part-4">What we found</a>
           <a href="#part-5">Methodology</a>
         </div>
 
@@ -172,26 +1044,26 @@ details.methodology[open] summary{border-bottom:1px solid rgba(120,120,120,.12)}
 
               <section id="part-1">
                 <p class="is-focus">
-                  In transaction monitoring, there is always a temptation to flag as many signals as possible. The result is a large review queue where real risk becomes harder, not easier, to read.
+                  In transaction monitoring there is always a temptation to flag as many signals as possible. The result is that the review team sees a large stream of alerts, but cannot always quickly understand where risk is actually concentrated.
                 </p>
                 <p>
-                  In this project, I built an explainable risk layer on top of a public fraud dataset so that each flagged case carried not only a score, but also a severity level, a primary trigger, and a short explanation for escalation.
+                  In this project, I built an explainable risk logic on top of a public fraud dataset so that each flagged case has not only a score, but also a severity level, a primary trigger, and a short explanation of why it was escalated.
                 </p>
               </section>
 
               <div class="article-pullquote fade-in">
-                The goal was not to add one more score. The goal was to make risk readable: where it appears, how the system escalates it, and what actually lands in review first.
+                The goal was not to add yet another score, but to make risk readable: where it appears, how exactly the system highlights it, and what reaches review first.
               </div>
 
               <div class="article-divider"></div>
 
               <section id="part-2">
-                <h2>What I built</h2>
+                <h2>What I did</h2>
                 <p>
-                  I used a transaction-level fraud dataset to simulate a monitoring workflow with nearly 284 thousand transactions, 473 fraud cases, a dedicated high-risk segment, and a separate critical escalation layer. [file:326]
+                  I used a transaction-level fraud dataset as a base for simulating a risk monitoring workflow: nearly 284 thousand transactions, 473 fraud cases, a separate high-risk segment, and a dedicated critical escalation layer.
                 </p>
                 <p>
-                  In Python, I built a Combined Risk Score that brought together several interpretable signals: unusual amount, off-hours activity, model-based risk, and anomaly features. On top of that, I created severity buckets, alert flags, primary risk triggers, and short reason-for-flag explanations for flagged transactions.
+                  In Python, I built a Combined Risk Score that combines several interpretable signals: unusual amount, off-hours activity, a model-driven component, and an anomaly component. On top of that, I created severity buckets, an alert flag, a primary risk trigger, and short reason-for-flag explanations for flagged transactions.
                 </p>
 
                 <div class="insight-grid fade-in">
@@ -204,13 +1076,13 @@ details.methodology[open] summary{border-bottom:1px solid rgba(120,120,120,.12)}
                   <div class="insight-card">
                     <h3>Dashboard</h3>
                     <p>
-                      KPI overview, fraud rate by severity, alert time patterns, and an investigator queue in one workspace.
+                      KPI, fraud rate by severity, alert time patterns, and investigator queue in a single working space.
                     </p>
                   </div>
                   <div class="insight-card">
                     <h3>Queue</h3>
                     <p>
-                      A queue structured by priority, severity, trigger, and reason for flag, designed for review rather than raw listing.
+                      A queue with priority, severity, trigger, and reason-for-flag that lets you read cases not as a raw list but as a structured review backlog.
                     </p>
                   </div>
                 </div>
@@ -221,45 +1093,45 @@ details.methodology[open] summary{border-bottom:1px solid rgba(120,120,120,.12)}
               <section id="part-3">
                 <h2>What the dashboard shows</h2>
                 <p>
-                  The dashboard is structured as a single working screen. The top section gives a high-level view of the flow, the middle focuses on alert quality by severity, and the lower part moves into time patterns and the investigator queue.
+                  The dashboard is built as a single working page. At the top you see the overall flow state, then alert quality by severity, below that time patterns, and at the bottom the investigator queue.
                 </p>
 
                 <div class="tableau-card fade-in">
                   <div class="tableau-frame">
                     <div class='tableauPlaceholder' id='viz1780304197063' style='position: relative'>
                       <noscript>
-                        <a href='#'>
-                          <img alt='Dashboard 1' src='https://public.tableau.com/static/images/RZ/RZFQC34TT/1_rss.png' style='border: none' />
+                        <a href='https://public.tableau.com/views/shared/RZFQC34TT?:showVizHome=no' target="_blank" rel="noopener noreferrer">
+                          <img alt='Dashboard 1' src='https://public.tableau.com/static/images/RZ/RZFQC34TT/1_rss.png' style='border: none'>
                         </a>
                       </noscript>
                       <object class='tableauViz' style='display:none;'>
-                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                        <param name='embed_code_version' value='3' />
-                        <param name='path' value='shared/RZFQC34TT' />
-                        <param name='toolbar' value='yes' />
-                        <param name='static_image' value='https://public.tableau.com/static/images/RZ/RZFQC34TT/1.png' />
-                        <param name='animate_transition' value='yes' />
-                        <param name='display_static_image' value='yes' />
-                        <param name='display_spinner' value='yes' />
-                        <param name='display_overlay' value='yes' />
-                        <param name='display_count' value='yes' />
-                        <param name='language' value='en-GB' />
+                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'>
+                        <param name='embed_code_version' value='3'>
+                        <param name='path' value='shared/RZFQC34TT'>
+                        <param name='toolbar' value='yes'>
+                        <param name='static_image' value='https://public.tableau.com/static/images/RZ/RZFQC34TT/1.png'>
+                        <param name='animate_transition' value='yes'>
+                        <param name='display_static_image' value='yes'>
+                        <param name='display_spinner' value='yes'>
+                        <param name='display_overlay' value='yes'>
+                        <param name='display_count' value='yes'>
+                        <param name='language' value='en-GB'>
                       </object>
                     </div>
                   </div>
-                  <p class="case-note">The Tableau dashboard is embedded directly into the page, allowing the reader to move from top-level KPIs to specific transactions in the queue.</p>
+                  <p class="case-note">The Tableau dashboard is embedded directly into the page: you can move from high-level KPI to specific transactions in the queue.</p>
                 </div>
 
                 <p>
-                  The top layer shows the basic picture: 283,726 transactions, 473 fraud cases, a 0.17% fraud rate, 970 high-risk transactions, and 142 critical transactions. This immediately shows that the zone of elevated attention is only a very small part of the total flow. [file:326]
+                  The top block shows the basic picture: 283,726 transactions, 473 fraud cases, a fraud rate of 0.17%, 970 high-risk transactions, and 142 critical transactions. This immediately shows that the high-attention zone is only a small part of the full stream.
                 </p>
                 <p>
-                  The key analytical block is fraud rate by severity. This is where it becomes clear which segments truly concentrate fraud and which ones generate alert volume without proportional value. The queue below translates that logic into operations: severity, priority, trigger, and the reason each case was escalated.
+                  Fraud rate by severity then becomes the key block: it shows which segments actually concentrate fraud and which generate many alerts without proportionate value. The queue at the bottom translates this into an operational format: severity, priority, trigger, and reason-for-flag for each case.
                 </p>
 
                 <div class="takeaway-box fade-in">
                   <p>
-                    Here, the dashboard is not a decorative layer. It is a short route from signal to action: what the system escalates, why it does so, and what the reviewer actually sees.
+                    Here the dashboard is not a decorative visualization but a short route from signal to decision: what the system escalates, why it escalates it, and what the reviewer sees on the other side.
                   </p>
                 </div>
               </section>
@@ -267,30 +1139,30 @@ details.methodology[open] summary{border-bottom:1px solid rgba(120,120,120,.12)}
               <div class="article-divider"></div>
 
               <section id="part-4">
-                <h2>Key findings</h2>
+                <h2>What stood out?</h2>
 
                 <p>
-                  At the full-flow level, the fraud rate is low: 0.17%, or 473 cases. But risk is distributed very unevenly. The high-risk segment covers only 970 transactions, and the critical segment only 142. That means the core challenge is not to review everything, but to narrow manual attention to the right part of the stream. [file:326]
+                  At the full-flow level, the fraud rate is small — 0.17% or 473 cases. But risk is distributed very unevenly: the high-risk segment covers only 970 transactions, and the critical segment only 142. This means the system’s main task is not “to check everything,” but to narrow down the zone of manual attention correctly.
                 </p>
 
                 <p>
-                  The strongest operating segment was High / P2. It remained small in volume while concentrating a meaningful share of fraud cases. From a review perspective, this is exactly what a useful monitoring layer should produce: a segment narrow enough for manual handling, but dense enough to justify attention.
+                  The strongest segment turned out to be High / P2. It is small in volume, but a substantial share of fraud cases is concentrated there. From a review standpoint this is a good sign: the system identifies a segment that is narrow enough for manual handling yet dense enough in risk.
                 </p>
 
                 <p>
-                  Critical / P1 behaved differently. It is the loudest escalation zone, but its internal precision appears lower than expected for the highest priority tier. Some critical alerts end in non-fraud outcomes, which makes this segment look less like the system’s best catch and more like a candidate for threshold adjustment.
+                  Critical / P1 behaves differently. This is the loudest escalation zone, but precision within it is lower than you would expect from the highest priority. A share of critical alerts ends with a non-fraud outcome, so this segment looks less like “the best catch” and more like a candidate for re-tuning thresholds.
                 </p>
 
                 <p>
-                  Trigger analysis also shows a clear difference between strong and weak signals. Model-driven risk produces a better concentration of fraud, while simpler signals such as unusual amount or off-hours activity can generate substantial alert volume without the same level of quality. In practice, that means some rules work more like noise generators unless they are combined with stronger signals.
+                  Trigger analysis also shows the difference between strong and weak signals. Model-driven risk gives better fraud concentration, while simple standalone indicators such as unusual amount or off-hours activity may create a large volume of alerts but do not deliver comparable quality on their own. In practice this means some rules act as noise sources unless combined with other features.
                 </p>
 
                 <p>
-                  Time patterns add another layer of interpretation. Night segments carry lower transaction volume but a higher likelihood of suspicious behavior. Still, the off-hours signal on its own is too broad. It becomes more useful when it amplifies an already risky context rather than acting as a standalone reason for escalation.
+                  Time patterns add another interpretation layer. Night-time segments have lower transaction volume but a higher probability of suspicious behavior. However, off-hours as a standalone trigger is too broad: its usefulness grows only when it amplifies an existing risk context instead of being the sole escalation reason.
                 </p>
 
                 <p>
-                  Overall, this case is not just about the presence of fraud. It is about how a monitoring system allocates attention. High looks like a strong operating segment, Medium can function as a buffer for additional review, and Critical in its current form looks like the most likely candidate for retuning.
+                  Overall, this case shows not just the fact that fraud exists, but how the system distributes attention. High works as a strong operational segment, Medium can be a buffer zone for additional review, and Critical, in its current form, looks like a candidate for reconfiguration.
                 </p>
               </section>
 
@@ -298,28 +1170,28 @@ details.methodology[open] summary{border-bottom:1px solid rgba(120,120,120,.12)}
 
               <section id="part-5">
                 <details class="methodology fade-in">
-                  <summary>Technical details</summary>
+                  <summary>A few technical details</summary>
                   <div class="methodology-inner">
                     <h4>Case type</h4>
                     <p>
-                      A portfolio simulation of fraud monitoring on a public transaction-level dataset, built around a custom risk logic, severity segmentation, and an investigator queue.
+                      Portfolio-level simulation of fraud monitoring on a public transaction-level dataset with custom risk logic, severity segmentation, and investigator queue.
                     </p>
 
-                    <h4>Python work</h4>
+                    <h4>Python layer</h4>
                     <ul>
-                      <li>Cleaning and preparing transaction-level data.</li>
-                      <li>Calculating risk indicators: unusual amount, off-hours activity, amount-/time-based risk, model-based signals, and anomaly components.</li>
-                      <li>Building a Combined Risk Score and segmenting transactions into Low / Medium / High / Critical.</li>
-                      <li>Creating alert flags, primary risk triggers, and short text explanations for flagged transactions.</li>
-                      <li>Calculating core KPIs: total flow, fraud rate, high-risk volume, and critical volume. [file:326]</li>
+                      <li>Cleaning and preparing transaction data.</li>
+                      <li>Engineering risk features: unusual amount, off-hours, amount/time-based risk, model-driven and anomaly components.</li>
+                      <li>Building a Combined Risk Score and segmenting into Low / Medium / High / Critical.</li>
+                      <li>Forming an alert flag, primary risk trigger, and short text explanations for flagged transactions.</li>
+                      <li>Calculating base KPI: flow volume, fraud rate, number of high-risk and critical transactions.</li>
                     </ul>
 
-                    <h4>Tableau work</h4>
+                    <h4>Tableau layer</h4>
                     <ul>
-                      <li>High-level KPI overview for fast flow assessment.</li>
-                      <li>Fraud rate by severity to evaluate segment quality.</li>
+                      <li>High-level KPI for a quick view of the stream.</li>
+                      <li>Fraud rate by severity to assess segment quality.</li>
                       <li>Alert time patterns.</li>
-                      <li>An investigator queue with priority, severity, trigger, and explanation fields.</li>
+                      <li>Investigator queue with priority, severity, trigger, and explanations.</li>
                     </ul>
 
                     <h4>Tech stack</h4>
@@ -339,9 +1211,9 @@ details.methodology[open] summary{border-bottom:1px solid rgba(120,120,120,.12)}
               <h3>Navigation</h3>
               <nav class="toc">
                 <a href="#part-1">Problem</a>
-                <a href="#part-2">What I built</a>
+                <a href="#part-2">What was done</a>
                 <a href="#part-3">Dashboard</a>
-                <a href="#part-4">Key findings</a>
+                <a href="#part-4">What we found</a>
                 <a href="#part-5">Methodology</a>
               </nav>
             </div>
@@ -358,15 +1230,16 @@ details.methodology[open] summary{border-bottom:1px solid rgba(120,120,120,.12)}
 
 <footer class="footer">
   <div class="wrap">
-    <div class="footer-grid fade-in">
+    <div class="footer-grid">
       <div>
         <h4>TELWHA</h4>
-        <p>Financial psychology, behavioral economics, and choice architecture for more resilient financial decisions.</p>
+        <p>Financial psychology, behavioral economics, and choice architecture for better decisions and more resilient outcomes.</p>
       </div>
       <div style="text-align:right">
         <h4>Navigation</h4>
-        <div class="footer-links" style="align-items:flex-end">
-          <a href="/en/about/">About</a>
+        <div class="footer-links">
+          <a href="/en/">Home</a>
+          <a href="/en/cases/">Cases</a>
           <a href="/en/reviews/">Reviews</a>
           <a href="/en/contact/">Contact</a>
         </div>
@@ -374,75 +1247,179 @@ details.methodology[open] summary{border-bottom:1px solid rgba(120,120,120,.12)}
     </div>
     <div class="footer-bottom">
       <span>© 2026 TELWHA. All rights reserved.</span>
-      <span>Kyiv, Ukraine · 🇺🇦</span>
+      <span>Kyiv, Ukraine</span>
     </div>
   </div>
 </footer>
 
-<script src="/static/script/global.js"></script>
 <script>
-  const menuToggle = document.querySelector('.menu-toggle');
-  const siteMenu = document.querySelector('#site-menu');
-  if (menuToggle && siteMenu) {
-    menuToggle.addEventListener('click', () => {
-      const isOpen = siteMenu.classList.toggle('is-open');
-      menuToggle.classList.toggle('is-open', isOpen);
-      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  function updateProgressBar() {
+    const progress = document.getElementById("progress");
+    if (!progress) return;
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progressValue = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progress.style.width = progressValue + "%";
+  }
+
+  function syncThemeButtonUI() {
+    const themeBtn = document.querySelector(".theme-toggle");
+    if (!themeBtn) return;
+    const current = document.documentElement.getAttribute("data-theme") || "light";
+    themeBtn.textContent = current === "dark" ? "🌙" : "☀️";
+    themeBtn.setAttribute(
+      "aria-label",
+      current === "dark" ? "Switch to light theme" : "Switch to dark theme"
+    );
+  }
+
+  function closeAllDropdowns(except = null) {
+    document.querySelectorAll(".dropdown").forEach((dropdown) => {
+      if (dropdown === except) return;
+      dropdown.classList.remove("is-open");
+      const button = dropdown.querySelector(".dropbtn");
+      if (button) button.setAttribute("aria-expanded", "false");
     });
   }
 
-  const progress = document.getElementById('progress');
-  const updateProgress = () => {
-    const doc = document.documentElement;
-    const total = doc.scrollHeight - doc.clientHeight;
-    const scrolled = total > 0 ? (doc.scrollTop / total) * 100 : 0;
-    if (progress) progress.style.width = scrolled + '%';
-  };
-  document.addEventListener('scroll', updateProgress, { passive: true });
-  updateProgress();
+  document.addEventListener("DOMContentLoaded", () => {
+    updateProgressBar();
+    window.addEventListener("scroll", updateProgressBar, { passive: true });
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('is-visible');
-    });
-  }, { threshold: 0.14 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    const root = document.documentElement;
+    let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    root.setAttribute("data-theme", currentTheme);
+    syncThemeButtonUI();
 
-  const tocLinks = Array.from(document.querySelectorAll('.toc a'));
-  const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
-  const markToc = () => {
-    let activeId = sections[0]?.id;
-    sections.forEach(section => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= 140) activeId = section.id;
-    });
-    tocLinks.forEach(link => {
-      link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
-    });
-  };
-  document.addEventListener('scroll', markToc, { passive: true });
-  markToc();
-
-  (function() {
-    var divElement = document.getElementById('viz1780304197063');
-    if (!divElement) return;
-    var vizElement = divElement.getElementsByTagName('object')[0];
-    if (!vizElement) return;
-    if (divElement.offsetWidth > 900) {
-      vizElement.style.width = '100%';
-      vizElement.style.height = '827px';
-    } else if (divElement.offsetWidth > 500) {
-      vizElement.style.width = '100%';
-      vizElement.style.height = '827px';
-    } else {
-      vizElement.style.width = '100%';
-      vizElement.style.height = '880px';
+    const themeBtn = document.querySelector(".theme-toggle");
+    if (themeBtn) {
+      themeBtn.addEventListener("click", () => {
+        currentTheme = currentTheme === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", currentTheme);
+        syncThemeButtonUI();
+      });
     }
-    var scriptElement = document.createElement('script');
-    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-    vizElement.parentNode.insertBefore(scriptElement, vizElement);
-  })();
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const siteMenu = document.querySelector("#site-menu");
+
+    if (menuToggle && siteMenu) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = siteMenu.classList.toggle("is-open");
+        menuToggle.classList.toggle("is-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+
+        if (!isOpen) closeAllDropdowns();
+      });
+    }
+
+    document.querySelectorAll(".dropbtn").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        if (window.innerWidth > 920) return;
+        event.stopPropagation();
+        const parent = button.parentElement;
+        const willOpen = !parent.classList.contains("is-open");
+        closeAllDropdowns(parent);
+        parent.classList.toggle("is-open", willOpen);
+        button.setAttribute("aria-expanded", willOpen ? "true" : "false");
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".dropdown")) {
+        closeAllDropdowns();
+      }
+
+      const nav = document.querySelector(".nav");
+      if (
+        window.innerWidth <= 920 &&
+        siteMenu &&
+        siteMenu.classList.contains("is-open") &&
+        nav &&
+        !nav.contains(event.target)
+      ) {
+        siteMenu.classList.remove("is-open");
+        menuToggle?.classList.remove("is-open");
+        menuToggle?.setAttribute("aria-expanded", "false");
+        menuToggle?.setAttribute("aria-label", "Open menu");
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeAllDropdowns();
+
+        if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Open menu");
+          menuToggle?.focus();
+        }
+      }
+    });
+
+    document.querySelectorAll('#site-menu a[href]').forEach((link) => {
+      link.addEventListener("click", () => {
+        closeAllDropdowns();
+
+        if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Open menu");
+        }
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('is-visible');
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+    const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+
+    const markToc = () => {
+      let activeId = sections[0]?.id;
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 140) activeId = section.id;
+      });
+      tocLinks.forEach(link => {
+        link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
+      });
+    };
+
+    document.addEventListener('scroll', markToc, { passive: true });
+    markToc();
+
+    (function() {
+      var divElement = document.getElementById('viz1780304197063');
+      if (!divElement) return;
+      var vizElement = divElement.getElementsByTagName('object')[0];
+      if (!vizElement) return;
+
+      if (divElement.offsetWidth > 900) {
+        vizElement.style.width = '100%';
+        vizElement.style.height = '827px';
+      } else if (divElement.offsetWidth > 500) {
+        vizElement.style.width = '100%';
+        vizElement.style.height = '827px';
+      } else {
+        vizElement.style.width = '100%';
+        vizElement.style.height = '880px';
+      }
+
+      var scriptElement = document.createElement('script');
+      scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+      vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    })();
+  });
 </script>
 </body>
 </html>

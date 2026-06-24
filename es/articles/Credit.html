@@ -1,224 +1,1043 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TELWHA | Misma morosidad, comportamiento diferente</title>
-<meta name="description" content="Segmentación conductual en la gestión de cobros: por qué el mismo nivel de morosidad no implica el mismo comportamiento del prestatario ni requiere la misma estrategia.">
+<title>TELWHA | La misma morosidad, distinto comportamiento del deudor</title>
+<meta name="description" content="Segmentación conductual en recobro de deuda: por qué la misma morosidad no implica el mismo comportamiento del deudor ni requiere la misma estrategia.">
 <link rel="canonical" href="https://t-e-l-w-h-a.com/es/cases/same-delinquency-different-borrower/">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="TELWHA | Misma morosidad, comportamiento diferente">
-<meta property="og:description" content="Segmentación conductual en la gestión de cobros: por qué el mismo nivel de morosidad no implica el mismo comportamiento del prestatario ni requiere la misma estrategia.">
+<meta property="og:title" content="TELWHA | La misma morosidad, distinto comportamiento del deudor">
+<meta property="og:description" content="Segmentación conductual en recobro de deuda: por qué la misma morosidad no implica el mismo comportamiento del deudor ni requiere la misma estrategia.">
 <meta property="og:url" content="https://t-e-l-w-h-a.com/es/cases/same-delinquency-different-borrower/">
 <meta property="og:site_name" content="TELWHA">
 
-<link rel="icon" href="/static/media/telwha-favicon.png" type="png">
-<link rel="stylesheet" href="/static/css/base.css">
-<link rel="stylesheet" href="/static/css/layout-article.css">
+<link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
+
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api/fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
 
 <style>
-html{scroll-behavior:smooth;}
-.progress{position:fixed;inset:0 auto auto 0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,var(--accent,#8b7355),var(--accent-2,#c7a978));box-shadow:0 1px 10px rgba(0,0,0,.12)}
+  :root,
+  [data-theme="light"] {
+    --font-display: "Boska", Georgia, serif;
+    --font-body: "Satoshi", "Inter", sans-serif;
 
-.article-shell{position:relative;max-width:1320px;margin-inline:auto}
-.article-header{position:relative;overflow:hidden}
-.article-header::after{content:"";position:absolute;right:-80px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(199,169,120,.16),rgba(199,169,120,0) 70%);pointer-events:none}
-.article-deck{max-width:920px}
-.article-reading{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.article-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:rgba(255,255,255,.5);backdrop-filter:blur(4px);font-size:.88rem;line-height:1}
-html[data-theme="dark"] .article-chip{background:rgba(255,255,255,.04)}
+    --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
+    --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+    --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+    --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+    --text-2xl: clamp(2.2rem, 1.5rem + 2vw, 4rem);
 
-.article-layout{
-  display:grid;
-  grid-template-columns:minmax(0,5fr) minmax(260px,2fr);
-  gap:56px;
-  align-items:start;
-}
+    --color-bg: #f5f3ef;
+    --color-surface: #fcfbf8;
+    --color-surface-2: #f2efe9;
+    --color-surface-3: #ebe7df;
+    --color-border: rgba(40, 37, 29, 0.10);
+    --color-divider: rgba(40, 37, 29, 0.08);
 
-.article-main{min-width:0}
-.article-aside{position:sticky;top:92px;display:flex;flex-direction:column;gap:14px}
-.aside-card{padding:16px 16px 14px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.45));box-shadow:0 10px 30px rgba(0,0,0,.04)}
-html[data-theme="dark"] .aside-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:none}
-.aside-card h3{font-size:.92rem;margin:0 0 10px;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
-.toc{display:flex;flex-direction:column;gap:8px}
-.toc a{display:block;padding:8px 10px;border-radius:12px;text-decoration:none;opacity:.78}
-.toc a:hover,.toc a.is-active{background:rgba(199,169,120,.14);opacity:1}
+    --color-text: #22201a;
+    --color-text-muted: #65625b;
+    --color-text-faint: #8b877f;
+    --color-text-inverse: #f9f8f5;
 
-.article-body>p{position:relative;margin-bottom:1.35rem}
-.article-body section[id]>p:first-of-type{margin-top:0}
-.article-body>p.is-focus{padding-left:16px;border-left:3px solid rgba(199,169,120,.8)}
-.article-body h2,.article-body h3,.article-body section[id]{scroll-margin-top:120px}
-.article-body section[id]{position:relative;margin-top:2.2rem}
-.article-pullquote{margin:22px 0;padding:18px 20px;border-radius:18px;border:1px solid rgba(120,120,120,.14);background:linear-gradient(135deg,rgba(199,169,120,.14),rgba(199,169,120,.04));font-size:1.05rem;line-height:1.7}
-.article-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(120,120,120,.25),transparent);margin:28px 0}
+    --color-primary: #0f5d5f;
+    --color-primary-hover: #0b4b4d;
+    --color-primary-soft: rgba(15, 93, 95, 0.08);
 
-.mobile-jump{display:none}
+    --color-accent: #9a6a35;
+    --color-accent-soft: rgba(154, 106, 53, 0.08);
 
-.audience-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 14px}
-.audience-tab{padding:10px 14px;border:1px solid rgba(120,120,120,.18);border-radius:999px;background:transparent;font:inherit;line-height:1.1;cursor:pointer}
-.audience-tab:hover,.audience-tab.is-active{background:rgba(199,169,120,.14);border-color:rgba(199,169,120,.35)}
-.audience-panels{margin-bottom:18px}
-.audience-panel{padding:18px 18px 2px;border:1px solid rgba(120,120,120,.14);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44))}
-html[data-theme="dark"] .audience-panel{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+    --color-success: #4f7a4e;
+    --color-error: #a04b46;
 
-.case-figure{margin:24px 0 10px}
-.case-figure a{text-decoration:none;color:inherit}
-.case-figure img{
-  width:100%;
-  height:auto;
-  display:block;
-  border-radius:24px;
-  border:1px solid rgba(120,120,120,.14);
-  background:rgba(255,255,255,.55);
-  box-shadow:0 14px 40px rgba(0,0,0,.06);
-}
-html[data-theme="dark"] .case-figure img{
-  background:rgba(255,255,255,.03);
-  box-shadow:none;
-}
-.case-figure figcaption{
-  margin-top:10px;
-  font-size:.95rem;
-  opacity:.74;
-}
+    --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
+    --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
+    --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
 
-.insight-grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:16px;
-  margin:22px 0 10px;
-}
-.insight-card{
-  padding:18px;
-  border:1px solid rgba(120,120,120,.14);
-  border-radius:20px;
-  background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.44));
-}
-html[data-theme="dark"] .insight-card{
-  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
-}
-.insight-card h3{margin:0 0 10px;font-size:1.02rem}
-.insight-card p{margin:0;font-size:.98rem;line-height:1.65}
-
-.segment-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:16px;
-  margin:18px 0 12px;
-}
-.segment-card{
-  padding:18px;
-  border:1px solid rgba(120,120,120,.14);
-  border-radius:20px;
-  background:rgba(199,169,120,.06);
-}
-.segment-card h3{margin:0 0 8px;font-size:1rem}
-.segment-card p{margin:0;font-size:.98rem;line-height:1.62}
-
-.logic-box{
-  margin:18px 0 8px;
-  padding:18px;
-  border:1px solid rgba(120,120,120,.14);
-  border-radius:20px;
-  background:linear-gradient(180deg,rgba(255,255,255,.66),rgba(255,255,255,.42));
-}
-html[data-theme="dark"] .logic-box{
-  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
-}
-.logic-box h3{margin:0 0 10px;font-size:1rem}
-.logic-list{margin:0;padding-left:18px}
-.logic-list li{margin-bottom:10px;line-height:1.62}
-
-.takeaway-box{
-  margin:20px 0 10px;
-  padding:22px;
-  border-radius:22px;
-  border:1px solid rgba(120,120,120,.14);
-  background:linear-gradient(135deg,rgba(199,169,120,.18),rgba(199,169,120,.05));
-}
-.takeaway-box h3{margin:0 0 12px}
-.takeaway-box p:last-child{margin-bottom:0}
-
-details.methodology{
-  margin-top:22px;
-  border:1px solid rgba(120,120,120,.14);
-  border-radius:20px;
-  background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.46));
-  overflow:hidden;
-}
-html[data-theme="dark"] details.methodology{
-  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
-}
-details.methodology summary{
-  cursor:pointer;
-  list-style:none;
-  padding:18px 20px;
-  font-weight:700;
-}
-details.methodology summary::-webkit-details-marker{display:none}
-details.methodology[open] summary{
-  border-bottom:1px solid rgba(120,120,120,.12);
-}
-.methodology-inner{
-  padding:18px 20px 22px;
-}
-.methodology-inner h4{
-  margin:18px 0 8px;
-  font-size:1rem;
-}
-.methodology-inner ul{
-  margin:0 0 12px 18px;
-}
-.methodology-inner li{
-  margin-bottom:8px;
-  line-height:1.6;
-}
-
-.article-cta{margin-top:26px}
-
-@media (max-width: 980px){
-  .section > .wrap{max-width:100%;width:100%}
-  .article-shell{max-width:100%;width:100%;margin-inline:0}
-  .article-layout{display:block}
-  .article-aside{display:none}
-  .insight-grid,.segment-grid{grid-template-columns:1fr}
-}
-
-@media (max-width: 720px){
-  .article-reading{gap:8px}
-  .article-chip{font-size:.8rem;padding:7px 10px}
-  .aside-card{border-radius:16px}
-  .mobile-jump{
-    display:flex;
-    gap:8px;
-    overflow:auto;
-    padding-bottom:6px;
-    scrollbar-width:none;
+    --content-default: 1180px;
+    --content-wide: 1320px;
+    --radius-md: 22px;
+    --radius-lg: 28px;
+    --radius-xl: 34px;
+    --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .mobile-jump::-webkit-scrollbar{display:none}
-  .mobile-jump a{
-    white-space:nowrap;
-    text-decoration:none;
-    padding:8px 12px;
-    border-radius:999px;
-    border:1px solid rgba(120,120,120,.16);
-    background:rgba(255,255,255,.52);
-    font-size:.85rem;
-  }
-  html[data-theme="dark"] .mobile-jump a{background:rgba(255,255,255,.04)}
-}
 
-.section > .wrap{max-width:1440px}
+  [data-theme="dark"] {
+    --color-bg: #171614;
+    --color-surface: #1d1b18;
+    --color-surface-2: #24211d;
+    --color-surface-3: #2a2622;
+    --color-border: rgba(255, 255, 255, 0.10);
+    --color-divider: rgba(255, 255, 255, 0.08);
+
+    --color-text: #ece6dd;
+    --color-text-muted: #b7afa2;
+    --color-text-faint: #91897c;
+    --color-text-inverse: #171614;
+
+    --color-primary: #6ca7a7;
+    --color-primary-hover: #84baba;
+    --color-primary-soft: rgba(108, 167, 167, 0.10);
+
+    --color-accent: #c79c68;
+    --color-accent-soft: rgba(199, 156, 104, 0.09);
+
+    --color-success: #89ba82;
+    --color-error: #d9837b;
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+    --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
+    --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    min-height: 100vh;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.7;
+    color: var(--color-text);
+    background: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  img, svg { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  button {
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 10px;
+  }
+
+  .wrap {
+    width: min(100% - 28px, var(--content-default));
+    margin-inline: auto;
+  }
+
+  .wrap-wide {
+    width: min(100% - 28px, var(--content-wide));
+    margin-inline: auto;
+  }
+
+  .progress {
+    position: fixed;
+    inset: 0 auto auto 0;
+    z-index: 120;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 12px 0;
+    backdrop-filter: blur(18px);
+    background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .nav {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .brand-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .brand-mark {
+    width: 26px;
+    height: 26px;
+    color: var(--color-primary);
+    flex: 0 0 auto;
+  }
+
+  .sub {
+    color: var(--color-text-faint);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    max-width: 320px;
+  }
+
+  .menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    transition: var(--transition);
+  }
+
+  .menu-toggle:hover {
+    background: var(--color-surface-2);
+  }
+
+  .menu-toggle-lines {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .menu-toggle-lines span {
+    width: 18px;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--color-text);
+    transition: transform var(--transition), opacity var(--transition);
+  }
+
+  .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    min-width: 0;
+    flex-wrap: nowrap;
+  }
+
+  .menu a,
+  .menu .dropbtn,
+  .theme-toggle,
+  .lang-link {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 10px;
+    border-radius: 999px;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+    white-space: nowrap;
+    line-height: 1.1;
+    flex-shrink: 0;
+  }
+
+  .menu a:hover,
+  .menu .dropbtn:hover,
+  .theme-toggle:hover,
+  .lang-link:hover {
+    color: var(--color-text);
+    background: var(--color-surface-2);
+  }
+
+  .menu a.is-active {
+    color: var(--color-text);
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+  }
+
+  .menu a.is-highlight,
+  .menu .dropbtn.is-highlight {
+    color: var(--color-text-inverse);
+    background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, var(--color-accent)));
+    border: 1px solid transparent;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .menu a.is-highlight:hover,
+  .menu .dropbtn.is-highlight:hover {
+    background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+    color: var(--color-text-inverse);
+  }
+
+  [data-theme="dark"] .menu a.is-highlight,
+  [data-theme="dark"] .menu .dropbtn.is-highlight {
+    color: #141311;
+  }
+
+  .dropdown {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .dropbtn {
+    gap: 6px;
+  }
+
+  .dropbtn svg {
+    width: 14px;
+    height: 14px;
+    transition: transform var(--transition);
+    flex: 0 0 auto;
+  }
+
+  .dropdown:hover .dropbtn svg,
+  .dropdown:focus-within .dropbtn svg,
+  .dropdown.is-open .dropbtn svg {
+    transform: rotate(180deg);
+  }
+
+  .dropcontent {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    z-index: 300;
+    min-width: 240px;
+    display: grid;
+    gap: 6px;
+    padding: 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+  }
+
+  .dropdown:hover .dropcontent,
+  .dropdown:focus-within .dropcontent,
+  .dropdown.is-open .dropcontent {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .dropcontent a {
+    justify-content: flex-start;
+    padding: 12px 14px;
+    border-radius: 12px;
+    white-space: normal;
+    line-height: 1.35;
+  }
+
+  .menu-tools {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 8px;
+    padding-left: 8px;
+    border-left: 1px solid var(--color-divider);
+    flex-shrink: 0;
+  }
+
+  .lang-list {
+    display: flex;
+    gap: 4px;
+  }
+
+  .lang-link.is-active {
+    background: var(--color-surface-2);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+
+  .theme-toggle {
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    width: 44px;
+    padding-inline: 0;
+    font-size: 1rem;
+  }
+
+  main {
+    padding: 34px 0 90px;
+  }
+
+  .section > .wrap,
+  .section > .wrap-wide {
+    max-width: 100%;
+  }
+
+  .article-shell {
+    position: relative;
+    max-width: 1320px;
+    margin-inline: auto;
+  }
+
+  .article-header {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(26px, 4vw, 48px);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-border);
+    margin-bottom: 22px;
+  }
+
+  .article-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 14% 18%, rgba(15, 93, 95, 0.06), transparent 24%),
+      radial-gradient(circle at 86% 16%, rgba(154, 106, 53, 0.06), transparent 22%);
+  }
+
+  .article-header > * {
+    position: relative;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    color: var(--color-text-faint);
+    font-size: var(--text-xs);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    flex-wrap: wrap;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 1px;
+    background: var(--color-primary);
+  }
+
+  .article-header h1 {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    line-height: 0.97;
+    letter-spacing: -0.03em;
+    max-width: 14ch;
+    margin-bottom: 16px;
+  }
+
+  .article-deck {
+    max-width: 920px;
+    color: var(--color-text-muted);
+    font-size: var(--text-lg);
+    margin-bottom: 18px;
+  }
+
+  .article-reading {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .article-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+    backdrop-filter: blur(4px);
+    font-size: 0.88rem;
+    line-height: 1;
+    color: var(--color-text-muted);
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(260px, 2fr);
+    gap: 32px;
+    align-items: start;
+  }
+
+  .article-main { min-width: 0; }
+
+  .article-aside {
+    position: sticky;
+    top: 92px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .aside-card,
+  .insight-card,
+  .segment-card,
+  .logic-box,
+  .takeaway-box,
+  .audience-panel,
+  details.methodology {
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .aside-card {
+    padding: 18px 18px 16px;
+    border-radius: 24px;
+    background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+  }
+
+  .aside-card h3 {
+    font-size: 0.92rem;
+    margin: 0 0 10px;
+    color: var(--color-text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .toc {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .toc a {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 12px;
+    color: var(--color-text-muted);
+  }
+
+  .toc a:hover,
+  .toc a.is-active {
+    background: var(--color-primary-soft);
+    color: var(--color-text);
+  }
+
+  .mobile-jump {
+    display: none;
+  }
+
+  .mobile-jump a {
+    white-space: nowrap;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .article-body section[id] {
+    position: relative;
+    margin-top: 2.2rem;
+    scroll-margin-top: 120px;
+  }
+
+  .article-body h2,
+  .article-body h3 {
+    scroll-margin-top: 120px;
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+
+  .article-body p {
+    margin-bottom: 1.2rem;
+    color: var(--color-text);
+  }
+
+  .article-body p.is-focus {
+    padding-left: 16px;
+    border-left: 3px solid color-mix(in srgb, var(--color-accent) 70%, transparent);
+  }
+
+  .article-pullquote {
+    margin: 22px 0;
+    padding: 18px 20px;
+    border-radius: 18px;
+    border: 1px solid var(--color-border);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 14%, var(--color-surface)), color-mix(in srgb, var(--color-accent) 4%, var(--color-surface)));
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .article-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-divider), transparent);
+    margin: 28px 0;
+  }
+
+  .case-figure {
+    margin: 24px 0 10px;
+  }
+
+  .case-figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-surface) 94%, transparent);
+    box-shadow: var(--shadow-md);
+  }
+
+  .case-figure figcaption {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+  }
+
+  .insight-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin: 22px 0 10px;
+  }
+
+  .insight-card {
+    padding: 18px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+  }
+
+  .insight-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.02rem;
+  }
+
+  .insight-card p {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+  }
+
+  .segment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin: 18px 0 12px;
+  }
+
+  .segment-card {
+    padding: 18px;
+    border-radius: 20px;
+    background: color-mix(in srgb, var(--color-accent) 6%, var(--color-surface));
+  }
+
+  .segment-card h3 {
+    margin: 0 0 8px;
+    font-size: 1rem;
+  }
+
+  .segment-card p {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.62;
+    color: var(--color-text-muted);
+  }
+
+  .logic-box {
+    margin: 18px 0 8px;
+    padding: 18px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+  }
+
+  .logic-box h3 {
+    margin: 0 0 10px;
+    font-size: 1rem;
+  }
+
+  .logic-list {
+    margin: 0;
+    padding-left: 18px;
+  }
+
+  .logic-list li {
+    margin-bottom: 10px;
+    line-height: 1.62;
+  }
+
+  .takeaway-box {
+    margin: 20px 0 10px;
+    padding: 22px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 18%, var(--color-surface)), color-mix(in srgb, var(--color-accent) 5%, var(--color-surface)));
+  }
+
+  .takeaway-box h3 {
+    margin: 0 0 12px;
+  }
+
+  .takeaway-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .audience-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 18px 0 14px;
+  }
+
+  .audience-tab {
+    padding: 10px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: transparent;
+    font: inherit;
+    line-height: 1.1;
+    color: var(--color-text-muted);
+  }
+
+  .audience-tab:hover,
+  .audience-tab.is-active {
+    background: var(--color-primary-soft);
+    border-color: color-mix(in srgb, var(--color-primary) 35%, var(--color-border));
+    color: var(--color-text);
+  }
+
+  .audience-panels {
+    margin-bottom: 18px;
+  }
+
+  .audience-panel {
+    padding: 18px 18px 2px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+  }
+
+  details.methodology {
+    margin-top: 22px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+    overflow: hidden;
+  }
+
+  details.methodology summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 18px 20px;
+    font-weight: 700;
+  }
+
+  details.methodology summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details.methodology[open] summary {
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .methodology-inner {
+    padding: 18px 20px 22px;
+  }
+
+  .methodology-inner h4 {
+    margin: 18px 0 8px;
+    font-size: 1rem;
+  }
+
+  .methodology-inner ul {
+    margin: 0 0 12px 18px;
+  }
+
+  .methodology-inner li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+
+  .article-cta {
+    margin-top: 26px;
+  }
+
+  .btn {
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 18px;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    transition: var(--transition);
+    white-space: nowrap;
+  }
+
+  .btn-ghost {
+    background: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+
+  .btn-ghost:hover {
+    background: var(--color-surface-2);
+  }
+
+  .footer {
+    padding: 36px 0 26px;
+    border-top: 1px solid var(--color-divider);
+    background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+    margin-top: 28px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .footer h4 {
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-faint);
+    margin-bottom: 12px;
+  }
+
+  .footer p,
+  .footer a {
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+  }
+
+  .footer a:hover {
+    color: var(--color-text);
+  }
+
+  .footer-links {
+    display: grid;
+    gap: 10px;
+    justify-items: end;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-top: 22px;
+    margin-top: 22px;
+    border-top: 1px solid var(--color-divider);
+    color: var(--color-text-faint);
+    font-size: var(--text-xs);
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 980px) {
+    .article-layout {
+      display: block;
+    }
+
+    .article-aside {
+      display: none;
+    }
+
+    .insight-grid,
+    .segment-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 920px) {
+    .nav {
+      grid-template-columns: auto авто;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .menu-toggle {
+      display: inline-flex;
+    }
+
+    .menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 14px;
+      right: 14px;
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 14px;
+      border: 1px solid var(--color-border);
+      border-radius: 22px;
+      background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .menu.is-open {
+      display: flex;
+    }
+
+    .menu a,
+    .menu .dropbtn,
+    .theme-toggle,
+    .lang-link {
+      justify-content: flex-start;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      padding: 10px 12px;
+    }
+
+    .menu a.is-highlight,
+    .menu .dropbtn.is-highlight {
+      justify-content: center;
+    }
+
+    .dropdown {
+      width: 100%;
+    }
+
+    .dropcontent {
+      position: static;
+      min-width: 0;
+      margin-top: 8px;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: none;
+      display: none;
+      box-shadow: none;
+      border-radius: 16px;
+      background: var(--color-surface-2);
+    }
+
+    .dropdown.is-open .dropcontent {
+      display: grid;
+    }
+
+    .menu-tools {
+      margin-left: 0;
+      padding-left: 0;
+      border-left: 0;
+      padding-top: 6px;
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-links {
+      justify-items: start;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .wrap,
+    .wrap-wide {
+      width: min(100% - 24px, var(--content-default));
+    }
+
+    .article-header,
+    .aside-card,
+    .insight-card,
+    .segment-card,
+    .logic-box,
+    .takeaway-box,
+    .audience-panel,
+    details.methodology {
+      border-radius: 22px;
+    }
+
+    .article-header h1 {
+      max-width: 100%;
+    }
+
+    .article-reading {
+      gap: 8px;
+    }
+
+    .article-chip {
+      font-size: 0.8rem;
+      padding: 7px 10px;
+    }
+
+    .mobile-jump {
+      display: flex;
+      gap: 8px;
+      overflow: auto;
+      padding-bottom: 6px;
+      scrollbar-width: none;
+      margin: 0 0 18px;
+    }
+
+    .mobile-jump::-webkit-scrollbar {
+      display: none;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+    }
+
+    .sub {
+      max-width: 240px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+    .fade-in {
+      opacity: 1;
+      transform: none;
+    }
+  }
 </style>
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Misma morosidad, comportamiento diferente",
-  "description": "Segmentación conductual en la gestión de cobros: por qué el mismo nivel de morosidad no implica el mismo comportamiento del prestatario ni requiere la misma estrategia.",
+  "headline": "La misma morosidad, distinto comportamiento del deudor",
+  "description": "Segmentación conductual en recobro de deuda: por qué la misma morosidad no implica el mismo comportamiento del deudor ni requiere la misma estrategia.",
   "author": {"@type": "Person", "name": "Anna Signaevska"},
   "publisher": {"@type": "Organization", "name": "TELWHA"},
   "inLanguage": "es",
@@ -234,10 +1053,15 @@ details.methodology[open] summary{
 <header class="topbar">
   <div class="wrap nav">
     <div class="brand">
-      <a class="brand-row" href="/es/">
+      <a class="brand-row" href="/es/" aria-label="TELWHA — ir a la página principal">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
         <strong>TELWHA</strong>
       </a>
-      <span class="sub">FINANCIAL PSYCHOLOGY · BEHAVIORAL STRATEGY</span>
+      <span class="sub">Financial Psychology</span>
     </div>
 
     <button
@@ -248,44 +1072,55 @@ details.methodology[open] summary{
       aria-label="Abrir menú"
     >
       <span class="menu-toggle-lines" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </span>
     </button>
 
-    <nav class="menu" id="site-menu">
-      <div class="menu-group">
-        <a href="/es/">Inicio</a>
-        <a href="/es/finlab/">FinLab</a>
-        <a href="/es/about/">Sobre mí</a>
-      </div>
+    <nav class="menu" id="site-menu" aria-label="Navegación principal">
+      <a href="/es/">Inicio</a>
+      <a href="/es/about/">Sobre mí</a>
+      <a href="/es/cases/" class="is-active">Casos</a>
+      <a href="/es/articles/">Artículos</a>
+      <a href="/es/finlab/">FinLab</a>
 
-      <div class="menu-group menu-dropdown">
-        <button type="button" class="menu-dropbtn">Para traders ▾</button>
-        <div class="menu-dropcontent">
-          <a href="/es/trader-course/">Mini curso</a>
-          <a href="/es/archetype-test/">Test de arquetipos</a>
+      <div class="dropdown">
+        <button type="button" class="dropbtn is-highlight" aria-expanded="false">
+          Ponte a prueba
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="dropcontent">
+          <a href="/finlab/money-test-api/money-test.html">Test de conducta financiera</a>
+          <a href="/habit-test.html">¿A dónde te llevan tus hábitos?</a>
+          <a href="/fact-or-fiction-cases.html">¿Hecho o ficción?</a>
         </div>
       </div>
 
-      <div class="menu-group">
-        <a href="/es/articles/">Artículos</a>
-        <a href="/es/reviews/">Opiniones</a>
-        <a href="/es/cases/">Casos</a>
-        <a href="/es/contact/">Contacto</a>
+      <div class="dropdown">
+        <button type="button" class="dropbtn" aria-expanded="false">
+          Para traders
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="dropcontent">
+          <a href="/trader-course/">Mini-curso</a>
+          <a href="/archetype-test/">Arquetipo de trader</a>
+        </div>
       </div>
 
-      <div class="menu-group menu-tools">
-        <details class="lang-switcher lang-switcher--inside">
-          <summary>🇪🇸</summary>
-          <div class="lang-list">
-            <a href="/articles/Credit.html" aria-label="Ucraniano">🇺🇦</a>
-            <a href="/en/articles/Credit.html" aria-label="English">🇬🇧</a>
-          </div>
-        </details>
+      <a href="/es/reviews/">Reseñas</a>
+      <a href="/es/contact/">Contacto</a>
 
-        <button class="theme-toggle" type="button" aria-label="Cambiar tema">🌓</button>
+      <div class="menu-tools">
+        <div class="lang-list" aria-label="Idiomas del sitio">
+          <a class="lang-link" href="/articles/Credit.html" lang="uk" aria-label="Українська">UA</a>
+          <a class="lang-link" href="/en/articles/Credit.html" lang="en" aria-label="English">EN</a>
+          <a class="lang-link is-active" href="/es/articles/Credit.html" lang="es" aria-label="Español">ES</a>
+        </div>
+
+        <button class="theme-toggle" type="button" aria-label="Cambiar tema">☀️</button>
       </div>
     </nav>
   </div>
@@ -293,18 +1128,18 @@ details.methodology[open] summary{
 
 <main>
   <section class="section">
-    <div class="wrap">
+    <div class="wrap-wide">
       <article class="article-shell" itemscope itemtype="https://schema.org/Article">
         <header class="article-header fade-in">
           <div class="eyebrow"><span>Case Study</span> TELWHA</div>
-          <h1 itemprop="headline">Misma morosidad, comportamiento diferente</h1>
+          <h1 itemprop="headline">La misma morosidad, distinto comportamiento del deudor</h1>
           <p class="article-deck" itemprop="description">
-            El mismo nivel de morosidad no implica el mismo comportamiento del prestatario, ni requiere la misma estrategia de gestión de cobros.
+            La misma morosidad no implica el mismo comportamiento del deudor ni requiere la misma estrategia de recobro.
           </p>
           <div class="article-reading">
-            <span class="article-chip">FinTech · Gestión de cobros</span>
+            <span class="article-chip">FinTech · Recobro de deuda</span>
             <span class="article-chip">Segmentación conductual</span>
-            <span class="article-chip">Servicio centrado en la persona</span>
+            <span class="article-chip">Servicio centrado en las personas</span>
           </div>
         </header>
 
@@ -312,7 +1147,7 @@ details.methodology[open] summary{
           <a href="#part-1">Problema</a>
           <a href="#part-2">Qué mostró el gráfico</a>
           <a href="#part-3">Segmentos</a>
-          <a href="#part-4">Valor práctico</a>
+          <a href="#part-4">Relevancia práctica</a>
           <a href="#part-5">Metodología</a>
         </div>
 
@@ -321,15 +1156,15 @@ details.methodology[open] summary{
             <div class="article-body" itemprop="articleBody">
               <section id="part-1">
                 <p class="is-focus">
-                  Los sistemas tradicionales de cobros suelen segmentar a los clientes solo por nivel de morosidad, días de atraso o score crediticio. Pero dentro de un mismo tramo de morosidad, el comportamiento de los prestatarios puede ser muy diferente: algunos simplemente olvidan el pago, otros atraviesan un estrés temporal de liquidez, otros evitan el contacto por ansiedad y otros ponen a prueba de forma sistemática los límites de tolerancia.
+                  Los sistemas clásicos de recobro suelen segmentar a los clientes solo por nivel de morosidad, número de días de retraso o score crediticio. Pero dentro del mismo nivel de morosidad el comportamiento puede diferir de forma notable: algunas personas simplemente olvidan el pago, otras atraviesan problemas temporales de liquidez, otras evitan el contacto por ansiedad y algunas prueban de manera sistemática los límites de tolerancia.
                 </p>
                 <p>
-                  En este caso no analizo la morosidad solo como un estado, sino el comportamiento dentro del mismo nivel de atraso. La idea central es simple: misma morosidad no significa mismo prestatario. Si los perfiles conductuales son distintos, la estrategia de interacción también debe ser diferente.
+                  En este caso analizo no solo la morosidad como hecho, sino el comportamiento dentro de un mismo estado de mora. La idea central es sencilla: la misma morosidad no significa el mismo deudor. Si los perfiles conductuales son distintos, la estrategia de interacción también debería ser distinta.
                 </p>
               </section>
 
               <div class="article-pullquote fade-in">
-                La mejor estrategia de cobros no es la más dura para todos, sino la que se ajusta con mayor precisión al comportamiento de cada tipo de prestatario.
+                La mejor estrategia de recobro no es la que es más dura para todos, sino la que encaja con mayor precisión en el comportamiento de cada tipo de deudor.
               </div>
 
               <div class="article-divider"></div>
@@ -337,17 +1172,17 @@ details.methodology[open] summary{
               <section id="part-2">
                 <h2>Qué mostró el gráfico</h2>
                 <p>
-                  Incluso dentro del mismo nivel de morosidad, las respuestas de los prestatarios resultaron lejos de ser uniformes. Para algunos clientes, el tiempo desde el recordatorio hasta la acción fue de solo 13 horas, mientras que para perfiles más evitativos la demora llegó a 107 horas. Esto sugiere que el nivel de morosidad por sí solo no explica cómo se comporta una persona bajo presión financiera.
+                  Incluso dentro de un mismo nivel de morosidad, las respuestas de los deudores resultaron ser muy diferentes. Para algunos clientes, el tiempo entre el recordatorio y la acción fue de solo 13 horas, mientras que para perfiles que evitan el contacto el retraso en la respuesta alcanzó 107 horas. Esto significa que el nivel de morosidad por sí solo no explica cómo se comporta una persona bajo presión financiera.
                 </p>
                 <p>
-                  La visualización también muestra que una estrategia ajustada al perfil conductual parece más sólida que un enfoque uniforme para todos. Para algunos basta con un recordatorio simple; para otros funciona mejor un plan de pagos flexible; y para ciertos segmentos es más adecuada una escalación más rápida.
+                  La visualización también muestra que una estrategia alineada con el perfil conductual se ve más sólida que un enfoque igual para todos. Para algunos basta con un recordatorio sencillo; para otros funciona mejor un calendario flexible de pagos; y para determinados segmentos es más adecuado un ritmo de escalado más rápido.
                 </p>
 
                 <figure class="case-figure fade-in">
                   <a href="https://public.tableau.com/static/images/Sa/SameDelinquencyDifferentBorrower/SameDelinquencyDifferentBorrower/1.png" target="_blank" rel="noopener noreferrer">
                     <img
                       src="https://public.tableau.com/static/images/Sa/SameDelinquencyDifferentBorrower/SameDelinquencyDifferentBorrower/1.png"
-                      alt="Visualización de segmentos de prestatarios dentro del mismo nivel de morosidad"
+                      alt="Visualización de segmentos conductuales de deudores dentro de un mismo nivel de morosidad"
                       width="1300"
                       height="975"
                       loading="lazy"
@@ -360,21 +1195,21 @@ details.methodology[open] summary{
 
                 <div class="insight-grid fade-in">
                   <div class="insight-card">
-                    <h3>Velocidad de respuesta</h3>
+                    <h3>Velocidad de reacción</h3>
                     <p>
-                      El tiempo desde el recordatorio hasta la acción apareció como una de las señales conductuales más fuertes. Refleja no solo lentitud, sino el estilo de interacción de la persona con el estrés financiero.
+                      El tiempo entre el recordatorio y la acción resultó ser una de las señales conductuales más fuertes. Refleja no solo lentitud, sino el modo en que la persona interactúa con el estrés financiero.
                     </p>
                   </div>
                   <div class="insight-card">
-                    <h3>Tratamiento adecuado</h3>
+                    <h3>Enfoque ajustado</h3>
                     <p>
-                      En el modelo, un enfoque de cobros ajustado al perfil muestra un mejor resultado esperado que un único camino uniforme. La ventaja no proviene de más dureza, sino de una mayor alineación con la causa real del atraso.
+                      Dentro del modelo, un enfoque de recobro ajustado al perfil conductual ofrece un mejor resultado esperado que un mismo flujo para todos. La ventaja no viene de ser más duro, sino de apuntar con mayor precisión a la causa del retraso.
                     </p>
                   </div>
                   <div class="insight-card">
                     <h3>Perfil conductual</h3>
                     <p>
-                      Dentro del mismo nivel de morosidad aparecen patrones distintos: evitación, cooperación, olvido y retraso estratégico. Estos patrones, más que los días de atraso por sí solos, deberían guiar el modo de interacción.
+                      Dentro del mismo nivel de morosidad aparecen patrones distintos: evitación, cooperación, olvido y retraso estratégico. Son estos patrones —y no solo los días de mora— los que deberían determinar la forma de interacción.
                     </p>
                   </div>
                 </div>
@@ -385,32 +1220,32 @@ details.methodology[open] summary{
               <section id="part-3">
                 <h2>Cuatro segmentos de comportamiento</h2>
                 <p>
-                  En lugar de tratar a todos los clientes en mora como un solo grupo, descompuse el mismo nivel de atraso en cuatro tipos conductuales. Esto permite ver el mecanismo psicológico detrás del comportamiento financiero, y no solo el estado de la deuda.
+                  En lugar de tratar a todos los deudores como un bloque homogéneo, descompuse el mismo nivel de morosidad en cuatro tipos conductuales. Esto permite ver el mecanismo psicológico que hay detrás del comportamiento financiero, y no solo el estado de la deuda.
                 </p>
 
                 <div class="segment-grid fade-in">
                   <div class="segment-card">
-                    <h3>Olvidadizos</h3>
+                    <h3>Quienes se olvidan</h3>
                     <p>
-                      Suelen pagar a tiempo pero, a veces, pasan por alto la fecha de vencimiento o responden con un ligero retraso. Para ellos, un recordatorio suave y una ruta de pago sencilla suelen ser suficientes.
+                      Normalmente pagan a tiempo, pero ocasionalmente se pasan de la fecha o reaccionan con un ligero retraso. Para ellos suele bastar con un recordatorio suave y una vía de pago muy sencilla.
                     </p>
                   </div>
                   <div class="segment-card">
                     <h3>Estrés temporal de liquidez</h3>
                     <p>
-                      No evitan el pago de forma intencionada, pero atraviesan una escasez temporal de fondos. Para este perfil, un calendario flexible, cuotas más pequeñas o el cambio de fecha de pago tienden a funcionar mejor.
+                      No evitan el pago de forma intencionada, pero atraviesan un bache temporal de liquidez. Para este perfil funcionan mejor un calendario flexible, pagos en partes más pequeñas y ajustes en la fecha de vencimiento.
                     </p>
                   </div>
                   <div class="segment-card">
-                    <h3>Evitativos</h3>
+                    <h3>Quienes evitan actuar</h3>
                     <p>
-                      Posponen el contacto y retrasan la acción incluso cuando la situación aún es recuperable. Aquí funciona mejor una comunicación tranquila, con baja presión y un camino de acción claro y simple.
+                      Posponen el contacto y la decisión incluso cuando la situación todavía se puede estabilizar. Aquí suelen funcionar mejor una comunicación tranquila, con poca presión y un camino a la acción muy claro.
                     </p>
                   </div>
                   <div class="segment-card">
                     <h3>Retrasadores estratégicos</h3>
                     <p>
-                      Ponen a prueba los límites y utilizan las ventanas de tolerancia como parte de su estrategia. Para ellos es más adecuado un camino más firme, con menos indulgencia y una escalación más rápida.
+                      Ponen a prueba los límites de manera regular y utilizan el retraso como parte de su propia estrategia. Para ellos es necesario un itinerario más estricto y una escalada más rápida.
                     </p>
                   </div>
                 </div>
@@ -418,23 +1253,23 @@ details.methodology[open] summary{
                 <div class="logic-box fade-in">
                   <h3>Lógica operativa</h3>
                   <ul class="logic-list">
-                    <li>Los clientes que responden rápido y suelen cumplir su promesa de pago se benefician de un recorrido digital suave con un enlace de pago sencillo.</li>
-                    <li>Los clientes con estrés temporal de liquidez necesitan más bien cambios en el calendario, cuotas más pequeñas o breves aplazamientos.</li>
-                    <li>Para quienes evitan el contacto y demoran la respuesta, una comunicación más agresiva puede empeorar el resultado; un camino calmado, estructurado y con baja presión suele funcionar mejor.</li>
-                    <li>Para los clientes que retrasan el pago de forma sistemática, el recorrido debe ser más firme y avanzar antes hacia la escalación.</li>
+                    <li>A los clientes que reaccionan rápido y suelen cumplir su promesa de pago conviene dirigirlos a un flujo digital suave con un enlace de pago sencillo.</li>
+                    <li>A los clientes con estrés temporal de liquidez es mejor ofrecerles cambios de calendario, pagos fraccionados o aplazamientos.</li>
+                    <li>Para quienes evitan el contacto y retrasan su reacción, una comunicación más agresiva puede empeorar el resultado; un escenario calmado, estructurado y con poca presión tiende a ser más eficaz.</li>
+                    <li>Para los clientes que retrasan el pago de forma sistemática, el recorrido debe ser más estricto y pasar a la escalada con mayor rapidez.</li>
                   </ul>
                 </div>
 
                 <div class="takeaway-box fade-in">
                   <h3>Conclusión clave</h3>
                   <p>
-                    El mismo nivel de morosidad puede ocultar mecanismos de comportamiento diferentes. Por tanto, una única estrategia de interacción para todos los clientes es lógicamente débil.
+                    La misma morosidad puede ocultar mecanismos conductuales distintos; por tanto, aplicar la misma estrategia de interacción a todos los clientes es lógicamente débil.
                   </p>
                   <p>
-                    Los mejores sistemas de cobros no son necesariamente más duros. Están mejor ajustados al tipo de comportamiento. Presionar a una persona que evita el contacto puede intensificar la resistencia. Ofrecer un recorrido demasiado suave a un retrasador estratégico puede reforzar un patrón costoso para la empresa.
+                    Los mejores sistemas de recobro no son necesariamente los más duros. Son los que se ajustan con mayor precisión al tipo de comportamiento. Presionar a una persona que evita el contacto solo refuerza la resistencia. Dar un régimen demasiado blando a un retrasador estratégico refuerza un patrón poco favorable para la empresa.
                   </p>
                   <p>
-                    Misma morosidad no significa mismo prestatario.
+                    La misma morosidad no implica el mismo deudor.
                   </p>
                 </div>
               </section>
@@ -442,27 +1277,27 @@ details.methodology[open] summary{
               <div class="article-divider"></div>
 
               <section id="part-4">
-                <h2>Valor práctico</h2>
+                <h2>Relevancia práctica</h2>
 
                 <div class="audience-tabs" role="tablist" aria-label="Escenarios de uso">
                   <button class="audience-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="audience-business" id="tab-business" data-target="audience-business">Negocio y producto</button>
                   <button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-users" id="tab-users" data-target="audience-users">Personas y experiencia</button>
-                  <button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-technical" id="tab-technical" data-target="audience-technical">Vista técnica</button>
+                  <button class="audience-tab" type="button" role="tab" aria-selected="false" aria-controls="audience-technical" id="tab-technical" data-target="audience-technical">Mirada técnica</button>
                 </div>
 
                 <div class="audience-panels">
                   <section class="audience-panel is-active" id="audience-business" role="tabpanel" aria-labelledby="tab-business">
                     <p>
-                      La gestión de cobros puede diseñarse con mayor precisión cuando la segmentación de clientes se basa no solo en la morosidad o el score, sino también en el comportamiento.
+                      El recobro de deuda se puede diseñar con más precisión si los clientes se segmentan no solo por morosidad o score, sino también por comportamiento.
                     </p>
                     <p>
-                      El valor práctico de este enfoque está en un enrutamiento más acertado, menos acciones desalineadas y un mejor equilibrio entre recuperación y experiencia del cliente.
+                      El valor práctico de este enfoque está en una derivación más certera, menos acciones que no encajan y un mejor equilibrio entre recuperación de deuda y experiencia de cliente.
                     </p>
                   </section>
 
                   <section class="audience-panel" id="audience-users" role="tabpanel" aria-labelledby="tab-users" hidden>
                     <p>
-                      No todos los clientes en mora deben reducirse a un solo tipo. Una persona que atraviesa dificultades temporales y otra que retrasa el pago de forma sistemática no representan la misma situación.
+                      No todos los deudores pueden meterse en el mismo saco. Una persona con una dificultad puntual y otra que retrasa el pago de forma estratégica no representan la misma situación.
                     </p>
                     <p>
                       Un sistema más sensible al comportamiento puede ser a la vez más eficaz para la empresa y menos dañino para la experiencia del cliente.
@@ -471,10 +1306,10 @@ details.methodology[open] summary{
 
                   <section class="audience-panel" id="audience-technical" role="tabpanel" aria-labelledby="tab-technical" hidden>
                     <p>
-                      Este caso muestra cómo construir un entorno de investigación sintético pero plausible, donde la segmentación se base no solo en el riesgo, sino también en variables conductuales.
+                      El caso muestra cómo construir un entorno de investigación sintético pero realista, en el que la segmentación se apoya no solo en el riesgo, sino también en señales conductuales.
                     </p>
                     <p>
-                      La capa visual se desarrolló en Tableau, mientras que la estructura de datos y la lógica de las variables se elaboraron en Python y VS Code.
+                      La capa visual se construyó en Tableau, mientras que la estructura de datos y la lógica de las variables se desarrollaron en Python y VS Code.
                     </p>
                   </section>
                 </div>
@@ -485,28 +1320,28 @@ details.methodology[open] summary{
               <section id="part-5">
                 <h2>Metodología y detalles técnicos</h2>
                 <p>
-                  Este es un caso sintético de portfolio, construido a partir de la práctica moderna de gestión de cobros, la lógica de segmentación conductual, el pensamiento de asequibilidad y los principios de trabajo con clientes vulnerables.
+                  Este es un caso de portafolio sintético, construido sobre la base de la práctica actual de recobro de deuda, segmentación conductual, lógica de evaluación de capacidad de pago y principios de trabajo con clientes vulnerables.
                 </p>
 
                 <details class="methodology fade-in">
-                  <summary>Abrir sección técnica</summary>
+                  <summary>Abrir bloque técnico</summary>
                   <div class="methodology-inner">
                     <h4>Tipo de caso</h4>
                     <p>
-                      Caso sintético de portfolio basado en la práctica actual de gestión de cobros, segmentación conductual y enfoques regulatorios hacia clientes vulnerables.
+                      Caso de portafolio sintético, basado en prácticas actuales de recobro de deuda, segmentación conductual y enfoques regulatorios hacia clientes vulnerables.
                     </p>
 
                     <h4>Estructura de datos</h4>
                     <ul>
-                      <li>Un solo nivel de morosidad: de 16 a 30 días de atraso.</li>
-                      <li>Variables principales: días en atraso, saldo pendiente, pagos omitidos, antigüedad del cliente e historial de morosidad previa.</li>
-                      <li>Variables conductuales: rapidez de respuesta al recordatorio, cumplimiento de la promesa de pago, frecuencia de pagos parciales, evitación de contacto y sensibilidad a planes de pago flexibles.</li>
-                      <li>Capa adicional de asequibilidad: inestabilidad de ingresos, estrés financiero a fin de mes e indicador proxy de colchón de liquidez.</li>
+                      <li>Un nivel de morosidad: de 16 a 30 días de atraso.</li>
+                      <li>Variables básicas: días de atraso, importe de la deuda, número de pagos omitidos, antigüedad del cliente, historial de morosidades previas.</li>
+                      <li>Variables conductuales: velocidad de respuesta a los recordatorios, cumplimiento de promesas de pago, frecuencia de pagos parciales, evitación de contacto, sensibilidad a calendarios flexibles de pago.</li>
+                      <li>Capa adicional de asequibilidad: inestabilidad de ingresos, presión financiera a fin de mes e indicador proxy de reserva de efectivo.</li>
                     </ul>
 
                     <h4>Enfoque de segmentación</h4>
                     <p>
-                      El objetivo de la segmentación aquí no es predecir el incumplimiento como tal, sino mostrar que el mismo nivel de morosidad puede ocultar mecanismos de comportamiento distintos y requerir recorridos de interacción diferentes.
+                      El objetivo de la segmentación aquí no es predecir el default como tal, sino mostrar que un mismo estado de morosidad puede ocultar mecanismos conductuales distintos y requerir diferentes escenarios de interacción.
                     </p>
 
                     <h4>Herramientas</h4>
@@ -518,14 +1353,14 @@ details.methodology[open] summary{
 
                     <h4>Por qué los datos son sintéticos</h4>
                     <p>
-                      Los conjuntos de datos públicos que incluyen simultáneamente morosidad, respuesta a recordatorios, canales de comunicación, resultados de distintas estrategias de tratamiento y variables conductuales son muy escasos debido a restricciones de privacidad y regulación.
+                      Los conjuntos de datos públicos que incluyen simultáneamente morosidad, respuesta a recordatorios, canales de comunicación, resultados de distintas estrategias de interacción y señales conductuales son prácticamente inaccesibles debido a la privacidad y a las restricciones regulatorias.
                     </p>
 
                     <h4>Fuentes de lógica</h4>
                     <ul>
-                      <li>Prácticas de segmentación conductual e innovación en estrategias de cobros en firmas globales.</li>
-                      <li>Enfoques regulatorios hacia el trato justo de clientes vulnerables en mercados financieros.</li>
-                      <li>Práctica moderna de evaluación de asequibilidad mediante señales de flujo de caja y estrés financiero temporal.</li>
+                      <li>McKinsey: segmentación conductual y enfoques innovadores en collections.</li>
+                      <li>FCA: enfoque de trato justo a clientes vulnerables.</li>
+                      <li>Prácticas actuales de evaluación de capacidad de pago basadas en señales de flujo de caja y estrés financiero temporal.</li>
                     </ul>
                   </div>
                 </details>
@@ -533,14 +1368,14 @@ details.methodology[open] summary{
             </div>
           </div>
 
-          <aside class="article-aside fade-in" aria-label="Navegación por el caso">
+          <aside class="article-aside fade-in" aria-label="Navegación del caso">
             <div class="aside-card">
               <h3>Navegación</h3>
               <nav class="toc">
                 <a href="#part-1">Problema</a>
                 <a href="#part-2">Qué mostró el gráfico</a>
                 <a href="#part-3">Cuatro segmentos</a>
-                <a href="#part-4">Valor práctico</a>
+                <a href="#part-4">Relevancia práctica</a>
                 <a href="#part-5">Metodología</a>
               </nav>
             </div>
@@ -557,91 +1392,196 @@ details.methodology[open] summary{
 
 <footer class="footer">
   <div class="wrap">
-    <div class="footer-grid fade-in">
+    <div class="footer-grid">
       <div>
         <h4>TELWHA</h4>
-        <p>Psicología financiera, economía conductual y arquitectura de elección para decisiones financieras más resilientes.</p>
+        <p>Psicología financiera, economía del comportamiento y arquitectura de elección para mejores decisiones y resultados más resilientes.</p>
       </div>
+
       <div style="text-align:right">
         <h4>Navegación</h4>
-        <div class="footer-links" style="align-items:flex-end">
-          <a href="/es/about/">Sobre mí</a>
-          <a href="/es/reviews/">Opiniones</a>
+        <div class="footer-links">
+          <a href="/es/">Inicio</a>
+          <a href="/es/cases/">Casos</a>
+          <a href="/es/reviews/">Reseñas</a>
           <a href="/es/contact/">Contacto</a>
         </div>
       </div>
     </div>
+
     <div class="footer-bottom">
       <span>© 2026 TELWHA. Todos los derechos reservados.</span>
-      <span>Kyiv, Ucrania · 🇺🇦</span>
+      <span>Kyiv, Ucrania</span>
     </div>
   </div>
 </footer>
 
-<script src="/static/script/global.js"></script>
 <script>
-  const menuToggle = document.querySelector('.menu-toggle');
-  const siteMenu = document.querySelector('#site-menu');
-  if (menuToggle && siteMenu) {
-    menuToggle.addEventListener('click', () => {
-      const isOpen = siteMenu.classList.toggle('is-open');
-      menuToggle.classList.toggle('is-open', isOpen);
-      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      menuToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+  function updateProgressBar() {
+    const progress = document.getElementById("progress");
+    if (!progress) return;
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progressValue = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progress.style.width = progressValue + "%";
+  }
+
+  function syncThemeButtonUI() {
+    const themeBtn = document.querySelector(".theme-toggle");
+    if (!themeBtn) return;
+    const current = document.documentElement.getAttribute("data-theme") || "light";
+    themeBtn.textContent = current === "dark" ? "🌙" : "☀️";
+    themeBtn.setAttribute(
+      "aria-label",
+      current === "dark" ? "Activar tema claro" : "Activar tema oscuro"
+    );
+  }
+
+  function closeAllDropdowns(except = null) {
+    document.querySelectorAll(".dropdown").forEach((dropdown) => {
+      if (dropdown === except) return;
+      dropdown.classList.remove("is-open");
+      const button = dropdown.querySelector(".dropbtn");
+      if (button) button.setAttribute("aria-expanded", "false");
     });
   }
 
-  const progress = document.getElementById('progress');
-  const updateProgress = () => {
-    const doc = document.documentElement;
-    const total = doc.scrollHeight - doc.clientHeight;
-    const scrolled = total > 0 ? (doc.scrollTop / total) * 100 : 0;
-    if (progress) progress.style.width = scrolled + '%';
-  };
-  document.addEventListener('scroll', updateProgress, { passive: true });
-  updateProgress();
+  document.addEventListener("DOMContentLoaded", () => {
+    updateProgressBar();
+    window.addEventListener("scroll", updateProgressBar, { passive: true });
 
-  const audienceTabs = Array.from(document.querySelectorAll('.audience-tab'));
-  const audiencePanels = Array.from(document.querySelectorAll('.audience-panel'));
-  if (audienceTabs.length) {
-    audienceTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const target = tab.dataset.target;
-        audienceTabs.forEach(btn => {
-          const active = btn === tab;
-          btn.classList.toggle('is-active', active);
-          btn.setAttribute('aria-selected', active ? 'true' : 'false');
-        });
-        audiencePanels.forEach(panel => {
-          const active = panel.id === target;
-          panel.classList.toggle('is-active', active);
-          panel.hidden = !active;
-        });
+    const root = document.documentElement;
+    let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    root.setAttribute("data-theme", currentTheme);
+    syncThemeButtonUI();
+
+    const themeBtn = document.querySelector(".theme-toggle");
+    if (themeBtn) {
+      themeBtn.addEventListener("click", () => {
+        currentTheme = currentTheme === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", currentTheme);
+        syncThemeButtonUI();
+      });
+    }
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const siteMenu = document.querySelector("#site-menu");
+
+    if (menuToggle && siteMenu) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = siteMenu.classList.toggle("is-open");
+        menuToggle.classList.toggle("is-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+
+        if (!isOpen) closeAllDropdowns();
+      });
+    }
+
+    document.querySelectorAll(".dropbtn").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        if (window.innerWidth > 920) return;
+        event.stopPropagation();
+        const parent = button.parentElement;
+        const willOpen = !parent.classList.contains("is-open");
+        closeAllDropdowns(parent);
+        parent.classList.toggle("is-open", willOpen);
+        button.setAttribute("aria-expanded", willOpen ? "true" : "false");
       });
     });
-  }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('is-visible');
-    });
-  }, { threshold: 0.14 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".dropdown")) {
+        closeAllDropdowns();
+      }
 
-  const tocLinks = Array.from(document.querySelectorAll('.toc a'));
-  const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
-  const markToc = () => {
-    let activeId = sections[0]?.id;
-    sections.forEach(section => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= 140) activeId = section.id;
+      const nav = document.querySelector(".nav");
+      if (
+        window.innerWidth <= 920 &&
+        siteMenu &&
+        siteMenu.classList.contains("is-open") &&
+        nav &&
+        !nav.contains(event.target)
+      ) {
+        siteMenu.classList.remove("is-open");
+        menuToggle?.classList.remove("is-open");
+        menuToggle?.setAttribute("aria-expanded", "false");
+        menuToggle?.setAttribute("aria-label", "Abrir menú");
+      }
     });
-    tocLinks.forEach(link => {
-      link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeAllDropdowns();
+
+        if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Abrir menú");
+          menuToggle?.focus();
+        }
+      }
     });
-  };
-  document.addEventListener('scroll', markToc, { passive: true });
-  markToc();
+
+    document.querySelectorAll('#site-menu a[href]').forEach((link) => {
+      link.addEventListener("click", () => {
+        closeAllDropdowns();
+
+        if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Abrir menú");
+        }
+      });
+    });
+
+    const audienceTabs = Array.from(document.querySelectorAll('.audience-tab'));
+    const audiencePanels = Array.from(document.querySelectorAll('.audience-panel'));
+    if (audienceTabs.length) {
+      audienceTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const target = tab.dataset.target;
+          audienceTabs.forEach(btn => {
+            const active = btn === tab;
+            btn.classList.toggle('is-active', active);
+            btn.setAttribute('aria-selected', active ? 'true' : 'false');
+          });
+          audiencePanels.forEach(panel => {
+            const active = panel.id === target;
+            panel.classList.toggle('is-active', active);
+            panel.hidden = !active;
+          });
+        });
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('is-visible');
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+    const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+
+    const markToc = () => {
+      let activeId = sections[0]?.id;
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 140) activeId = section.id;
+      });
+      tocLinks.forEach(link => {
+        link.classList.toggle('is-active', link.getAttribute('href') === '#' + activeId);
+      });
+    };
+
+    document.addEventListener('scroll', markToc, { passive: true });
+    markToc();
+  });
 </script>
 </body>
 </html>
