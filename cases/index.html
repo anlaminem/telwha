@@ -1316,6 +1316,21 @@
         </div>
       </article>
 
+      <article class="case-card" data-id="business6" data-category="business" tabindex="0">
+  <div class="case-card-pill">FinTech</div>
+  <small>Credit Risk · Logistic model</small>
+  <h3>Loan approval &amp; credit risk в R</h3>
+  <p class="case-card-line">
+    Логістична модель схвалення кредиту на синтетичному датасеті: CreditScore, Income,
+    EmploymentType, AUC ≈ 0.90 та поріг класифікації для портфеля ризику.
+  </p>
+  <div class="case-card-tags">
+    <span>credit risk</span>
+    <span>logistic regression</span>
+    <span>R · tidyverse</span>
+    <span>thresholds</span>
+  </div>
+</article>
           <article class="case-card" data-id="business3" data-category="business" tabindex="0">
             <div class="case-card-pill">FinTech</div>
             <small>Collections Behavior</small>
@@ -2041,7 +2056,46 @@
   ],
   articleUrl: "/cases/case-simula.html",
   articleLabel: "Відкрити інтерактивний кейс"
-}
+},
+  business6: {
+        pill: "FinTech",
+        meta: "Credit Risk · Logistic model",
+        title: "Loan approval & credit risk в R",
+        intro:
+          "Логістична модель схвалення кредиту на синтетичному датасеті: ключові фактори ризику, AUC ≈ 0.90 та поріг класифікації для портфеля.",
+        sections: [
+          {
+            title: "Що моделюю",
+            items: [
+              "Рішення банку Approved / Rejected на основі скору, доходу, суми кредиту, досвіду роботи та EmploymentType.",
+              "5000 заявок, 10 змінних: Age, Income, LoanAmount, CreditScore, YearsExperience, Gender, Education, City, EmploymentType, LoanApproved."
+            ]
+          },
+          {
+            title: "Модель та якість",
+            items: [
+              "Логістична регресія в R (glm, binomial logit) з факторизацією категоріальних змінних.",
+              "AUC ≈ 0.90 на тесті: модель добре розрізняє Approved та Rejected заявки."
+            ]
+          },
+          {
+            title: "Ключові фактори ризику",
+            items: [
+              "CreditScore, Income та EmploymentType як основні драйвери ймовірності схвалення.",
+              "Unemployed виступає як різко негативний фактор; демографіка майже не впливає."
+            ]
+          },
+          {
+            title: "Поріг класифікації",
+            items: [
+              "Пороги 0.5 та 0.4 для P(Approved): баланс між false positives та відмовами хорошим клієнтам.",
+              "Зниження порогу до 0.4 підвищує обсяг схвалених заявок, але піднімає ризик портфеля."
+            ]
+          }
+        ],
+        articleUrl: "/cases/loan-risk.html",
+        articleLabel: "Детальний кейс: loan approval & credit risk"
+      }
     };
 
     function openCaseModal(caseId) {
