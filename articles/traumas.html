@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="light">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Фінансові розлади та залежності — TELWHA</title>
+  <meta name="description" content="Стаття про фінансові розлади та залежності: дитинство, економічне насильство, війна, когнітивні упередження та як нервова система переписує гроші.">
+
+  <link rel="canonical" href="https://t-e-l-w-h-a.com/articles/financial-disorders-dependence.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Фінансові розлади та залежності — TELWHA">
+  <meta property="og:description" content="Повна стаття про фінансові розлади та залежності: від дитинства й економічного насильства до війни, когнітивних упереджень і фінансового стресу.">
+  <meta property="og:url" content="https://t-e-l-w-h-a.com/articles/financial-disorders-dependence.html">
+  <meta property="og:site_name" content="TELWHA">
+
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
+
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
+
+  <!-- стилі 1:1 з decision-fatigue-trading.html -->
+  <style>
+    :root,
+    [data-theme="light"] {
+      --font-display: "Boska", Georgia, serif;
+      --font-body: "Satoshi", "Inter", sans-serif;
+
+      --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+      --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
+      --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+      --text-2xl: clamp(2.2rem, 1.5rem + 2vw, 4rem);
+
+      --color-bg: #f5f3ef;
+      --color-surface: #fcfbf8;
+      --color-surface-2: #f2efe9;
+      --color-surface-3: #ebe7df;
+      --color-border: rgba(40, 37, 29, 0.10);
+      --color-divider: rgba(40, 37, 29, 0.08);
+
+      --color-text: #22201a;
+      --color-text-muted: #65625b;
+      --color-text-faint: #8b877f;
+      --color-text-inverse: #f9f8f5;
+
+      --color-primary: #0f5d5f;
+      --color-primary-hover: #0b4b4d;
+      --color-primary-soft: rgba(15, 93, 95, 0.08);
+
+      --color-accent: #9a6a35;
+      --color-accent-soft: rgba(154, 106, 53, 0.08);
+
+      --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
+      --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
+      --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
+
+      --content-default: 1180px;
+      --content-wide: 1320px;
+      --radius-lg: 28px;
+      --radius-xl: 34px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1d1b18;
+      --color-surface-2: #24211d;
+      --color-surface-3: #2a2622;
+      --color-border: rgba(255, 255, 255, 0.10);
+      --color-divider: rgba(255, 255, 255, 0.08);
+
+      --color-text: #ece6dd;
+      --color-text-muted: #b7afa2;
+      --color-text-faint: #91897c;
+      --color-text-inverse: #171614;
+
+      --color-primary: #6ca7a7;
+      --color-primary-hover: #84baba;
+      --color-primary-soft: rgba(108, 167, 167, 0.10);
+
+      --color-accent: #c79c68;
+      --color-accent-soft: rgba(199, 156, 104, 0.09);
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
+      --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.7;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button {
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .wrap {
+      width: min(100% - 28px, var(--content-default));
+      margin-inline: auto;
+    }
+
+    .wrap-wide {
+      width: min(100% - 28px, var(--content-wide));
+      margin-inline: auto;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 120;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      color: var(--color-primary);
+      flex: 0 0 auto;
+    }
+
+    .sub {
+      color: var(--color-text-faint);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      max-width: 320px;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      transition: var(--transition);
+    }
+
+    .menu-toggle:hover { background: var(--color-surface-2); }
+
+    .menu-toggle-lines {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-toggle-lines span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--color-text);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      min-width: 0;
+      flex-wrap: nowrap;
+    }
+
+    .menu a,
+    .menu .dropbtn,
+    .theme-toggle,
+    .lang-link {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      white-space: nowrap;
+      line-height: 1.1;
+      flex-shrink: 0;
+    }
+
+    .menu a:hover,
+    .menu .dropbtn:hover,
+    .theme-toggle:hover,
+    .lang-link:hover {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+    }
+
+    .menu a.is-active {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+    }
+
+    .menu a.is-highlight,
+    .menu .dropbtn.is-highlight {
+      color: var(--color-text-inverse);
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, var(--color-accent)));
+      border: 1px solid transparent;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .menu a.is-highlight:hover,
+    .menu .dropbtn.is-highlight:hover {
+      background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+      color: var(--color-text-inverse);
+    }
+
+    [data-theme="dark"] .menu a.is-highlight,
+    [data-theme="dark"] .menu .dropbtn.is-highlight {
+      color: #141311;
+    }
+
+    .dropdown { position: relative; flex-shrink: 0; }
+
+    .dropbtn { gap: 6px; }
+
+    .dropbtn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform var(--transition);
+      flex: 0 0 auto;
+    }
+
+    .dropdown:hover .dropbtn svg,
+    .dropdown:focus-within .dropbtn svg,
+    .dropdown.is-open .dropbtn svg {
+      transform: rotate(180deg);
+    }
+
+    .dropcontent {
+      position: absolute;
+      top: calc(100% + 2px);
+      left: 0;
+      z-index: 300;
+      min-width: 240px;
+      display: grid;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    }
+
+    .dropdown:hover .dropcontent,
+    .dropdown:focus-within .dropcontent,
+    .dropdown.is-open .dropcontent {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .dropcontent a {
+      justify-content: flex-start;
+      padding: 12px 14px;
+      border-radius: 12px;
+      white-space: normal;
+      line-height: 1.35;
+    }
+
+    .menu-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid var(--color-divider);
+      flex-shrink: 0;
+    }
+
+    .lang-list { display: flex; gap: 4px; }
+
+    .lang-link.is-active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      width: 44px;
+      padding-inline: 0;
+      font-size: 1rem;
+    }
+
+    main { padding: 34px 0 90px; }
+
+    .article-shell {
+      position: relative;
+      max-width: 920px;
+      margin-inline: auto;
+    }
+
+    .article-header {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 48px);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+      margin-bottom: 18px;
+    }
+
+    .article-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(15, 93, 95, 0.06), transparent 24%),
+        radial-gradient(circle at 85% 18%, rgba(154, 106, 53, 0.05), transparent 22%);
+    }
+
+    .article-header > * { position: relative; }
+
+    .article-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .article-tag::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--color-primary);
+    }
+
+    .article-header h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 0.97;
+      letter-spacing: -0.03em;
+      max-width: 18ch;
+      margin-bottom: 16px;
+    }
+
+    .article-deck {
+      max-width: 60ch;
+      color: var(--color-text-muted);
+      font-size: var(--text-lg);
+      margin-bottom: 18px;
+    }
+
+    .article-body {
+      padding: clamp(24px, 3vw, 38px);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 97%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .article-body section + section {
+      margin-top: 32px;
+      padding-top: 2px;
+    }
+
+    .article-body h2 {
+      font-size: var(--text-xl);
+      line-height: 1.08;
+      margin-bottom: 14px;
+    }
+
+    .article-body p {
+      max-width: 70ch;
+      color: var(--color-text);
+      margin-bottom: 16px;
+    }
+
+    .article-body ul {
+      margin: 8px 0 16px 0;
+      padding-left: 1.2rem;
+      max-width: 70ch;
+    }
+
+    .article-body li {
+      margin-bottom: 10px;
+      color: var(--color-text);
+    }
+
+    .article-body strong { font-weight: 700; }
+
+    .article-cta {
+      padding: 18px 0 0;
+    }
+
+    .cta-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+      white-space: nowrap;
+      background: var(--color-surface);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .btn:hover { background: var(--color-surface-2); }
+
+    .footer {
+      padding: 36px 0 26px;
+      border-top: 1px solid var(--color-divider);
+      background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+      margin-top: 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer h4 {
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-faint);
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .footer a:hover { color: var(--color-text); }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      justify-items: end;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 22px;
+      margin-top: 22px;
+      border-top: 1px solid var(--color-divider);
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+    }
+
+    .fade-in {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .menu-toggle { display: inline-flex; }
+
+      .menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 14px;
+        right: 14px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid var(--color-border);
+        border-radius: 22px;
+        background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .menu.is-open { display: flex; }
+
+      .menu a,
+      .menu .dropbtn,
+      .theme-toggle,
+      .lang-link {
+        justify-content: flex-start;
+        border-radius: 14px;
+        font-size: 0.95rem;
+        padding: 10px 12px;
+      }
+
+      .menu a.is-highlight,
+      .menu .dropbtn.is-highlight {
+        justify-content: center;
+      }
+
+      .dropdown { width: 100%; }
+
+      .dropcontent {
+        position: static;
+        min-width: 0;
+        margin-top: 8px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+        display: none;
+        box-shadow: none;
+        border-radius: 16px;
+        background: var(--color-surface-2);
+      }
+
+      .dropdown.is-open .dropcontent { display: grid; }
+
+      .menu-tools {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+        padding-top: 6px;
+        border-top: 1px solid var(--color-divider);
+      }
+
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-links { justify-items: start; }
+    }
+
+    @media (max-width: 720px) {
+      .wrap,
+      .wrap-wide {
+        width: min(100% - 24px, var(--content-default));
+      }
+
+      .article-header,
+      .article-body { border-radius: 22px; }
+
+      .article-header h1 { max-width: 100%; }
+
+      .cta-links { width: 100%; }
+      .btn { width: 100%; }
+
+      .footer-bottom { flex-direction: column; }
+
+      .sub { max-width: 240px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .fade-in { opacity: 1; transform: none; }
+    }
+    /* 1) Усередині статті все видиме одразу */
+.article-body .fade-in {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* 2) А сам article-body взагалі без fade-in */
+.article-body {
+  opacity: 1 !important;
+  transform: none !important;
+}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Фінансові розлади та залежності",
+    "description": "Стаття про фінансові розлади та залежності: дитинство, економічне насильство, війна, когнітивні упередження та фінансовий стрес.",
+    "author": {
+      "@type": "Person",
+      "name": "Anna Signaevskaya"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "TELWHA"
+    },
+    "inLanguage": "uk",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://t-e-l-w-h-a.com/articles/traumas.html"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand">
+        <a class="brand-row" href="/" aria-label="TELWHA — на головну">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+          <strong>TELWHA</strong>
+        </a>
+        <span class="sub">Financial Psychology</span>
+      </div>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        aria-label="Відкрити меню"
+      >
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <nav class="menu" id="site-menu" aria-label="Основна навігація">
+        <a href="/">Головна</a>
+        <a href="/about/">Про мене</a>
+        <a href="/cases/">Кейси</a>
+        <a href="/articles/" class="is-active">Статті</a>
+        <a href="/finlab/">FinLab</a>
+
+        <div class="dropdown">
+          <button type="button" class="dropbtn is-highlight" aria-expanded="false">
+            Перевір себе
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/finlab/money-test-api/money-test.html">Тест фінансової поведінки</a>
+            <a href="/habit-test.html">Куди ведуть ваші звички?</a>
+            <a href="/fact-or-fiction-cases.html">Факт чи фікція?</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button type="button" class="dropbtn" aria-expanded="false">
+            Трейдерам
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/trader-course/">Міні-курс</a>
+            <a href="/archetype-test/">Архетип трейдера</a>
+          </div>
+        </div>
+
+        <a href="/reviews/">Відгуки</a>
+        <a href="/contact/">Контакти</a>
+
+        <div class="menu-tools">
+          <div class="lang-list" aria-label="Мови сайту">
+            <a class="lang-link is-active" href="/articles/traumas.html" lang="uk" aria-label="Українська">UA</a>
+            <a class="lang-link" href="/en/articles/traumas.html" lang="en" aria-label="English">EN</a>
+            <a class="lang-link" href="/es/articles/traumas.html" lang="es" aria-label="Español">ES</a>
+          </div>
+
+          <button class="theme-toggle" type="button" aria-label="Змінити тему">☀️</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap-wide">
+      <article class="article-shell">
+        <header class="article-header fade-in">
+          <div class="article-tag">Finance</div>
+          <h1>Фінансові розлади та залежності</h1>
+          <p class="article-deck">
+            Текст про те, як дитинство, економічне насильство, нейробіологія дефіциту й четвертий рік війни
+            переписують ваші стосунки з грошима. Без моралі. З травмою, фактами й трохи чесного сарказму.
+          </p>
+        </header>
+
+        <div class="article-body">
+  <section>
+    <p>Коли ми дивимось на цифру «9,5 мільйона боргових записів» за даними 2026 року в Україні, дуже легко сказати: «люди необережні», «беруть кредити бездумно», «не вміють планувати». Ну, ну.</p>
+    <p>Як на мене, це мільйони різних історій, які проявляються зовні через гроші. Контекст війни тільки підсилив те, що люди й так несли всередині до 2022 року.</p>
+    <p>Ви читаєте ці рядки, можливо:</p>
+    <ul>
+      <li>з укриття, де кредитна картка живе своїм життям;</li>
+      <li>у квартирі, де кожна друга річ куплена «щоб хоч трохи відчути, що життя триває»;</li>
+      <li>у Telegram, між черговим «аналітиком» і новинами про обстріли.</li>
+    </ul>
+    <p>І коли вам вкотре кажуть: «просто зробіть фінансовий план на 5 років» — хочеться спитати: «Ви бачили, як виглядає календар повітряних тривог? На яку годину саме мені поставити ціль "спокійно інвестувати"?»</p>
+    <p>Звісно, наші люди адаптувались… але не завдяки, а всупереч.</p>
+  </section>
+
+  <section>
+    <h2>Дитинство в бідності та емоційній нестабільності</h2>
+    <p>Рости у бідності та емоційній нестабільності — майже одне й те саме.</p>
+    <p>У дитинстві ви ніби живете всередині «домашнього пузиря» — квартири чи будинку з батьками та дідом/бабусею — який створює вам фінансову й емоційну реальність. Те, що це було ілюзією, ви зрозумієте десь так у 30+ років.</p>
+    <p>У нас немає окремого органу, який відповідає за гроші. Тому мозок формує асоціації: гроші = те, що відбувається, коли дорослі сваряться, соромляться, бояться або мовчать.</p>
+    <p>Подумайте про це: гроші для тіла (нейрофізіологія) — це асоціації, що можуть виражатись у відчуттях, почуттях, станах, емоціях… так-так, це я все ще про гроші.)</p>
+    <p>Контекст дитинства стає «інструкцією» на майбутнє: що таке гроші, навіщо вони, як їх «можна» або «не можна» заробляти. Тобто це повна абстракція на початку. А потім елементи контексту людина відтворює у своєму житі, просто змінює атрибути.</p>
+    <p>У фінансовій терапії є інструмент — Klontz Money Script Inventory (KMSI-R), який у 2025 році пройшов нову емпіричну валідацію. Він виділяє чотири базові «грошові сценарії», які діти засвоюють ще до того, як починають розбиратися в цифрах.</p>
+    <ul>
+      <li>money avoidance — «гроші — це погано, брудно, небезпечно»;</li>
+      <li>money worship — «гроші вирішать усе, навіть якщо доведеться вигоріти»;</li>
+      <li>money status — «моя цінність = мій дохід і речі»;</li>
+      <li>money vigilance — «гроші треба ховати, ніколи не витрачати, завжди боятись».</li>
+    </ul>
+    <p>Три з чотирьох значно корелюють із доходом і чистим капіталом у дорослому житті. Тобто те, що ви почули в 6 років про гроші, буквально формує вашу зарплату в 36.</p>
+    <p>А тепер уяви: дитина, яка це чує, росте. Їй 25. У неї перша нормальна зарплата. І що вона з нею робить? Те, що її «інструкція» дозволяє: або згорає на роботі, бо «інакше не заробиш», або витрачає все підряд, бо «завтра заберуть», або ховає під подушку, бо «витрачати небезпечно».</p>
+  </section>
+
+  <section>
+    <h2>Що ви могли чути в дитинстві</h2>
+    <p>Можливо, ви добре пам'ятаєте:</p>
+    <ul>
+      <li>як батьки сварились через кожну витрату;</li>
+      <li>як фраза «ми не можемо собі це дозволити» звучала щодня;</li>
+      <li>як у домі було відчуття: «завтра може все розвалитися»;</li>
+      <li>як перед зарплатою панувало мовчання, всі ходили навшпиньки, бо «грошей немає, не дратуйте тата/маму»;</li>
+      <li>як мама перераховувала гроші на кухні по декілька разів, а потім нервово казала: «я не знаю, як ми доживемо до кінця місяця»;</li>
+      <li>як кожна «зайва» покупка перетворювалась на скандал, а вам хотілося просто новий светр чи іграшку;</li>
+      <li>як гостям усміхнено казали: «та в нас все нормально», а після їхнього відходу рахунки знову ставали причиною крику й образ.</li>
+    </ul>
+    <p>І як у голові оселялися установки:</p>
+    <ul>
+      <li>«щоб заробляти гроші, треба вигоріти»;</li>
+      <li>«грошей постійно не вистачає — це норма»;</li>
+      <li>«щоб заробляти чесно, треба постійно страждати»;</li>
+      <li>«якщо сьогодні щось є, завтра обов'язково заберуть/з’являться нові витрати»;</li>
+      <li>«просити про гроші соромно»;</li>
+      <li>«це коштує божевільних грошей — тоді виходить треба зійти з розуму, щоб їх заробити».</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Когнітивний «податок» бідності</h2>
+    <p>Тут є виміряна нейрокогнітивна механіка.</p>
+    <p>Класичне дослідження Shafir &amp; Mullainth показало: коли мозок завантажений фінансовою тривогою, когнітивна функція падає на рівень втрати 13 пунктів IQ — як після ночі без сну (після обстрілів згадайте себе).</p>
+    <p>Новіше дослідження 2023 року підтвердило: scarcity mindset специфічно порушує здатність відфільтровувати відволікаючі стимули. Тобто мозок буквально не може «відсіяти» зайве — в тому числі зайві покупки.</p>
+    <p>Тому, коли ви відкриваєте маркетплейс «просто подивитись» під час повітряної тривоги, — це не слабість волі. Це виміряний нейрокогнітивний ефект дефіциту.</p>
+    <p>Дослідження про дитячі травми показують: люди, які в дитинстві жили в економічній нестабільності, у дорослому житті частіше мають сильний фінансовий стрес, борги й імпульсивні витрати, навіть якщо формально «все ок» з доходом.</p>
+    <p>Ці патерни були й до 2022 року. Війна не створила їх з нуля — вона їх оголила й підсилила.</p>
+    <p>Тому сьогодні ваші реакції можуть виглядати так:</p>
+    <ul>
+      <li>ви відкладаєте будь-які розмови про бюджет, бо саме слово «рахунки» вже стискає грудну клітку;</li>
+      <li>ви відкриваєте маркетплейс «просто подивитись» — повітряна тривога, новини, ще один «аналітик» у Telegram;</li>
+      <li>через 40 хвилин у кошику три речі «на потім», бо хочеться відчути, що «потім» взагалі буде;</li>
+      <li>ви купуєте щось «зайве», щоб довести собі: «я вже не там, я можу собі це дозволити»;</li>
+      <li>ви берете кредит не тому, що «не вмієте рахувати», а тому, що це єдиний знайомий спосіб зняти напругу.</li>
+    </ul>
+    <p>Якось це трохи відчувається як клітка, безвихідна ситуація… Складно заробляти, постійно не вистачає.</p>
+    <p>Що це відчуття означає? Що ваші уявлення, асоціації про гроші — неефективні. І також це залежить від того, які цілі ви ставите перед собою… до речі, відсутність цілей теж можуть бути.</p>
+    <p>Маленьке запитання: що з цього найбільше схоже на вашу історію — дитяча нестабільність, відчуття, що завтра «все може зникнути», чи останні роки, які просто дорисували старий сценарій?</p>
+  </section>
+
+  <section>
+    <h2>Коли гроші були інструментом контролю</h2>
+    <p>Можливо, хтось із батьків:</p>
+    <ul>
+      <li>забирав у вас гроші «за провину»;</li>
+      <li>казав: «поки живеш у моєму домі — робитимеш, як я скажу»;</li>
+      <li>контролював кожну копійку, змушував звітувати за витрати.</li>
+    </ul>
+    <p>Тут важливо назвати речі своїми іменами. Економічне насильство є юридично визнаною формою домашнього насильства у Великій Британії (Domestic Abuse Act 2021). 95% випадків домашнього насильства включають економічний контроль. Австралійське дослідження 2024 року визначає конкретні форми: контроль витрат, заборона доступу до банківських рахунків, створення боргів на ім'я партнера, перешкоджання працевлаштуванню.</p>
+    <p>У дорослому житті це часто виглядає так:</p>
+    <ul>
+      <li>ви кажете: «я не розбираюся в грошах, хай він вирішує». Але кожне його рішення — про те, де ви живете, що ви їсте, чи маєте свій резерв, чи можете піти;</li>
+      <li>ви несвідомо обираєте партнерів, які знову беруть на себе весь фінансовий контроль (або, навпаки, взагалі не беруть відповідальності — і ви тягнете все самі);</li>
+      <li>будь-яка спроба поставити питання про гроші в стосунках відчувається як ризик втрати любові й безпеки.</li>
+    </ul>
+    <p>Коли економічний контроль був нормою, фінансова залежність здається «логічною», навіть якщо вона повільно вас нищить.</p>
+    <p>Маленьке запитання: чи є у вашій історії епізоди, де гроші використовувалися як покарання або винагорода? Як це впливає на те, як ви сьогодні говорите про гроші з партнером, дітьми, батьками?</p>
+  </section>
+
+  <section>
+    <h2>Четвертий рік війни</h2>
+    <p>Тут не потрібно багато пояснювати. Шахеди, «циркони», повітряні тривоги, евакуації, втрачений бізнес, втрачені домівки.</p>
+    <p>ВВП України впав на 28,8% у 2022 році, відновлення сповільнюється: 2,9% у 2024, 1,8% у 2025. Потреба у зовнішньому фінансуванні цивільного бюджету — близько 50 млрд доларів на рік. Загальні потреби у відбудові оцінюються у 440,5 млрд євро.</p>
+    <p>ООН оцінює: гендерно обумовлене насильство зросло приблизно на 36%; жінки складають понад 70% безробітних; розрив в оплаті праці між чоловіками й жінками виріс до приблизно 41%.</p>
+    <p>У таких умовах нервова система живе в режимі: «вижити сьогодні», «зберегти дітей», «закрити хоча б цей кредит».</p>
+    <p>Довгострокові рішення — пенсія, інвестиції, вихід із боргів, страхування, накопичення — не просто «складні». Вони виглядають чужими, «іноземними» на фоні сирен, новин і постійного ризику втрати житла.</p>
+    <p>Нейрофізіологія проста: мозок, який живе в режимі загрози, буквально не дає вам можливості бачити й утримувати довгострокові рішення, бо його пріоритет — виживання.</p>
+    <p>Як це працює на рівні мозку:</p>
+    <ul>
+      <li>Amygdala (мигдалеподібне тіло) — страх, загроза. Гіперактивація → панічні реакції, неможливість планувати далі, ніж «сьогодні»;</li>
+      <li>Prefrontal cortex (префронтальна кора) — раціональне планування, самоконтроль. Коли мигдалеподібне тіло «кричить» — префронталка пригнічується;</li>
+      <li>Nucleus accumbens — очікування винагороди, дофамін. Активується при імпульсивних покупках, ставках, revenge-trading — дає коротке «я відчуваю себе живою».</li>
+    </ul>
+    <p>Тому:</p>
+    <ul>
+      <li>ви можете різко витрачати гроші, коли страшно, щоб хоча б на кілька годин відчути себе живою;</li>
+      <li>ви берете кредити «на всяк випадок», бо завтра може бути нова евакуація;</li>
+      <li>ви перестаєте відкривати банківський додаток і тільки у розмові з друзями жартуєте: «я вже живу в банку, просто мене ще не прописали»;</li>
+      <li>ви не торкаєтесь теми фінансів взагалі, щоб не додавати ще один фронт до вже існуючих.</li>
+    </ul>
+    <p>Це не про те, що «ви неорганізовані». Це про те, що ваша психіка адаптується до реальності, де майбутнє щодня ставиться під питання.</p>
+  </section>
+
+  <section>
+    <h2>Фінансові розлади, яких у нас нема 😉</h2>
+    <p>Ви трудоголік? Вітаю, у вас фінансова залежність. У нашому суспільстві не особливо розбираються у цій темі. Чому? Бо контекст, бо не цікаво, бо є щось більш пріоритетне.</p>
+    <p>Якщо ви думаєте, що купівля п'ятої сумки з Zara і купівля чергового «перспективного токена» на криптобіржі — це різні історії, для мозку вони дуже схожі. І там, і там ми намагаємося знизити внутрішню напругу і відчути хоч якийся контроль.</p>
+    <p>Дослідження 2026 року показують: компульсивний шопінг уражає близько 5% населення. Жінки й чоловіки однаково за тяжкістю, але жінки частіше асоціюють покупки з позитивними емоціями, чоловіки — з напругою й потребою контролю.</p>
+    <p>Огляд 2025 року (44 дослідження) підтвердив значну кореляцію між компульсивними покупками й розладами харчової поведінки — особливо бінговим переїданням. Тобто «заїсти» і «закупити» — для мозку дуже схожі механізми регуляції емоцій.</p>
+    <p>А дослідження 2025 року про криптотрейдерів показало: вони мають значно вищі показники за шкалою Problem Gambling Severity Index (PGSI), ніж нетрейдери. Когнітивні спотворення — ілюзія контролю, упередження прогнозування — ті самі, що й у гемблінгу.</p>
+    <p>NCPG повідомляє: близько 17% проблемних гравців говорять про суїцидальні спроби, понад 30% у лікуванні — про тяжкий фінансовий дистрес, що призводить до виселення чи бездомності.</p>
+    <p>APA PsycNet виділяє дев’ять фінансових розладів: компульсивні покупки, гемблінг, роботоголізм, фінансова залежність, фінансове «спасання» інших (енейблінг), фінансова відмова/заперечення, фінансова «злиплість» у стосунках, патологічне накопичення та мізерні витрати.</p>
+    <p>Умовно можна говорити про кілька типів.</p>
+    <p><strong>Компульсивні покупки.</strong> Відкриваєте маркетплейс «на хвилинку». Через годину — «кошик на потім», кредитка на «потім», а сором — прямо зараз. Це не просто «любов до шопінгу», це часто спосіб впоратися зі страхом, самотністю, травмою.</p>
+    <p><strong>Кредитна спіраль.</strong> Ви берете один кредит «закрити старий». Потім ще один — «бо є класна акція». Потім перестаєте відкривати додаток банку. Зовні це виглядає як безвідповідальність, але всередині це часто про параліч перед цифрами й потребу хоч на день відчути, що ситуація «контрольована».</p>
+    <p><strong>Фінансовий гемблінг / трейдинг-аддикція.</strong> Ви «заробляєте на ринку», але живете заради чергового адреналіну. Revenge-trading, спроби відігратись, ночі біля графіків — це вже не тільки про стратегію, це про залежність.</p>
+    <p>Маленьке запитання: як часто ви купували щось не тому, що це потрібно, а тому, що було страшно, соромно чи самотньо? І що ви насправді хотіли цим купити — річ чи відчуття?</p>
+  </section>
+
+  <section>
+    <h2>Когнітивні упередження, які підживлюють фінансові розлади</h2>
+    <p>За цими патернами стоять конкретні когнітивні спотворення, які нейробіологія виміряла й назвала. Ці мозкові трюки працюють у всіх людей — навіть у тих, хто виріс у стабільності. Просто виразність розладів у нас — інша.</p>
+    <ul>
+      <li><strong>Loss aversion.</strong> Втрата 100 доларів відчувається вдвічі болючіше, ніж задоволення від 100 доларів прибутку. Тому «відігратись» здається логічним — мозок не дає «здатися».</li>
+      <li><strong>Present bias.</strong> Перевага негайної нагороди над відкладеною — основа кредитної спіралі та компульсивних покупок. «Зараз полегшало» важить важче за «через рік буде стабільно».</li>
+      <li><strong>Anchoring.</strong> Прив'язка до першої цифри — «кредитка на 50 тисяч» здається прийнятною, бо перший ліміт був 10 тисяч.</li>
+      <li><strong>Mental accounting.</strong> Ставлення до грошей по-різному залежно від джерела — «премію можна витратити, зарплату — ні».</li>
+      <li><strong>Availability heuristic.</strong> Емоційно насичені події (обстріли, новини) переважають над статистикою у прийнятті рішень.</li>
+      <li><strong>Overconfidence bias.</strong> «Я знаю, що ринок зробить» — основа revenge-trading.</li>
+    </ul>
+    <p>Дебайасинг найефективніший не через силу волі, а через системний дизайн: автоматичні відкладення, правила очікування перед покупкою, зовнішня підзвітність, правильні підштовхування.</p>
+    <p>Не всі фінансові розлади дорівнюють великим травмам. Частина — це звичайні когнітивні мозкові трюки, які ми можемо переналаштувати через системний дизайн рішень. Але коли до цих трюків додається контекст дитинства й війни — вони працюють на повну потужність.</p>
+  </section>
+
+  <section>
+    <h2>Фінансовий стрес ≠ низький дохід</h2>
+    <p>83% американців повідомляють про фінансовий стрес у 2025 році. 70% відчувають ізоляцію у своїй фінансовій боротьбі.</p>
+    <p>Дослідження показують, що те, як люди відчувають своє фінансове становище, впливає на добробут у 20 разів сильніше, ніж фактичний банківський баланс. Майже половина людей відчувають фінансовий «синдром самозванця» — відчуття непевності у фінансах, навіть коли формально «все ок» з доходом.</p>
+    <p>Тобто фінансовий розлад — це не про «мало грошей». Це про те, як мозок обробляє інформацію про гроші.</p>
+  </section>
+
+  <section>
+    <h2>Це просто фінансові проблеми чи вже розлад?</h2>
+    <p>«У всіх зараз проблеми з грошима». Війна, інфляція, релокації, зміна ринку — це об'єктивні фактори. Вони не залежать від вашого характеру.</p>
+    <p>Але є тонка межа між «мені складно» і «я живу в патерні, який постійно мене руйнує».</p>
+    <p>Схоже більше на «просто фінансові проблеми», якщо:</p>
+    <ul>
+      <li>ви знаєте свої базові цифри (доходи, борги, витрати), навіть якщо вони вам не подобаються;</li>
+      <li>інколи ви витрачаєте імпульсивно, але можете зупинитись і сказати собі «стоп», без того, щоб кожна покупка перетворювалася на лавину;</li>
+      <li>ви можете про гроші говорити (з партнером, з банком, з друзями), навіть якщо це неприємна розмова;</li>
+      <li>ваші рішення про гроші хоч якось узгоджуються з тим, що для вас важливо (діти, здоров'я, базова безпека).</li>
+    </ul>
+    <p>Схоже на фінансовий розлад, якщо:</p>
+    <ul>
+      <li>ви системно уникаєте будь-якої конкретики: не відкриваєте додаток, не дивитесь на суми, не знаєте, скільки винні;</li>
+      <li>покупки / кредити / трейдинг — це ваш головний спосіб заспокоїтись, і ви робите це частіше, ніж говорите про свої почуття чи просите про підтримку;</li>
+      <li>ви регулярно порушуєте свої ж фінансові обіцянки (собі, партнерам), і кожен новий «план» живе два дні;</li>
+      <li>коли чуєте слова «бюджет», «борг», «кредит», тіло реагує так, наче це загроза — тремор, стискання, бажання втекти;</li>
+      <li>ви починаєте або продовжуєте фінансові дії, хоча вже бачите, що вони шкодять.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Якщо ви впізнали себе</h2>
+    <p>Якщо ви читаєте це й думаєте: «Ок, у мене половина з другого списку, але я ж просто адаптуюся» — то, ймовірно, ви якраз у зоні фінансового розладу, який маскується під адаптацію.</p>
+    <p>І тут важливо: це не діагноз «ви погані». Це опис того, що ваша нервова система вже давно робить з грошима те, що мала б робити терапія, підтримка, безпечне оточення.</p>
+  </section>
+
+  <section>
+    <h2>Трохи чесного сарказму</h2>
+    <p>«Просто перестаньте витрачати на зайве», — кажуть вам люди, які ніколи не купували ліки «про запас», не платили за евакуацію родичів і не жили з думкою: «а якщо завтра згорить ще один будинок?»</p>
+    <p>«Просто інвестуйте на пенсію», — кажуть вам люди, які не бачили, як пенсійні плани згорають разом з офісом, і не мають Telegram-каналу «чергова атака по енергетиці» в закладках.</p>
+    <p>Фінансові поради без слова «травма» — це як дієти без слова «голод». Начебто все логічно, але чомусь ніхто не витримує.</p>
+    <p>Я не пишу це, щоб посміятись із вас. Я пишу це, щоб ви нарешті побачили: багато «дивних» фінансових рішень — логічні реакції на нелогічну реальність.</p>
+    <p>І щоб ви могли спитати себе не «чому я така/такий дурна/дурний», а: «Що зі мною сталося, що гроші стали моєю єдиною аптечкою?»</p>
+  </section>
+
+  <section>
+    <h2>Трохи піклування замість моралі</h2>
+    <p>Якщо ви впізнали себе в цих розкладах — це означає, що ваша нервова система дуже довго працює на межі, і гроші стали одним із способів тримати баланс.</p>
+    <p>Цей текст не закінчиться словами «просто перестаньте так робити». Бо якби це було так просто, ви б уже перестали.</p>
+    <p>Перший крок — не Excel. Перший крок — сказати собі: «Мені важко. Я хочу зрозуміти себе, а не тільки цифри».</p>
+    <p>А далі вже можна говорити і про таблиці, і про плани, і про вихід. Але з позиції людини, до якої є повага й піклування, а не тільки вимога «бути раціональною/раціональним» у нерціональному світі.</p>
+    <p>І є ще одна історія, яку важливо почути: люди, які бачили ті самі сирени й ті самі сімейні сварки, але через навички, підтримку й системний дизайн змогли змінити свій money script. Це не «везіння», це робота — і вона теж можлива.</p>
+    <p>«Гроші — це не "скільки". Це ще й "як ти себе відчуваєш, коли дивишся на баланс".»</p>
+  </section>
+
+  <section>
+    <h2>Фінансові розлади, їх установки і дитячі фрази</h2>
+    <p><strong>1. Компульсивні покупки (compulsive buying disorder).</strong></p>
+    <p>Як виглядає: постійні «зриви» на покупки, кошики «на потім», речі, які вам не потрібні, борги, сором після кожної покупки.</p>
+    <p>Внутрішні установки:</p>
+    <ul>
+      <li>«я нічого не варта/не вартий без красивих речей»;</li>
+      <li>«якщо я куплю щось, мені стане легше»;</li>
+      <li>«поки я щось купую — я живу».</li>
+    </ul>
+    <p>Дитячі фрази:</p>
+    <ul>
+      <li>«люди судять по тому, як ти виглядаєш»;</li>
+      <li>«у нас нічого хорошого немає»;</li>
+      <li>«ти маєш виглядати нормально, щоб тебе поважали»;</li>
+      <li>«не можна так хотіти, нам це не по кишені».</li>
+    </ul>
+
+    <p><strong>2. Кредитна спіраль / залежність від кредитів.</strong></p>
+    <p>Як виглядає: кредити, щоб закрити інші кредити; позики «на евакуацію, на лікування, на щось приємне», які стають постійною нормою; уникання реальних сум боргу.</p>
+    <p>Внутрішні установки:</p>
+    <ul>
+      <li>«я ніколи не зароблю стільки, щоб вистачало»;</li>
+      <li>«краще взяти зараз, а потім якось буде»;</li>
+      <li>«я все одно не зможу вибратися, тож різниці немає».</li>
+    </ul>
+    <p>Дитячі фрази:</p>
+    <ul>
+      <li>«ми живемо від зарплати до зарплати»;</li>
+      <li>«головне, щоб якось перекантуватися»;</li>
+      <li>«не думай наперед, все одно все зламається»;</li>
+      <li>«грошей ніколи не вистачає, так було і буде».</li>
+    </ul>
+
+    <p><strong>3. Фінансова відмова / заперечення (financial denial).</strong></p>
+    <p>Як виглядає: не відкривати банківські додатки; не знати свої борги; не читати листи з банку; «якщо я не бачу, значить проблеми немає».</p>
+    <p>Внутрішні установки:</p>
+    <ul>
+      <li>«якщо я гляну на цифри, мені стане дуже погано»;</li>
+      <li>«я не здатна/здатний це вирішити»;</li>
+      <li>«краще не знати, ніж знати й не мати виходу».</li>
+    </ul>
+    <p>Дитячі фрази:</p>
+    <ul>
+      <li>«не питай, дорослі самі розберуться»;</li>
+      <li>«не лізь у гроші»;</li>
+      <li>«ти все одно нічого не зрозумієш»;</li>
+      <li>«про гроші не говорять, це не твоя справа».</li>
+    </ul>
+
+    <p><strong>4. Фінансова залежність (financial dependence).</strong></p>
+    <p>Як виглядає: «я не заробляю, хай він/вона вирішує»; немає власного рахунку; неможливість піти зі стосунків через гроші; покладання всієї відповідальності на партнера/родину.</p>
+    <p>Внутрішні установки:</p>
+    <ul>
+      <li>«я не здатна/здатний сама/сам забезпечити себе»;</li>
+      <li>«мені потрібен хтось, хто подбає про гроші»;</li>
+      <li>«якщо я сама/сам буду вирішувати про гроші, щось піде дуже не так».</li>
+    </ul>
+    <p>Дитячі фрази:</p>
+    <ul>
+      <li>«дівчині не треба про гроші думати»;</li>
+      <li>«ти ще мала/малий, не втручайся»;</li>
+      <li>«чоловік відповідає за гроші»;</li>
+      <li>«ти нічого не розумієш у фінансах».</li>
+    </ul>
+
+    <p><strong>5. Фінансове «енейблінг» (financial enabling) — постійне спасання інших.</strong></p>
+    <p>Як виглядає: ви постійно даєте гроші родичам/друзям, закриваєте їхні борги, допомагаєте «на шкоду собі»; не можете сказати «ні».</p>
+    <p>Внутрішні установки:</p>
+    <ul>
+      <li>«якщо я не допоможу, я погана людина»;</li>
+      <li>«я потрібна/потрібний тільки тоді, коли рятую інших»;</li>
+      <li>«мої потреби — не важливіші за їхні проблеми».</li>
+    </ul>
+    <p>Дитячі фрази:</p>
+    <ul>
+      <li>«подумай про інших, не про себе»;</li>
+      <li>«ти егоїстка/егоїст, якщо не поділишся»;</li>
+      <li>«ми маємо допомагати родині, навіть коли самі не тягнемо»;</li>
+      <li>«ти повинна/повинен бути вдячним і віддавати».</li>
+    </ul>
+
+    <p><strong>6. Роботоголізм (workaholism як розлад грошей).</strong></p>
+    <p>Як виглядає: постійна робота, неможливість відпочити, працюєте навіть коли не можете; робота — основне джерело самоцінності й контролю.</p>
+    <p>Внутрішні установки:</p>
+    <ul>
+      <li>«якщо я не працюю — я ніхто»;</li>
+      <li>«гроші приходять тільки через самознищення»;</li>
+      <li>«відпочинок = небезпека, я відразу відстану / все втрачу».</li>
+    </ul>
+    <p>Дитячі фрази:</p>
+    <ul>
+      <li>«лежати — це для ледарів»;</li>
+      <li>«хто багато працює, того Бог любить»;</li>
+      <li>«успіх — це коли ти працюєш більше за інших»;</li>
+      <li>«відпочивати будеш на тому світі».</li>
+    </ul>
+
+    <p><strong>7. Патологічний гемблінг / ризикові інвестиції (gambling &amp; high-risk behavior).</strong></p>
+    <p>Як виглядає: ставки, казино, трейдинг як гемблінг, постійні спроби «відігратись», великі ризики без реальної оцінки наслідків.</p>
+    <p>Внутрішні установки:</p>
+    <ul>
+      <li>«одна вдала угода / ставка змінить все»;</li>
+      <li>«я або виграю велико, або не хочу взагалі»;</li>
+      <li>«нормальний шлях для мене закритий, потрібне диво».</li>
+    </ul>
+    <p>Дитячі фрази:</p>
+    <ul>
+      <li>«хто не ризикує, той не п'є шампанське»;</li>
+      <li>«нам завжди треба щось вигадувати, прямого шляху немає»;</li>
+      <li>«простим шляхом ти нічого не доб'єшся»;</li>
+      <li>«життя — це або все, або нічого».</li>
+    </ul>
+
+    <p><strong>8. Недостатні витрати / мізерність / накопичення (underspending &amp; hoarding).</strong></p>
+    <p>Як виглядає: ви не витрачаєте навіть на базові потреби; не можете купити собі те, що вже необхідно; накопичуєте гроші/речі, але не користуєтесь ними.</p>
+    <p>Внутрішні установки:</p>
+    <ul>
+      <li>«будь-яка витрата — небезпека»;</li>
+      <li>«я не заслуговую витрачати на себе»;</li>
+      <li>«краще все зберігати, а не жити».</li>
+    </ul>
+    <p>Дитячі фрази:</p>
+    <ul>
+      <li>«бережи кожну копійку»;</li>
+      <li>«собі — потім, спочатку іншим»;</li>
+      <li>«у нас немає права на розкіш»;</li>
+      <li>«жити на широку ногу — це сором».</li>
+    </ul>
+
+    <p>Якщо в цих описах ви впізнали себе — це не для того, щоб ви поставили собі ярлик «у мене розлад». Це для того, щоб ви побачили: ваші фінансові реакції не народилися «на порожньому місці». Їх писали фрази дорослих, травма, війна, досвід виживання.</p>
+    <p>З цим можна працювати — не через сором, а через розуміння і підтримку.</p>
+    <p>Якщо хочете розкласти свій патерн по поличках — приходьте на консультацію. Ми не тільки про «як закрити кредит», а й про «як зробити так, щоб гроші перестали бути вашим єдиним способом вижити».</p>
+    <section class="article-cta">
+  <div class="cta-links">
+    <a class="btn" href="/contact/">
+      Записатися на консультацію
+    </a>
+  </div>
+</section>
+
+<section>
+  <h2>Джерела</h2>
+
+  <p><strong>Klontz Money Scripts, money disorders</strong><br>
+  Klontz Money Script Inventory (KMSI‑R), валідація 2025<br>
+  <a href="https://link.springer.com/article/10.1007/s10834-025-10055-7" target="_blank" rel="noopener">
+    https://link.springer.com/article/10.1007/s10834-025-10055-7
+  </a><br>
+  Оригінальна розробка Klontz Money Script Inventory<br>
+  <a href="https://newprairiepress.org/jft/vol2/iss1/1/" target="_blank" rel="noopener">
+    https://newprairiepress.org/jft/vol2/iss1/1/
+  </a><br>
+  Money disorders (огляд 9 розладів)<br>
+  <a href="https://psycnet.apa.org/record/2014-55930-004" target="_blank" rel="noopener">
+    https://psycnet.apa.org/record/2014-55930-004
+  </a><br>
+  Money disorders – загальна стаття<br>
+  <a href="https://en.wikipedia.org/wiki/Money_disorder" target="_blank" rel="noopener">
+    https://en.wikipedia.org/wiki/Money_disorder
+  </a></p>
+
+  <p><strong>Дитинство, бідність, конфлікти, батьківські сценарії</strong><br>
+  Фінансові конфлікти між батьками й дитяча безпека<br>
+  <a href="https://www.futurity.org/fighting-parents-children-poverty-2028852-2/" target="_blank" rel="noopener">
+    https://www.futurity.org/fighting-parents-children-poverty-2028852-2/
+  </a><br>
+  Parental economic insecurity and child health<br>
+  <a href="https://www.sciencedirect.com/science/article/abs/pii/S1570677X21000939" target="_blank" rel="noopener">
+    https://www.sciencedirect.com/science/article/abs/pii/S1570677X21000939
+  </a><br>
+  Income instability and child well‑being<br>
+  <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7546433/" target="_blank" rel="noopener">
+    https://pmc.ncbi.nlm.nih.gov/articles/PMC7546433/
+  </a><br>
+  Effects of poverty, hunger and homelessness on children<br>
+  <a href="https://www.apa.org/topics/socioeconomic-status/poverty-hunger-homelessness-children" target="_blank" rel="noopener">
+    https://www.apa.org/topics/socioeconomic-status/poverty-hunger-homelessness-children
+  </a><br>
+  Enduring effects of childhood poverty<br>
+  <a href="https://www.clasp.org/blog/the-enduring-effects-of-childhood-poverty/" target="_blank" rel="noopener">
+    https://www.clasp.org/blog/the-enduring-effects-of-childhood-poverty/
+  </a><br>
+  Parents’ relationship with money and its impact on children<br>
+  <a href="https://drlami.com/parents-relationship-with-money-and-its-impact-on-children/" target="_blank" rel="noopener">
+    https://drlami.com/parents-relationship-with-money-and-its-impact-on-children/
+  </a></p>
+
+  <p><strong>Когнітивний «податок» бідності, scarcity mindset</strong><br>
+  How poverty affects the brain and behavior (Shafir/Mullainathan)<br>
+  <a href="https://www.psychologicalscience.org/observer/how-poverty-affects-the-brain-and-behavior" target="_blank" rel="noopener">
+    https://www.psychologicalscience.org/observer/how-poverty-affects-the-brain-and-behavior
+  </a><br>
+  Scarcity mindset impairs distractor suppression<br>
+  <a href="https://www.sciencedirect.com/science/article/abs/pii/S0028393223002737" target="_blank" rel="noopener">
+    https://www.sciencedirect.com/science/article/abs/pii/S0028393223002737
+  </a></p>
+
+  <p><strong>Економічне насильство, контроль грошей</strong><br>
+  What is economic abuse?<br>
+  <a href="https://survivingeconomicabuse.org/what-is-economic-abuse/" target="_blank" rel="noopener">
+    https://survivingeconomicabuse.org/what-is-economic-abuse/
+  </a></p>
+
+  <p><strong>Війна, економіка України, гендерні ефекти</strong><br>
+  Ukraine War Economy Tracker (CES)<br>
+  <a href="https://ces.org.ua/en/tracker-economy-during-the-war/" target="_blank" rel="noopener">
+    https://ces.org.ua/en/tracker-economy-during-the-war/
+  </a><br>
+  UN: three years of full‑scale war, гендерні наслідки<br>
+  <a href="https://ukraine.un.org/en/289777-three-years-full-scale-war-ukraine-roll-back-decades-progress-women%E2%80%99s-rights-safety-and" target="_blank" rel="noopener">
+    https://ukraine.un.org/en/289777-three-years-full-scale-war-ukraine-roll-back-decades-progress-women%E2%80%99s-rights-safety-and
+  </a></p>
+
+  <p><strong>Нейрофінанси, мозкові структури</strong><br>
+  Neurofinance: Exploring the Intersection of Neuroscience and Financial Decision‑Making<br>
+  <a href="https://www.ijsrtjournal.com/article/Neurofinance+Exploring+the+Intersection+of+Neuroscience+and+Financial+DecisionMaking" target="_blank" rel="noopener">
+    https://www.ijsrtjournal.com/article/Neurofinance+Exploring+the+Intersection+of+Neuroscience+and+Financial+DecisionMaking
+  </a><br>
+  The Neuroscience of Financial Decision‑Making (LinkedIn article)<br>
+  <a href="https://www.linkedin.com/pulse/neuroscience-financial-decision-making-implications-gcc-siddiqui-iao0f" target="_blank" rel="noopener">
+    https://www.linkedin.com/pulse/neuroscience-financial-decision-making-implications-gcc-siddiqui-iao0f
+  </a></p>
+
+  <p><strong>Компульсивні покупки, shopping addiction</strong><br>
+  What you need to know about compulsive shopping<br>
+  <a href="https://theconversation.com/what-you-need-to-know-about-compulsive-shopping-the-modern-addiction-no-ones-talking-about-89712" target="_blank" rel="noopener">
+    https://theconversation.com/what-you-need-to-know-about-compulsive-shopping-the-modern-addiction-no-ones-talking-about-89712
+  </a><br>
+  Shopping/spending addiction (research starter)<br>
+  <a href="https://www.ebsco.com/research-starters/health-and-medicine/shoppingspending-addiction" target="_blank" rel="noopener">
+    https://www.ebsco.com/research-starters/health-and-medicine/shoppingspending-addiction
+  </a><br>
+  Study reveals compulsive shopping severity is similar across genders<br>
+  <a href="https://www.news-medical.net/news/20260305/Study-reveals-compulsive-shopping-severity-is-similar-across-genders-but-buying-choices-vary.aspx" target="_blank" rel="noopener">
+    https://www.news-medical.net/news/20260305/Study-reveals-compulsive-shopping-severity-is-similar-across-genders-but-buying-choices-vary.aspx
+  </a><br>
+  Systematic review of compulsive buying‑shopping disorder<br>
+  <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12231422/" target="_blank" rel="noopener">
+    https://pmc.ncbi.nlm.nih.gov/articles/PMC12231422/
+  </a></p>
+
+  <p><strong>Крипто‑гемблінг, трейдинг‑аддикція, гемблінг‑ризики</strong><br>
+  Compulsive gambling in the financial markets (trading addiction)<br>
+  <a href="https://ideas.repec.org/a/eee/jbfina/v111y2020ics0378426619302808.html" target="_blank" rel="noopener">
+    https://ideas.repec.org/a/eee/jbfina/v111y2020ics0378426619302808.html
+  </a><br>
+  Gambling motivations and cognitive distortions in cryptocurrency traders<br>
+  <a href="https://www.sciencedirect.com/science/article/abs/pii/S0033350625001878" target="_blank" rel="noopener">
+    https://www.sciencedirect.com/science/article/abs/pii/S0033350625001878
+  </a><br>
+  NCPG briefing – суїцидальний ризик і дистрес у проблемних гравців<br>
+  <a href="https://www.ncpgambling.org/wp-content/uploads/2025/04/NCPG_March-2025-Briefing-Slides.pdf" target="_blank" rel="noopener">
+    https://www.ncpgambling.org/wp-content/uploads/2025/04/NCPG_March-2025-Briefing-Slides.pdf
+  </a></p>
+
+  <p><strong>Workaholism, behavioral addictions</strong><br>
+  Work issues and behavioral addictions<br>
+  <a href="https://www.ebsco.com/research-starters/health-and-medicine/work-issues-and-behavioral-addictions" target="_blank" rel="noopener">
+    https://www.ebsco.com/research-starters/health-and-medicine/work-issues-and-behavioral-addictions
+  </a></p>
+
+  <p><strong>Когнітивні упередження у фінансових рішеннях</strong><br>
+  Cognitive biases that sabotage financial decisions<br>
+  <a href="https://www.simplypsychology.com/articles/money-mindset-cognitive-biases" target="_blank" rel="noopener">
+    https://www.simplypsychology.com/articles/money-mindset-cognitive-biases
+  </a></p>
+
+  <p><strong>Фінансовий стрес, «емоційний гаманець»</strong><br>
+  Impact of economic stress on Americans’ mental health (2023–2025)<br>
+  <a href="https://lifestance.com/insight/financial-stress-impact-mental-health-statistics-2025/" target="_blank" rel="noopener">
+    https://lifestance.com/insight/financial-stress-impact-mental-health-statistics-2025/
+  </a><br>
+  The emotional wallet: behavioral analysis of consumer financial well‑being<br>
+  <a href="https://acr-journal.com/article/the-emotional-wallet-a-behavioral-analysis-of-consumer-financial-well-being-1794/" target="_blank" rel="noopener">
+    https://acr-journal.com/article/the-emotional-wallet-a-behavioral-analysis-of-consumer-financial-well-being-1794/
+  </a></p>
+
+  <p><strong>Money disorders – класифікація й додаткові джерела</strong><br>
+  Money disorders – огляд (ще раз, з Wikipedia)<br>
+  <a href="https://en.wikipedia.org/wiki/Money_disorder" target="_blank" rel="noopener">
+    https://en.wikipedia.org/wiki/Money_disorder
+  </a><br>
+  Money disorders and mental health (огляд зв’язку грошей і психіки)<br>
+  <a href="https://havenwoodbehavioral.com/money-disorders-and-mental-health/" target="_blank" rel="noopener">
+    https://havenwoodbehavioral.com/money-disorders-and-mental-health/
+  </a></p>
+</section>
+
+        <section class="article-cta fade-in">
+          <div class="cta-links">
+            <a class="btn" href="/articles/">Повернутися до статей</a>
+            <a class="btn" href="/contact/">Зв’язатися</a>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>TELWHA</h4>
+          <p>Фінансова психологія, поведінкова економіка та архітектура вибору для кращих рішень і стійких результатів.</p>
+        </div>
+
+        <div style="text-align:right">
+          <h4>Навігація</h4>
+          <div class="footer-links">
+            <a href="/">Головна</a>
+            <a href="/finlab/">FinLab</a>
+            <a href="/reviews/">Відгуки</a>
+            <a href="/contact/">Контакти</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 TELWHA. Усі права захищено.</span>
+        <span>Київ, Україна</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function updateProgressBar() {
+      const progress = document.getElementById("progress");
+      if (!progress) return;
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressValue = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = progressValue + "%";
+    }
+
+    function syncThemeButtonUI() {
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (!themeBtn) return;
+      const current = document.documentElement.getAttribute("data-theme") || "light";
+      themeBtn.textContent = current === "dark" ? "🌙" : "☀️";
+      themeBtn.setAttribute(
+        "aria-label",
+        current === "dark" ? "Увімкнути світлу тему" : "Увімкнути темну тему"
+      );
+    }
+
+    function closeAllDropdowns(except = null) {
+      document.querySelectorAll(".dropdown").forEach((dropdown) => {
+        if (dropdown === except) return;
+        dropdown.classList.remove("is-open");
+        const button = dropdown.querySelector(".dropbtn");
+        if (button) button.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      updateProgressBar();
+      window.addEventListener("scroll", updateProgressBar, { passive: true });
+
+      const root = document.documentElement;
+      let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      root.setAttribute("data-theme", currentTheme);
+      syncThemeButtonUI();
+
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (themeBtn) {
+        themeBtn.addEventListener("click", () => {
+          currentTheme = currentTheme === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", currentTheme);
+          syncThemeButtonUI();
+        });
+      }
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const siteMenu = document.querySelector("#site-menu");
+
+      if (menuToggle && siteMenu) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = siteMenu.classList.toggle("is-open");
+          menuToggle.classList.toggle("is-open", isOpen);
+          menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          menuToggle.setAttribute("aria-label", isOpen ? "Закрити меню" : "Відкрити меню");
+
+          if (!isOpen) closeAllDropdowns();
+        });
+      }
+
+      document.querySelectorAll(".dropbtn").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          if (window.innerWidth > 920) return;
+          event.stopPropagation();
+          const parent = button.parentElement;
+          const willOpen = !parent.classList.contains("is-open");
+          closeAllDropdowns(parent);
+          parent.classList.toggle("is-open", willOpen);
+          button.setAttribute("aria-expanded", willOpen ? "true" : "false");
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".dropdown")) {
+          closeAllDropdowns();
+        }
+
+        const nav = document.querySelector(".nav");
+        if (
+          window.innerWidth <= 920 &&
+          siteMenu &&
+          siteMenu.classList.contains("is-open") &&
+          nav &&
+          !nav.contains(event.target)
+        ) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Відкрити меню");
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeAllDropdowns();
+
+          if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle?.classList.remove("is-open");
+            menuToggle?.setAttribute("aria-expanded", "false");
+            menuToggle?.setAttribute("aria-label", "Відкрити меню");
+            menuToggle?.focus();
+          }
+        }
+      });
+
+      document.querySelectorAll('#site-menu a[href]').forEach((link) => {
+        link.addEventListener("click", () => {
+          closeAllDropdowns();
+
+          if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle?.classList.remove("is-open");
+            menuToggle?.setAttribute("aria-expanded", "false");
+            menuToggle?.setAttribute("aria-label", "Відкрити меню");
+          }
+        });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+      }, { threshold: 0.14 });
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Financial Disorders and Dependencies — TELWHA</title>
+  <meta name="description" content="An article about financial disorders and dependencies: childhood, economic abuse, war, cognitive biases, and how the nervous system rewrites money.">
+
+  <link rel="canonical" href="https://t-e-l-w-h-a.com/en/articles/financial-disorders-dependence.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Financial Disorders and Dependencies — TELWHA">
+  <meta property="og:description" content="A full article on financial disorders and dependencies: from childhood and economic abuse to war, cognitive biases, and financial stress.">
+  <meta property="og:url" content="https://t-e-l-w-h-a.com/en/articles/financial-disorders-dependence.html">
+  <meta property="og:site_name" content="TELWHA">
+
+  <link rel="icon" href="/static/media/telwha-favicon.png" type="image/png">
+
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root,
+    [data-theme="light"] {
+      --font-display: "Boska", Georgia, serif;
+      --font-body: "Satoshi", "Inter", sans-serif;
+
+      --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+      --text-sm: clamp(0.82rem, 0.78rem + 0.15vw, 0.94rem);
+      --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+      --text-2xl: clamp(2.2rem, 1.5rem + 2vw, 4rem);
+
+      --color-bg: #f5f3ef;
+      --color-surface: #fcfbf8;
+      --color-surface-2: #f2efe9;
+      --color-surface-3: #ebe7df;
+      --color-border: rgba(40, 37, 29, 0.10);
+      --color-divider: rgba(40, 37, 29, 0.08);
+
+      --color-text: #22201a;
+      --color-text-muted: #65625b;
+      --color-text-faint: #8b877f;
+      --color-text-inverse: #f9f8f5;
+
+      --color-primary: #0f5d5f;
+      --color-primary-hover: #0b4b4d;
+      --color-primary-soft: rgba(15, 93, 95, 0.08);
+
+      --color-accent: #9a6a35;
+      --color-accent-soft: rgba(154, 106, 53, 0.08);
+
+      --shadow-sm: 0 1px 2px rgba(34, 32, 26, 0.05);
+      --shadow-md: 0 10px 30px rgba(34, 32, 26, 0.07);
+      --shadow-lg: 0 24px 70px rgba(34, 32, 26, 0.08);
+
+      --content-default: 1180px;
+      --content-wide: 1320px;
+      --radius-lg: 28px;
+      --radius-xl: 34px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1d1b18;
+      --color-surface-2: #24211d;
+      --color-surface-3: #2a2622;
+      --color-border: rgba(255, 255, 255, 0.10);
+      --color-divider: rgba(255, 255, 255, 0.08);
+
+      --color-text: #ece6dd;
+      --color-text-muted: #b7afa2;
+      --color-text-faint: #91897c;
+      --color-text-inverse: #171614;
+
+      --color-primary: #6ca7a7;
+      --color-primary-hover: #84baba;
+      --color-primary-soft: rgba(108, 167, 167, 0.10);
+
+      --color-accent: #c79c68;
+      --color-accent-soft: rgba(199, 156, 104, 0.09);
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.22);
+      --shadow-lg: 0 24px 70px rgba(0,0,0,0.26);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.7;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button {
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .wrap {
+      width: min(100% - 28px, var(--content-default));
+      margin-inline: auto;
+    }
+
+    .wrap-wide {
+      width: min(100% - 28px, var(--content-wide));
+      margin-inline: auto;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 120;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      color: var(--color-primary);
+      flex: 0 0 auto;
+    }
+
+    .sub {
+      color: var(--color-text-faint);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      max-width: 320px;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      transition: var(--transition);
+    }
+
+    .menu-toggle:hover { background: var(--color-surface-2); }
+
+    .menu-toggle-lines {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-toggle-lines span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--color-text);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.is-open .menu-toggle-lines span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      min-width: 0;
+      flex-wrap: nowrap;
+    }
+
+    .menu a,
+    .menu .dropbtn,
+    .theme-toggle,
+    .lang-link {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      white-space: nowrap;
+      line-height: 1.1;
+      flex-shrink: 0;
+    }
+
+    .menu a:hover,
+    .menu .dropbtn:hover,
+    .theme-toggle:hover,
+    .lang-link:hover {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+    }
+
+    .menu a.is-active {
+      color: var(--color-text);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+    }
+
+    .menu a.is-highlight,
+    .menu .dropbtn.is-highlight {
+      color: var(--color-text-inverse);
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, var(--color-accent)));
+      border: 1px solid transparent;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .menu a.is-highlight:hover,
+    .menu .dropbtn.is-highlight:hover {
+      background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+      color: var(--color-text-inverse);
+    }
+
+    [data-theme="dark"] .menu a.is-highlight,
+    [data-theme="dark"] .menu .dropbtn.is-highlight {
+      color: #141311;
+    }
+
+    .dropdown { position: relative; flex-shrink: 0; }
+
+    .dropbtn { gap: 6px; }
+
+    .dropbtn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform var(--transition);
+      flex: 0 0 auto;
+    }
+
+    .dropdown:hover .dropbtn svg,
+    .dropdown:focus-within .dropbtn svg,
+    .dropdown.is-open .dropbtn svg {
+      transform: rotate(180deg);
+    }
+
+    .dropcontent {
+      position: absolute;
+      top: calc(100% + 2px);
+      left: 0;
+      z-index: 300;
+      min-width: 240px;
+      display: grid;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    }
+
+    .dropdown:hover .dropcontent,
+    .dropdown:focus-within .dropcontent,
+    .dropdown.is-open .dropcontent {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .dropcontent a {
+      justify-content: flex-start;
+      padding: 12px 14px;
+      border-radius: 12px;
+      white-space: normal;
+      line-height: 1.35;
+    }
+
+    .menu-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid var(--color-divider);
+      flex-shrink: 0;
+    }
+
+    .lang-list { display: flex; gap: 4px; }
+
+    .lang-link.is-active {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      width: 44px;
+      padding-inline: 0;
+      font-size: 1rem;
+    }
+
+    main { padding: 34px 0 90px; }
+
+    .article-shell {
+      position: relative;
+      max-width: 920px;
+      margin-inline: auto;
+    }
+
+    .article-header {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 48px);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+      margin-bottom: 18px;
+    }
+
+    .article-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(15, 93, 95, 0.06), transparent 24%),
+        radial-gradient(circle at 85% 18%, rgba(154, 106, 53, 0.05), transparent 22%);
+    }
+
+    .article-header > * { position: relative; }
+
+    .article-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .article-tag::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--color-primary);
+    }
+
+    .article-header h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 0.97;
+      letter-spacing: -0.03em;
+      max-width: 18ch;
+      margin-bottom: 16px;
+    }
+
+    .article-deck {
+      max-width: 60ch;
+      color: var(--color-text-muted);
+      font-size: var(--text-lg);
+      margin-bottom: 18px;
+    }
+
+    .article-body {
+      padding: clamp(24px, 3vw, 38px);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 97%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .article-body section + section {
+      margin-top: 32px;
+      padding-top: 2px;
+    }
+
+    .article-body h2 {
+      font-size: var(--text-xl);
+      line-height: 1.08;
+      margin-bottom: 14px;
+    }
+
+    .article-body p {
+      max-width: 70ch;
+      color: var(--color-text);
+      margin-bottom: 16px;
+    }
+
+    .article-body ul {
+      margin: 8px 0 16px 0;
+      padding-left: 1.2rem;
+      max-width: 70ch;
+    }
+
+    .article-body li {
+      margin-bottom: 10px;
+      color: var(--color-text);
+    }
+
+    .article-body strong { font-weight: 700; }
+
+    .article-cta {
+      padding: 18px 0 0;
+    }
+
+    .cta-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: var(--transition);
+      white-space: nowrap;
+      background: var(--color-surface);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .btn:hover { background: var(--color-surface-2); }
+
+    .footer {
+      padding: 36px 0 26px;
+      border-top: 1px solid var(--color-divider);
+      background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+      margin-top: 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer h4 {
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-faint);
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .footer a:hover { color: var(--color-text); }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      justify-items: end;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 22px;
+      margin-top: 22px;
+      border-top: 1px solid var(--color-divider);
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .menu-toggle { display: inline-flex; }
+
+      .menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 14px;
+        right: 14px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border: 1px solid var(--color-border);
+        border-radius: 22px;
+        background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .menu.is-open { display: flex; }
+
+      .menu a,
+      .menu .dropbtn,
+      .theme-toggle,
+      .lang-link {
+        justify-content: flex-start;
+        border-radius: 14px;
+        font-size: 0.95rem;
+        padding: 10px 12px;
+      }
+
+      .menu a.is-highlight,
+      .menu .dropbtn.is-highlight {
+        justify-content: center;
+      }
+
+      .dropdown { width: 100%; }
+
+      .dropcontent {
+        position: static;
+        min-width: 0;
+        margin-top: 8px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+        display: none;
+        box-shadow: none;
+        border-radius: 16px;
+        background: var(--color-surface-2);
+      }
+
+      .dropdown.is-open .dropcontent { display: grid; }
+
+      .menu-tools {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+        padding-top: 6px;
+        border-top: 1px solid var(--color-divider);
+      }
+
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-links { justify-items: start; }
+    }
+
+    @media (max-width: 720px) {
+      .wrap,
+      .wrap-wide {
+        width: min(100% - 24px, var(--content-default));
+      }
+
+      .article-header,
+      .article-body { border-radius: 22px; }
+
+      .article-header h1 { max-width: 100%; }
+
+      .cta-links { width: 100%; }
+      .btn { width: 100%; }
+
+      .footer-bottom { flex-direction: column; }
+
+      .sub { max-width: 240px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .fade-in { opacity: 1; transform: none; }
+    }
+
+    /* ensure article body is always visible even if fade-in fails */
+    .article-body .fade-in {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    .article-body {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Financial Disorders and Dependencies",
+    "description": "An article about financial disorders and dependencies: childhood, economic abuse, war, cognitive biases, and financial stress.",
+    "author": {
+      "@type": "Person",
+      "name": "Anna Signaevskaya"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "TELWHA"
+    },
+    "inLanguage": "en",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://t-e-l-w-h-a.com/en/articles/traumas.html"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand">
+        <a class="brand-row" href="/" aria-label="TELWHA — go to homepage">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M6 8.5H26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M16 8.5V24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M10.5 24H21.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+          <strong>TELWHA</strong>
+        </a>
+        <span class="sub">Financial Psychology</span>
+      </div>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        aria-label="Open menu"
+      >
+        <span class="menu-toggle-lines" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <nav class="menu" id="site-menu" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/cases/">Cases</a>
+        <a href="/articles/" class="is-active">Articles</a>
+        <a href="/finlab/">FinLab</a>
+
+        <div class="dropdown">
+          <button type="button" class="dropbtn is-highlight" aria-expanded="false">
+            Check yourself
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/finlab/money-test-api/money-test.html">Financial behaviour test</a>
+            <a href="/habit-test.html">Where do your habits lead?</a>
+            <a href="/fact-or-fiction-cases.html">Fact or fiction?</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button type="button" class="dropbtn" aria-expanded="false">
+            For traders
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="dropcontent">
+            <a href="/trader-course/">Mini course</a>
+            <a href="/archetype-test/">Trader archetype</a>
+          </div>
+        </div>
+
+        <a href="/reviews/">Reviews</a>
+        <a href="/contact/">Contacts</a>
+
+        <div class="menu-tools">
+          <div class="lang-list" aria-label="Site languages">
+            <a class="lang-link" href="/articles/traumas.html" lang="uk" aria-label="Ukrainian">UA</a>
+            <a class="lang-link is-active" href="/en/articles/traumas.html" lang="en" aria-label="English">EN</a>
+            <a class="lang-link" href="/es/articles/traumas.html" lang="es" aria-label="Spanish">ES</a>
+          </div>
+
+          <button class="theme-toggle" type="button" aria-label="Toggle theme">☀️</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap-wide">
+      <article class="article-shell">
+        <header class="article-header fade-in">
+          <div class="article-tag">Finance</div>
+          <h1>Financial Disorders and Dependencies</h1>
+          <p class="article-deck">
+            A text about how childhood, economic abuse, scarcity neurobiology and the fourth year of war rewrite your relationship with money. No moralising. With trauma, facts and a bit of honest sarcasm.
+          </p>
+        </header>
+
+        <div class="article-body">
+          <section>
+            <p>When we look at the number “9.5 million debt records” in Ukraine in 2026, it is very easy to say: “people are careless”, “they take loans mindlessly”, “they cannot plan”. Sure.</p>
+            <p>To me, this is millions of different stories that show up on the outside through money. The context of war has only amplified what people were already carrying inside long before 2022.</p>
+            <p>You might be reading these lines:</p>
+            <ul>
+              <li>from a shelter, where your credit card lives its own life;</li>
+              <li>in an apartment where every second object was bought “just to feel that life is still going on”;</li>
+              <li>in Telegram, between yet another “analyst” and news about attacks.</li>
+            </ul>
+            <p>And when someone tells you again: “just make a 5‑year financial plan”, you want to ask: “Have you seen a siren calendar? For what exact hour should I schedule ‘peacefully invest’?”</p>
+            <p>Of course, people adapted… but not thanks to the systems around them — in spite of them.</p>
+          </section>
+
+          <section>
+            <h2>Childhood in poverty and emotional instability</h2>
+            <p>Growing up in poverty and growing up in emotional instability are almost the same thing.</p>
+            <p>As a child, you live inside a “home bubble” — a flat or house with parents and grandparents — that creates your financial and emotional reality. You will only realise that this was an illusion somewhere around your 30s.</p>
+            <p>We do not have a separate organ for money. So the brain builds associations: money = whatever happens when adults argue, feel ashamed, are afraid or stay silent.</p>
+            <p>Think about it: for the body (neurophysiology), money is associations expressed as sensations, feelings, states, emotions. Yes, I am still talking about money.</p>
+            <p>The childhood context becomes an “instruction manual” for the future: what money is, what it is for, how it is “allowed” or “not allowed” to earn it. At the start this is a complete abstraction. Later, a person recreates elements of this context in their own life — just changing the attributes.</p>
+            <p>In financial therapy, there is a tool — the Klontz Money Script Inventory (KMSI‑R), which received new empirical validation in 2025. It identifies four basic “money scripts” that children internalise long before they understand numbers:</p>
+            <ul>
+              <li>money avoidance — “money is bad, dirty, dangerous”;</li>
+              <li>money worship — “money will fix everything, even if I burn out”;</li>
+              <li>money status — “my worth = my income and things”;</li>
+              <li>money vigilance — “money must be hidden, never spent, always feared”.</li>
+            </ul>
+            <p>Three out of four correlate strongly with income and net worth in adulthood. What you heard about money at six literally shapes your salary at thirty‑six.</p>
+            <p>Now imagine: that child grows up. She is 25. She has her first “normal” salary. What does she do with it? Whatever her “manual” allows: either burns out at work because “there is no other way to earn”, or spends everything because “they will take it away tomorrow”, or hides it under the mattress because “spending is dangerous”.</p>
+          </section>
+
+          <section>
+            <h2>What you might have heard as a child</h2>
+            <p>You might clearly remember:</p>
+            <ul>
+              <li>parents arguing about every expense;</li>
+              <li>the phrase “we cannot afford this” repeated every day;</li>
+              <li>the feeling at home that “everything might collapse tomorrow”;</li>
+              <li>how before payday the house went quiet, everyone walked on tiptoe because “there is no money, do not irritate dad/mum”;</li>
+              <li>how your mother counted money at the kitchen table several times and then nervously said: “I do not know how we will make it to the end of the month”;</li>
+              <li>how every “extra” purchase became a scandal while you only wanted a new jumper or toy;</li>
+              <li>how adults smiled to guests: “we are doing fine”, and once the door closed the bills again sparked shouting and insults.</li>
+            </ul>
+            <p>And how these beliefs settled in your head:</p>
+            <ul>
+              <li>“to earn money you must burn out”;</li>
+              <li>“there is never enough money — that is normal”;</li>
+              <li>“to earn honestly you must constantly suffer”;</li>
+              <li>“if something exists today, it will definitely be taken away tomorrow / new expenses will appear”;</li>
+              <li>“asking for money is shameful”;</li>
+              <li>“this costs insane money — so I must go insane to earn it”.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>The cognitive ‘tax’ of poverty</h2>
+            <p>Here we are talking about measurable neuro‑cognitive mechanics.</p>
+            <p>A classic study by Shafir and Mullainathan showed that when the brain is loaded with financial anxiety, cognitive function drops by the equivalent of 13 IQ points — like after a night without sleep.</p>
+            <p>A 2023 study confirmed that a scarcity mindset specifically impairs the ability to filter out distractions. The brain literally cannot “screen out” the unnecessary — including unnecessary purchases.</p>
+            <p>So when you open a marketplace “just to browse” during an air‑raid siren, this is not weak will. It is a measured neuro‑cognitive effect of scarcity.</p>
+            <p>Research on childhood trauma shows: people who grew up in economic instability are more likely in adulthood to experience strong financial stress, debt and impulsive spending, even when their income is formally “fine”.</p>
+            <p>These patterns existed long before 2022. The war did not create them from scratch — it exposed and amplified them.</p>
+            <p>So today your reactions may look like this:</p>
+            <ul>
+              <li>you avoid any talk of budgets because the word “bills” already tightens your chest;</li>
+              <li>you open a marketplace “just to look” — siren, news, another Telegram “analyst”;</li>
+              <li>after forty minutes there are three items “for later” in your cart because you want to feel that “later” exists at all;</li>
+              <li>you buy something “extra” to prove to yourself: “I am not there anymore, I can afford this”;</li>
+              <li>you take a loan not because you “cannot count” but because it is the only familiar way to relieve tension.</li>
+            </ul>
+            <p>It can feel like a cage, a no‑way‑out situation… You struggle to earn and it is never enough.</p>
+            <p>What does this feeling mean? That your internal models and associations around money are inefficient. It also depends on the goals you set for yourself — and yes, even the lack of goals is a pattern.</p>
+            <p>A small question: which part of this looks most like your story — childhood instability, the feeling that “everything can disappear tomorrow”, or the last few years simply colouring in an old script?</p>
+          </section>
+
+          <section>
+            <h2>When money was a tool of control</h2>
+            <p>Perhaps one of your parents:</p>
+            <ul>
+              <li>took away your money “as punishment”;</li>
+              <li>said: “as long as you live in my house, you will do as I say”;</li>
+              <li>controlled every cent, demanded reports for each expense.</li>
+            </ul>
+            <p>It is important to call things by their names. Economic abuse is a legally recognised form of domestic abuse in the UK (Domestic Abuse Act 2021). Around 95% of domestic abuse cases include economic control. An Australian study in 2024 identified specific forms: controlling spending, blocking access to bank accounts, creating debts in a partner’s name, preventing employment.</p>
+            <p>In adult life this often looks like:</p>
+            <ul>
+              <li>you say “I am bad with money, let him decide”. But every decision affects where you live, what you eat, whether you have your own buffer and whether you can leave;</li>
+              <li>you unconsciously pick partners who again take over all financial control (or, on the contrary, take none — and you carry everything);</li>
+              <li>any attempt to bring up money in the relationship feels like a risk of losing love and safety.</li>
+            </ul>
+            <p>When economic control was normal, financial dependence feels “logical” — even if it slowly destroys you.</p>
+            <p>Another small question: are there episodes in your story where money was used as punishment or reward? How does that shape how you talk about money today with partners, children, parents?</p>
+          </section>
+
+          <section>
+            <h2>The fourth year of war</h2>
+            <p>Here we do not need many explanations. Shaheds, “Zirkons”, air‑raid sirens, evacuations, lost businesses, lost homes.</p>
+            <p>Ukraine’s GDP fell by 28.8% in 2022. Recovery is slowing: 2.9% in 2024, 1.8% in 2025. The need for external financing of the civil budget is around 50 billion dollars a year. Total reconstruction needs are estimated at about 440.5 billion euros.</p>
+            <p>UN estimates: gender‑based violence has increased by roughly 36%; women make up over 70% of the unemployed; the gender pay gap has widened to about 41%.</p>
+            <p>In such conditions the nervous system lives in modes like “survive today”, “keep the children safe”, “at least close this loan”.</p>
+            <p>Long‑term decisions — pensions, investments, getting out of debt, insurance, savings — are not just “hard”. They feel foreign against the backdrop of sirens, news and constant risk of losing your home.</p>
+            <p>Neurophysiology is simple: a brain living in threat mode literally does not allow you to see and hold long‑term decisions because its priority is survival.</p>
+            <p>On a brain level it looks like this:</p>
+            <ul>
+              <li>Amygdala — fear, threat. Hyper‑activation leads to panic reactions, the inability to plan beyond “today”.</li>
+              <li>Prefrontal cortex — rational planning, self‑control. When the amygdala is “screaming”, the prefrontal cortex is suppressed.</li>
+              <li>Nucleus accumbens — anticipation of reward, dopamine. It lights up with impulsive purchases, bets, revenge‑trading — giving a brief “I feel alive”.</li>
+            </ul>
+            <p>As a result:</p>
+            <ul>
+              <li>you may suddenly spend money when you are scared, just to feel alive for a few hours;</li>
+              <li>you take “just in case” loans because tomorrow may bring another evacuation;</li>
+              <li>you stop opening your banking app and only joke with friends: “I already live at the bank, they just have not registered me yet”;</li>
+              <li>you avoid money topics entirely, so as not to add another front to the ones you already live on.</li>
+            </ul>
+            <p>This is not about you being “disorganised”. It is about your psyche adapting to a reality where the future is questioned every day.</p>
+          </section>
+
+          <section>
+            <h2>Financial disorders we ‘do not have’</h2>
+            <p>Are you a workaholic? Congratulations, that is a financial dependency. In our culture we rarely name it that way. Why? Context, priorities, lack of language.</p>
+            <p>If you think buying a fifth Zara bag and buying yet another “promising token” on a crypto exchange are different stories — for the brain they are very similar. In both cases we try to reduce internal tension and regain some sense of control.</p>
+            <p>Studies from 2026 suggest that about 5% of the population are affected by compulsive shopping. Women and men are similar in severity, but women more often link purchases to positive emotions, while men link them to tension and control.</p>
+            <p>A 2025 review of 44 studies found strong correlation between compulsive buying and eating disorders, especially binge eating. “Eating” and “shopping it away” are very similar emotional regulation mechanisms for the brain.</p>
+            <p>A 2025 study on crypto traders showed that they score significantly higher on the Problem Gambling Severity Index than non‑traders. Cognitive distortions — illusion of control, prediction bias — are the same as in gambling.</p>
+            <p>NCPG (National Council on Problem Gambling) reports: around 17% of problem gamblers report suicide attempts; over 30% in treatment report severe financial distress leading to eviction or homelessness.</p>
+            <p>APA PsycNet describes nine money disorders: compulsive buying, gambling, workaholism, financial dependence, financial enabling (constant rescuing), financial denial, financial enmeshment, pathological hoarding and chronic under‑spending.</p>
+            <p>Roughly, we can talk about several everyday types.</p>
+            <p><strong>Compulsive buying.</strong> You open a marketplace “for a minute”. An hour later, your “save for later” cart is full, credit card is “for later” too, and shame is immediate. It is not just “loving shopping”; it is often a way to cope with fear, loneliness, trauma.</p>
+            <p><strong>Credit spiral.</strong> You take one loan “to close the old one”. Then another because “there is a nice promotion”. Then you stop opening the banking app at all. From the outside it looks like irresponsibility; inside it is paralysis in front of numbers and the need to feel “in control” at least for a day.</p>
+            <p><strong>Financial gambling / trading addiction.</strong> You “earn on the market” but actually live for the next adrenaline hit. Revenge‑trading, trying to win back, nights in front of charts — this is no longer just strategy, it is dependence.</p>
+            <p>A small question: how often have you bought something not because you needed it, but because you were scared, ashamed or lonely? What were you actually trying to buy — the object or a feeling?</p>
+          </section>
+
+          <section>
+            <h2>Cognitive biases feeding money disorders</h2>
+            <p>Behind these patterns are specific cognitive biases that neuroscience has measured and named. These tricks work in everyone, even those who grew up in stability. The difference is how strong they are in our context.</p>
+            <ul>
+              <li><strong>Loss aversion.</strong> Losing 100 dollars feels about twice as painful as gaining 100 dollars feels good. That is why “winning it back” seems logical — the brain refuses to “surrender”.</li>
+              <li><strong>Present bias.</strong> Preference for immediate rewards over delayed ones — the core of credit spirals and compulsive shopping. “I feel better now” weighs more than “I will be stable in a year”.</li>
+              <li><strong>Anchoring.</strong> Fixation on the first number — a 50k credit limit feels acceptable because the first limit was 10k.</li>
+              <li><strong>Mental accounting.</strong> Treating money differently based on source — “bonuses are for spending, salary is not”.</li>
+              <li><strong>Availability heuristic.</strong> Emotional events (attacks, news) overshadow statistics when making decisions.</li>
+              <li><strong>Overconfidence bias.</strong> “I know what the market will do” — the core of revenge‑trading.</li>
+            </ul>
+            <p>Debiasing works best not through willpower, but through system design: automatic transfers, mandatory “cooling‑off” time before purchases, external accountability, good choice architecture.</p>
+            <p>Not every money disorder equals “huge trauma”. Some are just ordinary brain quirks we can redesign with better systems. But when you add childhood context and war, these quirks run at full power.</p>
+          </section>
+
+          <section>
+            <h2>Financial stress ≠ low income</h2>
+            <p>About 83% of Americans report financial stress in 2025. Around 70% feel isolated in their financial struggle.</p>
+            <p>Studies show that how people feel about their finances predicts well‑being roughly 20 times better than their actual bank balance. Nearly half of people report a financial “impostor syndrome” — feeling financially insecure even when their income is formally fine.</p>
+            <p>So a money disorder is not simply about “too little money”. It is about how the brain processes information about money.</p>
+          </section>
+
+          <section>
+            <h2>Just money problems or already a disorder?</h2>
+            <p>“Everyone has money problems now.” War, inflation, relocation, market shifts — these are objective factors. They do not depend on character.</p>
+            <p>But there is a fine line between “this is hard” and “I live inside a pattern that keeps harming me”.</p>
+            <p>It looks more like “just money problems” if:</p>
+            <ul>
+              <li>you know your basic numbers (income, debt, expenses), even if you dislike them;</li>
+              <li>you sometimes spend impulsively but can stop yourself without every purchase turning into an avalanche;</li>
+              <li>you can talk about money (with a partner, bank, friends), even if it is an unpleasant conversation;</li>
+              <li>your money decisions at least somewhat align with what matters to you (children, health, basic safety).</li>
+            </ul>
+            <p>It looks more like a money disorder if:</p>
+            <ul>
+              <li>you systematically avoid specifics: never open the app, never look at totals, do not know how much you owe;</li>
+              <li>shopping / loans / trading are your main way to calm down, used more often than talking about feelings or asking for support;</li>
+              <li>you regularly break your own financial promises (to yourself or others), and each new “plan” lives two days;</li>
+              <li>when you hear “budget”, “debt”, “loan”, your body reacts as if to a threat — tremors, tightness, urge to run;</li>
+              <li>you start or continue financial actions even when you clearly see they hurt you.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>If you recognise yourself</h2>
+            <p>If you read this and think: “OK, I have half of the second list, but I am just adapting”, you are probably in the zone of a financial disorder disguised as adaptation.</p>
+            <p>Important: this is not a diagnosis of “you are bad”. It is a description of how your nervous system has long been doing with money what therapy, support and a safe environment were supposed to do.</p>
+          </section>
+
+          <section>
+            <h2>A bit of honest sarcasm (with care)</h2>
+            <p>“Just stop spending on unnecessary things”, say people who never bought medicines “just in case”, never paid for evacuating relatives and never lived with the thought: “what if another house burns down tomorrow?”</p>
+            <p>“Just invest for retirement”, say people who never saw pension plans go up in smoke with the office and do not have a Telegram channel “another strike on energy infrastructure” in their favourites.</p>
+            <p>Money advice without the word “trauma” is like a diet without the word “hunger”. Everything sounds logical — yet somehow no one can stick to it.</p>
+            <p>I am not writing this to laugh at you. I am writing this so that you finally see: many of your “weird” money decisions are logical reactions to an illogical reality.</p>
+            <p>So that instead of asking “why am I so stupid?”, you could ask: “What happened to me that money became my only first‑aid kit?”</p>
+          </section>
+
+          <section>
+            <h2>A bit of care instead of morals</h2>
+            <p>If you recognise yourself in these patterns, it does not mean you “failed at life”. It means your nervous system has been working at the edge for a long time and money became one of the ways to keep balance.</p>
+            <p>This text will not end with “just stop doing that”. If it were that simple, you would have stopped already.</p>
+            <p>The first step is not Excel. The first step is honestly saying: “This is hard. I want to understand myself, not just the numbers.”</p>
+            <p>After that, we can talk about spreadsheets, plans and exit strategies. But from the perspective of someone who deserves respect and care, not just the demand “be rational” in an irrational world.</p>
+            <p>There is another story worth hearing: people who lived under the same sirens and the same family conflicts, but through skills, support and better system design managed to change their money script. It is not “luck”; it is work — and it is possible.</p>
+            <p>Money is not only “how much”. It is also “how you feel when you look at your balance”.</p>
+          </section>
+
+          <section>
+            <h2>Money disorders, their beliefs and childhood phrases</h2>
+
+            <p><strong>1. Compulsive buying.</strong></p>
+            <p>Looks like: constant “shopping binges”, endless “save for later” carts, things you do not need, debt, shame after each purchase.</p>
+            <p>Inner beliefs:</p>
+            <ul>
+              <li>“I am worthless without nice things”; </li>
+              <li>“if I buy something, I will feel better”; </li>
+              <li>“as long as I am buying, I am alive”.</li>
+            </ul>
+            <p>Childhood phrases:</p>
+            <ul>
+              <li>“people judge you by how you look”; </li>
+              <li>“we never have anything good”; </li>
+              <li>“you must look decent to be respected”; </li>
+              <li>“you cannot want that, we cannot afford it”.</li>
+            </ul>
+
+            <p><strong>2. Credit spiral / dependence on credit.</strong></p>
+            <p>Looks like: loans to pay off other loans; borrowings “for evacuation, for treatment, for something nice” that become the default; avoiding the real size of your debt.</p>
+            <p>Inner beliefs:</p>
+            <ul>
+              <li>“I will never earn enough”; </li>
+              <li>“better take it now, we will see later”; </li>
+              <li>“I will never get out anyway, so what is the difference”.</li>
+            </ul>
+            <p>Childhood phrases:</p>
+            <ul>
+              <li>“we live from paycheck to paycheck”; </li>
+              <li>“the main thing is to somehow get by”; </li>
+              <li>“do not plan ahead, everything breaks anyway”; </li>
+              <li>“there is never enough money, that is how it is and will be”.</li>
+            </ul>
+
+            <p><strong>3. Financial denial.</strong></p>
+            <p>Looks like: not opening banking apps, not knowing your debt, not reading bank letters, “if I do not see it, the problem does not exist”.</p>
+            <p>Inner beliefs:</p>
+            <ul>
+              <li>“if I look at the numbers, I will feel horrible”; </li>
+              <li>“I cannot solve this”; </li>
+              <li>“better not to know than to know and have no way out”.</li>
+            </ul>
+            <p>Childhood phrases:</p>
+            <ul>
+              <li>“do not ask, adults will figure it out”; </li>
+              <li>“do not meddle in money”; </li>
+              <li>“you would not understand anyway”; </li>
+              <li>“we do not talk about money, it is not your business”.</li>
+            </ul>
+
+            <p><strong>4. Financial dependence.</strong></p>
+            <p>Looks like: “I do not earn, let him/her decide”; no personal account; being unable to leave a relationship because of money; outsourcing all responsibility to a partner or family.</p>
+            <p>Inner beliefs:</p>
+            <ul>
+              <li>“I cannot support myself”; </li>
+              <li>“I need someone to take care of money”; </li>
+              <li>“if I am in charge of money, something will go terribly wrong”.</li>
+            </ul>
+            <p>Childhood phrases:</p>
+            <ul>
+              <li>“girls do not need to think about money”; </li>
+              <li>“you are too young, stay out of this”; </li>
+              <li>“the man is responsible for money”; </li>
+              <li>“you do not understand anything about finances”.</li>
+            </ul>
+
+            <p><strong>5. Financial enabling — constant rescuing.</strong></p>
+            <p>Looks like: always giving money to relatives or friends, paying off their debts, helping “at your own expense”; being unable to say “no”.</p>
+            <p>Inner beliefs:</p>
+            <ul>
+              <li>“if I do not help, I am a bad person”; </li>
+              <li>“I am only needed when I rescue others”; </li>
+              <li>“my needs are less important than their problems”.</li>
+            </ul>
+            <p>Childhood phrases:</p>
+            <ul>
+              <li>“think about others, not about yourself”; </li>
+              <li>“you are selfish if you do not share”; </li>
+              <li>“we must help family even when we cannot cope ourselves”; </li>
+              <li>“you must be grateful and              <li>“you must be grateful and give back”.</li>
+            </ul>
+
+            <p><strong>6. Workaholism as a money disorder.</strong></p>
+            <p>Looks like: constant work, inability to rest, working even when you physically cannot; work as the main source of self‑worth and control.</p>
+            <p>Inner beliefs:</p>
+            <ul>
+              <li>“if I am not working, I am nobody”; </li>
+              <li>“money only comes through self‑destruction”; </li>
+              <li>“rest equals danger; if I rest, I will fall behind and lose everything”.</li>
+            </ul>
+            <p>Childhood phrases:</p>
+            <ul>
+              <li>“lying around is for lazy people”; </li>
+              <li>“God loves those who work hard”; </li>
+              <li>“success means working more than others”; </li>
+              <li>“you will rest when you are dead”.</li>
+            </ul>
+
+            <p><strong>7. Pathological gambling / high‑risk investing.</strong></p>
+            <p>Looks like: betting, casinos, trading as gambling, constant attempts to “win back”, huge risks without realistic assessment of consequences.</p>
+            <p>Inner beliefs:</p>
+            <ul>
+              <li>“one good trade/bet will change everything”; </li>
+              <li>“I either win big or I do not want it at all”; </li>
+              <li>“the normal path is closed to me; I need a miracle”.</li>
+            </ul>
+            <p>Childhood phrases:</p>
+            <ul>
+              <li>“no risk, no champagne”; </li>
+              <li>“we always have to find a workaround, there is no straight road”; </li>
+              <li>“you will not get anything by taking the simple route”; </li>
+              <li>“life is either all or nothing”.</li>
+            </ul>
+
+            <p><strong>8. Chronic under‑spending / hoarding.</strong></p>
+            <p>Looks like: you do not spend even on basic needs; you cannot buy what is objectively necessary; you hoard money or things and never use them.</p>
+            <p>Inner beliefs:</p>
+            <ul>
+              <li>“any spending is dangerous”; </li>
+              <li>“I do not deserve to spend on myself”; </li>
+              <li>“better to accumulate everything than to live”.</li>
+            </ul>
+            <p>Childhood phrases:</p>
+            <ul>
+              <li>“save every penny”; </li>
+              <li>“you come last, others first”; </li>
+              <li>“we have no right to luxury”; </li>
+              <li>“living large is shameful”.</li>
+            </ul>
+
+            <p>If you recognise yourself in these descriptions, it is not so you can slap on the label “I have a disorder”. It is so you can see that your financial reactions did not appear “out of nowhere”. They were written by adults’ phrases, trauma, war and survival experience.</p>
+            <p>You can work with this — not through shame, but through understanding and support.</p>
+            <p>If you want to unpack your pattern properly, you can book a consultation. We will not only talk about “how to close a loan”, but also about “how to make money stop being your only survival tool”.</p>
+            <p>Book a consultation.</p>
+          </section>
+
+          <section class="article-cta">
+            <div class="cta-links">
+              <a class="btn" href="/contact/">
+                Book a consultation
+              </a>
+            </div>
+          </section>
+
+          <section>
+            <h2>Sources</h2>
+
+            <p><strong>Klontz Money Scripts, money disorders</strong><br>
+            Klontz Money Script Inventory (KMSI‑R), validation 2025<br>
+            <a href="https://link.springer.com/article/10.1007/s10834-025-10055-7" target="_blank" rel="noopener">
+              https://link.springer.com/article/10.1007/s10834-025-10055-7
+            </a><br>
+            Original Klontz Money Script Inventory development<br>
+            <a href="https://newprairiepress.org/jft/vol2/iss1/1/" target="_blank" rel="noopener">
+              https://newprairiepress.org/jft/vol2/iss1/1/
+            </a><br>
+            Money disorders (overview of 9 disorders)<br>
+            <a href="https://psycnet.apa.org/record/2014-55930-004" target="_blank" rel="noopener">
+              https://psycnet.apa.org/record/2014-55930-004
+            </a><br>
+            Money disorders – general article<br>
+            <a href="https://en.wikipedia.org/wiki/Money_disorder" target="_blank" rel="noopener">
+              https://en.wikipedia.org/wiki/Money_disorder
+            </a></p>
+
+            <p><strong>Childhood, poverty, conflict, parental scripts</strong><br>
+            Financial conflict between parents and child safety<br>
+            <a href="https://www.futurity.org/fighting-parents-children-poverty-2028852-2/" target="_blank" rel="noopener">
+              https://www.futurity.org/fighting-parents-children-poverty-2028852-2/
+            </a><br>
+            Parental economic insecurity and child health<br>
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S1570677X21000939" target="_blank" rel="noopener">
+              https://www.sciencedirect.com/science/article/abs/pii/S1570677X21000939
+            </a><br>
+            Income instability and child well‑being<br>
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7546433/" target="_blank" rel="noopener">
+              https://pmc.ncbi.nlm.nih.gov/articles/PMC7546433/
+            </a><br>
+            Effects of poverty, hunger and homelessness on children<br>
+            <a href="https://www.apa.org/topics/socioeconomic-status/poverty-hunger-homelessness-children" target="_blank" rel="noopener">
+              https://www.apa.org/topics/socioeconomic-status/poverty-hunger-homelessness-children
+            </a><br>
+            Enduring effects of childhood poverty<br>
+            <a href="https://www.clasp.org/blog/the-enduring-effects-of-childhood-poverty/" target="_blank" rel="noopener">
+              https://www.clasp.org/blog/the-enduring-effects-of-childhood-poverty/
+            </a><br>
+            Parents’ relationship with money and its impact on children<br>
+            <a href="https://drlami.com/parents-relationship-with-money-and-its-impact-on-children/" target="_blank" rel="noopener">
+              https://drlami.com/parents-relationship-with-money-and-its-impact-on-children/
+            </a></p>
+
+            <p><strong>Scarcity mindset, ‘cognitive tax’ of poverty</strong><br>
+            How poverty affects the brain and behavior (Shafir/Mullainathan)<br>
+            <a href="https://www.psychologicalscience.org/observer/how-poverty-affects-the-brain-and-behavior" target="_blank" rel="noopener">
+              https://www.psychologicalscience.org/observer/how-poverty-affects-the-brain-and-behavior
+            </a><br>
+            Scarcity mindset impairs distractor suppression<br>
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0028393223002737" target="_blank" rel="noopener">
+              https://www.sciencedirect.com/science/article/abs/pii/S0028393223002737
+            </a></p>
+
+            <p><strong>Economic abuse, money as control</strong><br>
+            What is economic abuse?<br>
+            <a href="https://survivingeconomicabuse.org/what-is-economic-abuse/" target="_blank" rel="noopener">
+              https://survivingeconomicabuse.org/what-is-economic-abuse/
+            </a></p>
+
+            <p><strong>War, Ukrainian economy, gender effects</strong><br>
+            Ukraine War Economy Tracker (CES)<br>
+            <a href="https://ces.org.ua/en/tracker-economy-during-the-war/" target="_blank" rel="noopener">
+              https://ces.org.ua/en/tracker-economy-during-the-war/
+            </a><br>
+            UN: three years of full‑scale war, gendered consequences<br>
+            <a href="https://ukraine.un.org/en/289777-three-years-full-scale-war-ukraine-roll-back-decades-progress-women%E2%80%99s-rights-safety-and" target="_blank" rel="noopener">
+              https://ukraine.un.org/en/289777-three-years-full-scale-war-ukraine-roll-back-decades-progress-women%E2%80%99s-rights-safety-and
+            </a></p>
+
+            <p><strong>Neurofinance, brain structures</strong><br>
+            Neurofinance: Exploring the Intersection of Neuroscience and Financial Decision‑Making<br>
+            <a href="https://www.ijsrtjournal.com/article/Neurofinance+Exploring+the+Intersection+of+Neuroscience+and+Financial+DecisionMaking" target="_blank" rel="noopener">
+              https://www.ijsrtjournal.com/article/Neurofinance+Exploring+the+Intersection+of+Neuroscience+and+Financial+DecisionMaking
+            </a><br>
+            The Neuroscience of Financial Decision‑Making<br>
+            <a href="https://www.linkedin.com/pulse/neuroscience-financial-decision-making-implications-gcc-siddiqui-iao0f" target="_blank" rel="noopener">
+              https://www.linkedin.com/pulse/neuroscience-financial-decision-making-implications-gcc-siddiqui-iao0f
+            </a></p>
+
+            <p><strong>Compulsive shopping, shopping addiction</strong><br>
+            What you need to know about compulsive shopping<br>
+            <a href="https://theconversation.com/what-you-need-to-know-about-compulsive-shopping-the-modern-addiction-no-ones-talking-about-89712" target="_blank" rel="noopener">
+              https://theconversation.com/what-you-need-to-know-about-compulsive-shopping-the-modern-addiction-no-ones-talking-about-89712
+            </a><br>
+            Shopping/spending addiction (research starter)<br>
+            <a href="https://www.ebsco.com/research-starters/health-and-medicine/shoppingspending-addiction" target="_blank" rel="noopener">
+              https://www.ebsco.com/research-starters/health-and-medicine/shoppingspending-addiction
+            </a><br>
+            Study reveals compulsive shopping severity is similar across genders<br>
+            <a href="https://www.news-medical.net/news/20260305/Study-reveals-compulsive-shopping-severity-is-similar-across-genders-but-buying-choices-vary.aspx" target="_blank" rel="noopener">
+              https://www.news-medical.net/news/20260305/Study-reveals-compulsive-shopping-severity-is-similar-across-genders-but-buying-choices-vary.aspx
+            </a><br>
+            Systematic review of compulsive buying‑shopping disorder<br>
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12231422/" target="_blank" rel="noopener">
+              https://pmc.ncbi.nlm.nih.gov/articles/PMC12231422/
+            </a></p>
+
+            <p><strong>Crypto gambling, trading addiction, gambling risks</strong><br>
+            Compulsive gambling in the financial markets (trading addiction)<br>
+            <a href="https://ideas.repec.org/a/eee/jbfina/v111y2020ics0378426619302808.html" target="_blank" rel="noopener">
+              https://ideas.repec.org/a/eee/jbfina/v111y2020ics0378426619302808.html
+            </a><br>
+            Gambling motivations and cognitive distortions in cryptocurrency traders<br>
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0033350625001878" target="_blank" rel="noopener">
+              https://www.sciencedirect.com/science/article/abs/pii/S0033350625001878
+            </a><br>
+            NCPG briefing – suicidal risk and distress in problem gamblers<br>
+            <a href="https://www.ncpgambling.org/wp-content/uploads/2025/04/NCPG_March-2025-Briefing-Slides.pdf" target="_blank" rel="noopener">
+              https://www.ncpgambling.org/wp-content/uploads/2025/04/NCPG_March-2025-Briefing-Slides.pdf
+            </a></p>
+
+            <p><strong>Workaholism, behavioural addictions</strong><br>
+            Work issues and behavioural addictions<br>
+            <a href="https://www.ebsco.com/research-starters/health-and-medicine/work-issues-and-behavioral-addictions" target="_blank" rel="noopener">
+              https://www.ebsco.com/research-starters/health-and-medicine/work-issues-and-behavioral-addictions
+            </a></p>
+
+            <p><strong>Cognitive biases in financial decisions</strong><br>
+            Cognitive biases that sabotage financial decisions<br>
+            <a href="https://www.simplypsychology.com/articles/money-mindset-cognitive-biases" target="_blank" rel="noopener">
+              https://www.simplypsychology.com/articles/money-mindset-cognitive-biases
+            </a></p>
+
+            <p><strong>Financial stress, ‘emotional wallet’</strong><br>
+            Impact of economic stress on Americans’ mental health (2023–2025)<br>
+            <a href="https://lifestance.com/insight/financial-stress-impact-mental-health-statistics-2025/" target="_blank" rel="noopener">
+              https://lifestance.com/insight/financial-stress-impact-mental-health-statistics-2025/
+            </a><br>
+            The emotional wallet: behavioural analysis of consumer financial well‑being<br>
+            <a href="https://acr-journal.com/article/the-emotional-wallet-a-behavioral-analysis-of-consumer-financial-well-being-1794/" target="_blank" rel="noopener">
+              https://acr-journal.com/article/the-emotional-wallet-a-behavioral-analysis-of-consumer-financial-well-being-1794/
+            </a></p>
+
+            <p><strong>Money disorders – classification and extra sources</strong><br>
+            Money disorders – overview<br>
+            <a href="https://en.wikipedia.org/wiki/Money_disorder" target="_blank" rel="noopener">
+              https://en.wikipedia.org/wiki/Money_disorder
+            </a><br>
+            Money disorders and mental health<br>
+            <a href="https://havenwoodbehavioral.com/money-disorders-and-mental-health/" target="_blank" rel="noopener">
+              https://havenwoodbehavioral.com/money-disorders-and-mental-health/
+            </a></p>
+          </section>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>TELWHA</h4>
+          <p>Financial psychology, behavioural economics and choice architecture for better decisions and more resilient outcomes.</p>
+        </div>
+
+        <div style="text-align:right">
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/finlab/">FinLab</a>
+            <a href="/reviews/">Reviews</a>
+            <a href="/contact/">Contacts</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 TELWHA. All rights reserved.</span>
+        <span>Kyiv, Ukraine</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function updateProgressBar() {
+      const progress = document.getElementById("progress");
+      if (!progress) return;
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressValue = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = progressValue + "%";
+    }
+
+    function syncThemeButtonUI() {
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (!themeBtn) return;
+      const current = document.documentElement.getAttribute("data-theme") || "light";
+      themeBtn.textContent = current === "dark" ? "🌙" : "☀️";
+      themeBtn.setAttribute(
+        "aria-label",
+        current === "dark" ? "Switch to light theme" : "Switch to dark theme"
+      );
+    }
+
+    function closeAllDropdowns(except = null) {
+      document.querySelectorAll(".dropdown").forEach((dropdown) => {
+        if (dropdown === except) return;
+        dropdown.classList.remove("is-open");
+        const button = dropdown.querySelector(".dropbtn");
+        if (button) button.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      updateProgressBar();
+      window.addEventListener("scroll", updateProgressBar, { passive: true });
+
+      const root = document.documentElement;
+      let currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      root.setAttribute("data-theme", currentTheme);
+      syncThemeButtonUI();
+
+      const themeBtn = document.querySelector(".theme-toggle");
+      if (themeBtn) {
+        themeBtn.addEventListener("click", () => {
+          currentTheme = currentTheme === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", currentTheme);
+          syncThemeButtonUI();
+        });
+      }
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const siteMenu = document.querySelector("#site-menu");
+
+      if (menuToggle && siteMenu) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = siteMenu.classList.toggle("is-open");
+          menuToggle.classList.toggle("is-open", isOpen);
+          menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+
+          if (!isOpen) closeAllDropdowns();
+        });
+      }
+
+      document.querySelectorAll(".dropbtn").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          if (window.innerWidth > 920) return;
+          event.stopPropagation();
+          const parent = button.parentElement;
+          const willOpen = !parent.classList.contains("is-open");
+          closeAllDropdowns(parent);
+          parent.classList.toggle("is-open", willOpen);
+          button.setAttribute("aria-expanded", willOpen ? "true" : "false");
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".dropdown")) {
+          closeAllDropdowns();
+        }
+
+        const nav = document.querySelector(".nav");
+        if (
+          window.innerWidth <= 920 &&
+          siteMenu &&
+          siteMenu.classList.contains("is-open") &&
+          nav &&
+          !nav.contains(event.target)
+        ) {
+          siteMenu.classList.remove("is-open");
+          menuToggle?.classList.remove("is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Open menu");
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeAllDropdowns();
+
+          if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle?.classList.remove("is-open");
+            menuToggle?.setAttribute("aria-expanded", "false");
+            menuToggle?.setAttribute("aria-label", "Open menu");
+            menuToggle?.focus();
+          }
+        }
+      });
+
+      document.querySelectorAll('#site-menu a[href]').forEach((link) => {
+        link.addEventListener("click", () => {
+          closeAllDropdowns();
+
+          if (window.innerWidth <= 920 && siteMenu?.classList.contains("is-open")) {
+            siteMenu.classList.remove("is-open");
+            menuToggle?.classList.remove("is-open");
+            menuToggle?.setAttribute("aria-expanded", "false");
+            menuToggle?.setAttribute("aria-label", "Open menu");
+          }
+        });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+      }, { threshold: 0.14 });
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>
