@@ -786,9 +786,28 @@
     }
 
     .question-block--error {
-      border-color: color-mix(in srgb, #c85a52 50%, var(--color-border));
-      background: color-mix(in srgb, #c85a52 6%, var(--color-surface));
-    }
+  border-color: color-mix(in srgb, #c85a52 60%, var(--color-border));
+  background: color-mix(in srgb, #c85a52 10%, var(--color-surface));
+  box-shadow: 0 0 0 1px rgba(200, 90, 82, 0.18);
+  animation: missedPulse 0.45s ease;
+}
+
+@keyframes missedPulse {
+  0% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.question-inline-hint.is-warning {
+  color: #d9837b;
+  font-weight: 600;
+}
 
     .question-label {
       display: flex;
@@ -1407,6 +1426,303 @@
 
   .score-line {
     margin: 6px 0 8px !important;
+  }
+}
+
+/* === Mobile layout fix === */
+@media (max-width: 768px) {
+  /* Контейнери */
+  .wrap,
+  .shell {
+    width: min(100% - 20px, var(--content-default));
+  }
+
+  .shell {
+    padding: 18px 0 56px;
+  }
+
+  /* Топбар і навігація */
+  .topbar {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .nav {
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .brand-row {
+    gap: 8px;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  .brand-sub {
+    display: none;
+  }
+
+  .menu-toggle {
+  display: inline-flex;
+}
+
+.menu {
+  display: none;
+  width: 100%;
+}
+
+.menu.is-open {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px 0 12px;
+  border-top: 1px solid var(--color-divider);
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 8px;
+  background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+  border-radius: 0 0 20px 20px;
+}
+
+.menu > a,
+.menu > .dropdown,
+.menu > .menu-tools {
+  width: 100%;
+}
+
+.menu a,
+.menu .dropbtn,
+.theme-toggle,
+.lang-link {
+  width: 100%;
+  min-height: 48px;
+  justify-content: flex-start;
+  padding: 0 16px;
+  border-radius: 16px;
+  text-align: left;
+}
+
+.dropdown {
+  position: static;
+  width: 100%;
+}
+
+.dropbtn {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.dropcontent {
+  position: static;
+  top: auto;
+  left: auto;
+  min-width: 100%;
+  display: none;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: none;
+  box-shadow: none;
+  margin-top: 6px;
+  padding: 6px;
+  border-radius: 16px;
+  background: var(--color-surface-2);
+}
+
+.dropdown.is-open .dropcontent {
+  display: grid;
+}
+
+.dropcontent a {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+}
+
+.menu-tools {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  margin-left: 0;
+  padding-left: 0;
+  border-left: 0;
+  gap: 8px;
+}
+
+.lang-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.theme-toggle {
+  width: 100%;
+  justify-content: center;
+}
+
+  /* Hero-блок */
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .hero-left,
+  .hero-card {
+    border-radius: 20px;
+  }
+
+  .hero-left {
+    padding: 22px 18px;
+  }
+
+  .hero-title {
+    max-width: 100%;
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    line-height: 0.98;
+    margin-bottom: 14px;
+  }
+
+  .hero-sub {
+    max-width: 100%;
+    font-size: 1rem;
+    margin-bottom: 14px;
+  }
+
+  .hero-meta {
+    gap: 10px 14px;
+    font-size: 0.88rem;
+  }
+
+  .hero-card {
+    padding: 18px;
+  }
+
+  /* Sticky-прогрес */
+  .ux-sticky {
+    position: static;
+    top: auto;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 20px;
+  }
+
+  .ux-sticky-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .ux-sticky-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btn-secondary,
+  .btn-primary {
+    width: 100%;
+  }
+
+  .section-pills {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .section-pill {
+    min-height: 44px;
+    padding-inline: 12px;
+  }
+
+  /* Секції та питання */
+  .section,
+  .card,
+  .result-section,
+  .footer-box {
+    padding: 18px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+
+  .section-header {
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: clamp(1.4rem, 4vw, 1.7rem);
+    max-width: 100%;
+  }
+
+  .section-sub {
+    font-size: 0.95rem;
+  }
+
+  .question-group {
+    gap: 12px;
+  }
+
+  .question-block {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .question-label {
+    margin-bottom: 8px;
+  }
+
+  .question-text {
+    font-size: 1.15rem;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .question-text p {
+    font-size: 0.95rem;
+  }
+
+  .options-row {
+    gap: 8px;
+  }
+
+  .option-chip {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .option-chip .index {
+    min-width: 26px;
+    height: 26px;
+  }
+
+  .helper-note {
+    font-size: 0.9rem;
+  }
+
+  /* Результати, бенто й футер */
+  .result-grid,
+  .action-bento,
+  .insight-layout,
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .footer-box {
+    padding: 18px;
+  }
+
+  .footer-links {
+    justify-items: start;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
   </style>
@@ -2243,7 +2559,7 @@
       progressBar.style.width = pct + "%";
       stickyProgressBar.style.width = pct + "%";
       progressCopy.textContent = `Пройдено ${answered} з ${required.length}`;
-      submitBtn.disabled = answered !== required.length;
+      submitBtn.disabled = false;
       updateSectionProgress();
       updateCurrentStepLabel();
       return { answered, pct };
@@ -3041,15 +3357,28 @@
     submitBtn.addEventListener("click", async () => {
       const missed = required.filter((id) => answers[id] === undefined);
 
-      if (missed.length) {
-        clearAllErrorBlocks();
-        markErrorBlocks(missed);
+    if (missed.length) {
+      clearAllErrorBlocks();
+      markErrorBlocks(missed);
 
-        errorBox.hidden = false;
-        errorBox.textContent = "Ще не всі питання заповнені — підсвічені блоки чекають відповіді.";
-        focusBlock(missed[0]);
-        return;
+      const firstMissed = missed[0];
+      const missedCount = missed.length;
+
+      errorBox.hidden = false;
+      errorBox.innerHTML = missedCount === 1
+        ? `Ви випадково пропустили 1 питання. Щоб побачити результат, дайте відповідь на підсвічений блок нижче.`
+        : `Ви випадково пропустили ${missedCount} питань. Щоб побачити результат, дайте відповідь на підсвічені блоки. Зараз перенесемо вас до першого пропуску.`;
+
+      focusBlock(firstMissed, "smooth");
+
+      const firstHint = document.querySelector(`[data-hint-for="${firstMissed}"]`);
+      if (firstHint) {
+        firstHint.textContent = "Оберіть одну відповідь, щоб продовжити.";
+        firstHint.classList.add("is-warning");
       }
+
+      return;
+    }
 
       clearAllErrorBlocks();
       errorBox.hidden = true;
